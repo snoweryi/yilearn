@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IPAS 淨零碳管理師｜溫室氣體盤查方法與解析 考前精華</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #ffffff;
+  --surface: #f8fafb;
+  --surface2: #f0f4f7;
+  --border: #e2e8f0;
+  --border-dark: #cbd5e1;
+  --green: #16a34a;
+  --green-light: #fafcfb;
+  --green-mid: #bbf7d0;
+  --teal: #0d9488;
+  --teal-light: #f5faf9;
+  --blue: #2563eb;
+  --blue-light: #f5f8fc;
+  --orange: #ea580c;
+  --orange-light: #fcfaf7;
+  --red: #dc2626;
+  --red-light: #faf5f5;
+  --purple: #7c3aed;
+  --purple-light: #fafafa;
+  --text: #0f172a;
+  --text2: #334155;
+  --text3: #64748b;
+  --text4: #94a3b8;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+/* ── HEADER ── */
+header {
+  background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 40%, #f0f9ff 100%);
+  border-bottom: 2px solid var(--green);
+  padding: 8px;
+  position: relative;
+}
+header::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: 200px;
+  background: linear-gradient(90deg, transparent, rgba(22,163,74,0.05));
+}
+.exam-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--green-light); border: 1px solid var(--green-mid);
+  color: var(--green); padding: 3px 12px; border-radius: 20px;
+  font-size: 18px; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; margin-bottom: 14px;
+}
+.exam-badge::before { content: '●'; font-size: 7px; animation: blink 2s infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 22px;
+  font-weight: 900; line-height: 1.3; color: var(--text);
+}
+h1 span { color: var(--green); }
+.header-meta {
+  display: flex; flex-wrap: wrap; gap: 24px; margin-top: 8px;
+  font-size: 18px; color: var(--text3);
+}
+.header-meta-item { display: flex; align-items: center; gap: 6px; }
+.dot { width: 7px; height: 7px; border-radius: 50%; }
+
+/* ── NAV ── */
+nav {
+  background: #fff; border-bottom: 1px solid var(--border);
+  padding: 0 10px; display: flex; gap: 0; overflow-x: auto;
+  scrollbar-width: none; position: sticky; top: 0; z-index: 100;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+nav::-webkit-scrollbar { display: none; }
+.nav-btn {
+  padding: 8px; border: none; background: none;
+  color: var(--text3); font-size: 18px;
+  font-family: 'Noto Sans TC', sans-serif;
+  cursor: pointer; white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: all 0.18s; font-weight: 500;
+}
+.nav-btn:hover { color: var(--text); background: var(--surface); }
+.nav-btn.active { color: var(--green); border-bottom-color: var(--green); font-weight: 700; }
+
+/* ── LAYOUT ── */
+.container { max-width: 1860px; margin: 0 auto; padding: 20px; }
+.section { display: none; }
+.section.active { display: block; }
+
+/* ── SECTION TITLE ── */
+.section-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 20px; font-weight: 900;
+  color: var(--text); margin-bottom: 6px;
+  display: flex; align-items: center; gap: 10px;
+}
+.sec-icon {
+  width: 34px; height: 34px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0;
+}
+.section-subtitle { color: var(--text3); font-size: 18px; margin-bottom: 8px; padding-left: 16px; }
+
+/* ── CARD ── */
+.card {
+  background: #fff; border: 1px solid var(--border);
+  border-radius: 12px; padding: 8px; margin-bottom: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+.card:hover { box-shadow: 0 3px 12px rgba(0,0,0,0.08); border-color: var(--border-dark); }
+.card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.card-title { font-weight: 700; font-size: 18px; color: var(--text); display: flex; align-items: center; gap: 8px; }
+.badge {
+  display: inline-block; padding: 2px 8px; border-radius: 10px;
+  font-size: 18px; font-weight: 700; letter-spacing: 0.04em; flex-shrink: 0;
+}
+.badge-red { background: var(--red-light); color: var(--red); border: 1px solid #fca5a5; }
+.badge-orange { background: var(--orange-light); color: var(--orange); border: 1px solid #fdba74; }
+.badge-blue { background: var(--blue-light); color: var(--blue); border: 1px solid #93c5fd; }
+
+/* ── FACT GRID ── */
+.fact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; margin: 16px 0; }
+.fact-item {
+  background: var(--surface); border: 1px solid var(--border);
+  border-left: 3px solid var(--teal); border-radius: 10px; padding: 14px 16px;
+}
+.fact-label { font-size: 18px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 5px; }
+.fact-value { font-size: 18px; font-weight: 700; font-family: 'DM Mono', monospace; color: var(--teal); }
+.fact-desc { font-size: 18px; color: var(--text3); margin-top: 3px; }
+
+/* ── TABLE ── */
+.table-wrap { overflow-x: auto; margin: 8px 0; border-radius: 10px; border: 1px solid var(--border); }
+table { width: 100%; border-collapse: collapse; font-size: 18px; }
+th {
+  background: var(--surface2); padding: 8px;
+  text-align: left; font-weight: 700; font-size: 18px;
+  color: var(--text2); text-transform: uppercase; letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--border-dark);
+}
+td { padding: 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+tr:nth-child(even) td { background: var(--surface); }
+.td-k { color: var(--blue); font-weight: 700; white-space: nowrap; }
+.td-hi { color: var(--orange); font-weight: 700; }
+.td-g { color: var(--green); font-weight: 700; }
+.td-r { color: var(--red); font-weight: 700; }
+
+/* ── HIGHLIGHT ── */
+.hl {
+  border-radius: 10px; padding: 8px; margin: 8px 0;
+  border-left: 4px solid;
+}
+.hl-green { background: var(--green-light); border-color: var(--green); }
+.hl-teal { background: var(--teal-light); border-color: var(--teal); }
+.hl-orange { background: var(--orange-light); border-color: var(--orange); }
+.hl-red { background: var(--red-light); border-color: var(--red); }
+.hl-blue { background: var(--blue-light); border-color: var(--blue); }
+.hl-purple { background: var(--purple-light); border-color: var(--purple); }
+.hl-title {
+  font-size: 18px; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.09em; margin-bottom: 7px;
+}
+.hl-green .hl-title { color: var(--green); }
+.hl-teal .hl-title { color: var(--teal); }
+.hl-orange .hl-title { color: var(--orange); }
+.hl-red .hl-title { color: var(--red); }
+.hl-blue .hl-title { color: var(--blue); }
+.hl-purple .hl-title { color: var(--purple); }
+.hl ul { padding-left: 8px; }
+.hl li { font-size: 18px; color: var(--text2); margin-bottom: 4px; }
+.hl li strong { color: var(--text); }
+.hl p { font-size: 18px; color: var(--text2); }
+.hl p strong { color: var(--text); }
+
+/* ── TIMELINE ── */
+.timeline { position: relative; padding-left: 8px; }
+.timeline::before { content: ''; position: absolute; left: 7px; top: 0; bottom: 0; width: 2px; background: var(--border-dark); }
+.timeline-item { position: relative; margin-bottom: 18px; }
+.tl-dot { position: absolute; left: -20px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: var(--green); border: 2px solid #fff; box-shadow: 0 0 0 2px var(--green); }
+.tl-year { font-family: 'DM Mono', monospace; font-size: 18px; color: var(--green); font-weight: 700; margin-bottom: 3px; }
+.tl-content { font-size: 18px; color: var(--text2); }
+.tl-content strong { color: var(--text); }
+
+/* ── KEYWORDS ── */
+.keywords { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 8px; }
+.kw { padding: 3px 8px; border-radius: 6px; font-size: 18px; font-weight: 500; }
+.kw-g { background: var(--green-light); color: var(--green); border: 1px solid #86efac; }
+.kw-b { background: var(--blue-light); color: var(--blue); border: 1px solid #93c5fd; }
+.kw-o { background: var(--orange-light); color: var(--orange); border: 1px solid #fdba74; }
+.kw-r { background: var(--red-light); color: var(--red); border: 1px solid #fca5a5; }
+.kw-p { background: var(--purple-light); color: var(--purple); border: 1px solid #c4b5fd; }
+.kw-t { background: var(--teal-light); color: var(--teal); border: 1px solid #5eead4; }
+
+/* ── COMPARE ── */
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 8px 0; }
+@media(max-width:600px) { .compare { grid-template-columns: 1fr; } }
+.compare-col { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+.compare-col h4 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+.compare-col ul { padding-left: 8px; }
+.compare-col li { font-size: 18px; color: var(--text2); margin-bottom: 4px; }
+
+/* ── CALC BOX ── */
+.calc-box {
+  background: #f8faff; border: 1px solid #bfdbfe;
+  border-radius: 10px; padding: 8px; margin: 8px 0;
+  font-family: 'DM Mono', monospace; font-size: 18px; color: var(--blue);
+}
+.calc-box .calc-title { font-family: 'Noto Sans TC', sans-serif; font-size: 18px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; margin-bottom: 6px; }
+.calc-box .formula { font-size: 18px; font-weight: 700; color: var(--blue); }
+.calc-box .sub { font-size: 18px; color: var(--text3); margin-top: 5px; font-family: 'Noto Sans TC', sans-serif; }
+
+/* ── QUIZ ── */
+.quiz-item { margin-bottom: 8px; }
+.quiz-q {
+  background: var(--surface); border: 1px solid var(--border);
+  border-left: 4px solid var(--orange); border-radius: 10px;
+  padding: 8px; margin-bottom: 8px; font-size: 18px; font-weight: 500;
+}
+.quiz-tag { font-size: 18px; color: var(--orange); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 5px; font-weight: 700; }
+.options { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+@media(max-width:600px){ .options { grid-template-columns: 1fr; } }
+.opt {
+  padding: 9px 14px; border-radius: 8px; cursor: pointer;
+  border: 1px solid var(--border); background: #fff;
+  font-size: 18px; color: var(--text2); transition: all 0.18s;
+  text-align: left; font-family: 'Noto Sans TC', sans-serif;
+}
+.opt:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-light); }
+.opt.correct { border-color: var(--green) !important; background: var(--green-light) !important; color: var(--green) !important; font-weight: 600; }
+.opt.wrong { border-color: var(--red) !important; background: var(--red-light) !important; color: var(--red) !important; }
+.opt:disabled { cursor: default; }
+.explain {
+  margin-top: 8px; padding: 11px 14px;
+  background: var(--teal-light); border: 1px solid #5eead4;
+  border-radius: 8px; font-size: 18px; color: var(--teal);
+  display: none;
+}
+.explain.show { display: block; }
+.quiz-score {
+  background: var(--green-light); border: 1px solid #86efac;
+  border-radius: 12px; padding: 8px; text-align: center;
+  margin-bottom: 8px; display: none;
+}
+.quiz-score.show { display: block; }
+.score-num { font-size: 20px; font-weight: 900; font-family: 'DM Mono', monospace; color: var(--green); }
+.reset-btn {
+  background: var(--green); color: #fff; border: none;
+  padding: 8px; border-radius: 8px; cursor: pointer;
+  font-size: 18px; font-family: 'Noto Sans TC', sans-serif;
+  margin-top: 8px; transition: background 0.2s;
+}
+.reset-btn:hover { background: #15803d; }
+
+/* ── DIVIDER ── */
+.divider { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+
+/* ── STEP ── */
+.steps { display: flex; flex-direction: column; gap: 10px; margin: 10px 0; }
+.step {
+  display: flex; align-items: flex-start; gap: 14px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; padding: 12px 16px;
+}
+.step-num {
+  width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 18px; font-family: 'DM Mono', monospace;
+}
+.step-num-g { background: var(--green-light); color: var(--green); }
+.step-num-b { background: var(--blue-light); color: var(--blue); }
+.step-num-o { background: var(--orange-light); color: var(--orange); }
+.step-content { flex: 1; }
+.step-title { font-weight: 700; font-size: 18px; color: var(--text); }
+.step-desc { font-size: 18px; color: var(--text3); margin-top: 2px; }
+
+/* ── PRINT FAB ── */
+.print-fab {
+  position: fixed; bottom: 28px; right: 28px; z-index: 999;
+  width: 52px; height: 52px; border-radius: 50%;
+  background: var(--green); border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(22,163,74,0.35);
+  transition: transform 0.2s, box-shadow 0.2s;
+  font-size: 20px; color: #fff;
+}
+.print-fab:hover { transform: scale(1.1); box-shadow: 0 6px 24px rgba(22,163,74,0.5); }
+.print-fab:active { transform: scale(0.96); }
+.print-tooltip {
+  position: fixed; bottom: 88px; right: 28px; z-index: 999;
+  background: var(--text); color: #fff;
+  font-size: 18px; font-weight: 600;
+  padding: 5px 8px; border-radius: 7px; white-space: nowrap;
+  pointer-events: none; opacity: 0; transform: translateY(5px);
+  transition: opacity 0.2s, transform 0.2s;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.print-tooltip.show { opacity: 1; transform: translateY(0); }
+
+/* ── PRINT ── */
+@media print {
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  nav, .print-fab, .print-tooltip { display: none !important; }
+  header { padding: 8px !important; background: #f0fdf4 !important; }
+  .container { padding: 8px !important; max-width: 100% !important; }
+  .section { display: block !important; /*page-break-before: always;*/ }
+  .section:first-of-type { /*page-break-before: auto;*/ }
+  .card { /*page-break-inside: avoid;*/ box-shadow: none !important; }
+  .hl { /*page-break-inside: avoid;*/ }
+  .opt.correct { border-color: var(--green) !important;  }
+  .explain { display: block !important; }
+  .quiz-score { display: none !important; }
+  .reset-btn { display: none !important; }
+  @page { margin: 10mm 8mm; size: A4; }
+}
+</style>
+</head>
+<body>
+
+<header>  
+  <h1>淨零碳管理師｜<span>溫室氣體盤查方法與解析</span></h1> 
+</header>
+
+<nav>
+  <button class="nav-btn active" onclick="showSection('overview')">📋 章節概覽</button>
+  <button class="nav-btn" onclick="showSection('ch1')">⚖️ 法規框架</button>
+  <button class="nav-btn" onclick="showSection('ch2')">📐 ISO 14064-1</button>
+  <button class="nav-btn" onclick="showSection('ch3')">🔄 盤查流程</button>
+  <button class="nav-btn" onclick="showSection('ch4')">🏭 排放源計算</button>
+  <button class="nav-btn" onclick="showSection('ch5')">📄 報告與查證</button>
+  <button class="nav-btn" onclick="showSection('quiz')">📝 模擬測驗</button>
+  <button class="nav-btn" onclick="showSection('hotkey')">🔥 命題熱點</button>
+</nav>
+
+<div class="container">
+
+<!-- ══════════ 章節概覽 ══════════ -->
+<div id="overview" class="section active">
+  <div class="section-title"><div class="sec-icon" style="background:var(--green-light)">📋</div>六大章節 × 命題重點分布</div>
+  <div class="section-subtitle">依命題委員出題邏輯整理，★數代表考試出題頻率</div>
+
+  <div class="card">
+    <div class="card-header"><div class="card-title">⚖️ 章節一｜國內相關法規重點說明</div><div class="badge badge-red">★★★ 必考</div></div>
+    <p style="font-size: 18px;color:var(--text3);margin-bottom:8px;">法條罰則金額、申報期限、上市櫃路徑圖時程，考選擇題極高頻。</p>
+    <div class="keywords">
+      <span class="kw kw-g">氣候法第21條盤查義務</span><span class="kw kw-g">第47條20~200萬罰鍰</span>
+      <span class="kw kw-o">每年4/30申報</span><span class="kw kw-o">10/31查驗截止</span>
+      <span class="kw kw-b">IFRS S2 三段適用時程</span><span class="kw kw-r">CO₂e 小數第3位</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><div class="card-title">📐 章節二｜ISO 14064-1:2018 條文重點</div><div class="badge badge-red">★★★ 必考</div></div>
+    <p style="font-size: 18px;color:var(--text3);margin-bottom:8px;">2018新版六大更新重點逐條出題，類別1~6定義與GHG Protocol Scope對照。</p>
+    <div class="keywords">
+      <span class="kw kw-g">6類別 vs 3範疇對照</span><span class="kw kw-g">報告邊界取代營運邊界</span>
+      <span class="kw kw-t">地點基準 vs 市場基準</span><span class="kw kw-p">生質碳新增定義</span>
+      <span class="kw kw-b">附錄D人為生物源</span><span class="kw kw-b">附錄E電力規定</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><div class="card-title">🔄 章節三｜溫室氣體盤查執行流程</div><div class="badge badge-orange">★★ 中頻</div></div>
+    <p style="font-size: 18px;color:var(--text3);margin-bottom:8px;">「邊源算報查」五步驟流程、起始會議判斷、基準年重新計算時機。</p>
+    <div class="keywords">
+      <span class="kw kw-g">邊源算報查</span><span class="kw kw-o">啟始會議優先</span>
+      <span class="kw kw-b">基準年2005</span><span class="kw kw-o">滾動式基準年</span>
+      <span class="kw kw-r">組織邊界=Google衛星圖</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><div class="card-title">🏭 章節四｜邊界設定與排放源計算</div><div class="badge badge-red">★★★ 必考</div></div>
+    <p style="font-size: 18px;color:var(--text3);margin-bottom:8px;">計算題必考：乙炔、柴油、電力、LPG各類計算，冷媒逸散率、化糞池CH₄。</p>
+    <div class="keywords">
+      <span class="kw kw-r">乙炔×88/26=CO₂</span><span class="kw kw-r">柴油×2.68</span>
+      <span class="kw kw-o">冷媒逸散率各設備不同</span><span class="kw kw-o">化糞池0.003825</span>
+      <span class="kw kw-b">乾粉滅火器不用盤查</span><span class="kw kw-g">控制權法三選一</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><div class="card-title">📄 章節五｜盤查報告書與查證</div><div class="badge badge-orange">★★ 中頻</div></div>
+    <p style="font-size: 18px;color:var(--text3);margin-bottom:8px;">內部查證先於外部查證；ISAE 3410 vs ISO 14064-3；保證等級差異。</p>
+    <div class="keywords">
+      <span class="kw kw-g">先內部後外部查證</span><span class="kw kw-b">ISO 14064-3 查證規範</span>
+      <span class="kw kw-p">合理保證 vs 有限保證</span><span class="kw kw-o">查證機構資格要求</span>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section-title" style="font-size:18px;margin-bottom:8px;"><div class="sec-icon" style="background:var(--orange-light)">🔢</div>必背關鍵數字</div>
+  <div class="fact-grid">
+    <div class="fact-item"><div class="fact-label">排放量小數位</div><div class="fact-value" style="color:var(--green)">第3位</div><div class="fact-desc">法規規定，CO₂e 四捨五入至小數點後第3位</div></div>
+    <div class="fact-item"><div class="fact-label">排放係數小數位</div><div class="fact-value" style="color:var(--blue)">第4位</div><div class="fact-desc">計算用參數</div></div>
+    <div class="fact-item"><div class="fact-label">GWP小數位</div><div class="fact-value" style="color:var(--purple)">第10位</div><div class="fact-desc">IPCC科學基礎數據，高精度</div></div>
+    <div class="fact-item"><div class="fact-label">盤查申報截止</div><div class="fact-value" style="color:var(--orange)">4/30</div><div class="fact-desc">每年4月30日前申報前一年度清冊</div></div>
+    <div class="fact-item"><div class="fact-label">查驗申報截止</div><div class="fact-value" style="color:var(--orange)">10/31</div><div class="fact-desc">每年10月31日前上傳查驗總結報告</div></div>
+    <div class="fact-item"><div class="fact-label">罰則（虛偽申報）</div><div class="fact-value" style="color:var(--red)">20~200萬</div><div class="fact-desc">氣候法第47條，明知不實而申報</div></div>
+    <div class="fact-item"><div class="fact-label">罰則（逾期未改）</div><div class="fact-value" style="color:var(--red)">10~100萬</div><div class="fact-desc">氣候法第49條，經通知仍未補正</div></div>
+    <div class="fact-item"><div class="fact-label">化糞池CH₄係數</div><div class="fact-value" style="color:var(--teal)">0.003825</div><div class="fact-desc">公噸CH₄/人年，依12/31員工數計算</div></div>
+    <div class="fact-item"><div class="fact-label">乙炔CO₂係數</div><div class="fact-value" style="color:var(--blue)">3.3846</div><div class="fact-desc">公噸CO₂/公噸乙炔 (88÷26)</div></div>
+    <div class="fact-item"><div class="fact-label">柴油排放係數</div><div class="fact-value" style="color:var(--blue)">2.68</div><div class="fact-desc">kg CO₂/公升</div></div>
+    <div class="fact-item"><div class="fact-label">電力排放係數(2023)</div><div class="fact-value" style="color:var(--teal)">0.527</div><div class="fact-desc">kg CO₂/kWh（環境部公告值）</div></div>
+    <div class="fact-item"><div class="fact-label">台灣基準年</div><div class="fact-value" style="color:var(--green)">2005年</div><div class="fact-desc">國家溫室氣體清冊比較基準</div></div>
+  </div>
+</div>
+
+<!-- ══════════ 法規框架 ══════════ -->
+<div id="ch1" class="section">
+  <div class="section-title"><div class="sec-icon" style="background:var(--green-light)">⚖️</div>國內相關法規重點說明</div>
+  <div class="section-subtitle">命題方向：法條條號、金額數字、申報時程、GHG 種類</div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom:8px;">📋 七種溫室氣體（氣候法第3條）【考種類辨別】</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>氣體</th><th>符號</th><th>主要來源</th><th>特殊記憶點</th></tr></thead>
+        <tbody>
+          <tr><td class="td-k">二氧化碳</td><td>CO₂</td><td>化石燃料燃燒、鋼鐵水泥製程</td><td>最主要 GHG</td></tr>
+          <tr><td class="td-k">甲烷</td><td>CH₄</td><td>農業活動、化石燃料、生物排泄</td><td>GWP=28（AR5，台灣申報用）</td></tr>
+          <tr><td class="td-k">氧化亞氮</td><td>N₂O</td><td>化石燃料燃燒、農業施肥</td><td>肥料製程</td></tr>
+          <tr><td class="td-k">氫氟碳化物</td><td>HFCs</td><td>冷媒、製冷劑、氣體滅火器</td><td>空調冷媒逸散</td></tr>
+          <tr><td class="td-k">全氟碳化物</td><td>PFCs</td><td>光電半導體、煉鋁製程</td><td>工業用（半導體）</td></tr>
+          <tr><td class="td-k">六氟化硫</td><td>SF₆</td><td>氣體斷路器（GCB）絕緣防電弧</td><td>電力設備⚡ 曾出考題</td></tr>
+          <tr><td class="td-k">三氟化氮</td><td>NF₃</td><td>光電半導體製程</td><td>工業用（半導體）</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="hl hl-red" style="margin-top:8px;">
+      <div class="hl-title">⚠️ 陷阱：SF₆ 考點</div>
+      <p>SF₆ 六氟化硫主要用於<strong>氣體斷路器（GCB）絕緣與防電弧</strong>，非冷媒——這是考過的考點，不要混淆 HFCs（才是冷媒）。</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom:8px;">📅 申報時程與罰則【數字必背！】</div>
+    <div class="fact-grid" style="grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));">
+      <div class="fact-item" style="border-left-color:var(--green)"><div class="fact-label">盤查登錄截止</div><div class="fact-value" style="color:var(--green)">每年4/30</div><div class="fact-desc">前一年度清冊 + 盤查報告書（氣候法施行細則§6）</div></div>
+      <div class="fact-item" style="border-left-color:var(--blue)"><div class="fact-label">查驗結果上傳</div><div class="fact-value" style="color:var(--blue)">每年10/31</div><div class="fact-desc">第三方查驗總結報告（§9）</div></div>
+      <div class="fact-item" style="border-left-color:var(--red)"><div class="fact-label">虛偽申報罰鍰</div><div class="fact-value" style="color:var(--red)">20~200萬</div><div class="fact-desc">氣候法第47條，按次處罰</div></div>
+      <div class="fact-item" style="border-left-color:var(--orange)"><div class="fact-label">逾期未補正罰鍰</div><div class="fact-value" style="color:var(--orange)">10~100萬</div><div class="fact-desc">氣候法第49條，屆期仍未改善按次處罰</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><div class="card-title">📊 上市櫃公司永續發展路徑圖【IFRS S2 適用時程】</div><div class="badge badge-red">超高頻</div></div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>公司規模</th><th>盤查開始(母)</th><th>查證開始(母)</th><th>子公司盤查</th><th>子公司查證</th><th>IFRS揭露</th></tr></thead>
+        <tbody>
+          <tr><td class="td-k">100億↑（含鋼鐵水泥）</td><td>2023*</td><td>2024**</td><td>2025*</td><td>2027**</td><td class="td-hi">2026</td></tr>
+          <tr><td class="td-k">50~100億</td><td>2025*</td><td>2026**</td><td>2026*</td><td>2028**</td><td class="td-hi">2027</td></tr>
+          <tr><td class="td-k">50億以下</td><td>2026*</td><td>2027**</td><td>2027*</td><td>2029**</td><td class="td-hi">2028</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="hl hl-orange">
+      <div class="hl-title">📌 命題規律（官方樣題 Q18 類型）</div>
+      <ul>
+        <li>母到子公司<strong>差 1 年</strong>開始盤查；盤查到查證<strong>差 2 年</strong></li>
+        <li>2029 年前所有上市櫃需完成<strong>範疇三</strong>盤查（IFRS S2 要求）</li>
+        <li>實收資本額 60 億 → 屬 50~100 億組 → 範疇 3 須於 <strong>117 年（2028）</strong> 申報</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom:8px;">🔢 小數位數三合一記憶法【必考計算基礎】</div>
+    <div class="calc-box">
+      <div class="calc-title">計算精度規則（考題計算前先確認）</div>
+      <div class="formula">排放量(CO₂e)：第3位 ← 拿去申報的</div>
+      <div class="formula">排放係數(EF)：第4位 ← 拿來計算的</div>
+      <div class="formula">GWP：第10位 ← 科學原始數據</div>
+      <div class="sub">記憶口訣：「算看4位，報看3位，科學看10位」</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ ISO 14064-1 ══════════ -->
+<div id="ch2" class="section">
+  <div class="section-title"><div class="sec-icon" style="background:var(--blue-light)">📐</div>ISO 14064-1:2018 條文重點</div>
+
+  <div class="card">
+    <div class="card-header"><div class="card-title">🔄 GHG Protocol vs ISO 14064-1 對照表【超高頻】</div><div class="badge badge-red">必考</div></div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>ISO 14064-1 類別</th><th>GHG Protocol 範疇</th><th>排放內容</th></tr></thead>
+        <tbody>
+          <tr><td class="td-k">類別 1（Category 1）</td><td class="td-g">Scope 1</td><td>直接排放：固定燃燒、移動燃燒、製程、逸散、LULUCF</td></tr>
+          <tr><td class="td-k">類別 2（Category 2）</td><td class="td-g">Scope 2</td><td>輸入能源：外購電力、蒸氣、熱能、冷能</td></tr>
+          <tr><td class="td-k">類別 3（Category 3）</td><td class="td-b">Scope 3</td><td>運輸：貨物上/下游運輸、員工通勤、訪客、商務旅運</td></tr>
+          <tr><td class="td-k">類別 4（Category 4）</td><td class="td-b">Scope 3</td><td>組織使用產品（上游）：採購商品/服務、資本財、廢棄物</td></tr>
+          <tr><td class="td-k">類別 5（Category 5）</td><td class="td-b">Scope 3</td><td>使用組織產品（下游）：產品使用階段、下游租賃、投融資</td></tr>
+          <tr><td class="td-k">類別 6（Category 6）</td><td class="td-b">Scope 3</td><td>其他來源：未分類的間接排放</td></tr>
+        </tbody>
+      </table>
+	  <div style="background:#faf4f2">
+	  <div class="hl-title">⚠️ 命題陷阱</div>
+      <ul>
+        <li>ISO 14064-1 叫<strong>類別（Category）</strong>；GHG Protocol 叫<strong>範疇（Scope）</strong></li>
+        <li>Scope 3 有 15 個子類；ISO Category 3~6 是更粗的分類</li>
+        <li>ESG 揭露/CDP/SBTi 用<strong>GHG Protocol</strong>；第三方查證用<strong>ISO 14064-1</strong></li>
+      </ul>
+	  </div>
+    </div>
+    </div>
+   
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom:8px;">🆕 ISO 14064-1:2018 六大更新重點</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num step-num-g">1</div>
+        <div class="step-content"><div class="step-title">新增用語及定義</div><div class="step-desc">生質碳、生質CO₂、人為生物源GHG排放、直接土地使用變更（dLUC）、非人為生物源GHG排放</div></div>
+      </div>
+      <div class="step">
+        <div class="step-num step-num-g">2</div>
+        <div class="step-content"><div class="step-title">以「報告邊界」取代「營運邊界」</div><div class="step-desc">用 6 類別概念歸納 GHG 排放；包含直接排放與間接排放量及移除量</div></div>
+      </div>
+      <div class="step">
+        <div class="step-num step-num-g">3</div>
+        <div class="step-content"><div class="step-title">新增量化規範（附錄D/E規定）</div><div class="step-desc">附錄D：人為生物源排放必須分別量化；附錄E：電力採地點基礎or市場基礎（含T-REC）</div></div>
+      </div>
+      <div class="step">
+        <div class="step-num step-num-b">4</div>
+        <div class="step-content"><div class="step-title">減緩活動（由控管措施改為倡議）</div><div class="step-desc">ISO 14064-1:2018 第7章強調減緩，但仍為 may（選項）項目</div></div>
+      </div>
+      <div class="step">
+        <div class="step-num step-num-b">5</div>
+        <div class="step-content"><div class="step-title">盤查清冊品質管理（不確定性評估由may→shall）</div><div class="step-desc">不確定性評估成為「應」進行項目；若無法定量則應定性評估並說明理由</div></div>
+      </div>
+      <div class="step">
+        <div class="step-num step-num-b">6</div>
+        <div class="step-content"><div class="step-title">GHG 報告與查證活動</div><div class="step-desc">為滿足利害關係人需求，應透過 ISO 14064-3 第三方獨立查證</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom:8px;">⚡ 電力排放（附錄E）：地點基礎 vs 市場基礎</div>
+    <div class="compare">
+      <div class="compare-col">
+        <h4 style="color:var(--blue)">地點基礎（Location-based）</h4>
+        <ul>
+          <li><strong>預設方式</strong>，大多數企業採用</li>
+          <li>使用電網平均排放係數</li>
+          <li>例：台灣電力公告係數 0.527 kg CO₂/kWh</li>
+          <li>適用：外購電網電力</li>
+        </ul>
+      </div>
+      <div class="compare-col">
+        <h4 style="color:var(--green)">市場基礎（Market-based）</h4>
+        <ul>
+          <li>採用<strong>契約文件（含 T-REC 再生能源憑證）</strong></li>
+          <li>需符合品質基準才可使用</li>
+          <li>T-REC 持有者可以市場基礎計算 Scope 2</li>
+          <li>應分別文件化並報告</li>
+        </ul>
+      </div>
+    </div>
+    <div class="hl hl-orange">
+      <div class="hl-title">📌 T-REC 考點</div>
+      <p>再生能源憑證（T-REC）<strong>可作為 Scope 2 間接能源計算依據</strong>（市場基礎），但需符合品質基準。使用 T-REC 後 Scope 2 排放量可降低，但仍需分別揭露地點基礎與市場基礎兩組數據。</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom:8px;">📖 重要用語定義辨別【常出「何者為非」題】</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>用語</th><th>定義關鍵字</th><th>易混淆點</th></tr></thead>
+        <tbody>
+          <tr><td class="td-k">組織邊界</td><td>財務/營運控制或股權持分的設施（地理資訊）</td><td>以地圖圈地，Google 衛星圖</td></tr>
+          <tr><td class="td-k">報告邊界</td><td>組織邊界內直接排放 + <strong>重大</strong>間接排放</td><td>非全部間接，只含「重大」間接</td></tr>
+          <tr><td class="td-k">查證</td><td>針對<strong>歷史數據</strong>，判定是否屬實正確</td><td>查證=現在；確證=未來</td></tr>
+          <tr><td class="td-k">特定場域數據</td><td>組織邊界內取得的<strong>原始數據</strong></td><td>所有特定場域數據為原始數據；反之不一定</td></tr>
+          <tr><td class="td-k">次級數據</td><td>由<strong>原始數據以外</strong>來源獲得的數據</td><td>公告排放係數屬次級數據</td></tr>
+          <tr><td class="td-k">活動數據</td><td>造成GHG排放活動的<strong>定量量測值</strong></td><td>例：消耗燃料量、電量、服務量</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ 盤查流程 ══════════ -->
+<div id="ch3" class="section">
+  <div class="section-title"><div class="sec-icon" style="background:var(--teal-light)">🔄</div>溫室氣體盤查執行流程</div>
+  <div class="section-subtitle">命題方向：五步驟順序辨別、組織邊界設定方法、基準年處理</div>
+
+  <div class="card">
+    <div class="card-header"><div class="card-title">🗂️ 盤查程序五步驟「邊源算報查」</div><div class="badge badge-red">必考順序</div></div>
+    <div class="steps">
+      <div class="step"><div class="step-num step-num-g">邊</div><div class="step-content"><div class="step-title">邊界設定</div><div class="step-desc">確認組織邊界（地理）與報告邊界（排放類別）；含廠區外宿舍納入、廠區內出租排除</div></div></div>
+      <div class="step"><div class="step-num step-num-g">源</div><div class="step-content"><div class="step-title">排放源鑑別</div><div class="step-desc">針對直接與間接排放源鑑別分類；間接排放源需進行重大性鑑別</div></div></div>
+      <div class="step"><div class="step-num step-num-b">算</div><div class="step-content"><div class="step-title">排放量計算</div><div class="step-desc">蒐集活動數據，選定排放係數與GWP計算；進行不確定性評估</div></div></div>
+      <div class="step"><div class="step-num step-num-b">報</div><div class="step-content"><div class="step-title">報告書編制</div><div class="step-desc">依氣候法或ISO 14064-1架構編制；視預期使用者需求揭露資訊</div></div></div>
+      <div class="step"><div class="step-num step-num-o">查</div><div class="step-content"><div class="step-title">內/外部查證</div><div class="step-desc"><strong>先完成內部查證</strong>，再委託第三方外部查證；有對外需求才需外部查證</div></div></div>
+		
+      <div class="hl-title">📌 啟始會議考點（官方提示）</div>
+      <p>考題選項中有「<strong>啟始會議</strong>」就選啟始會議；沒有才選「盤查邊界設定」。起始會議目的：高階主管凝聚共識，確保跨部門盤查推動順利。</p>
+    
+	</div>
+    
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom:8px;">🏢 組織邊界三種設定方法</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>方法</th><th>定義</th><th>重點記憶</th></tr></thead>
+        <tbody>
+          <tr><td class="td-k">股權比例法</td><td>按股權持份比例計算排放量</td><td>50% 股權 → 計50%排放</td></tr>
+          <tr><td class="td-k">財務控制法</td><td>對財務有控制權的設施，計100%排放量</td><td>財務主導</td></tr>
+          <tr><td class="td-k">營運控制法</td><td>對營運有控制權的設施，計100%排放量</td><td>環境部申報採此法</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="hl hl-blue">
+      <div class="hl-title">📌 使用原則（常考）</div>
+      <ul>
+        <li>使用控制法時，<strong>財務控制與營運控制只能擇一使用</strong>，且適用至組織所有層級</li>
+        <li>一旦選定彙整政策，<strong>不可混用</strong></li>
+        <li><strong>環境部申報採「營運控制法」</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom:8px;">📅 基準年設定與重新計算</div>
+    <div class="compare">
+      <div class="compare-col">
+        <h4 style="color:var(--green)">固定基準年</h4>
+        <ul>
+          <li>台灣國家基準年：<strong>2005 年</strong></li>
+          <li>允許長期排放數據 like-with-like 比較</li>
+          <li>可比較期間較長</li>
+        </ul>
+      </div>
+      <div class="compare-col">
+        <h4 style="color:var(--blue)">滾動式基準年</h4>
+        <ul>
+          <li>適合透過<strong>併購持續成長</strong>的公司</li>
+          <li>基準年在固定區間往前移動</li>
+          <li>可比較期間較短</li>
+        </ul>
+      </div>
+    </div>
+    <div class="hl hl-red">
+      <div class="hl-title">⚠️ 基準年必須重新計算的情況</div>
+      <ul>
+        <li><strong>合併、併購、出脫、委外/內製</strong>造成顯著排放量移轉</li>
+        <li>計算方法改變，對基準年排放量產生顯著衝擊</li>
+        <li>改善排放係數或作業數據精確度，造成顯著衝擊</li>
+        <li>重新計算需針對<strong>基準年與報告年之間所有年份</strong>全部重算</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ 排放源計算 ══════════ -->
+<div id="ch4" class="section">
+  <div class="section-title"><div class="sec-icon" style="background:var(--orange-light)">🏭</div>邊界設定與排放源計算重點</div>
+  <div class="section-subtitle">命題方向：各類別計算、逸散排放判斷、類別歸屬辨別</div>
+
+  <div class="card">
+    <div class="card-header"><div class="card-title">🔥 類別一直接排放：四大排放源</div><div class="badge badge-red">計算必考</div></div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>排放源類型</th><th>常見設備/活動</th><th>主要GHG</th><th>活動數據</th></tr></thead>
+        <tbody>
+          <tr><td class="td-k">1.1 固定燃燒源</td><td>鍋爐、緊急發電機、加熱爐、RTO、餐廳瓦斯爐</td><td>CO₂, CH₄, N₂O</td><td>採購單、領用單、燃料費用收據</td></tr>
+          <tr><td class="td-k">1.2 移動燃燒源</td><td>公務車、貨車、堆高機（有統編）</td><td>CO₂, CH₄, N₂O</td><td>加油發票或加油卡報表</td></tr>
+          <tr><td class="td-k">1.3 製程排放</td><td>水泥石灰石分解、鋼鐵冶煉、乙炔氣焊、電焊焊條</td><td>CO₂, N₂O, PFCs, SF₆</td><td>採購單、檢測報告</td></tr>
+          <tr><td class="td-k">1.4 逸散排放</td><td>冷媒（HFCs）外洩、CO₂滅火器、FM200、化糞池</td><td>CH₄, HFCs, SF₆</td><td>冷媒填充量、滅火器核銷紀錄</td></tr>
+          <tr><td class="td-k">1.5 土地使用</td><td>農業活動、森林變更、稻作種植</td><td>CO₂, CH₄, N₂O</td><td>統計報表</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><div class="card-title">🧮 計算公式大全【考試計算題必看】</div><div class="badge badge-red">高頻計算</div></div>
+
+    <div class="calc-box">
+      <div class="calc-title">基本排放量公式</div>
+      <div class="formula">排放量(CO₂e) = 活動數據 × 排放係數 × GWP</div>
+    </div>
+
+    <div class="calc-box" style="border-color:#d1fae5;background:#f0fdf4">
+      <div class="calc-title">乙炔氣焊計算（質量平衡法）</div>
+      <div class="formula">C₂H₂ + 2.5O₂ → 2CO₂ + H₂O</div>
+      <div class="formula">CO₂排放係數 = 88 ÷ 26 = 3.3846 公噸CO₂/公噸乙炔</div>
+      <div class="sub">例：使用乙炔100 kg → CO₂ = 100 × (88/26) = 338.4615 kg（官方樣題Q16答案A）</div>
+    </div>
+
+    <div class="calc-box" style="border-color:#d1fae5;background:#f0fdf4">
+      <div class="calc-title">電焊焊條計算（質量平衡法）</div>
+      <div class="formula">C + O₂ → CO₂</div>
+      <div class="formula">CO₂排放係數 = 44 ÷ 12 = 3.667 公噸CO₂/公噸C</div>
+      <div class="sub">活動數據 = 焊條重量 × 焊條含碳量(%)</div>
+    </div>
+
+    <div class="calc-box" style="border-color:#fed7aa;background:#fff7ed">
+      <div class="calc-title">液化石油氣（LPG）計算（官方樣題Q17）</div>
+      <div class="formula">排放量 = 重量(kg) × 1.818(L/kg) × [固定係數 - 未燃燒係數]</div>
+      <div class="sub">Q17：5瓶×20 kg×1.818×(2.21-0.453) = 319.4226 kg CO₂e（答案C）</div>
+    </div>
+
+    <div class="calc-box" style="border-color:#dbeafe;background:#eff6ff">
+      <div class="calc-title">化糞池CH₄逸散</div>
+      <div class="formula">CH₄逸散量 = 廠內人年數 × 0.003825 (公噸CH₄/人年)</div>
+      <div class="sub">⚠️ 生活污水有納管→ 不用算；但有納管又保留化糞池→ 還是要算</div>
+    </div>
+
+    <div class="calc-box" style="border-color:#ede9fe;background:#faf5ff">
+      <div class="calc-title">冷媒逸散排放（方法二）</div>
+      <div class="formula">逸散量 = 冷媒原始填充量 × 逸散率(%)</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom:8px;">❄️ 冷媒設備逸散率【必背數字】</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>設備類型</th><th>常見設備</th><th>逸散率</th></tr></thead>
+        <tbody>
+          <tr><td>家用冷凍冷藏</td><td>家用冰箱</td><td class="td-g">0.3%</td></tr>
+          <tr><td>獨立商用冷凍冷藏</td><td>商用冰箱</td><td class="td-b">8%</td></tr>
+          <tr><td>中大型冷凍冷藏</td><td>大型冷凍冷藏室</td><td class="td-hi">22.5%</td></tr>
+          <tr><td>交通用冷凍冷藏</td><td>低溫宅配車</td><td class="td-r">32.5%</td></tr>
+          <tr><td>工業冷凍冷藏</td><td>工業用低溫設備</td><td class="td-hi">16%</td></tr>
+          <tr><td>冰水機</td><td>冰水機</td><td class="td-b">8.5%</td></tr>
+          <tr><td>住宅及商業冷氣</td><td>一般冷氣機</td><td class="td-g">5.5%</td></tr>
+          <tr><td>移動式冷氣</td><td>車用冷氣</td><td class="td-b">15%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom:8px;">🚫 滅火器盤查判斷</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>滅火器類型</th><th>需盤查？</th><th>計算方式</th></tr></thead>
+        <tbody>
+          <tr><td class="td-k">乾粉滅火器（ABC型）</td><td class="td-r">❌ 不用盤查</td><td>—</td></tr>
+          <tr><td class="td-k">乾粉滅火器（BC/KBC型）</td><td class="td-r">❌ 不用盤查</td><td>—</td></tr>
+          <tr><td class="td-k">CO₂滅火器</td><td class="td-g">✅ 需盤查</td><td>填充量 / 使用量×每支內容量×0.9</td></tr>
+          <tr><td class="td-k">FM200滅火器（HFC）</td><td class="td-g">✅ 需盤查</td><td>填充量或使用量</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="hl hl-blue">
+      <div class="hl-title">📌 記憶口訣</div>
+      <p>CO₂滅火器與FM200通常出現在<strong>機房裡</strong>，要盤查。乾粉（ABC型）不用。有新購或換藥核銷紀錄時注意年度。</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom:8px;">🚚 類別三運輸計算方法</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>計算方法</th><th>公式</th><th>資料來源</th></tr></thead>
+        <tbody>
+          <tr><td class="td-k">燃料基礎法</td><td>Σ 燃料量 × 排放係數</td><td>運輸供應商燃料使用量</td></tr>
+          <tr><td class="td-k">距離基礎法</td><td>Σ 重量 × 距離 × 係數（kg CO₂e/t·km）</td><td>貨物重量、運輸距離（Google/SeaRates）</td></tr>
+          <tr><td class="td-k">費用基礎法</td><td>Σ 運費 × 係數（kg CO₂e/$）</td><td>採購費用</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="hl hl-green">
+      <div class="hl-title">📌 員工通勤注意事項</div>
+      <ul>
+        <li>以<strong>區公所到公司距離</strong>（Google截圖）計算，保護個資</li>
+        <li>需計算<strong>來回距離</strong>，以主要交通工具為主</li>
+        <li>以當年度 <strong>12/31</strong> 人資系統中的實際上班日數計算</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ 報告與查證 ══════════ -->
+<div id="ch5" class="section">
+  <div class="section-title"><div class="sec-icon" style="background:var(--purple-light)">📄</div>盤查報告書內容與查證說明</div>
+  <div class="section-subtitle">命題方向：查證標準辨別、保證等級差異、確信機構資格</div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom:8px;">🔍 查證 vs 確證</div>
+    <div class="compare">
+      <div class="compare-col">
+        <h4 style="color:var(--blue)">查證（Verification）</h4>
+        <ul>
+          <li>針對<strong>歷史數據與資訊</strong></li>
+          <li>判定聲明是否屬實正確</li>
+          <li>標準：<strong>ISO 14064-3</strong></li>
+          <li>溫室氣體盤查報告書用</li>
+        </ul>
+      </div>
+      <div class="compare-col">
+        <h4 style="color:var(--purple)">確證（Validation）</h4>
+        <ul>
+          <li>針對<strong>未來預測計畫</strong></li>
+          <li>判定計畫是否合理可行</li>
+          <li>標準：<strong>ISO 14064-3</strong></li>
+          <li>碳中和計畫、減量計畫用</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom:8px;">📊 保證等級比較</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>保證等級</th><th>標準</th><th>嚴格程度</th><th>適用情境</th></tr></thead>
+        <tbody>
+          <tr><td class="td-k">合理保證（Reasonable assurance）</td><td>ISAE 3410</td><td class="td-r">高（正面聲明）</td><td>公開揭露、法規申報</td></tr>
+          <tr><td class="td-k">有限保證（Limited assurance）</td><td>ISAE 3000</td><td class="td-b">中（有限聲明）</td><td>企業自願性揭露</td></tr>
+          <tr><td class="td-k">兩者皆可</td><td>ISO 14064-3</td><td>—</td><td>GHG 盤查第三方查驗</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom:8px;">🏛️ 確信機構資格要求</div>
+    <div class="hl hl-green">
+      <div class="hl-title">機構資格（符合其一）</div>
+      <ul>
+        <li>取得<strong>環境部查驗機構許可證</strong></li>
+        <li><strong>會計師事務所</strong>：需同時具備溫室氣體盤查確信或輔導經驗達 <strong>1 年以上</strong></li>
+      </ul>
+    </div>
+    <div class="hl hl-blue">
+      <div class="hl-title">人員資格（符合其一）</div>
+      <ul>
+        <li>查驗機構主導查驗員：應為<strong>環境部合格登錄</strong></li>
+        <li>會計師：需具備 GHG 確信/輔導經驗 ≥1 年；近 2 年進修 GHG 相關課程 <strong>≥20 小時</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom:8px;">📋 盤查報告書規劃階段應文件化</div>
+    <div class="hl hl-teal">
+      <div class="hl-title">ISO 14064-1 報告規劃要素</div>
+      <ul>
+        <li>報告之<strong>目的與目標</strong>（含GHG政策、策略、適用方案）</li>
+        <li>報告之<strong>預期用途與預期使用者</strong></li>
+        <li>準備與製作報告之<strong>整體與特定責任</strong></li>
+        <li>報告之<strong>頻率</strong></li>
+        <li>報告<strong>架構和格式</strong></li>
+        <li>報告涵蓋之<strong>數據與資訊</strong></li>
+        <li>報告取得與<strong>傳播方法之政策</strong></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ 模擬測驗 ══════════ -->
+<div id="quiz" class="section">
+  <div class="section-title"><div class="sec-icon" style="background:var(--orange-light)">📝</div>官方樣題模擬測驗（20 題）</div>
+  <div class="section-subtitle">點擊選項即時作答，附官方解析說明</div>
+
+  <div id="quiz-score" class="quiz-score">
+    <div class="score-num" id="score-display">0 / 20</div>
+    <div style="color:var(--text3);margin-top:4px;font-size:18px">本次測驗得分</div>
+    <button class="reset-btn" onclick="resetQuiz()">↺ 重新作答</button>
+  </div>
+  <div id="quiz-container"></div>
+</div>
+
+<!-- ══════════ 命題熱點 ══════════ -->
+<div id="hotkey" class="section">
+  <div class="section-title"><div class="sec-icon" style="background:var(--red-light)">🔥</div>2026 命題熱點 × 時事情境</div>
+  <div class="section-subtitle">依114年版講義更新、金管會最新要求、IFRS S2 整合重點整理</div>
+
+  <div class="card">
+    <div class="card-header"><div class="card-title">📰 2024~2025 重大法規更新</div><div class="badge badge-red">必考時事</div></div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>更新事項</th><th>內容</th><th>命題考點</th></tr></thead>
+        <tbody>
+          <tr><td class="td-k">NDC 更新（113.12.30）</td><td>2030 目標 -28±2%；2032 目標 -34±2%；2035 目標 -38±2%</td><td>數字記憶</td></tr>
+          <tr><td class="td-k">IFRS S2 揭露</td><td>2026~2028 分三階段適用；2029 前完成 Scope 3 盤查</td><td>時程對照</td></tr>
+          <tr><td class="td-k">範疇分類調整</td><td>類別二再生能源憑證使用說明更新（T-REC 市場基礎）</td><td>T-REC 使用資格</td></tr>
+          <tr><td class="td-k">查驗機構名單</td><td>環境部更新溫盤確信查驗機構（含會計師事務所）</td><td>機構資格條件</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom:14px;">📌 常見情境題解題策略</div>
+
+    <div class="hl hl-green">
+      <div class="hl-title">情境一：某公司採購太陽能板電力並取得T-REC，Scope 2 如何申報？</div>
+      <ul>
+        <li>可採<strong>市場基礎</strong>計算 Scope 2（附錄E規定）</li>
+        <li>T-REC 需符合品質基準，並<strong>分別文件化與報告</strong></li>
+        <li>建議同時揭露地點基礎（電網係數）與市場基礎（T-REC）兩組數字</li>
+      </ul>
+    </div>
+
+    <div class="hl hl-orange" style="margin-top:12px;">
+      <div class="hl-title">情境二：公司廠區內有出租給其他業者的倉庫，應如何處理？</div>
+      <ul>
+        <li>廠區內<strong>出租給他人的廠房/倉庫</strong>→ 在組織邊界內但非本公司控制 → <strong>應清楚註明並排除</strong></li>
+        <li>若組織對出租廠房有「財務控制」→ 才需納入</li>
+        <li>廠區外有公司擁有的外勞宿舍 → 需另說明納入</li>
+      </ul>
+    </div>
+
+    <div class="hl hl-blue" style="margin-top:12px;">
+      <div class="hl-title">情境三：上市公司實收資本額 80 億，何時須完成哪些盤查？</div>
+      <ul>
+        <li>屬「50~100 億」組</li>
+        <li>母公司盤查起始：<strong>2025 年</strong>；查證起始：2026 年</li>
+        <li>子公司盤查起始：2026 年；查證起始：2028 年</li>
+        <li>IFRS S2 揭露起始：<strong>2027 年</strong></li>
+        <li>Scope 3 盤查：<strong>2029 年前完成</strong></li>
+      </ul>
+    </div>
+
+    <div class="hl hl-red" style="margin-top:12px;">
+      <div class="hl-title">情境四：公司機房裝設FM200自動滅火系統，年度內啟動1次，如何計算？</div>
+      <ul>
+        <li>FM200（HFC-227ea）屬 <strong>HFCs 逸散排放，必須盤查</strong></li>
+        <li>若有使用 → CO₂逸散量 = 使用支數 × 每支內容量 × (1-0.1)</li>
+        <li>若只有填充 → 以<strong>填充量</strong>計算</li>
+        <li>此為類別一（1.4 逸散排放）</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom:8px;">🎯 20 個容易混淆考點速查</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>混淆點</th><th>正確答案</th></tr></thead>
+        <tbody>
+          <tr><td style="color:var(--text4)">1</td><td>SF₆ 主要用途</td><td><strong>GCB 氣體斷路器絕緣防電弧</strong>（非冷媒）</td></tr>
+          <tr><td style="color:var(--text4)">2</td><td>排放量申報小數位</td><td><strong>第3位</strong>（排放係數第4位，GWP第10位）</td></tr>
+          <tr><td style="color:var(--text4)">3</td><td>環境部申報採哪種邊界法？</td><td><strong>營運控制法</strong></td></tr>
+          <tr><td style="color:var(--text4)">4</td><td>查證 vs 確證</td><td>查證=<strong>歷史數據</strong>；確證=<strong>未來計畫</strong></td></tr>
+          <tr><td style="color:var(--text4)">5</td><td>乾粉滅火器要盤查嗎？</td><td><strong>不需要</strong>（CO₂與FM200才需要）</td></tr>
+          <tr><td style="color:var(--text4)">6</td><td>盤查五步驟第一步</td><td><strong>啟始/起始會議</strong>（有此選項就選）</td></tr>
+          <tr><td style="color:var(--text4)">7</td><td>T-REC 用於哪個類別？</td><td><strong>類別二</strong>（市場基礎電力間接排放）</td></tr>
+          <tr><td style="color:var(--text4)">8</td><td>ISO 14064-1 用語：範疇還是類別？</td><td><strong>類別（Category）</strong>，非範疇（Scope）</td></tr>
+          <tr><td style="color:var(--text4)">9</td><td>員工通勤計算基準</td><td>鄉鎮<strong>區公所到公司距離</strong>（非住家地址）</td></tr>
+          <tr><td style="color:var(--text4)">10</td><td>化糞池有納管還要算嗎？</td><td>納管且<strong>仍保留化糞池</strong>→ 還是要算</td></tr>
+          <tr><td style="color:var(--text4)">11</td><td>內外部查證順序</td><td><strong>先內部後外部</strong></td></tr>
+          <tr><td style="color:var(--text4)">12</td><td>組織邊界地理資訊佐證</td><td>報告書需附<strong>Google 衛星地圖</strong></td></tr>
+          <tr><td style="color:var(--text4)">13</td><td>Q15 答案：組織邊界 vs 報告邊界？</td><td>廠區地址+Google衛星圖 → <strong>組織邊界</strong></td></tr>
+          <tr><td style="color:var(--text4)">14</td><td>自行發電屬哪個類別？</td><td><strong>類別一</strong>（直接排放），非類別二</td></tr>
+          <tr><td style="color:var(--text4)">15</td><td>蒸汽輸入屬哪個類別？</td><td><strong>類別二</strong>（輸入能源間接排放）</td></tr>
+          <tr><td style="color:var(--text4)">16</td><td>不確定性評估 2006 vs 2018版</td><td>2018版改為<strong>「應」（shall）</strong>評估</td></tr>
+          <tr><td style="color:var(--text4)">17</td><td>CBAM 熱能計入直接還是間接？</td><td><strong>直接排放</strong>（與 ISO 14064-1 不同）</td></tr>
+          <tr><td style="color:var(--text4)">18</td><td>資本財耐用年限與金額？</td><td>耐用年限 <strong>&gt;2年</strong> 且金額 <strong>&gt;8萬元</strong></td></tr>
+          <tr><td style="color:var(--text4)">19</td><td>活動數據單據跨年度如何處理？</td><td>以<strong>實際日數比例攤分</strong>（非結帳區間）</td></tr>
+          <tr><td style="color:var(--text4)">20</td><td>上市櫃 60 億公司何時申報 Scope 3？</td><td>屬50~100億組，<strong>117年（2028年）</strong>起</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+</div><!-- end container -->
+
+<!-- Print FAB -->
+<button class="print-fab" onclick="printAll()" id="printFab">🖨️</button>
+<div class="print-tooltip" id="printTip">列印完整講義</div>
+
+<script>
+// ── Quiz Data ──
+const quizData = [
+  {
+    q: "Q1｜下列哪一項不是氣候變遷因應法所規定的溫室氣體種類？",
+    opts:["(A) SF₆ 六氟化硫","(B) 水蒸氣（H₂O）","(C) NF₃ 三氟化氮","(D) N₂O 氧化亞氮"],
+    answer:1,
+    explain:"【答案B】氣候法第3條明定七種GHG：CO₂、CH₄、N₂O、HFCs、PFCs、SF₆、NF₃。水蒸氣雖為自然溫室氣體，但不在法規管制範圍。"
+  },
+  {
+    q: "Q2｜依氣候變遷因應法施行細則，事業應於每年何日前申報前一年度溫室氣體盤查結果？",
+    opts:["(A) 每年3月31日","(B) 每年4月30日","(C) 每年6月30日","(D) 每年10月31日"],
+    answer:1,
+    explain:"【答案B】§6規定：排放量清冊及盤查報告書應於每年4月30日前申報。10月31日是查驗結果上傳截止日，勿混淆。"
+  },
+  {
+    q: "Q3｜事業明知不實仍申報溫室氣體盤查，依氣候法第47條可處何種罰鍰？",
+    opts:["(A) 新臺幣10萬元以上100萬元以下","(B) 新臺幣20萬元以上200萬元以下","(C) 新臺幣50萬元以上500萬元以下","(D) 新臺幣100萬元以下"],
+    answer:1,
+    explain:"【答案B】氣候法第47條：明知不實而申報，處20萬~200萬罰鍰，按次處罰。第49條才是10萬~100萬（逾期未補正）。"
+  },
+  {
+    q: "Q4｜ISO 14064-1:2018 中，輸入電力的間接排放屬於哪個類別？",
+    opts:["(A) 類別一（Category 1）","(B) 類別二（Category 2）","(C) 類別三（Category 3）","(D) 類別四（Category 4）"],
+    answer:1,
+    explain:"【答案B】類別二（Category 2）對應 GHG Protocol Scope 2，含外購電力、蒸汽、熱能、冷能等輸入能源的間接排放。"
+  },
+  {
+    q: "Q5｜ISO 14064-1:2018 相較於2006年版，哪一項描述為是？",
+    opts:["(A) 以「營運邊界」取代「報告邊界」","(B) 不確定性評估由should改為shall（應）","(C) 減緩活動成為強制shall項目","(D) 新版刪除股權比例法的彙總方式"],
+    answer:1,
+    explain:"【答案B】2018版重要更新：不確定性評估從2006版的非強制項目，升為「應（shall）」進行的品質管理要求。(A)相反，是「報告邊界」取代「營運邊界」。(C)減緩活動仍為may。"
+  },
+  {
+    q: "Q6｜公司廠區機房裝設FM200自動滅火系統，此排放源屬於哪個分類？",
+    opts:["(A) 類別一：固定燃燒源","(B) 類別一：製程排放","(C) 類別一：逸散排放","(D) 類別二：輸入能源"],
+    answer:2,
+    explain:"【答案C】FM200（HFC-227ea）屬HFCs逸散排放，歸類別一（Category 1）的1.4逸散排放，需納入盤查。"
+  },
+  {
+    q: "Q7｜下列哪種滅火器不需納入溫室氣體盤查？",
+    opts:["(A) CO₂滅火器","(B) FM200（HFC）自動滅火系統","(C) 乾粉滅火器（ABC型）","(D) Halon 哈龍滅火器"],
+    answer:2,
+    explain:"【答案C】乾粉滅火器（ABC型）、BC型、KBC型均不需盤查。CO₂滅火器和FM200（HFC類）出現在機房中，需盤查。"
+  },
+  {
+    q: "Q8｜溫室氣體盤查流程「邊源算報查」中，應優先執行的第一步驟為何？",
+    opts:["(A) 啟始/起始會議（高階主管支持與承諾）","(B) 盤查邊界設定","(C) 排放源鑑別確認","(D) 活動數據收集"],
+    answer:0,
+    explain:"【答案A】考題提示：有「啟始會議」選項就選啟始會議。起始會議目的是高階主管凝聚共識，確保跨部門合作順利。若選項沒有啟始會議才選「邊界設定」。"
+  },
+  {
+    q: "Q9｜依ISO 14064-1，公司應採用控制法彙總設施排放量時，下列何者為非？",
+    opts:["(A) 可採財務控制或營運控制擇一使用","(B) 採控制法時可在同一組織內混用財務控制與營運控制","(C) 環境部規範的溫室氣體申報採營運控制法","(D) 股權比例法依股權持份比例計算排放量"],
+    answer:1,
+    explain:"【答案B】控制法中財務控制與營運控制只能擇一，且適用至組織所有層級，不可混用。"
+  },
+  {
+    q: "Q10｜A公司廠區Google衛星地圖和廠區地址出現在盤查報告書中，這段描述是在說明什麼？",
+    opts:["(A) 組織邊界","(B) 報告邊界","(C) 營運邊界","(D) 盤查邊界"],
+    answer:0,
+    explain:"【答案A】組織邊界＝廠區地理資訊，以Google衛星圖和廠區地址圈地表示。報告邊界才是說明排放源的類別。（官方樣題Q15原題）"
+  },
+  {
+    q: "Q11｜依ISO 14064-1:2018，關於電力排放的處理，何者正確？",
+    opts:["(A) 外購電力只能用地點基礎計算","(B) 取得T-REC再生能源憑證可採市場基礎計算Scope 2","(C) 自行發電屬類別二（輸入能源）","(D) 外購蒸汽排放屬類別一（直接排放）"],
+    answer:1,
+    explain:"【答案B】ISO 14064-1:2018 附錄E規定，採購電力若使用含T-REC的契約文件且符合品質基準，可用市場基礎計算。(C)自行發電屬類別一。(D)外購蒸汽屬類別二。"
+  },
+  {
+    q: "Q12｜化糞池甲烷逸散量的計算，下列何者正確？",
+    opts:["(A) CH₄逸散量＝廠內人年數×0.003825公噸CH₄/人年","(B) 生活污水納管後一律不需計算化糞池排放","(C) 以每月平均員工數計算人年數","(D) 化糞池逸散屬類別二間接排放"],
+    answer:0,
+    explain:"【答案A】化糞池CH₄＝廠內人年數×0.003825 tCH₄/人年。注意：有納管但仍保留化糞池仍需計算；以12/31員工數計算；屬類別一逸散排放。"
+  },
+  {
+    q: "Q13｜某公司使用乙炔C₂H₂（分子量26）200公斤進行熔接作業，依質量平衡法計算CO₂排放量為何？",
+    opts:["(A) 676.923 公斤","(B) 67.692 公斤","(C) 338.462 公斤","(D) 以上皆非"],
+    answer:0,
+    explain:"【答案A】C₂H₂+2.5O₂→2CO₂+H₂O；每1 mole C₂H₂(26)產生2 mole CO₂(88)；200×(88/26)=676.923 kg CO₂。"
+  },
+  {
+    q: "Q14｜某工廠使用柴油20,000公升（係數2.68 kg CO₂/L）、電力500,000 kWh（係數0.527 kg CO₂/kWh），計算總CO₂排放量為何？",
+    opts:["(A) 317,100 公斤","(B) 263,500 公斤","(C) 317,100 公斤","(D) 317,100 公斤"],
+    answer:0,
+    explain:"【答案A】柴油：20,000×2.68=53,600 kg；電力：500,000×0.527=263,500 kg；總計：53,600+263,500=317,100 kg CO₂。（對應樣題Q19概念）"
+  },
+  {
+    q: "Q15｜ISO 14064-1:2018 中，特定場域數據（site-specific data）與原始數據（primary data）的關係為何？",
+    opts:["(A) 所有原始數據均為特定場域數據","(B) 所有特定場域數據均為原始數據","(C) 兩者完全不同","(D) 特定場域數據為次級數據的一種"],
+    answer:1,
+    explain:"【答案B】所有特定場域數據為原始數據，但並非所有原始數據均為特定場域數據（原始數據範圍較大）。"
+  },
+  {
+    q: "Q16｜A公司（母公司）實收資本額60億的上櫃公司，依IFRS S2規定，必須從哪一年開始申報範疇三？",
+    opts:["(A) 115年","(B) 116年","(C) 117年","(D) 118年"],
+    answer:2,
+    explain:"【答案C，即2028年】60億屬50~100億組，IFRS S2揭露從2027年（116年）起，範疇3申報從2028年（117年）。（官方樣題Q18原題）"
+  },
+  {
+    q: "Q17｜下列哪項排放源的活動數據，其單據日期應以盤查期間為準而非結帳區間？",
+    opts:["(A) 電費單（計費周期跨年度時依日數攤分）","(B) 年度員工人數（以12月31日為準）","(C) 以上皆是","(D) 以上皆非"],
+    answer:2,
+    explain:"【答案C】兩者皆正確：(A)電費單跨年度時應以實際日數比例攤分；(B)化糞池員工人年數以12/31員工數計算。皆強調以盤查期間實際日數為準。"
+  },
+  {
+    q: "Q18｜以下關於查證（Verification）的描述，何者正確？",
+    opts:["(A) 查證是針對未來計畫的合理性評估","(B) 查證標準為ISO 14064-3，保證等級分合理保證與有限保證","(C) 外部查證不需先完成內部查證","(D) 有限保證保證程度高於合理保證"],
+    answer:1,
+    explain:"【答案B】ISO 14064-3為查驗標準，保證等級有合理保證（Reasonable）和有限保證（Limited）。(A)查證針對歷史數據，確證才是未來。(C)應先完成內部再委外。(D)合理保證程度高於有限保證。"
+  },
+  {
+    q: "Q19｜下列哪種計算方式，最適合用來估算類別四（上游採購商品）的碳排放？",
+    opts:["(A) 地點基礎法（Location-based）","(B) 特定供應商法（Supplier-specific）","(C) 直接監測法","(D) 股權比例法"],
+    answer:1,
+    explain:"【答案B】類別四上游採購商品最常用特定供應商法（直接取得供應商碳足跡數據）或混合法。特定供應商法精確度最高，為優先選擇。"
+  },
+  {
+    q: "Q20｜某公司報告書描述「組織邊界涵蓋廠區內所有建物，但不含廠區內出租給第三方的倉庫」，依ISO 14064-1這樣的處理是否正確？",
+    opts:["(A) 正確，出租設施不屬組織控制，可排除","(B) 錯誤，廠區內所有設施均須納入","(C) 正確，但需另行說明排除理由","(D) 以上皆非"],
+    answer:2,
+    explain:"【答案C】出租給他人且非組織控制的設施可排除，但組織邊界地理範圍中若涵蓋非屬組織的設施，應「清楚註明並加以排除」，需文件化說明。"
+  }
+];
+
+let answered = [], correctCount = 0;
+
+function renderQuiz() {
+  const c = document.getElementById('quiz-container');
+  c.innerHTML = '';
+  answered = new Array(quizData.length).fill(false);
+  correctCount = 0;
+  document.getElementById('quiz-score').classList.remove('show');
+
+  quizData.forEach((item, idx) => {
+    const div = document.createElement('div');
+    div.className = 'quiz-item';
+    const opts = item.opts.map((o, oi) =>
+      `<button class="opt" onclick="checkAnswer(${idx},${oi})" id="opt-${idx}-${oi}">${o}</button>`
+    ).join('');
+    div.innerHTML = `
+      <div class="quiz-q">${item.q}</div>
+      <div class="options">${opts}</div>
+      <div class="explain" id="explain-${idx}">💡 ${item.explain}</div>`;
+    c.appendChild(div);
+  });
+}
+
+function checkAnswer(qIdx, optIdx) {
+  if (answered[qIdx]) return;
+  answered[qIdx] = true;
+  const correct = quizData[qIdx].answer;
+  document.querySelectorAll(`[id^="opt-${qIdx}-"]`).forEach((btn, i) => {
+    btn.disabled = true;
+    if (i === correct) btn.classList.add('correct');
+    else if (i === optIdx) btn.classList.add('wrong');
+  });
+  if (optIdx === correct) correctCount++;
+  document.getElementById(`explain-${qIdx}`).classList.add('show');
+  if (answered.every(Boolean)) {
+    document.getElementById('score-display').textContent = `${correctCount} / ${quizData.length}`;
+    document.getElementById('quiz-score').classList.add('show');
+    document.getElementById('quiz-score').scrollIntoView({ behavior:'smooth', block:'center' });
+  }
+}
+
+function resetQuiz() {
+  renderQuiz();
+  window.scrollTo({ top: document.querySelector('nav').offsetTop, behavior:'smooth' });
+}
+
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo({ top: 0, behavior:'smooth' });
+}
+
+// Print FAB
+const fab = document.getElementById('printFab');
+const tip = document.getElementById('printTip');
+fab.addEventListener('mouseenter', () => tip.classList.add('show'));
+fab.addEventListener('mouseleave', () => tip.classList.remove('show'));
+
+function printAll() {
+  document.querySelectorAll('.section').forEach(s => s.style.display = 'block');
+  document.querySelectorAll('.explain').forEach(e => e.classList.add('show'));
+  window.print();
+  setTimeout(() => {
+    document.querySelectorAll('.section').forEach(s => s.style.display = '');
+    document.querySelectorAll('.explain').forEach(e => e.classList.remove('show'));
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    const an = document.querySelector('.nav-btn.active');
+    if (an) {
+      const m = an.getAttribute('onclick').match(/'(\w+)'/);
+      if (m) { const sec = document.getElementById(m[1]); if (sec) sec.classList.add('active'); }
+    }
+  }, 800);
+}
+
+renderQuiz();
+</script>
+</body>
+</html>

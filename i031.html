@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IPAS 淨零碳管理師 ｜ 產品碳足跡管理與盤查 考試筆記</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;600&display=swap');
+
+  :root {
+    --bg: #fff;
+    --surface: #d8e2f2;
+    --surface2: #dae2ed;
+    --border: #30363d;
+    --green: #067d17;
+    --green-dim: #ebf5ee;
+    --yellow: #3f2d0a;
+    --yellow-dim: #faf9f5;
+    --red: #a80d05;
+    --red-dim: #f2e9e9;
+    --blue: #0a50a1;
+    --blue-dim: #f5f8fc;
+    --purple: #370480;
+    --purple-dim: #f3f0fa;
+    --orange: #a14c02;
+    --orange-dim: #f7eee9;
+    --text: black;
+    --text-dim: #1a5661;
+    --accent: #3fb950;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 18px;
+  }
+
+  /* ─── Header ─── */
+  .hero {
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    padding: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 20% 50%, rgba(63,185,80,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(88,166,255,0.06) 0%, transparent 50%);
+  }
+  .hero-inner { position: relative; max-width: 1800px; margin: 0 auto; }
+  .badge {
+    display: inline-block;
+    background: var(--green-dim);
+    color: var(--green);
+    border: 1px solid var(--green);
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .hero h1 {
+    font-size: 28px;
+    font-weight: 900;
+    color: black;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .hero h1 span { color: var(--green); }
+  .hero-meta {
+    color: var(--text-dim);
+    font-size: 18px;
+    display: flex; gap: 20px; flex-wrap: wrap;
+    margin-top: 12px;
+  }
+  .hero-meta span { display: flex; align-items: center; gap: 5px; }
+
+  /* ─── TOC ─── */
+  .toc-bar {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 0 8px;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .toc-inner {
+    max-width: 1800px; margin: 0 auto;
+    display: flex; gap: 0; overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .toc-inner::-webkit-scrollbar { display: none; }
+  .toc-item {
+    display: flex; align-items: center; gap: 6px;
+    padding: 8px;
+    color: var(--text-dim);
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: all .2s;
+    text-decoration: none;
+  }
+  .toc-item:hover { color: var(--text); border-bottom-color: var(--green); }
+  .toc-num {
+    background: var(--surface2);
+    color: var(--text-dim);
+    border-radius: 3px;
+    padding: 1px 5px;
+    font-size: 10px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* ─── Layout ─── */
+  .container { max-width: 1800px; margin: 0 auto; padding: 32px 32px 80px; }
+
+  /* ─── Section ─── */
+  .section {
+    margin-bottom: 10px;
+    scroll-margin-top: 10px;
+  }
+  .section-header {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 8px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #000;
+  }
+  .section-subtitle {
+    font-size: 18px;
+    color: var(--text-dim);
+    margin-top: 2px;
+  }
+
+  /* ─── Cards ─── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 12px;
+  }
+  .card {
+    background: #fafcfc;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px;
+    transition: border-color .2s;
+  }
+  .card:hover { border-color: var(--green); }
+  .card-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .card-body { font-size: 18px; color: var(--text-dim); line-height: 1.6; }
+  .card-body strong { color: var(--text); }
+
+  /* ─── Alert boxes ─── */
+  .alert {
+    border-radius: 8px;
+    padding: 8px;
+    margin-bottom: 8px;
+    border-left: 3px solid;
+    display: flex; gap: 10px;
+  }
+  .alert-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .alert-content { flex: 1; }
+  .alert-title { font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+  .alert-body { font-size: 18px; line-height: 1.6;color:#000; }
+  .alert.red { background: var(--red-dim); border-color: var(--red); }
+  .alert.red .alert-title { color: var(--red); }
+  .alert.yellow { background: var(--yellow-dim); border-color: var(--yellow); }
+  .alert.yellow .alert-title { color: var(--yellow); }
+  .alert.green { background: var(--green-dim); border-color: var(--green); }
+  .alert.green .alert-title { color: var(--green); }
+  .alert.blue { background: var(--blue-dim); border-color: var(--blue); }
+  .alert.blue .alert-title { color: var(--blue); }
+  .alert.purple { background: var(--purple-dim); border-color: var(--purple); }
+  .alert.purple .alert-title { color: #1b0466; }
+
+  /* ─── Table ─── */
+  .table-wrap { overflow-x: auto; border-radius: 8px; border: 1px solid var(--border); margin-bottom: 16px; }
+  table { width: 100%; border-collapse: collapse; font-size: 18px; }
+  thead th {
+    background: var(--surface2);
+    padding: 8px;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-dim);
+    border-bottom: 1px solid var(--border);
+  }
+  tbody tr { border-bottom: 1px solid var(--border); }
+  tbody tr:last-child { border-bottom: none; }
+  tbody td { padding: 10px 14px; color: var(--text); vertical-align: top; }
+  tbody tr:hover td { background: #edf1f5; }
+  .tag {
+    display: inline-block;
+    border-radius: 3px;
+    padding: 1px 7px;
+    font-size: 22px;
+    font-weight: 800;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .tag.green { background: var(--green-dim); color: #024216; }
+  .tag.red { background: var(--red-dim); color: #4d0a06; }
+  .tag.yellow { background: var(--yellow-dim); color: #474507; }
+  .tag.blue { background: var(--blue-dim); color: #0d264f; }
+  .tag.purple { background: var(--purple-dim); color: #351157; }
+  .tag.orange { background: var(--orange-dim); color: #694704; }
+
+  /* ─── Flow chart ─── */
+  .flow {
+    display: flex; align-items: center; flex-wrap: wrap;
+    gap: 0; margin: 16px 0;
+  }
+  .flow-step {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
+    text-align: center;
+    min-width: 80px;
+  }
+  .flow-arrow {
+    color: var(--text-dim);
+    font-size: 18px;
+    padding: 0 6px;
+  }
+  .flow-step.active { background: var(--green-dim); border-color: var(--green); color: var(--green); }
+
+  /* ─── Number boxes ─── */
+  .num-list { display: flex; flex-direction: column; gap: 10px; }
+  .num-item { display: flex; gap: 12px; align-items: flex-start; }
+  .num-badge {
+    width: 24px; height: 24px; border-radius: 6px;
+    background: var(--green-dim); color: var(--green);
+    border: 1px solid var(--green);
+    font-size: 18px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 1px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .num-text { font-size: 18px; color: var(--text); line-height: 1.6; }
+  .num-text strong { color: #0c8243; }
+
+  /* ─── Q&A mock ─── */
+  .qa-block { margin-bottom: 16px; }
+  .qa-q {
+    background: #edf1f5;
+    border: 1px solid var(--border);
+    border-radius: 8px 8px 0 0;
+    padding: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
+    display: flex; gap: 10px;
+  }
+  .qa-q::before { content: 'Q'; background: var(--blue-dim); color: var(--blue); border-radius: 3px; padding: 0 6px; font-family: 'JetBrains Mono', monospace; font-size: 18px; display: flex; align-items: center; flex-shrink: 0; }
+  .qa-a {
+    background: #fafbfc;
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    padding: 8px;
+    font-size: 18px;
+    color: #092745;
+    display: flex; gap: 10px;
+  }
+  .qa-a::before { content: 'A'; background: var(--green-dim); color: var(--green); border-radius: 3px; padding: 0 6px; font-family: 'JetBrains Mono', monospace; font-size: 18px; display: flex; align-items: center; flex-shrink: 0; }
+  .qa-ans-key { color: #047d36; font-weight: 700; }
+
+  /* ─── Sub-section ─── */
+  .sub-section { margin-bottom: 24px; }
+  .sub-title {
+    font-size: 18px; font-weight: 700;
+    color: black;
+    margin-bottom: 8px;
+    padding-left: 8px;
+    border-left: 3px solid var(--green);
+  }
+
+  /* ─── 2-col ─── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media(max-width:600px) { .two-col { grid-template-columns: 1fr; } }
+
+  /* ─── code ─── */
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 1px 6px;
+    font-size: 18px;
+    color: #000;
+  }
+
+  /* ─── highlight ─── */
+  mark { background: var(--yellow-dim); color: #000; border-radius: 2px; padding:6px; }
+  .hl-red { color: var(--red); font-weight: 700; }
+  .hl-green { color: var(--green); font-weight: 700; }
+  .hl-blue { color: var(--blue); font-weight: 700; }
+  .hl-yellow { color: var(--yellow); font-weight: 700; }
+  .hl-orange { color: var(--orange); font-weight: 700; }
+  .hl-purple { color: var(--purple); font-weight: 700; }
+
+  /* ─── compact list ─── */
+  ul.compact { padding-left: 10px; }
+  ul.compact li { font-size: 18px; color: #000; margin-bottom: 5px; line-height: 1.5; }
+  ul.compact li strong { color: var(--text); }
+
+  /* ─── formula ─── */
+  .formula {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px;
+    color: #000;
+    margin: 8px 0;
+    text-align: center;
+  }
+
+  /* ─── Comparison strip ─── */
+  .compare {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+  .compare-cell {
+    background: #fafbfc;
+    padding: 8px;
+  }
+  .compare-cell.head { background: var(--surface2); }
+  .compare-label { font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-dim); margin-bottom: 4px; }
+  .compare-val { font-size: 18px; color: var(--text); font-weight: 600; }
+  .compare-val.green { color: var(--green); }
+  .compare-val.red { color: var(--red); }
+  .compare-val.yellow { color: var(--yellow); }
+
+  /* ─── Tip ─── */
+  .tip {
+    font-size: 18px;
+    color: #941a01;
+    padding: 4px 0 4px 8px;
+    border-left: 2px solid var(--border);
+    margin-top: 8px;
+  }
+
+  hr.divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 24px 0;
+  }
+
+  .print-btn {
+    position: fixed; bottom: 24px; right: 24px;
+    background: var(--green); color: #000;
+    border: none; border-radius: 8px;
+    padding: 10px 18px; font-size: 18px; font-weight: 700;
+    cursor: pointer; z-index: 200;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+  .print-btn:hover { background: #52c95a; }
+
+  @media print {
+    body { background: #fff; color: #111; font-size: 18px; }
+    .toc-bar, .print-btn { display: none; }
+    .hero { background: #f0f8f0; border-color: #ccc; }
+    .hero h1 { color: #111; }
+    
+  }
+</style>
+</head>
+<body>
+
+
+<div class="container">
+
+<!-- ══════════════════════ 01 核心名詞 ══════════════════════ -->
+<section class="section" id="s1">
+<h1>產品碳足跡管理與盤查<br><span>CFP Management & Inventory</span></h1>   
+  <div class="section-header">  
+    <div class="section-icon" style="background:#1a4a28">🔑</div>
+    <div class="section-title">01 ─ 核心名詞速記表</div>     
+   
+  </div>
+
+  <div class="alert yellow">
+    <div class="alert-icon">⚡</div>
+    <div class="alert-content">
+      <div class="alert-title">考試必背數字</div>
+      <div class="alert-body">
+        <span class="hl-yellow">顯著性門檻 3%</span>（基準年需重算）　
+        <span class="hl-red">實質性門檻 5%</span>（查證容許誤差）　
+        <span class="hl-green">排除門檻 0.5%</span>（小排放可簡化）　
+        <span class="hl-blue">80% 法則</span>（最重要過程需涵蓋）　
+        <span class="hl-orange">CH₄ GWP = 27.9</span>　<span class="hl-orange">N₂O GWP = 273</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>名詞 / 縮寫</th>
+          <th>白話解釋</th>
+          <th>常考數字 / 要點</th>
+          <th>最易混淆</th>
+          <th>記憶口訣</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>CFP</strong><br><span style="color:var(--text-dim)">產品碳足跡</span></td>
+          <td>一個產品一生排多少 CO₂e</td>
+          <td>以 CO₂e 表示；只關注氣候變遷</td>
+          <td>不只算工廠，要含整條生命週期</td>
+          <td><mark>產品的一生</mark></td>
+        </tr>
+        <tr>
+          <td><strong>搖籃到墳墓</strong><br><span style="color:var(--text-dim)">Cradle to Grave</span></td>
+          <td>原料取得 → 廢棄處理 全算</td>
+          <td>B2C 產品使用此邊界</td>
+          <td>vs 搖籃到大門（不含消費）</td>
+          <td><mark>全生命週期</mark></td>
+        </tr>
+        <tr>
+          <td><strong>搖籃到大門</strong><br><span style="color:var(--text-dim)">Cradle to Gate</span></td>
+          <td>原料 → 工廠出貨</td>
+          <td><strong>B2B 半成品</strong>用此邊界</td>
+          <td>不含使用與廢棄階段</td>
+          <td><mark>只到出廠</mark></td>
+        </tr>
+        <tr>
+          <td><strong>大門到大門</strong><br><span style="color:var(--text-dim)">Gate to Gate</span></td>
+          <td>單一工廠廠內製程</td>
+          <td>範圍最小的系統邊界</td>
+          <td>只看廠內，不含上下游</td>
+          <td><mark>只算廠內</mark></td>
+        </tr>
+        <tr>
+          <td><strong>FU</strong><br><span style="color:var(--text-dim)">功能單位</span></td>
+          <td>比較的基準單位</td>
+          <td>完整 CFP 用功能單位；部分 CFP 用宣告單位</td>
+          <td>比較時必須<strong>同 FU</strong></td>
+          <td><mark>比較一定要同FU</mark></td>
+        </tr>
+        <tr>
+          <td><strong>LCI</strong><br><span style="color:var(--text-dim)">生命週期盤查</span></td>
+          <td>收集投入與產出數據</td>
+          <td>LCA 第二個階段</td>
+          <td>≠ LCIA（後者是評估影響）</td>
+          <td><mark>收集資料</mark></td>
+        </tr>
+        <tr>
+          <td><strong>LCIA</strong><br><span style="color:var(--text-dim)">生命週期衝擊評估</span></td>
+          <td>評估對環境的傷害大小</td>
+          <td>LCA 第三個階段</td>
+          <td>CFP 只取氣候變遷一項衝擊類別</td>
+          <td><mark>評估傷害</mark></td>
+        </tr>
+        <tr>
+          <td><strong>PCR</strong><br><span style="color:var(--text-dim)">產品類別規則</span></td>
+          <td>針對特定產品的計算規則</td>
+          <td>有 PCR 就<strong class="hl-red">必須採用</strong></td>
+          <td>各產品類別規則不同</td>
+          <td><mark>不同產品不同規則</mark></td>
+        </tr>
+        <tr>
+          <td><strong>一級數據</strong><br><span style="color:var(--text-dim)">Primary Data</span></td>
+          <td>直接量測取得的數據</td>
+          <td>財務或作業管制範圍內<strong>應優先</strong>使用</td>
+          <td>≠ 場址特定數據（場址數據是一級的子集）</td>
+          <td><mark>自己量</mark></td>
+        </tr>
+        <tr>
+          <td><strong>二級數據</strong><br><span style="color:var(--text-dim)">Secondary Data</span></td>
+          <td>資料庫、文獻中取得的數據</td>
+          <td>一級取不到才用；使用<strong>需說明理由並標來源</strong></td>
+          <td>≠ 公開數據（還須符合品質要求）</td>
+          <td><mark>借用數據</mark></td>
+        </tr>
+        <tr>
+          <td><strong>GWP100</strong><br><span style="color:var(--text-dim)">全球暖化潛勢</span></td>
+          <td>不同溫室氣體轉換成 CO₂e 的倍數</td>
+          <td>CO₂=1, CH₄=<span class="hl-orange">27.9</span>, N₂O=<span class="hl-orange">273</span>, SF₆=<span class="hl-orange">24,300</span></td>
+          <td>是 100 年時間範圍（非 20 年）</td>
+          <td><mark>換算倍率</mark></td>
+        </tr>
+        <tr>
+          <td><strong>碳抵換</strong><br><span style="color:var(--text-dim)">Carbon Offsetting</span></td>
+          <td>在系統外補償排放</td>
+          <td><strong class="hl-red">不得包含在 CFP 計算中</strong></td>
+          <td>與碳移除不同</td>
+          <td><mark>系統外才算抵換</mark></td>
+        </tr>
+        <tr>
+          <td><strong>生質碳 vs 化石碳</strong></td>
+          <td>生物循環 vs 地質碳庫</td>
+          <td>兩者須<strong>分開列報</strong>，不可加總</td>
+          <td>泥煤 ≠ 生質碳（泥煤不算生質）</td>
+          <td><mark>分開列報</mark></td>
+        </tr>
+        <tr>
+          <td><strong>dLUC / iLUC</strong><br><span style="color:var(--text-dim)">土地利用變化</span></td>
+          <td>農地/林地轉變用途產生的排放</td>
+          <td>直接 = 系統界限內；間接 = 界限外</td>
+          <td>需在報告中分開揭露</td>
+          <td><mark>直接/間接土地變化</mark></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert red">
+    <div class="alert-icon">🚨</div>
+    <div class="alert-content">
+      <div class="alert-title">最高頻混淆陷阱</div>
+      <div class="alert-body">
+        <strong>碳抵換不算入 CFP</strong>（系統外才是抵換）　|　
+        <strong>LCI ≠ LCIA</strong>（前者收集數據，後者評估影響）　|　
+        <strong>功能單位用於完整 CFP；宣告單位用於部分 CFP（B2B）</strong>　|　
+        <strong>泥煤 ≠ 生質碳</strong>（泥煤屬化石類別）　|　
+        <strong>PCR 有就必須用</strong>（非選擇性）
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ 02 國際趨勢 ══════════════════════ -->
+<section class="section" id="s2">
+  <div class="section-header">
+    <div class="section-icon" style="background:#0d2a4a">🌐</div>
+    
+      <div class="section-title">02 ─ 國際趨勢與法規壓力</div>
+      <div class="section-subtitle">出題最愛的時事情境題</div>
+    
+  </div>
+
+  <div class="alert blue">
+    <div class="alert-icon">📌</div>
+    <div class="alert-content">
+      <div class="alert-title">考試時事情境高頻區</div>
+      <div class="alert-body">歐盟 CBAM、RE100、金管會盤查要求、氣候變遷因應法、碳費制度 — 這五個幾乎每屆必考情境</div>
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-title"><span class="tag blue">CBAM</span> 歐盟碳關稅</div>
+      <div class="card-body">
+        <strong>正式施行：2027年</strong><br>
+        進口商須購買碳憑證，負擔超出標竿值之碳排量。<br>
+        美、日亦研議立法中。<br>
+        <span class="tip">💡 情境題：台灣鋼鐵廠出口至歐盟，需計算哪個 Scope？→ Scope 1+2 直接排放</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="tag green">RE100</span> 再生能源承諾</div>
+      <div class="card-body">
+        <strong>2050年前達成100%使用綠電</strong><br>
+        Apple、TSMC 等品牌廠商要求供應商配合。<br>
+        影響台灣科技製造業供應鏈。<br>
+        <span class="tip">💡 情境題：客戶要求提供碳足跡報告，應使用哪個標準？→ ISO 14067</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="tag yellow">氣候法</span> 氣候變遷因應法</div>
+      <div class="card-body">
+        <strong>第37條：一定規模產品須申請核定碳足跡</strong><br>
+        <strong>第54條：違反罰鍰 10萬～100萬元</strong><br>
+        碳費徵收對象：直接排放及電力間接排放 <span class="hl-yellow">&gt; 2.5萬噸 CO₂e</span><br>
+        <span class="tip">💡 情境題：公司未於指定期限申請碳足跡核定，最高罰多少？→ 100萬元</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="tag orange">金管會</span> 上市櫃公司</div>
+      <div class="card-body">
+        <strong>2027年：完成溫室氣體盤查</strong>（與財報範圍一致）<br>
+        <strong>2029年：完成查證</strong><br>
+        <span class="tip">💡 情境題：上市公司 2025 年被要求提交盤查報告，需達成什麼？→ 須完成組織碳盤查（非產品碳足跡）</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="tag purple">節能法規</span> 用電管制</div>
+      <div class="card-body">
+        契約用電 <strong>801~10,000 瓩</strong>：年節電率 1%<br>
+        超過 <strong>10,000 瓩</strong>：年節電率提升 1.5%<br>
+        契約用電 <strong>5,000 瓩以上</strong>：115年前完成 10% 再生能源裝置容量
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="tag red">台灣現況</span> 溫室氣體排放</div>
+      <div class="card-body">
+        台灣排放峰值：<span class="hl-red">2007年</span><br>
+        全球已有 145/198 個國家宣示 2050 淨零<br>
+        IEA：目前技術尚不足以達成 2050 淨零，需同時從供需端發展
+      </div>
+    </div>
+  </div>
+
+  <div class="alert green">
+    <div class="alert-icon">🏭</div>
+    <div class="alert-content">
+      <div class="alert-title">農場農業情境（農產品碳足跡題型）</div>
+      <div class="alert-body">
+        有機農場計算稻米碳足跡時，需考量：施肥用量（CH₄ + N₂O）、灌溉用電、農藥運輸、稻穀乾燥能耗、廢棄稻草處理。<br>
+        若農場有蔬果，使用階段排放通常<strong>不計入（B2B情境）</strong>，但銷售至消費者（B2C）需計至廢棄。<br>
+        <strong>食農教育活動計算服務碳足跡</strong>：包含場地用電、交通、餐食消耗三大來源。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ 03 LCA 四階段 ══════════════════════ -->
+<section class="section" id="s3">
+  <div class="section-header">
+    <div class="section-icon" style="background:#1a2a3a">🔄</div>
+    <div>
+      <div class="section-title">03 ─ 生命週期評估（LCA）四階段</div>
+      <div class="section-subtitle">ISO 14040/14044 核心架構</div>
+    </div>
+  </div>
+
+  <div class="flow">
+    <div class="flow-step active">① 目標與<br>範疇界定</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step active">② 生命週期<br>盤查（LCI）</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step active">③ 衝擊評估<br>（LCIA）</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step active">④ 生命週期<br>闡釋</div>
+    <div class="flow-arrow" style="transform:rotate(90deg)">↺</div>
+    <div class="flow-step" style="font-size:18px">反覆迭代</div>
+  </div>
+
+  <div class="two-col">
+    <div class="sub-section">
+      <div class="sub-title">① 目標與範疇界定</div>
+      <div class="num-list">
+        <div class="num-item"><div class="num-badge">1</div><div class="num-text"><strong>功能與功能單位</strong>：量化績效的參考單位（乾燥一雙手）</div></div>
+        <div class="num-item"><div class="num-badge">2</div><div class="num-text"><strong>系統界限</strong>：決定哪些單元過程納入，須說明排除原因</div></div>
+        <div class="num-item"><div class="num-badge">3</div><div class="num-text"><strong>數據品質要求</strong>：時間、地理、技術、精密度、完整性</div></div>
+        <div class="num-item"><div class="num-badge">4</div><div class="num-text"><strong>系統間比較</strong>：需採相同功能單位，評估對等性</div></div>
+        <div class="num-item"><div class="num-badge">5</div><div class="num-text"><strong>關鍵性審查</strong>：確認與 ISO 標準一致性（ISO/TS 14071）</div></div>
+      </div>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">② LCI 盤查分析</div>
+      <div class="num-list">
+        <div class="num-item"><div class="num-badge">a</div><div class="num-text">數據蒐集</div></div>
+        <div class="num-item"><div class="num-badge">b</div><div class="num-text">數據確證</div></div>
+        <div class="num-item"><div class="num-badge">c</div><div class="num-text">數據與功能單位關聯</div></div>
+        <div class="num-item"><div class="num-badge">d</div><div class="num-text">改善系統界限</div></div>
+        <div class="num-item"><div class="num-badge">e</div><div class="num-text">分配（Allocation）</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title">③ LCIA 衝擊評估</div>
+      <div class="card-body">
+        <strong>步驟：分類 → 特徵化 → 權重</strong><br>
+        CFP 只取<span class="hl-green">氣候變遷</span>這一個衝擊類別<br>
+        使用 <span class="hl-orange">GWP100</span> 進行特徵化計算<br>
+        <strong>公式：</strong>排放量（kg）× GWP100 = CO₂e 量
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">④ 生命週期闡釋</div>
+      <div class="card-body">
+        合併 LCI + LCIA 觀察結果<br>
+        步驟：<strong>重大議題鑑別 → 完整性/敏感度分析 → 結論與建議</strong><br>
+        闡釋結果須反映敏感度分析<br>
+        得採反覆方式修訂範疇
+      </div>
+    </div>
+  </div>
+
+  <div class="alert yellow">
+    <div class="alert-icon">⚠️</div>
+    <div class="alert-content">
+      <div class="alert-title">LCA 重要限制（考試陷阱）</div>
+      <div class="alert-body">
+        LCA 只能說「A 產品比 B 產品對環境衝擊更小」，<strong class="hl-red">無法判斷某產品是否「足夠永續」或「好到足夠」</strong>。<br>
+        CFP 只關注氣候變遷（全球暖化），<strong>不評估</strong>水足跡、生態毒性、社會衝擊等。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ 04 ISO 14067 重點 ══════════════════════ -->
+<section class="section" id="s4">
+  <div class="section-header">
+    <div class="section-icon" style="background:#2a1a4a">📐</div>
+    <div>
+      <div class="section-title">04 ─ ISO 14067:2018 條文重點</div>
+      <div class="section-subtitle">CNS 14067 五大原則 + 系統界限 + 分配程序</div>
+    </div>
+  </div>
+
+  <div class="sub-section">
+    <div class="sub-title">五大核心原則（5.5～5.12）</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>條文</th><th>原則</th><th>一句說明</th><th>考試重點</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>5.5</code></td><td><span class="hl-green">科學方法優先</span></td><td>自然科學優先；無法時用其他科學或國際公約</td><td>強調不能純憑價值選擇</td></tr>
+          <tr><td><code>5.7</code></td><td><span class="hl-blue">完整性</span></td><td>納入所有有重大貢獻的 GHG 排放與移除</td><td>依截斷準則決定納入範圍</td></tr>
+          <tr><td><code>5.8</code></td><td><span class="hl-yellow">一致性</span></td><td>整個研究的假設、方法、數據用法相同</td><td>績效追蹤時前後須一致</td></tr>
+          <tr><td><code>5.10</code></td><td><span class="hl-orange">準確度</span></td><td>儘量減少偏差與不確定性</td><td>數據需可查證</td></tr>
+          <tr><td><code>5.11</code></td><td><span class="hl-purple">透明度</span></td><td>公開、全面說明假設與數據來源</td><td>與第三方查證相關</td></tr>
+          <tr><td><code>5.12</code></td><td><span class="hl-red">避免重複計算</span></td><td>同一 GHG 排放只分配一次</td><td>分配(Allocation)的核心原則</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div> 
+
+  <div class="sub-section">
+    <div class="sub-title">系統界限設定（6.3.4）</div>
+    <div class="compare">
+      <div class="compare-cell head"><div class="compare-label">邊界類型</div></div>
+      <div class="compare-cell head"><div class="compare-label">適用情境</div></div>
+      <div class="compare-cell head"><div class="compare-label">包含階段</div></div>
+      <div class="compare-cell"><div class="compare-val green">搖籃到墳墓</div></div>
+      <div class="compare-cell"><div class="compare-val">B2C（消費品）</div></div>
+      <div class="compare-cell"><div class="compare-val">原料 + 製造 + 配送 + 使用 + 廢棄（共5階段）</div></div>
+      <div class="compare-cell"><div class="compare-val yellow">搖籃到大門</div></div>
+      <div class="compare-cell"><div class="compare-val">B2B（半成品/零件）</div></div>
+      <div class="compare-cell"><div class="compare-val">原料 + 製造（共2階段，缺使用與廢棄）</div></div>
+      <div class="compare-cell"><div class="compare-val red">大門到大門</div></div>
+      <div class="compare-cell"><div class="compare-val">廠內製程分析</div></div>
+      <div class="compare-cell"><div class="compare-val">僅製造階段</div></div>
+    </div>
+    <div class="alert red">
+      <div class="alert-icon">🚫</div>
+      <div class="alert-content">
+        <div class="alert-title">重要禁止事項</div>
+        <div class="alert-body"><strong>碳抵換不得包含在 CFP 或部分 CFP 計算中</strong>（6.3.4.1）。碳抵換屬系統界限外的補償機制，溝通時需在 CFP 結果之外單獨揭露。</div>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <div class="sub-section">
+    <div class="sub-title">截斷準則 vs 實質性門檻（高頻混淆）</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>名稱</th><th>數值</th><th>意義</th><th>使用場合</th></tr></thead>
+        <tbody>
+          <tr><td><strong>截斷準則</strong><br>Cut-off Criteria</td><td>—（依研究決定）</td><td>微不足道的排放可排除，但需說明</td><td>設定系統界限時</td></tr>
+          <tr><td><strong>排除門檻</strong></td><td><span class="hl-green">0.5%</span></td><td>單一材料或能量流貢獻極小可簡化</td><td>PCR中常見設定</td></tr>
+          <tr><td><strong>實質性門檻</strong></td><td><span class="hl-red">5%</span></td><td>查證容許誤差；超過視為實質不一致</td><td>第三方查證</td></tr>
+          <tr><td><strong>顯著性門檻</strong></td><td><span class="hl-yellow">3%</span></td><td>數據變動超過此值，基準年須重新計算</td><td>績效追蹤基準年設定</td></tr>
+          <tr><td><strong>80% 法則</strong></td><td><span class="hl-blue">80%</span></td><td>最重要過程加總至覆蓋80%以上需使用一級數據</td><td>場址特定數據要求</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  
+
+  <div class="sub-section">
+    <div class="sub-title">分配程序（6.4.6）─ 三步驟</div>
+    <div class="num-list">
+      <div class="num-item">
+        <div class="num-badge">1</div>
+        <div class="num-text"><strong>優先拆分或擴大系統</strong>：將單元過程拆成子過程，分別計算 — 避免分配</div>
+      </div>
+      <div class="num-item">
+        <div class="num-badge">2</div>
+        <div class="num-text"><strong>依實質關係分配</strong>：質量、能量等物理基礎 — 如按重量比</div>
+      </div>
+      <div class="num-item">
+        <div class="num-badge">3</div>
+        <div class="num-text"><strong>依其他關係分配</strong>：若無法依物理，改以<strong>經濟價值</strong>（經濟分配）</div>
+      </div>
+    </div>
+    <div class="alert yellow">
+      <div class="alert-icon">💡</div>
+      <div class="alert-content">
+        <div class="alert-title">常見分配情境（PCR 規定）</div>
+        <div class="alert-body">
+          PCR 常見分配基礎：<span class="hl-yellow">質量 / 重量 / 體積 / 工時 / 經濟價值</span><br>
+          工廠生產 A、B 兩產品共用用電：若製造時間相同 → 依個數分配；若 A 製造時間是 B 兩倍 → 依製造時間分配
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <div class="sub-section">
+    <div class="sub-title">生質碳 vs 化石碳 vs 泥煤（超容易考）</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>類型</th><th>來源</th><th>是否生質</th><th>時間尺度</th><th>CFP 處理</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="tag green">生質碳</span></td>
+            <td>樹木、農作物、藻類、動物有機殘體</td>
+            <td><span class="hl-green">✓ 是</span></td>
+            <td>年～數十年</td>
+            <td><strong>分開列報</strong>（不與化石碳加總）</td>
+          </tr>
+          <tr>
+            <td><span class="tag yellow">泥煤</span></td>
+            <td>植物在濕地缺氧環境長期累積</td>
+            <td><span class="hl-red">✗ 否</span></td>
+            <td>百～千年</td>
+            <td>視同化石碳處理</td>
+          </tr>
+          <tr>
+            <td><span class="tag red">化石碳</span></td>
+            <td>石油、煤炭、天然氣</td>
+            <td><span class="hl-red">✗ 否</span></td>
+            <td>百萬年以上</td>
+            <td>直接計入 CFP</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="formula">
+      生質碳進入產品系統 → 特徵化係數 = -1 kg CO₂e / kg CO₂
+      生物源 CO₂ 排放 → 特徵化係數 = +1 kg CO₂e / kg CO₂
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ 05 PCR ══════════════════════ -->
+<section class="section" id="s5">
+  <div class="section-header">
+    <div class="section-icon" style="background:#2a1a0a">📋</div>
+    <div>
+      <div class="section-title">05 ─ 產品類別規則（PCR）</div>
+      <div class="section-subtitle">有 PCR 必須用 · 台灣碳足跡計算網</div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div>
+      <div class="sub-title">PCR 基本認識</div>
+      <ul class="compact">
+        <li>PCR = 為一個或多個<strong>產品類別</strong>制定的特定規則、要求與指引</li>
+        <li>有相關 PCR 或 CFP-PCR 存在時，<span class="hl-red">應予採用（強制）</span></li>
+        <li>PCR <strong>沒有全球共通</strong>，碳標籤與查證聲明也沒有全球互相承認機制</li>
+        <li>國際 EPD® 系統目前在全球 40 多個國家使用</li>
+        <li>台灣 PCR 下載：<code>cfp-calculate.tw</code> → 環境部</li>
+      </ul>
+    </div>
+    <div>
+      <div class="sub-title">PCR 指定四類系統邊界</div>
+      <ul class="compact">
+        <li><strong>Boundary in time</strong>：時間邊界（通常以整年為基準）</li>
+        <li><strong>Boundary toward nature</strong>：自然邊界</li>
+        <li><strong>Boundaries in the life cycle</strong>：生命週期邊界</li>
+        <li><strong>Boundary towards other technical systems</strong>：技術系統邊界</li>
+        <li><strong>Boundaries regarding geographical coverage</strong>：地理邊界</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="alert green">
+    <div class="alert-icon">📌</div>
+    <div class="alert-content">
+      <div class="alert-title">PCR 數據蒐集規定（重要考點）</div>
+      <div class="alert-body">
+        ① 數據蒐集期間以<strong>一年為基準</strong>（稼定生產產品），季節性產品取<strong>最近一批</strong><br>
+        ② 分配基礎：質量、進料量、重量、工時或<strong>經濟價值</strong><br>
+        ③ 不具實質性貢獻排放源加總<span class="hl-red">不得超過 5%</span><br>
+        ④ 原料取得階段：若製造排放 &lt; 整體 10%，則原料取得階段必須納入一級數據（累積至超過 10%）<br>
+        ⑤ 多家供應商時：一級數據至少涵蓋供應原料占比加總<strong>超過 50%</strong>的供應商
+      </div>
+    </div>
+  </div>
+
+  <div class="sub-section">
+    <div class="sub-title">B2C vs B2B 系統邊界對比</div>
+    <div class="compare">
+      <div class="compare-cell head"><div class="compare-label">項目</div></div>
+      <div class="compare-cell head"><div class="compare-label">B2C（消費品）</div></div>
+      <div class="compare-cell head"><div class="compare-label">B2B（零件/半成品）</div></div>
+      <div class="compare-cell"><div class="compare-val">邊界</div></div>
+      <div class="compare-cell"><div class="compare-val green">搖籃到墳墓（5階段）</div></div>
+      <div class="compare-cell"><div class="compare-val yellow">搖籃到大門（2~3階段）</div></div>
+      <div class="compare-cell"><div class="compare-val">計算單位</div></div>
+      <div class="compare-cell"><div class="compare-val">功能單位（Functional Unit）</div></div>
+      <div class="compare-cell"><div class="compare-val">宣告單位（Declared Unit）</div></div>
+      <div class="compare-cell"><div class="compare-val">比較方式</div></div>
+      <div class="compare-cell"><div class="compare-val">對消費者溝通有效</div></div>
+      <div class="compare-cell"><div class="compare-val">僅限企業間比較</div></div>
+      <div class="compare-cell"><div class="compare-val">例子</div></div>
+      <div class="compare-cell"><div class="compare-val">瓶裝水、電視機</div></div>
+      <div class="compare-cell"><div class="compare-val">液晶面板模組、車用零件</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ 06 數據收集 ══════════════════════ -->
+<section class="section" id="s6">
+  <div class="section-header">
+    <div class="section-icon" style="background:#1a3a2a">📊</div>
+    <div>
+      <div class="section-title">06 ─ 數據收集與整理要領</div>
+      <div class="section-subtitle">活動數據 × 排放係數 × 常見錯誤</div>
+    </div>
+  </div>
+
+  <div class="formula">
+    CFP = Σ（活動數據 × GHG 排放係數 × GWP100）
+  </div>
+
+  <div class="two-col">
+    <div>
+      <div class="sub-title">數據優先順序</div>
+      <div class="num-list">
+        <div class="num-item"><div class="num-badge">1</div><div class="num-text"><strong>場址特定一級數據</strong>（財務或作業管制範圍內的直接量測）</div></div>
+        <div class="num-item"><div class="num-badge">2</div><div class="num-text"><strong>第三方查證的一級數據</strong>（供應商提供，無法現場量測時）</div></div>
+        <div class="num-item"><div class="num-badge">3</div><div class="num-text"><strong>二級數據</strong>（資料庫/文獻，用於不重要過程，需標明來源）</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="sub-title">二級數據來源（台灣常用）</div>
+      <ul class="compact">
+        <li>環境部 <strong>產品碳足跡資訊網</strong>（cfp-calculate.tw）</li>
+        <li>荷蘭 SimaPro LCA 軟體</li>
+        <li>德國 GaBi 軟體</li>
+        <li>工研院 DoItPro</li>
+        <li>日本（付費）、韓國、美國（僅清冊）</li>
+      </ul>
+    </div>
+  </div>
+
+  
+
+  <div class="sub-section">
+    <div class="sub-title">各階段活動數據類型</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>生命週期階段</th><th>需蒐集數據</th><th>注意事項</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="tag green">原料取得</span></td>
+            <td>主原料/副原料/耗材/包裝材 + 各原料運輸</td>
+            <td>優先一級；無法取得再用二級</td>
+          </tr>
+          <tr>
+            <td><span class="tag blue">製造</span></td>
+            <td>電力/燃料/用水/廢水/廢棄物/冷媒洩漏/空氣污染</td>
+            <td>電費單為前兩個月數據，注意跨月</td>
+          </tr>
+          <tr>
+            <td><span class="tag yellow">配送銷售</span></td>
+            <td>工廠到第一配送點的運輸（距離、運具、載重）</td>
+            <td>批發商到消費者通常不計入</td>
+          </tr>
+          <tr>
+            <td><span class="tag orange">使用</span></td>
+            <td>消費者使用過程中能耗（依使用說明推算）</td>
+            <td>B2B 通常不含此階段</td>
+          </tr>
+          <tr>
+            <td><span class="tag red">廢棄處理</span></td>
+            <td>回收率/焚化/掩埋/甲烷逸散</td>
+            <td>需說明廢棄情境</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="alert red">
+    <div class="alert-icon">🔍</div>
+    <div class="alert-content">
+      <div class="alert-title">活動數據最常見錯誤（查證時必驗）</div>
+      <div class="alert-body">
+        ❶ <strong>數量級錯誤</strong>：kg vs g vs mg，多寫/少寫一個零會造成嚴重差異<br>
+        ❷ <strong>kW vs kWh 混淆</strong>（功率 vs 能量）<br>
+        ❸ <strong>公制 vs 英制</strong>：公噸 vs 英噸 / 公里 vs 英里 / 公升 vs 加侖<br>
+        ❹ <strong>電費單跨月</strong>：台灣電費單為前兩個月數據，避免期間重複計算<br>
+        ❺ <strong>實際用量 = 領用量 − 庫存量</strong>（不是採購量）<br>
+        ❻ <strong>質量平衡誤差 &gt; 10%</strong>：總投入量≠總產出量，需查明原因
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ 07 計算與報告 ══════════════════════ -->
+<section class="section" id="s7">
+  <div class="section-header">
+    <div class="section-icon" style="background:#3a1a2a">📝</div>
+    <div>
+      <div class="section-title">07 ─ 計算流程與報告書要求</div>
+      <div class="section-subtitle">CFP 實施七步驟 + 報告必要資訊</div>
+    </div>
+  </div>
+
+  <div class="sub-section">
+    <div class="sub-title">CFP 盤查七步驟</div>
+    <div class="num-list">
+      <div class="num-item"><div class="num-badge">1</div><div class="num-text"><strong>設定目標</strong>：法規要求？客戶宣告？內部績效管理？明確應用目的</div></div>
+      <div class="num-item"><div class="num-badge">2</div><div class="num-text"><strong>擇定標的產品</strong>與功能單位（B2C → 功能單位；B2B → 宣告單位）</div></div>
+      <div class="num-item"><div class="num-badge">3</div><div class="num-text"><strong>繪製製程流程圖</strong>：列出所有投入/產出，對應生產品管流程圖</div></div>
+      <div class="num-item"><div class="num-badge">4</div><div class="num-text"><strong>建立系統邊界</strong>：依 PCR 規定，設定時間/地理/生命週期/技術邊界</div></div>
+      <div class="num-item"><div class="num-badge">5</div><div class="num-text"><strong>蒐集活動數據</strong>：一級優先，不可得才用二級；供應商邀請參與盤查</div></div>
+      <div class="num-item"><div class="num-badge">6</div><div class="num-text"><strong>計算各階段排放</strong>：活動數據 × 排放係數 × GWP100，加總各生命週期階段</div></div>
+      <div class="num-item"><div class="num-badge">7</div><div class="num-text"><strong>撰寫 CFP 研究報告</strong>（含闡釋與限制說明）→ 申請第三方查證 → 碳標籤</div></div>
+    </div>
+  </div>
+
+  
+
+  <div class="sub-section">
+    <div class="sub-title">CFP 報告書必要內容（7.3條，重要！）</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-title" style="color:var(--blue)">基本資訊</div>
+        <ul class="compact">
+          <li>功能/宣告單位與參考流</li>
+          <li>系統界限（含投入/產出類型）</li>
+          <li>重要單元過程清冊</li>
+          <li>數據蒐集來源</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title" style="color:var(--green)">方法資訊</div>
+        <ul class="compact">
+          <li>溫室氣體清冊（七種 GHG）</li>
+          <li>選定的特徵化因子（GWP100）</li>
+          <li>截斷準則與截斷點</li>
+          <li>選定的分配方法</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title" style="color:var(--yellow)">結果資訊</div>
+        <ul class="compact">
+          <li>各主要生命週期階段 GHG（絕對+相對）</li>
+          <li>化石碳淨 GHG 排放（分開）</li>
+          <li>生物碳淨 GHG 排放（分開）</li>
+          <li>dLUC 排放（分開）</li>
+          <li>航空器運輸 GHG（分開）</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title" style="color:var(--orange)">分析資訊</div>
+        <ul class="compact">
+          <li>敏感度分析與不確定性評估</li>
+          <li>電網排放因子計算</li>
+          <li>生命週期闡釋結論與限制</li>
+          <li>價值選擇的揭露與理由</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <div class="sub-section">
+    <div class="sub-title">第三方查證 vs 碳標籤</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>項目</th><th>第三方查證</th><th>台灣碳標籤</th></tr></thead>
+        <tbody>
+          <tr><td>執行者</td><td>查證機構（ISO 14065 認可）</td><td>環境部審核後核發</td></tr>
+          <tr><td>標準</td><td>ISO 14064-3</td><td>ISO 14067 + CFP-PCR</td></tr>
+          <tr><td>意義</td><td>確認計算方法與數據符合標準</td><td>驗證後才能貼標籤</td></tr>
+          <tr><td>全球互認</td><td><span class="hl-red">無自動互認機制</span></td><td><span class="hl-red">需管理單位協商</span></td></tr>
+          <tr><td>實質性門檻</td><td><span class="hl-red">5%</span>（超過視為不符）</td><td>依查證報告</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ 08 模擬題庫 ══════════════════════ -->
+<section class="section" id="s8">
+  <div class="section-header">
+    <div class="section-icon" style="background:#1a0d0d">🎯</div>
+    <div>
+      <div class="section-title">08 ─ 模擬題庫 × 情境題型</div>
+      <div class="section-subtitle">依出題委員視角整理 · 含陷阱解析</div>
+    </div>
+  </div>
+
+  <div class="alert purple">
+    <div class="alert-icon">🏆</div>
+    <div class="alert-content">
+      <div class="alert-title">出題委員最愛的五種題型</div>
+      <div class="alert-body">
+        ①「哪個不屬於……」的排除題　②「下列何者正確/錯誤」混淆題　③門檻數字記憶題　④情境計算題（分配/計算排放量）　⑤時事連結題（CBAM/RE100/金管會）
+      </div>
+    </div>
+  </div>
+
+  <div class="sub-section">
+    <div class="sub-title">■ 概念判斷題</div>
+    
+    <div class="qa-block">
+      <div class="qa-q">關於「碳抵換」，下列敘述何者正確？</div>
+      <div class="qa-a"><div><span class="qa-ans-key">【答】D</span>　A. 可計入 CFP 計算 ✗　B. 是直接減排措施 ✗　C. 在系統界限內進行 ✗　<strong>D. 是系統界限外的補償機制，不得計入 CFP</strong> ✓<br><span class="tip">📌 關鍵：ISO 14067 第6.3.4.1條明定「CFP 與部分 CFP 不應包括碳抵換」</span></div></div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-q">B2B 產品進行碳足跡計算，其系統邊界應採用下列何者？</div>
+      <div class="qa-a"><div><span class="qa-ans-key">【答】搖籃到大門</span>（Cradle to Gate）<br>B2B = 半成品/零組件，無法確定消費者使用方式，因此不含使用與廢棄階段。比較時只能用宣告單位，且僅限企業間（B2B 目的）比較。</div></div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-q">進行產品碳足跡研究時，下列何者優先順序最高？</div>
+      <div class="qa-a"><div><span class="qa-ans-key">【答】場址特定一級數據</span><br>優先順序：場址特定一級 > 非場址特定一級（查證過） > 二級數據（資料庫/文獻）。<br>二級數據使用時需說明理由並標明出處。</div></div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-q">關於泥煤，下列何者正確？A. 是生質碳的一種　B. 不算生質碳，視同化石碳處理　C. 泥煤生質碳排放可算入CO₂移除　D. 泥煤可計入生物資源管理</div>
+      <div class="qa-a"><div><span class="qa-ans-key">【答】B</span>　ISO 14067 明確規定「生質不包括泥煤」（3.1.7.1 備考2）。泥煤封存時間達百到千年，不屬於快速循環的生物碳，須視同化石碳。</div></div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-q">關於 LCA 的限制，下列敘述何者正確？</div>
+      <div class="qa-a"><div><span class="qa-ans-key">【答】</span>LCA 可說明 A 產品比 B 對氣候衝擊更小，但<strong>無法判斷某產品是否「足夠永續」或「永續性達標」</strong>。從絕對意義上說某產品對環境永續是錯誤的說法。</div></div>
+    </div>
+  </div>
+
+  
+
+  <div class="sub-section">
+    <div class="sub-title">■ 數字記憶題</div>
+
+    <div class="qa-block">
+      <div class="qa-q">查證機構執行產品碳足跡查證時，「實質性門檻」為多少？超過時代表什麼？</div>
+      <div class="qa-a"><div><span class="qa-ans-key">【答】5%</span>　超過 5% 視為實質不一致，查證不通過。（注意：顯著性門檻 3% 是基準年重算門檻，兩者不同）</div></div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-q">台灣「氣候變遷因應法」第54條規定，未申請核定碳足跡的最高罰鍰為？</div>
+      <div class="qa-a"><div><span class="qa-ans-key">【答】100萬元</span>　罰鍰範圍：10萬～100萬元（每次違反均可按次處罰）。</div></div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-q">依台灣「氣候變遷因應法」，碳費徵收對象門檻為何？</div>
+      <div class="qa-a"><div><span class="qa-ans-key">【答】直接排放及電力間接排放 &gt; 2.5萬噸 CO₂e 的排放源</span></div></div>
+    </div>
+  </div>
+
+  
+
+  <div class="sub-section">
+    <div class="sub-title">■ 情境計算題</div>
+
+    <div class="qa-block">
+      <div class="qa-q">
+        某工廠生產 A、B 兩種產品，A 總產量 1,500 件，B 總產量 2,500 件，年度總用電量 1,000 度。<br>
+        情境1：A 與 B 製造時間相同，單件 A 耗電量為？<br>
+        情境2：A 製造時間是 B 的兩倍，單件 A 耗電量為？
+      </div>
+      <div class="qa-a">
+        <div>
+          <span class="qa-ans-key">【情境1】依個數分配</span><br>
+          A 比例 = 1500/(1500+2500) = 37.5%　B 比例 = 62.5%<br>
+          單件A = 1000×37.5%÷1500 = <strong>0.25 度</strong><br><br>
+          <span class="qa-ans-key">【情境2】依製造時間分配</span><br>
+          A 有效工時比例 = 1500×2÷(1500×2+2500) = 3000÷5500 = 54.5%<br>
+          單件A = 1000×54.5%÷1500 = <strong>0.36 度</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-q">
+        【時事情境】台廠 A 出口鋼鐵至歐盟，歐盟 CBAM 於 2027 年正式施行。<br>
+        台廠需計算哪些排放範疇才能應對 CBAM？CFP 計算需用哪個邊界？
+      </div>
+      <div class="qa-a">
+        <div>
+          <span class="qa-ans-key">【答】Scope 1 + Scope 2</span>（直接排放 + 購入電力間接排放）<br>
+          CFP 系統邊界：鋼鐵為 B2B 產品 → <strong>搖籃到大門</strong>（原料取得 + 製造階段）<br>
+          CBAM 要求進口商提交碳含量憑證，超出標竿值部分需購買碳憑證。
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-q">
+        【農業情境】富林有機農場要為「有機稻米（1公斤）」申請台灣碳標籤，其 CFP 計算應採哪個系統邊界？需蒐集哪些階段的活動數據？
+      </div>
+      <div class="qa-a">
+        <div>
+          <span class="qa-ans-key">【答】B2C 產品 → 搖籃到墳墓</span><br>
+          功能單位：1 公斤有機稻米<br>
+          需收集：<br>
+          ① 原料取得：肥料/農藥/種子生產的 LCA 排放<br>
+          ② 製造（農業生產）：田間 CH₄（稻田甲烷）、N₂O（施肥）、灌溉用電<br>
+          ③ 配送：農場到倉儲/通路的運輸排放<br>
+          ④ 使用：消費者烹飪用電（視 PCR 規定）<br>
+          ⑤ 廢棄：廚餘/稻殼處理
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <div class="sub-section">
+    <div class="sub-title">■ 標準關聯題（ISO 系列）</div>
+
+    <div class="qa-block">
+      <div class="qa-q">下列 ISO 標準中，哪一個專門規定「產品碳足跡量化」？</div>
+      <div class="qa-a"><div><span class="qa-ans-key">【答】ISO 14067:2018</span>（CNS 14067）<br>其他相關：ISO 14040/14044（LCA 方法）、ISO 14064-1（組織盤查）、ISO 14064-3（查證）、ISO/TS 14027（PCR制定）</div></div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-q">產品碳足跡的「特徵化因子」使用的是哪個指標？時間範圍是幾年？</div>
+      <div class="qa-a"><div><span class="qa-ans-key">【答】GWP100（全球暖化潛勢，100年時間範圍）</span><br>以 IPCC 最新評估報告的 GWP 值為準。選擇100年時間範圍是國際慣例的價值判斷，而非純科學依據。</div></div>
+    </div>
+  </div>
+
+  
+
+  <div class="sub-section">
+    <div class="sub-title">■ 高頻總複習快問快答</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>問</th><th>答</th></tr></thead>
+        <tbody>
+          <tr><td>PCR 有就一定要用嗎？</td><td><span class="hl-red">是，強制採用</span>（6.2條）</td></tr>
+          <tr><td>碳抵換可以計入 CFP 嗎？</td><td><span class="hl-red">不行</span>（系統外才算抵換）</td></tr>
+          <tr><td>泥煤是生質碳嗎？</td><td><span class="hl-red">不是</span>（生質明確排除泥煤）</td></tr>
+          <tr><td>B2B 用哪個功能單位？</td><td><span class="hl-yellow">宣告單位</span>（非功能單位）</td></tr>
+          <tr><td>生質碳與化石碳要分開報告嗎？</td><td><span class="hl-green">是</span>，不得加總</td></tr>
+          <tr><td>查證容許誤差是幾%？</td><td><span class="hl-red">5%</span>（實質性門檻）</td></tr>
+          <tr><td>基準年重算門檻是幾%？</td><td><span class="hl-yellow">3%</span>（顯著性門檻）</td></tr>
+          <tr><td>最重要過程需使用一級數據到幾%？</td><td><span class="hl-blue">80%</span></td></tr>
+          <tr><td>不重要排放加總上限？</td><td><span class="hl-orange">5%</span>（不得超過）</td></tr>
+          <tr><td>CH₄ 的 GWP100 是多少？</td><td><span class="hl-orange">27.9</span></td></tr>
+          <tr><td>N₂O 的 GWP100 是多少？</td><td><span class="hl-orange">273</span></td></tr>
+          <tr><td>SF₆ 的 GWP100 是多少？</td><td><span class="hl-orange">24,300</span></td></tr>
+          <tr><td>CFP 計算的衝擊類別有幾種？</td><td><span class="hl-green">1種</span>（只有氣候變遷）</td></tr>
+          <tr><td>LCA 四階段第幾個是 LCI？</td><td>第 <span class="hl-blue">2</span> 個</td></tr>
+          <tr><td>台灣碳費門檻？</td><td><span class="hl-yellow">2.5萬噸 CO₂e</span></td></tr>
+          <tr><td>CBAM 正式施行年份？</td><td><span class="hl-red">2027年</span></td></tr>
+          <tr><td>金管會上市櫃查證完成年？</td><td><span class="hl-blue">2029年</span></td></tr>
+          <tr><td>數據蒐集期間通常以什麼為基準？</td><td><span class="hl-green">一年</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+</div><!-- /container -->
+
+<button class="print-btn" onclick="window.print()">🖨️ 列印 / 存 PDF</button>
+
+</body>
+</html>

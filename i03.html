@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 IPAS 淨零碳管理師｜產品碳足跡深度衝刺筆記</title>
+<style>
+  /* ===== 全域 ===== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 18px; }
+  body {
+    background: #ffffff;
+    color: #1a1a1a;
+    font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    line-height: 1.8;
+    padding: 0 0 80px;
+  }
+
+  /* ===== 封面 ===== */
+  .cover {
+    background: linear-gradient(135deg, #0d4f3c 0%, #1a7a5a 50%, #2aab7e 100%);
+    color: #fff;
+    padding: 56px 48px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .cover-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+  .cover h1 { font-size: 2rem; font-weight: 800; line-height: 1.3; margin-bottom: 10px; }
+  .cover h1 span { color: #a8ffdc; }
+  .cover .subtitle { font-size: 18px; opacity: 0.85; margin-bottom: 28px; }
+  .cover-meta { display: flex; gap: 32px; flex-wrap: wrap; font-size: 18px; opacity: 0.8; }
+  .cover-meta span::before { margin-right: 6px; }
+
+  /* ===== 印列按鈕 ===== */
+  .print-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    background: #1a7a5a;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(26,122,90,0.4);
+    display: flex; align-items: center; gap: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    z-index: 999;
+  }
+  .print-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(26,122,90,0.5); }
+  @media print {
+    .print-btn { display: none !important; }
+    body { padding: 0; }
+    .cover { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .section, .card, .table-wrap { break-inside: avoid; }
+    h2 { break-before: page; }
+  }
+
+  /* ===== 主體版面 ===== */
+  .container { max-width: 1800px; margin: 0 auto; padding: 0 24px; }
+
+  /* ===== 章節標題 ===== */
+  h2 {
+    font-size: 18px;
+    font-weight: 800;
+    color: #0d4f3c;
+    margin: 48px 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #2aab7e;
+    display: flex; align-items: center; gap: 10px;
+  }
+  h2 .num {
+    background: #0d4f3c;
+    color: #fff;
+    border-radius: 6px;
+    padding: 2px 10px;
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
+  h3 {
+    font-size: 18px; font-weight: 700;
+    color: #155740;
+    margin: 28px 0 12px;
+    padding-left: 10px;
+    border-left: 4px solid #2aab7e;
+  }
+
+  /* ===== 卡片 ===== */
+  .card {
+    background: #f7fdf9;
+    border: 1px solid #c8eed9;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+  }
+  .card.yellow  { background: #fffdf0; border-color: #f0d060; }
+  .card.red     { background: #fff8f8; border-color: #f0b0a0; }
+  .card.blue    { background: #f5f8ff; border-color: #a0b8f0; }
+  .card.gray    { background: #f8f8f8; border-color: #d8d8d8; }
+  .card p, .card li { font-size: 18px; color: #2a2a2a; }
+
+  /* ===== 標籤 ===== */
+  .tag {
+    display: inline-block;
+    border-radius: 4px;
+    padding: 2px 9px;
+    font-size: 18px;
+    font-weight: 700;
+    margin-right: 4px;
+    margin-bottom: 2px;
+  }
+  .tag-green  { background: #d0f0e0; color: #0d5c35; }
+  .tag-red    { background: #fde0d8; color: #8b2a10; }
+  .tag-blue   { background: #d8e8ff; color: #1a3a8a; }
+  .tag-amber  { background: #fff0c0; color: #7a5000; }
+  .tag-purple { background: #ecdeff; color: #4a1a8a; }
+
+  /* ===== 表格 ===== */
+  .table-wrap { overflow-x: auto; margin: 16px 0 24px; }
+  table { width: 100%; border-collapse: collapse; font-size: 18px; }
+  th {
+    background: #0d4f3c; color: #fff;
+    padding: 10px 14px; text-align: left;
+    font-weight: 700; font-size: 18px;
+  }
+  td { padding: 9px 14px; border-bottom: 1px solid #ddeee5; vertical-align: top; }
+  tr:nth-child(even) td { background: #f2fbf6; }
+  tr:hover td { background: #e4f7ec; }
+
+  /* ===== 流程步驟 ===== */
+  .steps { display: flex; flex-wrap: wrap; gap: 12px; margin: 16px 0; }
+  .step {
+    flex: 1 1 160px;
+    background: linear-gradient(135deg, #0d4f3c, #1a7a5a);
+    color: #fff;
+    border-radius: 10px;
+    padding: 16px 14px;
+    position: relative;
+  }
+  .step .sn {
+    font-size: 18px; font-weight: 900;
+    opacity: 0.25; position: absolute; top: 8px; right: 12px;
+    line-height: 1;
+  }
+  .step .st { font-size: 18px; opacity: 0.75; margin-bottom: 4px; letter-spacing: 1px; }
+  .step .sh { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+  .step .sd { font-size: 18px; opacity: 0.88; line-height: 1.6; }
+
+  /* ===== 重點提示框 ===== */
+  .alert {
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-size: 18px;
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .alert-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .alert.warn  { background: #fffbe6; border-left: 4px solid #f0c030; }
+  .alert.info  { background: #e8f4ff; border-left: 4px solid #4090e0; }
+  .alert.danger{ background: #fff2f2; border-left: 4px solid #e04040; }
+  .alert.tip   { background: #f0fff6; border-left: 4px solid #2aab7e; }
+
+  /* ===== 考題區塊 ===== */
+  .q-block {
+    border: 1px solid #d0e8d8;
+    border-radius: 10px;
+    margin-bottom: 22px;
+    overflow: hidden;
+  }
+  .q-head {
+    background: #e8f7ee;
+    padding: 10px 18px;
+    display: flex; align-items: center; gap: 10px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .q-head:hover { background: #d4f0e0; }
+  .q-num {
+    background: #0d4f3c; color: #fff;
+    border-radius: 20px; width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 800; flex-shrink: 0;
+  }
+  .q-text { font-size: 18px; font-weight: 600; flex: 1; color: #1a3a2a; }
+  .q-toggle { font-size: 18px; color: #888; flex-shrink: 0; }
+  .q-body { padding: 14px 18px; font-size: 18px; }
+  .q-opts { list-style: none; margin: 10px 0; }
+  .q-opts li { padding: 5px 0; padding-left: 28px; position: relative; }
+  .q-opts li::before {
+    content: attr(data-opt);
+    position: absolute; left: 0;
+    width: 22px; height: 22px;
+    background: #e8e8e8;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 700;
+    color: #444;
+  }
+  .q-opts li.correct::before { background: #2aab7e; color: #fff; }
+  .q-ans {
+    background: #f0fdf5;
+    border-top: 1px dashed #b0ddc0;
+    padding: 12px 14px;
+    font-size: 18px;
+    margin-top: 10px;
+    border-radius: 0 0 8px 8px;
+    display: none;
+  }
+  .q-ans.show { display: block; }
+  .q-ans strong { color: #0d4f3c; }
+
+  /* ===== 清單 ===== */
+  ul, ol { padding-left: 20px; }
+  ul li, ol li { margin-bottom: 6px; font-size: 18px; }
+  ul li::marker { color: #2aab7e; }
+
+  /* ===== 分隔線 ===== */
+  hr { border: none; border-top: 1px dashed #c8eed9; margin: 32px 0; }
+
+  /* ===== 頁尾 ===== */
+  .footer {
+    background: #0d4f3c; color: rgba(255,255,255,0.65);
+    text-align: center; padding: 24px;
+    font-size: 18px; margin-top: 60px;
+  }
+
+  /* ===== 響應 ===== */
+  @media (max-width: 640px) {
+    .cover { padding: 36px 20px 32px; }
+    .cover h1 { font-size: 18px; }
+    .steps { flex-direction: column; }
+    h2 { font-size: 18px; }
+    .container { padding: 0 14px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 封面 -->
+<div class="cover"> 
+  <h1>產品碳足跡<span>（PCF）</span><br>深度專題筆記</h1> 
+</div>
+
+<!-- 主體 -->
+<div class="container">
+
+<!-- ══════════════════════════════════════════
+     第一章：核心概念
+══════════════════════════════════════════ -->
+<h2><span class="num">CH 1</span>核心概念篇</h2>
+
+<h3>1-1 什麼是產品碳足跡（PCF）？</h3>
+<div class="card">
+  <p><strong>定義（ISO 14067:2018 §3.1.4）：</strong>產品系統中溫室氣體排放量與移除量之和，以 CO₂ 當量（CO₂e）表示，涵蓋生命週期中所有相關階段，依功能單位（Functional Unit）進行量化。</p>
+  <br>
+  <p>簡單說：一件商品從「搖籃到墳墓」（或搖籃到大門）所產生的所有溫室氣體，換算成 CO₂ 的等量，就是它的碳足跡。</p>
+</div>
+
+<div class="alert tip">
+  <span class="alert-icon">💡</span>
+  <div><strong>命題委員提示：</strong>ISO 14067 是 ISO 14040/14044（生命週期評估）的<strong>子集</strong>——PCF 只聚焦溫室氣體這一環境影響類別，LCA 則涵蓋所有環境衝擊。考試最愛在此設陷阱。</div>
+</div>
+
+<h3>1-2 PCF 與 LCA 的關鍵差異</h3>
+<div class="table-wrap">
+<table>
+  <tr><th>比較項目</th><th>產品碳足跡（PCF）</th><th>生命週期評估（LCA）</th></tr>
+  <tr><td>依據標準</td><td>ISO 14067:2018</td><td>ISO 14040 / 14044</td></tr>
+  <tr><td>影響類別</td><td>僅溫室氣體（GHG）</td><td>多項環境衝擊（氣候、水資源、生態毒性等）</td></tr>
+  <tr><td>輸出單位</td><td>kg CO₂e / 功能單位</td><td>多項環境指標</td></tr>
+  <tr><td>複雜度</td><td>較低</td><td>較高</td></tr>
+  <tr><td>常見應用</td><td>產品標籤、碳中和聲明、CBAM申報</td><td>生態設計、環境聲明（EPD）</td></tr>
+</table>
+</div>
+
+<h3>1-3 重要名詞速查</h3>
+<div class="table-wrap">
+<table>
+  <tr><th>名詞</th><th>定義</th><th>考試重點</th></tr>
+  <tr>
+    <td><strong>功能單位（FU）</strong></td>
+    <td>量化產品系統功能的參考基準，用以比較不同產品系統</td>
+    <td>FU 選擇不同，PCF 結果無法直接比較（常考陷阱）</td>
+  </tr>
+  <tr>
+    <td><strong>系統邊界</strong></td>
+    <td>決定哪些單元過程納入PCF計算的範圍劃定</td>
+    <td>搖籃到大門 vs 搖籃到墳墓</td>
+  </tr>
+  <tr>
+    <td><strong>截止規則（Cut-off）</strong></td>
+    <td>排除對PCF貢獻極微小的流量，通常 &lt;1% 可排除，但需說明</td>
+    <td>不能用截止規則排除重大排放源</td>
+  </tr>
+  <tr>
+    <td><strong>分配（Allocation）</strong></td>
+    <td>多產品系統中，環境負荷的分配方法</td>
+    <td>優先擴展系統邊界，其次物理分配，再次經濟分配</td>
+  </tr>
+  <tr>
+    <td><strong>排放因子（EF）</strong></td>
+    <td>單位活動數據對應的GHG排放量</td>
+    <td>需選用最新、最具代表性的本地化EF</td>
+  </tr>
+  <tr>
+    <td><strong>全球暖化潛勢（GWP）</strong></td>
+    <td>各GHG相對CO₂的暖化效果，以100年為基準</td>
+    <td>IPCC AR6 最新值：CH₄ GWP₁₀₀ = 27.9（含氣候-碳回饋）</td>
+  </tr>
+  <tr>
+    <td><strong>不確定性分析</strong></td>
+    <td>評估PCF結果的可信範圍</td>
+    <td>ISO 14067 要求揭露，但不強制精確量化方法</td>
+  </tr>
+</table>
+</div>
+
+<h3>1-4 生命週期階段速記</h3>
+<div class="card blue">
+  <div class="steps">
+    <div class="step"><span class="sn">A</span><span class="st">上游（Upstream）</span><span class="sh">原料取得</span><span class="sd">原料開採、農業種植、化學品生產、包材製造</span></div>
+    <div class="step"><span class="sn">B</span><span class="st">核心製程</span><span class="sh">生產製造</span><span class="sd">加工製程、廠區能源、廢水廢棄物處理</span></div>
+    <div class="step"><span class="sn">C</span><span class="st">下游（Downstream）</span><span class="sh">配送使用</span><span class="sd">運輸倉儲、零售冷鏈、消費者使用</span></div>
+    <div class="step"><span class="sn">D</span><span class="st">生命終期</span><span class="sh">廢棄處置</span><span class="sd">垃圾掩埋、焚化、回收再利用</span></div>
+  </div>
+</div>
+
+<div class="alert warn">
+  <span class="alert-icon">⚠️</span>
+  <div><strong>常見混淆：</strong>「搖籃到大門（C2G）」僅含 A+B 兩階段；「搖籃到墳墓（C2G2）」含全部四階段。歐盟 CBAM 目前要求申報的是<strong>直接排放（Scope 1）及部分間接電力排放（Scope 2）</strong>，並非完整 PCF，但趨勢是逐步要求全生命週期數據。</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     第二章：計算方法論
+══════════════════════════════════════════ -->
+<h2><span class="num">CH 2</span>計算方法論</h2>
+
+<h3>2-1 PCF 計算的六大步驟</h3>
+<div class="steps">
+  <div class="step"><span class="sn">1</span><span class="st">STEP 01</span><span class="sh">定義目標與範疇</span><span class="sd">明確用途、功能單位、系統邊界、截止規則</span></div>
+  <div class="step"><span class="sn">2</span><span class="st">STEP 02</span><span class="sh">建立系統邊界</span><span class="sd">畫出製程流程圖，標示所有輸入/輸出</span></div>
+  <div class="step"><span class="sn">3</span><span class="st">STEP 03</span><span class="sh">蒐集活動數據</span><span class="sd">能源用量、原料用量、運輸距離，優先使用初級數據</span></div>
+  <div class="step"><span class="sn">4</span><span class="st">STEP 04</span><span class="sh">選用排放因子</span><span class="sd">政府公告、ecoinvent、GaBi，需標示數據年份與來源</span></div>
+  <div class="step"><span class="sn">5</span><span class="st">STEP 05</span><span class="sh">計算與分配</span><span class="sd">活動數據 × 排放因子；多產品系統進行分配</span></div>
+  <div class="step"><span class="sn">6</span><span class="st">STEP 06</span><span class="sh">報告與查驗</span><span class="sd">撰寫PCF報告，委請第三方依ISO 14064-3查驗</span></div>
+</div>
+
+<h3>2-2 分配（Allocation）方法論層級</h3>
+<div class="card">
+  <p><strong>ISO 14067 / ISO 14044 規定的分配優先順序（重要！）：</strong></p>
+  <br>
+  <ol>
+    <li><strong>1st 擴展系統邊界（System Expansion）</strong>——盡可能避免分配，優先考慮此法</li>
+    <li><strong>2nd 物理分配（Physical Allocation）</strong>——依質量、體積、能量等物理關係分配</li>
+    <li><strong>3rd 經濟分配（Economic Allocation）</strong>——依產品市場價值分配，常用於聯產品（Co-products）</li>
+  </ol>
+  <br>
+  <p class="tag tag-red">⚠️ 考試陷阱</p>
+  <p>若考題出現「直接依企業營收比例分配碳排放」而無其他說明，此法屬經濟分配，在有物理分配可行的情況下並非優先選項。</p>
+</div>
+
+<h3>2-3 數據品質等級</h3>
+<div class="table-wrap">
+<table>
+  <tr><th>等級</th><th>類型</th><th>定義</th><th>建議使用情境</th></tr>
+  <tr><td><span class="tag tag-green">最佳</span></td><td>初級數據（Primary Data）</td><td>直接量測或計算自特定製程的實際數據</td><td>自有製程、關鍵原料供應商</td></tr>
+  <tr><td><span class="tag tag-amber">次佳</span></td><td>次級數據（Secondary Data）</td><td>來自資料庫、文獻、行業平均值</td><td>上游遠端供應商、使用階段</td></tr>
+  <tr><td><span class="tag tag-red">最低</span></td><td>代理數據（Proxy Data）</td><td>以類似產品或製程的數據替代</td><td>數據無法取得時的替代方案，須揭露並說明不確定性</td></tr>
+</table>
+</div>
+
+<div class="alert info">
+  <span class="alert-icon">📌</span>
+  <div><strong>2026 趨勢：</strong>歐盟電池法規（EU Battery Regulation）已要求大型電池的PCF必須以<strong>初級數據為主</strong>；類似要求正在擴散至紡織品、電子產品。台灣供應商需盡快建立初級數據收集能力。</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     第三章：常見排放源與排放因子
+══════════════════════════════════════════ -->
+<h2><span class="num">CH 3</span>排放源與排放因子</h2>
+
+<h3>3-1 常見排放源分類</h3>
+<div class="table-wrap">
+<table>
+  <tr><th>生命週期階段</th><th>排放源類型</th><th>對應溫室氣體</th></tr>
+  <tr><td>農業原料（如稻米、咖啡）</td><td>化肥施用（N₂O）、腸道發酵（CH₄）、稻田甲烷</td><td>N₂O, CH₄</td></tr>
+  <tr><td>能源使用</td><td>燃燒化石燃料、外購電力</td><td>CO₂, CH₄, N₂O</td></tr>
+  <tr><td>冷媒逸散</td><td>空調、冷凍設備冷媒洩漏</td><td>HFCs（GWP 極高）</td></tr>
+  <tr><td>運輸</td><td>卡車、船運、航空</td><td>CO₂, CH₄, N₂O</td></tr>
+  <tr><td>廢棄物</td><td>掩埋（有機物分解）、焚化</td><td>CH₄, CO₂</td></tr>
+  <tr><td>土地利用變化</td><td>毀林改農地</td><td>CO₂（碳匯損失）</td></tr>
+</table>
+</div>
+
+<h3>3-2 台灣重要排放因子（2025 公告版）</h3>
+<div class="table-wrap">
+<table>
+  <tr><th>項目</th><th>數值</th><th>備註</th></tr>
+  <tr><td>台灣電力排放因子</td><td><strong>0.495 kgCO₂e/kWh</strong>（2023年，2025最新公告）</td><td>每年更新，考試前確認最新值</td></tr>
+  <tr><td>天然氣燃燒</td><td>約 2.0 kgCO₂e/m³</td><td>依熱值換算</td></tr>
+  <tr><td>柴油</td><td>約 2.63 kgCO₂e/公升</td><td>車用運輸</td></tr>
+  <tr><td>汽油</td><td>約 2.26 kgCO₂e/公升</td><td></td></tr>
+  <tr><td>N₂O（施肥）</td><td>GWP₁₀₀ = 273（IPCC AR6）</td><td>AR5 為 265，AR6 已更新</td></tr>
+  <tr><td>CH₄</td><td>GWP₁₀₀ = 27.9（IPCC AR6，含氣候回饋）</td><td>舊版 AR5 = 28，差異需注意</td></tr>
+</table>
+</div>
+
+<div class="alert danger">
+  <span class="alert-icon">🚨</span>
+  <div><strong>重要提醒：</strong>IPCC AR6（2021）更新了各 GHG 的 GWP 值，與 AR5 有差異。ISO 14067:2018 建議使用最新 IPCC 評估報告的 GWP100 值，但目前台灣環境部公告使用 AR5，<strong>考試需依題目所指定版本作答</strong>，若未指定，優先選 AR6 最新值。</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     第四章：報告與查驗
+══════════════════════════════════════════ -->
+<h2><span class="num">CH 4</span>報告、查驗與聲明</h2>
+
+<h3>4-1 PCF 報告必要內容（ISO 14067:2018 §7）</h3>
+<div class="card">
+  <ul>
+    <li>研究目標、預期用途及委託方身份</li>
+    <li><strong>功能單位</strong>明確定義</li>
+    <li><strong>系統邊界</strong>及截止規則說明</li>
+    <li>所有排放源與數據來源清單</li>
+    <li>排放因子選用依據（含數據年份）</li>
+    <li>分配方法說明</li>
+    <li><strong>PCF 計算結果</strong>（按生命週期階段拆分）</li>
+    <li><strong>不確定性分析</strong>結果</li>
+    <li>敏感度分析（對重大假設）</li>
+    <li>數據品質評估</li>
+    <li>查驗聲明書（若有進行外部查驗）</li>
+  </ul>
+</div>
+
+<h3>4-2 三種查驗層級</h3>
+<div class="table-wrap">
+<table>
+  <tr><th>查驗類型</th><th>執行者</th><th>適用時機</th><th>可信度</th></tr>
+  <tr><td>內部審查（Internal Review）</td><td>企業內部不同部門人員</td><td>初步品質確認，不對外宣告</td><td>低</td></tr>
+  <tr><td>第二方審查（2nd Party）</td><td>客戶或利害關係人</td><td>B2B 供應鏈要求</td><td>中</td></tr>
+  <tr><td><strong>第三方查驗（3rd Party）</strong></td><td>獨立認可機構（依 ISO 14064-3 或 ISO 17029）</td><td>對外公開宣告、碳中和聲明、法規申報</td><td>最高</td></tr>
+</table>
+</div>
+
+<h3>4-3 PCF 聲明與標籤類型</h3>
+<div class="table-wrap">
+<table>
+  <tr><th>類型</th><th>說明</th><th>代表案例</th></tr>
+  <tr><td><strong>量化 PCF 聲明</strong></td><td>直接揭露產品碳足跡數值（如：本產品每單位碳足跡為 3.2 kg CO₂e）</td><td>電子產品、食品標籤</td></tr>
+  <tr><td><strong>相對聲明</strong></td><td>宣稱與基準年或競品相比的減量幅度（如：比去年減少 15%）</td><td>需揭露比較基準</td></tr>
+  <tr><td><strong>碳中和產品聲明</strong></td><td>結合 ISO 14068-1，宣告產品已達碳中和</td><td>最嚴格，需查驗＋碳補償</td></tr>
+  <tr><td><strong>環境產品聲明（EPD）</strong></td><td>ISO 14025，涵蓋多項 LCA 指標的完整揭露文件</td><td>建材、電子產品</td></tr>
+</table>
+</div>
+
+<!-- ══════════════════════════════════════════
+     第五章：農業產品 PCF 特殊考量
+══════════════════════════════════════════ -->
+<h2><span class="num">CH 5</span>農業產品 PCF 特殊考量</h2>
+
+<div class="alert tip">
+  <span class="alert-icon">🌾</span>
+  <div><strong>農場主理人特別注意：</strong>農業類 PCF 的計算在台灣仍屬新興領域，IPAS 考試中農業案例題逐年增加，以下知識點與富林有機農場的營運情境高度相關。</div>
+</div>
+
+<h3>5-1 農業排放的特殊性</h3>
+<div class="card">
+  <ul>
+    <li><strong>生物碳排放（Biogenic）vs 化石碳排放：</strong>稻米、蔬菜等植物在生長過程中吸收 CO₂（碳匯），但死亡分解後又釋放，ISO 14067 對生物碳的處理有特殊規定（<strong>建議揭露但不計入總 PCF</strong>，除非為長期儲存）</li>
+    <li><strong>稻田甲烷（Paddy CH₄）：</strong>水田厭氧環境下產生 CH₄，是台灣稻作碳足跡最大來源之一，GWP 效應遠高於 CO₂</li>
+    <li><strong>氧化亞氮（N₂O）：</strong>化學肥料（尤其含氮肥）施用後土壤微生物活動釋放 N₂O，GWP₁₀₀ = 273</li>
+    <li><strong>土地利用碳匯：</strong>有機農法若能提升土壤有機碳，可計入碳移除，但需符合 MRV 要求</li>
+    <li><strong>動物腸道發酵：</strong>反芻動物（牛羊）產生大量 CH₄，蛋雞影響相對小，但糞便管理的 N₂O 仍需納入</li>
+  </ul>
+</div>
+
+<h3>5-2 有機農業 vs 慣行農業的碳足跡比較</h3>
+<div class="table-wrap">
+<table>
+  <tr><th>比較面向</th><th>有機農業</th><th>慣行農業</th></tr>
+  <tr><td>肥料來源</td><td>有機質肥料（堆肥）—N₂O較低</td><td>化學合成肥料—N₂O較高</td></tr>
+  <tr><td>農藥製造排放</td><td>不使用合成農藥—上游排放低</td><td>合成農藥製造有碳足跡</td></tr>
+  <tr><td>土壤碳匯</td><td>長期施有機質，土壤碳含量較高</td><td>土壤有機碳通常較低</td></tr>
+  <tr><td>單位產量碳強度</td><td>因產量較低，<strong>每公斤產品碳足跡</strong>不一定低於慣行</td><td>高產量可能稀釋製程碳排</td></tr>
+  <tr><td>生物多樣性共同利益</td><td>高</td><td>低</td></tr>
+</table>
+</div>
+
+<div class="alert warn">
+  <span class="alert-icon">⚠️</span>
+  <div><strong>考試陷阱：</strong>「有機農業的產品碳足跡一定低於慣行農業」是<strong>錯誤觀念</strong>。若有機農業產量較低，即使製程排放較少，以「每公斤農產品」計算的功能單位碳強度，可能反而高於慣行農業。比較必須基於<strong>相同功能單位</strong>。</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     第六章：漂綠與法規
+══════════════════════════════════════════ -->
+<h2><span class="num">CH 6</span>漂綠風險與 2026 法規動態</h2>
+
+<h3>6-1 PCF 相關的常見漂綠手法</h3>
+<div class="table-wrap">
+<table>
+  <tr><th>漂綠類型</th><th>描述</th><th>對應標準要求</th></tr>
+  <tr><td>截止規則濫用</td><td>刻意以「低於1%」為由排除重大排放源</td><td>ISO 14067 要求重大來源不得排除</td></tr>
+  <tr><td>系統邊界縮減</td><td>僅申報製造階段（搖籃到大門），但對外宣稱完整碳足跡</td><td>必須明確說明系統邊界範疇</td></tr>
+  <tr><td>功能單位選擇性操作</td><td>刻意選擇使結果好看的功能單位，卻不揭露替代方案比較</td><td>功能單位需反映產品真正功能</td></tr>
+  <tr><td>舊版排放因子</td><td>使用過時電力排放因子（台灣電網逐年改變）</td><td>應使用最新公告排放因子</td></tr>
+  <tr><td>模糊的「低碳」聲明</td><td>宣稱「低碳產品」但無具體數值、無查驗</td><td>EU 綠色聲明指令（2025後）要求科學佐證</td></tr>
+</table>
+</div>
+
+<h3>6-2 2026 年關鍵法規動態</h3>
+<div class="card yellow">
+  <ul>
+    <li>🇪🇺 <strong>CBAM 全面實施（2026）：</strong>鋼鐵、鋁、水泥、化肥、電力、氫六大類進入繳費期，出口商必須申報嵌入碳排放，未來可能擴至成品</li>
+    <li>🇪🇺 <strong>歐盟綠色聲明指令（Green Claims Directive）：</strong>所有對消費者的環境聲明須附科學佐證，否則視為不實廣告，最高罰款為年營業額 4%</li>
+    <li>🇪🇺 <strong>歐盟電池法規（2025 實施）：</strong>大型電動車電池需申報符合 PEF 方法論的 PCF，並逐步設定碳足跡績效門檻</li>
+    <li>🇹🇼 <strong>台灣氣候變遷因應法（2023）：</strong>碳費制度預計 2025 年起向排放大戶徵收，間接推動供應鏈 PCF 需求</li>
+    <li>🌐 <strong>SBTi 更新（2025）：</strong>企業申請 SBTi 認可的淨零目標，Scope 3 需符合更嚴格的數據品質要求</li>
+  </ul>
+</div>
+
+<hr>
+
+<!-- ══════════════════════════════════════════
+     模擬考題
+══════════════════════════════════════════ -->
+<h2><span class="num">TEST</span>命題委員親授｜20 題模擬考題</h2>
+
+<div class="alert tip">
+  <span class="alert-icon">🎯</span>
+  <div>難度定位：進階高難度，側重<strong>情境判斷與標準規範</strong>。每題點擊「▼ 查看解析」即可展開詳解。</div>
+</div>
+
+<!-- Q1 -->
+<div class="q-block">
+  <div class="q-head" onclick="toggleQ(this)">
+    <div class="q-num">1</div>
+    <div class="q-text">依 ISO 14067:2018，以下何者對「功能單位（Functional Unit）」的描述最為精確？</div>
+    <div class="q-toggle">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-opt="A">功能單位是指產品的物理重量或體積，用以標準化比較</li>
+      <li data-opt="B" class="correct">功能單位是用以量化產品系統功能的參考基準，以便系統性比較不同產品系統的環境績效</li>
+      <li data-opt="C">功能單位等同於產品的銷售單位（如：一瓶、一盒）</li>
+      <li data-opt="D">功能單位是指在特定時間內系統邊界內所有輸入的總和</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      功能單位（FU）的核心是「<strong>量化功能</strong>」，而非簡單的物理量。例如：比較兩種洗碗精，若 A 濃縮型 50ml 可洗 50 次、B 一般型 500ml 也洗 50 次，FU 應設定為「洗 50 次碗盤所需」，而非直接比較 50ml vs 500ml 的碳足跡。選項 A 混淆了「申報單位」與「功能單位」；選項 C 的銷售單位也常被混淆。這是 ISO 14067 第一關就要搞清楚的核心概念。
+    </div>
+  </div>
+</div>
+
+<!-- Q2 -->
+<div class="q-block">
+  <div class="q-head" onclick="toggleQ(this)">
+    <div class="q-num">2</div>
+    <div class="q-text">富林有機農場計畫申報一批有機稻米的產品碳足跡，系統邊界設定為「搖籃到大門（Cradle to Gate）」。以下哪個排放源應被納入計算？</div>
+    <div class="q-toggle">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-opt="A">消費者煮飯時電鍋用電產生的碳排放</li>
+      <li data-opt="B">超市冰箱展示稻米的用電排放</li>
+      <li data-opt="C" class="correct">稻田水稻生長期間甲烷（CH₄）的排放</li>
+      <li data-opt="D">消費者丟棄米袋包裝後的焚化排放</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：C</strong><br><br>
+      「搖籃到大門」涵蓋從原料取得（農業種植）到產品離開農場出貨前。稻田甲烷是水稻農業生產階段的直接排放，屬於「搖籃到大門」的核心範疇。選項 A（煮飯）、B（超市展示）、D（廢棄處置）均屬於「大門之後」的使用階段與廢棄階段，不納入搖籃到大門的計算。農場業者常犯的錯誤是只算電費，忽略稻田甲烷這個最大排放源。
+    </div>
+  </div>
+</div>
+
+<!-- Q3 -->
+<div class="q-block">
+  <div class="q-head" onclick="toggleQ(this)">
+    <div class="q-num">3</div>
+    <div class="q-text">某食品公司的生產線同時產出 A 產品（市值 80 元/kg）與副產品 B（市值 20 元/kg），總排放量為 1,000 kgCO₂e，A 與 B 的質量比為 7:3。若需進行分配，依 ISO 14067 規定的優先順序，以下哪種方法最應優先考慮？</div>
+    <div class="q-toggle">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-opt="A">經濟分配：A 分配 80%（800 kgCO₂e），B 分配 20%（200 kgCO₂e）</li>
+      <li data-opt="B">質量分配：A 分配 70%（700 kgCO₂e），B 分配 30%（300 kgCO₂e）</li>
+      <li data-opt="C" class="correct">優先嘗試擴展系統邊界（System Expansion），若不可行再考慮物理分配</li>
+      <li data-opt="D">依工廠主管主觀判斷，選擇對企業最有利的分配方式</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：C</strong><br><br>
+      ISO 14067 / ISO 14044 的分配優先序：<strong>系統擴展 > 物理分配 > 經濟分配</strong>。即使題目已給出物理（質量）和經濟數據，最優先的動作是探索是否能「擴展系統邊界」（例如：若副產品 B 在市場上替代了某個既有產品，可用替代系統的排放來處理 B 的份額），若確實無法擴展，再依質量等物理特性分配，最後才用市值。選項 D 的主觀判斷完全不符合標準。
+    </div>
+  </div>
+</div>
+
+<!-- Q4 -->
+<div class="q-block">
+  <div class="q-head" onclick="toggleQ(this)">
+    <div class="q-num">4</div>
+    <div class="q-text">某零件供應商計算產品碳足跡時，某原料的採購量為 500 kg，但供應商提供的排放因子數據已是 8 年前的研究數據，且該原料生產技術已大幅更新。以下哪種處理方式最符合 ISO 14067 的精神？</div>
+    <div class="q-toggle">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-opt="A">直接使用 8 年前數據，數字越舊越保守，對碳足跡揭露更有保障</li>
+      <li data-opt="B">不使用此原料的排放因子，以避免數據不準確</li>
+      <li data-opt="C" class="correct">在報告中揭露此數據的時效性問題，進行敏感度分析，並積極尋找更新的替代數據源（如最新版 ecoinvent 或向供應商索取初級數據）</li>
+      <li data-opt="D">將 8 年前的數據乘以 1.5 的安全係數，以反映可能的誤差</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：C</strong><br><br>
+      ISO 14067 強調「數據代表性（Representativeness）」，包含時間代表性、地理代表性和技術代表性。使用 8 年前且技術已大幅更新的數據，時間代表性不足。正確做法是：(1) 在報告中如實揭露此限制；(2) 進行敏感度分析，了解若使用不同數據對結果的影響；(3) 積極更新數據。選項 D 的「乘以係數」是自創方法，不符合任何標準。
+    </div>
+  </div>
+</div>
+
+<!-- Q5 -->
+<div class="q-block">
+  <div class="q-head" onclick="toggleQ(this)">
+    <div class="q-num">5</div>
+    <div class="q-text">依 IPCC AR6 報告，甲烷（CH₄）的 GWP₁₀₀ 值（含氣候-碳回饋）為多少？</div>
+    <div class="q-toggle">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-opt="A">21</li>
+      <li data-opt="B">25</li>
+      <li data-opt="C">28</li>
+      <li data-opt="D" class="correct">27.9</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：D</strong><br><br>
+      IPCC AR6（2021）更新了 GWP 值：CH₄ GWP₁₀₀ = <strong>27.9</strong>（含氣候-碳回饋）或 29.8（不含）。AR5 為 28，AR4 為 25，更早期為 21。考試若未指定，建議選最新 AR6 值。N₂O 的 AR6 值為 273（AR5 為 265）。這些數值的更新對農業類產品（富含 CH₄ 和 N₂O 排放）的 PCF 計算影響顯著。
+    </div>
+  </div>
+</div>
+
+<!-- Q6 -->
+<div class="q-block">
+  <div class="q-head" onclick="toggleQ(this)">
+    <div class="q-num">6</div>
+    <div class="q-text">某台灣電子廠計算其伺服器產品的 PCF，其中工廠用電佔總排放的 40%。工廠已購買再生能源憑證（RECs）。在採用市場基礎法（Market-based Method）後，Scope 2 計算結果為 0。此時，以下哪個陳述最正確？</div>
+    <div class="q-toggle">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+    <li data-opt="A">此產品的 PCF 可以直接宣告為「零碳產品」，因製造端已達零排放</li>
+    <li data-opt="B" class="correct">Scope 2 歸零是合法有效的做法，但 PCF 報告仍需揭露位置基礎法下的電力排放數值，且其他生命週期階段的排放不受影響，不能宣告整體「零碳」</li>
+    <li data-opt="C">RECs 不被 ISO 14067 認可用於 PCF 計算，此做法無效</li>
+    <li data-opt="D">採用市場基礎法後，無需再揭露位置基礎法的電力排放數據</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      GHG Protocol Scope 2 Guidance 要求雙軌揭露（位置基礎法 + 市場基礎法）。採購 RECs 讓市場基礎法 Scope 2 = 0 是合規做法（排除 C）；但必須同步揭露位置基礎法數值（排除 D）。更重要的是，工廠 Scope 2 歸零，不代表整個產品生命週期（原材料開採、運輸、使用階段等）的排放也歸零，因此不能宣告「零碳」（排除 A）。此題測試考生對「部分歸零 ≠ 全部歸零」的辨識能力。
+    </div>
+  </div>
+</div>
+
+<!-- Q7 -->
+<div class="q-block">
+  <div class="q-head" onclick="toggleQ(this)">
+    <div class="q-num">7</div>
+    <div class="q-text">ISO 14067:2018 與其前身 PAS 2050:2011 最關鍵的差異是什麼？</div>
+    <div class="q-toggle">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-opt="A">ISO 14067 要求所有計算必須使用初級數據，PAS 2050 允許次級數據</li>
+      <li data-opt="B">ISO 14067 只適用於製造業，PAS 2050 也適用於服務業</li>
+      <li data-opt="C" class="correct">ISO 14067:2018 是國際標準，具更廣泛的國際認可度；同時它明確區分「部分 PCF」與「完整 PCF」，並要求報告必須說明是否涵蓋所有生命週期階段</li>
+      <li data-opt="D">ISO 14067 廢除了對生物碳排放的計算要求</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：C</strong><br><br>
+      PAS 2050 是英國 BSI 發布的規範，2011 年版本被業界廣泛使用。ISO 14067:2018 作為國際標準，在全球認可度更高，且做了幾項重要更新：(1) 明確定義「部分 PCF（Partial PCF）」的申報規範；(2) 更嚴格的不確定性分析要求；(3) 整合至 ISO 14040/14044 LCA 框架。並非廢除生物碳（選項 D 錯誤），而是更精細規範生物碳的處理方式。
+    </div>
+  </div>
+</div>
+
+<!-- Q8 -->
+<div class="q-block">
+  <div class="q-head" onclick="toggleQ(this)">
+    <div class="q-num">8</div>
+    <div class="q-text">一家台灣成衣廠出口至歐盟，客戶要求其提供符合「環境產品聲明（EPD, Environmental Product Declaration）」的文件。以下關於 EPD 的敘述，何者正確？</div>
+    <div class="q-toggle">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-opt="A">EPD 等同於產品碳足跡報告（PCF 報告），只計算 GHG 排放</li>
+      <li data-opt="B">EPD 只適用於建築材料，不適用於成衣產品</li>
+      <li data-opt="C">EPD 由企業自行發布，無需第三方查驗</li>
+      <li data-opt="D" class="correct">EPD 依 ISO 14025 規範，涵蓋多項 LCA 環境影響指標（含氣候變遷、水資源消耗、生態毒性等），比 PCF 報告包含更廣泛的環境資訊，且必須依產品類別規則（PCR）並經第三方查驗</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：D</strong><br><br>
+      EPD（ISO 14025）是「第三型環境聲明」，特色是：(1) 涵蓋 LCA 的多項環境指標，不只有碳足跡；(2) 必須依照特定的「產品類別規則（PCR）」計算，確保同類產品的可比性；(3) 需經由獨立第三方進行程序查驗。PCF 報告只是 EPD 的子集（僅氣候變遷衝擊類別）。EPD 適用範圍涵蓋建材、電子、食品、成衣等多個產品類別（排除 B）。
+    </div>
+  </div>
+</div>
+
+<!-- Q9 -->
+<div class="q-block">
+  <div class="q-head" onclick="toggleQ(this)">
+    <div class="q-num">9</div>
+    <div class="q-text">有機農場的農產品在進行 PCF 計算時，關於「生物碳（Biogenic Carbon）」的處理，以下何者最符合 ISO 14067:2018 的要求？</div>
+    <div class="q-toggle">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-opt="A">植物在生長過程中吸收的 CO₂ 可直接計入 PCF 的負碳，大幅降低總碳足跡</li>
+      <li data-opt="B">生物碳排放（如稻田甲烷）不屬於 GHG，無需納入計算</li>
+      <li data-opt="C" class="correct">生物碳的吸收與排放（生物碳循環）在 ISO 14067 中通常視為「中性（Carbon Neutral Assumption）」，但需分開揭露；植物生長吸碳與產品廢棄分解排碳相互抵銷，長期儲存於產品中的生物碳才可計為碳移除</li>
+      <li data-opt="D">農產品中所有生物碳均可申報為碳抵換額度，用以補償其他排放</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：C</strong><br><br>
+      ISO 14067 對生物碳的處理核心原則：短生命週期產品（如農產品）中的生物碳，因植物吸收 CO₂ 生長，消費者使用後迅速分解回大氣，吸收與排放在短期內達到平衡，因此通常視為「中性」（不計入 PCF 正負值）。只有<strong>長期儲存</strong>生物碳的情況（如木材建築），才可將該碳儲存計為碳移除。直接申報農產品生物碳為碳抵換額度（選項 D）需符合 ISO 14064-2 等嚴格 MRV 要求，絕非自動成立。
+    </div>
+  </div>
+</div>
+
+<!-- Q10 -->
+<div class="q-block">
+  <div class="q-head" onclick="toggleQ(this)">
+    <div class="q-num">10</div>
+    <div class="q-text">某企業 A 聲稱其產品「碳足跡比競品低 30%」。以下哪種情況最可能構成漂綠？</div>
+    <div class="q-toggle">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-opt="A">A 使用搖籃到大門的系統邊界，競品也使用相同邊界，兩者均有第三方查驗</li>
+      <li data-opt="B" class="correct">A 使用搖籃到大門的系統邊界，但競品使用搖籃到墳墓的邊界，A 未說明此邊界差異即宣稱「低 30%」</li>
+      <li data-opt="C">A 使用 2024 年的台灣電力排放因子，競品使用 2023 年數據</li>
+      <li data-opt="D">A 的 PCF 計算由內部環境部門執行，競品委託外部顧問</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      這是「不可比較性漂綠（Incomparable Comparison）」的典型案例。ISO 14067 明確要求：PCF 的比較聲明（Comparative Assertion）必須基於<strong>相同的系統邊界、相同的功能單位和相同的方法論</strong>，否則比較結果毫無意義。搖籃到大門 vs 搖籃到墳墓的碳足跡數字根本無法直接比較——「使用階段」可能佔總碳足跡的 50–80%（如電器、汽車）。選項 B 在未揭露邊界差異下宣稱「低 30%」，是典型漂綠行為，在 EU 綠色聲明指令下可能違法。
+    </div>
+  </div>
+</div>
+
+<!-- Q11 -->
+<div class="q-block">
+  <div class="q-head" onclick="toggleQ(this)">
+    <div class="q-num">11</div>
+    <div class="q-text">台灣環境部公告的「溫室氣體排放係數管理表」中，針對台灣電力系統排放因子，其計算基礎為何？</div>
+    <div class="q-toggle">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-opt="A">依台電公司自有電廠的發電排放量計算，不含購電</li>
+      <li data-opt="B">依台灣各縣市用電結構分別計算，每縣市數值不同</li>
+      <li data-opt="C" class="correct">依全台電力系統（電網）整體發電排放量除以總用電量計算（系統平均法），屬位置基礎法</li>
+      <li data-opt="D">依台灣再生能源比例計算，再生能源佔比越高，排放因子越低，實時動態更新</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：C</strong><br><br>
+      台灣環境部公告的電力排放因子採「<strong>電力系統平均排放係數</strong>」，是位置基礎法（Location-based Method）的代表值——以全台電網總 GHG 排放量 ÷ 總用電量計算，每年更新一次（通常延遲 2 年）。並非依縣市區分（台灣電網互聯，無法縣市分離），也不是實時更新。企業若採購再生能源憑證（RECs），可在市場基礎法下將 Scope 2 降至零，但位置基礎法下仍應揭露環境部公告係數。
+    </div>
+  </div>
+</div>
+
+<!-- Q12 -->
+<div class="q-block">
+  <div class="q-head" onclick="toggleQ(this)">
+    <div class="q-num">12</div>
+    <div class="q-text">某科技公司規劃申報其筆電產品的 PCF，其中「使用階段」（消費者每日使用 8 小時，產品壽命 5 年）預估佔總碳足跡的 55%。公司以截止規則為由，主張「使用階段用電屬消費者行為，技術上難以量化，予以排除」。此做法的問題是？</div>
+    <div class="q-toggle">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-opt="A">截止規則在 ISO 14067 中完全不允許使用</li>
+      <li data-opt="B">此做法完全合規，使用階段屬 Scope 3 下游排放，由消費者負責</li>
+      <li data-opt="C" class="correct">佔 55% 的排放源屬重大排放來源，不可以「量化困難」為由使用截止規則排除；ISO 14067 要求重大排放必須納入，應採用使用情境（Use Scenario）方法估算</li>
+      <li data-opt="D">截止規則可以排除任何低於 5% 的排放源，但 55% 超過門檻</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：C</strong><br><br>
+      ISO 14067 的截止規則適用於「貢獻<strong>微小</strong>的排放源」（通常 &lt; 1% 且累計排除量 &lt; 5%），目的是減少計算負擔，但<strong>不得用於排除重大排放源</strong>。使用階段佔 55% 顯然是重大來源，必須納入。對於難以量化的使用階段，標準允許建立「合理使用情境（Reasonable Use Scenario）」進行估算，並揭露假設——如「每日使用 8 小時、台灣電網排放因子、5 年壽命」。選項 D 的「5% 門檻」是自創規則，ISO 14067 並無此明確門檻值。
+    </div>
+  </div>
+</div>
+
+<!-- Q13 -->
+<div class="q-block">
+  <div class="q-head" onclick="toggleQ(this)">
+    <div class="q-num">13</div>
+    <div class="q-text">在 PCF 計算中，「土地利用變化（Land Use Change, LUC）」排放最常出現在哪類產品，且其計算最具爭議的原因是什麼？</div>
+    <div class="q-toggle">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-opt="A">電子產品，因稀土礦採掘涉及土地開發，但礦山面積通常明確可計算</li>
+      <li data-opt="B" class="correct">農業原料產品（如棕櫚油、大豆、牛肉），因農地擴張往往涉及毀林，而毀林的碳排放如何在時間軸上分攤（如：100 年均攤 vs 單年計入）存在方法論爭議</li>
+      <li data-opt="C">紡織品，因棉花種植需要大量農藥，導致土壤碳匯功能喪失</li>
+      <li data-opt="D">金融服務業，因辦公室選址影響都市土地利用</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      土地利用變化（LUC）排放在農業原料（尤其棕櫚油、大豆、牛肉）的 PCF 中可能佔極大比重——一片雨林被砍伐開墾為農地，數十年至數百年儲存的生物碳瞬間釋放。爭議點在於：(1) 這些碳排放如何在未來農業生產的「年份」中分攤？(2) 直接 LUC vs 間接 LUC（ILUC：因需求轉移導致其他地方毀林）如何計算？ISO 14067 允許納入 LUC，但須採用 IPCC 的方法論，且時間分攤方式影響結果甚鉅。這是農產品 PCF 計算中最具學術爭議的主題。
+    </div>
+  </div>
+</div>
+
+<!-- Q14 -->
+<div class="q-block">
+  <div class="q-head" onclick="toggleQ(this)">
+    <div class="q-num">14</div>
+    <div class="q-text">依 ISO 14067:2018，以下關於「敏感度分析（Sensitivity Analysis）」的敘述，何者正確？</div>
+    <div class="q-toggle">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-opt="A">敏感度分析僅適用於學術研究性質的 PCF，商業用途可免除</li>
+      <li data-opt="B">敏感度分析是用來確認計算結果無誤的數學驗算方法</li>
+      <li data-opt="C" class="correct">敏感度分析用於評估關鍵假設或數據變動對 PCF 結果的影響程度，ISO 14067 要求針對重大不確定性的輸入項目進行，以揭示結果的穩健性</li>
+      <li data-opt="D">敏感度分析等同於不確定性分析，兩者可互換使用</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：C</strong><br><br>
+      敏感度分析（Sensitivity Analysis）與不確定性分析（Uncertainty Analysis）是<strong>不同但互補</strong>的工具（排除 D）。敏感度分析問的是：「如果這個假設改變了，結果會差多少？」例如：若電力排放因子從 0.495 降至 0.40 kgCO₂e/kWh（台灣增加再生能源），PCF 結果會下降幾%？若下降幅度很大，表示該項假設對結果「高度敏感」，需要特別關注數據品質。不確定性分析則是給出 PCF 結果的信賴範圍（如：3.2 ± 0.5 kgCO₂e）。
+    </div>
+  </div>
+</div>
+
+<!-- Q15 -->
+<div class="q-block">
+  <div class="q-head" onclick="toggleQ(this)">
+    <div class="q-num">15</div>
+    <div class="q-text">歐盟 CBAM（碳邊境調整機制）中，「嵌入碳排放（Embedded Emissions）」的計算範疇，與完整 PCF 的主要差異是？</div>
+    <div class="q-toggle">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-opt="A">兩者完全相同，CBAM 要求與 ISO 14067 完整 PCF 一致</li>
+      <li data-opt="B" class="correct">CBAM 目前僅要求申報「直接排放（Scope 1）」及部分「間接電力排放（Scope 2）」，不涵蓋完整生命週期（不含使用階段、廢棄階段及大部分 Scope 3 上游排放），範疇比完整 PCF 窄</li>
+      <li data-opt="C">CBAM 要求比 PCF 更嚴格，包含產品在歐盟境內使用的所有碳排放</li>
+      <li data-opt="D">CBAM 的計算方式完全由進口商自行決定，無強制方法論</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      CBAM 2026 年全面收費階段，要求出口商申報的「嵌入碳排放」聚焦於生產製造階段的<strong>直接排放（Scope 1）</strong>與<strong>電力間接排放（Scope 2）</strong>，並未要求完整的搖籃到墳墓 PCF。這意味著台灣出口商必須建立製程層級的碳排放數據，但還不需要完整的生命週期評估。然而，隨著 CBAM 未來可能擴展範疇，建立完整 PCF 能力仍是趨勢。此題測試考生對 CBAM 與 PCF 兩個制度的精確邊界理解。
+    </div>
+  </div>
+</div>
+
+<!-- Q16 -->
+<div class="q-block">
+  <div class="q-head" onclick="toggleQ(this)">
+    <div class="q-num">16</div>
+    <div class="q-text">食農教育活動的策劃者計畫對 500 位參與者的全日活動（含午餐）進行「活動碳足跡盤查」。在計算午餐碳足跡時，最適合的功能單位設定為？</div>
+    <div class="q-toggle">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-opt="A">每公斤食材重量</li>
+      <li data-opt="B">每元食材成本</li>
+      <li data-opt="C" class="correct">每份午餐（一人份）或每場活動（500 人）—視盤查目的而定，重點是功能單位需反映「提供一頓完整餐食服務」的功能</li>
+      <li data-opt="D">每平方公尺廚房面積</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：C</strong><br><br>
+      功能單位需反映產品/服務的「功能」，對於餐食，功能是「提供一人份完整餐食」或「提供 500 人份完整餐食」。以「每公斤食材」為 FU 有問題：不同食材的重量無法直接比較功能（100g 牛肉 vs 100g 蔬菜提供的飽足感與營養完全不同）。以「每元成本」為 FU 則受物價影響，跨期比較失真。廚房面積（選項 D）完全不反映餐食功能。此題應用於農場食農教育活動情境，幫助農場主理人理解如何計算活動碳足跡。
+    </div>
+  </div>
+</div>
+
+<!-- Q17 -->
+<div class="q-block">
+  <div class="q-head" onclick="toggleQ(this)">
+    <div class="q-num">17</div>
+    <div class="q-text">以下哪種溫室氣體雖然大氣濃度極低，但因 GWP₁₀₀ 極高，在半導體製程的 PCF 計算中不容忽視？</div>
+    <div class="q-toggle">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-opt="A">二氧化碳（CO₂）</li>
+      <li data-opt="B">甲烷（CH₄）</li>
+      <li data-opt="C">氧化亞氮（N₂O）</li>
+      <li data-opt="D" class="correct">六氟化硫（SF₆）與全氟碳化合物（PFCs），GWP₁₀₀ 分別高達約 25,200 與 7,000–12,200</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：D</strong><br><br>
+      半導體製程（蝕刻、清潔）使用 SF₆（六氟化硫）、NF₃（三氟化氮）、PFCs（全氟碳化合物）等含氟氣體，雖然絕對排放量小，但其 GWP₁₀₀ 極高：SF₆ ≈ 25,200、CF₄（一種 PFC）≈ 7,380、C₂F₆ ≈ 12,400（IPCC AR6）。這意味著即使微量洩漏，換算成 CO₂e 後對 PCF 影響巨大。台灣作為全球半導體製造重鎮，這類含氟氣體排放是晶圓代工廠 PCF 計算的重要項目。
+    </div>
+  </div>
+</div>
+
+<!-- Q18 -->
+<div class="q-block">
+  <div class="q-head" onclick="toggleQ(this)">
+    <div class="q-num">18</div>
+    <div class="q-text">某公司 A 的產品在去年完成 PCF 計算結果為 5.0 kgCO₂e/件。今年重新計算結果為 4.2 kgCO₂e/件。以下哪種情況最不應該被宣傳為「減碳成果」？</div>
+    <div class="q-toggle">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-opt="A">製程改善，減少了原料耗用</li>
+      <li data-opt="B">改用再生能源，工廠 Scope 2 降低</li>
+      <li data-opt="C" class="correct">今年系統邊界排除了「廢棄處置階段」，而去年有納入，差異完全來自邊界縮減而非真實減量</li>
+      <li data-opt="D">供應商改用低碳製程，提供了更新的初級數據</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：C</strong><br><br>
+      PCF 跨年度比較的前提是「<strong>可比較性（Comparability）</strong>」——系統邊界、功能單位、方法論必須保持一致。若今年縮減了系統邊界（去掉廢棄階段），數字當然會降低，但這根本不是真正的減碳，而是「計算方式改變」。這種做法在 ISO 14067 中需要明確說明邊界變更，不得作為減碳績效對外宣傳。選項 A、B、D 均反映真實的製程或供應鏈改善，是真正的減量成果。
+    </div>
+  </div>
+</div>
+
+<!-- Q19 -->
+<div class="q-block">
+  <div class="q-head" onclick="toggleQ(this)">
+    <div class="q-num">19</div>
+    <div class="q-text">富林有機農場的有機稻米，若要取得符合國際認可的 PCF 查驗聲明書，以便向企業 ESG 採購部門提案，最適合的查驗機構類型為？</div>
+    <div class="q-toggle">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-opt="A">台灣有機農業認證機構（如慈心、MOA）即可，其有機認證涵蓋碳足跡查驗</li>
+      <li data-opt="B">農委會（農業部）所屬研究單位出具的評估報告</li>
+      <li data-opt="C" class="correct">依 ISO 17029 運作、獲得 TAF（台灣認證基金會）或 IAF 成員認可的第三方查驗機構（如 SGS、Bureau Veritas、TÜV 等），依 ISO 14064-3 或 ISO 14067 進行獨立查驗</li>
+      <li data-opt="D">向台灣環境部碳足跡標籤計畫申請登錄，即完成查驗程序</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：C</strong><br><br>
+      有機認證（慈心、MOA）驗證的是農業生產過程是否符合有機規範，<strong>並不等同於碳足跡查驗</strong>（排除 A）。農業部研究單位的評估屬內部性質，缺乏獨立性（排除 B）。台灣環境部的碳足跡標籤計畫有其程序，但在面對國際 B2B 採購（如企業 ESG 需求）時，企業採購方通常要求的是由<strong>獲國際認可（IAF/ILAC 體系）的查驗機構</strong>依 ISO 14064-3 或 ISO 14067 執行的獨立查驗，SGS、BV、TÜV 等機構同時在台灣和國際均受認可。
+    </div>
+  </div>
+</div>
+
+<!-- Q20 -->
+<div class="q-block">
+  <div class="q-head" onclick="toggleQ(this)">
+    <div class="q-num">20</div>
+    <div class="q-text">（綜合情境題）新竹某企業計畫採購 500 份「富林有機農場」的有機便當，作為員工 ESG 日活動午餐，並宣傳此次活動已達「碳中和」。農場已有完整 PCF 報告（每份便當 1.8 kgCO₂e），活動現場用電 0.5 tCO₂e，交通接送 1.2 tCO₂e。以下哪個步驟序列最符合 ISO 14068-1:2023 的碳中和聲明要求？</div>
+    <div class="q-toggle">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-opt="A">直接購買足夠碳權（補償 1.8×500/1000 + 0.5 + 1.2 = 2.6 tCO₂e），即可宣告碳中和</li>
+      <li data-opt="B" class="correct">先完成全活動碳盤查（含便當 PCF、用電、交通），記錄總量；接著評估可立即採取的減量措施（如綠電、低碳交通選項）；剩餘排放採購符合 Gold Standard 或 Verra VCS 品質的碳權補償；最後委請第三方查驗，取得聲明書後方可對外宣告</li>
+      <li data-opt="C">只要農場有機米的種植過程有碳匯，可以直接內部抵銷，無需外購碳權</li>
+      <li data-opt="D">企業 ESG 報告書中說明有採購有機食材，即已達到活動碳中和的精神</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      本題整合全科知識。正確流程為 P-A-R-C：
+      <br><br>
+      <strong>①盤查（Assess）</strong>：便當 PCF（500 × 1.8 kgCO₂e = 0.9 tCO₂e）+ 用電 0.5 t + 交通 1.2 t = 總計 <strong>2.6 tCO₂e</strong>。
+      <br>
+      <strong>②減量（Reduce）</strong>：先評估能否改用綠電、低碳交通，這步不能跳過。
+      <br>
+      <strong>③補償（Compensate）</strong>：剩餘排放採購高品質碳權（需外加性、永久性、第三方查驗）。
+      <br>
+      <strong>④查驗（Verify）</strong>：委請第三方出具聲明書，方可對外宣告。
+      <br><br>
+      選項 A 跳過了減量步驟；選項 C 的農場碳匯若未通過 MRV 認證，不得自動計入；選項 D 完全不符合任何標準定義。這也呼應了命題委員的核心理念：<strong>碳中和的意義在於流程的完整性與誠信，而非一張證書。</strong>
+    </div>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<!-- 頁尾 -->
+<div class="footer">
+  <p>📋 2026 IPAS 淨零碳管理師｜產品碳足跡深度衝刺筆記</p>
+  <p style="margin-top:6px;">本筆記依據 ISO 14067:2018 · ISO 14040/14044 · ISO 14068-1:2023 · IPCC AR6 · GHG Protocol 編製</p>
+  <p style="margin-top:6px; font-size:0.72rem; opacity:0.6;">© 2026 IPAS 命題委員會召集人｜僅供考前學習使用</p>
+</div>
+
+<!-- 列印按鈕 -->
+<button class="print-btn" onclick="window.print()">
+  🖨️ 列印 / 儲存 PDF
+</button>
+
+<script>
+function toggleQ(el) {
+  const body = el.parentElement;
+  const ans = body.querySelector('.q-ans');
+  const tog = el.querySelector('.q-toggle');
+  if (ans.classList.contains('show')) {
+    ans.classList.remove('show');
+    tog.textContent = '▼ 查看解析';
+  } else {
+    ans.classList.add('show');
+    tog.textContent = '▲ 收起解析';
+  }
+}
+</script>
+</body>
+</html>

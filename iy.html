@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IPAS 2026 重要年份與數字整理（完整版）</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --white: #ffffff;
+    --off-white: #f8f9fb;
+    --light-gray: #f0f2f6;
+    --border: #e2e6ef;
+    --text-dark: #1a1f2e;
+    --text-mid: #3d4a6b;
+    --text-light: #6b7a9e;
+    --green: #2d8a5e; --green-l: #e8f5ef;
+    --blue: #1e5fa8;  --blue-l: #e8f0fb;
+    --orange: #c96a1a; --orange-l: #fdf0e5;
+    --red: #b83232;   --red-l: #fbeaea;
+    --purple: #5b3d8f; --purple-l: #f0ebfa;
+    --teal: #1a7a8a;  --teal-l: #e5f5f7;
+    --brown: #7a4e2d; --brown-l: #f7efe8;
+    --pink: #a0306a;  --pink-l: #faeaf3;
+    --shadow-sm: 0 1px 4px rgba(0,0,0,0.06);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,0.10);
+    --r: 12px; --rs: 8px;
+  }
+  body { font-family: 'Noto Sans TC', sans-serif; background: var(--off-white); color: var(--text-dark); min-height: 100vh; padding: 10px; }
+
+  /* Header */
+  .page-header { max-width: 1860px; margin: 0 auto 16px; background: var(--white); border-radius: var(--r); box-shadow: var(--shadow-md); padding: 12px; border-top: 4px solid var(--green); display: flex; align-items: flex-start; gap: 18px; }
+  .header-icon { font-size: 2.6rem; line-height: 1; flex-shrink: 0; }
+  .header-text h1 { font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 700; color: var(--text-dark); letter-spacing: 0.03em; }
+  .header-text p { margin-top: 6px; font-size: 18px; color: var(--text-light); line-height: 1.6; }
+  .badge-row { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 8px; }
+  .badge { font-size: 18px; font-weight: 600; padding: 3px 10px; border-radius: 20px; background: var(--green-l); color: var(--green); border: 1px solid #b6dece; }
+
+  /* Section title */
+  .sec { max-width: 1860px; margin: 0 auto 14px; display: flex; align-items: center; gap: 10px; }
+  .sec h2 { font-family: 'Noto Serif TC', serif; font-size: 18px font-weight: 700; color: var(--text-mid); letter-spacing: 0.05em; white-space: nowrap; }
+  .sec::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  /* Cards */
+  .cards { max-width: 1860px; margin: 0 auto 12px; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+  .card { background: var(--white); border-radius: var(--r); box-shadow: var(--shadow-sm); padding: 8px; border-left: 4px solid transparent; transition: box-shadow .2s, transform .2s; }
+  .card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+  .card.green  { border-color: var(--green);  } .card.green  .cy { color: var(--green); }
+  .card.blue   { border-color: var(--blue);   } .card.blue   .cy { color: var(--blue); }
+  .card.orange { border-color: var(--orange); } .card.orange .cy { color: var(--orange); }
+  .card.red    { border-color: var(--red);    } .card.red    .cy { color: var(--red); }
+  .card.purple { border-color: var(--purple); } .card.purple .cy { color: var(--purple); }
+  .card.teal   { border-color: var(--teal);   } .card.teal   .cy { color: var(--teal); }
+  .card.brown  { border-color: var(--brown);  } .card.brown  .cy { color: var(--brown); }
+  .card.pink   { border-color: var(--pink);   } .card.pink   .cy { color: var(--pink); }
+  .ctag { font-size: 18px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--text-light); margin-bottom: 7px; }
+  .cq { font-size: 18px; color: var(--text-mid); line-height: 1.55; margin-bottom: 8px; }
+  .ca { display: flex; align-items: baseline; gap: 6px; }
+  .cl { font-size: 18px; color: var(--text-light); flex-shrink: 0; }
+  .cy { font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 700; line-height: 1; letter-spacing: -.02em; }
+  .cu { font-size: 18px; color: var(--text-light); margin-left: 2px; }
+  .note { margin-top: 8px; font-size: 18px color: var(--text-light); line-height: 1.5; }
+
+  /* Table */
+  .table-wrap { max-width: 1860px; margin: 0 auto 12px; background: var(--white); border-radius: var(--r); box-shadow: var(--shadow-md); overflow: hidden; }
+  table { width: 100%; border-collapse: collapse; }
+  thead th { background: var(--light-gray); font-size: 18px; font-weight: 700; color: var(--text-mid); padding: 12px 16px; text-align: left; letter-spacing: .04em; }
+  tbody tr { border-bottom: 1px solid var(--border); transition: background .15s; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: var(--off-white); }
+  td { padding: 8px; font-size: 18px; color: var(--text-mid); line-height: 1.5; }
+  td.val { font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 700; white-space: nowrap; }
+  td.val.green  { color: var(--green); }
+  td.val.blue   { color: var(--blue); }
+  td.val.orange { color: var(--orange); }
+  td.val.red    { color: var(--red); }
+  td.val.purple { color: var(--purple); }
+  td.val.teal   { color: var(--teal); }
+  td.val.brown  { color: var(--brown); }
+  td.val.pink   { color: var(--pink); }
+  .tag-sm { display: inline-block; font-size: 18px; padding: 2px 7px; border-radius: 10px; font-weight: 600; margin-right: 4px; }
+  .tag-sm.green  { background: var(--green-l);  color: var(--green); }
+  .tag-sm.blue   { background: var(--blue-l);   color: var(--blue); }
+  .tag-sm.orange { background: var(--orange-l); color: var(--orange); }
+  .tag-sm.red    { background: var(--red-l);    color: var(--red); }
+  .tag-sm.purple { background: var(--purple-l); color: var(--purple); }
+  .tag-sm.teal   { background: var(--teal-l);   color: var(--teal); }
+  .tag-sm.brown  { background: var(--brown-l);  color: var(--brown); }
+  .tag-sm.pink   { background: var(--pink-l);   color: var(--pink); }
+
+  /* Timeline */
+  .tl-wrap { max-width: 1860px; margin: 0 auto 12px; background: var(--white); border-radius: var(--r); box-shadow: var(--shadow-md); padding: 26px 30px; }
+  .tl-title { font-family: 'Noto Serif TC', serif; font-size: 18px font-weight: 700; color: var(--text-dark); margin-bottom: 22px; }
+  .tl { position: relative; padding-left: 10px; }
+  .tl::before { content: ''; position: absolute; left: 9px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--green), var(--blue), var(--orange), var(--red), var(--purple)); border-radius: 2px; }
+  .ti { position: relative; margin-bottom: 8px; padding: 8px; background: var(--off-white); border-radius: var(--rs); }
+  .ti:last-child { margin-bottom: 0; }
+  .ti::before { content: ''; position: absolute; left: -24px; top: 50%; transform: translateY(-50%); width: 11px; height: 11px; border-radius: 50%; border: 2px solid var(--white); }
+  .ti.green::before  { background: var(--green);  box-shadow: 0 0 0 2px var(--green); }
+  .ti.blue::before   { background: var(--blue);   box-shadow: 0 0 0 2px var(--blue); }
+  .ti.orange::before { background: var(--orange); box-shadow: 0 0 0 2px var(--orange); }
+  .ti.red::before    { background: var(--red);    box-shadow: 0 0 0 2px var(--red); }
+  .ti.purple::before { background: var(--purple); box-shadow: 0 0 0 2px var(--purple); }
+  .ti.brown::before  { background: var(--brown);  box-shadow: 0 0 0 2px var(--brown); }
+  .tiy { font-family: 'Noto Serif TC', serif; font-size: 18px font-weight: 700; display: inline; margin-right: 8px; }
+  .tiy.green  { color: var(--green); }
+  .tiy.blue   { color: var(--blue); }
+  .tiy.orange { color: var(--orange); }
+  .tiy.red    { color: var(--red); }
+  .tiy.purple { color: var(--purple); }
+  .tiy.brown  { color: var(--brown); }
+  .tid { display: inline; font-size: 18px; color: var(--text-mid); line-height: 1.6; }
+  .titags { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 5px; }
+
+  /* RE100 */
+  .re-wrap { max-width: 1860px; margin: 0 auto 32px; background: var(--white); border-radius: var(--r); box-shadow: var(--shadow-md); padding: 10px; }
+  .re-stages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 8px; }
+  .stage { text-align: center; padding: 16px 10px; border-radius: var(--rs); background: var(--off-white); border: 1px solid var(--border); }
+  .stage-yr { font-size: 18px; color: var(--text-light); margin-bottom: 4px; }
+  .stage-pct { font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 700; line-height: 1; }
+  .stage-pct.s1 { color: var(--green); } .stage-pct.s2 { color: var(--blue); } .stage-pct.s3 { color: var(--purple); }
+  .stage-lbl { font-size: 18px color: var(--text-light); margin-top: 4px; }
+  .re-bar-labels { display: flex; justify-content: space-between; font-size: 18px; color: var(--text-light); margin-bottom: 5px; }
+  .re-bar-track { height: 9px; background: var(--light-gray); border-radius: 10px; overflow: hidden; }
+  .re-bar-fill { height: 100%; border-radius: 10px; background: linear-gradient(to right, var(--green), var(--blue), var(--purple)); width: 0; animation: fillBar 1.2s ease forwards .3s; }
+  @keyframes fillBar { to { width: 100%; } }
+
+  /* Print btn */
+  .print-btn { position: fixed; bottom: 26px; right: 26px; background: var(--green); color: var(--white); border: none; border-radius: 50px; padding: 10px; font-size: 18px; font-weight: 600; font-family: 'Noto Sans TC', sans-serif; cursor: pointer; box-shadow: 0 4px 16px rgba(45,138,94,.35); display: flex; align-items: center; gap: 7px; transition: background .2s, transform .15s; z-index: 999; }
+  .print-btn:hover { background: #236e4a; transform: translateY(-2px); }
+
+  .footer { max-width: 1860px; margin: 0 auto; text-align: center; font-size: 0.76rem; color: var(--text-light); padding-top: 10px; border-top: 1px solid var(--border); }
+
+  @media print {
+    body { background: white; padding: 8px; }
+    .print-btn { display: none !important; }
+    .card, .tl-wrap, .re-wrap, .table-wrap { box-shadow: none; border: 1px solid #ddd;  }
+    .card:hover { transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="page-header">
+  <div class="header-icon">📋</div>
+  <div class="header-text">
+    <h1>IPAS 淨零碳規劃管理師｜2026 重要年份與數字完整版</h1>
+    <p>涵蓋國際公約、台灣法規、碳費、CBAM、ETS、RE100、SBTi、ISO 標準等全方位考點數字速查。</p>
+    <div class="badge-row">
+      <span class="badge">UNFCCC</span><span class="badge">京都議定書</span><span class="badge">巴黎協定</span>
+      <span class="badge">ISO 14064</span><span class="badge">ISO 14068-1</span><span class="badge">CBAM</span>
+      <span class="badge">ETS</span><span class="badge">RE100</span><span class="badge">SBTi</span>
+      <span class="badge">台灣碳費</span><span class="badge">氣候變遷因應法</span>
+    </div>
+  </div>
+</div>
+
+<!-- ① 國際公約與協定年份 -->
+<div class="sec"><h2>🌍 一、國際公約與協定重要年份</h2></div>
+<div class="table-wrap">
+  <table>
+    <thead><tr><th>事件</th><th>年份</th><th>關鍵內容</th><th>分類</th></tr></thead>
+    <tbody>
+      <tr><td>UNFCCC（聯合國氣候變化綱要公約）成立</td><td class="val green">1992</td><td>全球第一個氣候公約，奠定後續議定書基礎</td><td><span class="tag-sm green">UNFCCC</span></td></tr>
+      <tr><td>京都議定書（Kyoto Protocol）簽署</td><td class="val blue">1997</td><td>首次對附件一已開發國家設定法律拘束力減量目標，涵蓋6種GHG</td><td><span class="tag-sm blue">京都議定書</span></td></tr>
+      <tr><td>京都議定書正式生效</td><td class="val blue">2005</td><td>達到「55國且占全球55%排放」門檻後生效</td><td><span class="tag-sm blue">京都議定書</span></td></tr>
+      <tr><td>巴黎協定（Paris Agreement）COP21 通過</td><td class="val orange">2015</td><td>目標：升溫遠低於 2°C，努力限制 1.5°C；NDC 每五年更新</td><td><span class="tag-sm orange">巴黎協定</span></td></tr>
+      <tr><td>巴黎協定正式生效</td><td class="val orange">2016</td><td>完成締約國批准程序</td><td><span class="tag-sm orange">巴黎協定</span></td></tr>
+      <tr><td>CDM（清潔發展機制）正式終止</td><td class="val red">2020</td><td>由巴黎協定第六條機制取代</td><td><span class="tag-sm red">CDM</span></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ② 台灣法規與政策 -->
+<div class="sec"><h2>🇹🇼 二、台灣法規與政策重要年份</h2></div>
+<div class="table-wrap">
+  <table>
+    <thead><tr><th>事件</th><th>年份（西元／民國）</th><th>關鍵內容</th><th>分類</th></tr></thead>
+    <tbody>
+      <tr><td>《氣候變遷因應法》三讀通過（原《溫室氣體減量及管理法》修法）</td><td class="val green">2023 / 民112</td><td>明確訂定台灣 2050 年淨零排放目標；引入碳費機制</td><td><span class="tag-sm green">台灣法規</span></td></tr>
+      <tr><td>碳費「試申報、<strong>不繳費</strong>」年度</td><td class="val orange">2025 / 民<strong>114</strong></td><td>業者練習申報，熟悉流程，實際繳費從 115 年起</td><td><span class="tag-sm orange">台灣碳費</span></td></tr>
+      <tr><td>碳費正式開徵（首次繳費）</td><td class="val red">2026 / 民115</td><td>一般費率 300 元/公噸 CO₂e；優惠費率 A：50 元；優惠費率 B：100 元</td><td><span class="tag-sm red">台灣碳費</span></td></tr>
+      <tr><td>台灣第三期階段管制目標期間</td><td class="val purple">2026–2030</td><td>2030 年溫室氣體淨排放量相較 2005 年減少 <strong>28%±2%</strong></td><td><span class="tag-sm purple">減量目標</span></td></tr>
+      <tr><td>政府 2030 年前淨零投資目標</td><td class="val blue">2030</td><td>規劃投入 <strong>9,000 億元</strong>，預計帶動民間 <strong>4 兆元</strong>投資</td><td><span class="tag-sm blue">淨零投資</span></td></tr>
+      <tr><td>台灣淨零排放最終目標</td><td class="val green">2050</td><td>《氣候變遷因應法》法定目標：溫室氣體淨零排放</td><td><span class="tag-sm green">淨零目標</span></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ③ ISO 標準年份 -->
+<div class="sec"><h2>📐 三、ISO 國際標準重要年份</h2></div>
+<div class="cards">
+  <div class="card blue">
+    <div class="ctag">ISO 14064-1</div>
+    <div class="cq">組織型溫室氣體盤查標準最新版本年份？</div>
+    <div class="ca"><span class="cl">答：</span><span class="cy">2018</span><span class="cu">年版</span></div>
+    <div class="note">台灣環境部溫室氣體登錄採 IPCC AR5（2013）GWP 值</div>
+  </div>
+  <div class="card teal">
+    <div class="ctag">ISO 14067</div>
+    <div class="cq">產品碳足跡標準年份？</div>
+    <div class="ca"><span class="cl">答：</span><span class="cy">2018</span><span class="cu">年版</span></div>
+    <div class="note">計算產品生命週期的碳足跡</div>
+  </div>
+  <div class="card green">
+    <div class="ctag">ISO 14068-1</div>
+    <div class="cq">碳中和標準 ISO 14068-1 正式推出年份？</div>
+    <div class="ca"><span class="cl">答：</span><span class="cy">2023</span><span class="cu">年</span></div>
+    <div class="note">⚠️ 非 2021！2021 年是 PAS 2060 廣泛使用期（ISO 14068-1 的前身標準）</div>
+  </div>
+  <div class="card brown">
+    <div class="ctag">IPCC AR5 → AR6</div>
+    <div class="cq">台灣法規採用 GWP 版本及最新版？</div>
+    <div class="ca"><span class="cl">法規採：</span><span class="cy">AR5</span></div>
+    <div class="note">AR5（2013）為法規基準；未列者可引用最新版 AR6（2021）</div>
+  </div>
+</div>
+
+<!-- ④ CBAM & ETS -->
+<div class="sec"><h2>🇪🇺 四、歐盟 CBAM / ETS 重要數字</h2></div>
+<div style="font-size:18px;padding:8px;">依據歐盟 CBAM Omnibus 簡化條例於 <strong style="color:red;">2025年10月8日正式通過，10月20日生效</strong>。定義期 CBAM 年度申報截止日設定為「前一年進口資料的隔年9月30日」，取代原先的 5月31日。首次申報繳交截止日為 2027年9月30日，涵蓋 2026年全年進口的碳排放數據。<br>
+以下為此次修規的重點摘要：<strong style="color:red;">首期憑證購買</strong>：歐盟CBAM憑證於 <strong style="color:red;">2027年2月1日 起正式開賣</strong> 。
+<br><strong style="color:red;">首次申報與繳交</strong>：進口商必須在 <strong style="color:red;">2027年9月30日前</strong> 完成2026年度報告並繳交相應憑證 。
+<br><strong style="color:red;">中小企業豁免</strong>：針對單一進口商全年進口淨重 <strong style="color:red;">少於50噸</strong> 的CBAM納管產品，新增了年度數量豁免門檻 。季度購買要求放寬：正式期自2027年起，進口商每季需持有的憑證比例，從原規定的80%調降至 <strong style="color:red;">50%</strong> 
+<BR>預設值懲罰機制全面啟動：若缺乏實際碳排數據而被迫使用歐盟預設值，將面臨極高的累進懲罰。除化肥外，一般產品預設值自 2026 年起將額外加乘 10% 懲罰
+<BR>CBAM 憑證回購	每年 10 月 31 日前
+<BR>
+</div>
+<div class="cards">
+  <div class="card blue">
+    <div class="ctag">CBAM 過渡期開始</div>
+    <div class="cq">歐盟 CBAM 過渡期（僅申報、不繳費）從哪年開始？</div>
+    <div class="ca"><span class="cl">答：</span><span class="cy">2023</span><span class="cu">年10月起</span></div>
+    <div class="note">每季申報一次，練習期</div>
+  </div>
+  <div class="card red">
+    <div class="ctag">CBAM 正式生效</div>
+    <div class="cq">CBAM 正式生效（開始繳納碳關稅憑證）年份？</div>
+    <div class="ca"><span class="cl">答：</span><span class="cy">2026</span><span class="cu">年起</span></div>
+    <div class="note">進口商每年 <strong>9月30日</strong> 前繳交足夠 CBAM 憑證</div>
+	
+  </div>
+  <div class="card orange">
+    <div class="ctag">ETS 免費配額取消</div>
+    <div class="cq">歐盟 ETS 免費排放配額逐步取消起始年？</div>
+    <div class="ca"><span class="cl">答：</span><span class="cy">2026</span><span class="cu">年起逐步</span></div>
+    <div class="note">2034 年完全歸零，CBAM 全面取代 ETS 免費配額</div>
+  </div>
+  <div class="card purple">
+    <div class="ctag">CBAM 憑證繳交截止日</div>
+    <div class="cq">進口商每年最晚幾月幾日前完成 CBAM 憑證繳交？</div>
+    <div class="ca"><span class="cl">答：每年</span><span class="cy">9/30</span></div>
+    <div class="note">9 月 30 日（逾期視為違規）</div>
+  </div>
+</div>
+
+<!-- ⑤ RE100 / SBTi -->
+<div class="sec"><h2>⚡ 五、RE100 再生電力三階段目標</h2></div>
+<div class="re-wrap">
+  <div class="tl-title">🌱 RE100 成員再生電力使用率階段里程碑</div>
+  <div class="re-stages">
+    <div class="stage"><div class="stage-yr">第一階段</div><div class="stage-pct s1">60%</div><div class="stage-lbl">2030 年達成</div></div>
+    <div class="stage"><div class="stage-yr">第二階段</div><div class="stage-pct s2">90%</div><div class="stage-lbl">2040 年達成</div></div>
+    <div class="stage"><div class="stage-yr">最終目標</div><div class="stage-pct s3">100%</div><div class="stage-lbl">2050 年達成</div></div>
+  </div>
+  <div class="re-bar-labels">
+    <span>0%</span><span>2030→60%</span><span>2040→90%</span><span>2050→100%</span>
+  </div>
+  <div class="re-bar-track"><div class="re-bar-fill"></div></div>
+</div>
+
+<!-- ⑥ SBTi & 其他倡議 -->
+<div class="sec"><h2>🎯 六、SBTi、CDP、碳費費率等關鍵數字</h2></div>
+<div class="table-wrap">
+  <table>
+    <thead><tr><th>考點</th><th>關鍵數字／年份</th><th>說明</th><th>分類</th></tr></thead>
+    <tbody>
+      <tr><td>SBTi（科學基礎目標倡議）減碳路徑標準</td><td class="val green">1.5°C</td><td>企業減碳目標至少需符合升溫控制 1.5°C 情境</td><td><span class="tag-sm green">SBTi</span></td></tr>
+      <tr><td>巴黎協定氣溫控制目標</td><td class="val orange">2°C / 1.5°C</td><td>遠低於工業化前 2°C，努力限制 1.5°C 以內</td><td><span class="tag-sm orange">巴黎協定</span></td></tr>
+      <tr><td>台灣碳費一般費率</td><td class="val red">300 元/公噸</td><td>CO₂e，115 年起正式徵收</td><td><span class="tag-sm red">台灣碳費</span></td></tr>
+      <tr><td>台灣碳費優惠費率 A（符合指定削減率）</td><td class="val orange">50 元/公噸</td><td>需提出自主減量計畫且符合行業別指定削減率</td><td><span class="tag-sm orange">台灣碳費</span></td></tr>
+      <tr><td>台灣碳費優惠費率 B（採用技術標準）</td><td class="val orange">100 元/公噸</td><td>提出自主減量計畫但採技術標準路徑</td><td><span class="tag-sm orange">台灣碳費</span></td></tr>
+      <tr><td>溫室氣體盤查「顯著性門檻」</td><td class="val purple">3%</td><td>量化方法改變導致排放量差異 ≥3%，須重新計算基準年</td><td><span class="tag-sm purple">ISO 14064</span></td></tr>
+      <tr><td>CDP（碳揭露計畫）揭露四大領域</td><td class="val teal">4 項</td><td>氣候變遷、水、森林、塑膠（土壤不在其中）</td><td><span class="tag-sm teal">CDP</span></td></tr>
+      <tr><td>京都議定書附件一國家承諾期數</td><td class="val blue">2 期</td><td>第一承諾期（2008–2012）、第二承諾期（2013–2020）</td><td><span class="tag-sm blue">京都議定書</span></td></tr>
+      <tr><td>台灣 2030 年減量目標（相較 2005 年）</td><td class="val purple">28%±2%</td><td>第三期（2026–2030）階段管制目標</td><td><span class="tag-sm purple">台灣目標</span></td></tr>
+      <tr><td>環境部溫室氣體登錄採用 GWP 版本</td><td class="val brown">IPCC AR5</td><td>2013 年版；未列溫室氣體可引用最新 AR6</td><td><span class="tag-sm brown">GWP</span></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ⑦ 完整時間軸 -->
+<div class="sec"><h2>📅 七、IPAS 全方位時間軸（1992–2050）</h2></div>
+<div class="tl-wrap">
+  <div class="tl-title">🕐 國際 × 台灣 重要事件完整時序</div>
+  <div class="tl">
+    <div class="ti green">
+      <span class="tiy green">1992 年</span>
+      <span class="tid">UNFCCC（聯合國氣候變化綱要公約）成立，奠定全球氣候治理基礎。</span>
+      <div class="titags"><span class="tag-sm green">UNFCCC</span></div>
+    </div>
+    <div class="ti blue">
+      <span class="tiy blue">1997 年</span>
+      <span class="tid">京都議定書 COP3 簽署，設定附件一已開發國家法定減量義務，涵蓋 6 種溫室氣體。</span>
+      <div class="titags"><span class="tag-sm blue">京都議定書</span><span class="tag-sm blue">COP3</span></div>
+    </div>
+    <div class="ti blue">
+      <span class="tiy blue">2005 年</span>
+      <span class="tid">京都議定書正式生效(8年後生效)；COP11 歐盟 ETS（排放交易體系）第一階段啟動。</span>
+      <div class="titags"><span class="tag-sm blue">京都議定書生效</span><span class="tag-sm blue">EU ETS</span></div>
+    </div>
+    <div class="ti orange">
+      <span class="tiy orange">2015 年</span>
+      <span class="tid">COP21 巴黎協定通過，目標升溫遠低於 2°C 並努力 1.5°C；各國提出 NDC 承諾。</span>
+      <div class="titags"><span class="tag-sm orange">巴黎協定</span><span class="tag-sm orange">COP21</span><span class="tag-sm orange">NDC</span></div>
+    </div>
+    <div class="ti orange">
+      <span class="tiy orange">2016 年</span>
+      <span class="tid">COP22 巴黎協定正式生效。</span>
+      <div class="titags"><span class="tag-sm orange">巴黎協定生效</span></div>
+    </div>
+    <div class="ti red">
+      <span class="tiy red">2020 年</span>
+      <span class="tid"><span style="color:red">唯一沒有開COP會議</span>。 CDM（清潔發展機制）正式終止，由巴黎協定第六條機制取代。</span>
+      <div class="titags"><span class="tag-sm red">CDM 終止</span></div>
+    </div>
+    <div class="ti blue">
+      <span class="tiy blue">2023 年（民 112）</span>
+      <span class="tid">COP28 。ISO 14068-1 碳中和標準正式推出。台灣《氣候變遷因應法》三讀通過，明定 2050 淨零目標與碳費機制。歐盟 CBAM 過渡期啟動（申報不繳費）。</span>
+      <div class="titags"><span class="tag-sm blue">ISO 14068-1</span><span class="tag-sm blue">氣候變遷因應法</span><span class="tag-sm blue">CBAM 過渡</span></div>
+    </div>
+    <div class="ti orange">
+      <span class="tiy orange">2025 年（民 114）</span>
+      <span class="tid">COP30。台灣碳費「試申報、不繳費」年度，企業熟悉申報流程。</span>
+      <div class="titags"><span class="tag-sm orange">台灣碳費試申報</span><span class="tag-sm orange">民國 114 年</span></div>
+    </div>
+    <div class="ti red">
+      <span class="tiy red">2026 年（民 115）</span>
+      <span class="tid">台灣碳費正式開徵（每年 5/31 前申報繳費）。歐盟 CBAM 正式生效，進口商每年 5 月 31 日前繳 CBAM 憑證。ETS 免費配額開始逐步取消。台灣第三期減量管制期間啟動。</span>
+      <div class="titags"><span class="tag-sm red">台灣碳費開徵</span><span class="tag-sm red">CBAM 正式</span><span class="tag-sm red">ETS 配額取消</span></div>
+    </div>
+    <div class="ti purple">
+      <span class="tiy purple">2030 年</span>
+      <span class="tid">RE100 成員 60% 再生電力目標。台灣第三期減量目標達成（-28%±2% vs 2005）。政府規劃完成 9,000 億元淨零投資。</span>
+      <div class="titags"><span class="tag-sm purple">RE100 60%</span><span class="tag-sm purple">台灣 -28%</span></div>
+    </div>
+    <div class="ti red">
+      <span class="tiy red">2034 年</span>
+      <span class="tid">歐盟 ETS 免費排放配額完全歸零，CBAM 全面實施。</span>
+      <div class="titags"><span class="tag-sm red">ETS 免費配額歸零</span><span class="tag-sm red">CBAM 全面</span></div>
+    </div>
+    <div class="ti green">
+      <span class="tiy green">2040 年</span>
+      <span class="tid">RE100 成員 90% 再生電力中間目標。</span>
+      <div class="titags"><span class="tag-sm green">RE100 90%</span></div>
+    </div>
+    <div class="ti green" style="margin-bottom:0">
+      <span class="tiy green">2050 年</span>
+      <span class="tid">RE100 成員 100% 再生電力最終目標。台灣法定淨零排放目標年。全球巴黎協定淨零目標年。</span>
+      <div class="titags"><span class="tag-sm green">RE100 100%</span><span class="tag-sm green">台灣淨零</span><span class="tag-sm green">全球淨零</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  整理來源：IPAS 淨零碳規劃管理師官方教材、氣候變遷因應法、CBAM 歐盟法規、RE100 倡議、ISO 標準｜製作日期：2026 年 6 月
+</div>
+
+<!-- Print Button -->
+<button class="print-btn" onclick="window.print()">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="6 9 6 2 18 2 18 9"></polyline>
+    <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+    <rect x="6" y="14" width="12" height="8"></rect>
+  </svg>
+  列印 / PDF
+</button>
+
+</body>
+</html>

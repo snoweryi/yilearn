@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IPAS 淨零碳管理師｜CBAM 2026正式上路 考試重點完全攻略</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fff;--sf:#f8fafb;--sf2:#fafbfc;
+  --bd:#e2e8f0;--bdd:#cbd5e1;
+  --green:#16a34a;--gl:#fafcfb;--gm:#125228;
+  --teal:#0d9488;--tl:#fafcfc;
+  --blue:#2563eb;--bl:#fafbfc;
+  --orange:#ea580c;--ol:#faf9f7;
+  --red:#dc2626;--rl:#fcfafa;
+  --purple:#7c3aed;--pl:#fafafc;
+  --indigo:#4338ca;--il:#fcfcfc;
+  --amber:#d97706;--ambl:#faf9f7;
+  --sky:#0284c7;--skyl:#fcfeff;
+  --text:#0f172a;--t2:#334155;--t3:#64748b;--t4:#94a3b8;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans TC',sans-serif;font-size: 18px;line-height:1.7}
+
+header{background:linear-gradient(135deg,#fffbeb,#fff7ed 40%,#eff6ff);border-bottom:3px solid var(--orange);padding:36px 48px 28px;position:relative;overflow:hidden}
+header::before{content:'';position:absolute;top:-40px;right:-60px;width:280px;height:280px;background:radial-gradient(circle,rgba(234,88,12,.08),transparent 70%);border-radius:50%}
+.badge{display:inline-flex;align-items:center;gap:6px;background:#fff7ed;border:1px solid #fed7aa;color:var(--orange);padding:3px 12px;border-radius:20px;font-size: 18px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px}
+.badge::before{content:'🔴';font-size: 18px;animation:blink 1.5s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+h1{font-family:'Noto Serif TC',serif;font-size:clamp(18px,3vw,31px);font-weight:900;line-height:1.3}
+h1 span{color:var(--orange)}
+h1 .sub{color:var(--blue);font-size:clamp(18px,3vw,22px)}
+.hmeta{display:flex;flex-wrap:wrap;gap:18px;margin-top:8px;font-size: 18px;color:var(--t3)}
+.hmi{display:flex;align-items:center;gap:6px}
+.dot{width:7px;height:7px;border-radius:50%}
+.live-badge{display:inline-flex;align-items:center;gap:5px;background:#fee2e2;border:1px solid #fca5a5;color:var(--red);padding:3px 10px;border-radius:20px;font-size: 18px;font-weight:700;margin-left:8px}
+
+nav{background:#fff;border-bottom:1px solid var(--bd);padding:0 10px;display:flex;overflow-x:auto;scrollbar-width:none;position:sticky;top:0;z-index:100;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+nav::-webkit-scrollbar{display:none}
+.nb{padding:8px;border:none;background:none;color:var(--t3);font-size: 18px;font-family:'Noto Sans TC',sans-serif;cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;transition:all .18s;font-weight:500}
+.nb:hover{color:var(--text);background:var(--sf)}
+.nb.active{color:var(--orange);border-bottom-color:var(--orange);font-weight:700}
+
+.container{max-width:1860px;margin:0 auto;padding:8px}
+.section{display:none}.section.active{display:block}
+.stit{font-family:'Noto Serif TC',serif;font-size:20px;font-weight:900;color:var(--text);margin-bottom:5px;display:flex;align-items:center;gap:10px}
+.sico{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size: 18px;flex-shrink:0}
+.ssub{color:var(--t3);font-size: 18px;margin-bottom:8px;padding-left:44px}
+
+.card{background:#fff;border:1px solid var(--bd);border-radius:12px;padding:12px;margin-bottom:8px;box-shadow:0 1px 4px rgba(0,0,0,.04);transition:box-shadow .2s,border-color .2s}
+.card:hover{box-shadow:0 3px 12px rgba(0,0,0,.08);border-color:var(--bdd)}
+.cht{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:8px}
+.ct{font-weight:700;font-size: 18px;color:var(--text);display:flex;align-items:center;gap:7px}
+.bdg{display:inline-block;padding:2px 8px;border-radius:10px;font-size: 14px;font-weight:700;letter-spacing:.04em;flex-shrink:0}
+.br{background:var(--rl);color:var(--red);border:1px solid #fca5a5}
+.bo{background:var(--ol);color:var(--orange);border:1px solid #fdba74}
+.bb{background:var(--bl);color:var(--blue);border:1px solid #93c5fd}
+.bg{background:var(--gl);color:var(--green);border:1px solid #86efac}
+.bnew{background:#fef3c7;color:#92400e;border:1px solid #fcd34d}
+.blive{background:var(--rl);color:var(--red);border:1px solid #fca5a5;animation:pulse2 2s infinite}
+@keyframes pulse2{0%,100%{opacity:1}50%{opacity:.7}}
+
+.fg{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:14px 0}
+.fi{background:var(--sf);border:1px solid var(--bd);border-left:3px solid var(--teal);border-radius:10px;padding:12px 14px}
+.fl{font-size: 18px;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.fv{font-size: 18px;font-weight:700;font-family:'DM Mono',monospace;color:var(--teal)}
+.fd{font-size: 18px;color:var(--t3);margin-top:3px}
+
+.tw{overflow-x:auto;margin:8px 0;border-radius:10px;border:1px solid var(--bd)}
+table{width:100%;border-collapse:collapse;font-size: 18px}
+th{background:var(--sf2);padding:9px;text-align:left;font-weight:700;font-size: 18px;color:var(--t2);text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--bdd)}
+td{padding:9px 13px;border-bottom:1px solid var(--bd);vertical-align:top}
+tr:last-child td{border-bottom:none}
+tr:nth-child(even) td{background:var(--sf)}
+.tk{color:var(--blue);font-weight:700;white-space:nowrap}
+.to{color:var(--orange);font-weight:700;}
+.to1{color:var(--orange);font-weight:700;font-size: 14px}
+
+.tb{color:gray;font-weight:700;font-size: 14px}
+.tg{color:var(--green);font-weight:700}
+.tr{color:var(--red);font-weight:700}
+.tp{color:var(--purple);font-weight:700}
+
+.hl{border-radius:10px;padding:8px;margin:8px 0;border-left:4px solid}
+.hlg{background:var(--gl);border-color:var(--green)}
+.hlt{background:var(--tl);border-color:var(--teal)}
+.hlo{background:var(--ol);border-color:var(--orange)}
+.hlr{background:var(--rl);border-color:var(--red)}
+.hlb{background:var(--bl);border-color:var(--blue)}
+.hlp{background:var(--pl);border-color:var(--purple)}
+.hli{background:var(--il);border-color:var(--indigo)}
+.hla{background:var(--ambl);border-color:var(--amber)}
+.hlsk{background:var(--skyl);border-color:var(--sky)}
+.hlt2{font-size: 18px;font-weight:800;text-transform:uppercase;letter-spacing:.09em;margin-bottom:7px}
+.hlg .hlt2{color:var(--green)}.hlt .hlt2{color:var(--teal)}.hlo .hlt2{color:var(--orange)}.hlr .hlt2{color:var(--red)}.hlb .hlt2{color:var(--blue)}.hlp .hlt2{color:var(--purple)}.hli .hlt2{color:var(--indigo)}.hla .hlt2{color:var(--amber)}.hlsk .hlt2{color:var(--sky)}
+.hl ul,.hl ol{padding-left:10px}
+.hl li{font-size: 18px;color:var(--t2);margin-bottom:4px}
+.hl li strong{color:var(--text)}
+.hl p{font-size: 18px;color:var(--t2)}
+.hl p strong{color:var(--text)}
+
+/* TIMELINE */
+.tl-wrap{position:relative;padding-left:0;margin:8px 0}
+.tli{display:flex;gap:0;margin-bottom:8px;align-items:flex-start}
+.tl-yr{width:72px;flex-shrink:0;font-family:'DM Mono',monospace;font-size: 16px;font-weight:700;padding-top:4px;text-align:right;padding-right:12px;color:var(--orange)}
+.tl-dot-w{width:10px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;padding-top:5px;position:relative}
+.tl-dot-w::before{content:'';position:absolute;top:14px;bottom:-14px;left:4px;width:2px;background:var(--bd)}
+.tli:last-child .tl-dot-w::before{display:none}
+.tl-dot{width:10px;height:10px;border-radius:50%;background:var(--orange);border:2px solid #fff;box-shadow:0 0 0 2px var(--orange);flex-shrink:0}
+.tl-dot.g{background:var(--green);box-shadow:0 0 0 2px var(--green)}
+.tl-dot.b{background:var(--blue);box-shadow:0 0 0 2px var(--blue)}
+.tl-dot.r{background:var(--red);box-shadow:0 0 0 2px var(--red);animation:pulse2 1.5s infinite}
+.tl-body{flex:1;margin-left:30px;padding:8px;border-radius:9px;font-size:12.5px}
+.tl-g{background:var(--gl);border:1px solid var(--gm)}
+.tl-o{background:var(--ol);border:1px solid #fdba74}
+.tl-b{background:var(--bl);border:1px solid #bfdbfe}
+.tl-r{background:var(--rl);border:1px solid #fca5a5}
+.tl-p{background:var(--pl);border:1px solid #e9d5ff}
+.tl-a{background:var(--ambl);border:1px solid #fcd34d}
+.tl-tit{font-weight:700;margin-bottom:3px;font-size:18px}
+.tl-desc{color:var(--t2);font-size:18px}
+.tl-desc strong{color:var(--text)}
+
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:8px 0}
+@media(max-width:600px){.cmp{grid-template-columns:1fr}}
+.cmc{background:var(--sf);border:1px solid var(--bd);border-radius:10px;padding:8px}
+.cmc h4{font-size: 18px;font-weight:700;margin-bottom:8px}
+.cmc ul{padding-left:10px}
+.cmc li{font-size: 18px;color:var(--t2);margin-bottom:4px}
+.cmc li strong{color:var(--text)}
+
+.steps{display:flex;flex-direction:column;gap:9px;margin:8px 0}
+.step{display:flex;align-items:flex-start;gap:12px;background:var(--sf);border:1px solid var(--bd);border-radius:10px;padding:11px 14px}
+.sn{width:28px;height:28px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:800;font-size: 18px;font-family:'DM Mono',monospace}
+.sng{background:var(--gl);color:var(--green)}.snb{background:var(--bl);color:var(--blue)}.sno{background:var(--ol);color:var(--orange)}.snr{background:var(--rl);color:var(--red)}
+.sc{flex:1}.stt{font-weight:700;font-size: 18px;color:var(--text)}.sdd{font-size: 18px;color:var(--t3);margin-top:2px}
+
+.kws{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}
+.kw{padding:3px 8px;border-radius:6px;font-size: 18px;font-weight:500}
+.kwg{background:var(--gl);color:var(--green);border:1px solid #86efac}
+.kwb{background:var(--bl);color:var(--blue);border:1px solid #93c5fd}
+.kwo{background:var(--ol);color:var(--orange);border:1px solid #fdba74}
+.kwr{background:var(--rl);color:var(--red);border:1px solid #fca5a5}
+.kwp{background:var(--pl);color:var(--purple);border:1px solid #c4b5fd}
+.kwt{background:var(--tl);color:var(--teal);border:1px solid #5eead4}
+
+/* CALC */
+.calc{background:#f8faff;border:1px solid #bfdbfe;border-radius:10px;padding:8px;margin:8px 0}
+.calt{font-size: 18px;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:6px}
+.fm{font-size: 18px;font-weight:700;color:var(--blue);font-family:'DM Mono',monospace}
+.fm2{font-size: 18px;color:var(--t2);margin-top:5px}
+
+/* QUIZ */
+.qi{margin-bottom:8px}
+.qq{background:var(--sf);border:1px solid var(--bd);border-left:4px solid var(--orange);border-radius:10px;padding:13px 17px;margin-bottom:8px;font-size: 18px;font-weight:500}
+.qtag{font-size: 18px;color:var(--orange);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;font-weight:700}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+@media(max-width:600px){.opts{grid-template-columns:1fr}}
+.opt{padding:8px;border-radius:8px;cursor:pointer;border:1px solid var(--bd);background:#fff;font-size: 18px;color:var(--t2);transition:all .18s;text-align:left;font-family:'Noto Sans TC',sans-serif}
+.opt:hover{border-color:var(--blue);color:var(--blue);background:var(--bl)}
+.opt.correct{border-color:var(--green)!important;background:var(--gl)!important;color:var(--green)!important;font-weight:600}
+.opt.wrong{border-color:var(--red)!important;background:var(--rl)!important;color:var(--red)!important}
+.opt:disabled{cursor:default}
+.exp{margin-top:8px;padding:8px;background:var(--tl);border:1px solid #5eead4;border-radius:8px;font-size: 18px;color:var(--teal);display:none}
+.exp.show{display:block}
+.qscore{background:var(--gl);border:1px solid #86efac;border-radius:12px;padding:8px;text-align:center;margin-bottom:8px;display:none}
+.qscore.show{display:block}
+.scnum{font-size:20px;font-weight:900;font-family:'DM Mono',monospace;color:var(--green)}
+.rbtn{background:var(--orange);color:#fff;border:none;padding:8px;border-radius:8px;cursor:pointer;font-size: 18px;font-family:'Noto Sans TC',sans-serif;margin-top:10px;transition:background .2s}
+.rbtn:hover{background:#c2410c}
+
+.divider{border:none;border-top:1px solid var(--bd);margin:8px 0}
+
+/* NEW TAG */
+.ntag{background:#fef3c7;color:#92400e;border:1px solid #fcd34d;font-size: 18px;font-weight:700;padding:1px 7px;border-radius:8px;letter-spacing:.04em;vertical-align:middle;margin-left:5px}
+.ltag{background:#fee2e2;color:#991b1b;border:1px solid #fca5a5;font-size: 18px;font-weight:700;padding:1px 7px;border-radius:8px;letter-spacing:.04em;vertical-align:middle;margin-left:5px;animation:pulse2 2s infinite}
+
+/* PRINT FAB */
+.pfab{position:fixed;bottom:28px;right:28px;z-index:999;width:52px;height:52px;border-radius:50%;background:var(--orange);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(234,88,12,.35);transition:transform .2s,box-shadow .2s;font-size:20px;color:#fff}
+.pfab:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(234,88,12,.5)}
+.pfab:active{transform:scale(.96)}
+.ptip{position:fixed;bottom:88px;right:28px;z-index:999;background:var(--text);color:#fff;font-size: 18px;font-weight:600;padding:5px 12px;border-radius:7px;white-space:nowrap;pointer-events:none;opacity:0;transform:translateY(5px);transition:opacity .2s,transform .2s;font-family:'Noto Sans TC',sans-serif}
+.ptip.show{opacity:1;transform:translateY(0)}
+
+@media print{
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  nav,.pfab,.ptip{display:none!important}
+  header{padding:18px 26px 14px!important}
+  .container{padding:14px!important;max-width:100%!important}
+  .section{display:block!important;}  
+  .card{box-shadow:none!important}  
+  .opt.correct{border-color:var(--green)!important;background:var(--gl)!important}
+  .exp{display:block!important}
+  .qscore,.rbtn{display:none!important}
+  @page{margin:8mm 8mm;size:A4}
+}
+</style>
+</head>
+<body>
+
+<header>  
+  <h1>歐盟 <span>CBAM 碳邊境調整機制</span><br><span class="sub">2026正式上路 完全攻略</span><span class="live-badge">🔴 LIVE 2026.01.01</span></h1>
+  <div class="hmeta">
+    <div class="hmi"><div class="dot" style="background:var(--red)"></div>CBAM正式實施：2026年1月1日</div>
+    <div class="hmi"><div class="dot" style="background:var(--blue)"></div>首次憑證繳交：2027年9月30日前</div>
+    <div class="hmi"><div class="dot" style="background:var(--green)"></div>涵蓋：完整時程 × 計算邏輯 × 台灣因應 × 30道模擬題</div>
+  </div>
+</header>
+
+<nav>
+  <button class="nb active" onclick="show('overview')">📋 核心速查</button>
+  <button class="nb" onclick="show('tl')">📅 完整時程表</button>
+  <button class="nb" onclick="show('products')">🏭 管制品項</button>
+  <button class="nb" onclick="show('calc')">🧮 計算邏輯</button>
+  <button class="nb" onclick="show('declarant')">📋 申報義務</button>
+  <button class="nb" onclick="show('taiwan')">🇹🇼 台灣因應</button>
+  <button class="nb" onclick="show('quiz')">📝 模擬測驗</button>
+  <button class="nb" onclick="show('hotkey')">🔥 命題熱點</button>
+</nav>
+
+<div class="container">
+
+<!-- ══ 核心速查 ══ -->
+<div id="overview" class="section active">
+  <div class="stit"><div class="sico" style="background:var(--ol)">📋</div>CBAM核心速查｜考試最常出現的知識點</div>
+  <div class="ssub">以2026年8月15日考試為準，整合最新2025年12月修訂版法規</div>
+
+  <div class="card" style="border-color:var(--orange);border-width:2px">
+    <div class="cht"><div class="ct">🔴 2026年 CBAM 正式期重大調整（最新！）</div><div class="bdg blive">LIVE更新</div></div>
+    <div class="hl hla">
+      <div class="hlt2">⚠️ 2025年12月歐盟修訂版關鍵變動——考試必考！</div>
+      <ul>
+        <li>✅ <strong>2026年1月1日</strong>：CBAM正式期啟動，進入「申報但暫不繳交憑證」階段</li>
+        <li>🔄 <strong>憑證起售延後</strong>：由原定2026年1月，<strong>延至2027年2月1日</strong>才開始販售</li>
+        <li>🔄 <strong>首次申報繳交延後</strong>：由原5月31日，<strong>延至2027年9月30日前</strong>（申報2026年全年資料）</li>
+        <li>🆕 <strong>小型進口商豁免</strong>：每年進口CBAM產品累積淨重 <strong>&lt;50噸</strong>者，免除申報義務（約90%進口商免除）</li>
+        <li>🆕 <strong>查驗機構可設立於第三國</strong>，但需由歐盟認可機構認證（符合ISO 17029）</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="cht"><div class="ct">📊 CBAM三階段時程總覽</div><div class="bdg br">★★★ 必背</div></div>
+    <div class="tw">
+      <table>
+        <thead><tr><th>階段</th><th>期間</th><th>義務</th><th>憑證</th></tr></thead>
+        <tbody>
+          <tr><td class="to">第一階段｜過渡期</td><td>2023.10.01 – 2025.12.31</td><td>每季申報碳含量報告書</td><td class="tg">❌ 不需繳交</td></tr>
+          <tr><td class="tr">第二階段｜正式期 <span class="ltag">現在</span></td><td>2026.01.01 起</td><td>每年申報；需授權申報人資格</td><td class="to">2027.02.01才開始販售</td></tr>
+          <tr><td class="tp">第三階段｜完全實施</td><td>2027.09.30 首次申報</td><td>申報2026全年碳含量+繳交憑證</td><td class="tr">✅ 正式繳交（9月30日前）</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="hl hlr">
+      <div class="hlt2">⚠️ 2026年8月考試的關鍵認知</div>
+      <p>考試當下（2026年8月）：CBAM正式期已上路<strong>7個月</strong>，企業正在進行2026年全年的碳含量申報記錄，但憑證尚未開始販售。考題會圍繞「2026年制度運作機制」來出題。</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="cht"><div class="ct">🔢 必背關鍵數字</div><div class="bdg br">必考數字</div></div>
+    <div class="fg">
+      <div class="fi" style="border-color:var(--red)"><div class="fl">CBAM正式實施</div><div class="fv" style="color:var(--red)">2026.01.01</div><div class="fd">由過渡期進入正式期</div></div>
+      <div class="fi" style="border-color:var(--orange)"><div class="fl">憑證開始販售</div><div class="fv" style="color:var(--orange)">2027.02.01</div><div class="fd">延後（原定2026年1月）</div></div>
+      <div class="fi" style="border-color:var(--orange)"><div class="fl">首次申報繳交</div><div class="fv" style="color:var(--orange)">2027.09.30</div><div class="fd">申報2026全年；延後（原5月31日）</div></div>
+      <div class="fi" style="border-color:var(--blue)"><div class="fl">小型商豁免門檻</div><div class="fv" style="color:var(--blue)">&lt;50噸</div><div class="fd">年進口CBAM產品淨重<50噸免申報</div></div>
+      <div class="fi" style="border-color:var(--green)"><div class="fl">每張憑證代表</div><div class="fv" style="color:var(--green)">1噸CO₂e</div><div class="fd">每張CBAM憑證對應1公噸CO₂e</div></div>
+      <div class="fi" style="border-color:var(--teal)"><div class="fl">憑證價格基準</div><div class="fv" style="color:var(--teal)">EU ETS</div><div class="fd">依當週EU ETS配額拍賣週均價計算</div></div>
+      <div class="fi" style="border-color:var(--purple)"><div class="fl">EU ETS免費配額淘汰</div><div class="fv" style="color:var(--purple)">2026→2034</div><div class="fd">逐年遞減；2034年歸零（0%）</div></div>
+      <div class="fi" style="border-color:var(--red)"><div class="fl">未繳憑證罰款</div><div class="fv" style="color:var(--red)">€100/噸</div><div class="fd">未繳每噸CO₂e罰€100（隨物價指數調整）</div></div>
+      <div class="fi" style="border-color:var(--amber)"><div class="fl">季末持有憑證下限</div><div class="fv" style="color:var(--amber)">50%</div><div class="fd">每季末帳戶憑證需≥當年已進口排放量50%</div></div>
+      <div class="fi" style="border-color:var(--orange)"><div class="fl">管制品項</div><div class="fv" style="color:var(--orange)">6大類</div><div class="fd">鋼鐵/鋁/水泥/肥料/電力/氫氣</div></div>
+      <div class="fi" style="border-color:var(--indigo)"><div class="fl">過渡期未申報罰款</div><div class="fv" style="color:var(--indigo)">€10~50</div><div class="fd">每噸CO₂e（過渡期未申報處罰）</div></div>
+      <div class="fi" style="border-color:var(--green)"><div class="fl">台灣主要衝擊品項</div><div class="fv" style="color:var(--green)">鋼材/扣件</div><div class="fd">鋼鐵製品為台灣出口歐盟最主要品項</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 完整時程表 ══ -->
+<div id="tl" class="section">
+  <div class="stit"><div class="sico" style="background:var(--ol)">📅</div>CBAM完整時程表 2019→2034</div>
+  <div class="ssub">命題方向：年份精確記憶、各階段義務差異、延後調整項目</div>
+
+  <div class="card">
+    <div class="ct" style="margin-bottom:14px">📅 CBAM 完整里程碑大事記</div>
+    <div class="tl-wrap">
+      <div class="tli">
+        <div class="tl-yr" style="color:var(--t3)">2019</div>
+        
+        <div class="tl-body tl-g"><div class="tl-tit">歐洲綠色政綱（European Green Deal）</div><div class="tl-desc">CBAM概念起源；目標2050年歐洲碳中和；防止碳洩漏。</div></div>
+      </div>
+      <div class="tli">
+        <div class="tl-yr" style="color:var(--t3)">2021.07</div>
+
+        <div class="tl-body tl-g"><div class="tl-tit">「Fit for 55」氣候政策套案提出CBAM草案</div><div class="tl-desc">將CBAM納入高碳排產業氣候治理架構；目標2030年溫室氣體較1990年削減55%。</div></div>
+      </div>
+      <div class="tli">
+        <div class="tl-yr" style="color:var(--t3)">2022.12</div>
+       
+        <div class="tl-body tl-g"><div class="tl-tit">歐盟議會與理事會達成臨時協議</div><div class="tl-desc">確立CBAM採分階段實施；確定六大管制品項。</div></div>
+      </div>
+      <div class="tli">
+        <div class="tl-yr">2023.05.17</div>
+       
+        <div class="tl-body tl-o"><div class="tl-tit">🟠 CBAM法案正式通過，發布於歐盟公報</div><div class="tl-desc">法規編號：<strong>Regulation (EU) 2023/956</strong>；5月17日生效。</div></div>
+      </div>
+      <div class="tli">
+        <div class="tl-yr">2023.10.01</div>
+      
+        <div class="tl-body tl-o"><div class="tl-tit">🟠 過渡期開始（2023.10.01 – 2025.12.31）</div><div class="tl-desc">進口商每季申報產品碳含量；<strong>不需繳交憑證</strong>；未申報罰款€10~50/噸CO₂e。</div></div>
+      </div>
+      <div class="tli">
+        <div class="tl-yr">2024.07.31</div>
+      
+        <div class="tl-body tl-o"><div class="tl-tit">概算法（非實際監測值）使用截止</div><div class="tl-desc">複雜商品預設值使用限制≤20%；此後須以實際監測數據申報。</div></div>
+      </div>
+      <div class="tli">
+        <div class="tl-yr">2025.12.17</div>
+      
+        <div class="tl-body tl-a"><div class="tl-tit">🆕 歐盟公布多項CBAM執行細則（最新修訂）</div><div class="tl-desc">法規編號：<strong>Regulation (EU) 2025/2083</strong>（合併執行）；憑證起售延至2027.02.01；首次申報延至2027.09.30；小型豁免&lt;50噸。</div></div>
+      </div>
+      <div class="tli">
+        <div class="tl-yr" style="color:var(--red);font-weight:900">2026.01.01</div>
+    
+        <div class="tl-body tl-r"><div class="tl-tit">🔴 CBAM正式期啟動（現在進行式）</div><div class="tl-desc">需取得<strong>授權CBAM申報人</strong>（Authorised CBAM Declarant）資格才能進口管制品；開始記錄2026年全年碳含量資料；憑證尚未販售。</div></div>
+      </div>
+      <div class="tli">
+        <div class="tl-yr">2027.02.01</div>
+      
+        <div class="tl-body tl-b"><div class="tl-tit">CBAM憑證開始販售</div><div class="tl-desc">每張憑證代表1噸CO₂e；價格=當週EU ETS配額拍賣週均價；2026年憑證以特定季度均價計算。</div></div>
+      </div>
+      <div class="tli">
+        <div class="tl-yr">2027.09.30</div>
+     
+        <div class="tl-body tl-b"><div class="tl-tit">🔵 首次CBAM年度申報＋繳交（申報2026年資料）</div><div class="tl-desc">申報2026全年：進口數量、產品碳含量、原產國已繳碳價；繳交對應CBAM憑證；此後每年9月30日前申報繳交前一年資料。</div></div>
+      </div>
+      <div class="tli">
+        <div class="tl-yr">2026→2034</div>
+       
+        <div class="tl-body tl-p"><div class="tl-tit">EU ETS免費配額逐年遞減</div><div class="tl-desc">2026年削減開始 → 2034年完全歸零（0%）；免費配額歸零後CBAM憑證需求量增加。</div></div>
+      </div>
+      <div class="tli">
+        <div class="tl-yr">2030+</div>
+        <div class="tl-body tl-g"><div class="tl-tit">CBAM擴大評估（塑膠等新品項）</div><div class="tl-desc">歐盟持續評估納入所有EU ETS管制的高碳洩漏風險產品；有機化學品、塑膠等在討論中。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="cht"><div class="ct">⚠️ 最新修訂 vs 原定計畫對比【考試陷阱！】</div><div class="bdg br">★★★</div></div>
+    <div class="tw">
+      <table>
+        <thead><tr><th>項目</th><th>原定計畫</th><th>2025年12月修訂版</th><th>重要程度</th></tr></thead>
+        <tbody>
+          <tr><td class="tk">憑證開始販售</td><td>2026年1月1日</td><td class="tr">2027年2月1日</td><td class="to1">★★★必考</td></tr>
+          <tr><td class="tk">首次申報繳交</td><td>2027年5月31日前</td><td class="tr">2027年9月30日前</td><td class="to1">★★★必考</td></tr>
+          <tr><td class="tk">小型豁免</td><td>無豁免</td><td class="tg">&lt;50噸/年免申報</td><td class="to1">★★中頻</td></tr>
+          <tr><td class="tk">查驗機構</td><td>限歐盟境內</td><td class="tg">可設於第三國（需EU認證）</td><td class="tb">★次要</td></tr>
+          <tr><td class="tk">2026年憑證價格</td><td>不適用</td><td class="tg">依特定季度EU ETS均價計算</td><td class="to1">★★中頻</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 管制品項 ══ -->
+<div id="products" class="section">
+  <div class="stit"><div class="sico" style="background:var(--rl)">🏭</div>CBAM管制品項與排放範疇</div>
+  <div class="ssub">命題方向：六大品項辨別（塑膠不是！）、直接vs間接排放差異</div>
+
+  <div class="card">
+    <div class="cht"><div class="ct">🏭 六大管制品項【塑膠絕對不是！】</div><div class="bdg br">★★★ 必考</div></div>
+    <div class="tw">
+      <table>
+        <thead><tr><th>品項</th><th>代表產品</th><th>排放計算範疇</th><th>備註</th></tr></thead>
+        <tbody>
+          <tr><td class="tr" style="width:10%">鋼鐵</td><td>鋼板、螺釘螺栓、鑄鐵管、管材</td><td class="to">僅直接排放</td><td>台灣最主要出口品</td></tr>
+          <tr><td class="tr">鋁</td><td>未鍛軋鋁材、鋁線、鋁板、鋁製管配件</td><td class="to">直接排放<br>+電力間接</td><td>—</td></tr>
+          <tr><td class="tr">水泥</td><td>水泥熟料、水硬性水泥</td><td class="tr">直接+間接排放</td><td>含N₂O計入</td></tr>
+          <tr><td class="tr">肥料</td><td>氨、硝酸、硝酸鉀</td><td class="tr">直接+間接排放</td><td>含N₂O計入</td></tr>
+          <tr><td class="tr">電力</td><td>進口電力</td><td class="tr">直接+間接排放</td><td>英國版草案無此品項</td></tr>
+          <tr><td class="tr">氫氣</td><td>綠氫、藍氫</td><td class="to">僅直接排放</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="hl hlr">
+      <div class="hlt2">⚠️ 超高頻陷阱：下列何者不是CBAM管制品？</div>
+      <ul>
+        <li>❌ <strong>塑膠</strong>→ 目前未列管（最常出現的干擾選項）</li>
+        <li>❌ 陶瓷、玻璃→ 目前未列管</li>
+        <li>❌ 有機化學品→ 在評估中，尚未納入</li>
+        <li>✅ 螺釘螺栓（鋼鐵下游）→ 已納入</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="cht"><div class="ct">⚠️ CBAM vs ISO 14064-1 排放範疇定義差異【超高頻考點】</div><div class="bdg br">★★★ 必考</div></div>
+    <div class="cmp">
+      <div class="cmc">
+        <h4 style="color:var(--orange)">CBAM 特殊定義</h4>
+        <ul>
+          <li style="color:red"><strong>直接排放</strong>（CBAM定義）：<br>→ 製程燃燒排放<br>→ <strong>外部輸入熱能/冷能</strong>（不管地點，視為直接排放）</li>
+          <li><strong>間接排放</strong>（CBAM定義）：<br>→ <strong>僅限電力消費</strong>產生的排放</li>
+        </ul>
+      </div>
+      <div class="cmc">
+        <h4 style="color:var(--blue)">ISO 14064-1 定義</h4>
+        <ul>
+          <li><strong>類別1直接排放</strong>：組織自身燃燒</li>
+          <li><strong>類別2間接排放</strong>：外購<strong>電力、蒸汽、熱能、冷能</strong>均屬間接</li>
+          <li>⚠️ CBAM把「輸入熱能」算直接；ISO算間接</li>
+        </ul>
+      </div>
+    </div>
+    <div class="hl hlr" style="margin-top:12px">
+      <div class="hlt2">⚠️ 官方樣題答案（熱能計算差異）</div>
+      <p>CBAM排放範疇規定：<strong>「與ISO 14064-1不同，外界輸入熱源計入直接排放」→ 正確</strong><br>鋼鐵/鋁/氫氣：財務調整僅含<strong>直接排放</strong>（電力間接不計）<br>水泥/肥料：<strong>直接+間接</strong>排放均計入財務調整</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct" style="margin-bottom:8px">🔍 豁免與適用地理範圍</div>
+    <div class="cmp">
+      <div class="cmc">
+        <h4 style="color:var(--green)">✅ 豁免對象（不需遵守CBAM）</h4>
+        <ul>
+          <li>冰島、列支敦斯登、<strong>挪威</strong>（EEA成員）</li>
+          <li><strong>瑞士</strong>（與EU ETS連結）</li>
+          <li>每年進口CBAM產品淨重<strong>&lt;50噸</strong>的小型進口商（新增）</li>
+          <li>微量免徵：隱含碳價值&lt;<strong>€150</strong>的個人非商業貨物</li>
+        </ul>
+      </div>
+      <div class="cmc">
+        <h4 style="color:var(--red)">❌ 需遵守CBAM（第三國）</h4>
+        <ul>
+          <li>台灣、中國、美國、日本等非EU國家</li>
+          <li>台灣248項CBAM管制品中涵蓋<strong>212項</strong></li>
+          <li>台灣對EU出口以<strong>鋼材、扣件（螺絲螺栓）</strong>為主</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 計算邏輯 ══ -->
+<div id="calc" class="section">
+  <div class="stit"><div class="sico" style="background:var(--bl)">🧮</div>CBAM計算邏輯與憑證機制</div>
+  <div class="ssub">命題方向：憑證數量計算公式、扣抵規則、免費配額調整</div>
+
+  <div class="card">
+    <div class="cht"><div class="ct">📐 CBAM憑證計算基本公式</div><div class="bdg br">★★★ 計算必考</div></div>
+    <div class="calc">
+      <div class="calt">CBAM應繳憑證數量（基本公式）</div>
+      <div class="fm">應繳 = 進口產品碳含量 − 原產國已繳碳價折算量 − EU ETS免費配額</div>
+      <div class="fm2">每張憑證 = 1公噸CO₂e；憑證價格 = 當週EU ETS配額拍賣週均價</div>
+    </div>
+    <div class="calc" style="margin-top:10px">
+      <div class="calt">產品碳含量（內含排放量 Embedded Emissions）計算</div>
+      <div class="fm">簡單商品 = 直接排放 + 間接排放（電力）</div>
+      <div class="fm">複雜商品 = 製造過程排放 + 前驅物原料嵌入碳排放</div>
+      <div class="fm2">鋼鐵/鋁/氫氣 → 僅直接排放；水泥/肥料/電力 → 直接+間接</div>
+    </div>
+    <div class="calc" style="margin-top:10px">
+      <div class="calt">EU ETS免費配額調整（2026年加成）</div>
+      <div class="fm">調整後碳含量 = 碳含量 × (1 − 免費配額比例)</div>
+      <div class="fm2">2026年加成10%；2027年加成20%；2028年起加成30%<br>→ 免費配額2026-2034年逐年遞減至0%</div>
+    </div>
+    <div class="hl hlb" style="margin-top:12px">
+      <div class="hlt2">📌 季末持有憑證下限規定</div>
+      <p>每個季度末，進口商CBAM帳戶中持有的憑證數量應<strong>不少於當年已進口產品隱含排放量的50%</strong>。年底必須達100%。</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct" style="margin-bottom:8px">💰 CBAM抵扣規則（台灣碳費如何抵扣）</div>
+    <div class="steps">
+      <div class="step"><div class="sn sno">①</div><div class="sc"><div class="stt">認可的外顯碳價（有效碳價）</div><div class="sdd">出口國企業已繳納的<strong>碳稅費或排放交易費用</strong>，可申請抵扣CBAM憑證費用</div></div></div>
+      <div class="step"><div class="sn sng">②</div><div class="sc"><div class="stt">台灣碳費可抵扣 ✅</div><div class="sdd">環境部已確認：台灣碳費屬於「有效外顯碳價」，可依CBAM第9條扣抵，降低企業負擔</div></div></div>
+      <div class="step"><div class="sn snr">③</div><div class="sc"><div class="stt">自願碳市場碳權 ❌ 不可抵扣</div><div class="sdd">自願碳市場購買的碳抵換憑證<strong>不被CBAM認可</strong>為有效碳價，無法抵扣</div></div></div>
+    </div>
+    <div class="hl hlo">
+      <div class="hlt2">📌 CBAM主要目的（考試常出「非」題）</div>
+      <ul>
+        <li>✅ 主要目的：<strong>防止碳洩漏（Carbon Leakage）</strong></li>
+        <li>✅ 確保歐盟境內外企業承擔相當的碳成本（公平競爭）</li>
+        <li>✅ 促進第三國減碳並推動全球碳定價</li>
+        <li>❌ <strong>不是</strong>主要目的：增加關稅收入、保護主義</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct" style="margin-bottom:8px">📊 CBAM vs EU ETS 連動關係</div>
+    <div class="tw">
+      <table>
+        <thead><tr><th>EU ETS狀況</th><th>對CBAM的影響</th></tr></thead>
+        <tbody>
+          <tr><td class="tk">ETS碳價上漲</td><td>CBAM憑證價格隨之上漲，進口成本增加</td></tr>
+          <tr><td class="tk">ETS免費配額減少</td><td>歐盟境內廠商成本上升，CBAM維持公平競爭</td></tr>
+          <tr><td class="tk">ETS免費配額歸零（2034年）</td><td>CBAM全面發揮作用；進口商須100%購買憑證</td></tr>
+          <tr><td class="tk">ETS無拍賣價格當週</td><td>使用前一週均價計算CBAM憑證價格</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="hl hlb">
+      <div class="hlt2">📌 2026年憑證價格特殊規定</div>
+      <p>由於憑證自2027年2月1日才開始販售，<strong>2026年進口貨品</strong>的CBAM憑證價格將依<strong>特定季度之EU ETS配額拍賣平均價格</strong>計算（非當週價格）。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 申報義務 ══ -->
+<div id="declarant" class="section">
+  <div class="stit"><div class="sico" style="background:var(--gl)">📋</div>CBAM申報義務人制度</div>
+  <div class="ssub">命題方向：申報義務人資格、申報內容、查驗機構條件</div>
+
+  <div class="card">
+    <div class="cht"><div class="ct">👤 授權CBAM申報人（Authorised CBAM Declarant）</div><div class="bdg br">★★★</div></div>
+    <div class="hl hlb">
+      <div class="hlt2">📌 2026年正式期核心新增要求</div>
+      <ul>
+        <li>2026年起，<strong>僅持有授權申報人資格</strong>的歐盟進口商才能進口CBAM管制品</li>
+        <li>申請資格：在歐盟成員國登記；財務和營業能力；無嚴重違規紀錄</li>
+        <li>CBAM<strong>義務方為歐盟進口商</strong>（非台灣出口商直接繳費）</li>
+        <li>台灣出口商角色：提供<strong>精確的產品碳含量數據</strong>給歐盟進口商</li>
+      </ul>
+    </div>
+    <div class="tw">
+      <table>
+        <thead><tr><th>申報人義務</th><th>說明</th><th>時限</th></tr></thead>
+        <tbody>
+          <tr><td class="tk">每年申報CBAM年報</td><td>申報前一年進口產品碳含量、扣抵量</td><td class="to">每年9月30日前</td></tr>
+          <tr><td class="tk">購買並繳交CBAM憑證</td><td>依申報碳含量購買，確保數量充足</td><td class="to">年度申報同時繳交</td></tr>
+          <tr><td class="tk">季末帳戶維持</td><td>帳戶憑證量≥當年已進口排放量的80%</td><td class="to">每季度末</td></tr>
+          <tr><td class="tk">取得碳含量查驗報告</td><td>產品碳含量須經獨立查驗機構查驗</td><td class="tg">持續</td></tr>
+          <tr><td class="tk">回購憑證限制</td><td>每年可回購多餘憑證，但上限為購入量的1/3</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct" style="margin-bottom:8px">🔍 碳含量查驗機構條件（2026年新規）</div>
+    <div class="hl hlg">
+      <div class="hlt2">✅ 查驗機構（Accredited Verifier）資格要求</div>
+      <ul>
+        <li>須符合國際標準：<strong>ISO 17029</strong>（溫室氣體確查證機構符合性評鑑要求）</li>
+        <li>由歐盟成員國的<strong>國家認可機構（NABs）</strong>進行認證</li>
+        <li>新規：查驗機構可<strong>設立於歐盟以外的第三國</strong>（如台灣），但仍需由EU認可機構認證</li>
+        <li>若未經獨立查驗，進口商須改用<strong>預設值（Default Values）</strong>計算</li>
+      </ul>
+    </div>
+    <div class="hl hla" style="margin-top:10px">
+      <div class="hlt2">📌 預設值 vs 實際監測值</div>
+      <ul>
+        <li>優先使用：<strong>實際生產監測數據</strong>（最準確，成本最低）</li>
+        <li>若未查驗：使用<strong>歐盟公告預設值</strong>（通常較高，增加成本）</li>
+        <li>對台灣企業建議：積極建立碳盤查系統，提供精確監測數據</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct" style="margin-bottom:8px">⚠️ 違規罰則</div>
+    <div class="tw">
+      <table>
+        <thead><tr><th>違規情況</th><th>罰則</th><th>說明</th></tr></thead>
+        <tbody>
+          <tr><td class="tk">正式期未繳交憑證</td><td class="tr">€100/噸CO₂e</td><td>隨歐洲物價指數調整</td></tr>
+          <tr><td class="tk">過渡期未申報</td><td class="to">€10～50/噸CO₂e</td><td>情節輕重決定金額</td></tr>
+          <tr><td class="tk">申報不實</td><td class="tr">額外處罰</td><td>依各成員國法律加重</td></tr>
+          <tr><td class="tk">未持授權進口</td><td class="tr">禁止進口</td><td>歐盟海關扣押貨品</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 台灣因應 ══ -->
+<div id="taiwan" class="section">
+  <div class="stit"><div class="sico" style="background:var(--gl)">🇹🇼</div>台灣CBAM因應策略</div>
+  <div class="ssub">命題方向：台灣出口影響、碳費抵扣機制、企業因應行動</div>
+
+  <div class="card">
+    <div class="cht"><div class="ct">📊 台灣受CBAM影響概況</div><div class="bdg bo">★★ 中頻</div></div>
+    <div class="fg">
+      <div class="fi" style="border-color:var(--red)"><div class="fl">台灣CBAM管制品涵蓋</div><div class="fv" style="color:var(--red)">212項</div><div class="fd">248項管制品中台灣涵蓋212項（約85%）</div></div>
+      <div class="fi" style="border-color:var(--orange)"><div class="fl">主要受衝擊品項</div><div class="fv" style="color:var(--orange)">鋼材/扣件</div><div class="fd">螺絲螺栓（扣件）為台灣主要出口歐盟品項</div></div>
+      <div class="fi" style="border-color:var(--blue)"><div class="fl">台灣碳費可否抵扣</div><div class="fv" style="color:var(--blue)">✅ 可以</div><div class="fd">環境部確認台灣碳費屬有效外顯碳價，可抵扣CBAM</div></div>
+    </div>
+    <div class="hl hlg">
+      <div class="hlt2">📌 台灣碳費與CBAM的連結</div>
+      <ul>
+        <li>台灣企業繳納的<strong>碳費（環境部）</strong>→ 認定為CBAM可抵扣的有效外顯碳價</li>
+        <li>抵扣依據：CBAM法規第9條「在原產國已支付明訂碳價格」</li>
+        <li>計算原則：有效支付碳價 = 繳納碳費後扣除任何補貼或回扣的淨額</li>
+        <li>⚠️ 注意：<strong>碳費減免補貼也需扣除</strong>才算有效碳價</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct" style="margin-bottom:8px">🇹🇼 台灣政府因應措施</div>
+    <div class="steps">
+      <div class="step"><div class="sn sng">1</div><div class="sc"><div class="stt">環境部氣候變遷署建立CBAM輔導機制</div><div class="sdd">定期召開記者會說明最新規定；建立CBAM因應資訊平台；輔導企業進行碳盤查</div></div></div>
+      <div class="step"><div class="sn sng">2</div><div class="sc"><div class="stt">氣候法第37條：對應CBAM申報要求</div><div class="sdd">要求部分進口能源密集型產品提供碳含量申報，為CBAM準備</div></div></div>
+      <div class="step"><div class="sn snb">3</div><div class="sc"><div class="stt">推動企業建立碳盤查系統（ISO 14064-1）</div><div class="sdd">鼓勵鋼鐵、鋁業等CBAM相關產業建立精確的GHG盤查系統，提供實際監測數據</div></div></div>
+      <div class="step"><div class="sn snb">4</div><div class="sc"><div class="stt">台灣碳費作為CBAM抵扣依據</div><div class="sdd">台灣碳費制度設計與CBAM接軌，降低台灣企業CBAM成本負擔</div></div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct" style="margin-bottom:8px">💡 企業因應策略建議</div>
+    <div class="tw">
+      <table>
+        <thead><tr><th>策略</th><th>說明</th><th>重要性</th></tr></thead>
+        <tbody>
+          <tr><td class="tk">建立GHG盤查系統</td><td>依ISO 14064-1進行精確碳盤查，提供實際監測數據（非預設值）</td><td class="to1">★★★ 關鍵</td></tr>
+          <tr><td class="tk">取得第三方查驗認證</td><td>委託認可查驗機構查驗產品碳含量，降低憑證成本</td><td class="to1">★★★ 關鍵</td></tr>
+          <tr><td class="tk">申請授權CBAM申報人</td><td>若有歐盟子公司，協助取得授權申報人資格</td><td class="to1">★★ 重要</td></tr>
+          <tr><td class="tk">利用台灣碳費抵扣</td><td>確保碳費繳納紀錄完整，向進口商提供碳費支付佐證</td><td class="to1">★★ 重要</td></tr>
+          <tr><td class="tk">供應商碳排資料整備</td><td>修訂採購合約加入碳排資料提供義務條款</td><td class="tb">★ 次要</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="hl hlr" style="margin-top:12px">
+      <div class="hlt2">⚠️ 自願碳市場碳權不可抵扣CBAM（重要！）</div>
+      <p>台灣碳交所購買的自願性碳市場碳權，<strong>不被CBAM認可</strong>為有效碳價，無法用於抵扣CBAM憑證費用。只有<strong>政府強制徵收的碳費/碳稅或ETS費用</strong>才算有效外顯碳價。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 模擬測驗 ══ -->
+<div id="quiz" class="section">
+  <div class="stit"><div class="sico" style="background:var(--ol)">📝</div>CBAM模擬測驗（精選30題）</div>
+  <div class="ssub">涵蓋2026正式期最新規定，點擊選項即時作答</div>
+  <div id="qscore" class="qscore"><div class="scnum" id="sdis">0/30</div><div style="color:var(--t3);margin-top:4px;font-size:12.5px">本次測驗得分</div><button class="rbtn" onclick="resetQ()">↺ 重新作答</button></div>
+  <div id="qc"></div>
+</div>
+
+<!-- ══ 命題熱點 ══ -->
+<div id="hotkey" class="section">
+  <div class="stit"><div class="sico" style="background:var(--rl)">🔥</div>2026考試命題熱點 × 情境題 × 速查表</div>
+  <div class="ssub">結合2026年1月正式實施後的最新時事，以命題委員視角整理</div>
+
+  <div class="card">
+    <div class="cht"><div class="ct">🎭 情境題完整解析</div><div class="bdg br">★★★</div></div>
+    <div class="hl hlg">
+      <div class="hlt2">情境一：台灣鋼鐵廠出口螺栓至歐盟，2026年需要做什麼？</div>
+      <ul>
+        <li>螺栓屬鋼鐵下游產品，已納入CBAM管制</li>
+        <li>台灣出口商義務：提供精確<strong>直接排放碳含量數據</strong>給歐盟進口商（鋼鐵僅計直接排放）</li>
+        <li>建議：建立ISO 14064-1盤查系統，取得第三方查驗報告</li>
+        <li>碳費紀錄：保留台灣碳費繳納紀錄，作為CBAM抵扣依據</li>
+        <li>2026年：歐盟進口商記錄碳含量；2027年9月30日前申報並繳交憑證</li>
+      </ul>
+    </div>
+    <div class="hl hlo" style="margin-top:10px">
+      <div class="hlt2">情境二：歐盟進口商帳戶第一季末僅持有20噸憑證，但已進口含排放量100噸，是否合規？</div>
+      <ul>
+        <li>規定：季末持有憑證須≥已進口排放量的<strong>50%</strong></li>
+        <li>50%×100噸 = 50噸；實際持有20噸 &lt; 50噸</li>
+        <li>答：<strong>不合規</strong>，需立即補購至少30噸憑證</li>
+        <li>注意：2027年2月1日前憑證尚未販售，2026年才開始記錄</li>
+      </ul>
+    </div>
+    <div class="hl hlb" style="margin-top:10px">
+      <div class="hlt2">情境三：台灣中小企業出口水泥至歐盟，每年出口量40噸，是否需要遵守CBAM？</div>
+      <ul>
+        <li>水泥屬CBAM管制品，<strong>但</strong>有小型豁免條款</li>
+        <li>年進口CBAM產品累積淨重<strong>&lt;50噸</strong>者免除申報</li>
+        <li>40噸 &lt; 50噸豁免門檻</li>
+        <li>答：<strong>此情況豁免</strong>，無需遵守CBAM申報義務</li>
+      </ul>
+    </div>
+    <div class="hl hlr" style="margin-top:10px">
+      <div class="hlt2">情境四：判斷哪些碳價可以抵扣CBAM？</div>
+      <ul>
+        <li>✅ 台灣碳費（環境部）→ <strong>可抵扣</strong>（有效外顯碳價）</li>
+        <li>✅ 韓國ETS費用 → 可抵扣</li>
+        <li>❌ 自願碳市場購買的碳抵換憑證 → <strong>不可抵扣</strong></li>
+        <li>❌ 台灣碳交所的自願性碳權 → <strong>不可抵扣</strong></li>
+        <li>❌ 企業自主設定的內部碳定價（影子碳定價）→ <strong>不可抵扣</strong></li>
+      </ul>
+    </div>
+    <div class="hl hlp" style="margin-top:10px">
+      <div class="hlt2">情境五：CBAM 2026正式期與過渡期最大差異？</div>
+      <ul>
+        <li>過渡期（2023-2025）：每季申報，不需購買憑證</li>
+        <li>正式期（2026起）：<strong>需取得授權申報人資格</strong>才能進口</li>
+        <li>正式期：每年申報前一年全年資料；需購買並繳交CBAM憑證</li>
+        <li>2026年特殊：申報但憑證2027年2月才販售；2027年9月30日前首次繳交</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct" style="margin-bottom:8px">🎯 30個最容易混淆考點速查（2026版）</div>
+    <div class="tw">
+      <table>
+        <thead><tr><th>#</th><th>混淆點</th><th>正確答案</th></tr></thead>
+        <tbody>
+          <tr><td style="color:var(--t4)">1</td><td>CBAM主要目的</td><td><strong>防止碳洩漏</strong>（非增加關稅收入）</td></tr>
+          <tr><td style="color:var(--t4)">2</td><td>CBAM法案通過日期</td><td><strong>2023年5月17日</strong>（發布於歐盟公報）</td></tr>
+          <tr><td style="color:var(--t4)">3</td><td>CBAM過渡期起迄</td><td><strong>2023.10.01 – 2025.12.31</strong></td></tr>
+          <tr><td style="color:var(--t4)">4</td><td>CBAM正式期開始</td><td><strong>2026年1月1日</strong></td></tr>
+          <tr><td style="color:var(--t4)">5</td><td>CBAM憑證開始販售（延後後）</td><td><strong>2027年2月1日</strong>（原定2026年1月）</td></tr>
+          <tr><td style="color:var(--t4)">6</td><td>首次申報繳交截止（延後後）</td><td><strong>2027年9月30日前</strong>（原5月31日）</td></tr>
+          <tr><td style="color:var(--t4)">7</td><td>CBAM義務人是誰</td><td><strong>歐盟進口商</strong>（非台灣出口商直接繳費）</td></tr>
+          <tr><td style="color:var(--t4)">8</td><td>六大管制品不包括</td><td><strong>塑膠</strong>（最常見干擾選項）</td></tr>
+          <tr><td style="color:var(--t4)">9</td><td>小型豁免門檻</td><td>年進口CBAM品淨重<strong>&lt;50噸</strong>（約90%進口商豁免）</td></tr>
+          <tr><td style="color:var(--t4)">10</td><td>每張憑證代表</td><td><strong>1公噸CO₂e</strong></td></tr>
+          <tr><td style="color:var(--t4)">11</td><td>憑證價格計算基礎</td><td><strong>當週EU ETS配額拍賣週均價</strong></td></tr>
+          <tr><td style="color:var(--t4)">12</td><td>季末帳戶憑證下限</td><td>已進口排放量的<strong>50%</strong></td></tr>
+          <tr><td style="color:var(--t4)">13</td><td>EU ETS免費配額何時歸零</td><td><strong>2034年</strong></td></tr>
+          <tr><td style="color:var(--t4)">14</td><td>未繳憑證罰款</td><td><strong>€100/噸CO₂e</strong></td></tr>
+          <tr><td style="color:var(--t4)">15</td><td>鋼鐵/鋁/氫氣計算哪種排放</td><td><strong>僅直接排放</strong>（電力間接不計財務調整）</td></tr>
+          <tr><td style="color:var(--t4)">16</td><td>水泥/肥料計算哪種排放</td><td><strong>直接+間接</strong>排放均計入</td></tr>
+          <tr><td style="color:var(--t4)">17</td><td>CBAM熱能輸入計入直接還是間接</td><td><strong>直接排放</strong>（與ISO 14064-1類別2不同）</td></tr>
+          <tr><td style="color:var(--t4)">18</td><td>台灣碳費可否抵扣CBAM</td><td><strong>可以</strong>（屬有效外顯碳價，依CBAM第9條）</td></tr>
+          <tr><td style="color:var(--t4)">19</td><td>自願碳市場碳權可否抵扣</td><td><strong>不可以</strong>（非有效外顯碳價）</td></tr>
+          <tr><td style="color:var(--t4)">20</td><td>未查驗碳含量須使用</td><td><strong>預設值（Default Values）</strong>計算（通常較高）</td></tr>
+          <tr><td style="color:var(--t4)">21</td><td>豁免國家（不需遵守CBAM）</td><td>冰島、列支敦斯登、<strong>挪威、瑞士</strong>（非EU但例外）</td></tr>
+          <tr><td style="color:var(--t4)">22</td><td>台灣主要受CBAM衝擊品項</td><td><strong>鋼材、扣件（螺絲螺栓）</strong></td></tr>
+          <tr><td style="color:var(--t4)">23</td><td>CBAM查驗機構可否在台灣</td><td><strong>可以</strong>（2026年新規：可設於第三國，但需EU認證）</td></tr>
+          <tr><td style="color:var(--t4)">24</td><td>查驗機構符合的標準</td><td><strong>ISO 17029</strong>（溫室氣體確查證機構符合性評鑑）</td></tr>
+          <tr><td style="color:var(--t4)">25</td><td>Fit for 55是哪年提出</td><td><strong>2021年7月</strong>（含CBAM草案）</td></tr>
+          <tr><td style="color:var(--t4)">26</td><td>CBAM法規編號</td><td>Regulation (EU) <strong>2023/956</strong>（2025年修訂合併2025/2083）</td></tr>
+          <tr><td style="color:var(--t4)">27</td><td>2026年EU ETS免費配額調整係數</td><td>加成<strong>10%</strong>（2027年+20%；2028年起+30%）</td></tr>
+          <tr><td style="color:var(--t4)">28</td><td>過渡期未申報罰款</td><td><strong>€10～50/噸</strong>CO₂e（正式期是€100）</td></tr>
+          <tr><td style="color:var(--t4)">29</td><td>2026年進口商的CBAM憑證如何計算價格</td><td>依<strong>特定季度EU ETS均價</strong>（非當週價格，憑證尚未販售）</td></tr>
+          <tr><td style="color:var(--t4)">30</td><td>CBAM是否屬於WTO相容機制</td><td>歐盟主張相容；各方仍有爭議（考試選歐盟官方立場：防止碳洩漏為正當環境保護目的）</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<button class="pfab" onclick="printAll()" id="pfab">🖨️</button>
+<div class="ptip" id="ptip">列印完整講義</div>
+
+<script>
+const qData=[
+{q:"Q1｜CBAM的主要目的是什麼？",opts:["(A) 增加歐盟關稅收入","(B) 防止碳洩漏並確保公平競爭","(C) 懲罰碳排放高的國家","(D) 限制非歐盟國家的出口量"],ans:1,exp:"【答案B】CBAM主要目的：防止碳洩漏（Carbon Leakage）——確保進口產品與歐盟境內產品承擔相當的碳成本，促進全球減碳。"},
+{q:"Q2｜CBAM法案（Regulation EU 2023/956）於哪一年正式通過並在歐盟公報發布？",opts:["(A) 2021年","(B) 2022年","(C) 2023年","(D) 2024年"],ans:2,exp:"【答案C】CBAM法案2023年4月25日歐盟理事會通過，2023年5月17日發布於歐盟公報，同日生效。"},
+{q:"Q3｜CBAM過渡期的起迄時間為何？",opts:["(A) 2022.01.01 – 2025.12.31","(B) 2023.10.01 – 2025.12.31","(C) 2023.01.01 – 2026.12.31","(D) 2024.01.01 – 2026.12.31"],ans:1,exp:"【答案B】CBAM過渡期：2023年10月1日至2025年12月31日。期間進口商每季申報碳含量，但不需繳交憑證。"},
+{q:"Q4｜CBAM正式期（Definitive Period）自何時啟動？",opts:["(A) 2024年1月1日","(B) 2025年1月1日","(C) 2026年1月1日","(D) 2027年1月1日"],ans:2,exp:"【答案C】CBAM正式期自2026年1月1日啟動。進口商需持授權申報人資格才能進口管制品；開始記錄全年碳含量。"},
+{q:"Q5｜依2025年12月最新修訂，CBAM憑證（CBAM Certificates）自何時開始販售？",opts:["(A) 2026年1月1日","(B) 2026年7月1日","(C) 2027年1月1日","(D) 2027年2月1日"],ans:3,exp:"【答案D】2025年12月修訂後：憑證起售日由原定2026年1月延後至2027年2月1日，以降低企業合規壓力。"},
+{q:"Q6｜依最新規定，歐盟進口商首次CBAM年度申報（申報2026年資料）的截止日為何？",opts:["(A) 2027年5月31日前","(B) 2027年8月31日前","(C) 2027年9月30日前","(D) 2027年12月31日前"],ans:2,exp:"【答案C】依2025年10月修訂：首次申報繳交延後至2027年9月30日前（原定5月31日）。之後每年9月30日前申報前一年資料。"},
+{q:"Q7｜下列哪一項「不是」CBAM目前管制的產品？",opts:["(A) 鋼鐵","(B) 塑膠","(C) 肥料","(D) 氫氣"],ans:1,exp:"【答案B】CBAM六大管制品：鋼鐵、鋁、水泥、肥料、電力、氫氣。塑膠目前未列管，是最常見的干擾選項。"},
+{q:"Q8｜依2025年12月修訂，哪類進口商可豁免CBAM申報義務？",opts:["(A) 每年進口量低於100噸","(B) 每年進口CBAM產品累積淨重低於50噸","(C) 每年進口金額低於€10,000","(D) 屬於中小企業的所有進口商"],ans:1,exp:"【答案B】新增小型豁免：每年進口CBAM產品累積淨重＜50噸的進口商免除申報義務，約佔90%的進口商（覆蓋1%碳排放）。"},
+{q:"Q9｜每張CBAM憑證代表多少排放量？",opts:["(A) 0.5公噸CO₂e","(B) 1公噸CO₂e","(C) 10公噸CO₂e","(D) 100公噸CO₂e"],ans:1,exp:"【答案B】每張CBAM憑證代表1公噸CO₂e的隱含排放量。"},
+{q:"Q10｜CBAM憑證的價格是依什麼計算？",opts:["(A) 台灣碳費費率","(B) 國際油價指數","(C) 當週EU ETS配額拍賣週均價","(D) 歐盟固定訂定的碳價格"],ans:2,exp:"【答案C】CBAM憑證價格=當週EU ETS排放配額拍賣的週均價格。若當週無拍賣，使用前一週均價。"},
+{q:"Q11｜進口商在每個季度末，CBAM帳戶中持有的憑證數量應不少於已進口排放量的多少？",opts:["(A) 80%","(B) 60%","(C) 75%","(D) 50%"],ans:3,exp:"【答案D】季末帳戶規定：持有憑證量≥當年已進口產品隱含排放量的50%。"},
+{q:"Q12｜EU ETS免費配額預計在哪一年完全歸零（0%）？",opts:["(A) 2028年","(B) 2030年","(C) 2034年","(D) 2040年"],ans:2,exp:"【答案C】EU ETS免費配額自2026年開始逐年遞減，至2034年完全歸零。免費配額歸零後CBAM將全面發揮效果。"},
+{q:"Q13｜正式期（2026年後）進口商未繳交足夠CBAM憑證的罰款為何？",opts:["(A) €10/噸CO₂e","(B) €50/噸CO₂e","(C) €100/噸CO₂e","(D) €150/噸CO₂e"],ans:2,exp:"【答案C】正式期未繳交憑證罰款：€100/噸CO₂e（隨歐洲物價指數調整）。過渡期未申報罰款較輕：€10~50/噸。"},
+{q:"Q14｜CBAM計算鋼鐵產品碳含量時，包含哪種排放？",opts:["(A) 僅直接排放","(B) 直接排放+間接排放","(C) 僅間接排放（電力）","(D) 全生命週期排放"],ans:0,exp:"【答案A】鋼鐵/鋁/氫氣：CBAM財務調整僅計直接排放（電力間接排放不計入財務調整）。水泥和肥料才是直接+間接。"},
+{q:"Q15｜CBAM計算水泥碳含量時，包含哪種排放？",opts:["(A) 僅直接排放","(B) 直接排放+間接排放（電力）","(C) 僅間接排放","(D) 全生命週期排放"],ans:1,exp:"【答案B】水泥/肥料：直接排放+間接排放（電力）均計入CBAM財務調整。與鋼鐵/鋁/氫氣不同。"},
+{q:"Q16｜CBAM對「輸入熱能」的處理與ISO 14064-1有何不同？",opts:["(A) 兩者相同，均計入直接排放","(B) CBAM將輸入熱能計入直接排放；ISO算間接排放","(C) CBAM將輸入熱能計入間接排放；ISO算直接排放","(D) 兩者均不計算輸入熱能"],ans:1,exp:"【答案B】CBAM特殊規定：不管地點，外部輸入熱源計入直接排放。而ISO 14064-1將外購熱能列為類別2（間接排放）。"},
+{q:"Q17｜下列哪個國家「不需要」遵守CBAM（豁免國家）？",opts:["(A) 台灣","(B) 日本","(C) 挪威","(D) 中國"],ans:2,exp:"【答案C】豁免CBAM的國家：冰島、列支敦斯登、挪威（EEA成員）、瑞士（與EU ETS連結）。台灣、日本、中國均需遵守。"},
+{q:"Q18｜台灣企業繳納的碳費是否可以抵扣CBAM憑證費用？",opts:["(A) 不可以，只有EU ETS才能抵扣","(B) 可以，台灣碳費屬有效外顯碳價（依CBAM第9條）","(C) 可以，但只有前3年有效","(D) 部分可以，上限為50%"],ans:1,exp:"【答案B】環境部已確認台灣碳費屬於CBAM認可的有效外顯碳價，依CBAM第9條可扣抵，降低台灣企業CBAM成本。"},
+{q:"Q19｜台灣碳交所的自願性碳市場碳權是否可以抵扣CBAM？",opts:["(A) 可以，碳權等同碳稅","(B) 不可以，自願碳市場碳權非有效外顯碳價","(C) 可以，但只限Verra或GS認可的碳權","(D) 只有台灣碳交所的才可以"],ans:1,exp:"【答案B】自願碳市場購買的碳抵換憑證不被CBAM認可為有效外顯碳價，無法用於抵扣CBAM憑證費用。只有政府強制的碳費/碳稅/ETS才算。"},
+{q:"Q20｜若出口商提供的碳含量未經獨立查驗機構查驗，進口商應如何計算CBAM？",opts:["(A) 以出口商自行申報的數字計算","(B) 免除計算義務","(C) 使用歐盟公告的預設值（Default Values）計算","(D) 向歐盟申請特別豁免"],ans:2,exp:"【答案C】若碳含量未經獨立查驗，進口商須改用歐盟公告的預設值計算，通常較實際值高，增加憑證費用。"},
+{q:"Q21｜CBAM申報人（Authorised CBAM Declarant）在2026年正式期的最主要新增義務是什麼？",opts:["(A) 每月向EU繳交憑證","(B) 取得授權申報人資格才能進口管制品","(C) 親自赴歐盟申報","(D) 僱用歐盟公民處理CBAM事務"],ans:1,exp:"【答案B】2026年正式期最重要新增要求：須先取得授權CBAM申報人資格，歐盟海關才允許進口管制品。過渡期無此資格要求。"},
+{q:"Q22｜查驗CBAM碳含量的查驗機構須符合哪項國際標準？",opts:["(A) ISO 14064-1","(B) ISO 17029","(C) ISO 14067","(D) ISO 14040"],ans:1,exp:"【答案B】CBAM查驗機構須符合ISO 17029（溫室氣體確查證機構的符合性評鑑要求），並由EU國家認可機構認證。"},
+{q:"Q23｜依2025年12月修訂，CBAM查驗機構是否可以設立於台灣？",opts:["(A) 不可以，只能設立在歐盟境內","(B) 可以，但需由EU認可機構認證","(C) 可以，台灣法規認證即可","(D) 不確定，需等歐盟另行規定"],ans:1,exp:"【答案B】2025年12月修訂新增：查驗機構可設立於歐盟以外的第三國（如台灣），但必須由歐盟成員國的國家認可機構（NABs）進行認證。"},
+{q:"Q24｜2026年EU ETS免費配額調整加成係數為何（用於計算CBAM調整後碳含量）？",opts:["(A) 加成5%","(B) 加成10%","(C) 加成20%","(D) 加成30%"],ans:1,exp:"【答案B】2026年：加成10%；2027年：加成20%；2028年起：加成30%（反映EU ETS免費配額逐年遞減的速度）。"},
+{q:"Q25｜台灣主要出口歐盟受CBAM影響最大的產品是哪些？",opts:["(A) 半導體與電子產品","(B) 紡織品與成衣","(C) 鋼材與扣件（螺絲螺栓）","(D) 農產品與食品"],ans:2,exp:"【答案C】台灣主要出口歐盟受CBAM衝擊的是鋼材（鋼鐵製品）與扣件（螺絲螺栓），這些均屬CBAM鋼鐵類管制品。半導體目前不在管制範圍。"},
+{q:"Q26｜CBAM「Fit for 55」氣候政策套案是哪年提出的？",opts:["(A) 2019年","(B) 2020年","(C) 2021年","(D) 2022年"],ans:2,exp:"【答案C】「Fit for 55」由歐盟於2021年7月提出，包含CBAM草案、EU ETS改革等，目標是2030年較1990年削減55%溫室氣體。"},
+{q:"Q27｜依CBAM規定，下列敘述何者正確？",opts:["(A) CBAM由台灣出口商直接向歐盟繳費","(B) CBAM憑證費用由歐盟進口商承擔","(C) CBAM費用由台灣海關代收","(D) CBAM費用由生產者與進口商平均分擔"],ans:1,exp:"【答案B】CBAM義務方是歐盟進口商，由歐盟進口商購買並繳交CBAM憑證。台灣出口商的責任是提供精確的碳含量數據。"},
+{q:"Q28｜2026年進口商帳戶的CBAM憑證價格如何計算（特殊規定）？",opts:["(A) 依2026年1月1日EU ETS價格固定","(B) 依各成員國自訂固定價格","(C) 依每周EU ETS配額拍賣平均價格","(D) 免費提供，不需計算"],ans:2,exp:"【答案C】由於憑證2027年2月才開始販售，2026年進口貨品的CBAM憑證價格將依每周EU ETS配額拍賣平均價格計算（回溯計算）。"},
+{q:"Q29｜下列關於CBAM的描述，何者「不正確」？",opts:["(A) CBAM法規豁免冰島、挪威、瑞士","(B) 水泥和肥料需計算直接和間接排放","(C) 台灣碳交所自願碳市場碳權可抵扣CBAM","(D) EU ETS免費配額將於2034年歸零"],ans:2,exp:"【答案C】自願碳市場碳權不可抵扣CBAM。只有政府強制徵收的碳費/碳稅/ETS費用（外顯碳價）才能依CBAM第9條申請抵扣。"},
+{q:"Q30｜台灣某製造商年出口歐盟的CBAM管制品共45噸，依最新規定需要如何處理？",opts:["(A) 仍需完整遵守CBAM所有申報義務","(B) 可免除申報義務（小型豁免<50噸）","(C) 只需申報，不需繳交憑證","(D) 須每季向台灣環境部申報"],ans:1,exp:"【答案B】依2025年12月修訂：年進口CBAM產品累積淨重＜50噸者（此案45噸＜50噸），可免除申報義務（小型豁免條款）。"}
+];
+
+let answered=[],correct=0;
+function renderQ(){
+  const c=document.getElementById('qc');c.innerHTML='';
+  answered=new Array(qData.length).fill(false);correct=0;
+  document.getElementById('qscore').classList.remove('show');
+  qData.forEach((item,idx)=>{
+    const d=document.createElement('div');d.className='qi';
+    const opts=item.opts.map((o,oi)=>`<button class="opt" onclick="checkQ(${idx},${oi})" id="op-${idx}-${oi}">${o}</button>`).join('');
+    d.innerHTML=`<div class="qq">${item.q}</div><div class="opts">${opts}</div><div class="exp" id="ep-${idx}">💡 ${item.exp}</div>`;
+    c.appendChild(d);
+  });
+}
+function checkQ(qi,oi){
+  if(answered[qi])return;answered[qi]=true;
+  const a=qData[qi].ans;
+  document.querySelectorAll(`[id^="op-${qi}-"]`).forEach((b,i)=>{
+    b.disabled=true;
+    if(i===a)b.classList.add('correct');
+    else if(i===oi)b.classList.add('wrong');
+  });
+  if(oi===a)correct++;
+  document.getElementById(`ep-${qi}`).classList.add('show');
+  if(answered.every(Boolean)){
+    document.getElementById('sdis').textContent=`${correct}/${qData.length}`;
+    document.getElementById('qscore').classList.add('show');
+    document.getElementById('qscore').scrollIntoView({behavior:'smooth',block:'center'});
+  }
+}
+function resetQ(){renderQ();window.scrollTo({top:document.querySelector('nav').offsetTop,behavior:'smooth'});}
+function show(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nb').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+const fab=document.getElementById('pfab'),tip=document.getElementById('ptip');
+fab.addEventListener('mouseenter',()=>tip.classList.add('show'));
+fab.addEventListener('mouseleave',()=>tip.classList.remove('show'));
+function printAll(){
+  document.querySelectorAll('.section').forEach(s=>s.style.display='block');
+  document.querySelectorAll('.exp').forEach(e=>e.classList.add('show'));
+  window.print();
+  setTimeout(()=>{
+    document.querySelectorAll('.section').forEach(s=>s.style.display='');
+    document.querySelectorAll('.exp').forEach(e=>e.classList.remove('show'));
+    document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+    const an=document.querySelector('.nb.active');
+    if(an){const m=an.getAttribute('onclick').match(/'(\w+)'/);if(m){const sec=document.getElementById(m[1]);if(sec)sec.classList.add('active');}}
+  },800);
+}
+renderQ();
+</script>
+</body>
+</html>
