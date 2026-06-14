@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 IPAS 淨零碳管理師｜台灣氣候變遷因應法 考前衝刺筆記</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --gd:#0a4a3a;--gm:#1a7a5a;--gl:#2aab7e;--gp:#e6f7f0;
+  --am:#d97706;--ap:#fffbeb;--ab:#fbbf24;
+  --rd:#dc2626;--rp:#fef2f2;
+  --bl:#2563eb;--bp:#eff6ff;
+  --pu:#7c3aed;--pp:#f5f3ff;
+  --bd:#c8eed9;--tx:#1a1a1a;
+}
+html{font-size:18px;scroll-behavior:smooth;}
+body{background:#fff;color:var(--tx);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;line-height:1.8;padding-bottom:100px;}
+
+/* COVER */
+.cover{background:linear-gradient(135deg,#0a4a3a 0%,#1a7a5a 50%,#2aab7e 100%);color:#fff;padding:52px 40px 44px;position:relative;overflow:hidden;}
+.cover::after{content:"氣候法";position:absolute;right:-20px;bottom:-20px;font-size:8rem;font-weight:900;opacity:.06;line-height:1;pointer-events:none;white-space:nowrap;}
+.cv-tag{display:inline-block;border:1px solid rgba(255,255,255,.4);border-radius:20px;padding:3px 14px;font-size:.74rem;letter-spacing:1px;margin-bottom:14px;background:rgba(255,255,255,.12);}
+.cover h1{font-size:20px;font-weight:900;line-height:1.3;}
+.cover h1 span{color:#a8ffd8;}
+.cover .sub{font-size: 18px;opacity:.82;margin-top:10px;}
+.cv-meta{display:flex;gap:24px;flex-wrap:wrap;margin-top:22px;font-size: 18px;opacity:.72;}
+
+/* PRINT */
+.print-btn{position:fixed;bottom:28px;right:28px;z-index:999;background:var(--gm);color:#fff;border:none;border-radius:50px;padding:11px 22px;font-size:.88rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:7px;box-shadow:0 4px 20px rgba(26,122,90,.4);transition:transform .2s,box-shadow .2s;}
+.print-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(26,122,90,.5);}
+@media print{.print-btn{display:none!important;}body{padding:0;}h2{break-before:page;}.q-ans{display:block!important;}}
+
+/* LAYOUT */
+.wrap{max-width:1900px;margin:0 auto;padding:0 24px;}
+
+/* HEADINGS */
+h2{font-size: 20px;font-weight:800;color:var(--gd);margin:52px 0 18px;padding-bottom:10px;border-bottom:3px solid var(--gl);display:flex;align-items:center;gap:10px;}
+h2 .ch{background:var(--gd);color:#fff;border-radius:6px;padding:2px 10px;font-size:.73rem;letter-spacing:1px;}
+h3{font-size: 18px;font-weight:700;color:var(--gm);margin:26px 0 10px;padding-left:10px;border-left:4px solid var(--gl);}
+
+/* CARDS */
+.card{border:1px solid var(--bd);border-radius:10px;padding:18px 22px;margin-bottom:16px;background:var(--gp);font-size:.88rem;}
+.card.amber{background:var(--ap);border-color:var(--ab);}
+.card.red{background:var(--rp);border-color:#fca5a5;}
+.card.blue{background:var(--bp);border-color:#93c5fd;}
+.card.gray{background:#f8f9fa;border-color:#e9ecef;}
+.card p+p{margin-top:8px;}
+
+/* ALERTS */
+.alert{border-radius:8px;padding:12px 16px;margin:14px 0;font-size: 18px;display:flex;gap:10px;align-items:flex-start;}
+.ai{flex-shrink:0;font-size:18px;}
+.alert.tip{background:#f0fff8;border-left:4px solid var(--gl);}
+.alert.warn{background:var(--ap);border-left:4px solid var(--ab);}
+.alert.danger{background:var(--rp);border-left:4px solid var(--rd);}
+.alert.info{background:var(--bp);border-left:4px solid var(--bl);}
+
+/* TABLES */
+.tw{overflow-x:auto;margin:14px 0 20px;}
+table{width:100%;border-collapse:collapse;font-size: 18px;}
+th{background:var(--gd);color:#fff;padding:9px 13px;text-align:left;font-size: 18px;}
+td{padding:8px 13px;border-bottom:1px solid #ddeee5;vertical-align:top;}
+tr:nth-child(even) td{background:#f2fbf6;}
+tr:hover td{background:#dff5ea;}
+
+/* TAGS */
+.tag{display:inline-block;border-radius:4px;padding:1px 8px;font-size: 18px;font-weight:700;margin:1px 3px 1px 0;}
+.tg{background:var(--gp);color:var(--gd);}
+.tr{background:var(--rp);color:var(--rd);}
+.ta{background:var(--ap);color:#92400e;}
+.tb{background:var(--bp);color:var(--bl);}
+
+/* TIMELINE */
+.timeline{margin:16px 0;position:relative;}
+.timeline::before{content:"";position:absolute;left:16px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--gl),var(--gd));}
+.tl-item{display:flex;gap:16px;margin-bottom:16px;padding-left:8px;position:relative;}
+.tl-dot{width:18px;height:18px;border-radius:50%;background:var(--gm);border:3px solid #fff;box-shadow:0 0 0 2px var(--gm);flex-shrink:0;margin-top:4px;z-index:1;}
+.tl-dot.hot{background:var(--rd);box-shadow:0 0 0 2px var(--rd);}
+.tl-body{}
+.tl-year{font-size: 18px;font-weight:700;color:var(--gm);margin-bottom:2px;}
+.tl-year.hot{color:var(--rd);}
+.tl-desc{font-size: 18px;}
+
+/* KEY NUMBERS */
+.num-grid{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0;}
+.num-card{flex:1 1 130px;border:2px solid var(--gl);border-radius:10px;padding:14px 12px;text-align:center;background:#fff;}
+.num-card .big{font-size:2rem;font-weight:900;color:var(--gd);line-height:1;}
+.num-card .lbl{font-size: 18px;color:#555;margin-top:6px;line-height:1.5;}
+
+/* STORY */
+.story{border:1px solid #fde68a;border-radius:10px;padding:20px 22px;background:linear-gradient(135deg,#fffbeb,#fef9e7);font-size:.88rem;margin:16px 0;position:relative;}
+.story::before{content:attr(data-icon);position:absolute;top:-14px;left:16px;background:#fff;padding:0 6px;font-size:1.3rem;}
+.story-title{font-weight:800;font-size: 18px;color:#78350f;margin-bottom:10px;}
+
+/* CALC BOX */
+.calc{background:#f0fdf5;border:1px solid var(--gl);border-radius:10px;padding:16px 20px;margin:12px 0;font-size: 18px;}
+.calc-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px dashed #c8eed9;}
+.calc-row:last-child{border-bottom:none;font-weight:700;color:var(--gd);}
+.calc-label{color:#555;}
+.calc-val{font-weight:700;}
+.calc-val.red{color:var(--rd);}
+.calc-val.green{color:var(--gm);}
+
+/* NRJTCCE GRID */
+.mnemo{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin:16px 0;}
+.mn-card{border-radius:10px;padding:14px 16px;border:1px solid;}
+.mn-letter{font-size:2rem;font-weight:900;line-height:1;margin-bottom:4px;}
+.mn-title{font-size: 18px;font-weight:700;margin-bottom:4px;}
+.mn-desc{font-size: 18px;line-height:1.6;}
+.mn-n{background:#e6f7f0;border-color:var(--gl);}.mn-n .mn-letter{color:var(--gd);}
+.mn-r{background:#eff6ff;border-color:#93c5fd;}.mn-r .mn-letter{color:var(--bl);}
+.mn-j{background:#f5f3ff;border-color:#c4b5fd;}.mn-j .mn-letter{color:var(--pu);}
+.mn-t{background:#fffbeb;border-color:var(--ab);}.mn-t .mn-letter{color:var(--am);}
+.mn-c1{background:#fff1f2;border-color:#fca5a5;}.mn-c1 .mn-letter{color:var(--rd);}
+.mn-c2{background:#f0fdf4;border-color:#86efac;}.mn-c2 .mn-letter{color:#16a34a;}
+.mn-e{background:#fdf4ff;border-color:#e9d5ff;}.mn-e .mn-letter{color:#9333ea;}
+
+/* QUIZ */
+.q-block{border:1px solid #d0e8d8;border-radius:10px;margin-bottom:16px;overflow:hidden;}
+.q-head{background:#e8f7ee;padding:10px 16px;display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none;}
+.q-head:hover{background:#d4f0e0;}
+.q-num{background:var(--gd);color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:.74rem;font-weight:800;flex-shrink:0;}
+.q-text{font-size: 18px;font-weight:600;flex:1;color:#1a3a2a;}
+.q-tog{font-size: 18px;color:#888;flex-shrink:0;}
+.q-body{padding:12px 16px;font-size: 18px;}
+.q-opts{list-style:none;margin:8px 0;}
+.q-opts li{padding:5px 0 5px 30px;position:relative;}
+.q-opts li::before{content:attr(data-o);position:absolute;left:0;width:22px;height:22px;background:#e0e0e0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;color:#555;}
+.q-opts li.ok::before{background:var(--gl);color:#fff;}
+.q-ans{background:#f0fdf5;border-top:1px dashed #b0ddc0;padding:10px 14px;font-size: 18px;display:none;}
+.q-ans.show{display:block;}
+.q-ans strong{color:var(--gd);}
+
+/* TRAP */
+.trap{display:flex;gap:12px;margin-bottom:14px;align-items:flex-start;}
+.trap-n{background:var(--rd);color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size: 18px;font-weight:800;flex-shrink:0;margin-top:2px;}
+.trap-t{font-weight:700;font-size: 18px;color:var(--rd);margin-bottom:3px;}
+.trap-d{font-size: 18px;}
+
+/* FOOTER */
+.footer{background:var(--gd);color:rgba(255,255,255,.6);text-align:center;padding:22px;font-size:.75rem;margin-top:60px;}
+hr{border:none;border-top:1px dashed var(--bd);margin:32px 0;}
+ul,ol{padding-left:20px;}
+ul li,ol li{margin-bottom:5px;font-size: 18px;}
+
+@media(max-width:600px){
+  .cover{padding:36px 18px 30px;}
+  .cover h1{font-size:22px;}
+  h2{font-size:20px;}
+  .wrap{padding:0 14px;}
+  .mnemo{grid-template-columns:1fr 1fr;}
+}
+  .badgerowbt { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
+a.badge1 {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: #007286;
+  color: #fff;
+  border: 1px solid #b6dece;
+  text-decoration: none;
+  line-height: 1.4;
+  transition: all 0.2s ease;
+}
+a.badge2 {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: #fff;
+  color: #007286;
+  border: 1px solid #b6dece;
+  text-decoration: none;
+  line-height: 1.4;
+  transition: all 0.2s ease;
+}
+</style>
+</head>
+<body>
+
+<!-- ══ COVER ══ -->
+<div class="cover">  
+  <h1>台灣<span>氣候變遷因應法</span></h1>  
+  <div class="badgerowbt">
+    <div><a href="https://snoweryi.github.io/yilearn/" class="badge1" >永續架構</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i01.html" class="badge1">01趨勢及策略</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i02.html" class="badge1">02溫室氣體盤查</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i03.html" class="badge1">03碳足跡</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i031.html" class="badge1">03碳足跡2</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i011.html" class="badge1">考科一</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i022.html" class="badge1">考科二</a></div>
+
+	<div><a href="https://snoweryi.github.io/yilearn/ic.html" class="badge1">CBAM</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/iy.html" class="badge1">年份</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/is.html" class="badge1">SBTi</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/iw.html" class="badge2">氣候變遷因應法</a></div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- ══ 立法時間軸 ══ -->
+<h2><span class="ch">INTRO</span>立法時間軸——考生必記節點</h2>
+
+<div class="timeline">
+  <div class="tl-item">
+    <div class="tl-dot"></div>
+    <div class="tl-body">
+      <div class="tl-year">民國 104 年（2015）7 月 1 日</div>
+      <div class="tl-desc">《<strong>溫室氣體減量及管理法</strong>》（溫管法）公布施行——氣候法的前身</div>
+    </div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot"></div>
+    <div class="tl-body">
+      <div class="tl-year">民國 111 年（2022）4 月 21 日</div>
+      <div class="tl-desc">修正草案（改名為《氣候變遷因應法》）經<strong>行政院通過</strong>，送請立法院審議</div>
+    </div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot hot"></div>
+    <div class="tl-body">
+      <div class="tl-year hot">⭐ 民國 112 年（2023）1 月 10 日</div>
+      <div class="tl-desc"><strong>立法院三讀通過</strong>《氣候變遷因應法》</div>
+    </div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot hot"></div>
+    <div class="tl-body">
+      <div class="tl-year hot">⭐ 民國 112 年（2023）2 月 15 日</div>
+      <div class="tl-desc">總統令<strong>公布施行</strong>，自公布日起生效。全文 7 章 63 條</div>
+    </div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot"></div>
+    <div class="tl-body">
+      <div class="tl-year">2025 年</div>
+      <div class="tl-desc"><strong>碳費正式開徵</strong>（試申報），以 2024 年排放量為第一計費年度</div>
+    </div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot hot"></div>
+    <div class="tl-body">
+      <div class="tl-year hot">⭐ 2026 年 5 月</div>
+      <div class="tl-desc">企業<strong>繳交第一筆碳費</strong>（依 2025 年排放量計算）</div>
+    </div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot"></div>
+    <div class="tl-body">
+      <div class="tl-year">2030 年</div>
+      <div class="tl-desc">碳費預計大幅調升（目標 <strong>NT$1,500–2,000/噸</strong>），階段管制目標：較 2005 年減少 <strong>28%</strong></div>
+    </div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot"></div>
+    <div class="tl-body">
+      <div class="tl-year">2050 年</div>
+      <div class="tl-desc">台灣<strong>淨零排放</strong>目標年</div>
+    </div>
+  </div>
+</div>
+
+<div class="alert tip">
+  <span class="ai">💡</span>
+  <div><strong>命題委員提示：</strong>「三讀通過（1/10）」與「公布施行（2/15）」是兩個不同節點，考試常以混淆兩者作為干擾選項。記住：<strong>施行日 = 2 月 15 日</strong>。</div>
+</div>
+
+<!-- ══ 命題委員前言 ══ -->
+<div class="card amber" style="margin-top:32px;">
+  <p><strong>📣 命題委員前言：</strong></p>
+  <p style="margin-top:8px;">這不是一部只有「大企業才需要煩惱」的法律。從新竹科學園區的晶圓廠，到芎林鄉的有機農場，氣候法正在以不同的速度、不同的方式，敲響每一個人的門。讀懂它，不只是為了考試，而是為了在這個時代活得更清醒。</p>
+</div>
+
+<!-- ══ CH1：身世 ══ -->
+<h2><span class="ch">CH 1</span>氣候法的「身世」——從溫管法到氣候法</h2>
+
+<div class="story" data-icon="🏢">
+  <div class="story-title">公寓大樓翻新比喻</div>
+  <p>舊的《溫室氣體減量及管理法》（2015）就像一間老舊公寓的「<strong>住戶公約</strong>」——有規範，但罰則輕、目標模糊、鄰居不太甩。</p>
+  <br>
+  <p>2023 年的《氣候變遷因應法》，則是把整棟大樓<strong>翻新改建</strong>：</p>
+  <ul style="margin-top:8px;padding-left:20px;">
+    <li>加了保全系統 → <strong>碳費徵收</strong></li>
+    <li>訂了明確的搬遷期限 → <strong>2050 淨零</strong></li>
+    <li>把每一層樓負責人的職責都寫清楚 → <strong>確立部會權責</strong></li>
+  </ul>
+</div>
+
+<!-- ══ CH2：七大修正重點 ══ -->
+<h2><span class="ch">CH 2</span>七大修正重點——NRJTCCE 口訣</h2>
+
+<div class="mnemo">
+  <div class="mn-card mn-n">
+    <div class="mn-letter">N</div>
+    <div class="mn-title">Net Zero 淨零目標</div>
+    <div class="mn-desc">明定 2050 年淨零排放為國家目標，入法具<strong>法律效力</strong></div>
+  </div>
+  <div class="mn-card mn-r">
+    <div class="mn-letter">R</div>
+    <div class="mn-title">Responsibility 部會責任</div>
+    <div class="mn-desc">各部會必須訂定自己的減量行動方案，<strong>無法再推諉</strong></div>
+  </div>
+  <div class="mn-card mn-j">
+    <div class="mn-letter">J</div>
+    <div class="mn-title">Just Transition 公正轉型</div>
+    <div class="mn-desc">確保轉型過程中，弱勢族群、傳統產業工人<strong>不被遺棄</strong></div>
+  </div>
+  <div class="mn-card mn-t">
+    <div class="mn-letter">T</div>
+    <div class="mn-title">Tax→Fee 碳費徵收</div>
+    <div class="mn-desc">年排放 <strong>2.5 萬噸以上</strong>業者徵收碳費，<strong>專款專用</strong>於減碳基金</div>
+  </div>
+  <div class="mn-card mn-c1">
+    <div class="mn-letter">C</div>
+    <div class="mn-title">Climate Adaptation 調適</div>
+    <div class="mn-desc">新增專章：面對已無法避免的氣候衝擊，<strong>建立調適能力</strong></div>
+  </div>
+  <div class="mn-card mn-c2">
+    <div class="mn-letter">C</div>
+    <div class="mn-title">Carbon Footprint 碳足跡</div>
+    <div class="mn-desc">納入碳足跡管理與產品標示，消費者開始有<strong>知情權</strong></div>
+  </div>
+  <div class="mn-card mn-e">
+    <div class="mn-letter">E</div>
+    <div class="mn-title">Engagement 公眾參與</div>
+    <div class="mn-desc">強化資訊公開、民眾參與機制，增加<strong>治理透明度</strong></div>
+  </div>
+</div>
+
+<!-- ══ CH3：碳費制度 ══ -->
+<h2><span class="ch">CH 3</span>碳費制度詳解——考試最常出現的計算邏輯</h2>
+
+<h3>🏭 徵收對象</h3>
+<div class="card">
+  <p>年排放量 ≥ <strong>2.5 萬噸 CO₂e</strong> 的：</p>
+  <ul style="margin-top:8px;">
+    <li>製造業（鋼鐵、水泥、半導體、石化等）</li>
+    <li>電力業</li>
+    <li>燃氣供應業</li>
+  </ul>
+  <p style="margin-top:10px;font-size: 18px;color:#555;">約影響 <strong>281 家企業、500 家工廠</strong>（2025 年估計）</p>
+</div>
+
+<h3>💰 費率三級制（2026 年考試必考）</h3>
+
+<div class="num-grid">
+  <div class="num-card">
+    <div class="big" style="color:var(--rd);">$300</div>
+    <div class="lbl">一般費率<br>未提出自主減量計畫</div>
+  </div>
+  <div class="num-card">
+    <div class="big" style="color:var(--am);">$100</div>
+    <div class="lbl">優惠費率 B<br>符合技術標竿路徑</div>
+  </div>
+  <div class="num-card">
+    <div class="big" style="color:var(--gm);">$50</div>
+    <div class="lbl">優惠費率 A<br>符合 SBTi 等嚴格標準</div>
+  </div>
+</div>
+
+<div class="tw">
+<table>
+  <tr><th>費率類型</th><th>金額（每噸 CO₂e）</th><th>適用條件</th></tr>
+  <tr><td><span class="tag tr">一般費率</span></td><td><strong>NT$ 300</strong></td><td>未提出或未通過自主減量計畫</td></tr>
+  <tr><td><span class="tag ta">優惠費率 B</span></td><td><strong>NT$ 100</strong></td><td>提出並通過符合技術標竿路徑的減量計畫</td></tr>
+  <tr><td><span class="tag tg">優惠費率 A</span></td><td><strong>NT$ 50</strong></td><td>提出並通過符合 SBTi 等更嚴格標準的減量計畫</td></tr>
+</table>
+</div>
+
+<!-- ══ CH4：階段管制目標 ══ -->
+<h2><span class="ch">CH 4</span>階段管制目標——以 2005 年為基準年</h2>
+
+<div class="tw">
+<table>
+  <tr><th>目標年</th><th>減量幅度（相較 2005 年）</th><th>備註</th></tr>
+  <tr><td><strong>2030</strong></td><td><span class="tag ta">減少 28%</span></td><td>近期最重要里程碑</td></tr>
+  <tr><td>2035</td><td>減少 38%</td><td></td></tr>
+  <tr><td>2040</td><td>減少 53%</td><td></td></tr>
+  <tr><td><strong>2050</strong></td><td><span class="tag tg">淨零排放</span></td><td>法定目標年</td></tr>
+</table>
+</div>
+
+<div class="alert warn">
+  <span class="ai">⚠️</span>
+  <div><strong>考試陷阱：</strong>台灣以 <strong>2005 年</strong>為基準年、2030 年目標減少 <strong>28%</strong>。注意：先前版本有寫 24%，依最新文件應為 28%，請以最新公告為準。歐盟以 1990 年為基準、目標減少 55%，常被混淆。</div>
+</div>
+
+<!-- ══ CH5：三者差異 ══ -->
+<h2><span class="ch">CH 5</span>碳費 vs. 碳稅 vs. 碳交易——考試最愛設陷阱的三組概念</h2>
+
+<div class="tw">
+<table>
+  <tr><th>比較</th><th>碳費（台灣採用）</th><th>碳稅</th><th>碳交易（ETS）</th></tr>
+  <tr><td>性質</td><td>行政規費，環境部徵收</td><td>稅收，財政部徵收</td><td>市場機制，總量管制</td></tr>
+  <tr><td>用途</td><td><strong>專款專用</strong>於減碳基金</td><td>進入國庫，一般財政用途</td><td>無直接稅收，企業自行交易</td></tr>
+  <tr><td>彈性</td><td>固定費率（可設優惠）</td><td>固定稅率</td><td>碳價由市場決定，波動大</td></tr>
+  <tr><td>台灣現況</td><td><span class="tag tg">✅ 2025 年起施行</span></td><td><span class="tag tr">❌ 尚未實施</span></td><td><span class="tag ta">⏳ 交易所已成立，發展中</span></td></tr>
+  <tr><td>代表國家</td><td>台灣、新加坡</td><td>法國、英國（部分）</td><td>歐盟（EU ETS）、韓國</td></tr>
+</table>
+</div>
+
+<!-- ══ CH6：生活化故事 ══ -->
+<h2><span class="ch">CH 6</span>生活化故事篇</h2>
+
+<div class="story" data-icon="🏭">
+  <div class="story-title">新竹科學園區的一張帳單——碳費讓「免費排放」成為歷史</div>
+  <p>2026 年 5 月，台灣某半導體廠 CFO 辦公室，收到了一張從未有過的帳單——不是電費，不是水費，而是環境部寄來的<strong>碳費繳費通知書</strong>。廠區 2025 年排放了 <strong>18 萬噸 CO₂e</strong>。</p>
+</div>
+
+<div class="calc">
+  <div class="calc-row"><span class="calc-label">若未提出自主減量計畫（$300/噸）</span><span class="calc-val red">18 萬噸 × $300 = 5,400 萬元</span></div>
+  <div class="calc-row"><span class="calc-label">若通過優惠費率 B（$100/噸）</span><span class="calc-val">18 萬噸 × $100 = 1,800 萬元</span></div>
+  <div class="calc-row"><span class="calc-label">若通過優惠費率 A（$50/噸）</span><span class="calc-val green">18 萬噸 × $50 = 900 萬元</span></div>
+  <div class="calc-row"><span class="calc-label">最大差距</span><span class="calc-val red">整整 4,500 萬元</span></div>
+</div>
+
+<div class="card amber">
+  <p>CFO 問了一個問題：「我們當初為什麼沒有提出自主減量計畫？」</p>
+  <p style="margin-top:8px;">旁邊的永續長沉默了一下，說：「我提過，但開會時大家說減碳是成本，不是投資。」</p>
+  <p style="margin-top:8px;font-weight:700;">這張帳單，是氣候法給台灣企業最昂貴的一堂課：<span style="color:var(--rd);">沉默，才是最貴的選擇。</span></p>
+</div>
+
+<div class="story" data-icon="🌾">
+  <div class="story-title">富林有機農場——碳費浪潮中的小農機會</div>
+  <p>同樣在 2026 年，芎林鄉的富林有機農場，反而迎來了從未預期的商機。</p>
+  <br>
+  <p>新竹科學園區一家被碳費壓著喘不過氣的科技廠聯絡農場：「我們需要<strong>台灣本土認證的碳匯專案</strong>，可以用來抵減一部分碳費。你們農場的有機稻田、農地生態，有沒有辦法走碳匯認證？」</p>
+  <br>
+  <p>農場主理人查了氣候法第 25 條——符合資格的<strong>國內自願減量額度</strong>，可抵減碳費繳交金額，且環境部優先鼓勵採購<strong>國內碳權</strong>。</p>
+  <br>
+  <p>一個有機農場，意外地成為了新竹科技廊帶的<strong>碳中和供應鏈夥伴</strong>。</p>
+  <br>
+  <p style="font-weight:700;color:var(--gd);">這就是氣候法帶來的連鎖效應：大企業的壓力，變成小農場的機會。</p>
+</div>
+
+<hr>
+
+<!-- ══ 模擬考題 ══ -->
+<h2><span class="ch">TEST</span>命題委員親授｜20 題進階情境判斷</h2>
+
+<div class="alert tip">
+  <span class="ai">🎯</span>
+  <div>難度定位：進階高難度，側重<strong>情境判斷與法規細節</strong>。點擊每題可展開詳細解析。</div>
+</div>
+
+<!-- Q1 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">1</div>
+    <div class="q-text">台灣《氣候變遷因應法》最關鍵的立法時間節點，以下何者正確？</div>
+    <div class="q-tog">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">民國 111 年 1 月三讀通過，同年 2 月施行</li>
+      <li data-o="B">民國 104 年 7 月公布施行（即現行氣候法）</li>
+      <li data-o="C" class="ok">民國 112 年 1 月 10 日三讀通過，同年 2 月 15 日公布施行</li>
+      <li data-o="D">民國 112 年 8 月，配合環境部成立正式施行</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：C</strong><br><br>
+      《溫室氣體減量及管理法》於民國 104 年施行（選項 B 是前身），正確答案是 2023 年 1 月三讀、2 月 15 日施行。<br><br>
+      選項 D 的 8 月是行政院公告部分條文由環境部接管（原環保署業務移撥），並非法律施行日。命題委員刻意設計時間混淆，考生需精確記憶：<strong>三讀通過 1/10，公布施行 2/15</strong>。
+    </div>
+  </div>
+</div>
+
+<!-- Q2 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">2</div>
+    <div class="q-text">依據氣候法，碳費的主管機關為何者，且碳費收入的用途受何種限制？</div>
+    <div class="q-tog">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">財政部徵收，納入國庫統一運用</li>
+      <li data-o="B">經濟部徵收，用於產業轉型補貼</li>
+      <li data-o="C" class="ok">環境部徵收，專款專用設立「溫室氣體管理基金」，不得挪作其他用途</li>
+      <li data-o="D">金管會徵收，用於 ESG 金融商品開發</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：C</strong><br><br>
+      氣候法明確規定碳費由<strong>環境部</strong>徵收，且「<strong>專款專用</strong>」——這是碳費與碳稅最關鍵的制度差異。碳稅納入一般財政，碳費則設立專用基金，限用於減碳、調適、公正轉型等目的。<br><br>
+      選項 A 描述的是碳稅邏輯，是常見混淆陷阱。
+    </div>
+  </div>
+</div>
+
+<!-- Q3 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">3</div>
+    <div class="q-text">新竹某製造業廠商，2025 年度排放量為 3 萬噸 CO₂e，未提出任何自主減量計畫。依 2026 年現行費率，其應繳碳費金額為何？</div>
+    <div class="q-tog">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">NT$ 150 萬元</li>
+      <li data-o="B">NT$ 300 萬元</li>
+      <li data-o="C" class="ok">NT$ 900 萬元</li>
+      <li data-o="D">NT$ 1,500 萬元</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：C</strong><br><br>
+      未提出自主減量計畫，適用<strong>一般費率 NT$300/噸</strong>。<br>
+      計算：30,000 噸 × $300 = <strong>$9,000,000（900 萬元）</strong><br><br>
+      對照：若通過優惠費率 A（$50）→ 僅需 150 萬；優惠費率 B（$100）→ 300 萬。積極申請優惠費率可節省 <strong>600–750 萬元</strong>，減碳計畫投資回報顯而易見。
+    </div>
+  </div>
+</div>
+
+<!-- Q4 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">4</div>
+    <div class="q-text">依氣候法，碳費徵收對象的門檻條件為何？</div>
+    <div class="q-tog">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">年營業額超過新台幣 10 億元的所有企業</li>
+      <li data-o="B">上市上櫃公司強制納管，未上市公司自願申報</li>
+      <li data-o="C" class="ok">年排放量達 2.5 萬噸 CO₂e 以上的電力業、燃氣供應業及製造業</li>
+      <li data-o="D">全台所有登記立案之工廠，無排放量門檻限制</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：C</strong><br><br>
+      氣候法採「<strong>排放量門檻</strong>」而非「企業規模」作為徵收依據，門檻為 <strong>2.5 萬噸 CO₂e/年</strong>。這意味著小廠若排放量低於門檻，目前暫不被直接課徵碳費（但仍受供應鏈要求間接壓力）。<br><br>
+      富林有機農場等農業小型業者，目前未達徵收門檻，但<strong>農業碳匯的機會</strong>更值得關注。
+    </div>
+  </div>
+</div>
+
+<!-- Q5 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">5</div>
+    <div class="q-text">關於台灣氣候法的「自主減量計畫」，以下何者敘述正確？</div>
+    <div class="q-tog">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">自主減量計畫只要自行填寫申報，無需審查即自動適用優惠費率</li>
+      <li data-o="B" class="ok">企業須提出符合政府訂定指定目標的減量計畫，通過環境部審查後，方可適用優惠費率 A 或 B</li>
+      <li data-o="C">自主減量計畫僅適用於年排放 10 萬噸以上的大型企業</li>
+      <li data-o="D">通過自主減量計畫後，企業可永久適用優惠費率，無需定期更新</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      自主減量計畫的三個關鍵：<br>
+      ① <strong>需提出</strong>（非自動給予）<br>
+      ② <strong>需通過審查</strong>（非自行認定）<br>
+      ③ <strong>需符合指定目標</strong>（優惠費率 A 對應更嚴格的 SBTi 等標準）<br><br>
+      選項 D 的「永久適用」是典型錯誤——計畫需定期更新、落實執行，若未達標可能被撤銷優惠。
+    </div>
+  </div>
+</div>
+
+<!-- Q6 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">6</div>
+    <div class="q-text">台灣氣候法中的「階段管制目標」，以何年為基準年，且 2030 年的目標減量幅度為何？</div>
+    <div class="q-tog">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">以 2000 年為基準年，2030 年減少 30%</li>
+      <li data-o="B" class="ok">以 2005 年為基準年，2030 年減少 28%</li>
+      <li data-o="C">以 2010 年為基準年，2030 年減少 20%</li>
+      <li data-o="D">以 1990 年為基準年（符合京都議定書標準），2030 年減少 40%</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      台灣氣候法明定以 <strong>2005 年</strong>為基準年，2030 年目標減少 <strong>28%</strong>，逐步遞增至 2050 淨零。<br><br>
+      與歐盟比較（1990 年基準、2030 年目標 -55%），台灣目標相對保守，這也是環保團體批評的焦點。考試常以「基準年」和「減量幅度」交叉設計混淆選項。
+    </div>
+  </div>
+</div>
+
+<!-- Q7 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">7</div>
+    <div class="q-text">台灣氣候法新增的「公正轉型（Just Transition）」條款，其核心精神最接近以下何者？</div>
+    <div class="q-tog">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">所有企業必須在同一時間點完成碳中和，不得有差異化期程</li>
+      <li data-o="B">排碳大戶必須優先承擔轉型成本，中小企業全面豁免</li>
+      <li data-o="C" class="ok">在推動低碳轉型過程中，應保障受衝擊的勞工、社區與弱勢族群不被遺棄，確保轉型利益與成本公平分配</li>
+      <li data-o="D">轉型資金應優先用於高科技產業，以確保台灣競爭力</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：C</strong><br><br>
+      「公正轉型」源自國際勞工組織（ILO）的概念，強調氣候行動不能只看環境指標，還必須顧及<strong>社會公平</strong>——傳統產業工人的再就業、農漁村社區的氣候脆弱性、原住民族的土地權益。台灣氣候法首度將此概念入法，是重要里程碑。
+    </div>
+  </div>
+</div>
+
+<!-- Q8 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">8</div>
+    <div class="q-text">依台灣氣候法規定，碳費的收入用途不包含以下哪項？</div>
+    <div class="q-tog">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">輔導事業溫室氣體減量及設備汰換</li>
+      <li data-o="B">補助或獎勵再生能源發展</li>
+      <li data-o="C">推動氣候變遷調適</li>
+      <li data-o="D" class="ok">補貼進口化石燃料以穩定物價</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：D</strong><br><br>
+      用碳費收入補貼化石燃料，不僅在邏輯上自相矛盾（等同「用減碳收入補助排碳」），在法規上也完全不符合專款專用的精神。<br><br>
+      碳費基金的合法用途包含：減碳輔導、再生能源補助、氣候調適、公正轉型等。選項 D 是明顯的反向干擾，考生應快速辨識。
+    </div>
+  </div>
+</div>
+
+<!-- Q9 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">9</div>
+    <div class="q-text">企業甲年排放 5 萬噸，通過優惠費率 B（NT$100/噸），且購買了 5,000 噸的台灣本土認證自願減量額度用於扣抵。假設碳費可 100% 扣抵，則企業甲實際應繳碳費為何？</div>
+    <div class="q-tog">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">NT$ 500 萬元</li>
+      <li data-o="B" class="ok">NT$ 450 萬元（扣除 5,000 噸 × $100 後）</li>
+      <li data-o="C">NT$ 400 萬元</li>
+      <li data-o="D">NT$ 0，因為本土碳權已完全中和排放</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      計算邏輯：<br>
+      5 萬噸 × $100 = <strong>$500 萬</strong><br>
+      扣抵：5,000 噸 × $100 = <strong>$50 萬</strong><br>
+      實際繳交：$500 萬 − $50 萬 = <strong>$450 萬</strong><br><br>
+      注意：氣候法對碳權扣抵比例有上限規定，且僅接受在<strong>台灣碳交易所</strong>上架的認可額度，非所有碳權均可扣抵。
+    </div>
+  </div>
+</div>
+
+<!-- Q10 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">10</div>
+    <div class="q-text">以下哪種農業活動，最有潛力在台灣氣候法框架下申請為「自願減量專案」，產生可銷售的碳匯額度？</div>
+    <div class="q-tog">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">傳統慣行農業改用化學除草劑，提升農藥效率</li>
+      <li data-o="B" class="ok">有機農法操作下的稻田減排（如乾濕交替灌溉降低甲烷）或造林、農地固碳，依 ISO 14064-2 完成量化並取得第三方查驗</li>
+      <li data-o="C">農場架設太陽能板自用，減少電費支出</li>
+      <li data-o="D">農場改用電動農機，降低柴油消耗</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      農業碳匯要成為「可銷售的額度」，需走完 MRV（量測、報告、查驗）程序，且需符合「<strong>外加性</strong>」（若無此農業改良，減排不會自然發生）。<br><br>
+      選項 C（太陽能板）和 D（電動農機）屬 Scope 2 自用節電，非農業碳匯。農地固碳、有機農法操作（如稻田乾濕交替灌溉顯著減少甲烷）才是農業碳匯的核心。<br><br>
+      <strong>富林農場機會：</strong>若走此路徑，將成為新竹地區農業碳匯的先行者，與科技廠形成碳中和合作關係。
+    </div>
+  </div>
+</div>
+
+<!-- Q11 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">11</div>
+    <div class="q-text">台灣氣候法首度將「碳足跡及產品標示管理機制」入法，其主要意義為何？</div>
+    <div class="q-tog">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">要求所有消費品必須在 2025 年前完成碳足跡標示，否則不得銷售</li>
+      <li data-o="B">禁止碳足跡高於特定門檻的產品進口</li>
+      <li data-o="C" class="ok">建立產品碳足跡揭露與標示的法源基礎，讓消費者擁有環境資訊知情權，並為未來碳標籤、低碳採購政策鋪路</li>
+      <li data-o="D">強制要求企業購買與產品碳足跡等量的碳權，否則不得販售</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：C</strong><br><br>
+      氣候法的碳足跡條款是「<strong>建立機制</strong>」而非「立即強制標示」，重點是法源建立，讓後續子法可據以推動碳標籤制度、政府低碳採購優先等政策工具。<br><br>
+      2026 年台灣環境部的碳足跡標籤計畫（自願申請）正是此法條的延伸。選項 A 的「2025 年前全面標示」過度誇大，是典型混淆陷阱。
+    </div>
+  </div>
+</div>
+
+<!-- Q12 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">12</div>
+    <div class="q-text">台灣碳費制度的「優惠費率 A（NT$50/噸）」，其對應的減量雄心度標準最接近以下哪個描述？</div>
+    <div class="q-tog">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">企業只需比前一年排放減少 5%，即可申請</li>
+      <li data-o="B">企業需通過 ISO 14001 環境管理系統認證</li>
+      <li data-o="C" class="ok">企業需提出符合科學基礎目標（如 SBTi 認可）或更嚴格的產業技術標竿減量路徑計畫，並通過環境部審查</li>
+      <li data-o="D">企業需購買超過排放量 50% 的碳權額度</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：C</strong><br><br>
+      優惠費率 A 對應的是更高標準的減量雄心——業界普遍理解為需對齊 <strong>SBTi（科學基礎目標倡議）</strong>或政府訂定的特定產業技術標竿路徑。相較之下，優惠費率 B 對應的是較基礎的技術改善路徑。<br><br>
+      ISO 14001 只是環境管理系統認證，與碳減量目標的嚴格度是不同層次（排除 B）。
+    </div>
+  </div>
+</div>
+
+<!-- Q13 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">13</div>
+    <div class="q-text">依氣候法精神，台灣 2050 淨零排放目標與《巴黎協定》的關係，以下何者描述最精確？</div>
+    <div class="q-tog">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">台灣因非聯合國會員，2050 淨零目標僅為自願宣言，不具法律拘束力</li>
+      <li data-o="B">台灣的淨零目標源自 IPCC 要求，是強制義務</li>
+      <li data-o="C" class="ok">台灣雖非《巴黎協定》締約方，但 2050 淨零目標已透過《氣候變遷因應法》入法，在台灣境內具備法律拘束力，展現與國際接軌的政治承諾</li>
+      <li data-o="D">台灣 2050 淨零目標僅適用於政府部門，民間企業無義務配合</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：C</strong><br><br>
+      台灣因特殊國際政治地位，無法直接加入《巴黎協定》，但透過<strong>氣候法入法</strong>的方式，將 2050 淨零目標轉化為<strong>國內法律義務</strong>。<br><br>
+      這是一種務實的「軟法（soft law）轉硬法（hard law）」策略。氣候法的約束力及於政府與受管制業者，並非只限政府部門（排除 D）。
+    </div>
+  </div>
+</div>
+
+<!-- Q14 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">14</div>
+    <div class="q-text">某台灣出口商 A，向歐盟出口鋼鐵產品，須繳交 CBAM 憑證。若 A 在台灣已依氣候法繳交碳費，根據目前 CBAM 機制，以下何者正確？</div>
+    <div class="q-tog">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">CBAM 與台灣碳費完全無關，必須全額繳交歐盟碳費</li>
+      <li data-o="B" class="ok">台灣碳費可部分抵減 CBAM 應繳金額，等同出口商在原產地已承擔碳成本，歐盟依此扣減應繳憑證金額</li>
+      <li data-o="C">只要台灣企業已取得 ISO 14067 碳足跡認證，CBAM 可全額免徵</li>
+      <li data-o="D">CBAM 僅對歐盟境內生產者課徵，進口商無需支付</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      CBAM 的設計原則之一：若出口國原產地已徵收相當於碳定價的費用，可在 CBAM 應繳金額中<strong>相應扣減</strong>，避免雙重課稅。<br><br>
+      這也是台灣設計碳費時刻意與 CBAM 時間表接軌（台灣 2025 開徵 → 2026 年 CBAM 正式收費）的政策邏輯。選項 C 混淆了碳足跡認證（資訊揭露）與碳定價（財務工具）的不同角色。
+    </div>
+  </div>
+</div>
+
+<!-- Q15 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">15</div>
+    <div class="q-text">台灣氣候法中「氣候變遷調適（Climate Adaptation）」專章的核心概念，與「減緩（Mitigation）」的根本差異是？</div>
+    <div class="q-tog">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">調適是企業自願行為，減緩是法定義務</li>
+      <li data-o="B">調適只適用於農業部門，減緩適用於所有產業</li>
+      <li data-o="C" class="ok">減緩是指減少溫室氣體排放（預防氣候變化加劇）；調適是指調整系統以應對已無法避免的氣候衝擊（如極端氣候、海平面上升），兩者互補、缺一不可</li>
+      <li data-o="D">調適等同於碳補償，是減緩措施不足時的替代方案</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：C</strong><br><br>
+      以農場為例：<br>
+      「<strong>減緩</strong>」= 減少稻田甲烷排放（預防未來更嚴重的氣候變化）<br>
+      「<strong>調適</strong>」= 針對極端豪雨建立排水系統、選育耐旱品種（應對已發生的衝擊）<br><br>
+      兩者都必要：只減緩而不調適，面對已發生的氣候衝擊將措手不及；只調適而不減緩，未來衝擊將越來越嚴重。
+    </div>
+  </div>
+</div>
+
+<!-- Q16 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">16</div>
+    <div class="q-text">某企業宣稱「我們已申購足夠的台灣碳交易所碳權，等同於完成 2025 年度碳中和，無需繳交碳費」。此宣稱最可能違反什麼？</div>
+    <div class="q-tog">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">完全合規，碳交易所碳權等同免除碳費義務</li>
+      <li data-o="B" class="ok">購買本土碳權可「部分抵減」碳費，但有比例上限，且碳費抵減 ≠ 整體碳中和聲明，後者需依 ISO 14068-1 另行查驗；此宣稱混淆兩種不同機制，可能構成誤導性聲明</li>
+      <li data-o="C">只要購買碳交易所認可碳權，即可全額免除碳費，企業說法正確</li>
+      <li data-o="D">碳費繳交與碳中和認證是完全獨立的系統，購買碳權對兩者均無影響</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      這道題是「<strong>碳費制度</strong>」與「<strong>碳中和聲明</strong>」兩套系統的整合考題：<br><br>
+      ✅ 本土碳權可<strong>部分抵減碳費</strong>（有比例限制）<br>
+      ❌ 但「碳中和」是依 ISO 14068-1 的獨立宣告體系，需完整的盤查、減量、補償、第三方查驗流程<br>
+      ❌ 不能簡化為「買了碳權 = 碳中和」<br><br>
+      且「等同於完成碳中和」的說法若對外宣傳，可能觸犯歐盟綠色聲明指令（若有出口業務）。
+    </div>
+  </div>
+</div>
+
+<!-- Q17 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">17</div>
+    <div class="q-text">依氣候法，「溫室氣體排放量盤查」的義務，主要適用於哪類主體？</div>
+    <div class="q-tog">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">所有在台灣登記的中小企業，無排放量門檻</li>
+      <li data-o="B" class="ok">公告應盤查的排放源（目前主要為年排放 2.5 萬噸以上的指定業別），以及自願性申報的業者</li>
+      <li data-o="C">僅上市上櫃公司依金管會 ESG 規定需強制盤查，中小企業豁免</li>
+      <li data-o="D">盤查義務僅適用於政府機關，私人企業全為自願性</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      氣候法的盤查登錄義務採「<strong>指定公告制</strong>」——環境部依排放量門檻與行業別，公告哪些業者須強制盤查。目前強制義務對象與碳費徵收對象高度重疊（年排放 2.5 萬噸以上）。<br><br>
+      金管會對上市公司的 ESG 揭露要求（選項 C）是另一軌道，兩者並行但依據不同法規。
+    </div>
+  </div>
+</div>
+
+<!-- Q18 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">18</div>
+    <div class="q-text">台灣氣候法通過後，政府針對「公正轉型」的支援措施中，以下哪種政策最直接對應此精神？</div>
+    <div class="q-tog">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">對高排放企業加倍課徵碳費以示懲罰</li>
+      <li data-o="B">強制要求所有企業 2030 年前完成百分之百再生能源轉型</li>
+      <li data-o="C" class="ok">設立碳費基金的一部分用於協助受碳費衝擊較大的傳統產業工人再培訓、社區轉型補助，以確保轉型不落下任何人</li>
+      <li data-o="D">要求高排碳企業遷移至工業區，以降低對居住區的影響</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：C</strong><br><br>
+      公正轉型的「公正」體現在：<strong>轉型的好處不獨佔，轉型的代價不單獨由弱勢承擔</strong>。<br><br>
+      碳費基金部分用於受衝擊產業（鋼鐵、石化等）的工人轉訓、地方社區復甦，正是公正轉型的具體政策工具。選項 A 只有懲罰沒有支援，不符合公正轉型的互助精神。
+    </div>
+  </div>
+</div>
+
+<!-- Q19 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">19</div>
+    <div class="q-text">（農場情境題）富林有機農場希望將其有機稻作的甲烷減排量，申請成為台灣國內的「自願減量額度」。以下步驟哪個是必要條件，且最容易被忽略？</div>
+    <div class="q-tog">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">農場需先轉型為觀光農場才可申請</li>
+      <li data-o="B" class="ok">農場必須證明「外加性」——即若無此減排措施（如乾濕交替灌溉），這些甲烷減排本來不會自然發生；並完成 ISO 14064-2 規範的量化與第三方查驗，才能核發可銷售額度</li>
+      <li data-o="C">只需向農業部提交農場面積證明，即可自動取得碳匯額度</li>
+      <li data-o="D">農場需先達到年產稻米 100 公噸以上，方有申請資格</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      農業碳匯走向「可銷售額度」的關鍵門檻是<strong>外加性（Additionality）</strong>——必須證明若沒有此專案，這些減排不會自然發生。<br><br>
+      許多農場主理人誤以為「<strong>有機認證 = 碳匯額度</strong>」，這是最大的誤解。此外，ISO 14064-2 的量化與第三方查驗，是將農業行動轉化為可交易碳商品的必要程序。<br><br>
+      <strong>富林農場行動建議：</strong>現在開始啟動 MRV 認證流程，一兩年後取得額度，成為城邦集團的長期碳抵換夥伴。
+    </div>
+  </div>
+</div>
+
+<!-- Q20 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">20</div>
+    <div class="q-text">（壓軸綜合題）2026 年，城邦集團旗下某出版社計畫在富林有機農場舉辦「企業員工永續教育日」，活動總排放 1.5 tCO₂e。農場提議：「我們農場有機稻田每年有碳匯，可以直接內部抵銷這 1.5 噸。」這個提議是否合理？</div>
+    <div class="q-tog">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">完全合理，有機農場碳匯抵銷活動排放是最環保的做法</li>
+      <li data-o="B">合理，只要農場土地夠大，碳匯面積足以覆蓋活動排放即可</li>
+      <li data-o="C" class="ok">不合理。農場碳匯要用於活動的碳中和聲明，必須先通過 MRV 量化（ISO 14064-2）與第三方查驗，取得核發的減量額度；若僅口頭主張「有碳匯」而無認證，依 ISO 14068-1:2023，此聲明不符合查驗標準</li>
+      <li data-o="D">合理，台灣環境部已認可有機認證農場的碳匯，可直接申報抵銷</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：C</strong><br><br>
+      這道壓軸題整合了<strong>氣候法、ISO 14068-1 碳中和、ISO 14064-2 農業碳匯</strong>三條線。<br><br>
+      農場的好意完全出於真誠，但「<strong>有碳匯 ≠ 有認證的可用額度</strong>」。<br><br>
+      正確流程：<br>
+      ① 活動碳盤查（1.5 tCO₂e）<br>
+      ② 採購<strong>已通過 MRV 且核發的認證碳權</strong>進行補償<br>
+      ③ 委請第三方查驗，取得聲明書<br>
+      ④ 對外宣告碳中和活動<br><br>
+      <strong>最佳合作模式：</strong>農場現在啟動 MRV 認證流程 → 一兩年後取得額度 → 成為城邦集團的<strong>長期碳抵換夥伴</strong>。這才是可持續的商業模式。
+    </div>
+  </div>
+</div>
+
+<!-- 最後叮嚀 -->
+<div class="card amber" style="margin-top:36px;">
+  <p style="font-size:1rem;font-weight:800;color:#78350f;margin-bottom:12px;">📣 命題委員的最後叮嚀</p>
+  <p>氣候法的誕生，宣告了一個時代的終結：<strong>免費排放的時代，結束了。</strong></p>
+  <p style="margin-top:8px;">對大企業而言，碳費是壓力；對富林農場而言，碳匯是機會；對每一位考生而言，理解這套制度，是在這個減碳時代安身立命的基本能力。</p>
+  <p style="margin-top:8px;font-weight:700;color:var(--gd);">記住：法規是地板，不是天花板。真正的競爭優勢，從早一步行動開始。🌿</p>
+</div>
+
+</div><!-- /wrap -->
+
+<div class="footer">
+  <p>📋 2026 IPAS 淨零碳管理師｜台灣氣候變遷因應法 深度衝刺筆記</p>
+  <p style="margin-top:6px;">依據《氣候變遷因應法》（112 年 2 月 15 日施行） · 全文 7 章 63 條 · 環境部氣候變遷署</p>
+  <p style="margin-top:6px;opacity:.5;">© 2026 IPAS 命題委員會召集人｜富林有機農場 × 城邦集團 ESG 學習計畫</p>
+</div>
+
+<button class="print-btn" onclick="window.print()">🖨️ 列印 / 儲存 PDF</button>
+
+<script>
+function tg(el){
+  const ans=el.parentElement.querySelector('.q-ans');
+  const tog=el.querySelector('.q-tog');
+  if(ans.classList.contains('show')){
+    ans.classList.remove('show');
+    tog.textContent='▼ 查看解析';
+  }else{
+    ans.classList.add('show');
+    tog.textContent='▲ 收起解析';
+  }
+}
+</script>
+</body>
+</html>
