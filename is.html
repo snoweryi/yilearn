@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 IPAS 淨零碳管理師｜SBTi 科學基礎減碳目標 考前衝刺筆記</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --green-dark: #0a4a3a;
+    --green-mid:  #1a7a5a;
+    --green-lite: #2aab7e;
+    --green-pale: #e6f7f0;
+    --amber:      #f59e0b;
+    --amber-pale: #fffbeb;
+    --red:        #dc2626;
+    --red-pale:   #fef2f2;
+    --blue:       #2563eb;
+    --blue-pale:  #eff6ff;
+    --purple:     #7c3aed;
+    --purple-pale:#f5f3ff;
+    --gray-100:   #f8f9fa;
+    --gray-200:   #e9ecef;
+    --gray-700:   #3d4451;
+    --text:       #1a1a1a;
+    --border:     #c8eed9;
+  }
+  html { font-size: 18px; scroll-behavior: smooth; }
+  body {
+    background: #ffffff;
+    color: var(--text);
+    font-family: "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+    line-height: 1.8;
+    padding-bottom: 100px;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    background: linear-gradient(135deg, #0a4a3a 0%, #1a7a5a 55%, #2aab7e 100%);
+    color: #fff;
+    padding: 56px 40px 44px;
+    position: relative; overflow: hidden;
+  }
+  .cover::after {
+    content: "SBTi";
+    position: absolute; right: -10px; bottom: -30px;
+    font-size: 10rem; font-weight: 900;
+    opacity: 0.06; line-height: 1; pointer-events: none;
+  }
+  .cover-tag {
+    display: inline-block;
+    border: 1px solid rgba(255,255,255,.45);
+    border-radius: 20px;
+    padding: 3px 14px;
+    font-size: 18px; letter-spacing: 1px;
+    margin-bottom: 14px;
+    background: rgba(255,255,255,.12);
+  }
+  .cover h1 { font-size: 1.9rem; font-weight: 900; line-height: 1.3; }
+  .cover h1 span { color: #a8ffd8; }
+  .cover .sub { font-size: 18px; opacity: .8; margin-top: 10px; }
+  .cover-meta { display:flex; gap:24px; flex-wrap:wrap; margin-top:24px; font-size:.78rem; opacity:.75; }
+
+  /* ── PRINT BTN ── */
+  .print-btn {
+    position: fixed; bottom: 28px; right: 28px; z-index: 999;
+    background: var(--green-mid); color: #fff;
+    border: none; border-radius: 50px;
+    padding: 11px 22px; font-size: 18px; font-weight: 700;
+    cursor: pointer; display:flex; align-items:center; gap:7px;
+    box-shadow: 0 4px 20px rgba(26,122,90,.4);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .print-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(26,122,90,.5); }
+  @media print {
+    .print-btn, .toc-sidebar { display:none !important; }
+    .page-wrap { grid-template-columns: 1fr !important; }
+    .q-ans { display: block !important; }
+    h2 { break-before: page; }
+  }
+
+  /* ── LAYOUT ── */
+  .page-wrap { max-width: 1860px; margin: 0 auto; padding: 0 24px; }
+
+  /* ── HEADINGS ── */
+  h2 {
+    font-size: 1.25rem; font-weight: 800;
+    color: var(--green-dark);
+    margin: 52px 0 18px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--green-lite);
+    display: flex; align-items: center; gap: 10px;
+  }
+  h2 .ch {
+    background: var(--green-dark); color: #fff;
+    border-radius: 6px; padding: 2px 10px;
+    font-size: 18px; letter-spacing: 1px;
+  }
+  h3 {
+    font-size: 18px; font-weight: 700;
+    color: var(--green-mid);
+    margin: 26px 0 10px;
+    padding-left: 10px;
+    border-left: 4px solid var(--green-lite);
+  }
+
+  /* ── CARDS ── */
+  .card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-bottom: 18px;
+    background: var(--green-pale);
+    font-size: 18px;
+  }
+  .card.amber  { background: var(--amber-pale);  border-color: #fbbf24; }
+  .card.red    { background: var(--red-pale);    border-color: #fca5a5; }
+  .card.blue   { background: var(--blue-pale);   border-color: #93c5fd; }
+  .card.purple { background: var(--purple-pale); border-color: #c4b5fd; }
+  .card.gray   { background: var(--gray-100);    border-color: var(--gray-200); }
+
+  /* ── ALERTS ── */
+  .alert {
+    border-radius: 8px; padding: 12px 16px;
+    margin: 14px 0; font-size: 18px;
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .alert-icon { flex-shrink: 0; font-size: 1.1rem; }
+  .alert.tip    { background: #f0fff8; border-left: 4px solid var(--green-lite); }
+  .alert.warn   { background: #fffbeb; border-left: 4px solid var(--amber); }
+  .alert.danger { background: var(--red-pale); border-left: 4px solid var(--red); }
+  .alert.info   { background: var(--blue-pale); border-left: 4px solid var(--blue); }
+
+  /* ── TAGS ── */
+  .tag {
+    display: inline-block; border-radius: 4px;
+    padding: 1px 8px; font-size: 18px; font-weight: 700; margin: 2px 3px 2px 0;
+  }
+  .tg { background: var(--green-pale); color: var(--green-dark); }
+  .tr { background: var(--red-pale);   color: var(--red); }
+  .ta { background: var(--amber-pale); color: #92400e; }
+  .tb { background: var(--blue-pale);  color: var(--blue); }
+  .tp { background: var(--purple-pale);color: var(--purple); }
+
+  /* ── TABLES ── */
+  .table-wrap { overflow-x: auto; margin: 14px 0 20px; }
+  table { width: 100%; border-collapse: collapse; font-size: 18px; }
+  th { background: var(--green-dark); color: #fff; padding: 9px 13px; text-align: left; font-size: 18px; }
+  td { padding: 8px 13px; border-bottom: 1px solid #ddeee5; vertical-align: top; }
+  tr:nth-child(even) td { background: #f2fbf6; }
+  tr:hover td { background: #dff5ea; }
+
+  /* ── STEPS ── */
+  .steps { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0; }
+  .step {
+    flex: 1 1 150px;
+    background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+    color: #fff; border-radius: 10px; padding: 14px 12px;
+    position: relative;
+  }
+  .step .sn { font-size: 1.8rem; font-weight: 900; opacity: .2; position: absolute; top: 8px; right: 10px; line-height: 1; }
+  .step .sl { font-size: 18px; opacity: .7; margin-bottom: 3px; letter-spacing: 1px; }
+  .step .sh { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+  .step .sd { font-size: 18px; opacity: .88; line-height: 1.55; }
+
+  /* ── KEY NUMBERS ── */
+  .num-grid { display: flex; flex-wrap: wrap; gap: 12px; margin: 16px 0; }
+  .num-card {
+    flex: 1 1 140px;
+    border: 2px solid var(--green-lite);
+    border-radius: 10px; padding: 14px 12px; text-align: center;
+    background: #fff;
+  }
+  .num-card .big { font-size: 2rem; font-weight: 900; color: var(--green-dark); line-height: 1; }
+  .num-card .label { font-size: 18px; color: #555; margin-top: 6px; line-height: 1.5; }
+
+  /* ── TRAPS ── */
+  .trap { display: flex; gap: 12px; margin-bottom: 14px; align-items: flex-start; }
+  .trap-num {
+    background: var(--red); color: #fff; border-radius: 50%;
+    width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 800; flex-shrink: 0; margin-top: 2px;
+  }
+  .trap-body { flex: 1; }
+  .trap-title { font-weight: 700; font-size: 18px; color: var(--red); margin-bottom: 2px; }
+  .trap-desc { font-size: 18px; }
+
+  /* ── QUIZ ── */
+  .q-block { border: 1px solid #d0e8d8; border-radius: 10px; margin-bottom: 18px; overflow: hidden; }
+  .q-head { background: #e8f7ee; padding: 10px 16px; display: flex; align-items: center; gap: 10px; cursor: pointer; user-select: none; }
+  .q-head:hover { background: #d4f0e0; }
+  .q-num { background: var(--green-dark); color: #fff; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800; flex-shrink: 0; }
+  .q-text { font-size: 18px; font-weight: 600; flex: 1; color: #1a3a2a; }
+  .q-tog { font-size: 18px; color: #888; flex-shrink: 0; }
+  .q-body { padding: 12px 16px; font-size: 18px; }
+  .q-opts { list-style: none; margin: 8px 0; }
+  .q-opts li { padding: 5px 0 5px 30px; position: relative; }
+  .q-opts li::before {
+    content: attr(data-o); position: absolute; left: 0;
+    width: 22px; height: 22px; background: #e0e0e0; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 700; color: #555;
+  }
+  .q-opts li.ok::before { background: var(--green-lite); color: #fff; }
+  .q-ans { background: #f0fdf5; border-top: 1px dashed #b0ddc0; padding: 10px 14px; font-size: .82rem; display: none; }
+  .q-ans.show { display: block; }
+  .q-ans strong { color: var(--green-dark); }
+
+  /* ── STORY BOX ── */
+  .story {
+    border: 1px solid #fde68a;
+    border-radius: 10px; padding: 20px 22px;
+    background: linear-gradient(135deg, #fffbeb 0%, #fef9e7 100%);
+    font-size: 18px; margin: 16px 0;
+    position: relative;
+  }
+  .story::before {
+    content: "📖";
+    position: absolute; top: -12px; left: 18px;
+    background: #fff; padding: 0 6px; font-size: 18px;
+  }
+  .story-title { font-weight: 800; font-size: 18px; color: #78350f; margin-bottom: 10px; }
+
+  /* ── HR ── */
+  hr { border: none; border-top: 1px dashed #c8eed9; margin: 32px 0; }
+
+  /* ── FOOTER ── */
+  .footer { background: var(--green-dark); color: rgba(255,255,255,.6); text-align: center; padding: 24px; font-size: 18px; margin-top: 60px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .cover { padding: 36px 18px 30px; }
+    .cover h1 { font-size: 1.4rem; }
+    .num-grid { gap: 8px; }
+    .steps { flex-direction: column; }
+    h2 { font-size: 1.05rem; }
+  }
+
+  /* ── COMPARE BOX ── */
+  .vs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+  @media (max-width:520px){ .vs-grid { grid-template-columns: 1fr; } }
+  .vs-card { border-radius: 8px; padding: 14px 16px; font-size: 18px; }
+  .vs-card h4 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+  .vs-card ul { padding-left: 16px; }
+  .vs-card li { margin-bottom: 4px; }
+  .vs-left  { background: #e8f7ee; border: 1px solid var(--green-lite); }
+  .vs-left h4  { color: var(--green-dark); }
+  .vs-right { background: var(--blue-pale); border: 1px solid #93c5fd; }
+  .vs-right h4 { color: var(--blue); }
+.badgerowbt { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
+a.badge1 {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: #007286;
+  color: #fff;
+  border: 1px solid #b6dece;
+  text-decoration: none;
+  line-height: 1.4;
+  transition: all 0.2s ease;
+}
+a.badge2 {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: #fff;
+  color: #007286;
+  border: 1px solid #b6dece;
+  text-decoration: none;
+  line-height: 1.4;
+  transition: all 0.2s ease;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ COVER ═══ -->
+<div class="cover">
+  <div class="cover-tag">🎯 IPAS 2026 考前衝刺</div>
+  <h1>SBTi<span>（科學基礎減碳目標）</span><br>深度考前筆記</h1>
+  <div class="badgerowbt">
+    <div><a href="https://snoweryi.github.io/yilearn/" class="badge2" >永續架構</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i01.html" class="badge1">01趨勢及策略</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i02.html" class="badge1">02溫室氣體盤查</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i03.html" class="badge1">03碳足跡</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i031.html" class="badge1">03碳足跡2</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i011.html" class="badge1">考科一</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i022.html" class="badge1">考科二</a></div>
+
+	<div><a href="https://snoweryi.github.io/yilearn/ic.html" class="badge1">CBAM</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/iy.html" class="badge1">年份</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/is.html" class="badge1">SBTi</a></div>
+  </div>
+</div>
+
+<div class="page-wrap">
+
+<!-- ═══ CH1：SBTi 是什麼 ═══ -->
+<h2><span class="ch">CH 1</span>SBTi 是什麼？——用生活說清楚</h2>
+
+<div class="story">
+  <div class="story-title">🏋️ 故事：SBTi 是那個不讓你自己說目標的嚴格教練</div>
+  <p>想像你去健身房減重，教練不讓你自己說「我要減 5 公斤」就算數，而是說：<br>
+  「你現在 80 公斤，<strong>要符合醫學標準，你必須減到 72 公斤，而且要在 3 年內做到，每個月給我看進度。</strong>」</p>
+  <br>
+  <p><strong>SBTi 就是這個教練。</strong></p>
+  <br>
+  <p>企業不能自己說「我要減碳 30%」就叫做科學減碳目標，<br>
+  必須經過 SBTi 審核，確認這個目標符合「把地球升溫控制在 1.5°C 以內」所需的減碳速度，才算數。</p>
+</div>
+
+<h3>SBTi 核心定義</h3>
+<div class="card">
+  <p><strong>Science Based Targets initiative（SBTi）</strong>是由 CDP、UN Global Compact、WRI、WWF 共同發起的倡議，提供企業設定<strong>符合氣候科學的減碳目標</strong>的標準與驗證機制。</p>
+  <br>
+  <p>核心精神：<strong>減碳目標不是你說了算，要符合科學，要送審，要通過</strong>，碳抵換補不了捷徑。</p>
+</div>
+
+<!-- ═══ CH2：五步驟 ═══ -->
+<h2><span class="ch">CH 2</span>SBTi 五步驟——阿銘減肥版記憶法</h2>
+
+<div class="table-wrap">
+<table>
+  <tr>
+    <th>步驟</th><th>英文</th><th>阿銘減肥故事</th><th>記憶關鍵字</th>
+  </tr>
+  <tr><td><strong>① 承諾</strong></td><td>Commit</td><td>阿銘站上體重計，宣布「我要減重 10 公斤！」</td><td>先發願</td></tr>
+  <tr><td><strong>② 制定目標</strong></td><td>Develop Targets</td><td>阿銘規劃三個月減 5 公斤、每天走 1 萬步</td><td>寫計畫</td></tr>
+  <tr><td><strong>③ 提交目標</strong></td><td>Submit Targets</td><td>阿銘把減肥計畫交給教練審核</td><td>交老師</td></tr>
+  <tr><td><strong>④ 審核通過</strong></td><td>Validate</td><td>教練確認計畫符合醫學標準，蓋章認可</td><td>拿核准</td></tr>
+  <tr><td><strong>⑤ 揭露進度</strong></td><td>Communicate & Disclose</td><td>阿銘發文告訴親友、公布半年後成果</td><td>曬成績</td></tr>
+</table>
+</div>
+
+<div class="alert warn">
+  <span class="alert-icon">⚠️</span>
+  <div><strong>SME 特別注意：</strong>中小企業（SME）<strong>可以跳過 ① 承諾（Commit）</strong>步驟，直接從制定目標開始。但其他步驟不能省略！</div>
+</div>
+
+<h3>步驟詳解</h3>
+<div class="steps">
+  <div class="step">
+    <span class="sn">1</span>
+    <span class="sl">STEP 01</span>
+    <span class="sh">承諾（Commit）</span>
+    <span class="sd">正式宣告導入 SBTi 目標，建立專案小組、啟動碳盤查</span>
+  </div>
+  <div class="step">
+    <span class="sn">2</span>
+    <span class="sl">STEP 02</span>
+    <span class="sh">制定目標（Develop）</span>
+    <span class="sd">依方法學計算 1.5°C 路徑目標，完成碳盤查與基準年設定</span>
+  </div>
+  <div class="step">
+    <span class="sn">3</span>
+    <span class="sl">STEP 03</span>
+    <span class="sh">提交目標（Submit）</span>
+    <span class="sd">將目標文件送交 SBTi 官方審查，確保數據完整性</span>
+  </div>
+  <div class="step">
+    <span class="sn">4</span>
+    <span class="sl">STEP 04</span>
+    <span class="sh">審核通過（Validate）</span>
+    <span class="sd">SBTi 驗證目標符合氣候科學，取得正式核准聲明</span>
+  </div>
+  <div class="step">
+    <span class="sn">5</span>
+    <span class="sl">STEP 05</span>
+    <span class="sh">揭露進度（Disclose）</span>
+    <span class="sd">公開承諾至官網、CDP、永續報告書，每年更新減碳進度</span>
+  </div>
+</div>
+
+<!-- ═══ CH3：關鍵數字 ═══ -->
+<h2><span class="ch">CH 3</span>五個關鍵數字——考試必背</h2>
+
+<div class="num-grid">
+  <div class="num-card">
+    <div class="big">42%</div>
+    <div class="label">Scope 1+2<br>近期目標減量幅度<br>（2020→2030）</div>
+  </div>
+  <div class="num-card">
+    <div class="big">67%</div>
+    <div class="label">Scope 3 &gt; 40% 時<br>近期目標<br>涵蓋門檻</div>
+  </div>
+  <div class="num-card">
+    <div class="big">90%</div>
+    <div class="label">長期目標<br>Scope 1+2+3<br>涵蓋門檻</div>
+  </div>
+  <div class="num-card">
+    <div class="big">40%</div>
+    <div class="label">Scope 3 是否強制<br>設定目標的<br>門檻比例</div>
+  </div>
+  <div class="num-card">
+    <div class="big">500</div>
+    <div class="label">SME 員工<br>人數上限<br>（少於 500 人）</div>
+  </div>
+</div>
+
+<h3>近期目標 vs 長期目標</h3>
+<div class="vs-grid">
+  <div class="vs-card vs-left">
+    <h4>📅 近期目標（到 2030）</h4>
+    <ul>
+      <li>Scope 1+2 減少 <strong>42%</strong>（以 2020 為基準）</li>
+      <li>Scope 3 &gt; 40% → 涵蓋至少 <strong>67%</strong></li>
+      <li>對標 <strong>1.5°C 路徑</strong></li>
+    </ul>
+    <br>
+    <p style="font-size:.78rem;color:#555">📚 比喻：期中考要及格</p>
+  </div>
+  <div class="vs-card vs-right">
+    <h4>🏆 長期目標（到 2050）</h4>
+    <ul>
+      <li>Scope 1+2+3 全部減少 <strong>90% 以上</strong></li>
+      <li>對標 <strong>淨零排放</strong></li>
+      <li>剩餘 10% 用<strong>碳移除</strong>中和</li>
+    </ul>
+    <br>
+    <p style="font-size:.78rem;color:#555">📚 比喻：畢業要拿學位</p>
+  </div>
+</div>
+
+<h3>Scope 3 門檻決策樹</h3>
+<div class="card blue">
+  <p style="font-size:.88rem; line-height:2;">
+    Scope 3 佔總排放 <strong>&gt; 40%？</strong><br>
+    ✅ <strong>YES</strong> → 近期目標必須涵蓋至少 <span class="tag tb">67%</span> 的 Scope 3<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;長期目標必須涵蓋至少 <span class="tag tb">90%</span> 的 Scope 3<br>
+    ❌ <strong>NO</strong>&nbsp; → 鼓勵設定但<strong>非強制</strong>
+  </p>
+</div>
+<div class="story">
+  <div class="story-title">🗑️ 生活比喻：你出門製造的垃圾</div>
+  <p>你出門製造的垃圾（Scope 3）如果超過家裡垃圾的 40%，<br>
+  就不能只掃家裡，<strong>還要負責掃 67% 的外面。</strong></p>
+</div>
+
+<!-- ═══ CH4：SME ═══ -->
+<h2><span class="ch">CH 4</span>SME 中小企業路徑——三個條件缺一不可</h2>
+
+<div class="card">
+  <p style="font-weight:700;margin-bottom:10px;">✅ SME 定義（三個條件同時符合）：</p>
+  <ol style="padding-left:18px;font-size:.88rem;">
+    <li style="margin-bottom:6px;">員工人數 <strong>少於 500 人</strong></li>
+    <li style="margin-bottom:6px;"><strong>非</strong>上市公司子公司</li>
+    <li style="margin-bottom:6px;"><strong>非</strong>金融機構（FI）</li>
+  </ol>
+</div>
+
+<div class="table-wrap">
+<table>
+  <tr><th>比較項目</th><th>SME 快速路徑</th><th>標準企業路徑</th></tr>
+  <tr><td>Commit 步驟</td><td><span class="tag tg">可跳過</span></td><td><span class="tag tr">必須完成</span></td></tr>
+  <tr><td>目標設定複雜度</td><td>簡化</td><td>完整</td></tr>
+  <tr><td>Scope 1+2 要求</td><td>仍須符合 1.5°C 路徑（-42%）</td><td>同左</td></tr>
+  <tr><td>適用對象</td><td>員工 &lt; 500、非子公司、非 FI</td><td>其餘所有企業</td></tr>
+</table>
+</div>
+
+<div class="alert tip">
+  <span class="alert-icon">💡</span>
+  <div><strong>富林農場情境：</strong>富林有機農場若轉型成立食農教育公司，員工 45 人、非上市子公司、非金融機構，<strong>完全符合 SME 定義</strong>，可走快速路徑並跳過 Commit 步驟。未來若和新竹科學園區企業合作 ESG 活動，SME 路徑讓農場更容易切入 SBTi 生態圈。</div>
+</div>
+
+<!-- ═══ CH5：金融機構路徑 ═══ -->
+<h2><span class="ch">CH 5</span>金融機構路徑（FI）——進階考點</h2>
+
+<div class="card purple">
+  <p style="font-size:.88rem;">金融機構（銀行、保險、資產管理）的排放幾乎不來自自身辦公室，<br>
+  而是來自<strong>「融資排放（Financed Emissions）」</strong>——放款給高碳產業的錢，就是他們的最大碳排。</p>
+</div>
+
+<div class="table-wrap">
+<table>
+  <tr><th>項目</th><th>一般企業</th><th>金融機構（FI 路徑）</th></tr>
+  <tr><td>最大排放來源</td><td>廠房用電、製程、原料</td><td>融資給高碳企業的資金（Scope 3 類別 15）</td></tr>
+  <tr><td>SBTi 核心要求</td><td>Scope 1+2+3 減量</td><td>管理<strong>融資投資組合排放（Financed Emissions）</strong></td></tr>
+  <tr><td>計算方法</td><td>GHG Protocol</td><td>PCAF 標準（Partnership for Carbon Accounting Financials）</td></tr>
+  <tr><td>常見誤解</td><td>—</td><td>換電動公務車、裝太陽能板 ≠ 主要減碳行動</td></tr>
+</table>
+</div>
+
+<!-- ═══ CH6：碳抵換論戰 ═══ -->
+<h2><span class="ch">CH 6</span>2024 SBTi 最大時事：碳抵換論戰</h2>
+
+<div class="alert info">
+  <span class="alert-icon">📰</span>
+  <div><strong>命題委員提示：</strong>這是 2024 年最熱門、最可能包裝成情境題的 SBTi 時事，<strong>強烈建議熟讀！</strong></div>
+</div>
+
+<div class="story">
+  <div class="story-title">⚡ 2024 年 SBTi 爆發公信力危機</div>
+  <p><strong>事件起點（2024 年 4 月）：</strong><br>
+  SBTi 突然發聲明：「我們在考慮讓企業用<strong>碳抵換（Carbon Offsets）來抵消 Scope 3 排放</strong>。」</p>
+  <br>
+  <p><strong>反對派（NGO、科學家）說：</strong><br>
+  「SBTi 你瘋了嗎？碳抵換品質參差不齊，讓企業買碳權就叫達標，這不是開後門嗎？還叫『科學基礎』？」</p>
+  <br>
+  <p><strong>支持派（部分企業）說：</strong><br>
+  「Scope 3 太難減了，供應鏈不是自己能控制的，完全不能用碳抵換，很多企業根本設不了目標。」</p>
+  <br>
+  <p><strong>SBTi 內部衝突：</strong><br>
+  多名委員聯署反對、員工公開批評董事會、外界質疑 SBTi 公信力。</p>
+  <br>
+  <p><strong>最終結果：</strong><br>
+  SBTi 暫停討論，重申「碳抵換<strong>不能</strong>用來達成近期 Scope 1+2 目標」，Scope 3 最終政策仍在研議中。</p>
+</div>
+
+<div class="card amber">
+  <p style="font-weight:700; margin-bottom:8px;">🎯 這個時事考試可能怎麼考：</p>
+  <p style="font-size:.88rem;">情境包裝：「某企業聲稱購買碳抵換額度以達成 SBTi 的 Scope 3 目標，請問這是否符合 SBTi 規定？」</p>
+  <br>
+  <p style="font-size:.88rem;"><strong>答案方向：</strong>目前碳抵換<strong>不能</strong>用來達成近期 Scope 1+2 目標，Scope 3 政策仍在討論中。</p>
+</div>
+
+<!-- ═══ CH7：三大陷阱 ═══ -->
+<h2><span class="ch">CH 7</span>命題委員警告：三大必考陷阱</h2>
+
+<div class="trap">
+  <div class="trap-num">1</div>
+  <div class="trap-body">
+    <div class="trap-title">碳抵換 ≠ 達成 SBTi 目標</div>
+    <div class="trap-desc">碳抵換只能作為<strong>超額貢獻</strong>，不能用來達成近期 Scope 1+2 的減量目標。企業若宣稱「買了碳抵換就達成 SBTi 目標」，是<strong>不正確的說法</strong>。</div>
+  </div>
+</div>
+<div class="trap">
+  <div class="trap-num">2</div>
+  <div class="trap-body">
+    <div class="trap-title">SME 可跳過 Commit，但不能跳過審核</div>
+    <div class="trap-desc">SME 的「快速路徑」只是跳過「承諾」步驟，目標<strong>仍須提交 SBTi 審核並通過</strong>，Scope 1+2 仍須符合 1.5°C 路徑（-42%）。</div>
+  </div>
+</div>
+<div class="trap">
+  <div class="trap-num">3</div>
+  <div class="trap-body">
+    <div class="trap-title">67% 是近期門檻，90% 是長期門檻</div>
+    <div class="trap-desc">Scope 3 &gt; 40% 時，近期目標涵蓋 <strong>67%</strong>（到 2030），長期目標涵蓋 <strong>90%</strong>（到 2050）。兩個數字被命題委員刻意交叉設計，請務必記清楚。</div>
+  </div>
+</div>
+
+<hr>
+
+<!-- ═══ 懶人包 ═══ -->
+<h2><span class="ch">📋</span>考前懶人包——一頁搞定</h2>
+
+<div class="table-wrap">
+<table>
+  <tr><th>考點</th><th>答案</th><th>記憶小抄</th></tr>
+  <tr><td>Scope 1+2 近期目標</td><td><strong>-42%</strong>（2020→2030）</td><td>「四二，四十二歲前要瘦身」</td></tr>
+  <tr><td>Scope 3 強制設定門檻</td><td>佔總排放 <strong>&gt; 40%</strong></td><td>「超過四成的垃圾要一起掃」</td></tr>
+  <tr><td>近期 Scope 3 涵蓋比例</td><td><strong>67%</strong></td><td>「六七，期中考要過」</td></tr>
+  <tr><td>長期 Scope 1+2+3 目標</td><td><strong>90%+</strong> 減量</td><td>「九成，畢業才算數」</td></tr>
+  <tr><td>SME 員工門檻</td><td><strong>&lt; 500 人</strong></td><td>「五百以下走快速道」</td></tr>
+  <tr><td>SME 可跳過的步驟</td><td><strong>Commit（承諾）</strong></td><td>「小的可以不先發誓」</td></tr>
+  <tr><td>金融機構最大排放來源</td><td>融資排放（Financed Emissions，Scope 3 Cat.15）</td><td>「銀行排放在錢包裡」</td></tr>
+  <tr><td>碳抵換能否達成 SBTi 目標</td><td><strong>不能</strong>（近期 Scope 1+2 嚴禁）</td><td>「買碳權不能當減碳成績」</td></tr>
+  <tr><td>SBTi vs RE100</td><td>可<strong>同時參與</strong>，互補不衝突</td><td>「一個管減碳，一個管綠電」</td></tr>
+</table>
+</div>
+
+<hr>
+
+<!-- ═══ 模擬考題 ═══ -->
+<h2><span class="ch">TEST</span>命題委員親授｜8 題模擬考題</h2>
+
+<div class="alert tip">
+  <span class="alert-icon">🎯</span>
+  <div>全部來自你的 docx 筆記，加入命題委員深度解析。點擊題目可展開答案。</div>
+</div>
+
+<!-- Q1 -->
+<div class="q-block">
+  <div class="q-head" onclick="toggle(this)">
+    <div class="q-num">1</div>
+    <div class="q-text">小明的公司想設定 SBTi 目標，業務員說：「我們只要跟 SBTi 說我們承諾減碳就好了！」請問這樣就算完成 SBTi 認證嗎？</div>
+    <div class="q-tog">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">對，承諾就算數</li>
+      <li data-o="B" class="ok">不對，還要提交目標、通過審核才算</li>
+      <li data-o="C">對，只要上官網登記就好</li>
+      <li data-o="D">不對，還要先取得 ISO 14064 認證</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      SBTi 五步驟為：<strong>承諾 → 制定目標 → 提交目標 → 審核通過 → 揭露</strong>。光是承諾（Commit）只是起點，目標必須送審並通過審核才算正式 SBTi 認可。業務員把「承諾」誤解成「完成」，是最常見的入門誤解。ISO 14064 是 GHG 盤查標準，與 SBTi 認證是不同體系（排除 D）。
+    </div>
+  </div>
+</div>
+
+<!-- Q2 -->
+<div class="q-block">
+  <div class="q-head" onclick="toggle(this)">
+    <div class="q-num">2</div>
+    <div class="q-text">富林有機農場轉型成立了一家食農教育公司，員工 45 人，非上市公司子公司，非金融機構，想申請 SBTi 目標。下列敘述何者正確？</div>
+    <div class="q-tog">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">員工太少，不符合申請資格</li>
+      <li data-o="B" class="ok">可走 SME 快速路徑，且可跳過 Commit 步驟</li>
+      <li data-o="C">必須走標準企業路徑，不能走 SME</li>
+      <li data-o="D">SME 不需要設定任何 Scope 3 目標</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      員工 45 人（少於 500）、非子公司、非金融機構，<strong>三條件全符合 SME 定義</strong>，可走快速路徑並跳過 Commit 步驟。但 Scope 1+2 仍須符合 1.5°C 路徑（-42%），不是完全免除要求。選項 D 的「不需要任何 Scope 3 目標」是錯的——若 Scope 3 佔總排放 &gt; 40%，仍需設定。<br><br>
+      <strong>農場視角：</strong>富林農場的食農教育公司將來若營運規模擴大，可先以 SME 路徑切入 SBTi，對企業 ESG 客戶更具說服力。
+    </div>
+  </div>
+</div>
+
+<!-- Q3 -->
+<div class="q-block">
+  <div class="q-head" onclick="toggle(this)">
+    <div class="q-num">3</div>
+    <div class="q-text">某製造業公司總排放中，Scope 3 佔了 55%。依 SBTi 規定，該公司的<strong>近期目標</strong>至少須涵蓋多少比例的 Scope 3 排放？</div>
+    <div class="q-tog">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">40%</li>
+      <li data-o="B">55%</li>
+      <li data-o="C" class="ok">67%</li>
+      <li data-o="D">90%</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：C</strong><br><br>
+      Scope 3 超過總排放 <strong>40%</strong> 的門檻，近期目標（到 2030）須涵蓋至少 <strong>67%</strong> 的 Scope 3。<strong>90% 是長期目標（到 2050）的門檻</strong>，兩個數字是考試最高頻的混淆陷阱。<br><br>
+      <strong>命題委員提示：</strong>這道題選項 D（90%）是刻意放的陷阱，因為很多人只記「要 90%」，但忘了那是長期目標。記憶法：「近期六七，長期九成」。
+    </div>
+  </div>
+</div>
+
+<!-- Q4 -->
+<div class="q-block">
+  <div class="q-head" onclick="toggle(this)">
+    <div class="q-num">4</div>
+    <div class="q-text">2024 年 SBTi 引發爭議的核心議題是什麼？</div>
+    <div class="q-tog">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">SBTi 宣布停止接受新企業申請</li>
+      <li data-o="B" class="ok">討論是否允許企業用碳抵換達成 Scope 3 目標，引發科學界與 NGO 強烈反對</li>
+      <li data-o="C">SBTi 宣布將 1.5°C 目標放寬至 2°C</li>
+      <li data-o="D">SBTi 要求所有企業必須先完成 ISO 14068 才能申請</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      2024 年 4 月，SBTi 提出可能允許碳抵換用於 Scope 3 達標，引發公信力危機——多名委員聯署反對、員工公開批評董事會。最終 SBTi 重申：<strong>碳抵換不能用於近期 Scope 1+2 目標</strong>，Scope 3 政策仍在討論中。選項 A、C、D 均為干擾選項，SBTi 並未停止申請、未放寬溫控目標、也未要求 ISO 14068 為前置。
+    </div>
+  </div>
+</div>
+
+<!-- Q5 -->
+<div class="q-block">
+  <div class="q-head" onclick="toggle(this)">
+    <div class="q-num">5</div>
+    <div class="q-text">某科技公司宣稱：「我們已達成 SBTi 近期目標！Scope 1+2 減了 42%，剩下的 Scope 3 全部用購買碳抵換額度補足。」這個說法有何問題？</div>
+    <div class="q-tog">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">完全正確，SBTi 允許碳抵換補足所有範疇</li>
+      <li data-o="B" class="ok">Scope 1+2 減 42% 正確，但碳抵換目前不能用來達成近期 SBTi 目標，此宣稱不正確</li>
+      <li data-o="C">Scope 1+2 應減 50%，不是 42%</li>
+      <li data-o="D">完全錯誤，SBTi 不承認任何碳抵換</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      Scope 1+2 減 42%（以 2020 為基準至 2030）完全符合 SBTi 1.5°C 路徑要求，這部分正確。<strong>問題在於：以碳抵換宣稱達成 SBTi 近期目標是不正確的說法。</strong>碳抵換目前不被 SBTi 允許用來達成認可的近期目標，只能作為「額外貢獻」。選項 D 過度絕對化（SBTi 並未完全否定碳抵換的存在，只是不允許用於達標）。
+    </div>
+  </div>
+</div>
+
+<!-- Q6 -->
+<div class="q-block">
+  <div class="q-head" onclick="toggle(this)">
+    <div class="q-num">6</div>
+    <div class="q-text">某企業同時參加 SBTi 和 RE100，下列說法何者正確？</div>
+    <div class="q-tog">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">兩者目標衝突，只能選一個</li>
+      <li data-o="B" class="ok">兩者可同時參與，目標互補</li>
+      <li data-o="C">參加 RE100 後就自動符合 SBTi Scope 2 要求</li>
+      <li data-o="D">SBTi 包含 RE100，不需另外申請</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      <strong>SBTi</strong>（設定科學減碳目標）與 <strong>RE100</strong>（承諾 100% 使用再生能源）是兩個獨立倡議，目標不衝突，反而互補：RE100 有助達成 SBTi 的 Scope 2 減量目標。<br><br>
+      注意選項 C 的陷阱：RE100 僅聚焦再生能源使用，不能「自動」讓 Scope 2 達到 SBTi 要求——兩者需分別申請、分別達成，且 SBTi 有具體的減量幅度要求（Scope 2 也在 -42% 內）。
+    </div>
+  </div>
+</div>
+
+<!-- Q7 -->
+<div class="q-block">
+  <div class="q-head" onclick="toggle(this)">
+    <div class="q-num">7</div>
+    <div class="q-text">某銀行想申請 SBTi，自身 Scope 1+2 排放幾乎可以忽略，大部分排放來自「放款給高碳產業的企業」。依 SBTi 規定，這家銀行應優先設定哪類目標？</div>
+    <div class="q-tog">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">提升辦公室能源效率</li>
+      <li data-o="B">採購再生能源</li>
+      <li data-o="C" class="ok">管理融資投資組合的排放（Financed Emissions）</li>
+      <li data-o="D">汰換公務車</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：C</strong><br><br>
+      金融機構的排放主要來自「<strong>融資排放（Financed Emissions）</strong>」，屬於 Scope 3 類別 15。SBTi 對金融機構有專屬的 FI 路徑，核心是管理<strong>投融資組合的排放</strong>，而非自身的辦公室能源或公務車（選項 A、B、D 的節能效果對銀行的整體碳排影響極其微小）。<br><br>
+      <strong>命題委員提示：</strong>這題測試你是否理解「金融機構的重大排放源在哪裡」，選 A/B/D 都是本末倒置。
+    </div>
+  </div>
+</div>
+
+<!-- Q8 -->
+<div class="q-block">
+  <div class="q-head" onclick="toggle(this)">
+    <div class="q-num">8</div>
+    <div class="q-text">城邦集團旗下一家電商平台，員工 800 人，是城邦的子公司，想申請 SBTi。下列何者正確？</div>
+    <div class="q-tog">▼ 查看解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">符合 SME 定義，可走快速路徑</li>
+      <li data-o="B" class="ok">員工超過 500 人且為子公司，不符合 SME，須走標準企業路徑</li>
+      <li data-o="C">子公司不能申請 SBTi</li>
+      <li data-o="D">員工 800 人自動適用金融機構路徑</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      SME 需同時符合：員工 &lt; 500 人、非子公司、非金融機構。<br>
+      此公司：<span class="tag tr">員工 800 人 ✗</span> <span class="tag tr">城邦子公司 ✗</span>——<strong>兩項均不符合 SME 定義</strong>，須走標準企業路徑，必須完成 Commit 步驟。<br><br>
+      選項 C（子公司不能申請）是錯誤的，子公司仍可申請 SBTi，只是必須走標準路徑。選項 D 的「金融機構路徑」與員工人數無關，是業務性質決定的。
+    </div>
+  </div>
+</div>
+
+</div><!-- /page-wrap -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>📋 2026 IPAS 淨零碳管理師｜SBTi 科學基礎減碳目標 考前衝刺筆記</p>
+  <p style="margin-top:6px;">本筆記依據 SBTi Corporate Net-Zero Standard · GHG Protocol · PCAF Standard 整理</p>
+  <p style="margin-top:6px;opacity:.5;">© 2026 IPAS 命題委員會召集人｜富林有機農場 ╳ 城邦集團 ESG 學習計畫</p>
+</div>
+
+<!-- PRINT BUTTON -->
+<button class="print-btn" onclick="window.print()">🖨️ 列印 / 儲存 PDF</button>
+
+<script>
+function toggle(el) {
+  const ans = el.parentElement.querySelector('.q-ans');
+  const tog = el.querySelector('.q-tog');
+  if (ans.classList.contains('show')) {
+    ans.classList.remove('show');
+    tog.textContent = '▼ 查看解析';
+  } else {
+    ans.classList.add('show');
+    tog.textContent = '▲ 收起解析';
+  }
+}
+</script>
+</body>
+</html>
