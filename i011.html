@@ -146,13 +146,38 @@ tr:nth-child(even) td{background:var(--surface)}
   .qscore,.rbtn{display:none!important}
   @page{margin:8mm 8mm;size:A4}
 }
+.badgerowbt { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
+a.badge1 {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: #007286;
+  color: #fff;
+  border: 1px solid #b6dece;
+  text-decoration: none;
+  line-height: 1.4;
+  transition: all 0.2s ease;
+}
 </style>
 </head>
 <body>
 <header>
   
   <h1>01 淨零碳規劃管理基礎概論</span></h1>
- 
+ <div class="badgerowbt">
+    <div><a href="https://snoweryi.github.io/yilearn/" class="badge1" >永續架構</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i01.html" class="badge1">01趨勢及策略</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i02.html" class="badge1">02溫室氣體盤查</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i03.html" class="badge1">03碳足跡</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i031.html" class="badge1">03碳足跡2</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i011.html" class="badge1">考科一</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i022.html" class="badge1">考科二</a></div>
+
+	<div><a href="https://snoweryi.github.io/yilearn/ic.html" class="badge1">CBAM</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/iy.html" class="badge1">年份</a></div>
+  </div>
 </header>
 <nav>
   <button class="nb active" onclick="showSection('overview')">📋 章節概覽</button>
