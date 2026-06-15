@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 IPAS｜UNFCCC COP 重要議題考前衝刺筆記</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --gd:#0a4a3a;--gm:#1a7a5a;--gl:#2aab7e;--gp:#e6f7f0;
+  --am:#d97706;--ap:#fffbeb;--ab:#fbbf24;
+  --rd:#dc2626;--rp:#fef2f2;
+  --bl:#2563eb;--bp:#eff6ff;
+  --pu:#7c3aed;--pp:#f5f3ff;
+  --bd:#c8eed9;--tx:#1a1a1a;
+  --cop21:#7c3aed;--cop24:#2563eb;--cop26:#059669;
+  --cop27:#dc2626;--cop28:#d97706;--cop29:#0891b2;--cop30:#16a34a;
+}
+html{font-size:15px;scroll-behavior:smooth;}
+body{background:#fff;color:var(--tx);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;line-height:1.85;padding-bottom:100px;}
+
+/* COVER */
+.cover{background:linear-gradient(135deg,#0a3d2e 0%,#1a6b4a 45%,#1d8a5e 75%,#22c47a 100%);color:#fff;padding:56px 40px 48px;position:relative;overflow:hidden;}
+.cover::after{content:"COP30";position:absolute;right:-10px;bottom:-20px;font-size:8.5rem;font-weight:900;opacity:.07;line-height:1;pointer-events:none;}
+.cv-tag{display:inline-block;border:1px solid rgba(255,255,255,.42);border-radius:20px;padding:3px 15px;font-size:.74rem;letter-spacing:1.5px;margin-bottom:14px;background:rgba(255,255,255,.11);}
+.cover h1{font-size:1.85rem;font-weight:900;line-height:1.3;position:relative;}
+.cover h1 span{color:#a8ffd8;}
+.cover .sub{font-size:.9rem;opacity:.84;margin-top:10px;position:relative;}
+.cv-meta{display:flex;gap:20px;flex-wrap:wrap;margin-top:22px;font-size:.76rem;opacity:.72;position:relative;}
+
+/* PRINT */
+.print-btn{position:fixed;bottom:28px;right:28px;z-index:999;background:var(--gm);color:#fff;border:none;border-radius:50px;padding:11px 22px;font-size:.88rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:7px;box-shadow:0 4px 20px rgba(26,122,90,.45);transition:transform .2s,box-shadow .2s;}
+.print-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(26,122,90,.55);}
+@media print{.print-btn{display:none!important;}body{padding:0;}h2{break-before:page;}.q-ans{display:block!important;}.cop-card{break-inside:avoid;}}
+
+/* LAYOUT */
+.wrap{max-width:920px;margin:0 auto;padding:0 24px;}
+
+/* HEADINGS */
+h2{font-size:1.2rem;font-weight:800;color:var(--gd);margin:52px 0 18px;padding-bottom:10px;border-bottom:3px solid var(--gl);display:flex;align-items:center;gap:10px;}
+h2 .ch{background:var(--gd);color:#fff;border-radius:6px;padding:2px 10px;font-size:.72rem;letter-spacing:1px;}
+h3{font-size:.97rem;font-weight:700;color:var(--gm);margin:24px 0 10px;padding-left:10px;border-left:4px solid var(--gl);}
+
+/* TABLES */
+.tw{overflow-x:auto;margin:14px 0 20px;}
+table{width:100%;border-collapse:collapse;font-size:.84rem;}
+th{background:var(--gd);color:#fff;padding:9px 13px;text-align:left;font-size:.79rem;font-weight:700;}
+td{padding:8px 13px;border-bottom:1px solid #ddeee5;vertical-align:top;}
+tr:nth-child(even) td{background:#f2fbf6;}
+tr:hover td{background:#dff5ea;}
+
+/* TAGS */
+.tag{display:inline-block;border-radius:4px;padding:1px 8px;font-size:.71rem;font-weight:700;margin:1px 3px 1px 0;}
+.tg{background:var(--gp);color:var(--gd);}
+.tr{background:var(--rp);color:var(--rd);}
+.ta{background:var(--ap);color:#92400e;}
+.tb{background:var(--bp);color:var(--bl);}
+.tp{background:var(--pp);color:var(--pu);}
+.tc{background:#cffafe;color:#0e7490;}
+
+/* ALERTS */
+.alert{border-radius:8px;padding:12px 16px;margin:14px 0;font-size:.86rem;display:flex;gap:10px;align-items:flex-start;}
+.ai{flex-shrink:0;font-size:1.1rem;margin-top:1px;}
+.alert.tip{background:#f0fff8;border-left:4px solid var(--gl);}
+.alert.warn{background:var(--ap);border-left:4px solid var(--ab);}
+.alert.danger{background:var(--rp);border-left:4px solid var(--rd);}
+.alert.info{background:var(--bp);border-left:4px solid var(--bl);}
+
+/* COP TIMELINE */
+.cop-timeline{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin:20px 0;}
+.cop-card{border-radius:12px;padding:18px 16px;color:#fff;position:relative;overflow:hidden;cursor:default;}
+.cop-card::after{content:attr(data-cop);position:absolute;right:-8px;bottom:-10px;font-size:3.8rem;font-weight:900;opacity:.15;line-height:1;}
+.cop-card .year{font-size:.72rem;opacity:.8;margin-bottom:2px;letter-spacing:1px;}
+.cop-card .city{font-size:1.05rem;font-weight:800;margin-bottom:6px;}
+.cop-card .emoji{font-size:1.4rem;margin-bottom:6px;}
+.cop-card .key{font-size:.78rem;opacity:.92;line-height:1.7;}
+.c21{background:linear-gradient(135deg,#7c3aed,#9333ea);}
+.c24{background:linear-gradient(135deg,#2563eb,#3b82f6);}
+.c26{background:linear-gradient(135deg,#059669,#10b981);}
+.c27{background:linear-gradient(135deg,#dc2626,#ef4444);}
+.c28{background:linear-gradient(135deg,#d97706,#f59e0b);}
+.c29{background:linear-gradient(135deg,#0891b2,#06b6d4);}
+.c30{background:linear-gradient(135deg,#16a34a,#22c55e);}
+
+/* STORY */
+.story{border:1px solid #fde68a;border-radius:10px;padding:20px 22px;background:linear-gradient(135deg,#fffbeb,#fef9e7);font-size:.88rem;margin:16px 0;position:relative;}
+.story::before{content:attr(data-icon);position:absolute;top:-14px;left:16px;background:#fff;padding:0 6px;font-size:1.3rem;}
+.story-title{font-weight:800;font-size:.96rem;color:#78350f;margin-bottom:10px;}
+
+/* HORIZONTAL TIMELINE */
+.h-timeline{overflow-x:auto;padding:20px 0 16px;margin:20px 0;}
+.h-tl-inner{display:flex;gap:0;min-width:700px;position:relative;}
+.h-tl-inner::before{content:"";position:absolute;top:28px;left:0;right:0;height:3px;background:linear-gradient(to right,var(--cop21),var(--cop24),var(--cop26),var(--cop27),var(--cop28),var(--cop29),var(--cop30));z-index:0;}
+.h-item{flex:1;text-align:center;position:relative;padding-top:0;}
+.h-dot{width:18px;height:18px;border-radius:50%;margin:20px auto 8px;border:3px solid #fff;box-shadow:0 0 0 2px currentColor;position:relative;z-index:1;}
+.h-year{font-size:.7rem;font-weight:700;margin-bottom:2px;}
+.h-city{font-size:.72rem;font-weight:700;margin-bottom:4px;}
+.h-event{font-size:.68rem;color:#555;line-height:1.5;padding:0 4px;}
+.h-item:nth-child(1) .h-dot,.h-item:nth-child(1) .h-year{color:var(--cop21);}
+.h-item:nth-child(2) .h-dot,.h-item:nth-child(2) .h-year{color:var(--cop24);}
+.h-item:nth-child(3) .h-dot,.h-item:nth-child(3) .h-year{color:var(--cop26);}
+.h-item:nth-child(4) .h-dot,.h-item:nth-child(4) .h-year{color:var(--cop27);}
+.h-item:nth-child(5) .h-dot,.h-item:nth-child(5) .h-year{color:var(--cop28);}
+.h-item:nth-child(6) .h-dot,.h-item:nth-child(6) .h-year{color:var(--cop29);}
+.h-item:nth-child(7) .h-dot,.h-item:nth-child(7) .h-year{color:var(--cop30);}
+.h-item:nth-child(1) .h-dot{background:var(--cop21);}
+.h-item:nth-child(2) .h-dot{background:var(--cop24);}
+.h-item:nth-child(3) .h-dot{background:var(--cop26);}
+.h-item:nth-child(4) .h-dot{background:var(--cop27);}
+.h-item:nth-child(5) .h-dot{background:var(--cop28);}
+.h-item:nth-child(6) .h-dot{background:var(--cop29);}
+.h-item:nth-child(7) .h-dot{background:var(--cop30);}
+
+/* TRAP CARDS */
+.trap-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0;}
+@media(max-width:540px){.trap-grid{grid-template-columns:1fr;}}
+.trap-card{border-radius:10px;padding:14px 16px;border:2px solid;}
+.trap-card h4{font-size:.88rem;font-weight:800;margin-bottom:8px;}
+.trap-card .vs{display:flex;gap:8px;font-size:.82rem;margin-bottom:4px;}
+.trap-card .vs-label{font-weight:700;white-space:nowrap;}
+.tc-rd{background:#fff8f8;border-color:#fca5a5;}.tc-rd h4{color:var(--rd);}
+.tc-bl{background:#f0f7ff;border-color:#93c5fd;}.tc-bl h4{color:var(--bl);}
+
+/* KEY NUMBERS */
+.num-grid{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0;}
+.num-card{flex:1 1 130px;border:2px solid var(--gl);border-radius:10px;padding:14px 12px;text-align:center;background:#fff;}
+.num-card .big{font-size:1.9rem;font-weight:900;color:var(--gd);line-height:1;}
+.num-card .lbl{font-size:.71rem;color:#555;margin-top:6px;line-height:1.5;}
+
+/* QUIZ */
+.q-block{border:1px solid #d0e8d8;border-radius:10px;margin-bottom:16px;overflow:hidden;}
+.q-head{background:#e8f7ee;padding:10px 16px;display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none;transition:background .15s;}
+.q-head:hover{background:#d4f0e0;}
+.q-num{background:var(--gd);color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:.74rem;font-weight:800;flex-shrink:0;}
+.q-cat{font-size:.7rem;background:#d0e8d8;color:var(--gd);border-radius:4px;padding:1px 7px;font-weight:700;flex-shrink:0;white-space:nowrap;}
+.q-text{font-size:.87rem;font-weight:600;flex:1;color:#1a3a2a;}
+.q-tog{font-size:.72rem;color:#888;flex-shrink:0;white-space:nowrap;}
+.q-body{padding:12px 16px;font-size:.84rem;}
+.q-opts{list-style:none;margin:8px 0;}
+.q-opts li{padding:5px 0 5px 32px;position:relative;line-height:1.6;}
+.q-opts li::before{content:attr(data-o);position:absolute;left:0;width:22px;height:22px;background:#e0e0e0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;color:#555;}
+.q-opts li.ok::before{background:var(--gl);color:#fff;}
+.q-ans{background:#f0fdf5;border-top:1px dashed #b0ddc0;padding:12px 14px;font-size:.82rem;display:none;}
+.q-ans.show{display:block;}
+.q-ans strong{color:var(--gd);}
+.q-note{background:#fff;border:1px solid var(--bd);border-radius:6px;padding:8px 12px;margin-top:8px;font-size:.79rem;color:#555;}
+
+/* STORY TIMELINE */
+.love-story{display:flex;flex-direction:column;gap:0;margin:16px 0;}
+.ls-item{display:flex;gap:14px;padding-bottom:20px;position:relative;}
+.ls-item::before{content:"";position:absolute;left:19px;top:42px;bottom:0;width:2px;background:linear-gradient(to bottom,var(--gl),transparent);}
+.ls-item:last-child::before{display:none;}
+.ls-icon{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;z-index:1;}
+.ls-body{flex:1;padding-top:4px;}
+.ls-year{font-size:.72rem;font-weight:700;margin-bottom:2px;}
+.ls-title{font-size:.92rem;font-weight:800;margin-bottom:6px;}
+.ls-desc{font-size:.83rem;line-height:1.7;}
+.ls-tip{font-size:.78rem;font-weight:700;margin-top:8px;padding:5px 10px;border-radius:6px;display:inline-block;}
+.ls1{background:#ede9fe;}.ls1 .ls-year{color:var(--cop21);}.ls1 .ls-icon{background:#ede9fe;}.ls1 .ls-tip{background:#ede9fe;color:var(--pu);}
+.ls2{background:#dbeafe;}.ls2 .ls-year{color:var(--cop24);}.ls2 .ls-icon{background:#dbeafe;}.ls2 .ls-tip{background:#dbeafe;color:var(--bl);}
+.ls3{background:#d1fae5;}.ls3 .ls-year{color:var(--cop26);}.ls3 .ls-icon{background:#d1fae5;}.ls3 .ls-tip{background:#d1fae5;color:#065f46;}
+.ls4{background:#fee2e2;}.ls4 .ls-year{color:var(--cop27);}.ls4 .ls-icon{background:#fee2e2;}.ls4 .ls-tip{background:#fee2e2;color:var(--rd);}
+.ls5{background:#fef3c7;}.ls5 .ls-year{color:var(--cop28);}.ls5 .ls-icon{background:#fef3c7;}.ls5 .ls-tip{background:#fef3c7;color:var(--am);}
+.ls6{background:#cffafe;}.ls6 .ls-year{color:var(--cop29);}.ls6 .ls-icon{background:#cffafe;}.ls6 .ls-tip{background:#cffafe;color:#0e7490;}
+.ls7{background:#dcfce7;}.ls7 .ls-year{color:var(--cop30);}.ls7 .ls-icon{background:#dcfce7;}.ls7 .ls-tip{background:#dcfce7;color:#15803d;}
+
+/* FOOTER */
+.footer{background:var(--gd);color:rgba(255,255,255,.62);text-align:center;padding:24px;font-size:.75rem;margin-top:60px;}
+hr{border:none;border-top:1px dashed var(--bd);margin:32px 0;}
+ul,ol{padding-left:20px;}
+ul li,ol li{margin-bottom:5px;font-size:.87rem;}
+.card{border:1px solid var(--bd);border-radius:10px;padding:18px 22px;margin-bottom:16px;background:var(--gp);font-size:.88rem;}
+.card.amber{background:var(--ap);border-color:var(--ab);}
+.card.red{background:var(--rp);border-color:#fca5a5;}
+.card.blue{background:var(--bp);border-color:#93c5fd;}
+
+@media(max-width:600px){
+  .cover{padding:36px 18px 32px;}
+  .cover h1{font-size:1.35rem;}
+  h2{font-size:1.05rem;}
+  .wrap{padding:0 14px;}
+  .cop-timeline{grid-template-columns:1fr 1fr;}
+  .num-grid{gap:8px;}
+}
+  .badgerowbt { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
+a.badge1 {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: #007286;
+  color: #fff;
+  border: 1px solid #b6dece;
+  text-decoration: none;
+  line-height: 1.4;
+  transition: all 0.2s ease;
+}
+a.badge2 {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: #fff;
+  color: #007286;
+  border: 1px solid #b6dece;
+  text-decoration: none;
+  line-height: 1.4;
+  transition: all 0.2s ease;
+}
+</style>
+</head>
+<body>
+
+<!-- ══ COVER ══ -->
+<div class="cover">
+  <div class="cv-tag">🌍 IPAS 2026 考前衝刺</div>
+  <h1>UNFCCC <span>COP</span> 重要議題<br>考前衝刺筆記</h1>
+  <div class="badgerowbt">
+    <div><a href="https://snoweryi.github.io/yilearn/" class="badge1" >永續架構</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i01.html" class="badge1">01趨勢及策略</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i02.html" class="badge1">02溫室氣體盤查</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i03.html" class="badge1">03碳足跡</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i031.html" class="badge1">03碳足跡2</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i011.html" class="badge1">考科一</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i022.html" class="badge1">考科二</a></div>
+
+	<div><a href="https://snoweryi.github.io/yilearn/ic.html" class="badge1">CBAM</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/iy.html" class="badge1">年份</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/is.html" class="badge1">SBTi</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/iw.html" class="badge1">氣候法</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/ir.html" class="badge1">RE100</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/iu.html" class="badge2">UNFCCC</a></div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- ══ 考前叮嚀 ══ -->
+<div class="alert warn" style="margin-top:32px;">
+  <span class="ai">📣</span>
+  <div><strong>命題委員提示：</strong>COP 部分占考題約 <strong>20%</strong>，建議把「每屆最重要成果」和「容易搞混的數字」背熟，遇到情境題就能快速判斷。本筆記用「地球與人類的愛情故事」幫你串起所有 COP！</div>
+</div>
+
+<!-- ══ CH1：快速總覽 ══ -->
+<h2><span class="ch">CH 1</span>COP 快速總覽地圖</h2>
+
+<h3>記憶時間軸——哪年在哪裡決定了什麼</h3>
+
+<div class="h-timeline">
+  <div class="h-tl-inner">
+    <div class="h-item">
+      <div class="h-dot"></div>
+      <div class="h-year">2015</div>
+      <div class="h-city">🇫🇷 巴黎</div>
+      <div class="h-event">巴黎協定誕生<br>婚約無罰則</div>
+    </div>
+    <div class="h-item">
+      <div class="h-dot"></div>
+      <div class="h-year">2018</div>
+      <div class="h-city">🇵🇱 卡托維茲</div>
+      <div class="h-event">巴黎協定<br>工作手冊</div>
+    </div>
+    <div class="h-item">
+      <div class="h-dot"></div>
+      <div class="h-year">2021</div>
+      <div class="h-city">🏴󠁧󠁢󠁳󠁣󠁴󠁿 格拉斯哥</div>
+      <div class="h-event">1.5°C保命線<br>煤炭 phase down</div>
+    </div>
+    <div class="h-item">
+      <div class="h-dot"></div>
+      <div class="h-year">2022</div>
+      <div class="h-city">🇪🇬 夏姆沙伊赫</div>
+      <div class="h-event">損失與<br>損害基金</div>
+    </div>
+    <div class="h-item">
+      <div class="h-dot"></div>
+      <div class="h-year">2023</div>
+      <div class="h-city">🇦🇪 杜拜</div>
+      <div class="h-event">化石燃料轉型<br>再生能源 3 倍</div>
+    </div>
+    <div class="h-item">
+      <div class="h-dot"></div>
+      <div class="h-year">2024</div>
+      <div class="h-city">🇦🇿 巴庫</div>
+      <div class="h-event">氣候融資<br>3000 億 / 1.3 兆</div>
+    </div>
+    <div class="h-item">
+      <div class="h-dot"></div>
+      <div class="h-year">2025</div>
+      <div class="h-city">🇧🇷 貝倫</div>
+      <div class="h-event">NDC 2.0<br>亞馬遜 NbS</div>
+    </div>
+  </div>
+</div>
+
+<!-- COP 卡片 -->
+<div class="cop-timeline">
+  <div class="cop-card c21" data-cop="21">
+    <div class="emoji">💍</div>
+    <div class="year">COP21 · 2015</div>
+    <div class="city">巴黎</div>
+    <div class="key">巴黎協定誕生<br>1.5°C / NDC<br>有約束力・無罰則</div>
+  </div>
+  <div class="cop-card c24" data-cop="24">
+    <div class="emoji">📋</div>
+    <div class="year">COP24 · 2018</div>
+    <div class="city">卡托維茲</div>
+    <div class="key">巴黎協定工作手冊<br>統一透明度框架<br>NDC 報告機制</div>
+  </div>
+  <div class="cop-card c26" data-cop="26">
+    <div class="emoji">🚬</div>
+    <div class="year">COP26 · 2021</div>
+    <div class="city">格拉斯哥</div>
+    <div class="key">煤炭 phase DOWN<br>甲烷 -30%<br>停止砍森林</div>
+  </div>
+  <div class="cop-card c27" data-cop="27">
+    <div class="emoji">💸</div>
+    <div class="year">COP27 · 2022</div>
+    <div class="city">夏姆沙伊赫</div>
+    <div class="key">損失與損害基金<br>小島國勝利<br>非賠償</div>
+  </div>
+  <div class="cop-card c28" data-cop="28">
+    <div class="emoji">⛽</div>
+    <div class="year">COP28 · 2023</div>
+    <div class="city">杜拜</div>
+    <div class="key">轉型脫離化石燃料<br>再生能源 3 倍<br>能效 2 倍 · GST</div>
+  </div>
+  <div class="cop-card c29" data-cop="29">
+    <div class="emoji">💰</div>
+    <div class="year">COP29 · 2024</div>
+    <div class="city">巴庫</div>
+    <div class="key">3000 億（已開發）<br>1.3 兆（整體）<br>第 6 條碳市場完成</div>
+  </div>
+  <div class="cop-card c30" data-cop="30">
+    <div class="emoji">🌳</div>
+    <div class="year">COP30 · 2025</div>
+    <div class="city">貝倫</div>
+    <div class="key">NDC 2.0 交卷<br>亞馬遜宣言<br>NbS 自然碳匯</div>
+  </div>
+</div>
+
+<!-- ══ CH2：各屆詳解 ══ -->
+<h2><span class="ch">CH 2</span>各屆 COP 生活化筆記</h2>
+
+<!-- COP21 -->
+<h3 style="color:var(--cop21);">💍 COP21（2015，巴黎）——全球氣候的「婚約」</h3>
+<div class="story" data-icon="💍">
+  <div class="story-title">婚約比喻</div>
+  <p>想像全世界 195 個國家坐下來簽了一份「結婚誓言」，承諾一起把地球升溫控制在 2°C 以內，盡力做到 1.5°C。但這份婚約<strong>沒有罰則</strong>，靠的是「道德約束」和「定期考核」。</p>
+</div>
+<div class="tw">
+<table>
+  <tr><th>核心內容</th><th>說明</th></tr>
+  <tr><td>升溫目標</td><td>「遠低於 2°C，努力 1.5°C」</td></tr>
+  <tr><td>NDC</td><td>各國自提「國家自定貢獻」，每 5 年更新一次</td></tr>
+  <tr><td>法律性質</td><td><span class="tag tr">有約束力但無罰則</span>——靠道德與同儕壓力</td></tr>
+  <tr><td>氣候融資</td><td>富國每年提供 1000 億美元幫助窮國（後來證明不夠）</td></tr>
+</table>
+</div>
+<div class="alert danger">
+  <span class="ai">🚨</span>
+  <div><strong>考試陷阱：</strong>巴黎協定「有法律約束力但沒有罰則」→ 常見錯誤選項是「完全自願沒有法律效力」或「有罰款的強制條約」，兩者都是錯的！</div>
+</div>
+
+<!-- COP24 -->
+<h3 style="color:var(--cop24);">📋 COP24（2018，卡托維茲）——婚約的「執行細則」</h3>
+<div class="story" data-icon="📋">
+  <div class="story-title">婚前協議書比喻</div>
+  <p>2015 年簽了婚約，但婚約裡很多細節沒寫清楚。COP24 就像是補簽了「婚前協議書」，把<strong>怎麼報告排放量、怎麼算 NDC 進度、怎麼核查</strong>等細節全部訂好。</p>
+</div>
+<div class="tw">
+<table>
+  <tr><th>核心內容</th><th>說明</th></tr>
+  <tr><td>卡托維茲氣候套案</td><td>通過「巴黎協定工作計畫（Katowice Climate Package）」</td></tr>
+  <tr><td>透明度框架</td><td>建立統一的格式：各國用同一套格式報告排放量</td></tr>
+  <tr><td>NDC 機制</td><td>強化 NDC 的報告、審查機制</td></tr>
+</table>
+</div>
+
+<!-- COP26 -->
+<h3 style="color:var(--cop26);">🚬 COP26（2021，格拉斯哥）——「煤炭退場」的宣誓</h3>
+<div class="story" data-icon="🚬">
+  <div class="story-title">婚後第一次吵架</div>
+  <p>COVID 後第一次大型氣候峰會，氣氛很緊迫。最大亮點是第一次在正式文件裡提到要讓「煤炭退場」，但最後被<strong>印度</strong>臨時改成「逐步減少」而非「逐步淘汰」，引發爭議。</p>
+</div>
+<div class="tw">
+<table>
+  <tr><th>核心內容</th><th>說明</th></tr>
+  <tr><td>煤炭決議</td><td><span class="tag tr">phase DOWN（逐步減少）</span>而非 phase OUT（淘汰）——印度最後關頭堅持</td></tr>
+  <tr><td>甲烷承諾</td><td>超過 100 國承諾 2030 年前減少 <strong>30%</strong> 甲烷排放</td></tr>
+  <tr><td>森林承諾</td><td>超過 100 國承諾 2030 年前<strong>停止森林砍伐</strong></td></tr>
+  <tr><td>碳市場</td><td>第 6 條<strong>部分</strong>規則通過（但未完成，COP29 才完成）</td></tr>
+  <tr><td>歷史意義</td><td>格拉斯哥是第一次正式文件提到化石燃料</td></tr>
+</table>
+</div>
+<div class="alert warn">
+  <span class="ai">⚠️</span>
+  <div><strong>高頻考點：</strong>phase down（逐步減少）vs phase out（逐步淘汰）是 COP26 最高頻考點，記住是<strong>印度</strong>堅持改為 phase down！</div>
+</div>
+
+<!-- COP27 -->
+<h3 style="color:var(--cop27);">💸 COP27（2022，夏姆沙伊赫）——「誰來賠錢」的攻防</h3>
+<div class="story" data-icon="⚖️">
+  <div class="story-title">小島國告上法庭</div>
+  <p>想像你是小島國，因為有錢國家排放溫室氣體，你的家園被海水淹沒。你去跟有錢國家說：「你要賠我！」這就是 COP27 的核心戰場，最後真的同意設立「<strong>損失與損害基金</strong>」，窮國贏了一局。</p>
+</div>
+<div class="tw">
+<table>
+  <tr><th>核心內容</th><th>說明</th></tr>
+  <tr><td>損失與損害基金</td><td>劃時代決定——正式設立，這是 COP27 最大亮點</td></tr>
+  <tr><td>重要細節</td><td><span class="tag tr">不叫「賠償」</span>——法律上刻意避開賠償二字，但實質有錢</td></tr>
+  <tr><td>減排進展</td><td>減緩（減排）進展不足，被批評是「退步的 COP」</td></tr>
+</table>
+</div>
+<div class="alert danger">
+  <span class="ai">🚨</span>
+  <div><strong>考試陷阱：</strong>「損失與損害基金 = COP27 首次正式通過」✅ 「損失與損害 = 賠償」❌ ——法律文件刻意迴避「賠償」這個字！</div>
+</div>
+
+<!-- COP28 -->
+<h3 style="color:var(--cop28);">⛽ COP28（2023，杜拜）——「化石燃料，我們要分手了」</h3>
+<div class="story" data-icon="⛽">
+  <div class="story-title">石油商辦婚宴</div>
+  <p>超諷刺：這次由<strong>賣石油的 UAE 主辦</strong>。大家都說：「這次一定什麼都談不成。」結果出乎意料，史上第一次正式說出：「我們要<strong>轉型脫離化石燃料</strong>！」雖然只是「轉型脫離」不是「立刻分手」，但已是歷史上第一次。</p>
+</div>
+<div class="tw">
+<table>
+  <tr><th>核心內容</th><th>說明</th></tr>
+  <tr><td>化石燃料</td><td>史上第一次出現「在能源系統中<strong>轉型脫離</strong>（transitioning away from）化石燃料」</td></tr>
+  <tr><td>再生能源目標</td><td>2030 年前全球裝置容量提升至現有的 <span class="tag ta">3 倍</span></td></tr>
+  <tr><td>能源效率目標</td><td>2030 年前全球能源效率改善速度提升至 <span class="tag ta">2 倍</span></td></tr>
+  <tr><td>全球盤點（GST）</td><td>第一次正式「全球盤點」，結論：目前 NDC 進度嚴重不足</td></tr>
+  <tr><td>核能</td><td>承認核能在淨零路徑中的角色（有爭議）</td></tr>
+  <tr><td>損失與損害基金</td><td>正式<strong>啟動運作</strong>（COP27 設立，COP28 啟動）</td></tr>
+</table>
+</div>
+<div class="alert danger">
+  <span class="ai">🚨</span>
+  <div><strong>考試陷阱：</strong>「轉型脫離化石燃料」≠「立即停止」≠「全面淘汰」 再生能源目標是「<strong>3 倍</strong>」，能效是「<strong>2 倍</strong>」——兩個數字都要背，且不能搞混！</div>
+</div>
+
+<!-- COP29 -->
+<h3 style="color:var(--cop29);">💰 COP29（2024，巴庫）——「錢，到底誰出？」</h3>
+<div class="story" data-icon="💰">
+  <div class="story-title">婚姻諮詢討贍養費</div>
+  <p>氣候行動最大的問題從來不是技術，而是<strong>錢</strong>。COP29 就是一場「誰出多少錢幫窮國」的大談判。開發中國家要 4000 億，最後妥協 3000 億，但整體目標有 1.3 兆——爭議很大。</p>
+</div>
+
+<div class="num-grid">
+  <div class="num-card">
+    <div class="big" style="color:var(--cop29);">3000億</div>
+    <div class="lbl">已開發國家<br>核心承諾<br>（美元/年，2035前）</div>
+  </div>
+  <div class="num-card">
+    <div class="big" style="color:var(--gd);">1.3兆</div>
+    <div class="lbl">整體氣候<br>融資目標<br>（含多元來源）</div>
+  </div>
+  <div class="num-card">
+    <div class="big" style="color:var(--am);">6.2條</div>
+    <div class="lbl">兩國雙邊<br>碳交易<br>（ITMOs）</div>
+  </div>
+  <div class="num-card">
+    <div class="big" style="color:var(--rd);">6.4條</div>
+    <div class="lbl">UN 統一管<br>碳信用機制<br>（SDM）</div>
+  </div>
+</div>
+
+<div class="tw">
+<table>
+  <tr><th>核心內容</th><th>說明</th></tr>
+  <tr><td>氣候融資（最核心）</td><td>已開發國家承諾 2035 年前每年至少 <strong>3000 億美元</strong>；整體目標（含多元來源）每年 <strong>1.3 兆美元</strong></td></tr>
+  <tr><td>碳市場第 6 條完成</td><td>第 6.2 條（ITMOs，雙邊）+ 第 6.4 條（SDM，UN 統一管）技術規則均通過</td></tr>
+  <tr><td>透明度框架</td><td>通過「巴庫透明度框架」，建立更嚴格的雙年透明度報告（BTR）</td></tr>
+  <tr><td>NDC</td><td>要求各國在 COP30 前提交新版 NDC（覆蓋到 2035 年）</td></tr>
+</table>
+</div>
+<div class="alert warn">
+  <span class="ai">⚠️</span>
+  <div><strong>高頻考點：</strong><strong>3000 億</strong> = 已開發國家承諾；<strong>1.3 兆</strong> = 整體目標（含開發中國家、私部門等多元來源）。考題常互換這兩個數字，請務必區分！</div>
+</div>
+
+<!-- COP30 -->
+<h3 style="color:var(--cop30);">🌳 COP30（2025，貝倫）——「亞馬遜交作業日」</h3>
+<div class="story" data-icon="🌳">
+  <div class="story-title">亞馬遜旁邊交作業</div>
+  <p>2025 年在巴西亞馬遜雨林旁邊開，象徵意義極強。這屆是巴黎協定第二輪 NDC 的「<strong>交卷日</strong>」，各國要拿出 2035 年的減碳承諾。氣氛像大學聯考放榜，看誰真的做到。</p>
+</div>
+<div class="tw">
+<table>
+  <tr><th>核心議題</th><th>說明</th></tr>
+  <tr><td><strong>NDC 2.0 大考核</strong></td><td>各國須提交涵蓋 2035 年的新版 NDC，是 1.5°C 路徑的「最後機會視窗」</td></tr>
+  <tr><td>貝倫氣候行動議程</td><td>巴西主推「<strong>熱帶雨林保護</strong>」；8 個南美洲國家簽署亞馬遜宣言</td></tr>
+  <tr><td>NbS 議題</td><td>「<strong>自然為本解決方案（NbS）</strong>」正式成為核心議程</td></tr>
+  <tr><td>融資追蹤</td><td>COP29 承諾的 3000 億如何落地、NCQG 實施細則</td></tr>
+  <tr><td>能源轉型追蹤</td><td>COP28 承諾「再生能源 3 倍」進度檢核</td></tr>
+</table>
+</div>
+<div class="alert info">
+  <span class="ai">🎯</span>
+  <div><strong>2026 年 8 月命題角度：</strong>COP30 最大意義 = <strong>NDC 2.0 交卷、1.5°C 路徑最後確認機會</strong>；貝倫 = 亞馬遜 = 自然碳匯 = NbS 議題連結；COP30 後各國 NDC 若仍不足，1.5°C 幾乎確定超標。</div>
+</div>
+
+<hr>
+
+<!-- ══ CH3：故事記憶法 ══ -->
+<h2><span class="ch">CH 3</span>COP 故事記憶法——地球與人類的愛情故事</h2>
+
+<div class="card amber" style="margin-bottom:20px;">
+  <p><strong>主角設定：</strong></p>
+  <ul style="margin-top:8px;">
+    <li><strong>地球小姐</strong> = 快被燒壞的地球</li>
+    <li><strong>人類先生</strong> = 195 個國家組成的人類</li>
+    <li><strong>有錢鄰居</strong> = 已開發國家</li>
+    <li><strong>窮鄰居</strong> = 開發中國家、小島國</li>
+  </ul>
+</div>
+
+<div class="love-story">
+  <div class="ls-item ls1">
+    <div class="ls-icon">💍</div>
+    <div class="ls-body">
+      <div class="ls-year">COP21 · 2015 · 巴黎</div>
+      <div class="ls-title">求婚——婚約沒有罰款</div>
+      <div class="ls-desc">
+        人類終於良心發現，跑去跟地球求婚：「我發誓！我一定會讓你的體溫不超過 1.5 度！」<br><br>
+        地球問：「你說話算話嗎？寫進合約裡？」<br>
+        人類說：「寫！但我沒錢罰自己，靠良心就好。」
+      </div>
+      <div class="ls-tip">💡 記憶點：巴黎求婚 = 有婚約（法律效力）但沒違約金（無罰則）</div>
+    </div>
+  </div>
+  <div class="ls-item ls2">
+    <div class="ls-icon">📋</div>
+    <div class="ls-body">
+      <div class="ls-year">COP24 · 2018 · 卡托維茲</div>
+      <div class="ls-title">補簽婚前協議——執行細則</div>
+      <div class="ls-desc">
+        求婚完了要補細節，兩人坐下來寫「婚前協議書」：<br>
+        「每 5 年要回報一次你減了多少碳，用同一張表格，不能作弊。」
+      </div>
+      <div class="ls-tip">💡 記憶點：卡托維茲 = 補簽執行細則，統一報告格式</div>
+    </div>
+  </div>
+  <div class="ls-item ls3">
+    <div class="ls-icon">🚬</div>
+    <div class="ls-body">
+      <div class="ls-year">COP26 · 2021 · 格拉斯哥</div>
+      <div class="ls-title">婚後第一次大吵架——煤炭要不要戒</div>
+      <div class="ls-desc">
+        COVID 後第一次見面，地球已經發燒好幾年：<br>
+        「你那個煤炭要戒掉！」<br>
+        人類說：「好好好，<strong>慢慢戒（phase down）</strong>」<br>
+        <strong>印度插嘴：「慢慢戒就好了啦！」</strong><br>
+        最後變成：慢慢減少，不是完全戒掉。<br><br>
+        另外 100 多個國家還承諾：甲烷排放減少 30%、停止砍森林
+      </div>
+      <div class="ls-tip">💡 記憶點：格拉斯哥 = 煤炭吵架，phase down（非 phase out），甲烷 -30%</div>
+    </div>
+  </div>
+  <div class="ls-item ls4">
+    <div class="ls-icon">⚖️</div>
+    <div class="ls-body">
+      <div class="ls-year">COP27 · 2022 · 夏姆沙伊赫</div>
+      <div class="ls-title">小島國告上法庭——討賠償</div>
+      <div class="ls-desc">
+        小島國居民哭著來：「你們排碳，我們家被淹沒了！你要賠我！」<br><br>
+        有錢鄰居很尷尬，不肯說「賠償」這個字，但最後同意：<br>
+        「好，我們設一個『<strong>損失與損害基金</strong>』，但這不叫賠償喔！」<br>
+        小島國：「管你叫什麼，有錢就好！」
+      </div>
+      <div class="ls-tip">💡 記憶點：夏姆沙伊赫 = 損失與損害基金，小島國勝利，但不叫賠償</div>
+    </div>
+  </div>
+  <div class="ls-item ls5">
+    <div class="ls-icon">⛽</div>
+    <div class="ls-body">
+      <div class="ls-year">COP28 · 2023 · 杜拜</div>
+      <div class="ls-title">石油商辦婚宴——宣布要跟石油分手</div>
+      <div class="ls-desc">
+        超諷刺：這次婚宴由<strong>賣石油的 UAE 主辦</strong>。大家都說：「這次一定什麼都談不成。」<br><br>
+        結果出乎意料，史上第一次正式說出：「我們要<strong>轉型脫離化石燃料</strong>！」<br><br>
+        同時宣布：再生能源要變成現在的 <strong>3 倍</strong>；能源效率要提升 <strong>2 倍</strong>；做了第一次<strong>全球盤點</strong>，結論是：大家做得遠遠不夠
+      </div>
+      <div class="ls-tip">💡 記憶點：杜拜 = 石油商辦婚宴卻宣布「要跟石油分手」，再生能源 3 倍、效率 2 倍</div>
+    </div>
+  </div>
+  <div class="ls-item ls6">
+    <div class="ls-icon">💰</div>
+    <div class="ls-body">
+      <div class="ls-year">COP29 · 2024 · 巴庫</div>
+      <div class="ls-title">婚姻諮詢討贍養費——3000 億的攻防</div>
+      <div class="ls-desc">
+        地球跟人類去婚姻諮詢，窮鄰居跳出來：「你們有錢國家搞壞環境，要出錢幫我們轉型！」<br>
+        有錢鄰居說：「好，每年給你們 <strong>3000 億美元</strong>。」<br>
+        窮鄰居說：「不夠！要 <strong>1.3 兆！</strong>」<br>
+        有錢鄰居說：「那 1.3 兆含你們自己籌的部分啦！」<br><br>
+        另外，吵了多年的<strong>碳市場交易規則終於寫完了</strong>（第 6 條）：<br>
+        兩國自己談的叫 <strong>6.2 條（自由戀愛）</strong>；UN 統一管的叫 <strong>6.4 條（相親平台）</strong>
+      </div>
+      <div class="ls-tip">💡 記憶點：巴庫 = 討贍養費，3000 億 vs 1.3 兆，碳市場規則完成</div>
+    </div>
+  </div>
+  <div class="ls-item ls7">
+    <div class="ls-icon">🌳</div>
+    <div class="ls-body">
+      <div class="ls-year">COP30 · 2025 · 貝倫</div>
+      <div class="ls-title">亞馬遜交作業日——NDC 2.0</div>
+      <div class="ls-desc">
+        地球說：「你們承諾了 10 年，現在交作業！」<br><br>
+        2025 年在巴西亞馬遜旁邊開，象徵意義超強。各國交出新版 NDC（2035年目標），全球第一次認真檢驗：<strong>1.5°C 還救得回來嗎？</strong><br><br>
+        巴西主辦，這屆特別強調：自然碳匯保護、熱帶雨林不能砍、<strong>自然為本解決方案（NbS）</strong>
+      </div>
+      <div class="ls-tip">💡 記憶點：貝倫 = 亞馬遜交作業，NDC 2.0，NbS 自然碳匯</div>
+    </div>
+  </div>
+</div>
+
+<!-- 口訣 -->
+<div class="card" style="margin-top:24px;background:linear-gradient(135deg,#f0fff8,#e6f7f0);">
+  <p style="font-weight:800;font-size:.96rem;color:var(--gd);margin-bottom:10px;">🗣️ 最後的懶人包口訣——唸三遍，考試不會忘</p>
+  <p style="font-size:.95rem;line-height:2;font-weight:600;color:#1a3a2a;">
+    「巴黎求婚沒罰款，<br>
+    卡托補簽婚前約，<br>
+    格拉斯哥煤炭慢慢戒，<br>
+    夏姆沙伊赫賠錢給小島，<br>
+    杜拜石油商說要分手，<br>
+    巴庫討了三千億贍養費，<br>
+    貝倫亞馬遜旁邊交作業。」
+  </p>
+</div>
+
+<hr>
+
+<!-- ══ CH4：三組混淆概念 ══ -->
+<h2><span class="ch">CH 4</span>最容易搞混的三組概念</h2>
+
+<div class="trap-grid">
+  <div class="trap-card tc-rd">
+    <h4>🚬 Phase out vs Phase down</h4>
+    <div class="vs"><span class="vs-label tag tr">Phase out</span><span>= 完全淘汰（原草案，最後沒通過）</span></div>
+    <div class="vs"><span class="vs-label tag tg">Phase down</span><span>= 逐步減少（COP26 最終版，印度堅持改的）</span></div>
+    <p style="margin-top:8px;font-size:.78rem;color:#666;">一字之差，印度改變了歷史</p>
+  </div>
+  <div class="trap-card tc-bl">
+    <h4>💰 3000 億 vs 1.3 兆</h4>
+    <div class="vs"><span class="vs-label tag tc">3000 億</span><span>= 已開發國家核心承諾（COP29）</span></div>
+    <div class="vs"><span class="vs-label tag tb">1.3 兆</span><span>= 整體氣候融資目標（含開發中、私部門）</span></div>
+    <p style="margin-top:8px;font-size:.78rem;color:#666;">考題常互換，請務必記清楚</p>
+  </div>
+  <div class="trap-card tc-rd">
+    <h4>🌐 第 6.2 條 vs 第 6.4 條</h4>
+    <div class="vs"><span class="vs-label tag ta">6.2 條</span><span>= 兩國之間自己談（雙邊 ITMOs）</span></div>
+    <div class="vs"><span class="vs-label tag tb">6.4 條</span><span>= 聯合國統一管（全球 SDM，品質較嚴格）</span></div>
+    <p style="margin-top:8px;font-size:.78rem;color:#666;">COP29 才讓這兩個機制真正落地</p>
+  </div>
+  <div class="trap-card tc-bl">
+    <h4>♻️ 再生 3 倍 vs 效率 2 倍</h4>
+    <div class="vs"><span class="vs-label tag tg">再生 3 倍</span><span>= 2030 年全球再生能源裝置容量</span></div>
+    <div class="vs"><span class="vs-label tag ta">效率 2 倍</span><span>= 2030 年全球能源效率改善速度</span></div>
+    <p style="margin-top:8px;font-size:.78rem;color:#666;">COP28 決議，兩個數字都要背</p>
+  </div>
+</div>
+
+<hr>
+
+<!-- ══ 懶人包速查表 ══ -->
+<h2><span class="ch">📋</span>必背速記表——考前最後 5 分鐘看這裡</h2>
+
+<div class="tw">
+<table>
+  <tr><th>COP</th><th>最重要成果</th><th>必背數字／關鍵詞</th></tr>
+  <tr>
+    <td><span class="tag tp">COP21</span> 巴黎</td>
+    <td>巴黎協定</td>
+    <td>1.5°C、NDC、<strong>有約束力・無罰則</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tb">COP24</span> 卡托維茲</td>
+    <td>巴黎協定工作手冊</td>
+    <td>統一透明度框架、NDC 報告機制</td>
+  </tr>
+  <tr>
+    <td><span class="tag tg">COP26</span> 格拉斯哥</td>
+    <td>格拉斯哥氣候契約</td>
+    <td><strong>phase down</strong>（非 phase out）、甲烷 <strong>-30%</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tr">COP27</span> 夏姆沙伊赫</td>
+    <td>損失與損害基金</td>
+    <td>小島國勝利、<strong>非賠償</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag ta">COP28</span> 杜拜</td>
+    <td>轉型脫離化石燃料</td>
+    <td>再生能源 <strong>3 倍</strong>、能效 <strong>2 倍</strong>、GST</td>
+  </tr>
+  <tr>
+    <td><span class="tag tc">COP29</span> 巴庫</td>
+    <td>氣候融資協議</td>
+    <td><strong>3000 億</strong>（已開發）、<strong>1.3 兆</strong>（整體）、第 6 條完成</td>
+  </tr>
+  <tr>
+    <td><span class="tag tg">COP30</span> 貝倫</td>
+    <td>NDC 2.0 交卷</td>
+    <td>2035 年目標、<strong>NbS</strong>、亞馬遜、貝倫</td>
+  </tr>
+</table>
+</div>
+
+<hr>
+
+<!-- ══ 模擬考題 ══ -->
+<h2><span class="ch">TEST</span>命題委員親授｜10 題情境模擬考題</h2>
+
+<div class="alert tip">
+  <span class="ai">🎯</span>
+  <div>全部題目依據<strong>生活化語言</strong>包裝，考點涵蓋 COP21–COP30。點擊每題可展開詳細解析。</div>
+</div>
+
+<!-- Q1 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">1</div>
+    <div class="q-cat">COP21 · 基礎</div>
+    <div class="q-text">巴黎協定被形容像一份「有承諾但沒罰款」的合約，下列描述何者最正確？</div>
+    <div class="q-tog">▼ 解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">有罰則的強制國際條約</li>
+      <li data-o="B">完全自願、沒有法律效力</li>
+      <li data-o="C" class="ok">正式的國際條約，但違反不會被罰款</li>
+      <li data-o="D">只有歐美國家參與的區域協議</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：C</strong><br><br>
+      巴黎協定是正式具<strong>法律約束力的國際條約</strong>，但設計上刻意避開違反的罰則，靠道德約束與同儕壓力推動各國履約。<br><br>
+      <div class="q-note">⚠️ 選項 B 是最常見的錯誤——巴黎協定不是「完全自願、沒有法律效力」，它是正式條約，只是「沒有罰則」而非「沒有效力」。195 個國家參與，不限歐美（排除 D）。</div>
+    </div>
+  </div>
+</div>
+
+<!-- Q2 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">2</div>
+    <div class="q-cat">COP26 · 陷阱題</div>
+    <div class="q-text">COP26 格拉斯哥會議，關於煤炭的決議用詞，最後通過的是哪一種表述？</div>
+    <div class="q-tog">▼ 解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">立即停止所有煤炭使用</li>
+      <li data-o="B">2030 年前全面淘汰煤炭</li>
+      <li data-o="C">逐步淘汰（phase out）煤炭</li>
+      <li data-o="D" class="ok">逐步減少（phase down）煤炭使用</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：D</strong><br><br>
+      原草案是 phase out（淘汰），但<strong>印度</strong>等國在最後關頭要求改為 phase down（減少），這一字之差引發極大爭議，也讓很多國家失望。<br><br>
+      <div class="q-note">💡 記憶法：印度「慢慢戒」——phase down 是 COP26 最高頻考點，選項 C（phase out）是故意設計的陷阱！</div>
+    </div>
+  </div>
+</div>
+
+<!-- Q3 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">3</div>
+    <div class="q-cat">COP27</div>
+    <div class="q-text">COP27 最重要的突破，被稱為「小島國的勝利」，指的是什麼？</div>
+    <div class="q-tog">▼ 解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">通過全球再生能源 3 倍目標</li>
+      <li data-o="B">完成巴黎協定第 6 條碳市場規則</li>
+      <li data-o="C" class="ok">正式設立「損失與損害基金」</li>
+      <li data-o="D">要求所有國家 2030 年前提交淨零目標</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：C</strong><br><br>
+      損失與損害基金是 COP27 最大亮點，代表已開發國家首次正式承認，他們的排放造成了窮國與小島國的實質損害，應給予補償——雖然文件<strong>刻意避開「賠償」二字</strong>。<br><br>
+      <div class="q-note">⚠️ 再生能源 3 倍（選項 A）是 COP28 的成果；碳市場規則（選項 B）是 COP29 才完成——兩個都是 COP27 的干擾選項！</div>
+    </div>
+  </div>
+</div>
+
+<!-- Q4 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">4</div>
+    <div class="q-cat">COP28 · 高頻</div>
+    <div class="q-text">COP28 杜拜會議，關於化石燃料，史上第一次出現在正式協議文本的表述是？</div>
+    <div class="q-tog">▼ 解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">立即停止石油與天然氣開採</li>
+      <li data-o="B">2050 年前全面淘汰化石燃料</li>
+      <li data-o="C" class="ok">在能源系統中轉型脫離化石燃料</li>
+      <li data-o="D">只針對煤炭，不涉及石油與天然氣</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：C</strong><br><br>
+      COP28 是史上第一次在正式文件中提到要「<strong>轉型脫離（transitioning away from）</strong>」化石燃料，雖然措辭被批評不夠強硬，但仍是歷史性突破。<br><br>
+      <div class="q-note">⚠️ 「轉型脫離」≠「立即停止」≠「全面淘汰」——措辭的精確度是考試重點！</div>
+    </div>
+  </div>
+</div>
+
+<!-- Q5 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">5</div>
+    <div class="q-cat">COP28 · 數字題</div>
+    <div class="q-text">COP28 決議中，關於 2030 年全球再生能源目標，下列何者正確？</div>
+    <div class="q-tog">▼ 解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">提升至現有的 2 倍</li>
+      <li data-o="B" class="ok">提升至現有的 3 倍</li>
+      <li data-o="C">提升至現有的 5 倍</li>
+      <li data-o="D">新增 1000 GW 裝置容量</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      COP28 通過 2030 年全球再生能源裝置容量提升至現有 <strong>3 倍</strong>，同時能源效率改善速度也要提升至 <strong>2 倍</strong>。<br><br>
+      <div class="q-note">💡 速記：再生能源 = 3 倍；能源效率 = 2 倍。選項 A（2 倍）是刻意設計的混淆——那是能源效率的目標！</div>
+    </div>
+  </div>
+</div>
+
+<!-- Q6 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">6</div>
+    <div class="q-cat">COP29 · 高頻</div>
+    <div class="q-text">COP29 最核心的成果是氣候融資協議，已開發國家的「核心承諾」金額為何？</div>
+    <div class="q-tog">▼ 解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">每年 1000 億美元</li>
+      <li data-o="B">每年 2000 億美元</li>
+      <li data-o="C" class="ok">每年 3000 億美元</li>
+      <li data-o="D">每年 1.3 兆美元</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：C</strong><br><br>
+      已開發國家核心承諾是每年 <strong>3000 億美元</strong>（2035 年前），整體目標（含多元來源）是 <strong>1.3 兆美元</strong>。<br><br>
+      <div class="q-note">⚠️ 高頻陷阱：「已開發國家承諾」= 3000 億；「整體目標」= 1.3 兆。選項 D（1.3 兆）是整體目標，不是已開發國家的承諾！</div>
+    </div>
+  </div>
+</div>
+
+<!-- Q7 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">7</div>
+    <div class="q-cat">COP29 · 碳市場</div>
+    <div class="q-text">COP29 終於完成了巴黎協定第 6 條碳市場規則，其中「第 6.4 條機制」的最大特色為何？</div>
+    <div class="q-tog">▼ 解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">兩個國家之間自己談判的雙邊碳交易</li>
+      <li data-o="B" class="ok">由聯合國層級統一監管的全球碳信用機制</li>
+      <li data-o="C">只適用於已開發國家之間</li>
+      <li data-o="D">專門處理森林碳匯的交易</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      第 6.4 條（SDM）由 UNFCCC 監管機構<strong>統一管理</strong>，品質要求較嚴格；第 6.2 條才是兩國雙邊自願協議（ITMOs）。COP29 讓這個機制真正可以運作。<br><br>
+      <div class="q-note">💡 記憶法：6.2 條 = 自由戀愛（兩國自己談）；6.4 條 = UN 相親平台（聯合國統一管）！</div>
+    </div>
+  </div>
+</div>
+
+<!-- Q8 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">8</div>
+    <div class="q-cat">COP30 · 新題</div>
+    <div class="q-text">COP30 在巴西貝倫舉行，最重要的任務是什麼？</div>
+    <div class="q-tog">▼ 解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">第一次通過巴黎協定</li>
+      <li data-o="B" class="ok">各國提交涵蓋 2035 年的新版 NDC（國家自定貢獻）</li>
+      <li data-o="C">決定損失與損害基金的總金額</li>
+      <li data-o="D">正式宣布 1.5°C 目標已達成</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      COP30 是巴黎協定第二輪 NDC 的「交卷時間」，各國須提交更新到 <strong>2035 年</strong>的減碳承諾，是這屆最核心的任務，被視為 1.5°C 路徑的「最後機會視窗」。<br><br>
+      <div class="q-note">⚠️ 選項 D（宣布 1.5°C 達成）是反向陷阱——目前各國 NDC 進度嚴重不足，COP30 的全球盤點結果預計仍是「不夠的」！</div>
+    </div>
+  </div>
+</div>
+
+<!-- Q9 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">9</div>
+    <div class="q-cat">比較題 · 高頻</div>
+    <div class="q-text">下列 COP 成果配對，何者不正確？</div>
+    <div class="q-tog">▼ 解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">COP21 巴黎 → 巴黎協定誕生</li>
+      <li data-o="B">COP27 夏姆沙伊赫 → 損失與損害基金通過</li>
+      <li data-o="C" class="ok">COP28 杜拜 → 碳市場第 6 條規則完成</li>
+      <li data-o="D">COP29 巴庫 → 氣候融資 3000 億承諾</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：C（不正確的配對）</strong><br><br>
+      碳市場第 6 條規則是在 <strong>COP29（巴庫）</strong>才真正完成，COP28 雖然有進展但未完成，COP26 在格拉斯哥才部分通過，COP29 才是全面完成。<br><br>
+      選項 A、B、D 的配對均正確，只有 C 是錯誤的——把「第 6 條完成」配到 COP28 是錯的！
+    </div>
+  </div>
+</div>
+
+<!-- Q10 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">10</div>
+    <div class="q-cat">COP30 · 情境題</div>
+    <div class="q-text">2025 年 COP30 在巴西亞馬遜雨林旁的貝倫舉行，這個選址最可能強調的議題為何？</div>
+    <div class="q-tog">▼ 解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">海洋能源開發</li>
+      <li data-o="B">核能安全標準</li>
+      <li data-o="C" class="ok">自然碳匯與熱帶雨林保護</li>
+      <li data-o="D">電動車普及政策</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：C</strong><br><br>
+      巴西選擇貝倫作為東道主，強烈的象徵意義就是將「<strong>自然碳匯</strong>」與「<strong>熱帶雨林保護</strong>」推上核心議程。亞馬遜宣言、自然為本解決方案（NbS）是 COP30 的重要主軸。<br><br>
+      <div class="q-note">🌳 農場連結：NbS（自然為本解決方案）也包含農業生態系統管理——富林有機農場的有機稻田、農地生態保護，未來都可能被納入 NbS 框架下的碳匯專案！</div>
+    </div>
+  </div>
+</div>
+
+<!-- 最後叮嚀 -->
+<div class="card amber" style="margin-top:36px;">
+  <p style="font-size:1rem;font-weight:800;color:#78350f;margin-bottom:12px;">📣 命題委員的最後叮嚀</p>
+  <p>COP 是「人類集體協商的舞台」，每一屆都是一場鬥智、鬥力、鬥耐心的馬拉松。</p>
+  <p style="margin-top:8px;">考試問的不是「你知道發生了什麼」，而是「<strong>你能不能在情境中快速判斷這件事對應到哪屆 COP 的哪個機制</strong>」。</p>
+  <p style="margin-top:8px;">最後再唸一次口訣：<br>
+  <strong style="color:var(--gd);">「巴黎求婚沒罰款，卡托補簽婚前約，格拉斯哥煤炭慢慢戒，夏姆沙伊赫賠錢給小島，杜拜石油商說要分手，巴庫討了三千億贍養費，貝倫亞馬遜旁邊交作業。」🌿</strong></p>
+</div>
+
+</div><!-- /wrap -->
+
+<div class="footer">
+  <p>📋 2026 IPAS 淨零碳管理師｜UNFCCC COP 重要議題 考前衝刺筆記</p>
+  <p style="margin-top:6px;">涵蓋 COP21（2015）至 COP30（2025）｜依據 UNFCCC 正式決議文件整理</p>
+  <p style="margin-top:6px;opacity:.5;">© 2026 IPAS 命題委員會召集人｜富林有機農場 × 城邦集團 ESG 學習計畫｜資料截至 2026 年 6 月</p>
+</div>
+
+<button class="print-btn" onclick="window.print()">🖨️ 列印 / 儲存 PDF</button>
+
+<script>
+function tg(el){
+  const ans=el.parentElement.querySelector('.q-ans');
+  const tog=el.querySelector('.q-tog');
+  if(ans.classList.contains('show')){
+    ans.classList.remove('show');
+    tog.textContent='▼ 解析';
+  } else {
+    ans.classList.add('show');
+    tog.textContent='▲ 收起';
+  }
+}
+</script>
+</body>
+</html>
