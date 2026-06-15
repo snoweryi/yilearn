@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 IPAS 淨零碳管理師｜RE100 考前衝刺筆記</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --gd:#0a4a3a;--gm:#1a7a5a;--gl:#2aab7e;--gp:#e6f7f0;
+  --am:#d97706;--ap:#fffbeb;--ab:#fbbf24;
+  --rd:#dc2626;--rp:#fef2f2;
+  --bl:#2563eb;--bp:#eff6ff;
+  --pu:#7c3aed;--pp:#f5f3ff;
+  --bd:#c8eed9;--tx:#1a1a1a;
+}
+html{font-size:18px;scroll-behavior:smooth;}
+body{background:#fff;color:var(--tx);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;line-height:1.85;padding-bottom:100px;}
+
+/* ── COVER ── */
+.cover{background:linear-gradient(135deg,#0a3d2e 0%,#1a7a5a 55%,#22c47a 100%);color:#fff;padding:56px 40px 48px;position:relative;overflow:hidden;}
+.cover::before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='52' height='52' viewBox='0 0 52 52' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M26 0l26 26-26 26L0 26z'/%3E%3C/g%3E%3C/svg%3E");}
+.cover::after{content:"RE100";position:absolute;right:-16px;bottom:-24px;font-size:9rem;font-weight:900;opacity:.07;line-height:1;pointer-events:none;}
+.cv-tag{display:inline-block;border:1px solid rgba(255,255,255,.45);border-radius:20px;padding:3px 15px;font-size:.74rem;letter-spacing:1.5px;margin-bottom:14px;background:rgba(255,255,255,.12);}
+.cover h1{font-size:2rem;font-weight:900;line-height:1.3;position:relative;}
+.cover h1 span{color:#a8ffdb;}
+.cover .sub{font-size: 18px;opacity:.84;margin-top:10px;position:relative;}
+.cv-meta{display:flex;gap:22px;flex-wrap:wrap;margin-top:24px;font-size: 18px;opacity:.74;position:relative;}
+
+/* ── PRINT ── */
+.print-btn{position:fixed;bottom:28px;right:28px;z-index:999;background:var(--gm);color:#fff;border:none;border-radius:50px;padding:11px 22px;font-size: 18px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:7px;box-shadow:0 4px 20px rgba(26,122,90,.45);transition:transform .2s,box-shadow .2s;}
+.print-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(26,122,90,.55);}
+@media print{.print-btn{display:none!important;}body{padding:0;}h2{break-before:page;}.q-ans{display:block!important;}}
+
+/* ── LAYOUT ── */
+.wrap{max-width:1900px;margin:0 auto;padding:0 24px;}
+
+/* ── HEADINGS ── */
+h2{font-size:20px;font-weight:800;color:var(--gd);margin:52px 0 18px;padding-bottom:10px;border-bottom:3px solid var(--gl);display:flex;align-items:center;gap:10px;}
+h2 .ch{background:var(--gd);color:#fff;border-radius:6px;padding:2px 10px;font-size:.73rem;letter-spacing:1px;}
+h3{font-size: 18px;font-weight:700;color:var(--gm);margin:26px 0 10px;padding-left:10px;border-left:4px solid var(--gl);}
+
+/* ── CARDS ── */
+.card{border:1px solid var(--bd);border-radius:10px;padding:18px 22px;margin-bottom:16px;background:var(--gp);font-size: 18px;}
+.card.amber{background:var(--ap);border-color:var(--ab);}
+.card.red{background:var(--rp);border-color:#fca5a5;}
+.card.blue{background:var(--bp);border-color:#93c5fd;}
+.card.purple{background:var(--pp);border-color:#c4b5fd;}
+.card.gray{background:#f8f9fa;border-color:#e9ecef;}
+.card p+p{margin-top:8px;}
+
+/* ── ALERTS ── */
+.alert{border-radius:8px;padding:12px 16px;margin:14px 0;font-size: 18px;display:flex;gap:10px;align-items:flex-start;}
+.ai{flex-shrink:0;font-size: 18px;margin-top:1px;}
+.alert.tip{background:#f0fff8;border-left:4px solid var(--gl);}
+.alert.warn{background:var(--ap);border-left:4px solid var(--ab);}
+.alert.danger{background:var(--rp);border-left:4px solid var(--rd);}
+.alert.info{background:var(--bp);border-left:4px solid var(--bl);}
+.alert.purple{background:var(--pp);border-left:4px solid var(--pu);}
+
+/* ── TABLES ── */
+.tw{overflow-x:auto;margin:14px 0 20px;}
+table{width:100%;border-collapse:collapse;font-size: 18px;}
+th{background:var(--gd);color:#fff;padding:9px 13px;text-align:left;font-size: 18px;font-weight:700;}
+td{padding:8px 13px;border-bottom:1px solid #ddeee5;vertical-align:top;}
+tr:nth-child(even) td{background:#f2fbf6;}
+tr:hover td{background:#dff5ea;}
+
+/* ── TAGS ── */
+.tag{display:inline-block;border-radius:4px;padding:1px 8px;font-size: 18px;font-weight:700;margin:1px 3px 1px 0;}
+.tg{background:var(--gp);color:var(--gd);}
+.tr{background:var(--rp);color:var(--rd);}
+.ta{background:var(--ap);color:#92400e;}
+.tb{background:var(--bp);color:var(--bl);}
+.tp{background:var(--pp);color:var(--pu);}
+
+/* ── STORY ── */
+.story{border:1px solid #fde68a;border-radius:10px;padding:20px 22px;background:linear-gradient(135deg,#fffbeb,#fef9e7);font-size: 18px;margin:16px 0;position:relative;}
+.story::before{content:attr(data-icon);position:absolute;top:-14px;left:16px;background:#fff;padding:0 6px;font-size:1.3rem;}
+.story-title{font-weight:800;font-size: 18px;color:#78350f;margin-bottom:10px;}
+
+/* ── KEY NUMBERS ── */
+.num-grid{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0;}
+.num-card{flex:1 1 130px;border:2px solid var(--gl);border-radius:10px;padding:14px 12px;text-align:center;background:#fff;}
+.num-card .big{font-size:2rem;font-weight:900;color:var(--gd);line-height:1;}
+.num-card .lbl{font-size: 18px;color:#555;margin-top:6px;line-height:1.5;}
+
+/* ── 5 METHODS CARDS ── */
+.method-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin:16px 0;}
+.method-card{border-radius:10px;padding:14px 14px;border:1px solid;position:relative;}
+.mc-num{font-size: 18px;font-weight:900;opacity:.15;position:absolute;top:6px;right:10px;line-height:1;}
+.mc-icon{font-size: 18px;margin-bottom:6px;}
+.mc-title{font-size: 18px;font-weight:700;margin-bottom:4px;}
+.mc-desc{font-size: 18px;line-height:1.6;}
+.mc-star{font-size: 18px;margin-top:6px;}
+.mc1{background:#e6f7f0;border-color:var(--gl);}.mc1 .mc-title{color:var(--gd);}
+.mc2{background:#eff6ff;border-color:#93c5fd;}.mc2 .mc-title{color:var(--bl);}
+.mc3{background:#f5f3ff;border-color:#c4b5fd;}.mc3 .mc-title{color:var(--pu);}
+.mc4{background:#fffbeb;border-color:#fbbf24;}.mc4 .mc-title{color:#92400e;}
+.mc5{background:#fff1f2;border-color:#fca5a5;}.mc5 .mc-title{color:var(--rd);}
+
+/* ── UPDATE TABLE ── */
+.update-table th{background:#7c3aed;}
+.update-table tr:nth-child(even) td{background:#faf5ff;}
+.update-table tr:hover td{background:#ede9fe;}
+
+/* ── VS BOX ── */
+.vs-wrap{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0;}
+@media(max-width:520px){.vs-wrap{grid-template-columns:1fr;}}
+.vs-box{border-radius:8px;padding:14px 16px;font-size: 18px;}
+.vs-box h4{font-size: 18px;font-weight:700;margin-bottom:8px;}
+.vs-box ul{padding-left:16px;}
+.vs-box li{margin-bottom:4px;}
+.vs-left{background:#e6f7f0;border:1px solid var(--gl);}.vs-left h4{color:var(--gd);}
+.vs-right{background:#eff6ff;border:1px solid #93c5fd;}.vs-right h4{color:var(--bl);}
+
+/* ── TRAP ── */
+.trap{display:flex;gap:12px;margin-bottom:14px;align-items:flex-start;}
+.trap-n{background:var(--rd);color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:800;flex-shrink:0;margin-top:2px;}
+.trap-t{font-weight:700;font-size: 18px;color:var(--rd);margin-bottom:3px;}
+.trap-d{font-size: 18px;}
+
+/* ── QUIZ ── */
+.q-block{border:1px solid #d0e8d8;border-radius:10px;margin-bottom:16px;overflow:hidden;}
+.q-head{background:#e8f7ee;padding:10px 16px;display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none;transition:background .15s;}
+.q-head:hover{background:#d4f0e0;}
+.q-num{background:var(--gd);color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:.74rem;font-weight:800;flex-shrink:0;}
+.q-cat{font-size: 18px;background:#d0e8d8;color:var(--gd);border-radius:4px;padding:1px 7px;font-weight:700;flex-shrink:0;}
+.q-text{font-size: 18px;font-weight:600;flex:1;color:#1a3a2a;}
+.q-tog{font-size: 18px;color:#888;flex-shrink:0;white-space:nowrap;}
+.q-body{padding:12px 16px;font-size: 18px;}
+.q-ctx{background:#fffbeb;border-left:3px solid var(--ab);padding:8px 12px;margin-bottom:10px;border-radius:0 6px 6px 0;font-size:.82rem;color:#78350f;}
+.q-ctx strong{color:#92400e;}
+.q-opts{list-style:none;margin:8px 0;}
+.q-opts li{padding:5px 0 5px 32px;position:relative;line-height:1.6;}
+.q-opts li::before{content:attr(data-o);position:absolute;left:0;width:22px;height:22px;background:#e0e0e0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size: 18px;font-weight:700;color:#555;}
+.q-opts li.ok::before{background:var(--gl);color:#fff;}
+.q-ans{background:#f0fdf5;border-top:1px dashed #b0ddc0;padding:12px 14px;font-size:.82rem;display:none;}
+.q-ans.show{display:block;}
+.q-ans strong{color:var(--gd);}
+.q-ans .note{background:#fff;border:1px solid var(--bd);border-radius:6px;padding:8px 12px;margin-top:8px;font-size:.8rem;color:#555;}
+
+/* ── FOOTER ── */
+.footer{background:var(--gd);color:rgba(255,255,255,.62);text-align:center;padding:24px;font-size: 18px;margin-top:60px;}
+hr{border:none;border-top:1px dashed var(--bd);margin:32px 0;}
+ul,ol{padding-left:20px;}
+ul li,ol li{margin-bottom:5px;font-size: 18px;}
+
+@media(max-width:600px){
+  .cover{padding:36px 18px 32px;}
+  .cover h1{font-size:1.38rem;}
+  h2{font-size: 18px;}
+  .wrap{padding:0 14px;}
+  .method-grid{grid-template-columns:1fr 1fr;}
+  .num-grid{gap:8px;}
+}
+  .badgerowbt { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
+a.badge1 {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: #007286;
+  color: #fff;
+  border: 1px solid #b6dece;
+  text-decoration: none;
+  line-height: 1.4;
+  transition: all 0.2s ease;
+}
+a.badge2 {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: #fff;
+  color: #007286;
+  border: 1px solid #b6dece;
+  text-decoration: none;
+  line-height: 1.4;
+  transition: all 0.2s ease;
+}
+</style>
+</head>
+<body>
+
+<!-- ══ COVER ══ -->
+<div class="cover">
+  <div class="cv-tag">🌿 IPAS 2026 考前衝刺</div>
+  <h1>RE100<span>（企業百分百再生電力）</span><br>完整考前衝刺筆記</h1>
+  <div class="badgerowbt">
+    <div><a href="https://snoweryi.github.io/yilearn/" class="badge1" >永續架構</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i01.html" class="badge1">01趨勢及策略</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i02.html" class="badge1">02溫室氣體盤查</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i03.html" class="badge1">03碳足跡</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i031.html" class="badge1">03碳足跡2</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i011.html" class="badge1">考科一</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i022.html" class="badge1">考科二</a></div>
+
+	<div><a href="https://snoweryi.github.io/yilearn/ic.html" class="badge1">CBAM</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/iy.html" class="badge1">年份</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/is.html" class="badge1">SBTi</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/iw.html" class="badge1">氣候法</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/ir.html" class="badge2">RE100</a></div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- ══ CH1：什麼是 RE100 ══ -->
+<h2><span class="ch">CH 1</span>什麼是 RE100？——用生活語說清楚</h2>
+
+<div class="story" data-icon="🥗">
+  <div class="story-title">素食俱樂部比喻</div>
+  <p>RE100 就像一個「<strong>素食俱樂部</strong>」——加入的企業承諾：</p>
+  <p style="margin-top:8px;"><strong>「我的工廠電力，到 2050 年要 100% 來自太陽能、風能等再生能源，不吃化石燃料發的電。」</strong></p>
+  <p style="margin-top:8px;">差別是：你不需要現在馬上做到 100%，但你要承諾在截止日期前做到，而且每年要公開報成績。</p>
+</div>
+
+<div class="tw">
+<table>
+  <tr><th>項目</th><th>說明</th></tr>
+  <tr><td><strong>主辦單位</strong></td><td>The Climate Group（氣候集團）× CDP（碳揭露項目）共同發起</td></tr>
+  <tr><td><strong>核心承諾</strong></td><td>企業承諾在期限內（最晚 2050 年）達到 100% 再生電力使用</td></tr>
+  <tr><td><strong>加入資格</strong></td><td>年用電量達 <strong>100 GWh（1 億度）以上</strong>的大型企業</td></tr>
+  <tr><td><strong>截止彈性</strong></td><td>最晚 2050 年達成；可設定自己較早的目標年（如 2030）</td></tr>
+  <tr><td><strong>年度報告</strong></td><td>每年向 <strong>CDP</strong> 揭露用電量、再生能源比例，公開接受檢驗</td></tr>
+  <tr><td><strong>台灣代表性會員</strong></td><td>台積電、台達電、友達、群創、富采等（持續增加）</td></tr>
+  <tr><td><strong>全球會員數</strong></td><td>超過 430 家（截至 2024 年）</td></tr>
+</table>
+</div>
+
+<div class="alert danger">
+  <span class="ai">🚨</span>
+  <div><strong>核能不算！</strong>RE100 明確不接受核能，核電無法計入 RE100 再生能源使用進度。即使台灣重啟核四，核電仍不算 RE100 的綠電來源。</div>
+</div>
+
+<!-- ══ CH2：五種採購方式 ══ -->
+<h2><span class="ch">CH 2</span>五種取得綠電的方式（RE100 認可）</h2>
+
+<div class="card amber" style="margin-bottom:20px;">
+  <p><strong>記憶口訣：</strong>自種 → 訂閱 → 遠購 → 套餐 → 買認證書，對應五種方式的直覺程度。</p>
+</div>
+
+<div class="method-grid">
+  <div class="method-card mc1">
+    <span class="mc-num">①</span>
+    <div class="mc-icon">🏠</div>
+    <div class="mc-title">自建自發</div>
+    <div class="mc-desc">屋頂太陽能等，自己發電自己用</div>
+    <div class="mc-star"><span class="tag tg">⭐⭐⭐ 最直接</span><br>無需另購 T-REC</div>
+  </div>
+  <div class="method-card mc2">
+    <span class="mc-num">②</span>
+    <div class="mc-icon">📋</div>
+    <div class="mc-title">PPA 長期購電合約</div>
+    <div class="mc-desc">跟案場簽長期蔬菜訂閱合約，資助新建案場</div>
+    <div class="mc-star"><span class="tag tb">⭐⭐⭐ 最受認可</span><br>具「額外性」</div>
+  </div>
+  <div class="method-card mc3">
+    <span class="mc-num">③</span>
+    <div class="mc-icon">🔌</div>
+    <div class="mc-title">非現地直供/轉供</div>
+    <div class="mc-desc">遠端案場透過電網送電過來</div>
+    <div class="mc-star"><span class="tag tp">⭐⭐⭐ 認可</span></div>
+  </div>
+  <div class="method-card mc4">
+    <span class="mc-num">④</span>
+    <div class="mc-icon">📦</div>
+    <div class="mc-title">綠色費率方案</div>
+    <div class="mc-desc">跟台電申請「綠電套餐」，多付一些錢</div>
+    <div class="mc-star"><span class="tag ta">⭐⭐ 需確認</span><br>T-REC 不得重複宣告</div>
+  </div>
+  <div class="method-card mc5">
+    <span class="mc-num">⑤</span>
+    <div class="mc-icon">📄</div>
+    <div class="mc-title">購買 EAC/REC（電證分離）</div>
+    <div class="mc-desc">買別人種菜的「有機認證書」，自己不種但持有證書</div>
+    <div class="mc-star"><span class="tag tr">⭐ 可用</span><br>額外性最低</div>
+  </div>
+</div>
+
+<div class="card blue">
+  <p><strong>🏷️ 台灣 T-REC：</strong>台灣的再生能源憑證叫做 <strong>T-REC</strong>，每 1,000 度綠電 = 1 張 T-REC，由國家再生能源憑證中心核發，是全球 I-REC 系統的本土版本。</p>
+  <p style="margin-top:8px;"><strong>2026 年 2 月起</strong>改為「每週發證」（原為每月），加速市場流通。</p>
+</div>
+
+<!-- ══ CH3：2025 最新更新 ══ -->
+<h2><span class="ch">CH 3</span>⚡ 2025 年 4 月最新技術準則更新——必考重點</h2>
+
+<div class="alert purple">
+  <span class="ai">🔥</span>
+  <div><strong>命題委員警告：</strong>這是近年 RE100 最重大的規則改變，2025 年揭露週期起生效。<strong>考試高機率出題！</strong>請逐條記熟。</div>
+</div>
+
+<div class="tw">
+<table class="update-table">
+  <tr><th>項目</th><th>2025 年前舊規定</th><th>2025 年 4 月起新規定</th></tr>
+  <tr>
+    <td><strong>混燃（Co-firing）含煤電力</strong></td>
+    <td>允許計算「生質能比例」的部分為再生能源</td>
+    <td><span class="tag tr">完全不允許</span>只要有混燒煤炭，整個電廠的電都不算再生能源</td>
+  </tr>
+  <tr>
+    <td><strong>舊憑證（Vintage）</strong></td>
+    <td>較寬鬆，舊年份憑證可用</td>
+    <td><span class="tag tr">舊憑證不再計入</span>需揭露追蹤識別碼</td>
+  </tr>
+  <tr>
+    <td><strong>額外性（Additionality）</strong></td>
+    <td>建議但非強制</td>
+    <td><span class="tag ta">更強調</span>「非額外性」採購不再被高度認可，鼓勵支持新建案場</td>
+  </tr>
+  <tr>
+    <td><strong>24/7 CFE（碳零排放電力）</strong></td>
+    <td>未特別提及</td>
+    <td><span class="tag tb">新增為建議方向</span>Google 等企業已採用</td>
+  </tr>
+  <tr>
+    <td><strong>生效時間</strong></td>
+    <td>—</td>
+    <td><strong>2025 年揭露週期起生效</strong></td>
+  </tr>
+</table>
+</div>
+
+<div class="story" data-icon="🍳">
+  <div class="story-title">混燃比喻——只要鍋子裡有豬肉，整鍋都不算素食</div>
+  <p>就像在純素料理裡加了一塊豬肉——</p>
+  <p>生質能（木屑）+ 煤炭一起燒，以前可以算木屑那部分是「素的」，</p>
+  <p style="margin-top:8px;"><strong>現在 RE100 說：只要鍋子裡有豬肉，整鍋都不算素食。</strong></p>
+</div>
+
+<!-- ══ CH4：Scope 2 位置法 vs 市場法 ══ -->
+<h2><span class="ch">CH 4</span>Scope 2：位置法 vs 市場法</h2>
+
+<div class="vs-wrap">
+  <div class="vs-box vs-left">
+    <h4>📍 位置法（Location-based）</h4>
+    <ul>
+      <li>依電網平均排碳係數計算</li>
+      <li>台灣約 <strong>0.494 kgCO₂e/kWh</strong></li>
+      <li>持有 T-REC 無影響，仍用電網平均值</li>
+      <li>RE100：需同時揭露</li>
+    </ul>
+  </div>
+  <div class="vs-box vs-right">
+    <h4>🏷️ 市場法（Market-based）</h4>
+    <ul>
+      <li>依供應商特定係數 / EAC 係數計算</li>
+      <li>持有 T-REC → 對應電力可計為 <strong>0 kgCO₂e</strong></li>
+      <li><span class="tag tb">✅ RE100 用市場法計算再生能源比例</span></li>
+      <li>GHG Protocol 要求：<strong>兩種方法都要揭露</strong></li>
+    </ul>
+  </div>
+</div>
+
+<div class="alert warn">
+  <span class="ai">⚠️</span>
+  <div><strong>GHG Protocol 要求：</strong>企業需<strong>同時揭露</strong>位置法和市場法兩個數字，不能只選一個揭露。這樣利害關係人才能看出「買憑證前後」的真實差距。</div>
+</div>
+
+<!-- ══ CH5：三者關係 ══ -->
+<h2><span class="ch">CH 5</span>RE100 vs SBTi vs GHG Protocol Scope 2——三者關係</h2>
+
+<div class="tw">
+<table>
+  <tr><th>框架</th><th>主要功能</th><th>與綠電的關聯</th></tr>
+  <tr>
+    <td><strong>RE100</strong></td>
+    <td>企業承諾 100% 採購再生電力的倡議</td>
+    <td>定義「什麼算綠電」的採購規則</td>
+  </tr>
+  <tr>
+    <td><strong>GHG Protocol Scope 2</strong></td>
+    <td>溫室氣體盤查準則（計算方法）</td>
+    <td>市場法計算時，EAC/T-REC 讓 Scope 2 → 0</td>
+  </tr>
+  <tr>
+    <td><strong>SBTi</strong></td>
+    <td>設定科學基礎減碳目標的倡議</td>
+    <td>Scope 2 減排是 SBTi 目標的組成部分，RE100 達標可幫助 SBTi 進度</td>
+  </tr>
+</table>
+</div>
+
+<div class="card amber">
+  <p><strong>簡單記：</strong></p>
+  <ul style="margin-top:8px;">
+    <li><strong>RE100</strong> = 「承諾買什麼電」</li>
+    <li><strong>GHG Protocol</strong> = 「怎麼計算這電的碳排」</li>
+    <li><strong>SBTi</strong> = 「設定減碳目標路徑」</li>
+  </ul>
+  <p style="margin-top:8px;">三者是不同層面的工具，<strong>可以同時使用，互補不衝突</strong>。</p>
+</div>
+
+<!-- ══ CH6：24/7 CFE ══ -->
+<h2><span class="ch">CH 6</span>24/7 CFE——下一個門檻</h2>
+
+<div class="tw">
+<table>
+  <tr><th>比較</th><th>RE100（年度匹配）</th><th>24/7 CFE（小時匹配）</th></tr>
+  <tr><td><strong>計算頻率</strong></td><td>年度總量匹配（一年買夠就算）</td><td>每小時即時匹配（每個小時都要對應零碳電力）</td></tr>
+  <tr><td><strong>RE100 強制性</strong></td><td>是（目前要求）</td><td><span class="tag ta">否（2025 年為建議方向）</span></td></tr>
+  <tr><td><strong>核能</strong></td><td><span class="tag tr">不接受</span></td><td><span class="tag tg">接受（CFE 包含核能等零碳電力）</span></td></tr>
+  <tr><td><strong>代表企業</strong></td><td>多數 RE100 會員</td><td><strong>Google</strong>（全球首家承諾 24/7 CFE）</td></tr>
+</table>
+</div>
+
+<div class="alert info">
+  <span class="ai">📌</span>
+  <div><strong>記憶重點：</strong>24/7 CFE 比 RE100 更嚴格，核能在 CFE 算數但在 RE100 不算。2025 年只是「建議」，還不是強制要求。</div>
+</div>
+
+<!-- ══ 農場連結 ══ -->
+<h2><span class="ch">農場</span>富林農場 × RE100 的連結機會</h2>
+
+<div class="card purple">
+  <p><strong>🌾 富林有機農場的 RE100 生態位：</strong></p>
+  <ul style="margin-top:10px;">
+    <li><strong>農場本身</strong>（員工少、用電量低）→ <span class="tag tr">不符合 RE100 加入門檻（需 100 GWh）</span></li>
+    <li><strong>屋頂太陽能</strong>自建自發 → <span class="tag tg">可計入農場的再生能源使用，向供應鏈客戶展示</span></li>
+    <li><strong>T-REC 申請發證賣給企業</strong> → ⚠️ 賣出後農場本身不可再宣告使用同一份再生能源（電證分離）</li>
+    <li><strong>企業 ESG 活動場地</strong> → 可協助活動計算碳足跡，搭配農場綠電數據成為「可量化」的碳管理體驗場域</li>
+    <li><strong>未來農業碳匯</strong> → 走 MRV 流程後，可供新竹科技廠採購，形成碳中和合作關係</li>
+  </ul>
+</div>
+
+<hr>
+
+<!-- ══ 懶人包 ══ -->
+<h2><span class="ch">📋</span>考前懶人包——一頁速查</h2>
+
+<div class="tw">
+<table>
+  <tr><th>考點</th><th>答案</th><th>記憶小抄</th></tr>
+  <tr><td>RE100 加入門檻</td><td>年用電量 <strong>≥ 100 GWh</strong></td><td>「一億度才能入會」</td></tr>
+  <tr><td>RE100 主辦單位</td><td><strong>The Climate Group × CDP</strong></td><td>「氣候集團 × 碳揭露」</td></tr>
+  <tr><td>核能可否計入 RE100</td><td><strong>不可以</strong></td><td>「核能不是再生能源」</td></tr>
+  <tr><td>最受 RE100 認可的採購方式</td><td><strong>PPA（長期購電合約）</strong></td><td>「簽約才有額外性」</td></tr>
+  <tr><td>2025 年更新：混燃含煤</td><td><strong>整廠電力均不計入</strong></td><td>「一滴豬油，整鍋不素」</td></tr>
+  <tr><td>2025 年更新：舊憑證</td><td><strong>不再計入</strong>，需揭露追蹤 ID</td><td>「過期憑證不算數」</td></tr>
+  <tr><td>Scope 2 揭露方式</td><td><strong>位置法 + 市場法都要揭露</strong></td><td>「兩個數字缺一不可」</td></tr>
+  <tr><td>T-REC 換算</td><td>每 <strong>1,000 度</strong>綠電 = 1 張 T-REC</td><td>「千度一張」</td></tr>
+  <tr><td>24/7 CFE vs RE100</td><td>CFE 更嚴格，<strong>2025 年為建議</strong>非強制</td><td>「小時級才算時髦」</td></tr>
+  <tr><td>賣出 T-REC 後</td><td>農場<strong>不可再宣告</strong>自己用再生能源</td><td>「賣了就要另外買回」</td></tr>
+  <tr><td>RE100 與 SBTi 可否並行</td><td><strong>可以，互補</strong></td><td>「一個管電，一個管碳」</td></tr>
+</table>
+</div>
+
+<hr>
+
+<!-- ══ 模擬考題 ══ -->
+<h2><span class="ch">TEST</span>命題委員親授｜20 題情境模擬考題</h2>
+
+<div class="alert tip">
+  <span class="ai">🎯</span>
+  <div>全部題目均以<strong>工作或生活情境</strong>包裝，依據 2025 年最新 RE100 技術準則設計。點擊每題展開詳細解析。</div>
+</div>
+
+<!-- Q1 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">1</div>
+    <div class="q-cat">基本概念</div>
+    <div class="q-text">新進員工小明說：「我們公司加入 RE100 了，就是電費完全免費對吧？」小明的理解正確嗎？</div>
+    <div class="q-tog">▼ 解析</div>
+  </div>
+  <div class="q-body">
+    <div class="q-ctx"><strong>情境：</strong>新進員工小明剛加入永續部門，主管說：「我們公司加入 RE100 了，你知道這意味著什麼嗎？」</div>
+    <ul class="q-opts">
+      <li data-o="A">正確，RE100 成員可獲得政府綠電補貼，電費優惠</li>
+      <li data-o="B" class="ok">錯誤。RE100 是企業承諾在截止日期前（最晚 2050 年）達成 100% 使用再生能源電力，並不涉及電費減免，還可能因採購綠電而增加用電成本</li>
+      <li data-o="C">RE100 承諾的是 100% 碳中和，不限定電力種類</li>
+      <li data-o="D">RE100 是一個發電公司聯盟，加入即可自動取得便宜綠電</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      RE100 是企業<strong>自願加入的倡議</strong>，承諾到期限（可選 2030–2050 年）前達成 100% 再生電力使用。加入後企業需每年向 CDP 揭露進度，並不會免除電費，採購再生能源反而可能增加成本（特別是台灣綠電溢價）。<br><br>
+      <div class="note">⚠️ 選項 C 的「碳中和」是另一個議題（ISO 14068-1），RE100 只管「電力來源」，不等於碳中和宣告。</div>
+    </div>
+  </div>
+</div>
+
+<!-- Q2 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">2</div>
+    <div class="q-cat">基本概念</div>
+    <div class="q-text">採購部主管問：「我們公司年用電量只有 50 GWh，請問符合 RE100 加入資格嗎？」</div>
+    <div class="q-tog">▼ 解析</div>
+  </div>
+  <div class="q-body">
+    <div class="q-ctx"><strong>情境：</strong>公司想加入 RE100，但年用電量為 5,000 萬度（50 GWh）。</div>
+    <ul class="q-opts">
+      <li data-o="A">符合，RE100 沒有用電量門檻，任何企業都可加入</li>
+      <li data-o="B" class="ok">不符合。RE100 要求年用電量至少達 100 GWh（1 億度）以上的大型企業才可加入</li>
+      <li data-o="C">符合，50 GWh 已超過最低門檻（需要 10 GWh）</li>
+      <li data-o="D">不符合，RE100 只開放給跨國企業，台灣本土企業無法加入</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      RE100 的加入資格門檻是年用電量達 <strong>100 GWh（即 1 億度）以上</strong>的大型企業。年用電量 50 GWh 低於此門檻，無法直接加入 RE100。<br><br>
+      <div class="note">💡 中小企業可透過加入供應商綠電承諾或其他倡議（如 SME Climate Hub）表達再生能源使用意願，或透過採購 T-REC、自建太陽能等方式回應供應鏈要求。</div>
+    </div>
+  </div>
+</div>
+
+<!-- Q3 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">3</div>
+    <div class="q-cat">基本概念</div>
+    <div class="q-text">「RE100 接受核電嗎？台灣如果核四重啟，算可以用的綠電嗎？」</div>
+    <div class="q-tog">▼ 解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">RE100 接受核能，因為核能零碳排放，符合低碳電力標準</li>
+      <li data-o="B" class="ok">RE100 明確不接受核能，核電無法計入 RE100 再生能源使用進度</li>
+      <li data-o="C">核能只要取得政府認證就可算入 RE100</li>
+      <li data-o="D">RE100 對核能態度由各國政府決定，台灣政府若認可則可算入</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      RE100 明確只承認「再生能源（Renewable Energy）」——包含太陽能、風力、水力、地熱、生質能等。核能雖然低碳，但因<strong>核燃料不可再生</strong>，RE100 和多數國際標準都不將核能計入再生能源類別。<br><br>
+      <div class="note">📌 對比：24/7 CFE 接受核能（因為是零碳排放），這是 RE100 與 24/7 CFE 的重要差異之一！</div>
+    </div>
+  </div>
+</div>
+
+<!-- Q4 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">4</div>
+    <div class="q-cat">基本概念</div>
+    <div class="q-text">執行長問：「RE100 和 CDP 是同一家公司嗎？加入 RE100，CDP 評分會受影響嗎？」</div>
+    <div class="q-tog">▼ 解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">RE100 和 CDP 是同一個組織，RE100 是 CDP 的一個部門</li>
+      <li data-o="B" class="ok">RE100 是由 The Climate Group 和 CDP 共同發起的倡議；加入 RE100 的企業需通過 CDP 平台進行年度揭露，CDP 會據此給予氣候揭露評分；兩者是合作關係，但不是同一組織</li>
+      <li data-o="C">CDP 是 RE100 的子組織，RE100 決策優先</li>
+      <li data-o="D">加入 RE100 可以取代 CDP 問卷填寫，不需兩者都做</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      RE100 由 <strong>The Climate Group（氣候集團）與 CDP（碳揭露計畫）共同發起</strong>。加入 RE100 的企業每年必須通過 CDP 平台提交年度進度報告（用電量、再生能源比例、採購方式等）；CDP 會在自己的氣候揭露評分中反映這些資訊。兩者是夥伴關係，運作獨立但高度整合。
+    </div>
+  </div>
+</div>
+
+<!-- Q5 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">5</div>
+    <div class="q-cat">綠電採購</div>
+    <div class="q-text">甲說買 T-REC 最方便；乙說應直接跟離岸風電廠簽 PPA。哪個對 RE100 比較有價值？</div>
+    <div class="q-tog">▼ 解析</div>
+  </div>
+  <div class="q-body">
+    <div class="q-ctx"><strong>情境：</strong>台積電永續團隊討論採購策略，比較 PPA vs 購買 T-REC 的 RE100 認可度。</div>
+    <ul class="q-opts">
+      <li data-o="A">兩者在 RE100 框架下完全等同，選哪個都一樣</li>
+      <li data-o="B" class="ok">PPA 通常被認為具有更高的「額外性」（推動新再生能源建設），RE100 2025 年新規則更強調 PPA 等具額外性的採購方式；T-REC（電證分離）可用但額外性較低</li>
+      <li data-o="C">T-REC 比 PPA 更受 RE100 認可，因為 T-REC 有政府背書</li>
+      <li data-o="D">PPA 在 RE100 框架下不被承認，只能用 T-REC</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      RE100 認可多種採購方式，但對「<strong>額外性（Additionality）</strong>」的重視程度不同。PPA 直接資助新再生能源案場建設，具有推動能源轉型的「額外性」；購買既有再生能源發的 T-REC 不一定推動新建設，額外性較低。<br><br>
+      RE100 2025 年新規則更強調鼓勵具額外性的採購方式，台灣企業應搭配 <strong>PPA + T-REC 的雙軌策略</strong>。
+    </div>
+  </div>
+</div>
+
+<!-- Q6 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">6</div>
+    <div class="q-cat">綠電採購</div>
+    <div class="q-text">工廠廠長問：「我們在廠房屋頂裝了太陽能板，自己發電自己用，可以算 RE100 的進度嗎？」</div>
+    <div class="q-tog">▼ 解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">自發自用不算 RE100，一定要向外部購買 T-REC 才有效</li>
+      <li data-o="B" class="ok">自建自發屬於 RE100 五種採購方式之一（現地自發），可直接計入 RE100 再生能源使用比例，且不需另外購買 T-REC（因為電和環境效益同時在企業手中）</li>
+      <li data-o="C">自建太陽能需先向 T-REC 中心申請發證後才能計算，不能直接計入</li>
+      <li data-o="D">自建太陽能只能計入 Scope 1，不能計入 RE100</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      自建再生能源發電並自用（Onsite Generation）是 RE100 五種採購方式中最直接的一種，<strong>直接計入 RE100 進度</strong>，且因為發電者和用電者是同一主體，環境效益（EAC）不需分離，不需另行購買 T-REC。<br><br>
+      <div class="note">⚠️ 但若將自發電力售出（不自用），則需保留對應的 T-REC 才能申報 RE100。</div>
+    </div>
+  </div>
+</div>
+
+<!-- Q7 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">7</div>
+    <div class="q-cat">綠電採購</div>
+    <div class="q-text">財務長說：「我找到一批 2019 年發的舊 T-REC，便宜很多，買舊的省錢！」依 RE100 2025 新規，這樣可以嗎？</div>
+    <div class="q-tog">▼ 解析</div>
+  </div>
+  <div class="q-body">
+    <div class="q-ctx"><strong>情境：</strong>某台灣製造業者為 RE100 採購，發現某批 T-REC 是 2019 年發的舊憑證，價格便宜。</div>
+    <ul class="q-opts">
+      <li data-o="A">舊憑證和新憑證完全等效，都可計入 RE100 進度</li>
+      <li data-o="B" class="ok">RE100 2025 年更新後，舊憑證（較早年份發行的 EAC）不再計入 RE100 進度，且需揭露憑證追蹤識別碼；使用舊憑證可能無法通過 RE100 的報告要求</li>
+      <li data-o="C">舊憑證可用，但需額外繳納 10% 的手續費</li>
+      <li data-o="D">T-REC 沒有年份限制，任何年份的憑證都永久有效</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      RE100 2025 年規則更新的重要變化之一：<strong>舊憑證（vintage 較舊的 EAC）不再計入 RE100 進度</strong>，企業需揭露憑證的追蹤識別碼（Tracking ID）以確認憑證的真實性和年份。<br><br>
+      這個規定是為了避免企業使用早年累積的「舊庫存」憑證宣稱綠電使用，而不是真正支持當前再生能源發展。財務長的省錢邏輯雖然現實，但在 RE100 合規上可能踩雷。
+    </div>
+  </div>
+</div>
+
+<!-- Q8 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">8</div>
+    <div class="q-cat">綠電採購</div>
+    <div class="q-text">台灣電子廠向台電申請了「綠色電價方案」，每度電多付 3 元。財務部問：「這樣可以計入 RE100 嗎？」</div>
+    <div class="q-tog">▼ 解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">綠色費率方案不被 RE100 承認，只有 PPA 和 T-REC 才可以</li>
+      <li data-o="B" class="ok">綠色費率方案是 RE100 五種採購方式之一，可計入 RE100 進度——但前提是方案必須確保對應的 EAC 不被重複宣告（即台電應保留或移轉對應的 T-REC 給購電企業）</li>
+      <li data-o="C">綠色費率方案是台灣獨有制度，RE100 不知道這個方案，無法認定</li>
+      <li data-o="D">綠色費率方案只能計入 Scope 1，不能用於 RE100</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      綠色費率方案（Green Tariff）是 RE100 五種採購方式之一（第 4 種），允許企業向公用電業購買含有再生能源保證的電力套餐。<br><br>
+      <strong>RE100 的認可條件是：</strong>方案必須確保對應的 EAC（如 T-REC）不被重複宣告——也就是說，台電在向企業收取綠色費率後，必須保證這些電力的 T-REC 不會同時賣給其他企業。
+    </div>
+  </div>
+</div>
+
+<!-- Q9 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">9</div>
+    <div class="q-cat">2025 新規</div>
+    <div class="q-text">某日本電力公司在燃煤電廠中混燒 30% 木屑生質能，台灣半導體廠商用這批 T-REC 申報 RE100。2025 年 4 月後，這批 T-REC 還能用嗎？</div>
+    <div class="q-tog">▼ 解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">仍可計算，因為混燃中 30% 是生質能，可計入 30% 的再生能源</li>
+      <li data-o="B" class="ok">不能計算。2025 年 4 月起，RE100 技術準則明確規定：只要電廠涉及混燒煤炭，整廠電力（包含生質能部分）都不能計入 RE100 再生能源使用進度</li>
+      <li data-o="C">只要生質能比例超過 50% 就仍可計算</li>
+      <li data-o="D">此規定只適用於日本電廠，台灣企業購買的 T-REC 不受影響</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      RE100 2025 年 4 月重大更新：<strong>禁止成員使用「含煤混燃（Co-firing involving coal）」的電廠電力計入 RE100 進度</strong>——哪怕只混了一點煤，整個電廠的電都不算再生能源。<br><br>
+      原因：①混燃煤延長煤炭在能源結構的壽命；②阻礙真正的能源轉型；③再生能源已夠便宜，不需要靠混燃過渡。<br><br>
+      台灣半導體廠商若已採購此類 T-REC，須重新評估合規性並補採購其他符合規定的綠電。
+    </div>
+  </div>
+</div>
+
+<!-- Q10 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">10</div>
+    <div class="q-cat">2025 新規</div>
+    <div class="q-text">永續長詢問：「我聽說 Google 在做什麼『每小時配對』，跟我們 RE100 的年度配對有什麼不同？」</div>
+    <div class="q-tog">▼ 解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">24/7 CFE 和 RE100 完全相同，只是 Google 自己取的別名</li>
+      <li data-o="B" class="ok">24/7 CFE 要求每小時的用電都有對應的同時間、同電網的碳零排放電力配對，比 RE100 的年度總量匹配更嚴格；目前 RE100 2025 年將其列為「建議方向」而非強制要求</li>
+      <li data-o="C">24/7 CFE 是 RE100 的強制要求，不達此標準無法維持 RE100 成員資格</li>
+      <li data-o="D">24/7 CFE 接受核能電力，但 RE100 不接受，所以兩者互相矛盾不能並行</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      24/7 Carbon-Free Energy（CFE）是比 RE100 更嚴格的標準，要求企業在<strong>每個小時的用電，都能對應到同一時段、同一電網的零碳電力</strong>（不限再生能源，核能也算），Google 是全球第一家承諾 24/7 CFE 的企業。<br><br>
+      RE100 2025 年更新技術準則後，將 24/7 CFE 列為「<strong>建議方向</strong>」——尚未強制要求，但代表未來的趨勢。<br><br>
+      <div class="note">📌 選項 D 的說法錯誤：24/7 CFE 接受核能，RE100 不接受核能，兩者在核能立場上不同，但並非「互相矛盾不能並行」——企業可以同時追求兩個目標。</div>
+    </div>
+  </div>
+</div>
+
+<!-- Q11 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">11</div>
+    <div class="q-cat">2025 新規</div>
+    <div class="q-text">審查員指出：「你們 2024 年的 RE100 報告，有一筆採購是向 2018 年已建設的舊案場購買 T-REC，這樣有達到額外性要求嗎？」</div>
+    <div class="q-tog">▼ 解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">RE100 完全不要求額外性，買任何年份的再生能源憑證都算數</li>
+      <li data-o="B" class="ok">RE100 2025 年規則更強調額外性——鼓勵採購能推動「新建再生能源案場」的綠電（如新 PPA），「非額外性」採購不再被高度認可，但舊案場 T-REC 並非完全不可用，只是在 RE100 揭露中評分較低</li>
+      <li data-o="C">RE100 強制要求所有採購必須是 24 個月內新建案場的電力</li>
+      <li data-o="D">額外性只有 SBTi 要求，RE100 不在意額外性</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      RE100 2025 年技術準則更新後，對額外性的重視程度明顯提升：<br>
+      ① 鼓勵支持「<strong>新建案場</strong>」的採購（如新簽 PPA、資助新建太陽能等）<br>
+      ② 「非額外性」採購（買舊案場既有系統的憑證）雖然仍可計入 RE100，但在 RE100 的評估中認可度降低<br>
+      ③ 這反映 RE100 從「算數量」轉向「看品質」的進化方向。
+    </div>
+  </div>
+</div>
+
+<!-- Q12 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">12</div>
+    <div class="q-cat">2025 新規</div>
+    <div class="q-text">永續顧問說：「以後 RE100 不只是量的問題，更是質的問題。」RE100 2025 年更新後，「質」的要求提升主要體現在哪些面向？</div>
+    <div class="q-tog">▼ 解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">只是要求企業用電量從 100 GWh 提升到 200 GWh</li>
+      <li data-o="B" class="ok">2025 年更新聚焦「採購品質」：①禁止含煤混燃電力計入；②舊憑證不再計入且需揭露追蹤 ID；③更強調額外性（支持新建案場）；④引入 24/7 CFE 作為建議方向——整體從「達到數量目標」轉向「確保採購的真實影響力」</li>
+      <li data-o="C">只是表格格式改變，實質要求沒有差異</li>
+      <li data-o="D">2025 年取消所有 REC 的使用，全面改為 PPA</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      RE100 每兩年更新技術準則，<strong>2025 年 4 月是近年最重要的一次</strong>：<br>
+      ① 禁止含煤混燃（無論生質能佔多少比例）<br>
+      ② 舊憑證（vintage）不再計入，需揭露追蹤識別碼<br>
+      ③ 更強調「額外性」——支持新建再生能源案場的採購比既有案場更被認可<br>
+      ④ 正式引入 24/7 CFE 概念作為建議方向<br><br>
+      代表 RE100 從「能湊到 100% 就合格」走向「<strong>採購行為必須真正推動能源轉型</strong>」的進化。
+    </div>
+  </div>
+</div>
+
+<!-- Q13 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">13</div>
+    <div class="q-cat">台灣時事</div>
+    <div class="q-text">台積電供應鏈管理師說：「台積電承諾 2050 年達成 RE100，所以你們供應商也應該有再生能源使用計畫。」中小廠商說：「我們又不是 RE100 成員，為什麼要配合？」</div>
+    <div class="q-tog">▼ 解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">供應商說得對，RE100 只要求成員自己做，供應鏈沒有義務</li>
+      <li data-o="B" class="ok">這反映「Scope 3 供應鏈傳導」——台積電等大型 RE100 成員，為完成自身 Scope 3 盤查和供應鏈減碳目標，會要求供應商提供能源使用與再生能源採購數據；供應商即使非 RE100 成員，也可能面臨客戶要求</li>
+      <li data-o="C">這是違法的商業強迫行為，供應商可向公平交易委員會投訴</li>
+      <li data-o="D">只有跨國供應商才需配合，本土廠商完全豁免</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      這是典型的「<strong>Scope 3 供應鏈傳導效應</strong>」。台積電等大型企業加入 RE100 後，為完成自身 Scope 3 的盤查，以及向 CDP、IFRS S2 揭露供應鏈排放，會主動要求供應商提供電力來源與再生能源使用數據。<br><br>
+      雖然供應商不是 RE100 成員，但在「不配合就失去訂單」的現實壓力下，再生能源採購已成為<strong>中小型製造業的生存課題</strong>。
+    </div>
+  </div>
+</div>
+
+<!-- Q14 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">14</div>
+    <div class="q-cat">台灣時事</div>
+    <div class="q-text">2026 年 4 月，T-REC 中心宣布「跨區查核開放」。電力顧問說：「以前 T-REC 查核只能在發電地點附近執行，現在擴大了。」對 RE100 有何影響？</div>
+    <div class="q-tog">▼ 解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">跨區查核會增加 T-REC 成本，對企業不利</li>
+      <li data-o="B" class="ok">跨區查核強化了 T-REC 的可信度與透明度——查驗不受地理限制，企業申請的 T-REC 更能獲得國際市場認可，有助於台灣 T-REC 在 RE100 等國際框架下的採信度</li>
+      <li data-o="C">跨區查核允許企業在全球各地以同一 T-REC 宣告多國的再生能源使用</li>
+      <li data-o="D">跨區查核只影響電力公司，對用電企業無任何影響</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      T-REC 2026 年推動的跨區查核開放，允許查驗機構不受地理限制執行發電設備查核，<strong>提升了整個 T-REC 系統的可信度</strong>。這對 RE100 台灣成員的意義是：T-REC 的查驗品質和透明度提升，使國際客戶、CDP 評分、IFRS S2 揭露更容易採信台灣企業的再生能源宣告。
+    </div>
+  </div>
+</div>
+
+<!-- Q15 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">15</div>
+    <div class="q-cat">台灣時事</div>
+    <div class="q-text">某台灣螺絲廠廠長煩惱：「客戶要求我們提供綠電採購計畫，但我們年用電量只有 5,000 萬度，根本不夠加入 RE100。請問有沒有其他路可以走？」</div>
+    <div class="q-tog">▼ 解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">中小廠商完全無解，只能等大廠通知</li>
+      <li data-o="B" class="ok">中小廠商可採取：①廠房屋頂裝設太陽能自發自用；②採購 T-REC 展示再生能源使用比例；③參與 T-REC 中心「中小企業平價綠電專案」；④設定自主再生能源目標（如 2030 年達 50%）回應供應鏈要求——雖無法加入 RE100，但仍可具體回應客戶審查</li>
+      <li data-o="C">只需填寫供應鏈問卷聲明「計劃中」即可，不需實際採購</li>
+      <li data-o="D">等台灣政府強制要求後再行動即可</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      中小廠商雖然無法加入 RE100（年用電量門檻 100 GWh），但可採取務實行動：<br>
+      ① <strong>屋頂太陽能自發自用</strong>（最直接降低電力碳排）<br>
+      ② <strong>採購 T-REC</strong>（可向客戶具體展示再生能源使用比例）<br>
+      ③ 利用 T-REC 中心推動的「中小企業平價綠電專案」<br>
+      ④ 設定自主再生能源目標（參考 SME Climate Hub 等倡議）<br><br>
+      <div class="note">🌾 富林農場也適用這個路徑——雖不符合 RE100 門檻，但可透過屋頂太陽能 + T-REC 向企業客戶展示農場的綠電使用承諾。</div>
+    </div>
+  </div>
+</div>
+
+<!-- Q16 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">16</div>
+    <div class="q-cat">Scope 2 連動</div>
+    <div class="q-text">台灣電子廠在 CDP 問卷中宣告：「我們 2025 年度 Scope 2（市場法）排放量為 0 kgCO₂e，因為我們購買了足量 T-REC。」為什麼位置法和市場法的數字差很多？</div>
+    <div class="q-tog">▼ 解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">位置法和市場法是完全相同的計算方法，數字應該一樣</li>
+      <li data-o="B" class="ok">位置法用台灣電網平均排碳係數（約 0.494 kgCO₂e/kWh）計算，反映實際電網的碳強度；市場法允許用供應商特定係數，持有 T-REC 的電力可計為 0 kgCO₂e/kWh——兩種方法理論上可得出截然不同的結果</li>
+      <li data-o="C">位置法只適用於重工業，電子廠應使用市場法</li>
+      <li data-o="D">市場法計算的結果一定低於位置法，因為市場法有政府補貼</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      這是 Scope 2 計算方法的核心區別：<br>
+      • <strong>位置法</strong>：用當地電網的平均排碳係數（台灣約 0.494 kgCO₂e/kWh），反映電網整體碳強度<br>
+      • <strong>市場法</strong>：允許企業使用「供應商特定係數」，若持有對應年度的 T-REC，那批電力的排碳係數可計為 0<br><br>
+      GHG Protocol 要求企業<strong>同時揭露兩種數字</strong>，不能只揭露其中一個。
+    </div>
+  </div>
+</div>
+
+<!-- Q17 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">17</div>
+    <div class="q-cat">Scope 2 連動</div>
+    <div class="q-text">財務長質疑：「永續報告草稿中，Scope 2 市場法 = 0 但位置法 = 50,000 噸，這不是在造假嗎？」如何正確解釋？</div>
+    <div class="q-tog">▼ 解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">財務長是對的，Scope 2 不可能為 0，這一定是數據錯誤</li>
+      <li data-o="B" class="ok">這是合理的。企業購買了足量的 T-REC（市場法），對應電力的供應商特定係數為 0，所以市場法 Scope 2 = 0。這是 GHG Protocol 市場法計算框架下的合規結果，需同時揭露位置法數字（50,000 噸）供比較，兩個數字都是真實且必要的揭露</li>
+      <li data-o="C">市場法 Scope 2 = 0 等同於說電費是 0，完全不合理</li>
+      <li data-o="D">應以位置法為準，市場法數字不需要揭露</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      市場法 Scope 2 = 0 是完全合規且常見的情形——企業購買足量的 EAC（如 T-REC），對應電力的排碳係數按市場法計為 0，整體市場法 Scope 2 就可達到 0。<br><br>
+      GHG Protocol Scope 2 指引（2015 年）要求企業<strong>同時揭露位置法和市場法數字</strong>，不能只揭露其中一個——這樣利害關係人才能同時看到「電網實際影響」與「採購行動的環境效益」。
+    </div>
+  </div>
+</div>
+
+<!-- Q18 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">18</div>
+    <div class="q-cat">Scope 2 連動</div>
+    <div class="q-text">RE100 成員企業評估是否追加購買 I-REC（國際版 REC），財務部問：「I-REC 和 T-REC 在 RE100 框架下是一樣的嗎？」</div>
+    <div class="q-tog">▼ 解析</div>
+  </div>
+  <div class="q-body">
+    <ul class="q-opts">
+      <li data-o="A">I-REC 和 T-REC 完全不同，RE100 只接受 T-REC</li>
+      <li data-o="B" class="ok">兩者都是 RE100 接受的 EAC（能源屬性憑證），T-REC 是台灣的本土版本，I-REC 是國際版本；RE100 允許跨市場使用 EAC，但有「市場邊界（Market Boundary）」的概念，在有本土追蹤系統的市場（如台灣），應優先使用本土 EAC</li>
+      <li data-o="C">I-REC 比 T-REC 更受 RE100 認可，因此只要買 I-REC 就夠了</li>
+      <li data-o="D">RE100 只接受 PPA，不接受任何類型的 REC</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      T-REC（台灣）和 I-REC（國際）都是 RE100 框架下接受的 EAC（Energy Attribute Certificate，能源屬性憑證）。<br><br>
+      <strong>RE100 市場邊界原則：</strong>在已有本土追蹤系統（如台灣 T-REC）的市場，應優先使用本土 EAC；若本土供應不足，可補充 I-REC。<br><br>
+      台灣目前 T-REC 供應緊張，企業的雙軌策略是：<strong>盡量採購 T-REC + 補充 I-REC</strong> 以達成 RE100 年度目標。
+    </div>
+  </div>
+</div>
+
+<!-- Q19 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">19</div>
+    <div class="q-cat">Scope 2 連動</div>
+    <div class="q-text">富林有機農場在農場內裝設太陽能板自發電，考慮向 T-REC 中心申請發證再賣給企業。農場主問：「我賣掉了 T-REC 之後，我自己還算是使用綠電嗎？」</div>
+    <div class="q-tog">▼ 解析</div>
+  </div>
+  <div class="q-body">
+    <div class="q-ctx"><strong>情境：</strong>富林有機農場想透過賣 T-REC 創造收入，同時也想對外宣告自己使用 100% 再生能源。</div>
+    <ul class="q-opts">
+      <li data-o="A">農場賣出 T-REC 後，仍可宣告自己使用 100% 再生能源，因為電力實際上是自己發的</li>
+      <li data-o="B" class="ok">農場將 T-REC（環境效益/屬性）售出後，環境效益已轉移給買方；農場本身若宣告使用再生能源，必須另外保留或購買對應的 T-REC 才合規；不能「電我自己用、環境效益也自己保留但又賣給別人」</li>
+      <li data-o="C">T-REC 只是一張證書，不影響農場的實際用電申報</li>
+      <li data-o="D">農場只要不超過 10 萬度用電，可以豁免 T-REC 相關規定</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      這是「<strong>電證分離</strong>」制度的核心概念——電力本身（度數）和電力的「環境屬性」（EAC/T-REC）可以分開流通。<br><br>
+      農場將 T-REC 賣給企業後，環境屬性已移轉；若農場繼續宣告自己使用再生能源，<strong>必須另外保留對應年度的 T-REC</strong>，否則就是「重複主張」同一份環境效益（等同雙重計算）。<br><br>
+      <div class="note">🌾 對富林農場的建議：「留證自用」或「售出 T-REC 換現金」，必須二擇一。若要同時宣告農場綠電使用 + 賺碳權收入，需要的電力量需超過足夠留存部分再出售。</div>
+    </div>
+  </div>
+</div>
+
+<!-- Q20 -->
+<div class="q-block">
+  <div class="q-head" onclick="tg(this)">
+    <div class="q-num">20</div>
+    <div class="q-cat">綜合壓軸</div>
+    <div class="q-text">城邦集團某出版社計畫在富林農場舉辦「企業 ESG 永續教育日」，並對外宣傳「此活動使用 100% 再生能源電力」。農場屋頂太陽能已有裝設，但 T-REC 全部已出售給外部企業。此宣告合規嗎？最正確的處理方式是什麼？</div>
+    <div class="q-tog">▼ 解析</div>
+  </div>
+  <div class="q-body">
+    <div class="q-ctx"><strong>情境：</strong>富林農場 + 城邦集團 ESG 活動，活動現場用電來自農場太陽能，但農場 T-REC 全部已售出。</div>
+    <ul class="q-opts">
+      <li data-o="A">完全合規，農場太陽能自發電就是 100% 再生能源，T-REC 是多餘的</li>
+      <li data-o="B" class="ok">不合規。農場 T-REC 已售出代表環境效益已移轉，農場不可再宣告「使用再生能源」；正確做法是：①農場為活動期間的用電量留存對應 T-REC 不售出；或②城邦集團另外採購對應用電量的 T-REC，並由農場配合揭露；宣告前需確認環境效益未被重複主張</li>
+      <li data-o="C">只要活動用電量小於農場發電量，就可以直接宣告</li>
+      <li data-o="D">ESG 活動只需口頭宣稱，無需 T-REC 等正式憑證</li>
+    </ul>
+    <div class="q-ans">
+      <strong>答案：B</strong><br><br>
+      這道壓軸題整合了 <strong>RE100 電證分離、T-REC 環境效益移轉、活動碳中和宣告</strong> 三條線。<br><br>
+      農場的太陽能電力實體上確實流入活動現場，但<strong>「環境效益」已隨 T-REC 售出移轉給他人</strong>——此時若農場宣告活動使用「100% 再生能源」，等同重複主張同一份環境效益，是不合規的。<br><br>
+      <strong>正確處理方式：</strong><br>
+      ① 農場為活動用電量預留 T-REC 不售出（優先推薦）<br>
+      ② 城邦集團另外購買等量 T-REC 用於活動的再生能源宣告<br><br>
+      <div class="note">🌾 這也是富林農場未來規劃「企業 ESG 活動場地」時必須建立的 T-REC 管理機制——哪些 T-REC 留自用、哪些可售出，需要清楚的年度規劃。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 最後叮嚀 -->
+<div class="card amber" style="margin-top:36px;">
+  <p style="font-size:1rem;font-weight:800;color:#78350f;margin-bottom:12px;">📣 命題委員的最後叮嚀</p>
+  <p>RE100 的演進，反映了一個趨勢：<strong>「綠電採購」正在從「只要數量夠」進化為「必須有真實影響力」。</strong></p>
+  <p style="margin-top:8px;">2025 年的規則更新，是這個進化的里程碑。混燃含煤不算了、舊憑證不算了、光買便宜的不夠了——<strong>RE100 要的是真正推動能源轉型的行動。</strong></p>
+  <p style="margin-top:8px;font-weight:700;color:var(--gd);">對富林農場而言：屋頂太陽能是起點，T-REC 管理是關鍵，未來的碳匯合作是機會。🌿</p>
+</div>
+
+</div><!-- /wrap -->
+
+<div class="footer">
+  <p>📋 2026 IPAS 淨零碳管理師｜RE100 完整考前衝刺筆記</p>
+  <p style="margin-top:6px;">依據 RE100 Technical Criteria 2025 · GHG Protocol Scope 2 Guidance · T-REC 最新規則</p>
+  <p style="margin-top:6px;opacity:.5;">© 2026 IPAS 命題委員會召集人｜富林有機農場 × 城邦集團 ESG 學習計畫｜資料截至 2026 年 6 月</p>
+</div>
+
+<button class="print-btn" onclick="window.print()">🖨️ 列印 / 儲存 PDF</button>
+
+<script>
+function tg(el){
+  const ans=el.parentElement.querySelector('.q-ans');
+  const tog=el.querySelector('.q-tog');
+  if(ans.classList.contains('show')){
+    ans.classList.remove('show');
+    tog.textContent='▼ 解析';
+  } else {
+    ans.classList.add('show');
+    tog.textContent='▲ 收起';
+  }
+}
+</script>
+</body>
+</html>
