@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>氣候公約 × 巴黎協定 × 台灣時事 · 生活化故事版</title>
+<style>
+  :root {
+    --green: #3B6D11; --green-light: #EAF3DE; --green-mid: #639922;
+    --teal: #0F6E56; --teal-light: #E1F5EE; --teal-mid: #1D9E75;
+    --blue: #185FA5; --blue-light: #E6F1FB; --blue-mid: #378ADD;
+    --amber: #854F0B; --amber-light: #FAEEDA; --amber-mid: #BA7517;
+    --coral: #993C1D; --coral-light: #FAECE7; --coral-mid: #D85A30;
+    --gray: #444441; --gray-light: #F1EFE8; --gray-mid: #888780;
+    --purple: #3C3489; --purple-light: #EEEDFE; --purple-mid: #7F77DD;
+    --text: #1a1a1a; --text-muted: #555; --bg: #fff; --surface: #f8f9f2;
+    --radius: 12px; --radius-sm: 8px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Noto Sans TC', sans-serif; background: var(--surface); color: var(--text); line-height: 1.7; }
+  
+  /* Header */
+  .hero { background: linear-gradient(135deg, #0F6E56 0%, #3B6D11 50%, #1D9E75 100%); color: white; padding: 2.5rem 2rem; text-align: center; }
+  .hero h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .hero p { font-size: 18px; opacity: 0.88; margin-bottom: 1rem; }
+  .hero-badges { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+  .hero-badge { background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.35); border-radius: 20px; padding: 4px 14px; font-size: 18px; }
+  
+  /* Nav Tabs */
+  .nav { display: flex; gap: 4px; padding: 1rem 1.5rem 0; background: white; border-bottom: 1px solid #e0e0e0; overflow-x: auto; }
+  .nav-btn { padding: 10px 18px; border: none; background: none; cursor: pointer; font-size: 18px; font-weight: 500; color: var(--text-muted); border-bottom: 3px solid transparent; transition: all 0.2s; white-space: nowrap; border-radius: 6px 6px 0 0; }
+  .nav-btn:hover { background: var(--teal-light); color: var(--teal); }
+  .nav-btn.active { color: var(--teal); border-bottom-color: var(--teal); background: var(--teal-light); }
+  
+  /* Sections */
+  .section { display: none; padding: 1.5rem; max-width: 1860px; margin: 0 auto; }
+  .section.active { display: block; }
+  
+  /* Cards */
+  .card { background: white; border-radius: var(--radius); border: 1px solid #e8ede0; padding: 1.25rem 1.5rem; margin-bottom: 1rem; }
+  .card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 0.75rem; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 18px; font-weight: 600; }
+  .badge-green { background: var(--green-light); color: var(--green); }
+  .badge-teal { background: var(--teal-light); color: var(--teal); }
+  .badge-blue { background: var(--blue-light); color: var(--blue); }
+  .badge-amber { background: var(--amber-light); color: var(--amber); }
+  .badge-coral { background: var(--coral-light); color: var(--coral); }
+  .badge-purple { background: var(--purple-light); color: var(--purple); }
+  
+  /* Story blocks */
+  .story-box { background: var(--amber-light); border-left: 4px solid var(--amber-mid); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; padding: 1rem 1.25rem; margin: 0.75rem 0; }
+  .story-box .label { font-size: 18px; font-weight: 700; color: var(--amber); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem; }
+  .story-box p { font-size: 18px; color: #3d2e00; }
+  
+  .key-box { background: var(--teal-light); border-left: 4px solid var(--teal-mid); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; padding: 0.75rem 1.25rem; margin: 0.5rem 0; }
+  .key-box .label { font-size: 18px; font-weight: 700; color: var(--teal); margin-bottom: 0.3rem; }
+  .key-box p { font-size: 18px; color: #04342C; }
+  
+  .tip-box { background: var(--purple-light); border-left: 4px solid var(--purple-mid); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; padding: 0.75rem 1.25rem; margin: 0.5rem 0; }
+  .tip-box .label { font-size: 18px; font-weight: 700; color: var(--purple); margin-bottom: 0.3rem; }
+  .tip-box p { font-size: 18px; color: #26215C; }
+  
+  /* Article anchor */
+  .article-tag { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: var(--teal); color: white; border-radius: 50%; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; }
+  
+  /* Quick lookup table */
+  .lookup-table { width: 100%; border-collapse: collapse; font-size: 18px; }
+  .lookup-table th { background: var(--teal); color: white; padding: 10px 12px; text-align: left; }
+  .lookup-table td { padding: 9px 12px; border-bottom: 1px solid #eee; }
+  .lookup-table tr:nth-child(even) td { background: #f8fdf8; }
+  .lookup-table tr:hover td { background: var(--teal-light); }
+  .star { color: #e6820e; font-size: 18px; }
+  
+  /* Quiz */
+  .quiz-card { background: white; border-radius: var(--radius); border: 1px solid #e8ede0; padding: 1.5rem; margin-bottom: 1.25rem; }
+  .quiz-num { font-size: 18px; font-weight: 700; color: var(--gray-mid); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.5rem; }
+  .quiz-q { font-size: 18px; font-weight: 600; color: var(--text); margin-bottom: 1rem; line-height: 1.6; }
+  .quiz-scenario { background: var(--blue-light); border-radius: var(--radius-sm); padding: 0.75rem 1rem; margin-bottom: 1rem; font-size: 18px; color: #042C53; font-style: italic; }
+  .options { display: flex; flex-direction: column; gap: 8px; }
+  .opt { background: #f8f9f2; border: 1.5px solid #dde8d0; border-radius: var(--radius-sm); padding: 10px 14px; cursor: pointer; font-size: 18px; transition: all 0.15s; display: flex; align-items: center; gap: 10px; }
+  .opt:hover { background: var(--teal-light); border-color: var(--teal-mid); }
+  .opt.correct { background: var(--green-light); border-color: var(--green-mid); color: var(--green); font-weight: 600; }
+  .opt.wrong { background: var(--coral-light); border-color: var(--coral-mid); color: var(--coral); }
+  .opt.disabled { pointer-events: none; }
+  .opt-label { width: 22px; height: 22px; border-radius: 50%; background: white; border: 1.5px solid currentColor; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; flex-shrink: 0; }
+  .explanation { margin-top: 1rem; padding: 0.9rem 1rem; background: var(--green-light); border-radius: var(--radius-sm); font-size: 0.87rem; color: var(--green); display: none; }
+  .explanation.show { display: block; }
+  
+  /* Score board */
+  .score-bar { background: white; border-radius: var(--radius); border: 1px solid #e8ede0; padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .score-num { font-size: 2rem; font-weight: 700; color: var(--teal); }
+  .score-label { font-size: 18px; color: var(--text-muted); }
+  .progress-bar { height: 8px; background: #e0e0e0; border-radius: 4px; flex: 1; min-width: 120px; }
+  .progress-fill { height: 100%; background: var(--teal); border-radius: 4px; transition: width 0.4s ease; }
+  
+  /* Timeline */
+  .timeline { position: relative; padding-left: 2rem; }
+  .timeline::before { content: ''; position: absolute; left: 12px; top: 4px; bottom: 4px; width: 2px; background: var(--teal-light); }
+  .timeline-item { position: relative; margin-bottom: 1.2rem; }
+  .timeline-dot { position: absolute; left: -2rem; top: 4px; width: 14px; height: 14px; border-radius: 50%; background: var(--teal); border: 2px solid white; box-shadow: 0 0 0 2px var(--teal); }
+  .timeline-year { font-size: 18px; font-weight: 700; color: var(--teal); margin-bottom: 2px; }
+  .timeline-text { font-size: 18px; color: var(--text); }
+  
+  /* Grid */
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+  
+  /* Reset btn */
+  .btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border-radius: var(--radius-sm); border: 1.5px solid var(--teal); background: white; color: var(--teal); font-weight: 600; font-size: 18px; cursor: pointer; transition: all 0.15s; }
+  .btn:hover { background: var(--teal); color: white; }
+  .btn-primary { background: var(--teal); color: white; }
+  .btn-primary:hover { background: var(--teal-mid); }
+  
+  h2 { font-size: 1.2rem; font-weight: 700; color: var(--teal); margin-bottom: 1rem; }
+  h3 { font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; }
+  p { font-size: 18px; line-height: 1.75; }
+  ul { padding-left: 1.2rem; }
+  ul li { font-size: 18px; margin-bottom: 4px; }
+  
+  /* Highlight keyword */
+  .kw { background: #fff8e1; color: #7a5200; padding: 1px 5px; border-radius: 3px; font-weight: 600; font-size: 0.88em; }
+  
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 1.4rem; }
+    .score-bar { flex-direction: column; }
+  }
+  .badgerowbt { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
+a.badge1 {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: #007286;
+  color: #fff;
+  border: 1px solid #b6dece;
+  text-decoration: none;
+  line-height: 1.4;
+  transition: all 0.2s ease;
+}
+a.badge2 {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: #fff;
+  color: #007286;
+  border: 1px solid #b6dece;
+  text-decoration: none;
+  line-height: 1.4;
+  transition: all 0.2s ease;
+}
+</style>
+</head>
+<body>
+
+<div class="hero"> 
+  <p>氣候公約 × 巴黎協定 × 台灣時事 · 生活化故事版</p>
+  <div class="badgerowbt">
+	<div><a href="https://snoweryi.github.io/yilearn/i01.html" class="badge1">01趨勢及策略</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i02.html" class="badge1">02溫室氣體盤查</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i03.html" class="badge1">03碳足跡</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i031.html" class="badge1">03碳足跡2</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i011.html" class="badge1">考科一</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i022.html" class="badge1">考科二</a></div>
+    <div><a href="https://snoweryi.github.io/yilearn/" class="badge1" >永續架構</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/iu.html" class="badge1">UNFCCC</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/iz.html" class="badge2">條文</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/iy.html" class="badge1">年份</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/iw.html" class="badge1">氣候法</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/ic.html" class="badge1">CBAM</a></div>	
+	<div><a href="https://snoweryi.github.io/yilearn/is.html" class="badge1">SBTi</a></div>	
+	<div><a href="https://snoweryi.github.io/yilearn/ir.html" class="badge1">RE100</a></div>	
+  </div>
+</div>
+
+<div class="nav">
+  <button class="nav-btn active" onclick="showSection('notes')">📋 條文筆記</button>
+  <button class="nav-btn" onclick="showSection('stories')">📖 生活故事</button>
+  <button class="nav-btn" onclick="showSection('taiwan')">🇹🇼 台灣時事</button>
+  <button class="nav-btn" onclick="showSection('lookup')">⚡ 速查表</button>
+  <button class="nav-btn" onclick="showSection('quiz')">✏️ 情境考題</button>
+</div>
+
+<!-- ======== 條文筆記 ======== -->
+<div id="notes" class="section active">
+  <h2>📋 條文核心筆記</h2>
+  
+
+  <!-- UNFCCC -->
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-teal">UNFCCC 氣候公約</span>
+      <span style="font-size:0.8rem;color:var(--text-muted)">1992年通過</span>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:0.9rem;">
+      <div style="display:flex;gap:12px;align-items:flex-start;">
+        <span class="article-tag" style="background:var(--teal)">二</span>
+        <div>
+          <h3>第二條：目標</h3>
+          <p>將大氣中<span class="kw">溫室氣體濃度</span>穩定在避免氣候系統受到<span class="kw">危險人為干擾</span>的水準。</p>
+          <div class="key-box"><div class="label">🔑 記憶關鍵字</div><p>穩定濃度 · 人為干擾 · 防止危險</p></div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:12px;align-items:flex-start;">
+        <span class="article-tag" style="background:var(--teal)">三</span>
+        <div>
+          <h3>第三條：原則</h3>
+          <p><span class="kw">共同但有區別的責任（CBDR）</span>：已開發國家應率先處理氣候變遷；考量開發中國家需求；採取預防原則；促進永續發展與國際合作。</p>
+          <div class="key-box"><div class="label">🔑 記憶關鍵字</div><p>CBDR · 已開發優先 · 預防原則 · 永續發展</p></div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:12px;align-items:flex-start;">
+        <span class="article-tag" style="background:var(--teal)">四</span>
+        <div>
+          <h3>第四條：承諾事項</h3>
+          <p>已開發國家應提供<span class="kw">資金</span>、<span class="kw">技術移轉</span>、<span class="kw">保險</span>給開發中國家。開發中國家的履約程度，取決於已開發國家的支援。</p>
+          <div class="key-box"><div class="label">🔑 記憶關鍵字</div><p>技術移轉 · 氣候融資 · 能力建置</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Paris Agreement -->
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-green">巴黎協定</span>
+      <span style="font-size:0.8rem;color:var(--text-muted)">2015年通過・2016年生效</span>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:0.9rem;">
+      <div style="display:flex;gap:12px;align-items:flex-start;">
+        <span class="article-tag" style="background:var(--green)">二</span>
+        <div>
+          <h3>第二條：目標</h3>
+          <p>控制升溫<span class="kw">低於 2°C</span>，並努力控制在<span class="kw">1.5°C</span>；提升調適能力與氣候韌性；資金流向低碳與韌性發展路徑。</p>
+          <div class="key-box" style="background:var(--green-light);border-color:#639922"><div class="label" style="color:var(--green)">🔑 記憶關鍵字</div><p style="color:#173404">1.5°C · 氣候韌性 · 低碳資金流</p></div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:12px;align-items:flex-start;">
+        <span class="article-tag" style="background:var(--green)">四</span>
+        <div>
+          <h3>第四條：減緩規範（NDC）</h3>
+          <p>儘快達到全球排放<span class="kw">峰值</span>，本世紀下半葉達排放與<span class="kw">碳匯平衡（淨零）</span>。各國提出<span class="kw">NDC</span>，每<span class="kw">五年</span>依<span class="kw">全球盤點（GST）</span>更新，且企圖心須逐步提升。</p>
+          <div class="tip-box"><div class="label">🇹🇼 台灣數字</div><p style="color:#26215C">2024年更新：<strong>2030年較2005年減碳 28±2%</strong><br>2025年提出 NDC 3.0：<strong>2035年目標</strong></p></div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:12px;align-items:flex-start;">
+        <span class="article-tag" style="background:var(--green)">五</span>
+        <div>
+          <h3>第五條：碳匯規範</h3>
+          <p>締約方應保育與加強<span class="kw">碳匯（Carbon Sink）</span>與碳庫，包括<span class="kw">森林</span>。推動 REDD+（減少毀林與森林退化）。</p>
+          <p style="margin-top:6px;font-size:0.85rem;color:var(--text-muted)">碳匯定義：吸收並儲存 CO₂ 的樹木、森林、土壤、海洋、地層等。</p>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:12px;align-items:flex-start;">
+        <span class="article-tag" style="background:var(--green)">六</span>
+        <div>
+          <h3>第六條：自願合作機制（碳市場）</h3>
+          <p><strong>A6.2 市場機制：</strong><span class="kw">ITMOs</span>（國際轉讓減緩成果），自願基礎上國際碳交易，<span class="kw">避免重複計算</span>，環境完整性。</p>
+          <p style="margin-top:6px;"><strong>A6.8 非市場機制：</strong>透過融資、技術移轉、調適協助，<span class="kw">不涉及碳權轉移</span>。</p>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:12px;align-items:flex-start;">
+        <span class="article-tag" style="background:var(--green)">七</span>
+        <div>
+          <h3>第七條：調適規範（GGA）</h3>
+          <p>建立<span class="kw">全球調適目標（GGA）</span>，提升韌性、降低脆弱度，推動國家調適計畫（NAP），監測評估調適成效。</p>
+          <div class="key-box" style="background:var(--green-light);border-color:#639922"><div class="label" style="color:var(--green)">🔑 記憶關鍵字</div><p style="color:#173404">GGA · 調適 · 韌性 · 脆弱度 · 海綿城市</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======== 生活故事 ======== -->
+<div id="stories" class="section">
+  <h2>📖 生活化故事記憶法</h2>
+  <p style="color:var(--text-muted);margin-bottom:1.2rem;font-size:0.88rem;">把抽象條文轉成日常情境，讓考試當天腦袋有畫面 🧠</p>
+
+  <div class="card">
+    <div class="card-header"><span class="badge badge-teal">UNFCCC 第三條 · CBDR</span></div>
+    <div class="story-box">
+      <div class="label">🏘️ 生活故事</div>
+      <p>社區要整修排水溝（=解決氣候問題），大家都有責任出力，但<strong>有錢的住戶（已開發國家）要先帶頭出錢出力</strong>，不能叫剛搬來的租客（開發中國家）一樣多出。這就是「<strong>共同但有區別的責任</strong>」。</p>
+    </div>
+    <div class="tip-box"><div class="label">💡 考試陷阱</div><p style="color:#26215C">題目問「強調已開發國家率先行動」→ 一定是 <strong>UNFCCC 第三條</strong>，別跟巴黎協定第二條搞混。</p></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="badge badge-green">巴黎協定第四條 · NDC</span></div>
+    <div class="story-box">
+      <div class="label">📝 生活故事</div>
+      <p>每個國家就像學生，每五年要向班導師（UNFCCC秘書處）<strong>繳交減碳作業（NDC）</strong>，而且每次繳交的成績<strong>不能比上次退步</strong>，還要依照「全球大考成績（GST）」來調整目標。台灣2024年的作業是：「跟2005年相比，要少排28±2%的碳。」</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="badge badge-green">巴黎協定第五條 · 碳匯</span></div>
+    <div class="story-box">
+      <div class="label">🌳 生活故事</div>
+      <p>農場的果樹就像一台<strong>天然吸塵器（碳匯）</strong>，每天默默把空氣中的 CO₂ 吸進去，轉成葉子和果實。富林農場種的有機稻、蔬果，就是在為台灣增加碳匯！保護森林不砍伐 = 保護這些吸塵器持續運作。</p>
+    </div>
+    <div class="tip-box"><div class="label">💡 記憶術</div><p style="color:#26215C">看到「森林」「樹木」「土壤吸碳」「REDD+」→ 巴黎協定 <strong>第五條</strong></p></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="badge badge-green">巴黎協定第六條 · 碳市場 ITMOs</span></div>
+    <div class="story-box">
+      <div class="label">💱 生活故事</div>
+      <p>A國拼命減碳，超額完成目標，多出的「減碳績效」可以<strong>賣給</strong>還沒達標的B國（＝ITMOs）。就像家裡用電量低，把多餘的電賣給鄰居——但這筆電不能兩家都算，要有人打勾確認「<strong>不能重複計算</strong>」。</p>
+    </div>
+    <div class="tip-box"><div class="label">💡 A6.2 vs A6.8 快速分法</div><p style="color:#26215C">有碳權轉移交易 = <strong>A6.2（市場機制）</strong><br>只有技術/資金合作，無碳權 = <strong>A6.8（非市場機制）</strong></p></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="badge badge-green">巴黎協定第七條 · 調適 GGA</span></div>
+    <div class="story-box">
+      <div class="label">🌊 生活故事</div>
+      <p>颱風越來越強，台灣蓋海綿城市、加固堤防、改良耐旱品種——這些都叫「<strong>調適（Adaptation）</strong>」。不是減少排碳，而是<strong>學會和氣候變化共處</strong>，讓城市更有「韌性」。GGA = 全球都要一起提升這個能力的大目標。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ======== 台灣時事 ======== -->
+<div id="taiwan" class="section">
+  <h2>🇹🇼 台灣淨零時事（2025-2026 必考）</h2>
+
+  <div class="card">
+    <h3 style="margin-bottom:1rem;">📅 關鍵時間軸</h3>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2005 年</div>
+        <div class="timeline-text">基準年：台灣 NDC 減碳基準點，所有百分比都從這年算起</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2015 年</div>
+        <div class="timeline-text">COP 21：巴黎協定通過，各國提交 INDC（預期貢獻）</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2021 年</div>
+        <div class="timeline-text">COP 26 格拉斯哥：決議各國 2025 年前提交 2035 NDC</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2022 年</div>
+        <div class="timeline-text">台灣氣候變遷因應法通過，宣示 2050 年淨零碳排目標</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2023 年</div>
+        <div class="timeline-text">台灣更新 NDC：2030 年較 2005 年削減 <strong>24±1%</strong></div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot" style="background:var(--coral)"></div>
+        <div class="timeline-year" style="color:var(--coral)">2024 年底 ⭐</div>
+        <div class="timeline-text"><strong>台灣 NDC 加嚴：2030 年較 2005 年削減 28±2%</strong>（配合第三階段管制目標）</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot" style="background:var(--coral)"></div>
+        <div class="timeline-year" style="color:var(--coral)">2025 年 ⭐</div>
+        <div class="timeline-text"><strong>NDC 3.0 提出：2035 年減碳目標</strong>（配合 COP 30 決議）</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2025 年 COP 30</div>
+        <div class="timeline-text">巴西貝倫：各國提交 2035 年 NDC 更新（重要里程碑）</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2030 年</div>
+        <div class="timeline-text">各國提交 2040 年 NDC 更新目標</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot" style="background:var(--green)"></div>
+        <div class="timeline-year" style="color:var(--green)">2050 年</div>
+        <div class="timeline-text"><strong>台灣宣示淨零碳排目標年</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <span class="badge badge-coral" style="margin-bottom:0.8rem;display:inline-block">★★★★★ 超高機率</span>
+      <h3>台灣 NDC 數字</h3>
+      <p>2024 加嚴目標：<span class="kw">較 2005 年減碳 28±2%</span>（2030年）</p>
+      <p style="margin-top:8px;">考試陷阱：原本是 24±1%，現在是 <strong>28±2%</strong>，不要搞混！</p>
+    </div>
+    <div class="card">
+      <span class="badge badge-coral" style="margin-bottom:0.8rem;display:inline-block">★★★★★ 超高機率</span>
+      <h3>Article 6 碳市場</h3>
+      <p>COP 29（2024）確立 Article 6 規則細節，<span class="kw">國際碳市場機制成熟化</span>，台灣企業可參與國際碳權交易。</p>
+    </div>
+    <div class="card">
+      <span class="badge badge-amber" style="margin-bottom:0.8rem;display:inline-block">★★★★☆ 高機率</span>
+      <h3>GGA 全球調適目標</h3>
+      <p>持續深化中，各國須提交<span class="kw">國家調適計畫（NAP）</span>，台灣已有氣候變遷調適行動計畫。</p>
+    </div>
+    <div class="card">
+      <span class="badge badge-amber" style="margin-bottom:0.8rem;display:inline-block">★★★★☆ 高機率</span>
+      <h3>CBAM 歐盟碳邊境調整</h3>
+      <p>2026年正式課徵，<span class="kw">台灣出口商品需申報碳含量</span>，影響鋼鐵、水泥、電力、鋁等行業。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ======== 速查表 ======== -->
+<div id="lookup" class="section">
+  <h2>⚡ 考前速查表</h2>
+
+  <div class="card" style="padding:1rem;">
+    <h3 style="margin-bottom:0.8rem;">看到題目關鍵字 → 立刻對應</h3>
+    <table class="lookup-table">
+      <thead>
+        <tr><th>題目關鍵字</th><th>正確答案</th><th>熱度</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>穩定溫室氣體濃度</td><td>UNFCCC 第二條</td><td class="star">★★★★★</td></tr>
+        <tr><td>危險人為干擾</td><td>UNFCCC 第二條</td><td class="star">★★★★★</td></tr>
+        <tr><td>CBDR / 共同但有區別</td><td>UNFCCC 第三條</td><td class="star">★★★★★</td></tr>
+        <tr><td>已開發國家率先減碳</td><td>UNFCCC 第三條</td><td class="star">★★★★★</td></tr>
+        <tr><td>技術移轉 / 氣候融資</td><td>UNFCCC 第四條</td><td class="star">★★★★☆</td></tr>
+        <tr><td>1.5°C / 2°C 控溫</td><td>巴黎協定 第二條</td><td class="star">★★★★★</td></tr>
+        <tr><td>氣候韌性</td><td>巴黎協定 第二條 / 第七條</td><td class="star">★★★★☆</td></tr>
+        <tr><td>NDC / 國家自定貢獻</td><td>巴黎協定 第四條</td><td class="star">★★★★★</td></tr>
+        <tr><td>每五年更新</td><td>巴黎協定 第四條</td><td class="star">★★★★★</td></tr>
+        <tr><td>全球盤點 / GST</td><td>巴黎協定 第四條</td><td class="star">★★★★★</td></tr>
+        <tr><td>淨零 / 本世紀下半葉</td><td>巴黎協定 第四條</td><td class="star">★★★★★</td></tr>
+        <tr><td>Carbon Sink / 碳匯</td><td>巴黎協定 第五條</td><td class="star">★★★★☆</td></tr>
+        <tr><td>森林 / REDD+</td><td>巴黎協定 第五條</td><td class="star">★★★★☆</td></tr>
+        <tr><td>ITMOs / 國際碳交易</td><td>巴黎協定 第六條 A6.2</td><td class="star">★★★★★</td></tr>
+        <tr><td>避免重複計算</td><td>巴黎協定 第六條</td><td class="star">★★★★★</td></tr>
+        <tr><td>非市場方法 / 無碳權轉移</td><td>巴黎協定 第六條 A6.8</td><td class="star">★★★★☆</td></tr>
+        <tr><td>GGA / 全球調適目標</td><td>巴黎協定 第七條</td><td class="star">★★★★★</td></tr>
+        <tr><td>海綿城市 / 防洪 / 耐旱</td><td>巴黎協定 第七條 調適</td><td class="star">★★★★☆</td></tr>
+        <tr><td>台灣 28±2%</td><td>台灣 NDC（2024更新）</td><td class="star">★★★★★</td></tr>
+        <tr><td>NDC 3.0 / 2035目標</td><td>台灣（2025提出）</td><td class="star">★★★★★</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-bottom:0.8rem;">情境題型速查</h3>
+    <table class="lookup-table">
+      <thead>
+        <tr><th>題目情境</th><th>對應機制 / 條文</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>A國購買B國減碳成果以達成NDC</td><td>巴黎協定 第六條 A6.2 · ITMOs</td></tr>
+        <tr><td>森林吸收CO₂，國家保育</td><td>巴黎協定 第五條 碳匯</td></tr>
+        <tr><td>各國每五年繳交減碳計畫</td><td>巴黎協定 第四條 NDC</td></tr>
+        <tr><td>已開發國家提供開發中國家資金</td><td>UNFCCC 第四條</td></tr>
+        <tr><td>強調有錢國家先減，貧窮國家後減</td><td>UNFCCC 第三條 CBDR</td></tr>
+        <tr><td>蓋堤防、海綿城市、品種改良</td><td>巴黎協定 第七條 調適</td></tr>
+        <tr><td>全球升溫目標討論</td><td>巴黎協定 第二條</td></tr>
+        <tr><td>兩國合作減碳，但不轉讓碳權</td><td>巴黎協定 第六條 A6.8 非市場</td></tr>
+        <tr><td>歐盟對進口商品課碳關稅</td><td>CBAM（時事）</td></tr>
+        <tr><td>台灣提出2035減碳目標</td><td>NDC 3.0（2025台灣時事）</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ======== 情境考題 ======== -->
+<div id="quiz" class="section">
+  <div class="score-bar">
+    <div>
+      <div class="score-label">目前得分</div>
+      <div class="score-num" id="score-display">0 / 0</div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;gap:6px;">
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+      <div style="font-size:0.78rem;color:var(--text-muted)" id="progress-text">開始作答，每題作答後即時顯示解析</div>
+    </div>
+    <button class="btn" onclick="resetQuiz()">🔄 重置</button>
+  </div>
+
+  <!-- Q1 -->
+  <div class="quiz-card" id="q1">
+    <div class="quiz-num">第 1 題 · 情境題</div>
+    <div class="quiz-scenario">🌾 農場情境：小宜的富林有機農場今年在山坡種了 500 株台灣原生樹種，縣府說這可以申請「碳匯計畫」。請問這對應巴黎協定哪條規定？</div>
+    <div class="quiz-q">下列哪個選項最符合農場種樹增加碳匯的對應條文？</div>
+    <div class="options">
+      <div class="opt" onclick="answer(this,'q1','A')"><span class="opt-label">A</span>巴黎協定第二條：控溫 1.5°C 目標</div>
+      <div class="opt" onclick="answer(this,'q1','B')"><span class="opt-label">B</span>巴黎協定第四條：各國提出 NDC</div>
+      <div class="opt correct-ans" data-ans="C" onclick="answer(this,'q1','C')"><span class="opt-label">C</span>巴黎協定第五條：保育與加強碳匯與碳庫</div>
+      <div class="opt" onclick="answer(this,'q1','D')"><span class="opt-label">D</span>巴黎協定第七條：全球調適目標 GGA</div>
+    </div>
+    <div class="explanation" id="q1-exp">✅ <strong>正確！</strong> 第五條規定各締約方應保育與加強溫室氣體的匯和庫，包括森林。農場種樹增加碳吸收，就是在落實「碳匯（Carbon Sink）」概念。REDD+（減少毀林與森林退化）也屬此條。</div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="quiz-card" id="q2">
+    <div class="quiz-num">第 2 題 · 時事題</div>
+    <div class="quiz-scenario">📰 新聞標題：「台灣環境部 2024 年底宣布加嚴 2030 年減碳目標」</div>
+    <div class="quiz-q">台灣 2024 年底更新的 NDC 目標，是較 2005 年削減多少比例？</div>
+    <div class="options">
+      <div class="opt" onclick="answer(this,'q2','A')"><span class="opt-label">A</span>較 2005 年削減 20±1%</div>
+      <div class="opt" onclick="answer(this,'q2','B')"><span class="opt-label">B</span>較 2005 年削減 24±1%</div>
+      <div class="opt correct-ans" data-ans="C" onclick="answer(this,'q2','C')"><span class="opt-label">C</span>較 2005 年削減 28±2%</div>
+      <div class="opt" onclick="answer(this,'q2','D')"><span class="opt-label">D</span>較 2005 年削減 30±2%</div>
+    </div>
+    <div class="explanation" id="q2-exp">✅ <strong>正確！</strong> 台灣原本 2023 年設定 24±1%，2024 年底配合第三階段管制目標<strong>加嚴為 28±2%</strong>。這是超高頻考點！常見陷阱是跟舊版 24% 搞混。</div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="quiz-card" id="q3">
+    <div class="quiz-num">第 3 題 · 機制辨別</div>
+    <div class="quiz-scenario">🌍 情境：日本超額完成 NDC 目標，想把多減的碳排放量轉賣給鄰近的馬來西亞，讓馬來西亞也算入自己的 NDC 成果中，雙方協議不能重複計算。</div>
+    <div class="quiz-q">這個情境對應巴黎協定第六條哪個機制？</div>
+    <div class="options">
+      <div class="opt correct-ans" data-ans="A" onclick="answer(this,'q3','A')"><span class="opt-label">A</span>A6.2 市場機制：ITMOs（國際轉讓減緩成果）</div>
+      <div class="opt" onclick="answer(this,'q3','B')"><span class="opt-label">B</span>A6.8 非市場機制：技術移轉與融資協助</div>
+      <div class="opt" onclick="answer(this,'q3','C')"><span class="opt-label">C</span>第五條：碳匯保育</div>
+      <div class="opt" onclick="answer(this,'q3','D')"><span class="opt-label">D</span>第七條：GGA 全球調適目標</div>
+    </div>
+    <div class="explanation" id="q3-exp">✅ <strong>正確！</strong> A6.2 是市場機制，透過 <strong>ITMOs（Internationally Transferred Mitigation Outcomes）</strong>讓國家間轉讓減碳成果。關鍵特徵：有碳權交易 + 雙方同意 + 避免重複計算。A6.8 不涉及碳權轉移，只有技術/資金合作。</div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="quiz-card" id="q4">
+    <div class="quiz-num">第 4 題 · 原則辨識</div>
+    <div class="quiz-scenario">🤝 國際談判現場：某開發中國家代表說：「我們國家才剛工業化，歷史排碳量少，憑什麼要和美國、歐盟承擔一樣多的減碳責任？」</div>
+    <div class="quiz-q">這位代表所主張的精神，對應氣候公約（UNFCCC）哪個條文的哪項原則？</div>
+    <div class="options">
+      <div class="opt" onclick="answer(this,'q4','A')"><span class="opt-label">A</span>UNFCCC 第二條：穩定溫室氣體濃度</div>
+      <div class="opt correct-ans" data-ans="B" onclick="answer(this,'q4','B')"><span class="opt-label">B</span>UNFCCC 第三條：CBDR（共同但有區別的責任）</div>
+      <div class="opt" onclick="answer(this,'q4','C')"><span class="opt-label">C</span>UNFCCC 第四條：技術移轉與氣候融資</div>
+      <div class="opt" onclick="answer(this,'q4','D')"><span class="opt-label">D</span>巴黎協定第四條：NDC 更新</div>
+    </div>
+    <div class="explanation" id="q4-exp">✅ <strong>正確！</strong> <strong>CBDR（Common But Differentiated Responsibilities）</strong> 是 UNFCCC 第三條核心原則：各國都有責任，但責任不同；已開發國家（歷史排碳多、技術強）應率先行動，並協助開發中國家。</div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="quiz-card" id="q5">
+    <div class="quiz-num">第 5 題 · 調適 vs 減緩</div>
+    <div class="quiz-scenario">🏙️ 台北市政府計畫推動「海綿城市計畫」——包括建設透水鋪面、人工溼地、屋頂綠化，以因應未來極端降雨事件頻率增加。</div>
+    <div class="quiz-q">此計畫屬於氣候行動的哪個範疇？對應巴黎協定哪條？</div>
+    <div class="options">
+      <div class="opt" onclick="answer(this,'q5','A')"><span class="opt-label">A</span>減緩（Mitigation）· 巴黎協定第四條</div>
+      <div class="opt correct-ans" data-ans="B" onclick="answer(this,'q5','B')"><span class="opt-label">B</span>調適（Adaptation）· 巴黎協定第七條 GGA</div>
+      <div class="opt" onclick="answer(this,'q5','C')"><span class="opt-label">C</span>碳匯增加 · 巴黎協定第五條</div>
+      <div class="opt" onclick="answer(this,'q5','D')"><span class="opt-label">D</span>市場機制 · 巴黎協定第六條</div>
+    </div>
+    <div class="explanation" id="q5-exp">✅ <strong>正確！</strong> 「調適」= 面對已發生/預期的氣候衝擊，調整系統使其更能承受。海綿城市、防洪建設、耐旱作物都是調適。「減緩」是減少碳排放量。記法：<strong>減緩 = 減少原因；調適 = 承受後果</strong>。GGA 是巴黎協定第七條。</div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="quiz-card" id="q6">
+    <div class="quiz-num">第 6 題 · 台灣時事</div>
+    <div class="quiz-scenario">📋 2025 年上半年，台灣環境部正式向 UNFCCC 秘書處提交一份新文件，內容是台灣對 2035 年的減碳目標，這份文件被稱為 NDC 3.0。</div>
+    <div class="quiz-q">台灣提出 NDC 3.0 的主要背景原因是什麼？</div>
+    <div class="options">
+      <div class="opt" onclick="answer(this,'q6','A')"><span class="opt-label">A</span>因應歐盟 CBAM 碳邊境稅要求</div>
+      <div class="opt" onclick="answer(this,'q6','B')"><span class="opt-label">B</span>台灣自主超前部署，與法規無直接關聯</div>
+      <div class="opt correct-ans" data-ans="C" onclick="answer(this,'q6','C')"><span class="opt-label">C</span>依 COP 26 決議，各國應在 COP 30 前提交 2035 年 NDC 更新</div>
+      <div class="opt" onclick="answer(this,'q6','D')"><span class="opt-label">D</span>因應 2024 年全球盤點（GST）結果要求</div>
+    </div>
+    <div class="explanation" id="q6-exp">✅ <strong>正確！</strong> COP 26（2021 格拉斯哥）決議：各締約方應在 <strong>COP 30（2025年）前提交 2035 年 NDC</strong>，並在 2030 年前提交 2040 年目標。台灣 2025 年上半年提出 NDC 3.0 就是回應這個決議。</div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="quiz-card" id="q7">
+    <div class="quiz-num">第 7 題 · 綜合應用</div>
+    <div class="quiz-scenario">🌐 某科技公司 A 在台灣承諾 2040 年達到淨零，為了達成目標，他們：① 導入再生能源減少工廠碳排（減緩）② 向哥斯大黎加購買森林保育碳權（ITMOs）③ 在新竹廠區旁種樹增加碳吸收（碳匯）④ 建置廠房屋頂隔熱系統因應熱浪風險（調適）</div>
+    <div class="quiz-q">上述措施中，哪一項對應巴黎協定「第六條 A6.2 市場機制」？</div>
+    <div class="options">
+      <div class="opt" onclick="answer(this,'q7','A')"><span class="opt-label">A</span>① 導入再生能源</div>
+      <div class="opt correct-ans" data-ans="B" onclick="answer(this,'q7','B')"><span class="opt-label">B</span>② 向哥斯大黎加購買森林保育碳權</div>
+      <div class="opt" onclick="answer(this,'q7','C')"><span class="opt-label">C</span>③ 廠區種樹增加碳吸收</div>
+      <div class="opt" onclick="answer(this,'q7','D')"><span class="opt-label">D</span>④ 屋頂隔熱系統</div>
+    </div>
+    <div class="explanation" id="q7-exp">✅ <strong>正確！</strong> ② 跨國購買碳權 = 第六條 A6.2 ITMOs（市場機制）；① = 國內減緩（第四條 NDC）；③ = 第五條碳匯；④ = 第七條調適。綜合題型考的是能否快速辨別各條文對應的實際行動。</div>
+  </div>
+
+  <div style="text-align:center;padding:1rem 0 2rem;">
+    <button class="btn btn-primary" onclick="resetQuiz()">🔄 重新作答</button>
+  </div>
+</div>
+
+<script>
+let scores = { correct: 0, total: 0 };
+let answered = {};
+
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+function answer(el, qid, chosen) {
+  if (answered[qid]) return;
+  answered[qid] = true;
+  scores.total++;
+
+  const card = document.getElementById(qid);
+  const opts = card.querySelectorAll('.opt');
+  const correctAns = card.querySelector('.correct-ans').dataset.ans;
+  
+  opts.forEach(o => o.classList.add('disabled'));
+
+  if (chosen === correctAns) {
+    el.classList.add('correct');
+    scores.correct++;
+  } else {
+    el.classList.add('wrong');
+    card.querySelector('.correct-ans').classList.add('correct');
+  }
+
+  card.querySelector(`#${qid}-exp`).classList.add('show');
+  updateScore();
+}
+
+function updateScore() {
+  document.getElementById('score-display').textContent = `${scores.correct} / ${scores.total}`;
+  const pct = scores.total > 0 ? Math.round((scores.correct / scores.total) * 100) : 0;
+  document.getElementById('progress-fill').style.width = pct + '%';
+  const total_q = 7;
+  const remaining = total_q - scores.total;
+  if (remaining > 0) {
+    document.getElementById('progress-text').textContent = `已答 ${scores.total} 題，還剩 ${remaining} 題`;
+  } else {
+    const msg = pct >= 85 ? '🎉 太棒了！通過門檻沒問題！' : pct >= 70 ? '👍 不錯！再複習一下重點條文。' : '📖 建議回到筆記區加強複習！';
+    document.getElementById('progress-text').textContent = `完成！正確率 ${pct}%　${msg}`;
+  }
+}
+
+function resetQuiz() {
+  scores = { correct: 0, total: 0 };
+  answered = {};
+  document.querySelectorAll('.opt').forEach(o => {
+    o.classList.remove('correct', 'wrong', 'disabled');
+  });
+  document.querySelectorAll('.explanation').forEach(e => e.classList.remove('show'));
+  updateScore();
+  document.getElementById('score-display').textContent = '0 / 0';
+  document.getElementById('progress-fill').style.width = '0%';
+  document.getElementById('progress-text').textContent = '開始作答，每題作答後即時顯示解析';
+}
+</script>
+</body>
+</html>
