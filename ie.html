@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ESG 框架全攻略 2026 · IPAS 淨零碳管理師考試</title>
+<style>
+:root {
+  --ink: #1a1c1e;
+  --ink-muted: #52565a;
+  --ink-faint: #8a8e93;
+  --paper: #f7f6f3;
+  --white: #ffffff;
+  --rule: #e2e0db;
+
+  /* Framework brand colors */
+  --issb: #1a4fd6;
+  --issb-bg: #eef2fd;
+  --issb-mid: #5581e8;
+  --gri: #1d7a3e;
+  --gri-bg: #e8f5ee;
+  --gri-mid: #3ea85e;
+  --sasb: #7c3aed;
+  --sasb-bg: #f3eefe;
+  --sasb-mid: #a370f7;
+  --csrd: #c2410c;
+  --csrd-bg: #fef0ea;
+  --csrd-mid: #ea6b35;
+  --tnfd: #0f766e;
+  --tnfd-bg: #e6f7f5;
+  --tnfd-mid: #2cb5ac;
+  --scope3: #92400e;
+  --scope3-bg: #fef3e2;
+  --scope3-mid: #d97706;
+  --warn: #b91c1c;
+  --warn-bg: #fef2f2;
+  --ok: #166534;
+  --ok-bg: #f0fdf4;
+
+  --radius: 10px;
+  --radius-sm: 6px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans TC', 'PingFang TC', system-ui, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.7;
+  font-size: 18px;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--ink);
+  color: var(--white);
+  padding: 3rem 2rem 2.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 40px,
+    rgba(255,255,255,0.02) 40px,
+    rgba(255,255,255,0.02) 41px
+  );
+}
+.hero-eyebrow {
+  font-size: 18px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #9ca3af;
+  margin-bottom: 0.75rem;
+}
+.hero h1 {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+.hero h1 span { color: #60a5fa; }
+.hero-sub {
+  font-size: 18px;
+  color: #9ca3af;
+  margin-bottom: 1.5rem;
+}
+.alert-strip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(220, 38, 38, 0.15);
+  border: 1px solid rgba(220, 38, 38, 0.4);
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 18px;
+  color: #fca5a5;
+}
+
+/* ── TABS ── */
+.tabs-wrap {
+  background: var(--white);
+  border-bottom: 1px solid var(--rule);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.tabs {
+  display: flex;
+  overflow-x: auto;
+  padding: 0 1rem;
+  gap: 2px;
+  scrollbar-width: none;
+}
+.tabs::-webkit-scrollbar { display: none; }
+.tab-btn {
+  flex-shrink: 0;
+  padding: 14px 16px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink-muted);
+  border-bottom: 3px solid transparent;
+  transition: all 0.18s;
+  white-space: nowrap;
+}
+.tab-btn:hover { color: var(--ink); background: var(--paper); }
+.tab-btn.active { color: var(--issb); border-bottom-color: var(--issb); }
+
+/* ── LAYOUT ── */
+.section { display: none; padding: 1.5rem; max-width: 1900px; margin: 0 auto; }
+.section.active { display: block; }
+
+/* ── CARDS ── */
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+}
+.card + .card { margin-top: 0; }
+
+/* ── FRAMEWORK PILL ── */
+.fw-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.fw-issb  { background: var(--issb-bg);  color: var(--issb);  }
+.fw-gri   { background: var(--gri-bg);   color: var(--gri);   }
+.fw-sasb  { background: var(--sasb-bg);  color: var(--sasb);  }
+.fw-csrd  { background: var(--csrd-bg);  color: var(--csrd);  }
+.fw-tnfd  { background: var(--tnfd-bg);  color: var(--tnfd);  }
+.fw-scope { background: var(--scope3-bg); color: var(--scope3); }
+
+/* ── CALLOUT BOXES ── */
+.box {
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1rem;
+  margin: 0.75rem 0;
+  font-size: 18px;
+  line-height: 1.65;
+}
+.box-warn  { background: var(--warn-bg);   border-left: 3px solid var(--warn);  color: #7f1d1d; }
+.box-ok    { background: var(--ok-bg);     border-left: 3px solid var(--ok);    color: #14532d; }
+.box-blue  { background: var(--issb-bg);   border-left: 3px solid var(--issb);  color: #1e3a8a; }
+.box-amber { background: var(--scope3-bg); border-left: 3px solid var(--scope3-mid); color: #78350f; }
+.box-teal  { background: var(--tnfd-bg);   border-left: 3px solid var(--tnfd);  color: #134e4a; }
+.box-label {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 3px;
+}
+
+/* ── NEW vs OLD TABLE ── */
+.diff-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 18px;
+  margin-top: 0.75rem;
+}
+.diff-table th {
+  padding: 8px 12px;
+  text-align: left;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  border-bottom: 2px solid var(--rule);
+  color: var(--ink-muted);
+}
+.diff-table td {
+  padding: 9px 12px;
+  border-bottom: 1px solid #f0ede8;
+  vertical-align: top;
+  line-height: 1.5;
+}
+.diff-table tr:last-child td { border-bottom: none; }
+.diff-table tr:hover td { background: #fbfaf8; }
+.old-val { color: var(--warn); text-decoration: line-through; font-size: 18px; }
+.new-val { color: var(--ok); font-weight: 700; }
+.hot { color: var(--warn); }
+.star-heat { color: #f59e0b; font-size: 18px; }
+
+/* ── QUIZ ── */
+.quiz-card {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+.quiz-meta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+.quiz-no {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+}
+.quiz-scenario {
+  background: #f0f4ff;
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 18px;
+  color: #1e3a8a;
+  font-style: italic;
+  line-height: 1.6;
+}
+.quiz-q {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.55;
+}
+.opts { display: flex; flex-direction: column; gap: 7px; }
+.opt {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 14px;
+  border: 1.5px solid var(--rule);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1.5;
+  transition: all 0.15s;
+  background: var(--paper);
+}
+.opt:hover { border-color: var(--issb-mid); background: var(--issb-bg); }
+.opt.correct { background: var(--ok-bg); border-color: var(--gri-mid); color: var(--ok); font-weight: 600; }
+.opt.wrong   { background: var(--warn-bg); border-color: var(--warn); color: var(--warn); }
+.opt.disabled { pointer-events: none; }
+.opt-key {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: 800;
+  flex-shrink: 0;
+  background: white;
+}
+.explain {
+  display: none;
+  margin-top: 1rem;
+  padding: 0.9rem 1rem;
+  background: var(--ok-bg);
+  border-radius: var(--radius-sm);
+  font-size: 18px;
+  color: var(--ok);
+  line-height: 1.65;
+}
+.explain.show { display: block; }
+
+/* ── SCORE BAR ── */
+.scorebar {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+.score-big { font-size: 2.2rem; font-weight: 800; color: var(--issb); line-height: 1; }
+.score-label { font-size: 18px; color: var(--ink-muted); margin-top: 2px; }
+.prog-wrap { flex: 1; min-width: 140px; }
+.prog-bar { height: 8px; background: #e5e7eb; border-radius: 4px; overflow: hidden; }
+.prog-fill { height: 100%; background: linear-gradient(90deg, var(--issb), var(--tnfd)); border-radius: 4px; transition: width 0.4s; }
+.prog-text { font-size: 18px; color: var(--ink-muted); margin-top: 4px; }
+
+/* ── COMPARE GRID ── */
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1rem; }
+
+/* ── TIMELINE ── */
+.tl { position: relative; padding-left: 2rem; margin-top: 0.5rem; }
+.tl::before { content: ''; position: absolute; left: 9px; top: 0; bottom: 0; width: 2px; background: var(--rule); }
+.tl-item { position: relative; padding-bottom: 1.1rem; }
+.tl-dot { position: absolute; left: -2rem; top: 3px; width: 12px; height: 12px; border-radius: 50%; background: var(--issb); border: 2px solid var(--white); box-shadow: 0 0 0 2px var(--issb); }
+.tl-dot.new { background: var(--warn); box-shadow: 0 0 0 2px var(--warn); }
+.tl-year { font-size: 18px; font-weight: 800; color: var(--issb); letter-spacing: 0.06em; }
+.tl-year.new { color: var(--warn); }
+.tl-text { font-size: 18px; }
+
+/* ── BTN ── */
+.btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 18px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--issb);
+  background: var(--white); color: var(--issb);
+  font-size: 18px; font-weight: 700;
+  cursor: pointer; transition: all 0.15s;
+}
+.btn:hover { background: var(--issb); color: white; }
+
+/* ── SECTION HEADINGS ── */
+.sec-head { font-size: 1.15rem; font-weight: 800; color: var(--ink); margin-bottom: 1rem; letter-spacing: -0.01em; }
+.sec-sub  { font-size: 18px; color: var(--ink-muted); margin-bottom: 1.25rem; margin-top: -0.6rem; }
+
+/* ── KEYWORD ── */
+.kw { background: #fef9c3; color: #713f12; padding: 1px 5px; border-radius: 3px; font-weight: 700; font-size: 0.9em; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .hero { padding: 2rem 1.25rem; }
+  .section { padding: 1rem; }
+  .card { padding: 1rem 1.1rem; }
+}
+.badgerowbt { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
+a.badge1 {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: #007286;
+  color: #fff;
+  border: 1px solid #b6dece;
+  text-decoration: none;
+  line-height: 1.4;
+  transition: all 0.2s ease;
+}
+a.badge2 {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: #fff;
+  color: #007286;
+  border: 1px solid #b6dece;
+  text-decoration: none;
+  line-height: 1.4;
+  transition: all 0.2s ease;
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">  
+  <h1>ESG 框架 <span>2026</span> 完全筆記</h1>
+  <p class="hero-sub">ISSB · GRI · SASB · CSRD · TNFD · 範疇三 ── 講義 vs 最新時事 全比較</p>
+  <div class="alert-strip">⚠️ 講義截至 2024/1/1，以下標記 🆕 為講義未提及的必考新知</div>
+  <div class="badgerowbt">
+	<div><a href="https://snoweryi.github.io/yilearn/i01.html" class="badge1">01趨勢及策略</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i02.html" class="badge1">02溫室氣體盤查</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i03.html" class="badge1">03碳足跡</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i031.html" class="badge1">03碳足跡2</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i011.html" class="badge1">考科一</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i022.html" class="badge1">考科二</a></div>
+    <div><a href="https://snoweryi.github.io/yilearn/" class="badge1" >永續架構</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/iu.html" class="badge1">UNFCCC</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/iz.html" class="badge1">條文</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/iy.html" class="badge1">年份</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/iw.html" class="badge1">氣候法</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/ic.html" class="badge1">CBAM</a></div>	
+	<div><a href="https://snoweryi.github.io/yilearn/is.html" class="badge1">SBTi</a></div>	
+	<div><a href="https://snoweryi.github.io/yilearn/ir.html" class="badge1">RE100</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/ie.html" class="badge2">ESG</a></div>	
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="tabs-wrap">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab('overview')">📊 框架速覽</button>
+    <button class="tab-btn" onclick="switchTab('issb')">🔵 ISSB</button>
+    <button class="tab-btn" onclick="switchTab('gri')">🟢 GRI</button>
+    <button class="tab-btn" onclick="switchTab('sasb')">🟣 SASB</button>
+    <button class="tab-btn" onclick="switchTab('csrd')">🟠 CSRD 🆕</button>
+    <button class="tab-btn" onclick="switchTab('tnfd')">🟦 TNFD 🆕</button>
+    <button class="tab-btn" onclick="switchTab('scope3')">🌐 範疇三</button>
+    <button class="tab-btn" onclick="switchTab('quiz')">✏️ 模擬考題</button>
+  </div>
+</div>
+
+<!-- ═══════ SECTION: OVERVIEW ═══════ -->
+<div id="overview" class="section active">
+  <p class="sec-head">五大框架一眼辨別</p>
+  <p class="sec-sub">考試最常考「這個框架的特徵是什麼？」先背這張表，其他細節就是填肉。</p>
+
+  <div class="card">
+    <table class="diff-table">
+      <thead>
+        <tr>
+          <th>框架</th>
+          <th>核心精神</th>
+          <th>服務對象</th>
+          <th>重大性</th>
+          <th>強制／自願</th>
+          <th>熱度</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="fw-pill fw-issb">ISSB</span><br><small>IFRS S1/S2</small></td>
+          <td>氣候財務風險揭露</td>
+          <td>投資人</td>
+          <td>財務重大性</td>
+          <td>各國漸強制（17國已採用）</td>
+          <td class="star-heat">★★★★★</td>
+        </tr>
+        <tr>
+          <td><span class="fw-pill fw-gri">GRI</span></td>
+          <td>對社會的影響揭露</td>
+          <td>所有利害關係人</td>
+          <td>影響重大性</td>
+          <td>自願為主（部分國家強制）</td>
+          <td class="star-heat">★★★★★</td>
+        </tr>
+        <tr>
+          <td><span class="fw-pill fw-sasb">SASB</span></td>
+          <td>行業特定財務指標</td>
+          <td>投資人</td>
+          <td>財務重大性</td>
+          <td>自願（ISSB 參考引用）</td>
+          <td class="star-heat">★★★★☆</td>
+        </tr>
+        <tr>
+          <td><span class="fw-pill fw-csrd">CSRD/ESRS</span> <span style="color:var(--warn);font-size:0.75rem">🆕</span></td>
+          <td>EU 強制永續報告</td>
+          <td>所有利害關係人</td>
+          <td>雙重重大性</td>
+          <td>強制（EU 企業）</td>
+          <td class="star-heat">★★★★★</td>
+        </tr>
+        <tr>
+          <td><span class="fw-pill fw-tnfd">TNFD</span> <span style="color:var(--warn);font-size:0.75rem">🆕</span></td>
+          <td>自然相關財務風險</td>
+          <td>投資人</td>
+          <td>財務重大性</td>
+          <td>自願（漸趨強制）</td>
+          <td class="star-heat">★★★★☆</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <div style="font-weight:700;margin-bottom:0.75rem;">🔑 「重大性」是超高頻考點，三種不同：</div>
+    <div class="box box-blue">
+      <div class="box-label">財務重大性（ISSB、SASB）</div>
+      永續風險對公司財務的影響 → 站在<strong>投資人</strong>角度看「這件事會不會影響公司價值？」
+    </div>
+    <div class="box box-ok">
+      <div class="box-label">影響重大性（GRI）</div>
+      公司對環境、社會、人群的影響 → 站在<strong>社會</strong>角度看「公司對世界造成什麼衝擊？」
+    </div>
+    <div class="box box-warn">
+      <div class="box-label">雙重重大性（CSRD/ESRS）🆕</div>
+      同時考量「財務重大性」＋「影響重大性」，缺一不可 → 這是 CSRD 最獨特的地方！
+    </div>
+  </div>
+
+  <div class="card">
+    <div style="font-weight:700;margin-bottom:0.75rem;">📐 框架層疊關係（積木結構）</div>
+    <div class="box box-blue">
+      <div class="box-label">ISSB = 地基（全球共同基線）</div>
+      各國先滿足 IFRS S1/S2 → 再疊加 SASB（行業補充）或 ESRS（EU 要求）或 GRI（多方揭露）
+    </div>
+    <div style="font-size:0.85rem;color:var(--ink-muted);margin-top:0.5rem;">考題常考：「SASB 在 ISSB 架構中扮演什麼角色？」→ 答：<span class="kw">行業特定補充層</span></div>
+  </div>
+</div>
+
+<!-- ═══════ SECTION: ISSB ═══════ -->
+<div id="issb" class="section">
+  <p class="sec-head">🔵 ISSB · IFRS S1 / S2</p>
+  <p class="sec-sub">講義有提，但 2024-2026 有重大更新，以下標示講義舊版 vs 最新版</p>
+
+  <div class="card">
+    <div style="display:flex;gap:8px;align-items:center;margin-bottom:1rem;flex-wrap:wrap;">
+      <span class="fw-pill fw-issb">ISSB</span>
+      <span style="font-size:0.82rem;color:var(--ink-muted)">2023 年 6 月發佈 IFRS S1/S2 · 生效日 2024/1/1</span>
+    </div>
+
+    <table class="diff-table">
+      <thead><tr><th>項目</th><th>講義版（2024/1/1）</th><th>最新版（2026）</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>S2 生效日期</td>
+          <td>2024/1/1（年度報告起）</td>
+          <td class="new-val">同，首批報告 2025 年面世</td>
+        </tr>
+        <tr>
+          <td>採用國數</td>
+          <td>少數</td>
+          <td class="new-val">17 國已採用，19 國進行中（截至 2026）</td>
+        </tr>
+        <tr>
+          <td>亞洲大國</td>
+          <td>未提</td>
+          <td class="new-val">🆕 新加坡 SGX 強制（FY2025 起）<br>香港 HKEX 強制（FY2025 起）<br>澳洲 AASB S1/S2 上路</td>
+        </tr>
+        <tr>
+          <td>SASB 關係</td>
+          <td>ISSB 收購整合</td>
+          <td class="new-val">🆕 2025 年 ISSB 發佈 SASB 修訂徵求意見稿（ED），增強互操作性</td>
+        </tr>
+        <tr>
+          <td>範疇三第一年</td>
+          <td>豁免（第一年可不揭露）</td>
+          <td class="new-val">同，但第二年起需揭露；2025 年修訂案進一步鬆綁<span class="kw">Category 15</span>衍生品豁免</td>
+        </tr>
+        <tr>
+          <td>TNFD 連結</td>
+          <td>未提</td>
+          <td class="new-val">🆕 2025 年 11 月 TNFD × IFRS 基金會簽署 MoU；ISSB 研究自然相關標準</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="box box-blue" style="margin-top:1rem;">
+      <div class="box-label">IFRS S1 vs S2 快速分法</div>
+      <strong>S1</strong> = 通用要求（所有永續風險，四大支柱：治理、策略、風險管理、指標目標）<br>
+      <strong>S2</strong> = 氣候專項（氣候風險 + GHG 排放盤查，包含 Scope 1/2/3 + 情境分析）
+    </div>
+  </div>
+
+  <div class="card">
+    <div style="font-weight:700;margin-bottom:0.75rem;">四大支柱（S1 & S2 共同架構）</div>
+    <div class="grid2">
+      <div class="box box-blue"><div class="box-label">① 治理 Governance</div>董事會對永續/氣候風險的監督機制與管理職責</div>
+      <div class="box box-blue"><div class="box-label">② 策略 Strategy</div>氣候風險如何影響商業模式、財務規劃、轉型計畫</div>
+      <div class="box box-blue"><div class="box-label">③ 風險管理 Risk Mgmt</div>識別、評估、管理氣候風險的流程</div>
+      <div class="box box-blue"><div class="box-label">④ 指標與目標 Metrics</div>GHG 排放量（Scope 1/2/3）、氣候相關財務指標</div>
+    </div>
+    <div class="box box-warn" style="margin-top:0.5rem;">
+      <div class="box-label">⚠️ 考試陷阱</div>
+      四大支柱最早是 <span class="kw">TCFD</span> 提出，ISSB S1/S2 <strong>繼承並法制化</strong>。題目問「提出治理、策略、風險管理、指標目標四大支柱的是？」→ 答 <strong>TCFD</strong>（先提出）或 <strong>ISSB 沿用</strong>，看題目語境！
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ SECTION: GRI ═══════ -->
+<div id="gri" class="section">
+  <p class="sec-head">🟢 GRI · 全球永續性報告協會</p>
+  <p class="sec-sub">講義有基礎架構，2024-2025 有 GRI 101/102/103 改版，是考試新增考點</p>
+
+  <div class="card">
+    <div style="display:flex;gap:8px;align-items:center;margin-bottom:1rem;flex-wrap:wrap;">
+      <span class="fw-pill fw-gri">GRI</span>
+      <span style="font-size:0.82rem;color:var(--ink-muted)">核心精神：影響重大性（Impact Materiality）</span>
+    </div>
+
+    <table class="diff-table">
+      <thead><tr><th>項目</th><th>講義版（2024/1/1）</th><th>最新版（2025-2026）</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>GRI 1/2/3</td>
+          <td>通用準則 2021 版</td>
+          <td class="new-val">同，仍適用</td>
+        </tr>
+        <tr>
+          <td>GRI 101<br>（生物多樣性）</td>
+          <td class="old-val">講義未提</td>
+          <td class="new-val">🆕 2024 年發佈，<strong>2026 年正式生效</strong>，取代舊 GRI 304；對齊 TNFD、GBF</td>
+        </tr>
+        <tr>
+          <td>GRI 102<br>（能源）</td>
+          <td class="old-val">講義未提更新</td>
+          <td class="new-val">🆕 2025 年發佈，<strong>2027 年生效</strong>，取代舊 GRI 302</td>
+        </tr>
+        <tr>
+          <td>GRI 103<br>（排放）</td>
+          <td class="old-val">講義未提更新</td>
+          <td class="new-val">🆕 2025 年發佈，<strong>2027 年生效</strong>，取代舊 GRI 305（含 Scope 3 強化）</td>
+        </tr>
+        <tr>
+          <td>重大性流程</td>
+          <td>GRI 3 步驟</td>
+          <td class="new-val">同（識別影響→評估→優先排序→行業校驗），但與 CSRD 雙重重大性的差異要能區分</td>
+        </tr>
+        <tr>
+          <td>使用普及率</td>
+          <td>全球 G250 約 77%</td>
+          <td class="new-val">同，仍是最廣泛使用框架</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <div style="font-weight:700;margin-bottom:0.75rem;">GRI 準則架構（三層）</div>
+    <div class="box box-ok">
+      <div class="box-label">通用準則（Universal Standards）</div>
+      GRI 1（基礎）· GRI 2（組織一般揭露）· GRI 3（重大主題）<br>
+      <em style="font-size:0.83rem">—— 所有組織都要用這三個</em>
+    </div>
+    <div class="box box-ok">
+      <div class="box-label">行業準則（Sector Standards）</div>
+      GRI 11 石油天然氣（2021）· GRI 12 煤炭 · GRI 13 農業/水產養殖 等<br>
+      <em style="font-size:0.83rem">—— 農業行業要用 GRI 13！富林農場若要出具 GRI 報告，重點在此</em>
+    </div>
+    <div class="box box-ok">
+      <div class="box-label">主題準則（Topic Standards）🆕 更新中</div>
+      GRI 101 生物多樣性（2026生效）· GRI 102 能源（2027生效）· GRI 103 排放（2027生效）
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="box box-warn">
+      <div class="box-label">🆕 最新必考！GRI vs ISSB 重大性差異</div>
+      <table style="width:100%;font-size:0.85rem;border-collapse:collapse;margin-top:0.5rem;">
+        <tr style="border-bottom:1px solid #fca5a5">
+          <td style="padding:5px 0;font-weight:700;width:50%">GRI 影響重大性</td>
+          <td style="padding:5px 0;font-weight:700">ISSB 財務重大性</td>
+        </tr>
+        <tr>
+          <td style="padding:5px 0">外向型：企業對外部影響</td>
+          <td style="padding:5px 0">內向型：外部對企業財務衝擊</td>
+        </tr>
+        <tr>
+          <td style="padding:5px 0">對象：所有利害關係人</td>
+          <td style="padding:5px 0">對象：投資人</td>
+        </tr>
+        <tr>
+          <td style="padding:5px 0">問題：公司傷害了誰？</td>
+          <td style="padding:5px 0">問題：氣候傷害了公司？</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ SECTION: SASB ═══════ -->
+<div id="sasb" class="section">
+  <p class="sec-head">🟣 SASB · 永續會計準則委員會</p>
+  <p class="sec-sub">SASB 現由 ISSB 管理，2025 年大改版，是講義之後的重大更新</p>
+
+  <div class="card">
+    <span class="fw-pill fw-sasb">SASB</span>
+    <div style="margin-top:0.75rem;">
+      <table class="diff-table">
+        <thead><tr><th>項目</th><th>講義版</th><th>最新版（2025-2026）</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>管理機構</td>
+            <td>ISSB（2022 VRF 合併後）</td>
+            <td class="new-val">同，ISSB 持續管理</td>
+          </tr>
+          <tr>
+            <td>行業數</td>
+            <td>77 個行業</td>
+            <td class="new-val">同（覆蓋美股總市值 95%）</td>
+          </tr>
+          <tr>
+            <td>修訂動作</td>
+            <td class="old-val">未提</td>
+            <td class="new-val">🆕 2025 年 ISSB 發佈 SASB 標準修訂徵求意見稿（ED）<br>截止：2025/11/30 · 最終版預計 2026 發佈</td>
+          </tr>
+          <tr>
+            <td>修訂重點</td>
+            <td class="old-val">未提</td>
+            <td class="new-val">🆕 強化與 IFRS S1/S2 互操作性；減少重複揭露；<br>納入食品飲料、電力等新行業補充</td>
+          </tr>
+          <tr>
+            <td>在 ISSB 中角色</td>
+            <td>可參考</td>
+            <td class="new-val">ISSB：企業應參考 SASB 作為行業補充揭露</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div style="font-weight:700;margin-bottom:0.75rem;">SASB 特色：每個行業有獨特指標</div>
+    <div class="grid2">
+      <div class="box box-teal" style="background:var(--sasb-bg);border-color:var(--sasb-mid);color:#4c1d95">
+        <div class="box-label" style="color:var(--sasb)">農業 / 食品</div>
+        食物安全事件數、農藥使用強度、水資源用量、土地取得爭議
+      </div>
+      <div class="box box-teal" style="background:var(--sasb-bg);border-color:var(--sasb-mid);color:#4c1d95">
+        <div class="box-label" style="color:var(--sasb)">半導體</div>
+        晶圓用水強度、有害廢棄物回收率、能源使用強度
+      </div>
+      <div class="box box-teal" style="background:var(--sasb-bg);border-color:var(--sasb-mid);color:#4c1d95">
+        <div class="box-label" style="color:var(--sasb)">商業銀行</div>
+        高碳行業貸款敞口、氣候相關融資比例
+      </div>
+      <div class="box box-teal" style="background:var(--sasb-bg);border-color:var(--sasb-mid);color:#4c1d95">
+        <div class="box-label" style="color:var(--sasb)">科技硬體</div>
+        產品能源效率、電子廢棄物管理、供應鏈勞工標準
+      </div>
+    </div>
+    <div class="box box-amber" style="margin-top:0.5rem;">
+      <div class="box-label">💡 記憶術</div>
+      SASB = 「行業別食譜」，每個行業有自己特定的 5-6 個財務重大指標，不是通用的。
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ SECTION: CSRD ═══════ -->
+<div id="csrd" class="section">
+  <p class="sec-head">🟠 CSRD · 歐盟企業永續報告指令 <span style="color:var(--warn);font-size:0.85rem">🆕 講義完全未提</span></p>
+  <p class="sec-sub">2025-2026 最大爆炸性時事！Omnibus I 大幅縮水，從 5 萬家降到 6 千家適用</p>
+
+  <div class="card">
+    <span class="fw-pill fw-csrd">CSRD / ESRS</span>
+    <div class="tl" style="margin-top:1rem;">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2023 年</div>
+        <div class="tl-text">CSRD 正式生效，要求企業依 ESRS 揭露</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2024 年（Wave 1）</div>
+        <div class="tl-text">500 人以上大型上市公司首批適用，2025 年提交首份報告</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot new"></div>
+        <div class="tl-year new">2025/2 月 🆕 Omnibus I 提案</div>
+        <div class="tl-text">歐盟委員會提出大簡化：縮小適用範圍（250人→1,000人）；Stop-the-Clock 延後 Wave 2/3</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot new"></div>
+        <div class="tl-year new">2025/12 月 🆕</div>
+        <div class="tl-text">Omnibus I 正式通過（歐洲議會採用）；EFRAG 發佈簡化版 ESRS（強制資料點減少 61%）</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot new"></div>
+        <div class="tl-year new">2026/3/18 🆕</div>
+        <div class="tl-text"><strong>Omnibus I 生效</strong>：CSRD 適用門檻改為 <span class="kw">1,000 人以上 + 4.5 億歐元營收</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot new"></div>
+        <div class="tl-year new">2027 年 🆕</div>
+        <div class="tl-text">簡化版 ESRS 強制生效，Wave 2 公司適用（原 2025 → 延至 2028）</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div style="font-weight:700;margin-bottom:0.75rem;">Omnibus I 前後對比（超高頻考點）</div>
+    <table class="diff-table">
+      <thead><tr><th>項目</th><th class="old-val">原版（講義）</th><th class="new-val">Omnibus I 後（2026 最新）</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>適用員工門檻</td>
+          <td class="old-val">250 人以上</td>
+          <td class="new-val">1,000 人以上</td>
+        </tr>
+        <tr>
+          <td>適用企業數</td>
+          <td class="old-val">約 5 萬家</td>
+          <td class="new-val">約 6 千家（縮減 80%！）</td>
+        </tr>
+        <tr>
+          <td>強制資料點</td>
+          <td class="old-val">原版 ESRS</td>
+          <td class="new-val">減少 61%（總資料點減 70%）</td>
+        </tr>
+        <tr>
+          <td>非歐盟門檻</td>
+          <td class="old-val">1.5 億歐元 EU 營收</td>
+          <td class="new-val">4.5 億歐元 EU 營收</td>
+        </tr>
+        <tr>
+          <td>雙重重大性</td>
+          <td>強制</td>
+          <td class="new-val">保留！但流程簡化（質性判斷，非繁雜評分）</td>
+        </tr>
+        <tr>
+          <td>Wave 2 報告時間</td>
+          <td class="old-val">2025 年（FY2024）</td>
+          <td class="new-val">延至 2028 年（FY2027）</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="box box-warn" style="margin-top:0.75rem;">
+      <div class="box-label">⚠️ 必考！CSRD 最核心考點</div>
+      CSRD 的最大特徵：<span class="kw">雙重重大性（Double Materiality）</span>= 同時評估「財務重大性」＋「影響重大性」。Omnibus I 簡化了「怎麼做」，但雙重重大性<strong>仍是強制要求</strong>！
+    </div>
+
+    <div class="box box-teal" style="margin-top:0.5rem;">
+      <div class="box-label">💡 台灣連結</div>
+      台灣出口商若在歐盟有 4.5 億歐元以上營收，受 CSRD 規範。科技大廠（台積電、鴻海等）的歐洲子公司仍受 Wave 1 約束（未縮水）。
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ SECTION: TNFD ═══════ -->
+<div id="tnfd" class="section">
+  <p class="sec-head">🟦 TNFD · 自然相關財務揭露框架 <span style="color:var(--warn);font-size:0.85rem">🆕 講義完全未提</span></p>
+  <p class="sec-sub">「氣候版 TCFD」的自然生態版本，2023 正式發佈，2025-2026 快速擴散中</p>
+
+  <div class="card">
+    <span class="fw-pill fw-tnfd">TNFD</span>
+    <div style="margin-top:1rem;">
+      <table class="diff-table">
+        <thead><tr><th>項目</th><th>內容</th></tr></thead>
+        <tbody>
+          <tr><td>發佈時間</td><td>2023 年 9 月正式發佈</td></tr>
+          <tr><td>目的</td><td>揭露企業對<span class="kw">自然（森林、水、土地、海洋）</span>的依賴、影響、風險與機會</td></tr>
+          <tr><td>架構</td><td>四大支柱（與 TCFD/ISSB 相同）：治理、策略、風險管理、指標與目標</td></tr>
+          <tr><td>14 項揭露建議</td><td>分佈於四大支柱，包含 LEAP 流程（自然依賴評估方法）</td></tr>
+          <tr><td>採用現況（2026）</td><td>全球 400+ 企業自願採用；與 GRI 101、CSRD ESRS E4 高度對齊</td></tr>
+          <tr><td>ISSB 連結</td><td>🆕 2025/11 月 TNFD × IFRS 基金會簽署 MoU；ISSB 研究自然相關標準</td></tr>
+          <tr><td>與 GBF 連結</td><td>對齊昆明-蒙特婁全球生物多樣性框架 Target 15（企業揭露）</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div style="font-weight:700;margin-bottom:0.75rem;">TNFD vs TCFD 快速比較</div>
+    <div class="grid2">
+      <div class="box box-blue">
+        <div class="box-label">TCFD（氣候）</div>
+        關注：<strong>氣候變遷</strong>相關的物理風險與轉型風險<br>
+        對象：CO₂、GHG 排放<br>
+        現況：已被 ISSB S2 整合取代
+      </div>
+      <div class="box box-teal">
+        <div class="box-label">TNFD（自然）🆕</div>
+        關注：<strong>生態系統、生物多樣性</strong>相關風險<br>
+        對象：森林砍伐、淡水、土壤、海洋<br>
+        現況：自願採用，漸趨強制
+      </div>
+    </div>
+    <div class="box box-amber" style="margin-top:0.5rem;">
+      <div class="box-label">💡 農場連結（富林農場實際案例）</div>
+      有機農場高度依賴健康土壤、清潔水源和傳粉昆蟲（蜜蜂）→ 這些都是 TNFD 定義的「<span class="kw">自然依賴（Nature Dependencies）</span>」。農場食農教育中談到生物多樣性 = 正在實踐 TNFD 精神！
+    </div>
+  </div>
+
+  <div class="card">
+    <div style="font-weight:700;margin-bottom:0.75rem;">LEAP 流程（TNFD 評估方法）</div>
+    <div class="grid2">
+      <div class="box box-teal"><div class="box-label">L · Locate</div>找出企業在哪裡與自然介面（地點）</div>
+      <div class="box box-teal"><div class="box-label">E · Evaluate</div>評估企業對自然的依賴與影響</div>
+      <div class="box box-teal"><div class="box-label">A · Assess</div>評估自然相關的重大風險與機會</div>
+      <div class="box box-teal"><div class="box-label">P · Prepare</div>準備揭露資訊並整合進策略</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ SECTION: SCOPE3 ═══════ -->
+<div id="scope3" class="section">
+  <p class="sec-head">🌐 範疇三 · 供應鏈碳排放</p>
+  <p class="sec-sub">講義只提「40% 以上要納入」，但 67% 的門檻與最新規定完全不同！</p>
+
+  <div class="card">
+    <span class="fw-pill fw-scope">範疇三 Scope 3</span>
+    <div class="box box-warn" style="margin-top:0.75rem;">
+      <div class="box-label">⚠️ 講義 vs 最新：最容易出錯的考點</div>
+      <table style="width:100%;font-size:0.87rem;border-collapse:collapse;">
+        <tr style="border-bottom:1px solid #fca5a5">
+          <td style="padding:6px 0;font-weight:700">講義版</td>
+          <td style="padding:6px 0;font-weight:700">最新版（2026）</td>
+        </tr>
+        <tr>
+          <td style="padding:5px 0;color:var(--warn)">「範疇三占排放 40% 以上要納入」<br>→ 來源是 GHG Protocol 舊版說明</td>
+          <td style="padding:5px 0;color:var(--ok);font-weight:700">CSRD 2025 年報告中實際揭露：<br><span class="kw">70% 的 Wave 1 企業提供完整 S1+S2+S3 資料</span><br>（較前一年大幅提升）</td>
+        </tr>
+        <tr>
+          <td style="padding:5px 0;color:var(--warn)">無具體百分比門檻</td>
+          <td style="padding:5px 0;color:var(--ok)">ISSB S2：企業須揭露全部 15 類範疇三，<br>首年可豁免，第二年起強制</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div style="font-weight:700;margin-bottom:0.75rem;">三大範疇快速總覽</div>
+    <table class="diff-table">
+      <thead><tr><th>範疇</th><th>涵蓋排放</th><th>舉例</th><th>難度</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>範疇一</strong><br>Scope 1</td>
+          <td>直接排放（自有設施燃燒）</td>
+          <td>工廠鍋爐、公務車、農場拖拉機燃油</td>
+          <td>容易量化</td>
+        </tr>
+        <tr>
+          <td><strong>範疇二</strong><br>Scope 2</td>
+          <td>間接排放（外購電力/熱能）</td>
+          <td>購買台電電力的碳排</td>
+          <td>中等</td>
+        </tr>
+        <tr>
+          <td><strong>範疇三</strong><br>Scope 3</td>
+          <td>其他間接排放（上下游供應鏈）</td>
+          <td>員工通勤、原料生產、產品使用、廢棄物</td>
+          <td>最難！15 個類別</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <div style="font-weight:700;margin-bottom:0.75rem;">🆕 範疇三 15 類別（ISSB S2 / GHG Protocol）</div>
+    <div class="grid2">
+      <div>
+        <div class="box box-amber"><div class="box-label">上游 8 類（Category 1-8）</div>
+          1.購買的商品與服務<br>2.資本財<br>3.能源相關活動<br>4.上游運輸<br>5.業務產生廢棄物<br>6.出差<br>7.員工通勤<br>8.上游租賃資產
+        </div>
+      </div>
+      <div>
+        <div class="box box-amber"><div class="box-label">下游 7 類（Category 9-15）</div>
+          9.下游運輸<br>10.銷售產品加工<br>11.銷售產品使用<br>12.銷售產品廢棄處理<br>13.下游租賃資產<br>14.特許加盟<br>15.投資（金融機構必看）
+        </div>
+      </div>
+    </div>
+    <div class="box box-warn" style="margin-top:0.5rem;">
+      <div class="box-label">🆕 ISSB 2025 年 S2 修訂：Category 15 豁免</div>
+      金融機構的衍生品（Derivatives）相關的 Category 15 排放，因量化困難，<span class="kw">ISSB 2025 年修訂案提供豁免</span>。考題若問「哪一類範疇三可豁免？」→ 答：首年全部豁免；特殊情境為 <strong>Category 15（衍生品）</strong>
+    </div>
+
+    <div class="box box-ok" style="margin-top:0.5rem;">
+      <div class="box-label">67% 來自哪裡？</div>
+      CSRD Wave 1 企業 2025 年報告（FY2024 數據）中，<span class="kw">約 70% 的企業提供了完整範疇三揭露</span>。這是實際揭露比率，不是門檻。「40%」是舊版 GHG Protocol 建議的重大性門檻概念，已被更嚴格要求取代。
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ SECTION: QUIZ ═══════ -->
+<div id="quiz" class="section">
+  <div class="scorebar">
+    <div>
+      <div class="score-big" id="scoreNum">0/0</div>
+      <div class="score-label">目前得分</div>
+    </div>
+    <div class="prog-wrap">
+      <div class="prog-bar"><div class="prog-fill" id="progFill" style="width:0%"></div></div>
+      <div class="prog-text" id="progText">開始作答，每題即時解析</div>
+    </div>
+    <button class="btn" onclick="resetAll()">🔄 重置</button>
+  </div>
+
+  <!-- Q1 -->
+  <div class="quiz-card" id="q1">
+    <div class="quiz-meta">
+      <span class="quiz-no">第 1 題</span>
+      <span class="fw-pill fw-csrd">CSRD 🆕</span>
+      <span style="font-size:0.78rem;color:var(--ink-faint)">時事題 ★★★★★</span>
+    </div>
+    <div class="quiz-scenario">📰 2026 年 3 月，一則新聞標題：「歐盟 Omnibus I 生效，CSRD 適用企業大砍 80%」。</div>
+    <div class="quiz-q">Omnibus I 後，CSRD 的員工人數門檻從多少改為多少？</div>
+    <div class="opts">
+      <div class="opt" onclick="ans(this,'q1','A')"><span class="opt-key">A</span>從 500 人改為 250 人</div>
+      <div class="opt" data-ans="B" onclick="ans(this,'q1','B')"><span class="opt-key">B</span>從 250 人改為 1,000 人</div>
+      <div class="opt" onclick="ans(this,'q1','C')"><span class="opt-key">C</span>從 1,000 人改為 5,000 人</div>
+      <div class="opt" onclick="ans(this,'q1','D')"><span class="opt-key">D</span>門檻不變，只延後報告時間</div>
+    </div>
+    <div class="explain" id="q1-exp">✅ <strong>正確！</strong> Omnibus I（2026/3/18 生效）將員工門檻從 <strong>250 人提升至 1,000 人</strong>，同時要求年度淨營收超過 4.5 億歐元。這使適用企業從約 5 萬家降至約 6 千家，縮減 80%。Wave 1 大型企業不受影響。</div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="quiz-card" id="q2">
+    <div class="quiz-meta">
+      <span class="quiz-no">第 2 題</span>
+      <span class="fw-pill fw-csrd">CSRD</span>
+      <span class="fw-pill fw-issb">ISSB</span>
+      <span style="font-size:0.78rem;color:var(--ink-faint)">辨別題 ★★★★★</span>
+    </div>
+    <div class="quiz-scenario">🏢 某台灣電子大廠的歐洲子公司正在評估要遵循哪個框架。他們發現一個框架要求「同時揭露氣候風險對公司的財務影響」與「公司對社會環境的衝擊」兩個方向。</div>
+    <div class="quiz-q">這個「兩個方向都要揭露」的概念，是哪個框架的核心特徵？</div>
+    <div class="opts">
+      <div class="opt" onclick="ans(this,'q2','A')"><span class="opt-key">A</span>ISSB IFRS S2（財務重大性）</div>
+      <div class="opt" onclick="ans(this,'q2','B')"><span class="opt-key">B</span>GRI 準則（影響重大性）</div>
+      <div class="opt" data-ans="C" onclick="ans(this,'q2','C')"><span class="opt-key">C</span>CSRD / ESRS（雙重重大性）</div>
+      <div class="opt" onclick="ans(this,'q2','D')"><span class="opt-key">D</span>SASB 準則（行業重大性）</div>
+    </div>
+    <div class="explain" id="q2-exp">✅ <strong>正確！</strong> <strong>雙重重大性（Double Materiality）</strong> 是 CSRD/ESRS 獨有的核心概念：① 財務重大性（氣候對公司的影響）＋② 影響重大性（公司對社會環境的影響）。兩者缺一不可，即使 Omnibus I 簡化流程，雙重重大性依然是強制要求！</div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="quiz-card" id="q3">
+    <div class="quiz-meta">
+      <span class="quiz-no">第 3 題</span>
+      <span class="fw-pill fw-tnfd">TNFD 🆕</span>
+      <span style="font-size:0.78rem;color:var(--ink-faint)">新考點 ★★★★☆</span>
+    </div>
+    <div class="quiz-scenario">🌿 富林有機農場想要評估農場的有機稻米生產對於附近溪流、土壤微生物與傳粉昆蟲族群的依賴程度，以及農場活動對這些自然系統的影響。</div>
+    <div class="quiz-q">上述評估行動最符合哪個框架的精神？該框架的評估流程縮寫是？</div>
+    <div class="opts">
+      <div class="opt" onclick="ans(this,'q3','A')"><span class="opt-key">A</span>TCFD · TCFD 情境分析</div>
+      <div class="opt" onclick="ans(this,'q3','B')"><span class="opt-key">B</span>GRI 101 · GRI 重大性分析</div>
+      <div class="opt" data-ans="C" onclick="ans(this,'q3','C')"><span class="opt-key">C</span>TNFD · LEAP 流程</div>
+      <div class="opt" onclick="ans(this,'q3','D')"><span class="opt-key">D</span>ISSB S2 · Scope 3 盤查</div>
+    </div>
+    <div class="explain" id="q3-exp">✅ <strong>正確！</strong> <strong>TNFD</strong>（自然相關財務揭露框架）專注於企業對自然生態系統的依賴與影響。其評估方法稱為 <strong>LEAP</strong>：Locate（找地點）→ Evaluate（評估依賴與影響）→ Assess（評估重大風險）→ Prepare（準備揭露）。TNFD 與 GRI 101 生物多樣性高度對齊，2025 年 ISSB 也開始研究納入。</div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="quiz-card" id="q4">
+    <div class="quiz-meta">
+      <span class="quiz-no">第 4 題</span>
+      <span class="fw-pill fw-gri">GRI</span>
+      <span style="font-size:0.78rem;color:var(--ink-faint)">更新題 ★★★★☆</span>
+    </div>
+    <div class="quiz-scenario">📚 一間台灣科技公司的 ESG 部門主管說：「我們使用 GRI 準則，今年（2026年）需要開始遵守 GRI 101，這會影響我們的生物多樣性揭露。」</div>
+    <div class="quiz-q">GRI 101（生物多樣性）何時正式生效？它取代哪個舊版準則？</div>
+    <div class="opts">
+      <div class="opt" onclick="ans(this,'q4','A')"><span class="opt-key">A</span>2024 年生效，取代 GRI 302 能源</div>
+      <div class="opt" data-ans="B" onclick="ans(this,'q4','B')"><span class="opt-key">B</span>2026 年生效，取代 GRI 304 生物多樣性</div>
+      <div class="opt" onclick="ans(this,'q4','C')"><span class="opt-key">C</span>2025 年生效，取代 GRI 305 排放</div>
+      <div class="opt" onclick="ans(this,'q4','D')"><span class="opt-key">D</span>2027 年生效，取代 GRI 303 水資源</div>
+    </div>
+    <div class="explain" id="q4-exp">✅ <strong>正確！</strong> GRI 101（生物多樣性）於 2024 年發佈，<strong>2026 年正式生效</strong>，取代 2016 年版的 <strong>GRI 304 生物多樣性</strong>。新版 GRI 101 與 TNFD、昆明-蒙特婁 GBF 框架、SBTN 對齊，大幅提升自然揭露深度。此外，GRI 102（能源）和 GRI 103（排放）也於 2025 年發佈，預計 2027 年生效。</div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="quiz-card" id="q5">
+    <div class="quiz-meta">
+      <span class="quiz-no">第 5 題</span>
+      <span class="fw-pill fw-issb">ISSB</span>
+      <span class="fw-pill fw-sasb">SASB</span>
+      <span style="font-size:0.78rem;color:var(--ink-faint)">關係辨別 ★★★★★</span>
+    </div>
+    <div class="quiz-scenario">💼 一家台灣半導體公司開始採用 IFRS S1/S2，顧問建議他們除了通用揭露外，還要補充揭露「晶圓用水強度」和「有害廢棄物回收率」等指標。</div>
+    <div class="quiz-q">顧問建議的這類行業特定補充指標，來自哪個準則？在 ISSB 架構中扮演什麼角色？</div>
+    <div class="opts">
+      <div class="opt" onclick="ans(this,'q5','A')"><span class="opt-key">A</span>GRI 主題準則 · 影響重大性補充</div>
+      <div class="opt" data-ans="B" onclick="ans(this,'q5','B')"><span class="opt-key">B</span>SASB 準則 · 行業特定補充揭露層</div>
+      <div class="opt" onclick="ans(this,'q5','C')"><span class="opt-key">C</span>CSRD ESRS · 雙重重大性補充</div>
+      <div class="opt" onclick="ans(this,'q5','D')"><span class="opt-key">D</span>TCFD 框架 · 情境分析補充</div>
+    </div>
+    <div class="explain" id="q5-exp">✅ <strong>正確！</strong> <strong>SASB 準則</strong>涵蓋 77 個行業的特定財務重大指標，是 ISSB S1/S2 的「行業補充層」。企業先滿足 IFRS S1/S2 通用要求，再用 SASB 行業準則補充行業特定資訊。2025 年 ISSB 正在修訂 SASB 標準以增強互操作性，最終版預計 2026 年發佈。</div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="quiz-card" id="q6">
+    <div class="quiz-meta">
+      <span class="quiz-no">第 6 題</span>
+      <span class="fw-pill fw-scope">範疇三</span>
+      <span style="font-size:0.78rem;color:var(--ink-faint)">綜合應用 ★★★★★</span>
+    </div>
+    <div class="quiz-scenario">🏭 某食品公司想了解自己的碳足跡全貌。旗下工廠鍋爐燃燒排放（①）、購買台電電力的碳排（②）、原料農場生產過程的排放（③）、消費者烹調產品時的排放（④）。</div>
+    <div class="quiz-q">依 GHG Protocol 三大範疇分類，③（原料農場排放）和④（消費者使用排放）分別屬於哪個範疇？</div>
+    <div class="opts">
+      <div class="opt" onclick="ans(this,'q6','A')"><span class="opt-key">A</span>③ 範疇一；④ 範疇二</div>
+      <div class="opt" onclick="ans(this,'q6','B')"><span class="opt-key">B</span>③ 範疇二；④ 範疇三</div>
+      <div class="opt" data-ans="C" onclick="ans(this,'q6','C')"><span class="opt-key">C</span>③ 範疇三（上游 Cat.1）；④ 範疇三（下游 Cat.11）</div>
+      <div class="opt" onclick="ans(this,'q6','D')"><span class="opt-key">D</span>③ 範疇三（下游）；④ 範疇一（直接）</div>
+    </div>
+    <div class="explain" id="q6-exp">✅ <strong>正確！</strong> ① 鍋爐燃燒 = <strong>範疇一</strong>（直接排放）；② 購電 = <strong>範疇二</strong>（間接能源）；③ 原料農場 = <strong>範疇三 Category 1</strong>（購買的商品/上游）；④ 消費者使用 = <strong>範疇三 Category 11</strong>（銷售產品使用/下游）。食品飲料業因消費者烹飪用能，下游 Cat.11 往往是最大碳源！</div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="quiz-card" id="q7">
+    <div class="quiz-meta">
+      <span class="quiz-no">第 7 題</span>
+      <span class="fw-pill fw-issb">ISSB</span>
+      <span style="font-size:0.78rem;color:var(--ink-faint)">亞洲時事 ★★★★☆</span>
+    </div>
+    <div class="quiz-scenario">🌏 2025 年，某亞洲主要交易所宣布，旗下上市公司從 FY2025 起須強制進行 ISSB 對齊的氣候揭露，金融、能源、材料等優先行業率先適用。</div>
+    <div class="quiz-q">題目描述的交易所最可能是哪一個？</div>
+    <div class="opts">
+      <div class="opt" onclick="ans(this,'q7','A')"><span class="opt-key">A</span>台灣證交所 TWSE</div>
+      <div class="opt" onclick="ans(this,'q7','B')"><span class="opt-key">B</span>東京證交所 TSE</div>
+      <div class="opt" data-ans="C" onclick="ans(this,'q7','C')"><span class="opt-key">C</span>新加坡交易所 SGX</div>
+      <div class="opt" onclick="ans(this,'q7','D')"><span class="opt-key">D</span>上海證交所 SSE</div>
+    </div>
+    <div class="explain" id="q7-exp">✅ <strong>正確！</strong> <strong>新加坡 SGX</strong> 是亞洲最早強制實施 ISSB 對齊氣候揭露的主要交易所，從 FY2025 起生效，金融、能源、材料行業優先。香港 HKEX 也同步從 FY2025 強制適用 HKFRS S1/S2（即 ISSB 本地化版本）。台灣目前正在研議接軌，尚未強制。</div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="quiz-card" id="q8">
+    <div class="quiz-meta">
+      <span class="quiz-no">第 8 題</span>
+      <span class="fw-pill fw-gri">GRI</span>
+      <span class="fw-pill fw-issb">ISSB</span>
+      <span style="font-size:0.78rem;color:var(--ink-faint)">框架對比 ★★★★★</span>
+    </div>
+    <div class="quiz-q">關於 GRI 與 ISSB 的比較，下列哪個敘述正確？</div>
+    <div class="opts">
+      <div class="opt" onclick="ans(this,'q8','A')"><span class="opt-key">A</span>GRI 以投資人為主要受眾，ISSB 以全體利害關係人為受眾</div>
+      <div class="opt" onclick="ans(this,'q8','B')"><span class="opt-key">B</span>兩者都採用「雙重重大性」評估</div>
+      <div class="opt" data-ans="C" onclick="ans(this,'q8','C')"><span class="opt-key">C</span>GRI 採影響重大性（外向），ISSB 採財務重大性（內向）</div>
+      <div class="opt" onclick="ans(this,'q8','D')"><span class="opt-key">D</span>ISSB 是自願框架，GRI 已在歐盟強制</div>
+    </div>
+    <div class="explain" id="q8-exp">✅ <strong>正確！</strong> 核心差異：GRI = <strong>影響重大性</strong>（企業對外部世界的影響，站在社會角度）；ISSB = <strong>財務重大性</strong>（永續風險對企業財務的影響，站在投資人角度）。雙重重大性是 <strong>CSRD/ESRS</strong> 獨有的（同時要求兩者）。A 選項描述反了，D 選項也錯誤（CSRD 是 EU 強制，不是 GRI）。</div>
+  </div>
+
+  <div style="text-align:center;padding:1rem 0 2rem;">
+    <button class="btn" onclick="resetAll()">🔄 重新作答</button>
+  </div>
+</div>
+
+<script>
+let score = { c: 0, total: 0 };
+let done = {};
+
+function switchTab(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+function ans(el, qid, chosen) {
+  if (done[qid]) return;
+  done[qid] = true;
+  score.total++;
+
+  const card = document.getElementById(qid);
+  const correct = card.querySelector('[data-ans]').dataset.ans;
+  card.querySelectorAll('.opt').forEach(o => o.classList.add('disabled'));
+
+  if (chosen === correct) {
+    el.classList.add('correct');
+    score.c++;
+  } else {
+    el.classList.add('wrong');
+    card.querySelector('[data-ans]').classList.add('correct');
+  }
+
+  card.querySelector(`#${qid}-exp`).classList.add('show');
+  updateScore();
+}
+
+function updateScore() {
+  document.getElementById('scoreNum').textContent = `${score.c}/${score.total}`;
+  const pct = score.total ? Math.round(score.c / score.total * 100) : 0;
+  document.getElementById('progFill').style.width = pct + '%';
+  const left = 8 - score.total;
+  if (left > 0) {
+    document.getElementById('progText').textContent = `已答 ${score.total} 題，還剩 ${left} 題`;
+  } else {
+    const msg = pct >= 88 ? '🎉 優秀！通過率沒問題！' : pct >= 70 ? '👍 良好，再複習新考點！' : '📖 建議從 CSRD/TNFD 頁籤重新複習！';
+    document.getElementById('progText').textContent = `完成！正確率 ${pct}%　${msg}`;
+  }
+}
+
+function resetAll() {
+  score = { c: 0, total: 0 };
+  done = {};
+  document.querySelectorAll('.opt').forEach(o => o.classList.remove('correct','wrong','disabled'));
+  document.querySelectorAll('.explain').forEach(e => e.classList.remove('show'));
+  document.getElementById('scoreNum').textContent = '0/0';
+  document.getElementById('progFill').style.width = '0%';
+  document.getElementById('progText').textContent = '開始作答，每題即時解析';
+}
+</script>
+</body>
+</html>
