@@ -20,14 +20,14 @@ body{background:#fff;color:var(--tx);font-family:"Noto Sans TC","PingFang TC","M
 /* COVER */
 .cover{background:linear-gradient(135deg,#0a4a3a 0%,#1a7a5a 50%,#2aab7e 100%);color:#fff;padding:52px 40px 44px;position:relative;overflow:hidden;}
 .cover::after{content:"氣候法";position:absolute;right:-20px;bottom:-20px;font-size:8rem;font-weight:900;opacity:.06;line-height:1;pointer-events:none;white-space:nowrap;}
-.cv-tag{display:inline-block;border:1px solid rgba(255,255,255,.4);border-radius:20px;padding:3px 14px;font-size:.74rem;letter-spacing:1px;margin-bottom:14px;background:rgba(255,255,255,.12);}
+.cv-tag{display:inline-block;border:1px solid rgba(255,255,255,.4);border-radius:20px;padding:3px 14px;font-size: 18px;letter-spacing:1px;margin-bottom:14px;background:rgba(255,255,255,.12);}
 .cover h1{font-size:20px;font-weight:900;line-height:1.3;}
 .cover h1 span{color:#a8ffd8;}
 .cover .sub{font-size: 18px;opacity:.82;margin-top:10px;}
 .cv-meta{display:flex;gap:24px;flex-wrap:wrap;margin-top:22px;font-size: 18px;opacity:.72;}
 
 /* PRINT */
-.print-btn{position:fixed;bottom:28px;right:28px;z-index:999;background:var(--gm);color:#fff;border:none;border-radius:50px;padding:11px 22px;font-size:.88rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:7px;box-shadow:0 4px 20px rgba(26,122,90,.4);transition:transform .2s,box-shadow .2s;}
+.print-btn{position:fixed;bottom:28px;right:28px;z-index:999;background:var(--gm);color:#fff;border:none;border-radius:50px;padding:11px 22px;font-size: 18px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:7px;box-shadow:0 4px 20px rgba(26,122,90,.4);transition:transform .2s,box-shadow .2s;}
 .print-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(26,122,90,.5);}
 @media print{.print-btn{display:none!important;}body{padding:0;}h2{break-before:page;}.q-ans{display:block!important;}}
 
@@ -36,11 +36,11 @@ body{background:#fff;color:var(--tx);font-family:"Noto Sans TC","PingFang TC","M
 
 /* HEADINGS */
 h2{font-size: 20px;font-weight:800;color:var(--gd);margin:52px 0 18px;padding-bottom:10px;border-bottom:3px solid var(--gl);display:flex;align-items:center;gap:10px;}
-h2 .ch{background:var(--gd);color:#fff;border-radius:6px;padding:2px 10px;font-size:.73rem;letter-spacing:1px;}
+h2 .ch{background:var(--gd);color:#fff;border-radius:6px;padding:2px 10px;font-size: 18px;letter-spacing:1px;}
 h3{font-size: 18px;font-weight:700;color:var(--gm);margin:26px 0 10px;padding-left:10px;border-left:4px solid var(--gl);}
 
 /* CARDS */
-.card{border:1px solid var(--bd);border-radius:10px;padding:18px 22px;margin-bottom:16px;background:var(--gp);font-size:.88rem;}
+.card{border:1px solid var(--bd);border-radius:10px;padding:18px 22px;margin-bottom:16px;background:var(--gp);font-size: 18px;}
 .card.amber{background:var(--ap);border-color:var(--ab);}
 .card.red{background:var(--rp);border-color:#fca5a5;}
 .card.blue{background:var(--bp);border-color:#93c5fd;}
@@ -88,7 +88,7 @@ tr:hover td{background:#dff5ea;}
 .num-card .lbl{font-size: 18px;color:#555;margin-top:6px;line-height:1.5;}
 
 /* STORY */
-.story{border:1px solid #fde68a;border-radius:10px;padding:20px 22px;background:linear-gradient(135deg,#fffbeb,#fef9e7);font-size:.88rem;margin:16px 0;position:relative;}
+.story{border:1px solid #fde68a;border-radius:10px;padding:20px 22px;background:linear-gradient(135deg,#fffbeb,#fef9e7);font-size: 18px;margin:16px 0;position:relative;}
 .story::before{content:attr(data-icon);position:absolute;top:-14px;left:16px;background:#fff;padding:0 6px;font-size:1.3rem;}
 .story-title{font-weight:800;font-size: 18px;color:#78350f;margin-bottom:10px;}
 
@@ -119,7 +119,7 @@ tr:hover td{background:#dff5ea;}
 .q-block{border:1px solid #d0e8d8;border-radius:10px;margin-bottom:16px;overflow:hidden;}
 .q-head{background:#e8f7ee;padding:10px 16px;display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none;}
 .q-head:hover{background:#d4f0e0;}
-.q-num{background:var(--gd);color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:.74rem;font-weight:800;flex-shrink:0;}
+.q-num{background:var(--gd);color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size: 18px;font-weight:800;flex-shrink:0;}
 .q-text{font-size: 18px;font-weight:600;flex:1;color:#1a3a2a;}
 .q-tog{font-size: 18px;color:#888;flex-shrink:0;}
 .q-body{padding:12px 16px;font-size: 18px;}
@@ -138,7 +138,7 @@ tr:hover td{background:#dff5ea;}
 .trap-d{font-size: 18px;}
 
 /* FOOTER */
-.footer{background:var(--gd);color:rgba(255,255,255,.6);text-align:center;padding:22px;font-size:.75rem;margin-top:60px;}
+.footer{background:var(--gd);color:rgba(255,255,255,.6);text-align:center;padding:22px;font-size: 18px;margin-top:60px;}
 hr{border:none;border-top:1px dashed var(--bd);margin:32px 0;}
 ul,ol{padding-left:20px;}
 ul li,ol li{margin-bottom:5px;font-size: 18px;}
@@ -911,7 +911,7 @@ a.badge2 {
 
 <!-- 最後叮嚀 -->
 <div class="card amber" style="margin-top:36px;">
-  <p style="font-size:1rem;font-weight:800;color:#78350f;margin-bottom:12px;">📣 命題委員的最後叮嚀</p>
+  <p style="font-size: 18px;font-weight:800;color:#78350f;margin-bottom:12px;">📣 命題委員的最後叮嚀</p>
   <p>氣候法的誕生，宣告了一個時代的終結：<strong>免費排放的時代，結束了。</strong></p>
   <p style="margin-top:8px;">對大企業而言，碳費是壓力；對富林農場而言，碳匯是機會；對每一位考生而言，理解這套制度，是在這個減碳時代安身立命的基本能力。</p>
   <p style="margin-top:8px;font-weight:700;color:var(--gd);">記住：法規是地板，不是天花板。真正的競爭優勢，從早一步行動開始。🌿</p>
