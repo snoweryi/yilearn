@@ -224,7 +224,7 @@
   }
 
   /* ── Comparison Table ── */
-  .comp-table-wrap { overflow-x: auto; margin-bottom: 32px; }
+  .comp-table-wrap { overflow-x: auto; margin-bottom: 12px; }
   .comp-table {
     width: 100%;
     border-collapse: collapse;
@@ -232,7 +232,7 @@
   }
   .comp-table th {
     background: var(--surface2);
-    padding: 12px 16px;
+    padding: 8px;
     text-align: left;
     font-size: 18px;
     font-weight: 700;
@@ -240,12 +240,12 @@
     letter-spacing: 0.08em;
     color: var(--text-muted);
     border: 1px solid var(--border);
-    white-space: nowrap;
+    /*white-space: nowrap;*/
   }
   .comp-table th.col-old { color: var(--accent-old); border-top: 2px solid var(--accent-old); }
   .comp-table th.col-new { color: var(--accent-new); border-top: 2px solid var(--accent-new); }
   .comp-table td {
-    padding: 12px 16px;
+    padding: 8px;
     border: 1px solid var(--border);
     vertical-align: top;
     line-height: 1.6;
@@ -255,7 +255,7 @@
     font-weight: 600;
     color: var(--text-primary);
     background: var(--surface2);
-    white-space: nowrap;
+    /*white-space: nowrap;*/
     font-size: 18px;
   }
   .comp-table tr:hover td { background: rgba(255,255,255,0.02); }
@@ -622,19 +622,19 @@ a.badge2 {
   <div id="tab-compare" class="section">
     <p class="sec-heading">⚖️ V1.3.1 vs V2.0 完整對照表</p>
     <div class="comp-table-wrap">
-      <table class="comp-table">
+      <table class="comp-table" style="width:100%">
         <thead>
           <tr>
-            <th style="width:160px;">比較項目</th>
-            <th class="col-old" style="width:380px;">🔶 V1.3.1 舊版</th>
-            <th class="col-new" style="width:380px;">🟢 V2.0 新版（2026.06.11）</th>
+            <th >比較項目</th>
+            <th class="col-old" style="width:44%;">🔶 V1.3.1 舊版</th>
+            <th class="col-new" style="width:44%;">🟢 V2.0 新版（2026.06.11）</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="topic">企業分類</td>
-            <td><span class="tag tag-old">舊版</span> 全體企業相同要求，無分級</td>
-            <td><span class="tag tag-new">新版</span> 引入 <strong>A / B 類分級</strong>，依規模與所在國家收入水準區分要求</td>
+            <td class="topic" >企業分類</td>
+            <td style="width:44%"><span class="tag tag-old">舊版</span> 全體企業相同要求，無分級</td>
+            <td style="width:44%"><span class="tag tag-new">新版</span> 引入 <strong>A / B 類分級</strong>，依規模與所在國家收入水準區分要求</td>
           </tr>
           <tr>
             <td class="topic">確證機制</td>
