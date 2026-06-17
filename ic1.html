@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>碳中和｜2026 IPAS 淨零碳管理師 考前衝刺筆記</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;600&display=swap');
+
+:root {
+  --bg: #fff;
+  --surface: #fff;
+  --surface2: #fff;
+  --border: #243328;
+  --green: #2d6b47;
+  --green-dim: #2d6b47;
+  --teal: #38bdf8;
+  --amber: #f59e0b;
+  --red: #ef4444;
+  --text: #000;
+  --text-muted: #000;
+  --text-dim: #000;
+  --tag-green: rgba(76,175,125,0.15);
+  --tag-amber: rgba(245,158,11,0.15);
+  --tag-red: rgba(239,68,68,0.12);
+  --tag-blue: rgba(56,189,248,0.12);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: 'Noto Sans TC', sans-serif; font-size: 18px; line-height: 1.75; }
+
+/* ── HEADER ── */
+.hero {
+margin-top: 120px;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  padding: 52px 48px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse 600px 300px at 80% 50%, rgba(76,175,125,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px; font-weight: 600;
+  color: var(--green); letter-spacing: 0.15em;
+  text-transform: uppercase; margin-bottom: 14px;
+}
+.hero h1 { font-size: 32px; font-weight: 900; letter-spacing: -0.01em; line-height: 1.2; margin-bottom: 10px; }
+.hero h1 span { color: #04247d; }
+.hero-sub { font-size: 18px; color: #405180; max-width: 1900px; }
+.hero-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; }
+.badge {
+  font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 600;
+  padding: 4px 12px; border-radius: 3px; border: 1px solid;
+}
+.b-green { background: var(--tag-green); border-color: var(--green); color: var(--green); }
+.b-amber { background: var(--tag-amber); border-color: var(--amber); color: var(--amber); }
+.b-blue  { background: var(--tag-blue);  border-color: var(--teal);  color: var(--teal); }
+
+/* ── NAV ── */
+.nav { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 48px; display: flex; overflow-x: auto; gap: 0; }
+.nav-btn {
+  padding: 13px 18px; font-size: 18px; font-weight: 500;
+  color: var(--text-muted); background: none; border: none;
+  border-bottom: 2px solid transparent; cursor: pointer; white-space: nowrap;
+  font-family: 'Noto Sans TC', sans-serif; transition: all 0.2s;
+}
+.nav-btn:hover { color: var(--text); }
+.nav-btn.active { color: var(--green); border-bottom-color: var(--green); }
+
+/* ── MAIN ── */
+.main { max-width: 1900px; padding: 40px 48px; }
+.section { display: none; }
+.section.active { display: block; }
+.sec-title {
+  font-size: 18px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.12em; color: var(--text-dim);
+  border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 20px;
+}
+
+/* ── CARDS ── */
+.card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: 24px; margin-bottom: 20px;
+  position: relative; overflow: hidden;
+}
+.card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; }
+.card.green::before { background: var(--green); }
+.card.amber::before { background: var(--amber); }
+.card.red::before   { background: var(--red); }
+.card.blue::before  { background: var(--teal); }
+.card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; color: var(--text); }
+.card p  { font-size: 18px; color: #000; line-height: 1.7; }
+.card ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.card li { font-size: 18px; color: #000; padding-left: 16px; position: relative; }
+.card li::before { content: '›'; position: absolute; left: 0; color: var(--text-dim); }
+.card li strong { color: var(--text); }
+.card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+
+/* ── TAG ── */
+.tag {
+  display: inline-block; font-family: 'JetBrains Mono', monospace;
+  font-size: 18px; font-weight: 600; padding: 2px 8px; border-radius: 3px; margin: 0 2px;
+  vertical-align: middle;
+}
+.tg { background: var(--tag-green); color: var(--green); }
+.ta { background: var(--tag-amber); color: var(--amber); }
+.tr { background: var(--tag-red);   color: var(--red); }
+.tb { background: var(--tag-blue);  color: var(--teal); }
+
+/* ── TABLE ── */
+.tbl-wrap { overflow-x: auto; margin-bottom: 24px; }
+.tbl { width: 100%; border-collapse: collapse; font-size: 18px; }
+.tbl th {
+  background: #fff; padding: 11px 14px;
+  text-align: left; border: 1px solid var(--border);
+  font-size: 18px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--text-dim);
+}
+.tbl td { padding: 11px 14px; border: 1px solid var(--border); vertical-align: top; color: #000; line-height: 1.6; }
+.tbl td.topic { font-weight: 700; color: #000; background: #fff; white-space: nowrap; font-size: 18px; }
+.tbl tr:hover td { background: #fff; }
+.tbl td strong { color: var(--text); }
+
+/* ── PARC FLOW ── */
+.parc { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 28px; }
+.parc-step {
+  background: #fff); border: 1px solid var(--border);
+  border-radius: 8px; padding: 20px 16px; text-align: center;
+  position: relative;
+}
+.parc-step::after {
+  content: '→';
+  position: absolute; right: -14px; top: 50%; transform: translateY(-50%);
+  color: var(--text-dim); font-size: 18px; z-index: 1;
+}
+.parc-step:last-child::after { display: none; }
+.parc-letter {
+  font-size: 36px; font-weight: 900; line-height: 1;
+  margin-bottom: 4px;
+}
+.P .parc-letter { color: var(--teal); }
+.A .parc-letter { color: var(--green); }
+.R .parc-letter { color: var(--amber); }
+.C .parc-letter { color: #c084fc; }
+.parc-en { font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+.P .parc-en { color: var(--teal); }
+.A .parc-en { color: var(--green); }
+.R .parc-en { color: var(--amber); }
+.C .parc-en { color: #c084fc; }
+.parc-zh { font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+.parc-desc { font-size: 18px; color: var(--text-muted); line-height: 1.5; }
+.parc-verify {
+  grid-column: 1 / -1;
+  background: rgba(76,175,125,0.06); border: 1px dashed var(--green-dim);
+  border-radius: 6px; padding: 14px; text-align: center; margin-top: 4px;
+}
+.parc-verify strong { color: var(--green); }
+.parc-verify span { font-size: 18px; color: var(--text-muted); }
+
+/* ── STORY ── */
+.story-box {
+  background: var(--surface2); border: 1px solid var(--border);
+  border-left: 3px solid var(--green); border-radius: 0 8px 8px 0;
+  padding: 20px 24px; margin-bottom: 16px;
+}
+.story-box .story-label {
+  font-family: 'JetBrains Mono', monospace; font-size: 18px;
+  font-weight: 700; color: var(--green); text-transform: uppercase;
+  letter-spacing: 0.1em; margin-bottom: 10px;
+}
+.story-box p { font-size: 18px; color: #000; line-height: 1.75; }
+.story-box p + p { margin-top: 10px; }
+.story-box strong { color: var(--text); }
+
+.warn-box {
+  background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.25);
+  border-radius: 6px; padding: 16px 20px; margin-bottom: 16px;
+  display: flex; gap: 12px;
+}
+.warn-icon { font-size: 18px; flex-shrink: 0; }
+.warn-box p { font-size: 18px; color: #911d1d; line-height: 1.65; }
+.warn-box strong { color: #610423; }
+
+/* ── QUIZ ── */
+.q-notice {
+  background: rgba(245,158,11,0.07); border: 1px solid rgba(245,158,11,0.25);
+  border-radius: 8px; padding: 16px 20px; margin-bottom: 24px;
+  display: flex; gap: 10px; align-items: flex-start;
+}
+.q-notice p { font-size: 18px; color: var(--amber); }
+.q-notice strong { font-weight: 700; }
+
+.q-list { display: flex; flex-direction: column; gap: 14px; }
+.q-item { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.q-head {
+  padding: 14px 18px; display: flex; align-items: flex-start;
+  gap: 12px; cursor: pointer; user-select: none;
+}
+.q-num {
+  font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 700;
+  color: var(--text-dim); min-width: 32px; flex-shrink: 0; padding-top: 1px;
+}
+.q-text { font-size: 18px; color: var(--text); font-weight: 500; flex: 1; line-height: 1.6; }
+.q-diff {
+  font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 700;
+  padding: 2px 8px; border-radius: 3px; flex-shrink: 0; white-space: nowrap;
+}
+.d-easy { background: var(--tag-green); color: var(--green); }
+.d-mid  { background: var(--tag-blue);  color: var(--teal); }
+.d-hard { background: var(--tag-amber); color: var(--amber); }
+.q-arr { font-size: 16px; color: var(--text-dim); flex-shrink: 0; transition: transform 0.2s; }
+.q-item.open .q-arr { transform: rotate(90deg); }
+.q-body {
+  display: none; padding: 0 18px 18px 62px;
+  border-top: 1px solid var(--border); padding-top: 14px;
+}
+.q-item.open .q-body { display: block; }
+.q-body .ans { font-size: 18px; font-weight: 700; color: red; margin-bottom: 8px; }
+.q-body p { font-size: 18px; color: #576b59; line-height: 1.7; margin-bottom: 8px; }
+.q-body strong { color: #047d7d; }
+.q-body ul { padding-left: 16px; display: flex; flex-direction: column; gap: 4px; margin: 6px 0; }
+.q-body ul li { font-size: 18px; color: #9ab89e; }
+.q-body .opt { display: block; padding: 8px 12px; border-radius: 4px; margin: 4px 0; font-size: 18px; color: #9ab89e; background: var(--surface2); border: 1px solid var(--border); }
+.q-body .opt.correct { background: var(--tag-green); border-color: var(--green-dim); color: #000; font-weight: 600; }
+.q-body .opt.wrong   { opacity: 0.9;color: #464747; }
+
+/* ── TERMS ── */
+.terms-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; }
+.term { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 16px; }
+.term-name { font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 700; color: #f58002; margin-bottom: 6px; }
+.term-def  { font-size: 18px; color: #000; line-height: 1.6; }
+.term-def strong { color: var(--text); }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--border); padding: 18px 48px;
+  font-family: 'JetBrains Mono', monospace; font-size: 18px; color: var(--text-dim);
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .hero, .nav, .main, footer { padding-left: 20px; padding-right: 20px; }
+  .card-grid, .parc, .terms-grid { grid-template-columns: 1fr; }
+  .parc-step::after { display: none; }
+  .hero h1 { font-size: 24px; }
+  .q-body { padding-left: 18px; }
+}
+.badgerowbt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px;
+    background: rgba(255,255,255,.95);
+    backdrop-filter: blur(8px);
+    z-index: 9999;
+    box-shadow: 0 2px 10px rgba(0,0,0,.08);
+}
+
+a.badge1 {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #007286;
+    color: #fff;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+a.badge2 {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #007286;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+</style>
+</head>
+<body>
+<div class="badgerowbt">    
+		<div><a href="https://snoweryi.github.io/yilearn/i01.html" class="badge1">01趨勢及策略</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/i02.html" class="badge1">02溫室氣體盤查</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/i03.html" class="badge1">03碳足跡</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/i031.html" class="badge1">03碳足跡2</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/i011.html" class="badge1">考科一</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/i022.html" class="badge1">考科二</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/" class="badge1" >永續架構</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/iu.html" class="badge1">UNFCCC</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/iz.html" class="badge1">條文</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/iy.html" class="badge1">年份</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/iw.html" class="badge1">氣候法</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/ic1.html" class="badge2">碳中和</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/ic.html" class="badge1">CBAM</a></div>	
+		<div><a href="https://snoweryi.github.io/yilearn/is.html" class="badge1">舊SBTi</a></div>		
+		<div><a href="https://snoweryi.github.io/yilearn/isb.html" class="badge1">新舊SBTi</a></div>	
+		<div><a href="https://snoweryi.github.io/yilearn/ir.html" class="badge1">RE100</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/ie.html" class="badge1">ESG</a></div>	
+	</div>
+  <div class="hmeta">
+    <div class="hmi"><div class="dot" style="background:var(--red)"></div>CBAM正式實施：2026年1月1日</div>
+    <div class="hmi"><div class="dot" style="background:var(--blue)"></div>首次憑證繳交：2027年9月30日前</div>
+    <div class="hmi"><div class="dot" style="background:var(--green)"></div>涵蓋：完整時程 × 計算邏輯 × 台灣因應 × 30道模擬題</div>
+  </div>
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-eyebrow">IPAS 淨零碳管理師 · 2026 考前衝刺</div>
+  <h1>碳中和<span>（Carbon Neutrality）</span><br>深度專題筆記</h1>
+  <p class="hero-sub">命題委員視角整理 · ISO 14068-1:2023 · P-A-R-C 四步驟 · 20 道模擬試題 · 漂綠陷阱解析</p>
+  <div class="hero-badges">
+    <span class="badge b-green">ISO 14068-1:2023</span>
+    <span class="badge b-green">ISO 14064-1:2018</span>
+    <span class="badge b-green">ISO 14067:2018</span>
+    <span class="badge b-blue">GHG Protocol</span>
+    <span class="badge b-amber">SBTi Net-Zero Standard</span>
+    <span class="badge b-amber">巴黎協定第6條</span>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="nav">
+  <button class="nav-btn active" onclick="sw('theory')">📐 核心理論</button>
+  <button class="nav-btn" onclick="sw('parc')">🔄 P-A-R-C 流程</button>
+  <button class="nav-btn" onclick="sw('compare')">⚖️ 碳中和 vs 淨零</button>
+  <button class="nav-btn" onclick="sw('story')">☕ 故事案例</button>
+  <button class="nav-btn" onclick="sw('cbam')">🌍 CBAM 時事</button>
+  <button class="nav-btn" onclick="sw('terms')">📖 關鍵術語</button>
+  <button class="nav-btn" onclick="sw('quiz')">📝 模擬試題 Q1–Q10</button>
+  <button class="nav-btn" onclick="sw('quiz2')">📝 模擬試題 Q11–Q20</button>
+</nav>
+
+<main class="main">
+
+<!-- ───── TAB 1: 核心理論 ───── -->
+<div id="tab-theory" class="section active">
+
+  <p class="sec-title">📐 碳中和的精確定義與法律地位</p>
+
+  <div class="card green">
+    <h3>碳中和（Carbon Neutrality）——ISO 14068-1:2023 定義</h3>
+    <p>在特定<strong>邊界（Boundary）</strong>與特定<strong>報告期（Reporting Period）</strong>內，某一主體（組織、產品、活動或事件）所排放的溫室氣體量，在經過可量化的<strong>減量行動</strong>後，其剩餘排放量透過向外購買且<strong>品質達標</strong>的<strong>碳抵換額度（Carbon Offset Credits）</strong>加以中和，使淨排放量達到零或低於零的狀態。</p>
+    <br>
+    <p>正式宣告須附有<strong>獨立第三方查驗聲明書</strong>，且必須公開揭露：盤查方法論、邊界、減量路徑、碳抵換來源與品質資訊。</p>
+  </div>
+
+  <div class="card amber">
+    <h3>⚠️ 命題委員前言</h3>
+    <p>2026 年後 COP30 時代，「碳中和」已從自願性宣言演變為<strong>市場准入條件</strong>。本筆記的每一個字，都可能是考場上決勝的關鍵。請不要背定義，請理解邏輯。</p>
+    <br>
+    <p>2026 年最常見的錯誤選項：把「購買碳權」等同於「達成淨零」——這是<strong>典型的漂綠行為</strong>。歐盟「綠色聲明指令（Green Claims Directive）」要求所有對消費者的碳中和聲明須附有科學佐證，否則視為不實廣告。</p>
+  </div>
+
+  <p class="sec-title" style="margin-top:32px;">📊 三大排放範疇（GHG Protocol）</p>
+  <div class="card-grid">
+    <div class="card blue">
+      <h3>🏭 Scope 1 ─ 直接排放</h3>
+      <p>企業擁有或控制的設施直接產生的溫室氣體排放。<br><strong>例：</strong>鍋爐燃燒天然氣、自有車輛用油、製程逸散排放。</p>
+    </div>
+    <div class="card blue">
+      <h3>⚡ Scope 2 ─ 電力間接排放</h3>
+      <p>外購電力、蒸汽、熱能或冷能所產生的間接排放。<br><strong>雙軌揭露：</strong>位置基礎法 ＋ 市場基礎法（需同時揭露）。</p>
+    </div>
+    <div class="card green" style="grid-column: 1/-1;">
+      <h3>🔗 Scope 3 ─ 價值鏈間接排放（15 個類別）</h3>
+      <ul>
+        <li><strong>上游（類別1–8）：</strong>購買商品/服務、資本財、能源相關、運輸、廢棄物、商務旅行、員工通勤、上游租賃資產</li>
+        <li><strong>下游（類別9–15）：</strong>下游運輸、已售產品處理、<strong>已售產品使用（類別11，考試高頻）</strong>、已售產品廢棄、下游租賃資產、特許經營、投資</li>
+        <li><strong>考試重點：</strong>汽車製造商出售汽油車後，消費者行駛時的排放屬<strong>Scope 3 類別 11</strong></li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- ───── TAB 2: PARC ───── -->
+<div id="tab-parc" class="section">
+
+  <p class="sec-title">🔄 達成碳中和的標準程序：P-A-R-C 四步驟</p>
+
+  <div class="parc">
+    <div class="parc-step P">
+      <div class="parc-letter">P</div>
+      <div class="parc-en">Plan</div>
+      <div class="parc-zh">規劃宣告</div>
+      <div class="parc-desc">明確承諾、訂定盤查<strong>邊界</strong>（組織邊界、營運邊界）與報告期。決定採用控制法或股權比例法。符合 ISO 14068-1:2023 §5。</div>
+    </div>
+    <div class="parc-step A">
+      <div class="parc-letter">A</div>
+      <div class="parc-en">Assess</div>
+      <div class="parc-zh">碳排放量化</div>
+      <div class="parc-desc">依據 ISO 14064-1:2018 或 GHG Protocol 執行碳盤查。量化 Scope 1、2、3。設定基準年（Base Year）。</div>
+    </div>
+    <div class="parc-step R">
+      <div class="parc-letter">R</div>
+      <div class="parc-en">Reduce</div>
+      <div class="parc-zh">優先減量</div>
+      <div class="parc-desc">ISO 14068-1:2023 明確：<strong>減量必須先於碳補償</strong>。手段：能源效率、再生能源、製程改善、供應鏈減碳。建議搭配 SBT 科學基礎目標。</div>
+    </div>
+    <div class="parc-step C">
+      <div class="parc-letter">C</div>
+      <div class="parc-en">Compensate</div>
+      <div class="parc-zh">碳補償</div>
+      <div class="parc-desc">針對剩餘無法消除的排放，購買符合品質標準的碳抵換額度。五原則：外加性、永久性、可量化、可查驗、避免重複計算。</div>
+    </div>
+    <div class="parc-verify">
+      <strong>🔍 查驗（Verification）——橫跨全流程</strong><br>
+      <span>由獨立第三方查驗機構（Bureau Veritas、SGS、TÜV 等）出具聲明書。查驗報告必須公開揭露，方可對外宣告「已達碳中和」。</span>
+    </div>
+  </div>
+
+  <p class="sec-title">🏆 碳抵換五大品質原則</p>
+  <div class="tbl-wrap">
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th>原則</th>
+          <th>英文</th>
+          <th>核心意義</th>
+          <th>考試常見陷阱</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="topic">外加性</td>
+          <td>Additionality</td>
+          <td>若無此專案資金支持，該減排不會自然發生</td>
+          <td>CDM 舊碳權外加性認定過寬，不建議使用</td>
+        </tr>
+        <tr>
+          <td class="topic">永久性</td>
+          <td>Permanence</td>
+          <td>碳移除效果長期穩定，不會逆轉</td>
+          <td>林業碳匯可能因野火逆轉，需有緩衝池機制</td>
+        </tr>
+        <tr>
+          <td class="topic">可量化</td>
+          <td>Measurability</td>
+          <td>減排量可依標準方法論精確計算</td>
+          <td>口頭宣稱「稻田有碳匯」但無 MRV 流程不符合</td>
+        </tr>
+        <tr>
+          <td class="topic">可查驗</td>
+          <td>Verifiability</td>
+          <td>可由第三方獨立核實</td>
+          <td>無查驗報告的碳權宣告無效</td>
+        </tr>
+        <tr>
+          <td class="topic">避免重複計算</td>
+          <td>No Double Counting</td>
+          <td>同一減排量僅能計入一個主體</td>
+          <td>主機國政府已計入 NDC 的碳權需「相應調整」</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="sec-title">🌲 緩衝池（Buffer Pool）機制</p>
+  <div class="card green">
+    <h3>永久性風險應對機制</h3>
+    <p>Verra VCS 等主流標準設計的保障制度。每個林業或土地利用型碳匯專案，需依風險評估將<strong>10–20% 的碳權存入緩衝池</strong>，不得販賣。當專案發生火災、病蟲害等導致碳匯逆轉時，從緩衝池提取以補償。直接對應的是<strong>永久性</strong>風險，而非外加性或重複計算。</p>
+  </div>
+
+</div>
+
+<!-- ───── TAB 3: 碳中和 vs 淨零 ───── -->
+<div id="tab-compare" class="section">
+
+  <p class="sec-title">⚖️ 碳中和 vs 淨零——IPAS 最常見陷阱比較題</p>
+
+  <div class="warn-box">
+    <span class="warn-icon">⚠️</span>
+    <p><strong>命題委員提示：</strong>「碳中和」≠「淨零」，兩者並非同義詞，而是<strong>不同嚴格程度的宣告體系</strong>。碳中和可以是短期的、局部的；淨零必須是長期的、系統性的。命題委員會刻意設計情境混淆，請掌握以下五維差異。</p>
+  </div>
+
+  <div class="tbl-wrap">
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th style="width:140px;">比較維度</th>
+          <th style="border-top:2px solid #f59e0b;">🟡 碳中和（Carbon Neutrality）</th>
+          <th style="border-top:2px solid #4caf7d;">🟢 淨零（Net Zero）</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="topic">標準依據</td>
+          <td><strong>ISO 14068-1:2023</strong> / PAS 2060:2014</td>
+          <td><strong>SBTi Net-Zero Standard</strong> / ISO NWI 14080</td>
+        </tr>
+        <tr>
+          <td class="topic">邊界範疇</td>
+          <td>可為單一產品、活動或組織，<strong>Scope 3 可選擇性納入</strong></td>
+          <td>組織必須納入<strong>全價值鏈</strong>排放，Scope 1+2+3 全涵蓋</td>
+        </tr>
+        <tr>
+          <td class="topic">碳抵換角色</td>
+          <td><strong>允許</strong>作為主要手段補足剩餘排放，只要符合高品質原則</td>
+          <td>僅限補足<strong>殘餘排放（hard-to-abate）</strong>，不得替代減量；SBTi 要求整體減量達 <strong>90%+</strong> 再使用</td>
+        </tr>
+        <tr>
+          <td class="topic">時間架構</td>
+          <td>可為短期宣告（如單次活動、單一產品年度）</td>
+          <td>通常設定 <strong>2050 年長期目標</strong>，並設 2030 中期里程碑</td>
+        </tr>
+        <tr>
+          <td class="topic">高品質碳權</td>
+          <td>須符合外加性、永久性、可量化、可查驗四原則。建議 <strong>Verra VCS</strong> 或 <strong>Gold Standard</strong></td>
+          <td>強調<strong>自然碳匯</strong>與<strong>碳移除（CDR）</strong>，逐步淘汰一般減量型碳抵換</td>
+        </tr>
+        <tr>
+          <td class="topic">2026年後重大變化</td>
+          <td>歐盟<strong>綠色聲明指令</strong>要求消費者碳中和聲明須附科學佐證，否則視為不實廣告</td>
+          <td>SBTi 2025 更新：金融機構 Scope 3 計算強制採用 <strong>PCAF 標準</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="sec-title">🚨 漂綠（Greenwashing）常見形式</p>
+  <div class="card-grid">
+    <div class="card red">
+      <h3>❌ 片面選擇性揭露</h3>
+      <p>只處理 Scope 2（購買 RECs），就宣告整體「碳中和」，完全未提 Scope 1 和 Scope 3。<span class="tag tr">Cherry-picking</span></p>
+    </div>
+    <div class="card red">
+      <h3>❌ 無查驗宣告</h3>
+      <p>在包裝印「Carbon Neutral」標誌但未取得第三方查驗聲明書，ISO 14068-1:2023 明確要求查驗為必要步驟。</p>
+    </div>
+    <div class="card red">
+      <h3>❌ 低品質碳權</h3>
+      <p>購買每噸 2 美元、無第三方查驗、無 Verra/Gold Standard 認證的碳權。2026 年市場均價 <strong>15–40 美元/噸</strong>，遠低市價是警訊。</p>
+    </div>
+    <div class="card red">
+      <h3>❌ 預售型碳權（Ex-ante）</h3>
+      <p>使用「2030 年才會實現的碳移除」補償 2025 年排放，違反 ISO 14068-1 的<strong>實現性（Realization）</strong>要求。</p>
+    </div>
+    <div class="card red">
+      <h3>❌ 重複計算</h3>
+      <p>主機國政府已將某碳權計入 NDC，企業又用於自身碳中和宣告。需取得<strong>相應調整（Corresponding Adjustment）</strong>文件。</p>
+    </div>
+    <div class="card green">
+      <h3>✅ 合規宣告範本</h3>
+      <p>「本公司 2025 年企業整體營運（Scope 1、2 及重大 Scope 3），依據 <strong>ISO 14068-1:2023</strong> 達到碳中和，第三方查驗聲明書請見官網。」</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- ───── TAB 4: 故事案例 ───── -->
+<div id="tab-story" class="section">
+
+  <p class="sec-title">☕ 生活化案例：一杯 2026 年的零碳拿鐵——禾日咖啡</p>
+
+  <div class="story-box">
+    <div class="story-label">開幕</div>
+    <p>2026 年春天，台北大安區有一家叫做「禾日咖啡」的獨立咖啡廳。主理人陳穗，是個前科技業工程師，辭職後把對精品咖啡的熱情和對永續的堅持結合在一起。</p>
+    <p>禾日咖啡在 2025 年底貼出了一張海報：<strong>「每一杯拿鐵，2026 年起都是碳中和的。」</strong></p>
+  </div>
+
+  <p class="sec-title">第一步：Assess 看清楚碳足跡</p>
+  <div class="story-box">
+    <div class="story-label">ISO 14067:2018 產品碳足跡盤查</div>
+    <p>一杯 480ml 的禾日拿鐵，碳足跡約 <strong>340g CO₂e</strong></p>
+  </div>
+  <div class="card-grid">
+    <div class="card amber">
+      <h3>🐄 牛奶 68%</h3>
+      <p>乳牛的甲烷排放 + 飼料種植農業排放。<strong>「牛奶才是大魔王」</strong>，而非用電。</p>
+    </div>
+    <div class="card blue">
+      <h3>☕ 咖啡豆 15%</h3>
+      <p>農業種植與跨國運輸排放。典型的 Scope 3 上游排放。</p>
+    </div>
+    <div class="card green">
+      <h3>⚡ 咖啡廳用電 8%</h3>
+      <p>店內設備用電，屬 Scope 2。直覺認為最大卻只佔 8%——盤查的重要性。</p>
+    </div>
+  </div>
+
+  <p class="sec-title">第二步：Reduce 能做的先做</p>
+  <div class="card green">
+    <h3>減量行動（減至 198g CO₂e，減少 42%）</h3>
+    <ul>
+      <li>門市用電全面換成 100% 再生能源憑證（RECs）→ Scope 2 歸零</li>
+      <li>引進節能咖啡機，省電 35%</li>
+      <li>與供應商合作改用<strong>低碳牧場牛奶</strong>（改良飼料減少甲烷）</li>
+      <li>推出植物奶選擇（碳足跡約 60g CO₂e，比牛奶減少 82%）</li>
+    </ul>
+  </div>
+
+  <p class="sec-title">第三步：Compensate 碳權選擇——這裡有陷阱</p>
+
+  <div class="tbl-wrap">
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th>選項</th>
+          <th>價格</th>
+          <th>描述</th>
+          <th>評判</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="topic">選項 A</td>
+          <td style="color:var(--red);">$2/噸</td>
+          <td>境外平台，聲稱「已種植百萬棵樹」，無第三方查驗，無 Verra/Gold Standard 認證</td>
+          <td><span class="tag tr">❌ 詐欺風險</span> 低單價陷阱，無 MRV，種樹 ≠ 碳權</td>
+        </tr>
+        <tr>
+          <td class="topic">選項 B</td>
+          <td style="color:var(--amber);">$22/噸</td>
+          <td>台灣林業署國內碳匯，通過台灣環境部認證，但為「避免毀林」型（REDD+），無永久性保障機制</td>
+          <td><span class="tag ta">⚠️ 外加性存疑</span> 基準線設定問題，歐盟認可度疑慮</td>
+        </tr>
+        <tr>
+          <td class="topic">選項 C ✓</td>
+          <td style="color:var(--green);">$18/噸</td>
+          <td>Gold Standard 認證的印度農村沼氣專案，完整外加性聲明、10 年緩衝池、共同利益（Co-benefits）認證</td>
+          <td><span class="tag tg">✅ 最佳選擇</span> 品質合規，永久性有保障</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="story-box">
+    <div class="story-label">結果</div>
+    <p>陳穗採購了足夠的 Gold Standard 碳權，委請 SGS 台灣做第三方查驗，取得聲明書。</p>
+    <p>2026 年 3 月，<strong>禾日咖啡正式成為台灣第一家依循 ISO 14068-1:2023 宣告單一產品碳中和的獨立咖啡廳</strong>。</p>
+    <p>海報改成：「每一杯拿鐵，都附有第三方查驗聲明書。」——比原來的海報多了十二個字，那十二個字，才是真正的分量。</p>
+  </div>
+
+</div>
+
+<!-- ───── TAB 5: CBAM ───── -->
+<div id="tab-cbam" class="section">
+
+  <p class="sec-title">🌍 2026 時事模擬：CBAM 擴大納管——台灣中小企業的碳中和困局</p>
+
+  <div class="card amber">
+    <h3>假想情境設定（2026年9月）</h3>
+    <p>歐盟宣布，自 2027 年 1 月起，CBAM 納管範圍從<strong>直接排放密集型原料</strong>（鋼鐵、水泥、鋁、化肥、電力、氫）擴大至<strong>加工成品</strong>（機械設備、電子零組件、精密工具、汽車零件）。台灣新竹科學園區廠商感受到前所未有的壓力。</p>
+  </div>
+
+  <p class="sec-title">三波衝擊</p>
+
+  <div class="card red">
+    <h3>第一波：成本顯性化</h3>
+    <p>台灣出口商需申報產品<strong>「內嵌碳排放（Embedded Carbon）」</strong>，按 EU ETS 碳價（2026 年約 75–90 歐元/噸）繳交 CBAM 憑證。</p>
+    <br>
+    <p>以中型廠商為例：每年出口 5,000 噸產品，碳排強度 1.2 tCO₂e/噸：<br>
+    應繳 CBAM = 5,000 × 1.2 × 80 歐元 = <strong>48 萬歐元（約新台幣 1,680 萬元）</strong>。對毛利率 8–12% 的中小製造業，直接蒸發大塊獲利。</p>
+  </div>
+
+  <div class="card amber">
+    <h3>第二波：碳中和聲明成市場准入條件</h3>
+    <p>西門子、保時捷、飛利浦等大型歐洲品牌開始在採購合約中要求：<br><strong>「2027 年前，提交符合 ISO 14068-1:2023 認證的產品碳中和聲明書，否則重新評估供應商資格。」</strong><br>碳中和從「加分項目」變為市場准入門票。</p>
+  </div>
+
+  <div class="card red">
+    <h3>第三波：碳中和認證能力不足</h3>
+    <ul>
+      <li>台灣具備 ISO 14068-1 查驗能力機構有限，排期往往需要 6–12 個月</li>
+      <li>中小企業普遍缺乏完整 Scope 3 資料收集能力</li>
+      <li>缺乏高品質碳權採購知識</li>
+      <li>部分歐洲採購商不接受亞洲本土認證機構查驗報告</li>
+    </ul>
+  </div>
+
+  <p class="sec-title">考試重點整理</p>
+  <div class="card green">
+    <h3>關鍵辨識（考試常考）</h3>
+    <ul>
+      <li><strong>碳中和聲明的「跨境認可度」：</strong>台灣環境部認證 ≠ 歐盟採購商接受，應優先選擇 <span class="tag tg">ISO 17029</span> 認可的國際查驗機構</li>
+      <li><strong>CBAM 與碳中和的區別：</strong>CBAM 是<strong>邊境稅（法規強制）</strong>，碳中和是<strong>自願宣告（市場信譽）</strong>，兩者是不同制度但相互影響</li>
+      <li><strong>碳資料治理能力：</strong>沒有數據 → 無法盤查 → 無法宣告 → 可能失去歐洲訂單</li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- ───── TAB 6: 術語 ───── -->
+<div id="tab-terms" class="section">
+
+  <p class="sec-title">📖 命題關鍵術語一覽</p>
+  <div class="terms-grid">
+    <div class="term">
+      <div class="term-name">ISO 14068-1:2023</div>
+      <div class="term-def">碳中和宣告的主要國際標準。前身為 PAS 2060:2014。規範邊界、PARC 流程、碳補償品質、第三方查驗（ISO 17029）等完整要求。</div>
+    </div>
+    <div class="term">
+      <div class="term-name">ISO 14064-1:2018</div>
+      <div class="term-def">組織層級溫室氣體盤查與報告標準。規範 Scope 1、2、3 的量化方法、基準年設定與不確定性管理。</div>
+    </div>
+    <div class="term">
+      <div class="term-name">ISO 14067:2018</div>
+      <div class="term-def">產品碳足跡（PCF）量化標準。以生命週期評估（LCA）方法計算單一產品從搖籃到大門（或搖籃到墳墓）的碳排放。</div>
+    </div>
+    <div class="term">
+      <div class="term-name">ISO 17029</div>
+      <div class="term-def">第三方查驗與確認機構的認可標準。ISO 14068-1 要求查驗機構需取得 IAF 成員依此標準的認可，確保查驗公信力。</div>
+    </div>
+    <div class="term">
+      <div class="term-name">Verra VCS</div>
+      <div class="term-def">Verified Carbon Standard，目前全球使用最廣的民間碳權認證標準。包含 AFOLU（農林土地利用）、能源效率等多類方法論，支援緩衝池機制。</div>
+    </div>
+    <div class="term">
+      <div class="term-name">Gold Standard</div>
+      <div class="term-def">由 WWF 等 NGO 主導的高品質碳權認證，特別重視<strong>共同利益（Co-benefits）</strong>：SDG、社會影響、生物多樣性。被多數主流框架視為品質標竿。</div>
+    </div>
+    <div class="term">
+      <div class="term-name">CDM CER</div>
+      <div class="term-def">聯合國清潔發展機制核發的 Certified Emission Reductions。2020 年後大幅貶值，外加性認定過寬，與巴黎協定第 6 條相容性問題，<strong>多數框架建議避免使用</strong>。</div>
+    </div>
+    <div class="term">
+      <div class="term-name">REDD+</div>
+      <div class="term-def">減少毀林和森林退化排放。透過保護森林避免被砍伐獲得碳權。2025 年後受科學界質疑：基準線設定可能過高，外加性存疑。</div>
+    </div>
+    <div class="term">
+      <div class="term-name">Corresponding Adjustment</div>
+      <div class="term-def">巴黎協定第 6.2 條「相應調整」機制。主機國政府需從其 NDC 帳戶扣除已出售給企業的碳排放量，避免企業與國家雙重計算同一碳排。</div>
+    </div>
+    <div class="term">
+      <div class="term-name">Double Counting</div>
+      <div class="term-def"><strong>重複計算：</strong>同一碳排放量或碳移除量被兩個主體（如企業 A 與企業 B，或企業與主機國政府）各自計入其減碳帳目。2026 年碳市場最核心治理議題。</div>
+    </div>
+    <div class="term">
+      <div class="term-name">Ex-ante Credits</div>
+      <div class="term-def"><strong>預售型碳權：</strong>在減排或移除尚未實際發生前預先核發的碳權。ISO 14068-1 要求補償需使用<strong>已實現（Realized）</strong>的碳權，Ex-ante 不符合要求。</div>
+    </div>
+    <div class="term">
+      <div class="term-name">Dual Reporting</div>
+      <div class="term-def"><strong>雙軌揭露：</strong>GHG Protocol Scope 2 Guidance 要求企業同時揭露<strong>位置基礎法</strong>（反映電網實際排放）與<strong>市場基礎法</strong>（採購 RECs 後）兩種計算結果。</div>
+    </div>
+    <div class="term">
+      <div class="term-name">Completeness 完整性</div>
+      <div class="term-def">ISO 14068-1:2023 核心原則。碳中和宣告的邊界需涵蓋<strong>重大排放來源</strong>，不得刻意排除高占比排放類別（如 Scope 3 農業排放占 76% 即為重大來源）。</div>
+    </div>
+    <div class="term">
+      <div class="term-name">NbS / Nature-based Solutions</div>
+      <div class="term-def"><strong>自然碳匯型解決方案：</strong>包含造林、濕地恢復等。存在永久性風險（野火、病蟲害），仍需外加性審查，具有共同利益不免除此要求。</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ───── TAB 7: Q1–Q10 ───── -->
+<div id="tab-quiz" class="section">
+
+  <div class="q-notice">
+    <span style="font-size:18px;">🎯</span>
+    <p><strong>2026 IPAS 模擬試題 Q1–Q10</strong>——命題委員親授，側重情境判斷與標準規範，選項設計刻意包含「似是而非」的干擾選項。點擊題目展開解析。</p>
+  </div>
+
+  <div class="q-list">
+
+    <div class="q-item" onclick="tq(this)">
+      <div class="q-head">
+        <div class="q-num">Q1</div>
+        <div class="q-text">某食品公司完成碳盤查：Scope 1 排放 500 tCO₂e、Scope 2 排放 200 tCO₂e、Scope 3 上游農業排放 2,300 tCO₂e。公司決定僅針對 Scope 1 和 2 採購碳權，並宣告「產品已達碳中和」。此做法最可能違反哪項原則？</div>
+        <span class="q-diff d-mid">中級</span>
+        <span class="q-arr">›</span>
+      </div>
+      <div class="q-body">
+        <div class="ans">✅ 答案：B</div>
+        <span class="opt correct">B. ISO 14068-1:2023 對「完整性（Completeness）」的要求——邊界應涵蓋重大排放源</span>
+        <span class="opt wrong">A. ISO 14064-1 的量化原則</span>
+        <span class="opt wrong">C. Gold Standard 對碳權品質的外加性要求</span>
+        <span class="opt wrong">D. GHG Protocol Scope 2 Guidance 的市場基礎法規定</span>
+        <p><strong>解析：</strong>ISO 14068-1:2023 要求對重大排放來源不得刻意排除。本題 Scope 3 農業排放占總量約 76%，屬重大排放源。刻意排除即違反完整性原則，且在 EU 綠色聲明指令下，此類選擇性宣告可能構成誤導性環境聲明。</p>
+      </div>
+    </div>
+
+    <div class="q-item" onclick="tq(this)">
+      <div class="q-head">
+        <div class="q-num">Q2</div>
+        <div class="q-text">依據 ISO 14068-1:2023，以下關於碳補償（Carbon Compensation）的敘述，何者<strong>正確</strong>？</div>
+        <span class="q-diff d-easy">基礎</span>
+        <span class="q-arr">›</span>
+      </div>
+      <div class="q-body">
+        <div class="ans">✅ 答案：B</div>
+        <span class="opt wrong">A. 企業可以用購買碳補償作為減量行動的替代方案</span>
+        <span class="opt correct">B. 碳補償須在同一報告期內購買使用，且僅能補足在盡力減量後仍無法消除的「剩餘排放」</span>
+        <span class="opt wrong">C. 任何聯合國 CDM 認證的碳權均可用於 ISO 14068-1 之碳補償</span>
+        <span class="opt wrong">D. 碳補償的採購地區需與宣告主體所在地相同</span>
+        <p><strong>解析：</strong>ISO 14068-1:2023 明確建立「減量優先（Reduction First）」層級原則：補償是最後手段，不可取代減量行動（排除A）。CDM 舊碳權在 2026 年標準下已不被多數框架接受（排除C）。ISO 14068-1 並無地理限制要求（排除D）。</p>
+      </div>
+    </div>
+
+    <div class="q-item" onclick="tq(this)">
+      <div class="q-head">
+        <div class="q-num">Q3</div>
+        <div class="q-text">A 公司購買的碳抵換額度，與供應商 B 公司向同一政府機構購買的減排額度，來自同一個森林保育專案，且兩者均已各自計入碳中和聲明。此情況屬於哪種問題？</div>
+        <span class="q-diff d-easy">基礎</span>
+        <span class="q-arr">›</span>
+      </div>
+      <div class="q-body">
+        <div class="ans">✅ 答案：C</div>
+        <span class="opt wrong">A. 外加性（Additionality）不足</span>
+        <span class="opt wrong">B. 永久性（Permanence）風險</span>
+        <span class="opt correct">C. 重複計算（Double Counting）</span>
+        <span class="opt wrong">D. 基準線設定（Baseline Setting）偏差</span>
+        <p><strong>解析：</strong>同一減排量被兩個主體各自計入其碳中和聲明即為「重複計算」。在《巴黎協定》第 6.2 條「相應調整」機制下，主機國政府若已將同一碳權計入 NDC，該碳權就不得再由企業單獨使用。</p>
+      </div>
+    </div>
+
+    <div class="q-item" onclick="tq(this)">
+      <div class="q-head">
+        <div class="q-num">Q4</div>
+        <div class="q-text">「外加性（Additionality）」在碳抵換脈絡中，最精確的定義是？</div>
+        <span class="q-diff d-easy">基礎</span>
+        <span class="q-arr">›</span>
+      </div>
+      <div class="q-body">
+        <div class="ans">✅ 答案：B</div>
+        <span class="opt wrong">A. 碳抵換專案的碳吸收量超過原先預估量的部分</span>
+        <span class="opt correct">B. 若無此碳抵換專案的資金支持，該減排或移除效果不會發生</span>
+        <span class="opt wrong">C. 碳權發行量超過市場需求的額外供給</span>
+        <span class="opt wrong">D. 該碳抵換專案能帶來環境以外的社會或經濟共同利益</span>
+        <p><strong>解析：</strong>外加性核心：「若無（without the project）假設情境下，此減排量不會自然發生」。這防止企業購買「本來就會減少的碳排放」來漂綠。選項D描述的是「共同利益（Co-benefits）」，是好事但不等於外加性。</p>
+      </div>
+    </div>
+
+    <div class="q-item" onclick="tq(this)">
+      <div class="q-head">
+        <div class="q-num">Q5</div>
+        <div class="q-text">台灣電子製造商計畫宣告某產品「碳中和」。以下何種宣告方式，最符合 ISO 14068-1:2023 的要求？</div>
+        <span class="q-diff d-mid">中級</span>
+        <span class="q-arr">›</span>
+      </div>
+      <div class="q-body">
+        <div class="ans">✅ 答案：B</div>
+        <span class="opt wrong">A. 在產品包裝印「Carbon Neutral」標誌，附上碳盤查報告摘要即可</span>
+        <span class="opt correct">B. 取得獨立第三方查驗機構依 ISO 17029 出具的查驗聲明書，並公開揭露完整碳足跡、減量行動與碳補償資訊</span>
+        <span class="opt wrong">C. 經台灣環境部碳中和登錄後，即可對歐盟客戶宣告</span>
+        <span class="opt wrong">D. 僅需提交碳抵換額度的購買憑證，即完成碳中和認證程序</span>
+        <p><strong>解析：</strong>ISO 14068-1:2023 規定：(1) 完整碳盤查、(2) 文件化減量行動、(3) 符合品質的碳抵換、(4) 獨立第三方查驗（依 ISO 17029）、(5) 公開揭露。選項A缺查驗；C台灣登錄不等於歐盟認可；D嚴重低估查驗程序要求。</p>
+      </div>
+    </div>
+
+    <div class="q-item" onclick="tq(this)">
+      <div class="q-head">
+        <div class="q-num">Q6</div>
+        <div class="q-text">以下哪種碳補償類型，在 2026 年的國際主流標準中<strong>最不被建議</strong>採用？</div>
+        <span class="q-diff d-mid">中級</span>
+        <span class="q-arr">›</span>
+      </div>
+      <div class="q-body">
+        <div class="ans">✅ 答案：B</div>
+        <span class="opt wrong">A. 符合 Gold Standard 認證的農村清潔炊煮燃料替換專案</span>
+        <span class="opt correct">B. 聯合國 CDM（清潔發展機制）2012 年前核發的 CER 信用額度</span>
+        <span class="opt wrong">C. 符合 Verra VCS 且具有 CCB 標準的雨林保育專案</span>
+        <span class="opt wrong">D. 符合 CAR 認證的美國農業土壤碳匯專案</span>
+        <p><strong>解析：</strong>CDM 的 CER 在 2020 年以後大幅貶值：外加性認定過寬、大量「水貨」、與《巴黎協定》第 6 條相容性問題。多數主流框架（SBTi、ISO 14068-1）均建議避免使用，改用 CORSIA、Verra、Gold Standard 等現代標準。</p>
+      </div>
+    </div>
+
+    <div class="q-item" onclick="tq(this)">
+      <div class="q-head">
+        <div class="q-num">Q7</div>
+        <div class="q-text">某企業宣告「2025 年已達碳中和」，但採購的碳抵換額度中有 30% 是「預期 2030 年方可完成種樹目標」的預售型碳權（Ex-ante Credits）。此做法違反了碳補償的哪項原則？</div>
+        <span class="q-diff d-hard">進階</span>
+        <span class="q-arr">›</span>
+      </div>
+      <div class="q-body">
+        <div class="ans">✅ 答案：B</div>
+        <span class="opt wrong">A. 外加性原則</span>
+        <span class="opt correct">B. 在對應報告期內實際實現（Realization）的要求——即永久性和即時性</span>
+        <span class="opt wrong">C. 可量化原則</span>
+        <span class="opt wrong">D. 避免重複計算原則</span>
+        <p><strong>解析：</strong>ISO 14068-1:2023 要求碳補償必須是<strong>已實現（Realized）的減排或移除量</strong>，而非預期未來將發生的（Ex-ante）。以 2025 年排放量使用 2030 年才會實現的碳吸收量來補償，違反對應性與實現性。這是近年碳市場「承諾型」碳權詐欺的常見手法。</p>
+      </div>
+    </div>
+
+    <div class="q-item" onclick="tq(this)">
+      <div class="q-head">
+        <div class="q-num">Q8</div>
+        <div class="q-text">台灣某上市公司在 ESG 報告書中宣稱：「本公司 2025 年已購買足夠 RECs，因此 Scope 2 排放為零，整體已達成碳中和。」此宣告最嚴重的問題是？</div>
+        <span class="q-diff d-mid">中級</span>
+        <span class="q-arr">›</span>
+      </div>
+      <div class="q-body">
+        <div class="ans">✅ 答案：B</div>
+        <span class="opt wrong">A. RECs 的採購應採用市場基礎法，此做法本身無效</span>
+        <span class="opt correct">B. 宣告碳中和卻未涵蓋 Scope 1 排放與重大 Scope 3 排放，且未進行第三方查驗，屬於片面性漂綠</span>
+        <span class="opt wrong">C. ISO 14068-1 規定 RECs 不可作為 Scope 2 的補償工具</span>
+        <span class="opt wrong">D. 宣告碳中和需先通過 SBTi 認可的科學基礎目標</span>
+        <p><strong>解析：</strong>採購 RECs 讓 Scope 2 歸零是合法有效的做法（排除A、C）。問題在於：公司僅處理了 Scope 2 就宣告整體「碳中和」，完全未提及 Scope 1 和 Scope 3，且未進行第三方查驗。這是典型的<strong>選擇性揭露漂綠（Cherry-picking）</strong>。</p>
+      </div>
+    </div>
+
+    <div class="q-item" onclick="tq(this)">
+      <div class="q-head">
+        <div class="q-num">Q9</div>
+        <div class="q-text">依 GHG Protocol 的定義，以下何者屬於 <strong>Scope 3 類別 11（已售產品的使用階段排放）</strong>？</div>
+        <span class="q-diff d-easy">基礎</span>
+        <span class="q-arr">›</span>
+      </div>
+      <div class="q-body">
+        <div class="ans">✅ 答案：B</div>
+        <span class="opt wrong">A. 企業辦公室使用外購電力所產生的間接排放（→ Scope 2）</span>
+        <span class="opt correct">B. 消費者使用企業所售汽油引擎汽車，行駛過程中燃燒汽油的直接排放</span>
+        <span class="opt wrong">C. 企業員工出差搭乘飛機的碳排放（→ Scope 3 類別 6 商務旅行）</span>
+        <span class="opt wrong">D. 企業自有工廠鍋爐燃燒天然氣（→ Scope 1）</span>
+        <p><strong>解析：</strong>Scope 3 類別 11「已售產品的使用」：消費者或客戶使用企業出售的產品時所產生的排放。汽車製造商出售汽油引擎汽車，消費者使用過程的尾管排放即屬此類，也是汽車業最大的隱形排放源。</p>
+      </div>
+    </div>
+
+    <div class="q-item" onclick="tq(this)">
+      <div class="q-head">
+        <div class="q-num">Q10</div>
+        <div class="q-text">某企業使用「位置基礎法」得出 Scope 2 排放 800 tCO₂e，「市場基礎法」（採購綠電憑證）得出 0 tCO₂e。宣告碳中和時應以哪個數字為基礎？</div>
+        <span class="q-diff d-hard">進階</span>
+        <span class="q-arr">›</span>
+      </div>
+      <div class="q-body">
+        <div class="ans">✅ 答案：C</div>
+        <span class="opt wrong">A. 位置基礎法 800 tCO₂e，因為這反映實際電力系統排放</span>
+        <span class="opt wrong">B. 市場基礎法 0 tCO₂e，因為企業已支付綠電費用</span>
+        <span class="opt correct">C. 兩種方法均需揭露，在碳中和聲明書中說明採用市場基礎法的理由，同時揭露位置基礎法作為參考</span>
+        <span class="opt wrong">D. 取兩者平均值 400 tCO₂e，以求保守</span>
+        <p><strong>解析：</strong>GHG Protocol Scope 2 Guidance 要求<strong>雙軌揭露（Dual Reporting）</strong>——同時揭露兩種方法的結果。在碳中和宣告中採用市場基礎法（採購 RECs 後為零），必須透明說明並同步揭露位置基礎法數據，不可只揭露對自己有利的數字。</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ───── TAB 8: Q11–Q20 ───── -->
+<div id="tab-quiz2" class="section">
+
+  <div class="q-notice">
+    <span style="font-size:18px;">🎯</span>
+    <p><strong>2026 IPAS 模擬試題 Q11–Q20</strong>——進階難度，涵蓋漂綠辨識、NbS 碳權、台灣跨境認可、氣候中立等新題型。</p>
+  </div>
+
+  <div class="q-list">
+
+    <div class="q-item" onclick="tq(this)">
+      <div class="q-head">
+        <div class="q-num">Q11</div>
+        <div class="q-text">以下關於「漂綠」的描述，何者<strong>不屬於</strong> ISO 14068-1 或相關標準明確禁止的做法？</div>
+        <span class="q-diff d-mid">中級</span>
+        <span class="q-arr">›</span>
+      </div>
+      <div class="q-body">
+        <div class="ans">✅ 答案：D</div>
+        <span class="opt wrong">A. 宣告「碳中和」但不公開查驗聲明書</span>
+        <span class="opt wrong">B. 購買品質不達標的低價碳權用於碳抵換</span>
+        <span class="opt wrong">C. 針對特定高碳排產品線宣告碳中和，但不揭露其他產品線的高碳排情況</span>
+        <span class="opt correct">D. 積極宣傳企業的減量成果，並同步揭露目前仍未達標的領域</span>
+        <p><strong>解析：</strong>本題考「反向辨識」——找出不屬於漂綠的做法。選項D描述的是<strong>誠實、完整的環境溝通</strong>：宣傳成果的同時誠實揭露尚未達標的部分，正是標準所鼓勵的「透明度（Transparency）」原則的體現。</p>
+      </div>
+    </div>
+
+    <div class="q-item" onclick="tq(this)">
+      <div class="q-head">
+        <div class="q-num">Q12</div>
+        <div class="q-text">在碳抵換市場中，「緩衝池（Buffer Pool）」機制的主要功能是解決哪項核心風險？</div>
+        <span class="q-diff d-easy">基礎</span>
+        <span class="q-arr">›</span>
+      </div>
+      <div class="q-body">
+        <div class="ans">✅ 答案：B</div>
+        <span class="opt wrong">A. 外加性風險——確保減排量確實是「額外的」</span>
+        <span class="opt correct">B. 永久性風險——提供應對自然災害或人為破壞導致碳匯逆轉的保障機制</span>
+        <span class="opt wrong">C. 重複計算風險——防止同一碳權被多次使用</span>
+        <span class="opt wrong">D. 可量化風險——提高碳排放量化數據的精確度</span>
+        <p><strong>解析：</strong>緩衝池是 Verra VCS 等主流標準的永久性風險應對機制。每個林業碳匯專案需將 10–20% 的碳權存入緩衝池不得販賣，當發生火災、病蟲害等導致碳匯逆轉時從中提取補償。直接對應<strong>永久性（Permanence）</strong>風險。</p>
+      </div>
+    </div>
+
+    <div class="q-item" onclick="tq(this)">
+      <div class="q-head">
+        <div class="q-num">Q13</div>
+        <div class="q-text">某組織宣告其 2025 年辦公室營運達到碳中和，採用 ISO 14068-1:2023。以下哪種情況，<strong>可能導致此宣告被查驗機構拒絕出具聲明書</strong>？</div>
+        <span class="q-diff d-hard">進階</span>
+        <span class="q-arr">›</span>
+      </div>
+      <div class="q-body">
+        <div class="ans">✅ 答案：D</div>
+        <span class="opt wrong">A. Scope 3「員工通勤」排放量佔總排放量不足 1%，決定不納入計算（重要性門檻原則允許）</span>
+        <span class="opt wrong">B. 使用位置基礎法計算 Scope 2（需雙軌揭露，但非禁止）</span>
+        <span class="opt wrong">C. 基準年設定在 2019 年（有方法論靈活度，只需合理說明）</span>
+        <span class="opt correct">D. 所採購的碳權係針對報告期結束後 18 個月內才實際核發的額度（尚未正式核發）</span>
+        <p><strong>解析：</strong>ISO 14068-1:2023 要求碳補償須為已實現、已核發的有效碳權。查驗機構無法對「尚不存在的碳抵換憑據」出具有效聲明書。選項 A、B、C 均不構成查驗拒絕的直接原因。</p>
+      </div>
+    </div>
+
+    <div class="q-item" onclick="tq(this)">
+      <div class="q-head">
+        <div class="q-num">Q14</div>
+        <div class="q-text">A 企業（台灣電子代工廠）向數百家供應商發送 Scope 3 類別 1 問卷，回收率僅 35%。以下哪種數據處理方法，<strong>最符合 GHG Protocol 企業價值鏈標準</strong>的建議？</div>
+        <span class="q-diff d-mid">中級</span>
+        <span class="q-arr">›</span>
+      </div>
+      <div class="q-body">
+        <div class="ans">✅ 答案：B</div>
+        <span class="opt wrong">A. 只計算有回覆的 35% 供應商數據，並說明其餘未計入</span>
+        <span class="opt correct">B. 對未回覆供應商，使用行業平均排放因子（Industry Average EF）進行估算，並揭露數據品質</span>
+        <span class="opt wrong">C. 要求客戶延後一年提交，直到回收率達 100%</span>
+        <span class="opt wrong">D. 以 Scope 1+2 的排放量乘以固定係數推估 Scope 3</span>
+        <p><strong>解析：</strong>GHG Protocol 企業價值鏈標準：在供應商特定數據不足時，應使用<strong>次級數據（Secondary Data）</strong>，包括行業平均排放因子、政府統計或 ecoinvent 等 LCA 資料庫估算，並如實揭露數據品質等級和不確定性。選項A嚴重低估、違反完整性。</p>
+      </div>
+    </div>
+
+    <div class="q-item" onclick="tq(this)">
+      <div class="q-head">
+        <div class="q-num">Q15</div>
+        <div class="q-text">依據《巴黎協定》第 6.2 條，台灣企業甲向印尼碳匯專案購買碳抵換額度，且印尼政府已將此部分計入其 NDC。企業甲若要避免重複計算，應要求以下哪種保障？</div>
+        <span class="q-diff d-hard">進階</span>
+        <span class="q-arr">›</span>
+      </div>
+      <div class="q-body">
+        <div class="ans">✅ 答案：B</div>
+        <span class="opt wrong">A. 企業甲自行在台灣政府登錄使用紀錄</span>
+        <span class="opt correct">B. 印尼政府針對此碳抵換額度，出具「相應調整（Corresponding Adjustment）」，即從其 NDC 帳戶中扣除該排放量</span>
+        <span class="opt wrong">C. 碳權發行機構（如 Verra）在登記系統中標記「已售出」即可</span>
+        <span class="opt wrong">D. 企業甲購買後立即「註銷（Retire）」碳權</span>
+        <p><strong>解析：</strong>第 6.2 條「相應調整」核心：當一個國家出售某減排量給外國企業，主機國政府必須在其 NDC 帳戶中<strong>相應扣除</strong>，等同承認「此碳排放的氣候效益已轉讓給買方」。選項C、D是標準操作流程，但不能解決主機國 NDC 重複計算問題。</p>
+      </div>
+    </div>
+
+    <div class="q-item" onclick="tq(this)">
+      <div class="q-head">
+        <div class="q-num">Q16</div>
+        <div class="q-text">以下哪個宣告，<strong>最接近合規的碳中和聲明</strong>，且最不容易遭受「漂綠」質疑？</div>
+        <span class="q-diff d-easy">基礎</span>
+        <span class="q-arr">›</span>
+      </div>
+      <div class="q-body">
+        <div class="ans">✅ 答案：B</div>
+        <span class="opt wrong">A. 「本公司 2025 年已達碳中和！感謝您與我們一起守護地球。」（過於籠統，無具體依據）</span>
+        <span class="opt correct">B. 「本公司 2025 年企業整體營運（含 Scope 1、2 及重大 Scope 3），依據 ISO 14068-1:2023 達到碳中和，第三方查驗聲明書請見官網。」</span>
+        <span class="opt wrong">C. 「本公司正努力邁向碳中和，目前 Scope 1 和 Scope 2 已達零排放。」（只宣告部分達標）</span>
+        <span class="opt wrong">D. 「購買本公司產品，即等於為地球種了一棵樹。」（典型模糊環境聲明）</span>
+        <p><strong>解析：</strong>選項B是標準合規宣告範本：包含明確邊界（Scope 1+2+重大 Scope 3）、依循標準（ISO 14068-1:2023）、時間範圍（2025年）以及可查驗的公開資訊來源。選項D在多國法規下已屬違法廣告。</p>
+      </div>
+    </div>
+
+    <div class="q-item" onclick="tq(this)">
+      <div class="q-head">
+        <div class="q-num">Q17</div>
+        <div class="q-text">以下關於 NbS（自然碳匯型碳權）的風險認識，何者<strong>最不準確</strong>？</div>
+        <span class="q-diff d-hard">進階</span>
+        <span class="q-arr">›</span>
+      </div>
+      <div class="q-body">
+        <div class="ans">✅ 答案：B</div>
+        <span class="opt wrong">A. 森林碳匯可能因野火、病蟲害而發生碳匯逆轉，對永久性構成威脅</span>
+        <span class="opt correct">B. NbS 型碳權因具有生物多樣性與社區共同利益，完全免除外加性審查要求</span>
+        <span class="opt wrong">C. 依賴 NbS 碳抵換而非實質減量，可能導致企業陷入「碳抵換依賴」推遲轉型投資</span>
+        <span class="opt wrong">D. REDD+ 型碳權的基準線設定方法，在學術界和實務界均存在爭議</span>
+        <p><strong>解析：</strong>選項B是不準確的敘述（本題要找的答案）。「具有共同利益」並不免除 NbS 型碳權的外加性審查——任何碳抵換專案無論帶來多少社會或生態效益，仍必須通過嚴格的外加性驗證。A、C、D均是 NbS 碳權的真實公認風險。</p>
+      </div>
+    </div>
+
+    <div class="q-item" onclick="tq(this)">
+      <div class="q-head">
+        <div class="q-num">Q18</div>
+        <div class="q-text">台灣某出口歐盟企業取得「台灣環境部碳中和登錄」後，直接對歐洲客戶宣稱「已通過歐盟認可的碳中和認證」。此做法的問題是？</div>
+        <span class="q-diff d-hard">進階</span>
+        <span class="q-arr">›</span>
+      </div>
+      <div class="q-body">
+        <div class="ans">✅ 答案：B</div>
+        <span class="opt wrong">A. 台灣碳中和登錄制度完全不符合任何國際標準</span>
+        <span class="opt correct">B. 台灣本土登錄制度的認可範疇僅限國內，不等同歐盟客戶所期待的 ISO 17029 認可查驗機構出具的聲明，屬於誤導性宣稱</span>
+        <span class="opt wrong">C. 碳中和登錄制度在台灣是非法的</span>
+        <span class="opt wrong">D. 企業應申請 ISO 14001 認證，而非碳中和登錄</span>
+        <p><strong>解析：</strong>台灣環境部登錄品質本身不一定有問題，但「通過台灣登錄」≠「獲得歐盟認可」。許多歐洲採購商要求由<strong>獲 IAF 成員認可、依 ISO 17029 操作</strong>的第三方機構（如 TÜV、Bureau Veritas 歐洲機構）出具聲明。企業若以「台灣登錄」宣稱「歐盟認可」構成誤導性聲明，可能違反歐盟綠色聲明指令。</p>
+      </div>
+    </div>
+
+    <div class="q-item" onclick="tq(this)">
+      <div class="q-head">
+        <div class="q-num">Q19</div>
+        <div class="q-text">以下哪個情境，<strong>最符合</strong>「碳中和（Carbon Neutral）」與「氣候中立（Climate Neutral）」的差異認識？</div>
+        <span class="q-diff d-hard">進階</span>
+        <span class="q-arr">›</span>
+      </div>
+      <div class="q-body">
+        <div class="ans">✅ 答案：C</div>
+        <span class="opt wrong">A. 兩者完全相同，均指溫室氣體淨排放為零</span>
+        <span class="opt wrong">B. 碳中和僅針對 CO₂，氣候中立涵蓋所有溫室氣體（CH₄、N₂O、HFCs 等）——部分錯誤，碳中和已涵蓋所有 GHG</span>
+        <span class="opt correct">C. 氣候中立除要求溫室氣體淨排放為零外，還需考量非 CO₂ 的強迫輻射效應（如飛機凝結尾跡的額外暖化影響），適用於更完整的氣候影響評估</span>
+        <span class="opt wrong">D. 氣候中立是碳中和的子集，要求更低</span>
+        <p><strong>解析：</strong>「碳中和」依 ISO 14068-1:2023 已涵蓋所有以 CO₂ 當量計算的溫室氣體。「氣候中立」概念更廣：還納入非 GHG 的<strong>強迫輻射效應</strong>，如航空業飛機高空形成的凝結尾跡（Contrails）和 NOₓ 的短期暖化效應，無法被 GHG Protocol 的 GWP 框架完整捕捉。選項C最精確。</p>
+      </div>
+    </div>
+
+    <div class="q-item" onclick="tq(this)">
+      <div class="q-head">
+        <div class="q-num">Q20</div>
+        <div class="q-text">【壓軸情境題】富林有機農場計畫宣告「2025 年食農教育活動已達碳中和」（含 500 名企業員工參訪）。以下四個步驟中，哪個步驟<strong>最可能在查驗階段被質疑</strong>？</div>
+        <span class="q-diff d-hard">進階</span>
+        <span class="q-arr">›</span>
+      </div>
+      <div class="q-body">
+        <div class="ans">✅ 答案：C</div>
+        <span class="opt wrong">A. 針對活動用電、交通接駁、餐飲食材農業生產階段進行碳足跡盤查，採用 ISO 14067:2018 標準</span>
+        <span class="opt wrong">B. 採購 Gold Standard 認證、具備外加性聲明書的肯亞乾淨炊煮燃料替換專案碳權補償剩餘排放</span>
+        <span class="opt correct">C. 宣告農場的有機稻田本身具備天然碳匯功能，因此直接將活動排放量「內部抵消」，無需外購碳權</span>
+        <span class="opt wrong">D. 委請取得 IAF 認可的台灣本土查驗機構出具查驗聲明書</span>
+        <p><strong>解析：</strong>農場的有機稻田確實可能有碳匯功能，但若要計入碳抵換，必須：(1) <strong>獨立量化</strong>稻田碳匯量（符合 ISO 14064-2 或 Verra VM0042）、(2) 通過<strong>第三方查驗</strong>、(3) 報告邊界中碳匯排放源<strong>尚未被計入負碳量</strong>。若只是「口頭宣稱」稻田有碳匯就直接抵消活動排放，完全不符合任何可量化、可查驗的碳抵換標準，查驗機構必定拒絕。這也是目前<strong>農業碳匯最常見的漂綠形式</strong>之一。</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="margin-top:32px; background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--green); border-radius:0 8px 8px 0; padding:24px;">
+    <p style="font-size:18px; font-weight:700; color:red; margin-bottom:12px;">🌱 命題委員的最後叮嚀</p>
+    <p style="font-size:18px; color:#000; line-height:1.8;">2026 年的碳管理師考試，不再是一場「背定義」的考試。它是一場「辨識真偽、判斷情境、守護誠信」的考試。<br><br>
+    每一個「看起來合理」的漂綠選項，都曾經是現實世界裡某家企業真實犯下的錯誤。<br><br>
+    記住：<strong>碳中和的意義，不在於那張聲明書，而在於你是否真的理解了——減碳，是義務；補償，是最後手段；透明，是一切的基石。</strong></p>
+  </div>
+
+</div>
+
+</main>
+
+<footer>
+  <span>碳中和 IPAS 衝刺筆記 · 命題委員視角 · 2026</span>
+  <span>主要依據：ISO 14068-1:2023 · ISO 14064-1:2018 · ISO 14067:2018 · GHG Protocol · SBTi Net-Zero Standard</span>
+</footer>
+
+<script>
+function sw(name) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  event.target.classList.add('active');
+}
+function tq(el) { el.classList.toggle('open'); }
+</script>
+</body>
+</html>
