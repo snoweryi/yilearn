@@ -169,32 +169,47 @@ tr:nth-child(even) td{background:var(--sf)}
 
 /* NEW BADGE */
 .new-tag{background:#fcfcfa;color:#92400e;border:1px solid #fcd34d;font-size: 18px;font-weight:700;padding:1px 7px;border-radius:8px;letter-spacing:.04em;vertical-align:middle;margin-left:5px}
-.badgerowbt { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
-a.badge1 {
-  display: inline-block;
-  font-size: 18px;
-  font-weight: 400;
-  padding: 3px 10px;
-  border-radius: 20px;
-  background: #007286;
-  color: #fff;
-  border: 1px solid #b6dece;
-  text-decoration: none;
-  line-height: 1.4;
-  transition: all 0.2s ease;
+.badgerowbt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px;
+    background: #ffffff;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
 }
+
+a.badge1 {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #007286;
+    color: #fff;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
 a.badge2 {
-  display: inline-block;
-  font-size: 18px;
-  font-weight: 400;
-  padding: 3px 10px;
-  border-radius: 20px;
-  background: #fff;
-  color: #007286;
-  border: 1px solid #b6dece;
-  text-decoration: none;
-  line-height: 1.4;
-  transition: all 0.2s ease;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #007286;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
 }
 @media print{
   *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
@@ -211,9 +226,7 @@ a.badge2 {
 </style>
 </head>
 <body>
-<header>   
-	<h1>淨零碳管理師｜<span>國內外永續趨勢及架構</span><br>1992 → 2026 完整時間軸 × 命題方向 × 時事情境</h1>
-	<div class="badgerowbt">    
+<div class="badgerowbt">    
 		<div><a href="https://snoweryi.github.io/yilearn/i01.html" class="badge1">01趨勢及策略</a></div>
 		<div><a href="https://snoweryi.github.io/yilearn/i02.html" class="badge1">02溫室氣體盤查</a></div>
 		<div><a href="https://snoweryi.github.io/yilearn/i03.html" class="badge1">03碳足跡</a></div>
@@ -231,6 +244,9 @@ a.badge2 {
 		<div><a href="https://snoweryi.github.io/yilearn/ir.html" class="badge1">RE100</a></div>
 		<div><a href="https://snoweryi.github.io/yilearn/ie.html" class="badge1">ESG</a></div>	
 	</div>
+<header>   
+	<h1>淨零碳管理師｜<span>國內外永續趨勢及架構</span><br>1992 → 2026 完整時間軸 × 命題方向 × 時事情境</h1>
+	
 </header>
 
 <nav>

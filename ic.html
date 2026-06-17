@@ -195,40 +195,52 @@ tr:nth-child(even) td{background:var(--sf)}
   .qscore,.rbtn{display:none!important}
   @page{margin:8mm 8mm;size:A4}
 }
-.badgerowbt { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
-a.badge1 {
-  display: inline-block;
-  font-size: 18px;
-  font-weight: 400;
-  padding: 3px 10px;
-  border-radius: 20px;
-  background: #007286;
-  color: #fff;
-  border: 1px solid #b6dece;
-  text-decoration: none;
-  line-height: 1.4;
-  transition: all 0.2s ease;
+.badgerowbt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px;
+    background: #ffffff;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
 }
+
+a.badge1 {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #007286;
+    color: #fff;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
 a.badge2 {
-  display: inline-block;
-  font-size: 18px;
-  font-weight: 400;
-  padding: 3px 10px;
-  border-radius: 20px;
-  background: #fff;
-  color: #007286;
-  border: 1px solid #b6dece;
-  text-decoration: none;
-  line-height: 1.4;
-  transition: all 0.2s ease;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #007286;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
 }
 </style>
 </head>
 <body>
-
-<header>  
-	<h1>歐盟 <span>CBAM 碳邊境調整機制</span><br><span class="sub">2026正式上路 完全攻略</span><span class="live-badge">🔴 LIVE 2026.01.01</span></h1>
-	<div class="badgerowbt">    
+<div class="badgerowbt">    
 		<div><a href="https://snoweryi.github.io/yilearn/i01.html" class="badge1">01趨勢及策略</a></div>
 		<div><a href="https://snoweryi.github.io/yilearn/i02.html" class="badge1">02溫室氣體盤查</a></div>
 		<div><a href="https://snoweryi.github.io/yilearn/i03.html" class="badge1">03碳足跡</a></div>
@@ -251,6 +263,9 @@ a.badge2 {
     <div class="hmi"><div class="dot" style="background:var(--blue)"></div>首次憑證繳交：2027年9月30日前</div>
     <div class="hmi"><div class="dot" style="background:var(--green)"></div>涵蓋：完整時程 × 計算邏輯 × 台灣因應 × 30道模擬題</div>
   </div>
+<header>  
+	<h1>歐盟 <span>CBAM 碳邊境調整機制</span><br><span class="sub">2026正式上路 完全攻略</span><span class="live-badge">🔴 LIVE 2026.01.01</span></h1>
+	
 </header>
 
 <nav>

@@ -139,43 +139,52 @@
     .card, .tl-wrap, .re-wrap, .table-wrap { box-shadow: none; border: 1px solid #ddd;  }
     .card:hover { transform: none; }
   }
-  .badgerowbt { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
-a.badge1 {
-  display: inline-block;
-  font-size: 18px;
-  font-weight: 400;
-  padding: 3px 10px;
-  border-radius: 20px;
-  background: #007286;
-  color: #fff;
-  border: 1px solid #b6dece;
-  text-decoration: none;
-  line-height: 1.4;
-  transition: all 0.2s ease;
+.badgerowbt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px;
+    background: #ffffff;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
 }
+
+a.badge1 {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #007286;
+    color: #fff;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
 a.badge2 {
-  display: inline-block;
-  font-size: 18px;
-  font-weight: 400;
-  padding: 3px 10px;
-  border-radius: 20px;
-  background: #fff;
-  color: #007286;
-  border: 1px solid #b6dece;
-  text-decoration: none;
-  line-height: 1.4;
-  transition: all 0.2s ease;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #007286;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
 }
 </style>
 </head>
 <body>
-
-<!-- Header -->
-<div class="page-header">  
-  <div class="header-text">
-    <h1>IPAS 淨零碳規劃管理師｜2026 重要年份與數字完整版</h1>
-    <p>涵蓋國際公約、台灣法規、碳費、CBAM、ETS、RE100、SBTi、ISO 標準等全方位考點數字速查。</p>
-    <div class="badgerowbt">    
+<div class="badgerowbt">    
 		<div><a href="https://snoweryi.github.io/yilearn/i01.html" class="badge1">01趨勢及策略</a></div>
 		<div><a href="https://snoweryi.github.io/yilearn/i02.html" class="badge1">02溫室氣體盤查</a></div>
 		<div><a href="https://snoweryi.github.io/yilearn/i03.html" class="badge1">03碳足跡</a></div>
@@ -193,6 +202,12 @@ a.badge2 {
 		<div><a href="https://snoweryi.github.io/yilearn/ir.html" class="badge1">RE100</a></div>
 		<div><a href="https://snoweryi.github.io/yilearn/ie.html" class="badge1">ESG</a></div>			
 	</div>
+<!-- Header -->
+<div class="page-header">  
+  <div class="header-text">
+    <h1>IPAS 淨零碳規劃管理師｜2026 重要年份與數字完整版</h1>
+    <p>涵蓋國際公約、台灣法規、碳費、CBAM、ETS、RE100、SBTi、ISO 標準等全方位考點數字速查。</p>
+    
 	
   </div>
 </div>
