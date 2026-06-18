@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IPAS 淨零碳管理師 模擬試題 L11 | 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;700&display=swap');
+
+  :root {
+    --forest: #1a3a2a;
+    --moss: #2d5a3d;
+    --sage: #4a7c59;
+    --leaf: #6aab7a;
+    --mist: #c8ddc8;
+    --cream: #f5f7f2;
+    --carbon: #1c1c1c;
+    --slate: #4a4a4a;
+    --easy: #2d7a4f;
+    --medium: #c07a1a;
+    --hard: #a02020;
+    --easy-bg: #e8f5ee;
+    --medium-bg: #fdf3e3;
+    --hard-bg: #fdeaea;
+    --answered: #1a3a2a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: var(--cream);
+    color: var(--carbon);
+    line-height: 1.75;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--forest);
+    color: white;
+    padding: 2.5rem 2rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: rgba(106,171,122,0.15);
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: 30%;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(106,171,122,0.08);
+  }
+  .header-inner { margin-top: 120px;max-width: 1900px;  position: relative; z-index: 1; }
+  .badge {
+    display: inline-block;
+    background: var(--leaf);
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    padding: 0.25rem 0.75rem;
+    border-radius: 2px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+  h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .subtitle { color: var(--mist); font-size: 0.92rem; margin-bottom: 1.5rem; }
+  .meta-row {
+    display: flex; flex-wrap: wrap; gap: 1.5rem;
+    font-size: 0.82rem; color: var(--mist);
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 1rem;
+  }
+  .meta-row span { display: flex; align-items: center; gap: 0.4rem; }
+
+  /* LEGEND */
+  .legend {
+    max-width: 900px; margin: 1.5rem auto 0;
+    padding: 0 1rem;
+    display: flex; flex-wrap: wrap; gap: 0.75rem;
+  }
+  .legend-item {
+    display: flex; align-items: center; gap: 0.5rem;
+    font-size: 0.82rem; font-weight: 500;
+    padding: 0.35rem 0.85rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .legend-item:hover { opacity: 0.8; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .dot-easy { background: var(--easy); }
+  .dot-medium { background: var(--medium); }
+  .dot-hard { background: var(--hard); }
+  .legend-easy { background: var(--easy-bg); color: var(--easy); }
+  .legend-medium { background: var(--medium-bg); color: var(--medium); }
+  .legend-hard { background: var(--hard-bg); color: var(--hard); }
+
+  /* PROGRESS */
+  .progress-wrap {
+    max-width: 900px; margin: 1.2rem auto 0;
+    padding: 0 1rem;
+  }
+  .progress-bar {
+    height: 6px; background: var(--mist); border-radius: 3px; overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%; background: var(--sage);
+    border-radius: 3px;
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+  .progress-label {
+    font-size: 0.8rem; color: var(--slate); margin-top: 0.4rem;
+    display: flex; justify-content: space-between;
+  }
+
+  /* MAIN */
+  main { max-width: 900px; margin: 2rem auto 4rem; padding: 0 1rem; }
+
+  /* SECTION */
+  .section-header {
+    display: flex; align-items: center; gap: 1rem;
+    margin: 2.5rem 0 1.2rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--mist);
+  }
+  .section-tag {
+    background: var(--moss); color: white;
+    font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 0.2rem 0.6rem; border-radius: 2px;
+    white-space: nowrap;
+  }
+  .section-title { font-size: 1rem; font-weight: 700; color: var(--forest); }
+
+  /* QUESTION CARD */
+  .question-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-left: 4px solid transparent;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    transition: box-shadow 0.2s;
+  }
+  .question-card:hover { box-shadow: 0 3px 12px rgba(0,0,0,0.1); }
+  .question-card.easy { border-left-color: var(--easy); }
+  .question-card.medium { border-left-color: var(--medium); }
+  .question-card.hard { border-left-color: var(--hard); }
+
+  .q-header {
+    display: flex; align-items: flex-start; gap: 0.75rem;
+    margin-bottom: 0.8rem;
+  }
+  .q-num {
+    background: var(--forest); color: white;
+    width: 28px; height: 28px; min-width: 28px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 700;
+  }
+  .diff-tag {
+    font-size: 0.68rem; font-weight: 700;
+    padding: 0.15rem 0.55rem; border-radius: 10px;
+    margin-top: 4px;
+    white-space: nowrap;
+  }
+  .diff-easy { background: var(--easy-bg); color: var(--easy); }
+  .diff-medium { background: var(--medium-bg); color: var(--medium); }
+  .diff-hard { background: var(--hard-bg); color: var(--hard); }
+
+  .scenario {
+    background: #f0f4ff;
+    border-left: 3px solid #6a8abf;
+    border-radius: 0 6px 6px 0;
+    padding: 0.7rem 0.9rem;
+    margin-bottom: 0.9rem;
+    font-size: 0.86rem;
+    color: #2a3a5a;
+    line-height: 1.6;
+  }
+  .scenario-icon { font-style: normal; }
+
+  .q-text {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--carbon);
+    margin-bottom: 0.9rem;
+    flex: 1;
+  }
+
+  .options { display: flex; flex-direction: column; gap: 0.5rem; }
+  .option-label {
+    display: flex; align-items: flex-start; gap: 0.7rem;
+    padding: 0.6rem 0.85rem;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-size: 0.88rem;
+  }
+  .option-label:hover { border-color: var(--sage); background: #f0f7f2; }
+  .option-label input { margin-top: 2px; accent-color: var(--moss); }
+  .option-label.correct-ans { border-color: var(--easy); background: var(--easy-bg); }
+  .option-label.wrong-ans { border-color: var(--hard); background: var(--hard-bg); }
+  .option-label.reveal { border-color: var(--easy); background: var(--easy-bg); }
+
+  .ans-btn {
+    margin-top: 0.9rem;
+    background: none;
+    border: 1.5px solid var(--moss);
+    color: var(--moss);
+    font-size: 0.82rem; font-weight: 700;
+    padding: 0.35rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+  .ans-btn:hover { background: var(--moss); color: white; }
+
+  .explanation {
+    display: none;
+    margin-top: 0.9rem;
+    padding: 0.8rem 1rem;
+    background: #f8fdf8;
+    border: 1px solid var(--mist);
+    border-radius: 7px;
+    font-size: 0.85rem;
+    color: var(--slate);
+    line-height: 1.65;
+  }
+  .explanation.show { display: block; }
+  .explanation strong { color: var(--moss); }
+
+  /* SCORE PANEL */
+  .score-panel {
+    background: var(--forest);
+    color: white;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-top: 3rem;
+    text-align: center;
+  }
+  .score-panel h2 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+  .score-big { font-size: 3rem; font-weight: 700; color: var(--leaf); }
+  .score-sub { color: var(--mist); font-size: 0.88rem; margin-bottom: 1.5rem; }
+  .score-submit-btn {
+    background: var(--leaf); color: white;
+    border: none; padding: 0.75rem 2.5rem;
+    border-radius: 6px; font-size: 1rem; font-weight: 700;
+    cursor: pointer; font-family: 'Noto Sans TC', sans-serif;
+    transition: background 0.2s;
+  }
+  .score-submit-btn:hover { background: var(--sage); }
+
+  /* FOOTER */
+  footer {
+    text-align: center; padding: 2rem 1rem;
+    color: #999; font-size: 0.8rem;
+    border-top: 1px solid var(--mist);
+  }
+	.badgerowbt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px;
+    background: #ffffff;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+a.badge1 {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #007286;
+    color: #fff;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+a.badge2 {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #007286;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+  @media(max-width:768px){
+  .header-inner { margin-top: 220px;padding:8px 18px 30px;}
+    .q-header { flex-wrap: wrap; }
+    .meta-row { gap: 0.75rem; }
+  }
+</style>
+</head>
+<body>
+<div class="badgerowbt">
+	<div><a href="https://snoweryi.github.io/yilearn/i01.html" class="badge1">01趨勢及策略</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i02.html" class="badge1">02溫室氣體盤查</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i03.html" class="badge1">03碳足跡</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i031.html" class="badge1">03碳足跡2</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i011.html" class="badge1">考科一</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i022.html" class="badge1">考科二</a></div>
+    <div><a href="https://snoweryi.github.io/yilearn/" class="badge1" >永續架構</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/iu.html" class="badge1">UNFCCC</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/iz.html" class="badge2">條文</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/iy.html" class="badge1">年份</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/iw.html" class="badge1">氣候法</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/ic1.html" class="badge1">碳中和</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/ic.html" class="badge1">CBAM</a></div>	
+	<div><a href="https://snoweryi.github.io/yilearn/is.html" class="badge1">舊SBTi</a></div>		
+		<div><a href="https://snoweryi.github.io/yilearn/isb.html" class="badge1">新舊SBTi</a></div>	
+	<div><a href="https://snoweryi.github.io/yilearn/ir.html" class="badge1">RE100</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/ie.html" class="badge1">ESG</a></div>	
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_1.html" class="badge2">考題1</a></div>
+  </div>
+<header>
+  <div class="header-inner">
+    <div class="badge">IPAS 產業人才投資方案</div>
+    <h1>淨零碳管理師 模擬試題<br>L11 淨零碳規劃管理基礎概論</h1>
+    <p class="subtitle">命題依據 L111 國際因應歷程與趨勢 × L112 淨零碳管理基礎概論</p>
+    <div class="meta-row">
+      <span>📅 命題基準：2026年8月15日</span>
+      <span>📝 題數：50題</span>
+      <span>⏱ 建議時間：75分鐘</span>
+      <span>🎯 及格標準：60分</span>
+    </div>
+  </div>
+</header>
+
+<div class="legend">
+  <div class="legend-item legend-easy"><div class="dot dot-easy"></div>簡單</div>
+  <div class="legend-item legend-medium"><div class="dot dot-medium"></div>中等</div>
+  <div class="legend-item legend-hard"><div class="dot dot-hard"></div>困難</div>
+</div>
+
+<div class="progress-wrap">
+  <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  <div class="progress-label">
+    <span id="progressText">已作答 0 / 50 題</span>
+    <span id="progressPct">0%</span>
+  </div>
+</div>
+
+<main id="examMain">
+
+<!-- ======== L111 ======== -->
+<div class="section-header">
+  <span class="section-tag">L111</span>
+  <span class="section-title">極端氣候下國際因應歷程與趨勢</span>
+</div>
+
+<!-- Q1 -->
+<div class="question-card easy" data-ans="B">
+  <div class="q-header">
+    <div class="q-num">1</div>
+    <div class="q-text">聯合國氣候變遷綱要公約（UNFCCC）締約方大會（COP）第幾屆於2015年在巴黎通過《巴黎協定》？</div>
+    <span class="diff-tag diff-easy">簡單</span>
+  </div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q1" value="A"> A. COP21 前，2014年利馬召開 COP20</label>
+    <label class="option-label"><input type="radio" name="q1" value="B"> B. COP21，2015年巴黎</label>
+    <label class="option-label"><input type="radio" name="q1" value="C"> C. COP26，2021年格拉斯哥</label>
+    <label class="option-label"><input type="radio" name="q1" value="D"> D. COP15，2009年哥本哈根</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：B</strong><br>《巴黎協定》於2015年12月 COP21 通過，確立將升溫控制在工業化前水準 1.5°C 以內的目標，並以國家自定貢獻（NDC）為核心機制。</div>
+</div>
+
+<!-- Q2 -->
+<div class="question-card easy" data-ans="C">
+  <div class="q-header">
+    <div class="q-num">2</div>
+    <div class="q-text">《巴黎協定》要求各締約方提交的減碳承諾文件，英文縮寫為何？</div>
+    <span class="diff-tag diff-easy">簡單</span>
+  </div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q2" value="A"> A. CDM</label>
+    <label class="option-label"><input type="radio" name="q2" value="B"> B. ETS</label>
+    <label class="option-label"><input type="radio" name="q2" value="C"> C. NDC（國家自定貢獻）</label>
+    <label class="option-label"><input type="radio" name="q2" value="D"> D. GHG</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：C</strong><br>NDC（Nationally Determined Contributions，國家自定貢獻）是《巴黎協定》核心，各國每五年更新一次，逐步提高減碳力道。</div>
+</div>
+
+<!-- Q3 情境 -->
+<div class="question-card medium" data-ans="B">
+  <div class="q-header">
+    <div class="q-num">3</div>
+    <div class="q-text">COP28（2023年杜拜）通過的「全球盤點」（Global Stocktake）結果，被視為重大突破的原因為何？</div>
+    <span class="diff-tag diff-medium">中等</span>
+  </div>
+  <div class="scenario">📰 <strong>時事情境：</strong>2023年12月COP28在UAE杜拜舉行，近200個國家達成協議文本，被媒體廣泛報導。</div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q3" value="A"> A. 首次提出「碳中和」一詞</label>
+    <label class="option-label"><input type="radio" name="q3" value="B"> B. 首次在聯合國氣候文件中明確提出「轉型脫離（transition away）化石燃料」</label>
+    <label class="option-label"><input type="radio" name="q3" value="C"> C. 正式廢除《京都議定書》</label>
+    <label class="option-label"><input type="radio" name="q3" value="D"> D. 確立碳稅全球統一稅率</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：B</strong><br>COP28 全球盤點文件首度明確提及「transition away from fossil fuels」，雖未達「逐步淘汰」（phase out）的強度，但仍是歷史性措辭突破，2030年前再生能源裝置容量目標三倍亦納入文本。</div>
+</div>
+
+<!-- Q4 生活情境 -->
+<div class="question-card easy" data-ans="A">
+  <div class="q-header">
+    <div class="q-num">4</div>
+    <div class="q-text">小明看新聞，聽到「台灣2023年極端降雨創歷史紀錄，旱澇交替加劇」，這屬於氣候變遷的哪一類影響？</div>
+    <span class="diff-tag diff-easy">簡單</span>
+  </div>
+  <div class="scenario">🌧️ <strong>生活情境：</strong>台灣2023年梅雨季、颱風季分別創下降雨量紀錄，但枯水期同樣嚴峻。</div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q4" value="A"> A. 極端天氣事件強度與頻率增加</label>
+    <label class="option-label"><input type="radio" name="q4" value="B"> B. 臭氧層破洞擴大</label>
+    <label class="option-label"><input type="radio" name="q4" value="C"> C. 酸雨問題加劇</label>
+    <label class="option-label"><input type="radio" name="q4" value="D"> D. 光化學煙霧增加</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：A</strong><br>IPCC 第六次評估報告（AR6）明確指出，全球升溫導致極端降雨、乾旱、熱浪等極端天氣事件頻率與強度均顯著增加，台灣身處西太平洋颱風路徑，衝擊更為直接。</div>
+</div>
+
+<!-- Q5 -->
+<div class="question-card medium" data-ans="D">
+  <div class="q-header">
+    <div class="q-num">5</div>
+    <div class="q-text">台灣《氣候變遷因應法》於2023年正式施行，其中明定2050淨零排放目標，並建立何種機制作為碳定價主要工具？</div>
+    <span class="diff-tag diff-medium">中等</span>
+  </div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q5" value="A"> A. 碳中和標章</label>
+    <label class="option-label"><input type="radio" name="q5" value="B"> B. 綠色債券</label>
+    <label class="option-label"><input type="radio" name="q5" value="C"> C. 再生能源憑證（REC）</label>
+    <label class="option-label"><input type="radio" name="q5" value="D"> D. 碳費徵收制度</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：D</strong><br>台灣《氣候變遷因應法》建立「碳費」制度（非碳稅），由環境部向排放大戶（年排放≥2.5萬公噸CO₂e）徵收，2024年起費率公告。企業可提自主減量計畫申請優惠費率。</div>
+</div>
+
+<!-- Q6 -->
+<div class="question-card easy" data-ans="B">
+  <div class="q-header">
+    <div class="q-num">6</div>
+    <div class="q-text">依據台灣能源供需現況，2023年台灣電力結構中，再生能源發電佔比約為多少？</div>
+    <span class="diff-tag diff-easy">簡單</span>
+  </div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q6" value="A"> A. 低於 5%</label>
+    <label class="option-label"><input type="radio" name="q6" value="B"> B. 約 9~11%</label>
+    <label class="option-label"><input type="radio" name="q6" value="C"> C. 超過 30%</label>
+    <label class="option-label"><input type="radio" name="q6" value="D"> D. 約 50%</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：B</strong><br>台灣2023年再生能源發電佔比約9.5~10%，太陽能與風電為主要成長來源，政府目標2025年達20%（含核電退場背景下調整中）。</div>
+</div>
+
+<!-- Q7 困難 -->
+<div class="question-card hard" data-ans="C">
+  <div class="q-header">
+    <div class="q-num">7</div>
+    <div class="q-text">COP26（2021格拉斯哥）通過《格拉斯哥氣候協議》，有關碳市場第6條規則（Article 6）的最終共識，下列敘述何者正確？</div>
+    <span class="diff-tag diff-hard">困難</span>
+  </div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q7" value="A"> A. 完全禁止雙邊碳信用交易</label>
+    <label class="option-label"><input type="radio" name="q7" value="B"> B. 正式確立統一全球碳稅稅率每噸50美元</label>
+    <label class="option-label"><input type="radio" name="q7" value="C"> C. 建立「相應調整」（Corresponding Adjustment）機制，防止雙重計算</label>
+    <label class="option-label"><input type="radio" name="q7" value="D"> D. 廢除清潔發展機制（CDM），同時廢止所有既有碳信用</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：C</strong><br>Article 6 確立相應調整（Corresponding Adjustment）機制，確保減量成果不會同時計入賣方國NDC與買方國NDC，解決多年懸而未決的雙重計算問題。CDM 轉換為新機制，部分信用可銜接。</div>
+</div>
+
+<!-- Q8 情境 -->
+<div class="question-card medium" data-ans="A">
+  <div class="q-header">
+    <div class="q-num">8</div>
+    <div class="q-text">IPCC 第六次評估報告（AR6）指出，若要將升溫控制在1.5°C以內，全球溫室氣體排放需在哪一年前達到淨零？</div>
+    <span class="diff-tag diff-medium">中等</span>
+  </div>
+  <div class="scenario">📚 <strong>知識情境：</strong>IPCC AR6 第三工作組報告於2022年發布，針對緩解路徑提出明確時間表。</div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q8" value="A"> A. 2050年前後</label>
+    <label class="option-label"><input type="radio" name="q8" value="B"> B. 2030年</label>
+    <label class="option-label"><input type="radio" name="q8" value="C"> C. 2070年</label>
+    <label class="option-label"><input type="radio" name="q8" value="D"> D. 2100年</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：A</strong><br>IPCC AR6指出1.5°C路徑需CO₂排放於2050年前後達到淨零，甲烷等非CO₂溫室氣體亦需大幅削減。2030年前需減碳43%（相較2019年）。</div>
+</div>
+
+<!-- Q9 生活情境 -->
+<div class="question-card easy" data-ans="B">
+  <div class="q-header">
+    <div class="q-num">9</div>
+    <div class="q-text">阿美的公司想了解「溫室氣體」有哪些，下列哪一項不屬於《京都議定書》規範的六大溫室氣體？</div>
+    <span class="diff-tag diff-easy">簡單</span>
+  </div>
+  <div class="scenario">🏭 <strong>生活情境：</strong>公司環保部門要進行年度溫室氣體盤查，同仁討論哪些氣體需要納管。</div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q9" value="A"> A. 氫氟碳化物（HFCs）</label>
+    <label class="option-label"><input type="radio" name="q9" value="B"> B. 二氧化硫（SO₂）</label>
+    <label class="option-label"><input type="radio" name="q9" value="C"> C. 六氟化硫（SF₆）</label>
+    <label class="option-label"><input type="radio" name="q9" value="D"> D. 氧化亞氮（N₂O）</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：B</strong><br>《京都議定書》六大溫室氣體：CO₂、CH₄、N₂O、HFCs、PFCs、SF₆（後續多哈修正案增加NF₃）。SO₂是空氣污染物，非溫室氣體。</div>
+</div>
+
+<!-- Q10 困難 -->
+<div class="question-card hard" data-ans="D">
+  <div class="q-header">
+    <div class="q-num">10</div>
+    <div class="q-text">「升溫1.5°C vs 2°C」的差異中，下列IPCC AR6 的科學結論何者錯誤？</div>
+    <span class="diff-tag diff-hard">困難</span>
+  </div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q10" value="A"> A. 1.5°C 下，北極夏季無冰事件每百年約發生一次；2°C 下約每十年一次</label>
+    <label class="option-label"><input type="radio" name="q10" value="B"> B. 升溫2°C 比1.5°C 下，暴露於熱浪風險的人口增加約一倍</label>
+    <label class="option-label"><input type="radio" name="q10" value="C"> C. 1.5°C 下，珊瑚礁面積預估喪失70~90%；2°C 下幾近全滅（>99%）</label>
+    <label class="option-label"><input type="radio" name="q10" value="D"> D. 升溫1.5°C 與2°C 對海平面上升的影響幾乎沒有差距</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：D（此敘述錯誤）</strong><br>IPCC AR6 指出，升溫2°C 相較1.5°C，2100年海平面上升額外增加約0.1公尺，看似微小但影響沿海數億人口。故「幾乎沒差距」的說法是錯誤的。</div>
+</div>
+
+<!-- ======== L11101~L11104 繼續 ======== -->
+<div class="section-header">
+  <span class="section-tag">L11101–04</span>
+  <span class="section-title">專有名詞、減碳趨勢與政策工具</span>
+</div>
+
+<!-- Q11 -->
+<div class="question-card easy" data-ans="C">
+  <div class="q-header">
+    <div class="q-num">11</div>
+    <div class="q-text">「碳中和（Carbon Neutral）」的定義是指？</div>
+    <span class="diff-tag diff-easy">簡單</span>
+  </div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q11" value="A"> A. 完全停止一切溫室氣體排放</label>
+    <label class="option-label"><input type="radio" name="q11" value="B"> B. 僅針對 CO₂ 進行管制，其他溫室氣體不計</label>
+    <label class="option-label"><input type="radio" name="q11" value="C"> C. 溫室氣體排放量與透過移除、抵換等方式的量相等，達到淨排放為零</label>
+    <label class="option-label"><input type="radio" name="q11" value="D"> D. 使用100%再生能源即可宣告碳中和</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：C</strong><br>碳中和＝排放量－移除量＝0。可透過直接減排加上碳抵換（offsets）達成。ISO 14068-1 對碳中和宣告有明確的查驗要求。</div>
+</div>
+
+<!-- Q12 -->
+<div class="question-card easy" data-ans="A">
+  <div class="q-header">
+    <div class="q-num">12</div>
+    <div class="q-text">「淨零排放（Net Zero）」相較於「碳中和」，主要差異在於？</div>
+    <span class="diff-tag diff-easy">簡單</span>
+  </div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q12" value="A"> A. 淨零排放涵蓋所有溫室氣體（以CO₂e計），碳中和通常僅針對CO₂</label>
+    <label class="option-label"><input type="radio" name="q12" value="B"> B. 淨零排放允許使用碳抵換，碳中和不允許</label>
+    <label class="option-label"><input type="radio" name="q12" value="C"> C. 淨零排放是企業層級目標，碳中和是國家層級目標</label>
+    <label class="option-label"><input type="radio" name="q12" value="D"> D. 兩者完全相同，無差異</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：A</strong><br>淨零排放（Net Zero）通常涵蓋所有溫室氣體（GHG，以CO₂e計算），減碳比例要求更高（SBTi標準：Scope 1+2+3需減90%以上），殘餘量才以移除抵銷。碳中和歷史上多聚焦CO₂。</div>
+</div>
+
+<!-- Q13 情境 -->
+<div class="question-card medium" data-ans="B">
+  <div class="q-header">
+    <div class="q-num">13</div>
+    <div class="q-text">小宜的農場正在評估碳匯潛力，「藍碳（Blue Carbon）」是指哪類生態系統的碳儲存？</div>
+    <span class="diff-tag diff-medium">中等</span>
+  </div>
+  <div class="scenario">🌊 <strong>情境：</strong>農場位於新竹，附近有海岸濕地，有顧問建議研究自然碳匯方案。</div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q13" value="A"> A. 森林與竹林</label>
+    <label class="option-label"><input type="radio" name="q13" value="B"> B. 紅樹林、海草床、鹽沼等沿海與海洋生態系</label>
+    <label class="option-label"><input type="radio" name="q13" value="C"> C. 農業土壤碳封存</label>
+    <label class="option-label"><input type="radio" name="q13" value="D"> D. 都市綠地與公園</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：B</strong><br>藍碳（Blue Carbon）指紅樹林、海草床、潮汐鹽沼等沿海生態系固存的碳，單位面積固碳速率高於陸地森林，正受到國際碳市場高度關注。綠碳指森林；黃碳指農業土壤。</div>
+</div>
+
+<!-- Q14 -->
+<div class="question-card medium" data-ans="D">
+  <div class="q-header">
+    <div class="q-num">14</div>
+    <div class="q-text">碳定價政策工具主要有兩種：碳稅（Carbon Tax）與碳交易（ETS），兩者最根本的差異為何？</div>
+    <span class="diff-tag diff-medium">中等</span>
+  </div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q14" value="A"> A. 碳稅只適用國際貿易，ETS只適用國內企業</label>
+    <label class="option-label"><input type="radio" name="q14" value="B"> B. ETS 由政府設定固定稅率，碳稅由市場決定價格</label>
+    <label class="option-label"><input type="radio" name="q14" value="C"> C. 碳稅無法促進企業減碳，ETS 才能</label>
+    <label class="option-label"><input type="radio" name="q14" value="D"> D. 碳稅固定價格、數量不確定；ETS 固定總量（Cap）、價格由市場決定</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：D</strong><br>碳稅：政府設定每噸CO₂的固定稅率，企業排放量不受硬性上限；ETS（排放交易制度）：政府設定排放總量上限（Cap），企業之間交易許可（Permit），價格由市場供需決定。</div>
+</div>
+
+<!-- Q15 困難 情境 -->
+<div class="question-card hard" data-ans="C">
+  <div class="q-header">
+    <div class="q-num">15</div>
+    <div class="q-text">2026年一間台灣出口商向歐盟出口鋼材，面臨歐盟CBAM邊境調整，下列何者正確描述目前CBAM的實施狀態？</div>
+    <span class="diff-tag diff-hard">困難</span>
+  </div>
+  <div class="scenario">🏗️ <strong>時事情境：</strong>歐盟碳邊境調整機制（CBAM）2023年10月進入過渡期，2026年正式收費。</div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q15" value="A"> A. 2026年CBAM仍在過渡期，無須繳費只需申報</label>
+    <label class="option-label"><input type="radio" name="q15" value="B"> B. CBAM 僅針對鋁製品，鋼材不在範圍</label>
+    <label class="option-label"><input type="radio" name="q15" value="C"> C. 2026年起CBAM正式進入繳費期，進口商須購買CBAM憑證（Certificate）</label>
+    <label class="option-label"><input type="radio" name="q15" value="D"> D. CBAM已於2025年全面暫停實施</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：C</strong><br>CBAM過渡期（2023/10~2025/12）：僅需申報嵌入碳排放量。2026年1月起正式繳費期：進口商須購買CBAM憑證，每年5月31日前清繳。涵蓋鋼鐵、鋁、水泥、肥料、電力、氫等六大類。</div>
+</div>
+
+<!-- ======== L112 ======== -->
+<div class="section-header">
+  <span class="section-tag">L112</span>
+  <span class="section-title">淨零碳管理基礎概論</span>
+</div>
+
+<!-- Q16 -->
+<div class="question-card easy" data-ans="A">
+  <div class="q-header">
+    <div class="q-num">16</div>
+    <div class="q-text">CDP（Carbon Disclosure Project）的主要功能為何？</div>
+    <span class="diff-tag diff-easy">簡單</span>
+  </div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q16" value="A"> A. 要求企業揭露溫室氣體排放、水安全與森林相關的環境資訊</label>
+    <label class="option-label"><input type="radio" name="q16" value="B"> B. 核發碳中和認證標章</label>
+    <label class="option-label"><input type="radio" name="q16" value="C"> C. 管理全球碳排放交易所</label>
+    <label class="option-label"><input type="radio" name="q16" value="D"> D. 設計各國NDC目標</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：A</strong><br>CDP（前身Carbon Disclosure Project）是全球最大非營利環境揭露平台，每年向全球數萬家企業發送問卷，揭露氣候、水安全、森林三大主題，評分A~D-，A List為最高榮譽。</div>
+</div>
+
+<!-- Q17 -->
+<div class="question-card easy" data-ans="C">
+  <div class="q-header">
+    <div class="q-num">17</div>
+    <div class="q-text">RE100 倡議的加入條件是什麼？</div>
+    <span class="diff-tag diff-easy">簡單</span>
+  </div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q17" value="A"> A. 承諾5年內達到碳中和</label>
+    <label class="option-label"><input type="radio" name="q17" value="B"> B. 承諾在生產過程中完全不使用化石燃料</label>
+    <label class="option-label"><input type="radio" name="q17" value="C"> C. 承諾在特定期限前（最晚2050年）100%使用再生能源電力</label>
+    <label class="option-label"><input type="radio" name="q17" value="D"> D. 承諾購買足夠碳信用以抵消所有排放</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：C</strong><br>RE100 由 The Climate Group 與 CDP 共同推動，要求企業承諾電力使用100%來自再生能源，達成期限最晚2050年，主要工具包含自建、PPA（購電協議）、REC（再生能源憑證）。</div>
+</div>
+
+<!-- Q18 情境 -->
+<div class="question-card medium" data-ans="B">
+  <div class="q-header">
+    <div class="q-num">18</div>
+    <div class="q-text">台積電要求其供應商設定科學基礎目標（SBTi），下列何者正確描述SBTi的核心要求？</div>
+    <span class="diff-tag diff-medium">中等</span>
+  </div>
+  <div class="scenario">🔬 <strong>時事情境：</strong>台積電2023年發布永續報告，要求關鍵供應商於2025年完成SBTi承諾。</div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q18" value="A"> A. 企業只需承諾Scope 1+2減碳即可</label>
+    <label class="option-label"><input type="radio" name="q18" value="B"> B. 目標需符合將升溫限制在1.5°C或Well Below 2°C的科學路徑，大型企業需含Scope 3</label>
+    <label class="option-label"><input type="radio" name="q18" value="C"> C. SBTi 僅適用於科技業</label>
+    <label class="option-label"><input type="radio" name="q18" value="D"> D. 認證後不需定期更新目標</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：B</strong><br>SBTi（科學基礎減量目標倡議）要求企業設定符合氣候科學的減碳目標。Net-Zero Standard（2021發布）要求：近期目標（5~10年）Scope 1+2+3各減42%（1.5°C路徑），並於最晚2050年達90%絕對減碳。</div>
+</div>
+
+<!-- Q19 -->
+<div class="question-card medium" data-ans="D">
+  <div class="q-header">
+    <div class="q-num">19</div>
+    <div class="q-text">GRI（全球報告倡議組織）標準與SASB標準最主要的差異為何？</div>
+    <span class="diff-tag diff-medium">中等</span>
+  </div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q19" value="A"> A. GRI是強制性法規，SASB是自願性框架</label>
+    <label class="option-label"><input type="radio" name="q19" value="B"> B. GRI只適用於上市公司，SASB適用所有組織</label>
+    <label class="option-label"><input type="radio" name="q19" value="C"> C. SASB只涵蓋環境議題，GRI涵蓋社會與治理</label>
+    <label class="option-label"><input type="radio" name="q19" value="D"> D. GRI 以多元利害關係人（廣泛揭露）為導向；SASB 以投資人財務重大性為導向，按行業分類</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：D</strong><br>GRI（Global Reporting Initiative）：強調對所有利害關係人的影響揭露（雙重重大性）。SASB：77個行業別標準，聚焦對投資人財務重大的永續議題，現已整合入IFRS永續揭露準則（ISSB/IFRS S1,S2）。</div>
+</div>
+
+<!-- Q20 困難 -->
+<div class="question-card hard" data-ans="A">
+  <div class="q-header">
+    <div class="q-num">20</div>
+    <div class="q-text">TCFD（氣候相關財務揭露）四大核心要素中，「情境分析（Scenario Analysis）」在哪個要素下要求揭露？</div>
+    <span class="diff-tag diff-hard">困難</span>
+  </div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q20" value="A"> A. 策略（Strategy）</label>
+    <label class="option-label"><input type="radio" name="q20" value="B"> B. 治理（Governance）</label>
+    <label class="option-label"><input type="radio" name="q20" value="C"> C. 風險管理（Risk Management）</label>
+    <label class="option-label"><input type="radio" name="q20" value="D"> D. 指標與目標（Metrics and Targets）</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：A</strong><br>TCFD四大要素：①治理—董事會與管理層角色；②策略—包含情境分析，揭露氣候風險與機會對業務、策略、財務的影響；③風險管理—識別、評估、管理流程；④指標與目標—碳排、水資源等KPI。情境分析（1.5°C、2°C、4°C）屬於「策略」揭露。</div>
+</div>
+
+<!-- Q21 情境 -->
+<div class="question-card easy" data-ans="B">
+  <div class="q-header">
+    <div class="q-num">21</div>
+    <div class="q-text">阿志的公司收到客戶要求填寫「CDP問卷」，其中評分從高到低排列正確的是？</div>
+    <span class="diff-tag diff-easy">簡單</span>
+  </div>
+  <div class="scenario">📋 <strong>生活情境：</strong>供應鏈管理部門收到品牌客戶的CDP問卷填寫要求，主管詢問評分說明。</div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q21" value="A"> A. D → C → B → A（D最高）</label>
+    <label class="option-label"><input type="radio" name="q21" value="B"> B. A → B → C → D-（A最高）</label>
+    <label class="option-label"><input type="radio" name="q21" value="C"> C. 1 → 2 → 3 → 4（數字越小越好）</label>
+    <label class="option-label"><input type="radio" name="q21" value="D"> D. Platinum → Gold → Silver → Bronze</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：B</strong><br>CDP評分從高到低：A（領導力）→ A- → B（管理）→ B- → C（認知）→ C- → D（揭露）→ D- → F（未回應）。進入 A List 代表在氣候行動、水安全或森林保護方面達到最高標準。</div>
+</div>
+
+<!-- Q22 -->
+<div class="question-card medium" data-ans="C">
+  <div class="q-header">
+    <div class="q-num">22</div>
+    <div class="q-text">台灣2050淨零排放路徑規劃中，「能源轉型」支柱的主要措施不包含下列哪項？</div>
+    <span class="diff-tag diff-medium">中等</span>
+  </div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q22" value="A"> A. 大幅擴增離岸風電裝置容量</label>
+    <label class="option-label"><input type="radio" name="q22" value="B"> B. 發展氫能與儲能技術</label>
+    <label class="option-label"><input type="radio" name="q22" value="C"> C. 新建燃煤電廠以確保基載供電穩定</label>
+    <label class="option-label"><input type="radio" name="q22" value="D"> D. 提升天然氣電廠比例作為過渡能源</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：C</strong><br>台灣淨零路徑12項關鍵戰略中，能源面包含：風電、太陽能、氫能、儲能、智慧電網等；台灣政策明確逐步廢除燃煤，不新建燃煤電廠。</div>
+</div>
+
+<!-- Q23 -->
+<div class="question-card easy" data-ans="A">
+  <div class="q-header">
+    <div class="q-num">23</div>
+    <div class="q-text">IFRS S2（氣候相關揭露準則）由哪個機構發布？</div>
+    <span class="diff-tag diff-easy">簡單</span>
+  </div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q23" value="A"> A. ISSB（國際永續準則委員會）</label>
+    <label class="option-label"><input type="radio" name="q23" value="B"> B. TCFD（氣候相關財務揭露工作小組）</label>
+    <label class="option-label"><input type="radio" name="q23" value="C"> C. UNEP（聯合國環境規劃署）</label>
+    <label class="option-label"><input type="radio" name="q23" value="D"> D. IPCC</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：A</strong><br>ISSB（International Sustainability Standards Board，國際永續準則委員會）於2023年6月發布 IFRS S1（一般永續揭露）與 IFRS S2（氣候相關揭露），整合TCFD架構，成為全球ESG報告的趨同基礎。</div>
+</div>
+
+<!-- Q24 情境 困難 -->
+<div class="question-card hard" data-ans="D">
+  <div class="q-header">
+    <div class="q-num">24</div>
+    <div class="q-text">ISO 14068-1 碳中和標準中，對於企業聲明碳中和的「殘餘排放（Residual Emissions）」處理，下列何者符合標準精神？</div>
+    <span class="diff-tag diff-hard">困難</span>
+  </div>
+  <div class="scenario">🏅 <strong>情境：</strong>某科技公司計劃於2026年取得ISO 14068-1碳中和認證，顧問正在說明標準要求。</div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q24" value="A"> A. 殘餘排放可全部以植樹造林碳信用抵消，無任何限制</label>
+    <label class="option-label"><input type="radio" name="q24" value="B"> B. 碳中和聲明不需處理殘餘排放</label>
+    <label class="option-label"><input type="radio" name="q24" value="C"> C. 殘餘排放只要購買任意VER（自願性碳信用）即可</label>
+    <label class="option-label"><input type="radio" name="q24" value="D"> D. 殘餘排放應以高品質碳移除/抵換抵銷，並優先強調直接減排；抵換信用需有額外性、永久性等品質要求</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：D</strong><br>ISO 14068-1 要求：①先盡力直接減排；②殘餘量以碳抵換（offset）抵銷；③抵換信用需具備：額外性（Additionality）、永久性（Permanence）、不重複計算等品質要求；④鼓勵使用碳移除（CDR）而非僅避免排放類信用；⑤每年重新評估並更新聲明。</div>
+</div>
+
+<!-- Q25 -->
+<div class="question-card medium" data-ans="B">
+  <div class="q-header">
+    <div class="q-num">25</div>
+    <div class="q-text">CBAM（碳邊境調整機制）目前第一批納管的六大產品類別中，下列哪項不在其中？</div>
+    <span class="diff-tag diff-medium">中等</span>
+  </div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q25" value="A"> A. 水泥</label>
+    <label class="option-label"><input type="radio" name="q25" value="B"> B. 紡織品</label>
+    <label class="option-label"><input type="radio" name="q25" value="C"> C. 鋼鐵</label>
+    <label class="option-label"><input type="radio" name="q25" value="D"> D. 氫</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：B</strong><br>CBAM第一批六大類：鋼鐵、鋁、水泥、肥料、電力、氫。紡織品目前未納入，但歐盟正研議第二批擴大範圍。台灣主要受鋼鐵、鋁出口影響。</div>
+</div>
+
+<!-- Q26 生活情境 -->
+<div class="question-card easy" data-ans="C">
+  <div class="q-header">
+    <div class="q-num">26</div>
+    <div class="q-text">小宜在農場裝設太陽能板，並想申請「再生能源憑證（T-REC）」，T-REC每張代表多少電量？</div>
+    <span class="diff-tag diff-easy">簡單</span>
+  </div>
+  <div class="scenario">☀️ <strong>生活情境：</strong>富林有機農場評估裝設屋頂太陽能板，顧問建議申請T-REC轉售給需要RE100的企業客戶。</div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q26" value="A"> A. 每張代表 100 度（kWh）</label>
+    <label class="option-label"><input type="radio" name="q26" value="B"> B. 每張代表 10,000 度（10 MWh）</label>
+    <label class="option-label"><input type="radio" name="q26" value="C"> C. 每張代表 1,000 度（1 MWh）</label>
+    <label class="option-label"><input type="radio" name="q26" value="D"> D. 每張代表 1 度（1 kWh）</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：C</strong><br>台灣再生能源憑證（T-REC）每張代表1,000度（1 MWh）的再生能源電力，由台灣再生能源憑證中心（TREC）管理，企業購買後可用於RE100、CDP、ESG報告中的綠電使用佐證。</div>
+</div>
+
+<!-- Q27 困難 -->
+<div class="question-card hard" data-ans="A">
+  <div class="q-header">
+    <div class="q-num">27</div>
+    <div class="q-text">溫室氣體盤查中，Scope 3排放類別共15項，下列哪項屬於「上游」Scope 3類別？</div>
+    <span class="diff-tag diff-hard">困難</span>
+  </div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q27" value="A"> A. 類別1：購買商品與服務（Purchased goods and services）</label>
+    <label class="option-label"><input type="radio" name="q27" value="B"> B. 類別11：售出產品之使用（Use of sold products）</label>
+    <label class="option-label"><input type="radio" name="q27" value="C"> C. 類別12：售出產品報廢處理</label>
+    <label class="option-label"><input type="radio" name="q27" value="D"> D. 類別13：下游租賃資產</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：A</strong><br>GHG Protocol Scope 3 共15類：上游（1~8）：購買商品/服務、資本財、燃料能源相關、上游運輸配送、廢棄物、商務旅行、員工通勤、上游租賃資產；下游（9~15）：下游運輸配送、加工處理、售出產品使用、廢棄、特許加盟、下游租賃、投資。</div>
+</div>
+
+<!-- Q28 情境 -->
+<div class="question-card medium" data-ans="C">
+  <div class="q-header">
+    <div class="q-num">28</div>
+    <div class="q-text">台灣2050淨零排放路徑規劃中，「產業轉型」策略的核心目標之一為何？</div>
+    <span class="diff-tag diff-medium">中等</span>
+  </div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q28" value="A"> A. 全面禁止高碳排產業在台灣設廠</label>
+    <label class="option-label"><input type="radio" name="q28" value="B"> B. 以政府補貼取代企業自主轉型</label>
+    <label class="option-label"><input type="radio" name="q28" value="C"> C. 促進製造業低碳化與循環經濟，包含製程電氣化、氫能導入等</label>
+    <label class="option-label"><input type="radio" name="q28" value="D"> D. 優先發展農業碳匯，以彌補工業排放</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：C</strong><br>台灣淨零路徑產業轉型策略強調：石化、鋼鐵、水泥等高碳產業製程電氣化、氫能/CCUS導入、循環經濟模式（延長產品壽命、廢棄物減量）。並推動中小企業低碳輔導與綠色金融支持。</div>
+</div>
+
+<!-- Q29 生活情境 -->
+<div class="question-card easy" data-ans="D">
+  <div class="q-header">
+    <div class="q-num">29</div>
+    <div class="q-text">陳小姐在超市選購食品，看到包裝上的「碳標籤」，這個標籤主要顯示的是？</div>
+    <span class="diff-tag diff-easy">簡單</span>
+  </div>
+  <div class="scenario">🛒 <strong>生活情境：</strong>台灣環境部推動碳標籤制度，鼓勵消費者選擇低碳產品。</div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q29" value="A"> A. 產品的有機認證情況</label>
+    <label class="option-label"><input type="radio" name="q29" value="B"> B. 企業的ESG評分</label>
+    <label class="option-label"><input type="radio" name="q29" value="C"> C. 產品生產工廠的碳排量</label>
+    <label class="option-label"><input type="radio" name="q29" value="D"> D. 產品生命週期中的碳足跡（CO₂e 公克或公斤）</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：D</strong><br>碳標籤（Carbon Footprint Label）標示產品從原料取得、製造、運輸到廢棄的全生命週期溫室氣體排放量（以CO₂e計）。台灣環境部碳標籤制度參照ISO 14067標準。</div>
+</div>
+
+<!-- Q30 困難 -->
+<div class="question-card hard" data-ans="B">
+  <div class="q-header">
+    <div class="q-num">30</div>
+    <div class="q-text">碳資產管理中，「自願性碳市場（VCM）」的碳信用與「合規市場（Compliance Market）」最主要的差異為何？</div>
+    <span class="diff-tag diff-hard">困難</span>
+  </div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q30" value="A"> A. VCM的碳信用品質一定優於合規市場</label>
+    <label class="option-label"><input type="radio" name="q30" value="B"> B. VCM 是企業自願購買用於ESG目標，不具法律減排義務；合規市場是法定排放上限下的許可交易</label>
+    <label class="option-label"><input type="radio" name="q30" value="C"> C. 合規市場允許任何企業自由買賣，VCM只限政府參與</label>
+    <label class="option-label"><input type="radio" name="q30" value="D"> D. VCM的信用無法用於國際通報，合規市場可以</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：B</strong><br>自願性碳市場（VCM）：企業/個人自願購買VER/VCU信用，用於宣示碳中和或ESG目標，無法定強制效力，主要標準有Verra（VCS）、Gold Standard等。合規市場（如EU ETS、台灣未來ETS）：政府設定排放上限，受管制企業必須持有足夠許可，不足須購買。</div>
+</div>
+
+<!-- Q31 -->
+<div class="question-card medium" data-ans="A">
+  <div class="q-header">
+    <div class="q-num">31</div>
+    <div class="q-text">IFRS S1 與 IFRS S2 的關係，下列何者正確？</div>
+    <span class="diff-tag diff-medium">中等</span>
+  </div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q31" value="A"> A. S1為永續相關財務資訊揭露的一般要求，S2為氣候相關揭露的特定要求，兩者搭配使用</label>
+    <label class="option-label"><input type="radio" name="q31" value="B"> B. S1 只適用歐盟企業，S2 適用亞洲企業</label>
+    <label class="option-label"><input type="radio" name="q31" value="C"> C. S2 是S1的修正版，兩者不能同時使用</label>
+    <label class="option-label"><input type="radio" name="q31" value="D"> D. S1 針對環境，S2 針對社會責任</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：A</strong><br>ISSB 發布：IFRS S1（一般要求）：企業揭露各類重大永續相關風險與機會的框架；IFRS S2（氣候特定）：聚焦氣候風險（實體風險/轉型風險）與機會，需搭配S1使用。台灣金管會已宣布分階段要求上市公司遵循。</div>
+</div>
+
+<!-- Q32 生活情境 -->
+<div class="question-card medium" data-ans="C">
+  <div class="q-header">
+    <div class="q-num">32</div>
+    <div class="q-text">某電子公司的歐洲客戶要求提供「產品碳足跡」報告，公司環保部門應依據哪個標準進行計算？</div>
+    <span class="diff-tag diff-medium">中等</span>
+  </div>
+  <div class="scenario">📦 <strong>情境：</strong>歐盟數位產品護照（DPP）法規要求供應商提供產品環境宣告，客戶希望取得符合國際標準的碳足跡數據。</div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q32" value="A"> A. ISO 14001（環境管理系統）</label>
+    <label class="option-label"><input type="radio" name="q32" value="B"> B. ISO 50001（能源管理）</label>
+    <label class="option-label"><input type="radio" name="q32" value="C"> C. ISO 14067（產品碳足跡）</label>
+    <label class="option-label"><input type="radio" name="q32" value="D"> D. ISO 14064-1（組織層級GHG盤查）</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：C</strong><br>ISO 14067：產品碳足跡（Carbon Footprint of Products），基於生命週期評估（LCA）計算產品從搖籃到墳墓的溫室氣體排放，是目前產品碳足跡計算的主要國際標準，常用於供應鏈碳揭露要求。</div>
+</div>
+
+<!-- Q33 -->
+<div class="question-card easy" data-ans="B">
+  <div class="q-header">
+    <div class="q-num">33</div>
+    <div class="q-text">台灣政府於淨零路徑中提出「負碳技術」，下列哪項屬於負碳技術（CDR）？</div>
+    <span class="diff-tag diff-easy">簡單</span>
+  </div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q33" value="A"> A. 太陽能發電</label>
+    <label class="option-label"><input type="radio" name="q33" value="B"> B. 生質能碳捕捉與封存（BECCS）</label>
+    <label class="option-label"><input type="radio" name="q33" value="C"> C. 天然氣發電廠效率提升</label>
+    <label class="option-label"><input type="radio" name="q33" value="D"> D. LED 照明節能</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：B</strong><br>負碳技術（Carbon Dioxide Removal, CDR）包含：BECCS（生質能+碳捕存）、直接空氣碳捕存（DACCS）、植樹造林、土壤碳封存、強化岩石風化等，能從大氣中「移除」CO₂。太陽能、節能是減少排放，屬減碳而非負碳。</div>
+</div>
+
+<!-- Q34 困難 情境 -->
+<div class="question-card hard" data-ans="D">
+  <div class="q-header">
+    <div class="q-num">34</div>
+    <div class="q-text">2025年台灣碳費制度正式上路，下列關於碳費「優惠費率」申請的敘述，何者正確？</div>
+    <span class="diff-tag diff-hard">困難</span>
+  </div>
+  <div class="scenario">⚖️ <strong>時事情境：</strong>台灣環境部2024年公告碳費費率，2025年起向年排放≥2.5萬噸CO₂e的排放源徵收。</div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q34" value="A"> A. 所有企業均可自動享有優惠費率，無需申請</label>
+    <label class="option-label"><input type="radio" name="q34" value="B"> B. 優惠費率只適用外商企業</label>
+    <label class="option-label"><input type="radio" name="q34" value="C"> C. 優惠費率申請後永久有效，不需更新</label>
+    <label class="option-label"><input type="radio" name="q34" value="D"> D. 企業提出「自主減量計畫」並獲環境部核定，符合SBTi等科學基礎路徑，可申請優惠費率（一般費率打折）</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：D</strong><br>台灣碳費制度設兩種費率：一般費率與優惠費率。企業提交「自主減量計畫」，減量路徑需符合SBTi或與台灣2050淨零路徑一致，經主管機關核定後，可適用較低的優惠費率。計畫需定期更新、達標。</div>
+</div>
+
+<!-- Q35 -->
+<div class="question-card medium" data-ans="A">
+  <div class="q-header">
+    <div class="q-num">35</div>
+    <div class="q-text">企業進行溫室氣體盤查時，「基準年（Base Year）」設定的主要目的為何？</div>
+    <span class="diff-tag diff-medium">中等</span>
+  </div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q35" value="A"> A. 作為衡量未來減碳成效的比較基準，確保減排宣稱可信</label>
+    <label class="option-label"><input type="radio" name="q35" value="B"> B. 只是為了符合政府報告格式要求</label>
+    <label class="option-label"><input type="radio" name="q35" value="C"> C. 基準年設定越早，碳費越低</label>
+    <label class="option-label"><input type="radio" name="q35" value="D"> D. 基準年設定後可任意更改，不影響減碳宣稱</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：A</strong><br>基準年是GHG盤查的起點比較年份，用以追蹤減碳進度。依GHG Protocol規定，若組織發生重大結構變化（併購、業務重組），需重新計算基準年排放，確保比較一致性。</div>
+</div>
+
+<!-- Q36 生活情境 -->
+<div class="question-card easy" data-ans="C">
+  <div class="q-header">
+    <div class="q-num">36</div>
+    <div class="q-text">農場辦理ESG活動，主辦單位想對活動進行碳中和，最基本的步驟順序為何？</div>
+    <span class="diff-tag diff-easy">簡單</span>
+  </div>
+  <div class="scenario">🌱 <strong>情境：</strong>富林有機農場舉辦企業ESG體驗日，承辦公司希望將活動宣傳為「碳中和活動」。</div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q36" value="A"> A. 購買碳信用 → 計算碳排 → 公開宣傳</label>
+    <label class="option-label"><input type="radio" name="q36" value="B"> B. 種樹 → 計算碳排 → 購買碳信用</label>
+    <label class="option-label"><input type="radio" name="q36" value="C"> C. 計算活動碳足跡 → 減少不必要排放 → 購買高品質碳信用抵消殘餘 → 第三方查驗聲明</label>
+    <label class="option-label"><input type="radio" name="q36" value="D"> D. 公開宣傳→ 計算碳排 → 種樹</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：C</strong><br>活動碳中和標準步驟：①量化（計算碳足跡）→②減量（減少不必要排放）→③抵換（購買符合國際標準之碳信用）→④查驗（第三方獨立查驗）→⑤聲明。ISO 14068-1 及PAS 2060 均遵循此架構。</div>
+</div>
+
+<!-- Q37 困難 -->
+<div class="question-card hard" data-ans="B">
+  <div class="q-header">
+    <div class="q-num">37</div>
+    <div class="q-text">依 ISO 14064-1:2018 標準，溫室氣體排放盤查的「組織邊界」設定方法不包含下列哪種？</div>
+    <span class="diff-tag diff-hard">困難</span>
+  </div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q37" value="A"> A. 股權比例法（Equity Share Approach）</label>
+    <label class="option-label"><input type="radio" name="q37" value="B"> B. 市值加權法（Market Cap Approach）</label>
+    <label class="option-label"><input type="radio" name="q37" value="C"> C. 財務控制權法（Financial Control Approach）</label>
+    <label class="option-label"><input type="radio" name="q37" value="D"> D. 營運控制權法（Operational Control Approach）</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：B</strong><br>ISO 14064-1 組織邊界三種方法：①股權比例法：依持股比例納入排放；②財務控制權法：對財務報表有控制權的設施納入；③營運控制權法：對設施有實際運營控制的納入。「市值加權法」並非溫室氣體盤查的邊界設定方法。</div>
+</div>
+
+<!-- Q38 -->
+<div class="question-card medium" data-ans="D">
+  <div class="q-header">
+    <div class="q-num">38</div>
+    <div class="q-text">台灣淨零排放路徑的「社會轉型」支柱，主要聚焦於哪個面向？</div>
+    <span class="diff-tag diff-medium">中等</span>
+  </div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q38" value="A"> A. 提高軍事防衛預算應對氣候衝突</label>
+    <label class="option-label"><input type="radio" name="q38" value="B"> B. 改變台灣人口結構</label>
+    <label class="option-label"><input type="radio" name="q38" value="C"> C. 全面廢除高碳排產業工作機會</label>
+    <label class="option-label"><input type="radio" name="q38" value="D"> D. 綠領人才培育、公正轉型（高碳排從業人員再訓練）、低碳生活型態推廣</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：D</strong><br>台灣淨零路徑社會轉型：強調「公正轉型（Just Transition）」不讓特定族群（如高碳排產業工人）承擔轉型代價；同時培育綠色人才（目標2030年前培育10萬名綠領人才），並推廣低碳消費行為。</div>
+</div>
+
+<!-- Q39 情境 -->
+<div class="question-card medium" data-ans="A">
+  <div class="q-header">
+    <div class="q-num">39</div>
+    <div class="q-text">某上市公司ESG報告中宣稱「已達成2025年碳中和目標」，但主要依靠購買農業碳信用，減少直接排放比例不到10%。此做法面臨的最大爭議為何？</div>
+    <span class="diff-tag diff-medium">中等</span>
+  </div>
+  <div class="scenario">📰 <strong>時事情境：</strong>國際上「洗綠（Greenwashing）」議題受到主管機關及投資人高度關注，多家企業因不實碳中和宣稱受到調查。</div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q38" value="A"> A. 被質疑「洗綠」，未優先推動直接減排即大量依賴低品質抵換，不符合ISO 14068-1精神</label>
+    <label class="option-label"><input type="radio" name="q38" value="B"> B. 農業碳信用在國際上不被承認，完全無效</label>
+    <label class="option-label"><input type="radio" name="q38" value="C"> C. 碳中和宣稱不需要第三方查驗</label>
+    <label class="option-label"><input type="radio" name="q38" value="D"> D. 購買碳信用會導致企業股價大幅下跌</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：A</strong><br>ISO 14068-1 強調減量優先原則：碳中和宣稱應建立在最大化直接減排基礎上，殘餘量才以高品質抵換處理。若企業幾乎不減排就大量購買信用，會被認定為「碳洗綠（Carbon Greenwashing）」，歐盟已通過反洗綠指令加強規範。</div>
+</div>
+
+<!-- Q40 困難 -->
+<div class="question-card hard" data-ans="C">
+  <div class="q-header">
+    <div class="q-num">40</div>
+    <div class="q-text">下列有關「轉型風險（Transition Risk）」的分類，何者屬於「市場風險（Market Risk）」而非「政策法規風險」？</div>
+    <span class="diff-tag diff-hard">困難</span>
+  </div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q40" value="A"> A. 碳稅費率提高導致生產成本上升</label>
+    <label class="option-label"><input type="radio" name="q40" value="B"> B. 新的排放標準要求更換設備</label>
+    <label class="option-label"><input type="radio" name="q40" value="C"> C. 消費者低碳偏好轉移，高碳產品需求下降</label>
+    <label class="option-label"><input type="radio" name="q40" value="D"> D. 政府強制要求碳揭露的法規成本</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：C</strong><br>TCFD 轉型風險分類：①政策法規風險：碳稅、排放標準、揭露要求；②技術風險：被新低碳技術取代；③市場風險：消費者偏好轉移、原料成本變化、低碳產品需求增加；④聲譽風險：被認為未積極因應氣候變遷。選項C屬市場風險。</div>
+</div>
+
+<!-- ======== 綜合應用 ======== -->
+<div class="section-header">
+  <span class="section-tag">綜合應用</span>
+  <span class="section-title">情境整合、時事應用與案例分析</span>
+</div>
+
+<!-- Q41 -->
+<div class="question-card medium" data-ans="B">
+  <div class="q-header">
+    <div class="q-num">41</div>
+    <div class="q-text">農業部門溫室氣體主要來源中，「腸道發酵」排放最大量的溫室氣體是？</div>
+    <span class="diff-tag diff-medium">中等</span>
+  </div>
+  <div class="scenario">🐄 <strong>情境：</strong>富林農場評估飼養牛羊的碳排放，分析農業碳管理機會。</div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q41" value="A"> A. CO₂（二氧化碳）</label>
+    <label class="option-label"><input type="radio" name="q41" value="B"> B. CH₄（甲烷）</label>
+    <label class="option-label"><input type="radio" name="q41" value="C"> C. N₂O（氧化亞氮）</label>
+    <label class="option-label"><input type="radio" name="q41" value="D"> D. SF₆（六氟化硫）</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：B</strong><br>牛羊等反芻動物腸道發酵（Enteric Fermentation）產生大量甲烷（CH₄），甲烷的100年全球暖化潛勢（GWP100）為CO₂的28倍。農業甲烷排放來源還包括水稻田（厭氧分解）與糞肥管理。</div>
+</div>
+
+<!-- Q42 -->
+<div class="question-card easy" data-ans="D">
+  <div class="q-header">
+    <div class="q-num">42</div>
+    <div class="q-text">下列縮寫對照，何者有誤？</div>
+    <span class="diff-tag diff-easy">簡單</span>
+  </div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q42" value="A"> A. GHG：溫室氣體（Greenhouse Gas）</label>
+    <label class="option-label"><input type="radio" name="q42" value="B"> B. ETS：排放交易制度（Emissions Trading System）</label>
+    <label class="option-label"><input type="radio" name="q42" value="C"> C. LCA：生命週期評估（Life Cycle Assessment）</label>
+    <label class="option-label"><input type="radio" name="q42" value="D"> D. CCS：碳信用交易系統（Carbon Credit System）</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：D（此項有誤）</strong><br>CCS 正確全名為 Carbon Capture and Storage（碳捕捉與封存），不是「碳信用交易系統」。碳信用相關縮寫：VCM（自願性碳市場）、VER/VCU（自願減量信用）。</div>
+</div>
+
+<!-- Q43 困難 情境 -->
+<div class="question-card hard" data-ans="A">
+  <div class="q-header">
+    <div class="q-num">43</div>
+    <div class="q-text">2026年某半導體大廠Scope 2排放計算時，採用「市場基礎法（Market-based Method）」而非「位置基礎法（Location-based Method）」，最可能的原因是？</div>
+    <span class="diff-tag diff-hard">困難</span>
+  </div>
+  <div class="scenario">💡 <strong>情境：</strong>該企業已與電力公司簽訂綠電購電協議（PPA），購買100%再生能源電力。</div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q43" value="A"> A. 市場基礎法可反映企業實際購買綠電的排放因子，讓PPA/REC的低碳效益體現在盤查結果</label>
+    <label class="option-label"><input type="radio" name="q43" value="B"> B. 市場基礎法計算結果一定比位置基礎法低</label>
+    <label class="option-label"><input type="radio" name="q43" value="C"> C. 位置基礎法不符合ISO標準，不被允許</label>
+    <label class="option-label"><input type="radio" name="q43" value"D"> D. 市場基礎法只適用上市公司</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：A</strong><br>GHG Protocol Scope 2 Guidance 規定兩種方法：位置基礎法：使用電網平均排放係數（如台灣電網排放係數）；市場基礎法：使用合約工具（PPA、REC、REGOs）對應的排放係數，可反映企業實際購買綠電的減碳成效，也是RE100、SBTi認可的方法。</div>
+</div>
+
+<!-- Q44 情境 -->
+<div class="question-card medium" data-ans="C">
+  <div class="q-header">
+    <div class="q-num">44</div>
+    <div class="q-text">「雙重重大性（Double Materiality）」是歐盟CSRD的核心概念，下列何者正確描述其意涵？</div>
+    <span class="diff-tag diff-medium">中等</span>
+  </div>
+  <div class="scenario">🇪🇺 <strong>時事情境：</strong>歐盟CSRD（企業永續報告指令）2024年起分階段實施，引入雙重重大性要求。</div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q44" value="A"> A. 同時揭露兩個不同年度的財務數據</label>
+    <label class="option-label"><input type="radio" name="q44" value="B"> B. 要求企業同時在兩個交易所上市</label>
+    <label class="option-label"><input type="radio" name="q44" value="C"> C. 企業既需評估永續議題對自身財務的影響（財務重大性），也需評估企業活動對環境與社會的影響（影響重大性）</label>
+    <label class="option-label"><input type="radio" name="q44" value="D"> D. 每項永續議題需由兩個獨立機構審查</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：C</strong><br>雙重重大性（Double Materiality）：①由外向內（Outside-in）財務重大性：永續風險如何影響企業價值；②由內向外（Inside-out）影響重大性：企業活動如何影響環境與社會。CSRD（歐盟）要求兩者都評估；IFRS S1/S2（ISSB）主要關注財務重大性。</div>
+</div>
+
+<!-- Q45 -->
+<div class="question-card easy" data-ans="A">
+  <div class="q-header">
+    <div class="q-num">45</div>
+    <div class="q-text">「碳洩漏（Carbon Leakage）」是指什麼現象？</div>
+    <span class="diff-tag diff-easy">簡單</span>
+  </div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q45" value="A"> A. 嚴格氣候政策國家的高碳產業轉移至政策寬鬆國家，導致全球總排放未減反增</label>
+    <label class="option-label"><input type="radio" name="q45" value="B"> B. 企業碳盤查數據外洩給競爭對手</label>
+    <label class="option-label"><input type="radio" name="q45" value="C"> C. 碳信用在交易過程中被重複計算</label>
+    <label class="option-label"><input type="radio" name="q45" value="D"> D. 碳儲存設施的CO₂外洩至大氣</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：A</strong><br>碳洩漏（Carbon Leakage）：因一國實施嚴格碳排限制，導致高碳排產業遷移至法規寬鬆國家，全球總排放並未減少，甚至增加（因低效生產）。CBAM（碳邊境調整）的設計目的之一即是防止碳洩漏。</div>
+</div>
+
+<!-- Q46 困難 -->
+<div class="question-card hard" data-ans="D">
+  <div class="q-header">
+    <div class="q-num">46</div>
+    <div class="q-text">SBTi FLAG（森林、土地與農業）準則對農業企業的特殊要求，與一般工業企業最主要的差異為何？</div>
+    <span class="diff-tag diff-hard">困難</span>
+  </div>
+  <div class="scenario">🌾 <strong>情境：</strong>富林農場考慮未來加入SBTi，顧問說明農業供應鏈企業需遵守FLAG準則。</div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q46" value="A"> A. 農業企業不需設定Scope 3目標</label>
+    <label class="option-label"><input type="radio" name="q46" value="B"> B. FLAG準則允許農業企業無限期使用碳抵換</label>
+    <label class="option-label"><input type="radio" name="q46" value="C"> C. 農業企業減碳標準比工業企業寬鬆50%</label>
+    <label class="option-label"><input type="radio" name="q46" value="D"> D. FLAG要求企業設定土地利用/農業相關排放的特定目標，並涵蓋森林保護（不得新增毀林）</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：D</strong><br>SBTi FLAG（Forest, Land and Agriculture）準則（2022發布）：農業、食品、林業等供應鏈佔全球排放>20%的企業須設定FLAG目標，涵蓋土地利用變化排放（LULUCF），並需承諾不新增毀林（no deforestation），搭配其他Scope 1+2+3目標一起提交。</div>
+</div>
+
+<!-- Q47 -->
+<div class="question-card medium" data-ans="B">
+  <div class="q-header">
+    <div class="q-num">47</div>
+    <div class="q-text">「內部碳定價（Internal Carbon Pricing, ICP）」在企業中的主要用途為何？</div>
+    <span class="diff-tag diff-medium">中等</span>
+  </div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q47" value="A"> A. 取代政府的碳費徵收，企業自行向員工收費</label>
+    <label class="option-label"><input type="radio" name="q47" value="B"> B. 在內部決策與投資評估中納入碳排放成本，引導低碳選擇，也作為情境分析工具</label>
+    <label class="option-label"><input type="radio" name="q47" value="C"> C. 在企業內部交易碳信用以賺取利潤</label>
+    <label class="option-label"><input type="radio" name="q47" value="D"> D. 替代碳盤查，不需再進行GHG量化</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：B</strong><br>內部碳定價（ICP）三種形式：①內部碳稅（Carbon Fee）：向各部門徵收後用於低碳投資；②影子碳價（Shadow Price）：用於評估投資方案的隱含碳成本；③隱含碳價（Implicit Price）：以能效標準體現。TCFD建議企業在情境分析中使用ICP評估轉型風險。</div>
+</div>
+
+<!-- Q48 情境 生活 -->
+<div class="question-card easy" data-ans="C">
+  <div class="q-header">
+    <div class="q-num">48</div>
+    <div class="q-text">小明開著電動車去富林農場參加食農體驗，主辦方宣稱「零碳交通」，下列何種說法最為嚴謹正確？</div>
+    <span class="diff-tag diff-easy">簡單</span>
+  </div>
+  <div class="scenario">🚗 <strong>生活情境：</strong>農場ESG活動手冊強調「低碳出行」，但台灣電網目前碳排係數較高。</div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q48" value="A"> A. 電動車完全無碳排放，可直接宣稱零碳</label>
+    <label class="option-label"><input type="radio" name="q48" value="B"> B. 只要用電力驅動，不論電源，碳排放皆為零</label>
+    <label class="option-label"><input type="radio" name="q48" value="C"> C. 電動車使用台灣電網電力，碳排取決於電網排放係數，非真正零碳；若搭配綠電才接近低碳/零碳交通</label>
+    <label class="option-label"><input type="radio" name="q48" value="D"> D. 電動車的碳排放只需計算製造階段，使用階段不計</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：C</strong><br>電動車的Scope 2（間接）排放來自充電用電，須乘以當地電網排放係數。台灣電網排放係數約0.494 kgCO₂e/kWh（2023年），高於再生能源佔比高的國家。真正低碳/零碳電動車需搭配綠電或RE100電力。</div>
+</div>
+
+<!-- Q49 困難 -->
+<div class="question-card hard" data-ans="A">
+  <div class="q-header">
+    <div class="q-num">49</div>
+    <div class="q-text">下列有關「自然碳匯（Nature-based Solutions, NbS）」的敘述，何者最為正確？</div>
+    <span class="diff-tag diff-hard">困難</span>
+  </div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q49" value="A"> A. NbS碳信用品質常受質疑的原因包含：非永久性（火災、病蟲害等）、額外性難以驗證、過度高估碳匯量</label>
+    <label class="option-label"><input type="radio" name="q49" value="B"> B. NbS是目前國際上最受信任、最無爭議的碳抵換方式</label>
+    <label class="option-label"><input type="radio" name="q49" value="C"> C. 台灣農業土壤碳匯已納入碳費可抵換的正式項目</label>
+    <label class="option-label"><input type="radio" name="q49" value="D"> D. NbS只包含海洋生態系，不包含陸地生態系</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：A</strong><br>NbS（自然解方）包含造林、濕地保育、土壤碳封存等，近年因多起項目高估碳匯（如REDD+爭議）、碳儲存因野火逸散等問題，信用品質受到Science、Guardian等媒體深度質疑。VCMI、ICVCM正推動更嚴格的品質標準（Core Carbon Principles）。</div>
+</div>
+
+<!-- Q50 困難 綜合 -->
+<div class="question-card hard" data-ans="C">
+  <div class="q-header">
+    <div class="q-num">50</div>
+    <div class="q-text">【綜合情境】2026年一家台灣中型食品製造商，同時面臨以下挑戰：①歐洲客戶要求提交CDP問卷；②國際品牌要求設定SBTi目標；③台灣碳費開徵（年排放3萬噸）；④員工詢問公司的2050淨零路線圖。請問下列「優先行動建議」何者最符合邏輯順序？</div>
+    <span class="diff-tag diff-hard">困難</span>
+  </div>
+  <div class="scenario">🏢 <strong>綜合情境：</strong>該公司目前僅有基本GHG盤查（Scope 1+2），尚未盤查Scope 3，也無正式永續策略。</div>
+  <div class="options">
+    <label class="option-label"><input type="radio" name="q50" value="A"> A. 立即購買碳信用→宣告碳中和→填寫CDP→設定SBTi</label>
+    <label class="option-label"><input type="radio" name="q50" value="B"> B. 先設定SBTi→再做GHG盤查→最後處理碳費</label>
+    <label class="option-label"><input type="radio" name="q50" value="C"> C. 完整盤查Scope 1+2+3 → 設定基準年 → 提交SBTi承諾 → 準備CDP揭露 → 提自主減量計畫申請優惠碳費費率 → 對外發布2050淨零路線圖</label>
+    <label class="option-label"><input type="radio" name="q50" value="D"> D. 先發布新聞稿宣告2050淨零→再逐步補做盤查</label>
+  </div>
+  <button class="ans-btn" onclick="revealAns(this)">查看解析</button>
+  <div class="explanation"><strong>正解：C</strong><br>淨零管理最佳實踐步驟：①完整盤查（Scope 1+2+3是SBTi與CDP的基礎）→②設定基準年與科學基礎目標（SBTi）→③CDP揭露（需盤查數據）→④向環境部提自主減量計畫爭取優惠碳費費率→⑤對外揭露完整淨零路線圖。先買碳信用、先發新聞稿均屬「洗綠」高風險做法。</div>
+</div>
+
+<!-- SCORE PANEL -->
+<div class="score-panel">
+  <h2>📊 計算您的得分</h2>
+  <div class="score-big" id="scoreDisplay">-</div>
+  <div class="score-sub" id="scoreSubtext">點擊下方按鈕計算分數</div>
+  <button class="score-submit-btn" onclick="calcScore()">計算得分</button>
+</div>
+
+</main>
+
+<footer>
+  <p>IPAS 淨零碳管理師 模擬試題 L11 | 命題基準：2026年8月15日</p>
+  <p style="margin-top:0.3rem">本試題僅供學習測驗，題目設計融合時事與生活情境，版權所有，請勿商業使用。</p>
+</footer>
+
+<script>
+  const TOTAL = 50;
+  let answered = new Set();
+
+  function revealAns(btn) {
+    const card = btn.closest('.question-card');
+    const correct = card.dataset.ans;
+    const name = card.querySelector('input[type=radio]').name;
+    const selected = card.querySelector(`input[name="${name}"]:checked`);
+    const exp = card.querySelector('.explanation');
+
+    // Mark options
+    card.querySelectorAll('.option-label').forEach(lbl => {
+      const val = lbl.querySelector('input').value;
+      if (val === correct) lbl.classList.add('reveal');
+      if (selected && selected.value === val && val !== correct) lbl.classList.add('wrong-ans');
+    });
+
+    exp.classList.add('show');
+    btn.style.display = 'none';
+
+    // Track answered
+    const qNum = parseInt(card.querySelector('.q-num').textContent);
+    answered.add(qNum);
+    updateProgress();
+  }
+
+  // Also track when radio selected
+  document.querySelectorAll('input[type=radio]').forEach(r => {
+    r.addEventListener('change', () => {
+      const card = r.closest('.question-card');
+      const qNum = parseInt(card.querySelector('.q-num').textContent);
+      answered.add(qNum);
+      updateProgress();
+    });
+  });
+
+  function updateProgress() {
+    const pct = Math.round((answered.size / TOTAL) * 100);
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressText').textContent = `已作答 ${answered.size} / ${TOTAL} 題`;
+    document.getElementById('progressPct').textContent = pct + '%';
+  }
+
+  function calcScore() {
+    const cards = document.querySelectorAll('.question-card');
+    let correct = 0;
+    cards.forEach(card => {
+      const ans = card.dataset.ans;
+      const name = card.querySelector('input[type=radio]').name;
+      const sel = card.querySelector(`input[name="${name}"]:checked`);
+      if (sel && sel.value === ans) correct++;
+    });
+    const score = Math.round((correct / TOTAL) * 100);
+    document.getElementById('scoreDisplay').textContent = score + ' 分';
+    const pass = score >= 60;
+    document.getElementById('scoreSubtext').textContent =
+      `答對 ${correct} / ${TOTAL} 題 ─ ${pass ? '🎉 恭喜通過！繼續保持！' : '📚 尚需加強，建議複習未答對題目'}`;
+  }
+</script>
+</body>
+</html>
