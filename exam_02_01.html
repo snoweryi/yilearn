@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026年度 iPAS 淨零碳管理師模擬考題 - L12 專項</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@700&display=swap');
+
+  :root {
+    --navy: #102a43;
+    --deep: #1d4e6b;
+    --steel: #2f7a8c;
+    --gold: #b8893a;
+    --mist: #d8e6ec;
+    --cream: #f7f9fa;
+    --carbon: #1a1a1a;
+    --slate: #51606b;
+    --easy: #2d7a4f;
+    --medium: #b8730f;
+    --hard: #b1331f;
+    --easy-bg: #e7f4ec;
+    --medium-bg: #fbf0dd;
+    --hard-bg: #fbe8e4;
+  }
+
+  * { box-sizing: border-box; margin:0; padding:0; }
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: var(--cream);
+    color: var(--carbon);
+    line-height: 1.7;
+    padding-bottom: 4rem;
+  }
+
+  header {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--deep) 100%);
+    color: #fff;
+    padding: 5rem 2rem 2.2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content:'';
+    position:absolute; top:-60px; right:-60px;
+    width:260px; height:260px; border-radius:50%;
+    background: rgba(184,137,58,0.12);
+  }
+  header::after {
+    content:'';
+    position:absolute; bottom:-80px; left:10%;
+    width:300px; height:300px; border-radius:50%;
+    background: rgba(47,122,140,0.18);
+  }
+  .h-tag {
+    display:inline-block;
+    background: var(--gold); color:#fff;
+    font-size: 18px; font-weight:700; letter-spacing:0.15em;
+    padding:0.3rem 1rem; border-radius:3px;
+    text-transform:uppercase;
+    margin-bottom:1rem;
+    position:relative; z-index:1;
+  }
+  h1 {
+    font-family:'Noto Serif TC', serif;
+    font-size: clamp(1.4rem, 4vw, 2.1rem);
+    font-weight:700;
+    position:relative; z-index:1;
+    margin-bottom:0.6rem;
+  }
+  .h-sub {
+    color: var(--mist); font-size: 18px;
+    max-width: 1900px; margin: 0 auto 1.6rem;
+    position:relative; z-index:1;
+  }
+  .h-meta {
+    display:flex; justify-content:center; flex-wrap:wrap; gap:1.6rem;
+    font-size: 18px; color:var(--mist);
+    border-top:1px solid rgba(255,255,255,0.18);
+    padding-top:1.1rem;
+    position:relative; z-index:1;
+    max-width:800px; margin:0 auto;
+  }
+
+  .container { max-width: 1900px; margin: 2rem auto 0; padding: 0 1.2rem; }
+
+  .info-bar {
+    display:flex; flex-wrap:wrap; gap:0.7rem;
+    margin-bottom:1.6rem;
+  }
+  .info-chip {
+    font-size: 18px; font-weight:600;
+    padding:0.4rem 0.95rem; border-radius:20px;
+  }
+  .chip-l121 { background:#e3eef5; color:var(--deep); }
+  .chip-l122 { background:#fdf0e2; color:var(--gold); }
+  .chip-easy { background:var(--easy-bg); color:var(--easy); }
+  .chip-medium { background:var(--medium-bg); color:var(--medium); }
+  .chip-hard { background:var(--hard-bg); color:var(--hard); }
+
+  .section-divider {
+    display:flex; align-items:center; gap:1rem;
+    margin: 2.6rem 0 1.2rem;
+  }
+  .section-divider .line { flex:1; height:1px; background:var(--mist); }
+  .section-divider .label {
+    font-family:'Noto Serif TC', serif;
+    font-weight:700; font-size: 18px; color:var(--navy);
+    white-space:nowrap;
+  }
+
+  table {
+    width:100%;
+    border-collapse: collapse;
+    background:#fff;
+    box-shadow: 0 2px 14px rgba(16,42,67,0.08);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+  }
+  thead tr { background: var(--navy); color:#fff; }
+  thead th {
+    padding: 0.85rem 0.8rem;
+    font-size: 18px; font-weight:700;
+    text-align:left;
+    letter-spacing:0.03em;
+    white-space:nowrap;
+  }
+  tbody tr {
+    border-bottom: 1px solid #eef1f3;
+    transition: background 0.15s;
+  }
+  tbody tr:hover { background: #f5fafc; }
+  tbody tr:last-child { border-bottom:none; }
+
+  td {
+    padding: 1rem 0.8rem;
+    font-size: 18px;
+    vertical-align: top;
+  }
+  .col-num {
+    width:42px; text-align:center; font-weight:700; color:var(--navy);
+    font-size: 18px;
+  }
+  .col-unit {
+    width:90px;
+    font-size: 18px; font-weight:700;
+    color:var(--steel);
+    white-space:nowrap;
+  }
+  .col-q { min-width: 280px; }
+  .scenario-tag {
+    display:inline-block;
+    background:#fff4e8; color:#8a5a1e;
+    font-size: 18px; font-weight:700;
+    padding:0.1rem 0.5rem; border-radius:3px;
+    margin-bottom:0.4rem;
+  }
+  .q-text { font-weight:500; line-height:1.65; }
+  .col-opts { min-width: 260px; }
+  .opt-line { display:block; margin-bottom:0.3rem; font-size:0.84rem; color:var(--slate); }
+  .opt-line b { color: var(--carbon); margin-right:0.3rem; }
+  .col-diff { width:70px; text-align:center; }
+  .diff-pill {
+    display:inline-block;
+    font-size: 18px; font-weight:700;
+    padding:0.2rem 0.6rem; border-radius:10px;
+    white-space:nowrap;
+  }
+  .diff-easy { background:var(--easy-bg); color:var(--easy); }
+  .diff-medium { background:var(--medium-bg); color:var(--medium); }
+  .diff-hard { background:var(--hard-bg); color:var(--hard); }
+  .col-ans {
+    width:60px; text-align:center;
+    font-weight:900; font-size: 18px;
+    color:#fff;
+  }
+  .ans-badge {
+    display:inline-flex; align-items:center; justify-content:center;
+    width:30px; height:30px; border-radius:50%;
+    background: var(--steel); color:#fff;
+    font-weight:900; font-size: 18px;
+  }
+  .col-exp {
+    min-width: 280px;
+    font-size: 18px;
+    color: var(--slate);
+    line-height:1.6;
+  }
+  .col-exp strong { color: var(--steel); }
+.badgerowbt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px;
+    background: #ffffff;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+a.badge1 {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #007286;
+    color: #fff;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+a.badge2 {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #007286;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+a.badge3 {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #b8238d;
+    color: yellow;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+  @media (max-width: 728px) {
+  header{ margin-top: 6rem;padding:8px 18px 30px;}
+    table, thead, tbody, tr, th, td { display:block; }
+    thead { display:none; }
+    tbody tr {
+      border:1px solid var(--mist);
+      border-radius:10px;
+      margin-bottom:1rem;
+      padding: 0.8rem;
+      box-shadow:0 1px 6px rgba(0,0,0,0.05);
+    }
+    td {
+      padding: 0.4rem 0.2rem;
+      border:none;
+    }
+    td::before {
+      content: attr(data-label);
+      display:block;
+      font-size: 18px;
+      font-weight:700;
+      color: var(--steel);
+      margin-bottom:0.2rem;
+      text-transform:uppercase;
+      letter-spacing:0.05em;
+    }
+    .col-num { text-align:left; }
+  }
+
+  footer {
+    text-align:center; padding: 2.5rem 1rem 1rem;
+    color:#9aa7af; font-size: 18px;
+    max-width:1180px; margin:2rem auto 0;
+    border-top:1px solid var(--mist);
+  }
+</style>
+</head>
+<body>
+<div class="badgerowbt">	
+	<div><a href="https://snoweryi.github.io/yilearn/exam_02_1.html" class="badge1">考科二_1</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_02_01.html" class="badge2">考科二_01</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/menu.html" class="badge3">目錄</a></div>
+  </div>
+<header>
+  <div class="h-tag">iPAS 產業人才能力鑑定</div>
+  <h1>2026年度 iPAS 淨零碳管理師模擬考題<br>L12 專項：淨零碳盤查規範與程序概要</h1>
+  <p class="h-sub">命題依據：ISO 14064-1:2018 組織型溫室氣體盤查 × ISO 14067:2018 產品碳足跡標準｜結合2026年CBAM擴大執行、台灣碳費全面徵收與供應鏈減碳壓力情境</p>
+  <div class="h-meta">
+    <span>📅 命題日期：2026年8月15日</span>
+    <span>📝 題數：50題（單選題）</span>
+    <span>📊 L121：25題／L122：25題</span>
+    <span>🎯 簡單30%／中等50%／困難20%</span>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="info-bar">
+    <span class="info-chip chip-l121">L121　ISO 14064-1 組織型盤查</span>
+    <span class="info-chip chip-l122">L122　ISO 14067 產品碳足跡</span>
+    <span class="info-chip chip-easy">● 簡單</span>
+    <span class="info-chip chip-medium">● 中等</span>
+    <span class="info-chip chip-hard">● 困難</span>
+  </div>
+
+  <!-- ============ L121 區塊 ============ -->
+  <div class="section-divider">
+    <span class="label">L121　ISO 14064-1:2018 組織型溫室氣體盤查（第 1～25 題）</span>
+    <div class="line"></div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>編號</th><th>單元</th><th>題目描述</th><th>選項</th><th>難易度</th><th>答案</th><th>簡要解析</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <td class="col-num" data-label="編號">1</td>
+        <td class="col-unit" data-label="單元">L12101</td>
+        <td class="col-q" data-label="題目">
+          <div class="q-text">ISO 14064-1:2018 標準主要規範下列何種層級的溫室氣體盤查？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>專案層級減量成效</span>
+          <span class="opt-line"><b>B.</b>組織層級的排放與移除量化、監測、報告</span>
+          <span class="opt-line"><b>C.</b>單一產品生命週期</span>
+          <span class="opt-line"><b>D.</b>國家溫室氣體清冊</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-easy">簡單</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">B</span></td>
+        <td class="col-exp" data-label="解析"><strong>ISO 14064-1</strong>專屬組織層級盤查標準；14064-2為專案層級（減量計畫）；14064-3為查證與確證指引；產品層級則屬ISO 14067範疇。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">2</td>
+        <td class="col-unit" data-label="單元">L12101</td>
+        <td class="col-q" data-label="題目">
+          <span class="scenario-tag">企業情境</span>
+          <div class="q-text">某半導體封裝廠在2026年因應台灣碳費全面徵收，首次依ISO 14064-1建立盤查制度。顧問建議優先遵循哪五項原則進行數據蒐集與報告？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>獲利性、成長性、競爭性、市占率、品牌力</span>
+          <span class="opt-line"><b>B.</b>相關性、完整性、一致性、準確性、透明性</span>
+          <span class="opt-line"><b>C.</b>速度、效率、成本、彈性、品質</span>
+          <span class="opt-line"><b>D.</b>合法性、即時性、保密性、獨特性、永續性</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-easy">簡單</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">B</span></td>
+        <td class="col-exp" data-label="解析">ISO 14064-1五大GHG盤查原則：<strong>相關性、完整性、一致性、準確性、透明性</strong>，是貫穿盤查全流程的基礎要求。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">3</td>
+        <td class="col-unit" data-label="單元">L12102</td>
+        <td class="col-q" data-label="題目">
+          <span class="scenario-tag">2026背景</span>
+          <div class="q-text">在2026年的背景下，某連鎖餐飲集團持有A分店100%股權並具完全營運管理權，另透過加盟方式授權B分店（集團僅收取權利金，無營運控制）。若採「營運控制權法」界定組織邊界，下列敘述何者正確？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>A、B分店排放皆100%納入</span>
+          <span class="opt-line"><b>B.</b>A分店100%納入；B加盟店因無營運控制權，不納入集團盤查邊界</span>
+          <span class="opt-line"><b>C.</b>A、B分店排放皆不納入</span>
+          <span class="opt-line"><b>D.</b>僅B加盟店納入，A分店不納入</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-medium">中等</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">B</span></td>
+        <td class="col-exp" data-label="解析"><strong>營運控制權法（Operational Control）</strong>：對設施具實際營運決策權者100%納入；加盟店若集團無日常營運主導權，依此方法不納入，但仍可能於Scope 3類別14「特許加盟」中揭露。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">4</td>
+        <td class="col-unit" data-label="單元">L12102</td>
+        <td class="col-q" data-label="題目">
+          <div class="q-text">組織邊界設定的三種方法中，依「股權比例法（Equity Share Approach）」，企業納入被投資公司排放的比例是依據？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>該公司的員工人數比例</span>
+          <span class="opt-line"><b>B.</b>該公司的營業額比例</span>
+          <span class="opt-line"><b>C.</b>母公司持有的股權／經濟利益比例</span>
+          <span class="opt-line"><b>D.</b>該公司的廠房面積比例</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-easy">簡單</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">C</span></td>
+        <td class="col-exp" data-label="解析">股權比例法依母公司對被投資公司的<strong>股權或經濟利益占比</strong>，按比例納入該公司排放量；與控制權法（全有或全無）邏輯不同。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">5</td>
+        <td class="col-unit" data-label="單元">L12102</td>
+        <td class="col-q" data-label="題目">
+          <span class="scenario-tag">企業情境</span>
+          <div class="q-text">某跨國連鎖餐飲店於2026年因應歐盟CBAM擴大執行，需重新檢視旗下中央廚房的報告邊界。下列何者屬於「報告邊界」六大溫室氣體範疇（依京都議定書／多哈修正案）必須納管的氣體？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>CO₂、CH₄、N₂O、HFCs、PFCs、SF₆（及NF₃）</span>
+          <span class="opt-line"><b>B.</b>CO、SO₂、NOx、PM2.5、O₃、Pb</span>
+          <span class="opt-line"><b>C.</b>VOCs、苯、甲苯、二甲苯、苯乙烯、丙烯腈</span>
+          <span class="opt-line"><b>D.</b>CFCs、海龍、四氯化碳、甲基溴、HCFCs</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-medium">中等</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">A</span></td>
+        <td class="col-exp" data-label="解析">六大溫室氣體：CO₂、CH₄、N₂O、HFCs、PFCs、SF₆，2013年多哈修正案再增列NF₃。選項B為空氣污染物，D為蒙特婢議定書管制的臭氧層破壞物質，皆非GHG盤查範疇。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">6</td>
+        <td class="col-unit" data-label="單元">L12102</td>
+        <td class="col-q" data-label="題目">
+          <span class="scenario-tag">企業情境</span>
+          <div class="q-text">某半導體封裝廠盤查發現「緊急發電機用油」排放量占總排放不到0.3%，但取得精確活動數據成本極高。依「顯著性準則（Materiality Threshold）」，最合理的處理方式為何？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>完全不揭露、視為不存在</span>
+          <span class="opt-line"><b>B.</b>可採合理保守估算方式納入，並於報告書中說明該排放源占比與估算限制</span>
+          <span class="opt-line"><b>C.</b>必須暫停整份盤查報告，直到取得完美數據</span>
+          <span class="opt-line"><b>D.</b>直接歸零，不需任何說明</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-medium">中等</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">B</span></td>
+        <td class="col-exp" data-label="解析">顯著性準則允許對占比極小的排放源採合理簡化估算，但仍須納入並揭露估算依據，符合<strong>完整性原則</strong>，不可逕自略過不報。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">7</td>
+        <td class="col-unit" data-label="單元">L12101</td>
+        <td class="col-q" data-label="題目">
+          <div class="q-text">下列關於Scope 1（直接排放）的敘述，何者正確？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>指組織擁有或控制之排放源直接產生的GHG排放（如自有鍋爐燃燒、公司車輛）</span>
+          <span class="opt-line"><b>B.</b>指購買電力產生的排放</span>
+          <span class="opt-line"><b>C.</b>指員工通勤產生的排放</span>
+          <span class="opt-line"><b>D.</b>指供應商運輸貨物的排放</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-medium">中等</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">A</span></td>
+        <td class="col-exp" data-label="解析">Scope 1直接排放包含固定燃燒、移動燃燒、製程排放、逸散排放。B為Scope 2，C、D屬Scope 3其他間接排放。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">8</td>
+        <td class="col-unit" data-label="單元">L12103</td>
+        <td class="col-q" data-label="題目">
+          <span class="scenario-tag">計算題</span>
+          <div class="q-text">某半導體封裝廠2026年用電量為500,000度（kWh），台灣電力排放係數公告為0.474 kgCO₂e/kWh。請問該廠Scope 2排放量為多少公噸CO₂e？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>23.7 公噸CO₂e</span>
+          <span class="opt-line"><b>B.</b>237 公噸CO₂e</span>
+          <span class="opt-line"><b>C.</b>2,370 公噸CO₂e</span>
+          <span class="opt-line"><b>D.</b>237,000 公噸CO₂e</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-medium">中等</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">B</span></td>
+        <td class="col-exp" data-label="解析">計算：500,000 kWh × 0.474 kgCO₂e/kWh ＝ 237,000 kgCO₂e ＝ <strong>237公噸CO₂e</strong>（1公噸＝1,000kg）。單位換算是計算題最常見的錯誤陷阱。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">9</td>
+        <td class="col-unit" data-label="單元">L12103</td>
+        <td class="col-q" data-label="題目">
+          <div class="q-text">「全球暖化潛勢（GWP）」的核心功能是？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>計算企業應繳納的碳費金額</span>
+          <span class="opt-line"><b>B.</b>衡量空氣污染物濃度等級</span>
+          <span class="opt-line"><b>C.</b>將不同溫室氣體的暖化效應以CO₂為基準統一換算為CO₂當量（CO₂e），便於加總與比較</span>
+          <span class="opt-line"><b>D.</b>計算碳信用的市場交易價格</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-medium">中等</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">C</span></td>
+        <td class="col-exp" data-label="解析">GWP以CO₂（GWP=1）為基準衡量其他氣體於特定時間範圍（通常100年）的相對暖化效應，例如CH₄ GWP100約28~36（依IPCC AR6），用以加總各氣體排放為CO₂e。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">10</td>
+        <td class="col-unit" data-label="單元">L12103</td>
+        <td class="col-q" data-label="題目">
+          <span class="scenario-tag">企業情境</span>
+          <div class="q-text">在2026年的背景下，某企業排放係數選用時，可取得來源包含：①供應商實測數據；②台灣環境部公告之國家係數；③IPCC國際預設值資料庫。依數據品質優先序，正確排序為何？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>③→②→①</span>
+          <span class="opt-line"><b>B.</b>②→①→③</span>
+          <span class="opt-line"><b>C.</b>①→②→③（場域實測或供應商初級數據優先，其次國家公告係數，最後國際通用值）</span>
+          <span class="opt-line"><b>D.</b>三者品質完全相同，可任意選用</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-medium">中等</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">C</span></td>
+        <td class="col-exp" data-label="解析">排放係數優先序：①初級數據（場域實測/供應商提供）→②國家或區域官方公告係數→③國際通用資料庫（IPCC預設值），代表性與準確性依序遞減。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">11</td>
+        <td class="col-unit" data-label="單元">L12103</td>
+        <td class="col-q" data-label="題目">
+          <span class="scenario-tag">生活情境</span>
+          <div class="q-text">小陳每天騎乘共享電動機車上下班，月底他想估算自己這項通勤行為的碳排放，最適合採用下列哪種計算邏輯？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>依共享機車公司市值估算</span>
+          <span class="opt-line"><b>B.</b>依騎乘里程或耗電量（活動數據）× 對應電力排放係數（排放係數）計算</span>
+          <span class="opt-line"><b>C.</b>依騎乘時間長短直接當作排放量</span>
+          <span class="opt-line"><b>D.</b>依小陳的體重估算</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-easy">簡單</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">B</span></td>
+        <td class="col-exp" data-label="解析">排放量計算基本公式恆為「<strong>活動數據×排放係數</strong>」，電動機車的活動數據可為耗電量（度）或依里程換算之耗電量推估，再乘以電力排放係數。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">12</td>
+        <td class="col-unit" data-label="單元">L12103</td>
+        <td class="col-q" data-label="題目">
+          <div class="q-text">下列關於「不確定性分析（Uncertainty Analysis）」在GHG盤查中角色的敘述，何者正確？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>純屬選項，盤查報告完全不需提及</span>
+          <span class="opt-line"><b>B.</b>不確定性越高代表企業數據造假，必須重罰</span>
+          <span class="opt-line"><b>C.</b>評估數據品質與計算方法導致的誤差範圍，協助識別優先改善的數據項目，並非數據錯誤的指標</span>
+          <span class="opt-line"><b>D.</b>僅適用於Scope 1，與Scope 2、3完全無關</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-medium">中等</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">C</span></td>
+        <td class="col-exp" data-label="解析">不確定性分析評估數據品質（估算法vs實測法）、排放係數來源等造成的誤差範圍，是<strong>盤查品質管理工具</strong>，Scope 3因依賴大量次級數據通常不確定性較高，但非錯誤指標。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">13</td>
+        <td class="col-unit" data-label="單元">L12102</td>
+        <td class="col-q" data-label="題目">
+          <span class="scenario-tag">企業情境</span>
+          <div class="q-text">某企業2025年採「營運控制權法」盤查，2026年因應碳費成本壓力，將原本自有的物流倉儲外包給第三方物流公司全權營運。依ISO 14064-1原則，該倉儲排放應如何處理？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>不需任何調整，繼續沿用舊有邊界與數據</span>
+          <span class="opt-line"><b>B.</b>因失去營運控制權，該倉儲排放應自組織邊界中移除，並依顯著性原則評估是否需重新計算基準年排放</span>
+          <span class="opt-line"><b>C.</b>倉儲排放仍應100%計入該公司Scope 1</span>
+          <span class="opt-line"><b>D.</b>應將該排放轉記為該公司的Scope 2</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-medium">中等</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">B</span></td>
+        <td class="col-exp" data-label="解析">組織結構重大變化（業務外包、收購、撤資）導致邊界改變時，應評估是否符合重大性門檻（常見為造成基準年排放變動>5%），以維持逐年比較的<strong>一致性</strong>。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">14</td>
+        <td class="col-unit" data-label="單元">L12104</td>
+        <td class="col-q" data-label="題目">
+          <div class="q-text">溫室氣體排放清冊報告書，依ISO 14064-1要求，不需要包含下列哪項內容？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>組織邊界與報告邊界說明</span>
+          <span class="opt-line"><b>B.</b>基準年排放量與選擇理由</span>
+          <span class="opt-line"><b>C.</b>排放係數來源與計算方法</span>
+          <span class="opt-line"><b>D.</b>公司未來5年股價預測</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-medium">中等</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">D</span></td>
+        <td class="col-exp" data-label="解析">報告書應含組織描述、邊界、基準年資訊、各範疇排放量、係數來源、不確定性說明、查驗聲明等。<strong>股價預測屬財務資訊</strong>，與GHG盤查報告無關。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">15</td>
+        <td class="col-unit" data-label="單元">L12104</td>
+        <td class="col-q" data-label="題目">
+          <div class="q-text">第三方查驗（Verification）依ISO 14064-3，主要分為哪兩種保證等級？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>高度保證、低度保證</span>
+          <span class="opt-line"><b>B.</b>有限保證（Limited Assurance）、合理保證（Reasonable Assurance）</span>
+          <span class="opt-line"><b>C.</b>初級保證、進階保證</span>
+          <span class="opt-line"><b>D.</b>內部保證、外部保證</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-medium">中等</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">B</span></td>
+        <td class="col-exp" data-label="解析">ISO 14064-3定義「有限保證」與「合理保證」兩種查驗等級，後者查核程序更嚴謹，可信度更高，查驗機構須獨立於受查組織以避免利益衝突。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">16</td>
+        <td class="col-unit" data-label="單元">L12104</td>
+        <td class="col-q" data-label="題目">
+          <span class="scenario-tag">企業情境</span>
+          <div class="q-text">2026年某企業盤查報告書中，Scope 1+2總排放量較去年下降30%，但查驗機構發現此乃因部分產線關閉非減碳措施所致。依透明性原則，企業應如何處理？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>不需特別說明，直接呈現30%減碳成果即可</span>
+          <span class="opt-line"><b>B.</b>隱藏產線關閉資訊，避免影響投資人信心</span>
+          <span class="opt-line"><b>C.</b>應明確揭露排放下降的真實原因（結構性變化而非營運減碳），可搭配排放強度指標輔助說明，避免誤導</span>
+          <span class="opt-line"><b>D.</b>直接修改基準年排放量使數字看起來合理</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-hard">困難</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">C</span></td>
+        <td class="col-exp" data-label="解析">透明性原則要求誠實揭露排放變化真實原因，避免將結構性變化誤導為減碳成效，建議搭配<strong>排放強度</strong>（噸CO₂e/百萬元營收）呈現真實碳效率變化，防止漂綠。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">17</td>
+        <td class="col-unit" data-label="單元">L12103</td>
+        <td class="col-q" data-label="題目">
+          <div class="q-text">逸散排放（Fugitive Emissions）最常見的來源是？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>冷媒（如冷氣、冰箱）洩漏</span>
+          <span class="opt-line"><b>B.</b>鍋爐燃燒天然氣</span>
+          <span class="opt-line"><b>C.</b>員工搭飛機出差</span>
+          <span class="opt-line"><b>D.</b>購買的辦公用紙</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-medium">中等</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">A</span></td>
+        <td class="col-exp" data-label="解析">逸散排放指非刻意燃燒造成的排放，常見來源包含冷媒（HFCs）洩漏、SF₆絕緣設備洩漏等，屬<strong>Scope 1</strong>直接排放，常被企業忽略但GWP值通常很高。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">18</td>
+        <td class="col-unit" data-label="單元">L12102</td>
+        <td class="col-q" data-label="題目">
+          <div class="q-text">「報告邊界（Reporting Boundary）」設定的主要工作內容是？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>決定組織的部門人數</span>
+          <span class="opt-line"><b>B.</b>決定盤查報告的頁數格式</span>
+          <span class="opt-line"><b>C.</b>在已設定的組織邊界內，識別並分類直接排放（Scope 1）、能源間接排放（Scope 2）及其他間接排放（Scope 3）</span>
+          <span class="opt-line"><b>D.</b>決定該年度的碳費繳納金額</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-medium">中等</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">C</span></td>
+        <td class="col-exp" data-label="解析">報告邊界（亦稱營運邊界）在組織邊界確立後，識別所有排放源並分類為Scope 1/2/3，決定哪些範疇要納入報告，是組織邊界界定後的第二步驟。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">19</td>
+        <td class="col-unit" data-label="單元">L12101</td>
+        <td class="col-q" data-label="題目">
+          <span class="scenario-tag">2026背景</span>
+          <div class="q-text">在2026年台灣碳費全面徵收的背景下，某企業年排放量達3萬公噸CO₂e，依規定須完成下列何項法定程序，才可能申請優惠費率？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>提出「自主減量計畫」並經主管機關核定，減量路徑須符合科學基礎或國家淨零路徑</span>
+          <span class="opt-line"><b>B.</b>只需口頭承諾即可自動適用優惠費率</span>
+          <span class="opt-line"><b>C.</b>優惠費率僅適用外商企業</span>
+          <span class="opt-line"><b>D.</b>申請後永久有效，無需定期檢討</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-medium">中等</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">A</span></td>
+        <td class="col-exp" data-label="解析">台灣碳費制度設一般與優惠兩種費率，企業須提交自主減量計畫並經核定，路徑須與SBTi或台灣2050淨零路徑一致，<strong>需定期更新並驗證達標情形</strong>。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">20</td>
+        <td class="col-unit" data-label="單元">L12103</td>
+        <td class="col-q" data-label="題目">
+          <span class="scenario-tag">計算題</span>
+          <div class="q-text">某連鎖餐飲店中央廚房月用柴油120公升於發電機，柴油排放係數為2.68 kgCO₂e/公升。請問該月Scope 1排放量為多少公斤CO₂e？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>32.16 kgCO₂e</span>
+          <span class="opt-line"><b>B.</b>321.6 kgCO₂e</span>
+          <span class="opt-line"><b>C.</b>3,216 kgCO₂e</span>
+          <span class="opt-line"><b>D.</b>32,160 kgCO₂e</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-medium">中等</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">B</span></td>
+        <td class="col-exp" data-label="解析">計算：120公升 × 2.68 kgCO₂e/公升 ＝ <strong>321.6 kgCO₂e</strong>。移動燃燒源排放計算採燃料基礎法，以實際耗油量乘以對應燃料排放係數，是最常見且準確度較高的計算方式。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">21</td>
+        <td class="col-unit" data-label="單元">L12101</td>
+        <td class="col-q" data-label="題目">
+          <div class="q-text">ISO 14064-1:2018版相較2006年版，最主要的更新重點之一為何？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>取消第三方查驗要求</span>
+          <span class="opt-line"><b>B.</b>強化與GHG Protocol的調和，並新增生物碳排放與移除原則之揭露要求</span>
+          <span class="opt-line"><b>C.</b>不再要求設定基準年</span>
+          <span class="opt-line"><b>D.</b>僅適用於製造業</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-easy">簡單</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">B</span></td>
+        <td class="col-exp" data-label="解析">2018版主要更新：與GHG Protocol Corporate Standard更調和、新增<strong>生物碳排放與移除原則</strong>揭露要求、強化重大性原則應用指引。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">22</td>
+        <td class="col-unit" data-label="單元">L12104</td>
+        <td class="col-q" data-label="題目">
+          <span class="scenario-tag">企業情境</span>
+          <div class="q-text">某半導體封裝廠為符合國際客戶要求，2026年首度委託第三方機構進行ISO 14064-1查證。查驗過程中發現公司未保留電費單據原始憑證，僅以估算值申報。此情況最可能導致何種結果？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>查驗機構直接通過，不影響結果</span>
+          <span class="opt-line"><b>B.</b>查驗機構可能要求補件或提出保留意見，因缺乏可追溯佐證文件影響數據可驗證性與準確性原則</span>
+          <span class="opt-line"><b>C.</b>不影響查驗，因為盤查不需要原始憑證</span>
+          <span class="opt-line"><b>D.</b>自動視為盤查無效，需重新申請執照</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-hard">困難</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">B</span></td>
+        <td class="col-exp" data-label="解析">可追溯之佐證文件（如電費單、油單）是查驗的重要依據，缺乏原始憑證會影響<strong>準確性與可驗證性</strong>，查驗機構通常會要求補件或於報告中註記保留意見。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">23</td>
+        <td class="col-unit" data-label="單元">L12101</td>
+        <td class="col-q" data-label="題目">
+          <span class="scenario-tag">生活情境</span>
+          <div class="q-text">林小姐任職於一家公司的環安部門，主管請她解釋「組織型盤查」與「個人碳足跡計算」的差異，下列何者正確？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>兩者完全相同，計算方式無差異</span>
+          <span class="opt-line"><b>B.</b>組織型盤查依ISO 14064-1，計算特定組織一段期間（通常一年）內所有營運活動的GHG排放總量；個人碳足跡多為簡化估算，無國際強制標準</span>
+          <span class="opt-line"><b>C.</b>個人碳足跡計算比組織型盤查更嚴謹</span>
+          <span class="opt-line"><b>D.</b>組織型盤查只計算員工人數</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-easy">簡單</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">B</span></td>
+        <td class="col-exp" data-label="解析">組織型盤查有嚴謹的國際標準（ISO 14064-1）規範邊界、原則、查驗程序；個人碳足跡計算則多為簡化工具（如政府碳足跡計算機），不具強制查驗要求。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">24</td>
+        <td class="col-unit" data-label="單元">L12102</td>
+        <td class="col-q" data-label="題目">
+          <div class="q-text">下列何者屬於組織邊界設定的三種方法之一？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>市值加權法</span>
+          <span class="opt-line"><b>B.</b>股權比例法、財務控制權法、營運控制權法</span>
+          <span class="opt-line"><b>C.</b>員工人數加權法</span>
+          <span class="opt-line"><b>D.</b>產品銷量加權法</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-medium">中等</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">B</span></td>
+        <td class="col-exp" data-label="解析">ISO 14064-1組織邊界三種方法：<strong>股權比例法、財務控制權法、營運控制權法</strong>，企業需擇一方法一致性使用，不可任意混用。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">25</td>
+        <td class="col-unit" data-label="單元">L12104</td>
+        <td class="col-q" data-label="題目">
+          <div class="q-text">「基準年（Base Year）」設定的主要目的為何？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>作為衡量未來減碳成效的比較基準，確保減排宣稱可信</span>
+          <span class="opt-line"><b>B.</b>只是符合政府報告格式要求</span>
+          <span class="opt-line"><b>C.</b>基準年設定越早，碳費越低</span>
+          <span class="opt-line"><b>D.</b>基準年可任意更改，不影響減碳宣稱</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-medium">中等</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">A</span></td>
+        <td class="col-exp" data-label="解析">基準年是GHG盤查的起點比較年份，用以追蹤減碳進度；若組織發生重大結構變化，需重新計算基準年排放，確保<strong>比較一致性</strong>。</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <!-- ============ L122 區塊 ============ -->
+  <div class="section-divider">
+    <span class="label">L122　ISO 14067:2018 產品碳足跡標準（第 26～50 題）</span>
+    <div class="line"></div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>編號</th><th>單元</th><th>題目描述</th><th>選項</th><th>難易度</th><th>答案</th><th>簡要解析</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <td class="col-num" data-label="編號">26</td>
+        <td class="col-unit" data-label="單元">L12201</td>
+        <td class="col-q" data-label="題目">
+          <div class="q-text">ISO 14067:2018標準主要規範的是？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>產品碳足跡（CFP）的量化原則與溝通要求</span>
+          <span class="opt-line"><b>B.</b>組織層級的碳排放盤查</span>
+          <span class="opt-line"><b>C.</b>碳交易市場的法規架構</span>
+          <span class="opt-line"><b>D.</b>企業財務報告準則</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-easy">簡單</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">A</span></td>
+        <td class="col-exp" data-label="解析">ISO 14067規範產品碳足跡量化原則與要求，基於生命週期評估（LCA，ISO 14040/14044）方法學，計算單一產品全生命週期GHG排放。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">27</td>
+        <td class="col-unit" data-label="單元">L12201</td>
+        <td class="col-q" data-label="題目">
+          <span class="scenario-tag">生活情境</span>
+          <div class="q-text">小美在便利商店買了一杯標示「碳足跡：120 gCO₂e」的咖啡。這個數字最可能代表的計算邊界為何？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>僅計算咖啡豆的重量</span>
+          <span class="opt-line"><b>B.</b>從咖啡豆種植、烘焙、沖煮、包裝杯具到配送至門市的生命週期溫室氣體排放（Cradle to Gate/Grave）</span>
+          <span class="opt-line"><b>C.</b>只計算門市的店租成本</span>
+          <span class="opt-line"><b>D.</b>是咖啡因含量的單位</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-easy">簡單</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">B</span></td>
+        <td class="col-exp" data-label="解析">碳標籤上的數字依ISO 14067/PCR規則計算，代表產品全生命週期的CO₂e排放量，常見排放熱點包含種植施肥、烘焙耗能、杯具製造等。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">28</td>
+        <td class="col-unit" data-label="單元">L12204</td>
+        <td class="col-q" data-label="題目">
+          <div class="q-text">產品碳足跡計算中，「搖籃到大門（Cradle to Gate）」邊界是指？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>從原料取得到消費者使用後丟棄的全部過程</span>
+          <span class="opt-line"><b>B.</b>從原料取得到產品離開工廠大門（出貨前）為止，不含後續運輸、使用、廢棄</span>
+          <span class="opt-line"><b>C.</b>只計算工廠內部用電</span>
+          <span class="opt-line"><b>D.</b>從零售商店到消費者家中的運輸過程</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-medium">中等</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">B</span></td>
+        <td class="col-exp" data-label="解析">常見LCA邊界：①搖籃到大門（Cradle to Gate）：原料～出廠前；②<strong>搖籃到墳墓（Cradle to Grave）</strong>：原料～最終廢棄，完整生命週期。B2B原料常用前者，終端消費品常用後者。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">29</td>
+        <td class="col-unit" data-label="單元">L12204</td>
+        <td class="col-q" data-label="題目">
+          <span class="scenario-tag">企業情境</span>
+          <div class="q-text">某連鎖餐飲店為旗下「招牌漢堡」進行碳足跡計算，目標供應給注重永續的企業客戶採購使用。下列何種邊界最符合終端消費品的完整評估要求？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>搖籃到大門（Cradle to Gate）</span>
+          <span class="opt-line"><b>B.</b>搖籃到墳墓（Cradle to Grave）：涵蓋原料生產、加工、配送、烹調使用至廚餘廢棄處理</span>
+          <span class="opt-line"><b>C.</b>只計算員工薪資成本</span>
+          <span class="opt-line"><b>D.</b>只計算店內裝潢成本</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-medium">中等</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">B</span></td>
+        <td class="col-exp" data-label="解析">終端消費品（如餐飲產品）的完整碳足跡評估應採<strong>搖籃到墳墓</strong>邊界，涵蓋使用與廢棄階段，才能呈現產品全貌的環境影響。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">30</td>
+        <td class="col-unit" data-label="單元">L12201</td>
+        <td class="col-q" data-label="題目">
+          <div class="q-text">「功能單位（Functional Unit）」在產品碳足跡計算中的作用是？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>定義量化分析的基準單位（如每公斤產品、每件產品），確保不同產品間可比較</span>
+          <span class="opt-line"><b>B.</b>計算公司獲利的單位</span>
+          <span class="opt-line"><b>C.</b>員工的工作時數單位</span>
+          <span class="opt-line"><b>D.</b>廠房面積的計算單位</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-easy">簡單</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">A</span></td>
+        <td class="col-exp" data-label="解析">功能單位是LCA與CFP計算的基礎，明確定義被研究產品提供的功能與計量基準，確保結果具<strong>一致性與可比較性</strong>。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">31</td>
+        <td class="col-unit" data-label="單元">L12202</td>
+        <td class="col-q" data-label="題目">
+          <div class="q-text">生命週期評估（LCA）依ISO 14040/14044標準，共分為幾個階段？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>2個階段</span>
+          <span class="opt-line"><b>B.</b>3個階段</span>
+          <span class="opt-line"><b>C.</b>4個階段：目標與範疇界定、生命週期清冊分析（LCI）、生命週期衝擊評估（LCIA）、結果闡釋</span>
+          <span class="opt-line"><b>D.</b>6個階段</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-easy">簡單</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">C</span></td>
+        <td class="col-exp" data-label="解析">LCA四大階段：①目標與範疇界定→②生命週期清冊分析（LCI）→③生命週期衝擊評估（LCIA）→④<strong>結果闡釋</strong>，是國際公認的標準流程。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">32</td>
+        <td class="col-unit" data-label="單元">L12204</td>
+        <td class="col-q" data-label="題目">
+          <span class="scenario-tag">企業情境</span>
+          <div class="q-text">某半導體封裝廠繪製主力產品的製程地圖時，遇到「截斷原則（Cut-off Criteria）」的應用問題：某項微量焊料的環境數據極難取得，但占整體質量不到0.5%。下列處理方式何者符合ISO 14067精神？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>可合理排除該項目，但須於報告中明確說明排除依據、預估佔比，且所有被排除項目加總不應超過特定門檻（如總體影響5%）</span>
+          <span class="opt-line"><b>B.</b>截斷準則允許任意排除所有不利的排放數據，無需說明</span>
+          <span class="opt-line"><b>C.</b>截斷準則只適用組織型盤查，不適用CFP</span>
+          <span class="opt-line"><b>D.</b>一旦設定截斷準則，必須排除運輸階段</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-hard">困難</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">A</span></td>
+        <td class="col-exp" data-label="解析">截斷準則允許排除占比極小（通常<1%）的項目，但<strong>必須說明排除依據與預估佔比</strong>，且所有被截斷項目總和有上限門檻，避免刻意排除高碳排項目造成低估。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">33</td>
+        <td class="col-unit" data-label="單元">L12202</td>
+        <td class="col-q" data-label="題目">
+          <span class="scenario-tag">企業情境</span>
+          <div class="q-text">在2026年的背景下，某連鎖餐飲店的中央廚房製程同時產出「主商品（雞胸肉）」與「副產品（雞骨高湯原料）」，依LCA「分配準則（Allocation）」，標準建議的處理優先順序為何？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>全部排放歸給主商品，副產品不分攤</span>
+          <span class="opt-line"><b>B.</b>優先嘗試系統擴展避免分配；若無法避免，依物理關係（如質量、能量）分配；最後才依經濟價值分配</span>
+          <span class="opt-line"><b>C.</b>隨意分配，無國際準則</span>
+          <span class="opt-line"><b>D.</b>一律按產品銷售數量分配，不考慮其他因素</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-hard">困難</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">B</span></td>
+        <td class="col-exp" data-label="解析">ISO 14044分配優先序：①系統擴展（避免分配）→②物理關係分配（質量、能量）→③<strong>經濟價值分配</strong>（最後手段）。共同生產的分配方法是LCA中最具爭議卻關鍵的議題。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">34</td>
+        <td class="col-unit" data-label="單元">L12202</td>
+        <td class="col-q" data-label="題目">
+          <div class="q-text">生命週期衝擊評估（LCIA）中，除「氣候變遷（GWP）」外，常見的衝擊類別還包含哪些？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>只有氣候變遷一項，LCA不評估其他類別</span>
+          <span class="opt-line"><b>B.</b>酸化、優養化、臭氧層破壞、資源耗竭、水足跡等</span>
+          <span class="opt-line"><b>C.</b>只評估企業財務指標</span>
+          <span class="opt-line"><b>D.</b>只評估員工滿意度</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-medium">中等</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">B</span></td>
+        <td class="col-exp" data-label="解析">LCA是多重環境衝擊評估工具，常見衝擊類別還包括酸化、優養化、臭氧層破壞、資源耗竭、水足跡等；ISO 14067僅聚焦氣候變遷單一類別。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">35</td>
+        <td class="col-unit" data-label="單元">L12203</td>
+        <td class="col-q" data-label="題目">
+          <div class="q-text">「產品類別規則（Product Category Rules, PCR）」的主要功能為何？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>規範產品的價格範圍</span>
+          <span class="opt-line"><b>B.</b>針對特定產品類別，制定統一的碳足跡計算規則（系統邊界、功能單位、分配方法），確保同類產品間可比較</span>
+          <span class="opt-line"><b>C.</b>決定產品的銷售通路</span>
+          <span class="opt-line"><b>D.</b>制定產品的保固期限</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-easy">簡單</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">B</span></td>
+        <td class="col-exp" data-label="解析">PCR為特定產品類別制定一致碳足跡計算方法學，確保同類產品計算結果具<strong>可比較性</strong>，是碳標籤制度的重要基礎文件。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">36</td>
+        <td class="col-unit" data-label="單元">L12203</td>
+        <td class="col-q" data-label="題目">
+          <span class="scenario-tag">企業情境</span>
+          <div class="q-text">某連鎖餐飲店想為「招牌漢堡」申請碳標籤，依「PCR優先級」原則，下列選用順序何者正確？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>優先選用該國已公告適用之特定產品PCR；若無，可參考國際相似產品PCR或申請訂定新PCR草案，經審查機構審查後採用</span>
+          <span class="opt-line"><b>B.</b>無PCR時可隨意自訂規則，不需依循任何標準</span>
+          <span class="opt-line"><b>C.</b>直接套用完全不同類別產品的PCR，不需調整</span>
+          <span class="opt-line"><b>D.</b>PCR選用順序不重要，結果都一樣</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-medium">中等</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">A</span></td>
+        <td class="col-exp" data-label="解析">PCR優先級：①優先採用該國/該類別已公告之PCR→②若無，可參考國際相似產品PCR→③或申請訂定新PCR草案，經利害關係人諮詢與審查程序後採用。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">37</td>
+        <td class="col-unit" data-label="單元">L12203</td>
+        <td class="col-q" data-label="題目">
+          <div class="q-text">PCR文件通常由哪個層級制定與管理？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>由國家環保主管機關、產業公協會或國際標準組織依利害關係人諮詢程序制定</span>
+          <span class="opt-line"><b>B.</b>由單一企業自行任意決定，無需任何審查</span>
+          <span class="opt-line"><b>C.</b>由消費者投票決定</span>
+          <span class="opt-line"><b>D.</b>由聯合國安全理事會制定</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-medium">中等</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">A</span></td>
+        <td class="col-exp" data-label="解析">PCR制定由國家主管機關（如台灣環境部）、產業公協會、或國際環境宣告計畫組織依公開諮詢程序制定，需經利害關係人審查，確保<strong>代表性與公正性</strong>。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">38</td>
+        <td class="col-unit" data-label="單元">L12204</td>
+        <td class="col-q" data-label="題目">
+          <div class="q-text">「製程地圖（Process Map）」在產品碳足跡計算中的主要用途是？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>顯示工廠的地理位置</span>
+          <span class="opt-line"><b>B.</b>規劃員工的上下班路線</span>
+          <span class="opt-line"><b>C.</b>視覺化呈現產品從原料到成品的所有製程步驟與物料流、能源流，作為界定系統邊界與識別數據蒐集點的基礎</span>
+          <span class="opt-line"><b>D.</b>計算員工的薪資結構</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-easy">簡單</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">C</span></td>
+        <td class="col-exp" data-label="解析">製程地圖是LCA與CFP計算的第一步驟工具，將生命週期中所有單元製程依序繪製，標示物料投入、能源使用、產出，幫助確認<strong>系統邊界</strong>與識別數據蒐集點。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">39</td>
+        <td class="col-unit" data-label="單元">L12204</td>
+        <td class="col-q" data-label="題目">
+          <span class="scenario-tag">企業情境</span>
+          <div class="q-text">在繪製半導體封裝產品的製程地圖時，遇到「次級供應商數據無法取得」的情況，下列哪個處理方式最符合ISO 14067精神？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>直接將該製程排放設為零</span>
+          <span class="opt-line"><b>B.</b>拒絕計算整個產品碳足跡</span>
+          <span class="opt-line"><b>C.</b>隨意捏造一個數字填入</span>
+          <span class="opt-line"><b>D.</b>採用適當的次級數據（如產業平均值、相似製程之公開資料庫數值）替代，並於報告中清楚標註數據來源與限制</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-hard">困難</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">D</span></td>
+        <td class="col-exp" data-label="解析">當初級數據無法取得時，允許使用次級數據（如ecoinvent、GaBi等資料庫）替代，但須<strong>清楚標註數據來源與限制</strong>，並逐步以更精確之初級數據取代。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">40</td>
+        <td class="col-unit" data-label="單元">L12205</td>
+        <td class="col-q" data-label="題目">
+          <div class="q-text">「初級數據（Primary Data）」與「次級數據（Secondary Data）」最主要的差異為何？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>初級數據是特定製程現場實測或供應商提供的具體數據；次級數據是來自資料庫、文獻或產業平均值的通用數據</span>
+          <span class="opt-line"><b>B.</b>初級數據是免費的，次級數據需要付費</span>
+          <span class="opt-line"><b>C.</b>初級數據只用於財務報告，與碳足跡無關</span>
+          <span class="opt-line"><b>D.</b>兩者完全相同，無任何差異</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-easy">簡單</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">A</span></td>
+        <td class="col-exp" data-label="解析">初級數據代表性與準確性較高；次級數據來自公開資料庫、文獻、產業平均值，是初級數據無法取得時的<strong>替代來源</strong>。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">41</td>
+        <td class="col-unit" data-label="單元">L12205</td>
+        <td class="col-q" data-label="題目">
+          <span class="scenario-tag">計算題</span>
+          <div class="q-text">某產品生產過程使用電力800度、天然氣30立方公尺。已知電力排放係數為0.474 kgCO₂e/度，天然氣排放係數為2.0 kgCO₂e/立方公尺。該批產品（功能單位：每1,000件）的碳足跡總量為何？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>439.2 kgCO₂e／每1,000件</span>
+          <span class="opt-line"><b>B.</b>830 kgCO₂e／每1,000件</span>
+          <span class="opt-line"><b>C.</b>4,392 kgCO₂e／每1,000件</span>
+          <span class="opt-line"><b>D.</b>60 kgCO₂e／每1,000件</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-hard">困難</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">A</span></td>
+        <td class="col-exp" data-label="解析">計算：電力部分＝800度×0.474＝379.2 kgCO₂e；天然氣部分＝30立方公尺×2.0＝60 kgCO₂e；合計＝379.2+60＝<strong>439.2 kgCO₂e</strong>／每1,000件，每件平均約0.4392 kgCO₂e。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">42</td>
+        <td class="col-unit" data-label="單元">L12205</td>
+        <td class="col-q" data-label="題目">
+          <div class="q-text">台灣企業計算產品碳足跡時，可優先查詢哪個官方資料庫取得本地化排放係數？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>台灣證券交易所</span>
+          <span class="opt-line"><b>B.</b>台灣產品碳足跡資訊網／環境部溫室氣體排放係數管理表</span>
+          <span class="opt-line"><b>C.</b>台灣中央銀行利率資料庫</span>
+          <span class="opt-line"><b>D.</b>內政部戶政資料庫</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-medium">中等</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">B</span></td>
+        <td class="col-exp" data-label="解析">台灣環境部建置「溫室氣體排放係數管理表」，「台灣產品碳足跡資訊網」提供PCR文件與本土資料庫，企業應優先採用<strong>本地化數據</strong>較國際通用值更具代表性。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">43</td>
+        <td class="col-unit" data-label="單元">L12201</td>
+        <td class="col-q" data-label="題目">
+          <span class="scenario-tag">2026背景</span>
+          <div class="q-text">在2026年歐盟CBAM擴大執行的背景下，下列關於「碳抵換（Offset）」在ISO 14067產品碳足跡計算中的規定，何者正確？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>碳抵換可直接扣減產品碳足跡計算數值，使CFP結果降低</span>
+          <span class="opt-line"><b>B.</b>ISO 14067規定碳抵換不可計入產品碳足跡的計算結果中，碳足跡須呈現實際生命週期排放量；抵換僅能於另行宣告「碳中和」時單獨揭露使用情形</span>
+          <span class="opt-line"><b>C.</b>碳抵換與碳足跡計算完全無關聯規定</span>
+          <span class="opt-line"><b>D.</b>只要購買任意碳信用即可宣告產品零碳足跡</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-hard">困難</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">B</span></td>
+        <td class="col-exp" data-label="解析">這是命題高頻重點：ISO 14067明確規定<strong>碳抵換不可計入CFP計算結果中</strong>，碳足跡必須真實反映生命週期排放，抵換僅能作為額外的「碳中和聲明」單獨處理並揭露，避免混淆「真實排放數據」與「抵換後聲明」。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">44</td>
+        <td class="col-unit" data-label="單元">L12205</td>
+        <td class="col-q" data-label="題目">
+          <div class="q-text">「結果闡釋（Interpretation）」階段在LCA中的目的為何？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>僅是格式化報告排版，無實質分析內容</span>
+          <span class="opt-line"><b>B.</b>只需呈現最終數字，不需任何文字說明</span>
+          <span class="opt-line"><b>C.</b>評估結果完整性、敏感度與一致性，識別主要排放熱點（Hotspots），並提出改善建議與研究限制說明</span>
+          <span class="opt-line"><b>D.</b>計算企業的稅務減免額度</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-medium">中等</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">C</span></td>
+        <td class="col-exp" data-label="解析">結果闡釋需進行完整性檢查、敏感度分析、一致性檢查，識別<strong>排放熱點</strong>（佔比最大的製程或材料）並提出改善建議，同時誠實揭露研究限制。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">45</td>
+        <td class="col-unit" data-label="單元">L12201</td>
+        <td class="col-q" data-label="題目">
+          <span class="scenario-tag">生活情境</span>
+          <div class="q-text">阿凱發現市面上某品牌瓶裝飲料宣稱「碳中和產品」，標籤上同時印有產品碳足跡數值「150 gCO₂e/瓶」。此標示方式為何合理？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>不合理，碳中和產品的碳足跡數值應該直接顯示為0</span>
+          <span class="opt-line"><b>B.</b>合理，因為碳足跡數值代表真實生命週期排放量，碳中和聲明是另外透過抵換達成，兩者依規定須分開呈現以維持透明性</span>
+          <span class="opt-line"><b>C.</b>不合理，企業必須隱藏真實排放數字才能宣稱碳中和</span>
+          <span class="opt-line"><b>D.</b>兩者完全無關，可隨意標示</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-medium">中等</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">B</span></td>
+        <td class="col-exp" data-label="解析">呼應第43題核心觀念：產品碳足跡須呈現<strong>真實排放數值</strong>，不可因抵換而歸零；碳中和宣告則是額外透過購買抵換信用達成，兩者依透明性原則應分開清楚標示，避免誤導消費者。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">46</td>
+        <td class="col-unit" data-label="單元">L12201</td>
+        <td class="col-q" data-label="題目">
+          <div class="q-text">下列關於「生物碳（Biogenic Carbon）」在ISO 14067產品碳足跡計算中的處理原則，何者正確？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>生物碳CO₂排放（如生質燃料燃燒）一律不需計算</span>
+          <span class="opt-line"><b>B.</b>生物碳與化石碳CO₂排放係數完全相同，無需區分</span>
+          <span class="opt-line"><b>C.</b>應與化石碳CO₂排放分開報告，因生物碳通常被視為短期碳循環的一部分，但仍須揭露以維持透明性，生物碳中的CH₄、N₂O仍須計入總排放</span>
+          <span class="opt-line"><b>D.</b>生物碳排放只需口頭說明，不需數值化</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-hard">困難</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">C</span></td>
+        <td class="col-exp" data-label="解析">生物碳CO₂排放被視為自然碳循環一部分，須<strong>分開報告</strong>（通常列為備忘項目，不計入總量），但仍需完整揭露；生物碳中的CH₄、N₂O則仍須計入總排放。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">47</td>
+        <td class="col-unit" data-label="單元">L12202</td>
+        <td class="col-q" data-label="題目">
+          <span class="scenario-tag">生活情境</span>
+          <div class="q-text">消費者常直覺認為「進口商品的食物里程（Food Miles）越遠，碳足跡一定越高」。依LCA觀點，下列何者正確？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>完全正確，運輸距離是唯一影響碳足跡的因素</span>
+          <span class="opt-line"><b>B.</b>完全錯誤，運輸距離與碳足跡無關</span>
+          <span class="opt-line"><b>C.</b>不一定，需綜合考量生產階段（溫室種植耗能、灌溉）、運輸方式（海運遠比空運低碳）等全生命週期因素，而非僅看食物里程</span>
+          <span class="opt-line"><b>D.</b>只要是進口商品，碳足跡一定是本地商品的10倍以上</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-easy">簡單</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">C</span></td>
+        <td class="col-exp" data-label="解析">多項LCA研究顯示，<strong>食物里程並非唯一決定因素</strong>，例如海運進口商品有時碳足跡反低於本地高耗能溫室栽培產品，完整LCA須涵蓋生產方式、運輸模式等多重因素。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">48</td>
+        <td class="col-unit" data-label="單元">L12205</td>
+        <td class="col-q" data-label="題目">
+          <span class="scenario-tag">企業情境</span>
+          <div class="q-text">某連鎖餐飲店為符合2026年供應鏈減碳壓力，向上游供應商索取碳足跡數據，但部分小型農戶供應商無法提供具體排放數據。依規範最適當的處理方式是？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>暫以產業平均值或公開資料庫的次級數據替代，並標註數據等級，同時輔導供應商未來提供初級數據</span>
+          <span class="opt-line"><b>B.</b>直接終止與該供應商的所有合作</span>
+          <span class="opt-line"><b>C.</b>隨意填寫一個數字應付了事</span>
+          <span class="opt-line"><b>D.</b>將該原料的排放設為零</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-easy">簡單</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">A</span></td>
+        <td class="col-exp" data-label="解析">面對供應鏈數據缺口可暫以次級數據填補，但須標明<strong>數據品質等級（Tier）</strong>，長期應推動供應鏈碳管理輔導，協助供應商建立自有盤查能力。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">49</td>
+        <td class="col-unit" data-label="單元">L12201</td>
+        <td class="col-q" data-label="題目">
+          <div class="q-text">某出口商被要求依「PAS 2050」與「ISO 14067」兩種不同碳足跡標準分別計算同一產品，結果出現約15%差異，最可能的原因為何？</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>一定是計算錯誤，兩個標準理論上必須產出完全相同數字</span>
+          <span class="opt-line"><b>B.</b>PAS 2050已被廢止，結果不具參考價值</span>
+          <span class="opt-line"><b>C.</b>不同標準對系統邊界、分配方法、生物碳處理原則、所採用GWP時間範圍（IPCC版本）的具體規定略有差異，導致計算結果存在合理範圍內的差異</span>
+          <span class="opt-line"><b>D.</b>兩個標準完全相同，不應有任何差異</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-hard">困難</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">C</span></td>
+        <td class="col-exp" data-label="解析">不同碳足跡標準雖共享LCA基礎方法學，但在系統邊界、分配方法、生物碳處理、所採用GWP值版本（IPCC AR5 vs AR6）等具體規定上存在差異，導致計算結果出現<strong>合理範圍內的差異</strong>，這也是國際間推動標準調和的原因。</td>
+      </tr>
+
+      <tr>
+        <td class="col-num" data-label="編號">50</td>
+        <td class="col-unit" data-label="單元">L12204/L12205</td>
+        <td class="col-q" data-label="題目">
+          <span class="scenario-tag">綜合情境・2026背景</span>
+          <div class="q-text">在2026年供應鏈減碳壓力與CBAM擴大執行的背景下，某中小企業首次接到國際客戶要求提供主力產品的碳足跡報告（ISO 14067），過去從未進行任何碳盤查。請依下列選項判斷最合理的執行步驟順序：①蒐集活動數據；②確定功能單位與系統邊界；③繪製製程地圖；④計算碳排放量並進行結果闡釋；⑤確認適用之PCR（若有）</div>
+        </td>
+        <td class="col-opts" data-label="選項">
+          <span class="opt-line"><b>A.</b>①②③④⑤</span>
+          <span class="opt-line"><b>B.</b>⑤②③①④（先確認PCR與目標範疇界定，再繪製製程地圖，接著蒐集數據，最後計算與闡釋結果）</span>
+          <span class="opt-line"><b>C.</b>④①②③⑤</span>
+          <span class="opt-line"><b>D.</b>順序不重要，可任意進行</span>
+        </td>
+        <td class="col-diff" data-label="難易度"><span class="diff-pill diff-hard">困難</span></td>
+        <td class="col-ans" data-label="答案"><span class="ans-badge">B</span></td>
+        <td class="col-exp" data-label="解析">標準作業流程：①先確認是否有適用PCR文件→②依目標與範疇定義功能單位與系統邊界→③繪製製程地圖識別所有單元製程→④蒐集活動數據（優先初級數據）→⑤計算各製程排放並進行<strong>結果闡釋</strong>（含敏感度分析、熱點識別）。此為ISO 14040/14044/14067一致建議的執行邏輯。</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+</div>
+
+<footer>
+  <p>2026年度 iPAS 淨零碳管理師模擬考題 - L12 專項｜命題日期：2026年8月15日</p>
+  <p style="margin-top:0.3rem">本題庫融合企業實務情境（半導體封裝、連鎖餐飲）、生活化場景與2026年時事（CBAM擴大執行、台灣碳費全面徵收），僅供學習測驗使用。</p>
+</footer>
+
+</body>
+</html>
