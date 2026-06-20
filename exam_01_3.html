@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>淨零碳規劃管理師｜模擬試題庫</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --ink:#1C2620;
+  --ink-soft:#4A554C;
+  --paper:#EFEDE4;
+  --paper-deep:#E2DFD2;
+  --card:#F8F7F2;
+  --pine:#1F4D3D;
+  --pine-deep:#13352A;
+  --ember:#B6592A;
+  --ember-soft:#F1DCC9;
+  --gold:#A87A1F;
+  --gold-soft:#F2E4C6;
+  --slate:#8A9189;
+  --slate-line:#D8D4C5;
+  --success:#2E7D6B;
+  --success-soft:#D9EAE3;
+  --error:#9C3B2C;
+  --error-soft:#F1DCD4;
+  --font-display:'Noto Serif TC',serif;
+  --font-body:'Noto Sans TC',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--font-body);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+
+.exam-header{
+  background:var(--pine-deep);
+  color:var(--paper);
+  padding:6rem 28px 30px;
+  position:relative;
+  overflow:hidden;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(239,237,228,0.035) 0px, rgba(239,237,228,0.035) 1px, transparent 1px, transparent 28px);
+}
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size: 18px;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:#B9CFC2;
+  margin:0 0 10px;
+}
+.exam-title{
+  font-family:var(--font-display);
+  font-weight:900;
+  font-size:clamp(26px,4vw,38px);
+  margin:0 0 8px;
+  letter-spacing:0.02em;
+}
+.exam-sub{
+  font-size: 18px;
+  color:#CFE0D6;
+  margin:0 0 18px;
+  max-width:1900px;
+}
+.meta-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px 22px;
+  font-family:var(--font-mono);
+  font-size: 18px;
+  color:#DCE7DF;
+  border-top:1px solid rgba(239,237,228,0.22);
+  padding-top:14px;
+}
+.meta-row span b{color:#fff;font-weight:600;}
+
+.seal{
+  position:absolute;
+  top:26px;
+  right:34px;
+  width:88px;
+  height:88px;
+  border:2px solid var(--ember);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  transform:rotate(-9deg);
+  color:var(--ember);
+  font-family:var(--font-mono);
+  font-size: 18px;
+  letter-spacing:0.05em;
+  line-height:1.5;
+  font-weight:600;
+}
+.seal::before{
+  content:"";
+  position:absolute;
+  inset:6px;
+  border:1px solid var(--ember);
+  border-radius:50%;
+}
+@media (max-width:640px){ .seal{display:none;} }
+
+.wrap{
+  max-width:1900px;
+  margin:0 auto;
+  padding:22px 20px 60px;
+}
+.layout{
+  display:grid;
+  grid-template-columns:260px 1fr;
+  gap:22px;
+  align-items:start;
+}
+@media (max-width:880px){
+  .layout{grid-template-columns:1fr;}
+  .sidebar{order:2;}
+  .main-area{order:1;}
+}
+
+.filters{
+  display:flex;
+  gap:8px;
+  margin-bottom:16px;
+  flex-wrap:wrap;
+}
+.chip{
+  font-family:var(--font-mono);
+  font-size: 18px;
+  letter-spacing:0.03em;
+  padding:7px 13px;
+  border:1px solid var(--slate-line);
+  background:var(--card);
+  color:var(--ink-soft);
+  border-radius:3px;
+  cursor:pointer;
+  transition:all .15s ease;
+}
+.chip:hover{border-color:var(--pine);color:var(--pine);}
+.chip.active{
+  background:var(--pine);
+  border-color:var(--pine);
+  color:var(--paper);
+}
+
+.sidebar{
+  background:var(--card);
+  border:1px solid var(--slate-line);
+  border-radius:4px;
+  padding:16px;
+  position:sticky;
+  top:18px;
+}
+.sidebar h3{
+  font-family:var(--font-mono);
+  font-size: 18px;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  margin:0 0 4px;
+}
+.sidebar .score-line{
+  font-family:var(--font-mono);
+  font-size: 18px;
+  color:var(--ink);
+  margin:0 0 14px;
+  padding-bottom:12px;
+  border-bottom:1px dashed var(--slate-line);
+}
+.sidebar .score-line b{font-size: 18px;color:var(--pine);}
+.grid-cards{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:6px;
+  margin-bottom:14px;
+}
+.cell{
+  position:relative;
+  aspect-ratio:1/1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--font-mono);
+  font-size: 18px;
+  font-weight:500;
+  background:#fff;
+  border:1px solid var(--slate-line);
+  border-top-width:3px;
+  border-top-color:var(--pine);
+  color:var(--ink-soft);
+  border-radius:2px;
+  cursor:pointer;
+  transition:transform .1s ease;
+}
+.cell.unit-L112{border-top-color:var(--ember);}
+.cell.correct{background:var(--success-soft);border-color:var(--success);color:var(--success);}
+.cell.incorrect{background:var(--error-soft);border-color:var(--error);color:var(--error);}
+.cell.current{outline:2px solid var(--pine);outline-offset:1px;}
+.cell:hover{transform:translateY(-1px);}
+.legend{
+  font-family:var(--font-mono);
+  font-size: 18px;
+  color:var(--ink-soft);
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  margin-bottom:14px;
+}
+.legend span{display:flex;align-items:center;gap:6px;}
+.dot{width:9px;height:9px;border-radius:2px;display:inline-block;}
+.dot.l111{background:var(--pine);}
+.dot.l112{background:var(--ember);}
+.dot.ok{background:var(--success);}
+.dot.bad{background:var(--error);}
+
+.btn{
+  width:100%;
+  font-family:var(--font-body);
+  font-size: 18px;
+  font-weight:700;
+  padding:11px;
+  border-radius:3px;
+  border:1px solid var(--pine);
+  background:var(--pine);
+  color:var(--paper);
+  cursor:pointer;
+  transition:opacity .15s ease;
+}
+.btn:hover{opacity:.88;}
+.btn.ghost{
+  background:transparent;
+  color:var(--pine);
+  margin-top:8px;
+}
+.btn:disabled{opacity:.4;cursor:not-allowed;}
+
+.q-card{
+  background:var(--card);
+  border:1px solid var(--slate-line);
+  border-radius:4px;
+  padding:26px 26px 22px;
+}
+.q-top{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:16px;
+}
+.pill{
+  font-family:var(--font-mono);
+  font-size: 18px;
+  padding:4px 10px;
+  border-radius:20px;
+  letter-spacing:0.03em;
+  font-weight:600;
+}
+.pill.unit{background:var(--pine);color:var(--paper);}
+.pill.unit.l112{background:var(--ember);}
+.pill.diff-easy{background:var(--success-soft);color:var(--success);}
+.pill.diff-medium{background:var(--gold-soft);color:var(--gold);}
+.pill.diff-hard{background:var(--error-soft);color:var(--error);}
+.q-count{
+  margin-left:auto;
+  font-family:var(--font-mono);
+  font-size: 18px;
+  color:var(--ink-soft);
+}
+.q-text{
+  font-family:var(--font-display);
+  font-size:19px;
+  font-weight:500;
+  line-height:1.75;
+  margin:0 0 22px;
+  color:var(--ink);
+}
+.options{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-bottom:8px;
+}
+.opt{
+  display:flex;
+  align-items:flex-start;
+  gap:13px;
+  padding:13px 15px;
+  border:1px solid var(--slate-line);
+  border-radius:3px;
+  background:#fff;
+  cursor:pointer;
+  text-align:left;
+  font-family:var(--font-body);
+  font-size:14.5px;
+  color:var(--ink);
+  line-height:1.55;
+  transition:border-color .12s ease, background .12s ease;
+  width:100%;
+}
+.opt:hover:not(.locked){border-color:var(--pine);background:#FBFAF6;}
+.opt-letter{
+  font-family:var(--font-mono);
+  font-weight:700;
+  font-size: 18px;
+  width:22px;
+  height:22px;
+  min-width:22px;
+  border-radius:50%;
+  border:1.5px solid var(--ink-soft);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:1px;
+}
+.opt.selected-correct{background:var(--success-soft);border-color:var(--success);}
+.opt.selected-correct .opt-letter{border-color:var(--success);background:var(--success);color:#fff;}
+.opt.selected-wrong{background:var(--error-soft);border-color:var(--error);}
+.opt.selected-wrong .opt-letter{border-color:var(--error);background:var(--error);color:#fff;}
+.opt.reveal-correct{border-color:var(--success);background:var(--success-soft);}
+.opt.reveal-correct .opt-letter{border-color:var(--success);background:var(--success);color:#fff;}
+.opt.locked{cursor:default;}
+
+.explain{
+  margin-top:16px;
+  padding:15px 16px;
+  background:var(--paper-deep);
+  border-left:3px solid var(--ember);
+  border-radius:2px;
+  font-size: 18px;
+  color:var(--ink-soft);
+  display:none;
+  line-height:1.75;
+}
+.explain.show{display:block;}
+.explain b{
+  font-family:var(--font-mono);
+  font-size: 18px;
+  color:var(--ember);
+  letter-spacing:0.06em;
+  display:block;
+  margin-bottom:6px;
+}
+
+.q-nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:22px;
+  padding-top:18px;
+  border-top:1px dashed var(--slate-line);
+}
+.nav-btn{
+  font-family:var(--font-body);
+  font-size: 18px;
+  font-weight:700;
+  padding:9px 16px;
+  border-radius:3px;
+  border:1px solid var(--ink-soft);
+  background:transparent;
+  color:var(--ink);
+  cursor:pointer;
+}
+.nav-btn:hover:not(:disabled){background:var(--ink);color:var(--paper);}
+.nav-btn:disabled{opacity:.35;cursor:not-allowed;}
+.nav-btn.primary{background:var(--pine);border-color:var(--pine);color:var(--paper);}
+.nav-btn.primary:hover{opacity:.88;background:var(--pine);color:var(--paper);}
+
+.results{display:none;}
+.results.show{display:block;}
+.results-score{
+  text-align:center;
+  padding:18px 0 26px;
+  border-bottom:1px dashed var(--slate-line);
+  margin-bottom:22px;
+}
+.results-score .num{
+  font-family:var(--font-mono);
+  font-size:52px;
+  font-weight:700;
+  color:var(--pine);
+}
+.results-score .label{
+  font-family:var(--font-mono);
+  font-size: 18px;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  margin-top:4px;
+}
+.breakdown{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  margin-bottom:24px;
+}
+@media (max-width:560px){.breakdown{grid-template-columns:1fr;}}
+.bd-block{
+  border:1px solid var(--slate-line);
+  border-radius:3px;
+  padding:14px 16px;
+}
+.bd-block h4{
+  font-family:var(--font-mono);
+  font-size: 18px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  margin:0 0 10px;
+}
+.bd-row{
+  display:flex;
+  justify-content:space-between;
+  font-size: 18px;
+  padding:6px 0;
+  border-bottom:1px solid var(--paper-deep);
+}
+.bd-row:last-child{border-bottom:none;}
+.bd-row span.n{font-family:var(--font-mono);color:var(--ink-soft);}
+.wrong-list{
+  border:1px solid var(--slate-line);
+  border-radius:3px;
+  padding:14px 16px;
+}
+.wrong-list h4{
+  font-family:var(--font-mono);
+  font-size: 18px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--error);
+  margin:0 0 10px;
+}
+.wrong-item{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  padding:8px 0;
+  border-bottom:1px solid var(--paper-deep);
+  cursor:pointer;
+}
+.wrong-item:last-child{border-bottom:none;}
+.wrong-item .qn{
+  font-family:var(--font-mono);
+  font-size: 18px;
+  color:var(--error);
+  min-width:34px;
+}
+.wrong-item .qt{
+  font-size: 18px;
+  color:var(--ink-soft);
+}
+.wrong-item:hover .qt{color:var(--pine);}
+.no-wrong{color:var(--success);font-size: 18px;text-align:center;padding:10px 0;}
+
+.footer-note{
+  text-align:center;
+  font-family:var(--font-mono);
+  font-size: 18px;
+  color:var(--slate);
+  margin-top:36px;
+  letter-spacing:0.03em;
+}
+	.badgerowbt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px;
+    background: #ffffff;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+a.badge1 {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #007286;
+    color: #fff;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+a.badge2 {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #007286;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+a.badge3 {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #b8238d;
+    color: yellow;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+  @media(max-width:768px){
+  .exam-header {  margin-top: 6rem ;padding:8px 18px 30px;}
+    
+  }
+</style>
+</head>
+<body>
+<div class="badgerowbt">	
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_1.html" class="badge1">考科一_1</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_2.html" class="badge1">考科一_2</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_3.html" class="badge2">考科一_3</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/menu.html" class="badge3">目錄</a></div>
+  </div>
+<div class="exam-header">
+  <p class="eyebrow">2026年度 · IPAS 專業能力鑑定 · 命題委員會審定試題庫</p>
+  <h1 class="exam-title">淨零碳規劃管理師｜模擬試題</h1>
+  <p class="exam-sub">L11 淨零碳規劃管理基礎概論：L111 極端氣候下國際因應歷程與趨勢 ｜ L112 淨零碳管理基礎概論</p>
+  <div class="meta-row">
+    <span>鑑定日期 <b>2026/08/15</b></span>
+    <span>題型 <b>互動式選擇題</b></span>
+    <span>總題數 <b>50</b></span>
+    <span>難度配比 <b>易20% · 中50% · 難30%</b></span>
+    <span>涵蓋單元 <b>L11101–L11104 ／ L11201–L11205</b></span>
+  </div>
+  <div class="seal">命題<br>委員會<br>核定 · 2026</div>
+</div>
+
+<div class="wrap">
+
+  <div class="filters">
+    <button class="chip active" data-filter="all">全部 50 題</button>
+    <button class="chip" data-filter="L111">L111 國際趨勢與治理（1–25）</button>
+    <button class="chip" data-filter="L112">L112 淨零管理基礎概論（26–50）</button>
+  </div>
+
+  <div class="layout">
+
+    <div class="sidebar">
+      <h3>答案卡</h3>
+      <p class="score-line">已作答 <b id="answeredCount">0</b> / 50　正確 <b id="correctCount">0</b></p>
+      <div class="grid-cards" id="gridCards"></div>
+      <div class="legend">
+        <span><i class="dot l111"></i>L111 單元</span>
+        <span><i class="dot l112"></i>L112 單元</span>
+        <span><i class="dot ok"></i>答對</span>
+        <span><i class="dot bad"></i>答錯</span>
+      </div>
+      <button class="btn" id="jumpUnanswered">前往下一題未作答</button>
+      <button class="btn ghost" id="toResultsBtn">查看成績總覽 →</button>
+    </div>
+
+    <div class="main-area">
+      <div class="q-card" id="quizCard">
+        <div class="q-top">
+          <span class="pill unit" id="unitPill">L11101</span>
+          <span class="pill" id="diffPill">易</span>
+          <span class="q-count" id="qCount">第 1 題 / 50</span>
+        </div>
+        <p class="q-text" id="qText"></p>
+        <div class="options" id="optionsWrap"></div>
+        <div class="explain" id="explainBox"><b>解析</b><span id="explainText"></span></div>
+        <div class="q-nav">
+          <button class="nav-btn" id="prevBtn">← 上一題</button>
+          <button class="nav-btn primary" id="nextBtn">下一題 →</button>
+        </div>
+      </div>
+
+      <div class="q-card results" id="resultsCard">
+        <div class="results-score">
+          <div class="num" id="finalScore">0 / 50</div>
+          <div class="label">總成績</div>
+        </div>
+        <div class="breakdown">
+          <div class="bd-block">
+            <h4>依單元分析</h4>
+            <div id="byUnit"></div>
+          </div>
+          <div class="bd-block">
+            <h4>依難度分析</h4>
+            <div id="byDiff"></div>
+          </div>
+        </div>
+        <div class="wrong-list">
+          <h4>需複習題目</h4>
+          <div id="wrongList"></div>
+        </div>
+        <div class="q-nav" style="border-top:none;justify-content:flex-end;gap:10px;">
+          <button class="nav-btn" id="backToQuizBtn">← 回到題目</button>
+          <button class="nav-btn primary" id="restartBtn">重新作答</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="footer-note">本試題庫依 SBTi 企業淨零標準 V2.0（2026/06/11發布）、CBAM 2025年10月簡化規則、ISO 14068-1:2023 及台灣現行碳費制度編製，僅供學習演練之用。</p>
+</div>
+<script>
+const QUESTIONS = [
+{unit:"L11101",uname:"COP歷程與決議",diff:"easy",q:"聯合國氣候變化綱要公約(UNFCCC)締約方大會(COP)第一次會議於何時何地召開？",opts:["1995年 德國柏林","1997年 日本京都","2015年 法國巴黎","1992年 巴西里約"],a:0,ex:"COP1於1995年在德國柏林召開，是UNFCCC自1992年里約地球高峰會簽署後首次締約方會議；1997年京都(COP3)通過京都議定書，2015年巴黎(COP21)通過巴黎協定。"},
+{unit:"L11101",uname:"COP歷程與決議",diff:"easy",q:"《巴黎協定》於COP21通過後，設定的全球升溫控制目標為何？",opts:["與工業化前水準相比，控制在2°C以內，並努力限制在1.5°C","完全凍結升溫於現況","僅要求已開發國家減碳，開發中國家不受限","以2030年為最終淨零年份"],a:0,ex:"巴黎協定核心目標是將全球平均氣溫升幅控制在工業化前水準以上低於2°C，並努力限制在1.5°C以內。"},
+{unit:"L11101",uname:"COP歷程與決議",diff:"medium",q:"COP28（杜拜，2023年）的重要決議內容，下列敘述何者正確？",opts:["首次完成「全球盤點」(Global Stocktake)，協議文本首度納入「逐步轉型脫離化石燃料」用語","正式通過具強制力的全球碳稅制度","各國承諾立即全面禁止燃煤發電","終止巴黎協定並另訂新公約"],a:0,ex:"COP28完成巴黎協定後首次全球盤點，最終決議文本首次出現「transitioning away from fossil fuels」用語，被視為重要里程碑，但並未設定強制性碳稅或全面禁煤。"},
+{unit:"L11101",uname:"COP歷程與決議",diff:"medium",q:"COP29（亞塞拜然巴庫，2024年）在氣候資金方面達成何項重要協議？",opts:["新訂集體量化氣候資金目標(NCQG)，已開發國家2035年前每年提供至少3,000億美元","取消已開發國家對開發中國家的資金援助義務","將氣候資金全數轉為無償贈與","訂定全球統一碳價每噸100美元"],a:0,ex:"COP29達成新的集體量化氣候資金目標(NCQG)，要求已開發國家於2035年前每年至少提供3,000億美元，並透過「巴庫至貝倫路徑圖」呼籲擴大至每年1.3兆美元。"},
+{unit:"L11101",uname:"COP歷程與決議",diff:"medium",q:"COP30於2025年11月在巴西貝倫(Belém)舉行，其閉幕通過的整體協議名稱為何？",opts:["《全球動員：團結協作應對氣候變化挑戰》","《貝倫宣言：淨零行動公約》","《亞馬遜氣候憲章》","《巴黎協定2.0》"],a:0,ex:"COP30閉幕全體會議通過名為《全球動員：團結協作應對氣候變化挑戰》(Global Mutirão)的整體決議，呼籲各國加速氣候行動，但會議並未通過具強制力的化石燃料退場路線圖。"},
+{unit:"L11101",uname:"COP歷程與決議",diff:"hard",q:"關於COP30（貝倫，2025年）的會議成果，下列敘述何者正確？",opts:["因主要產油國反對，最終協議未納入化石燃料淘汰路線圖，全球調適目標(GGA)指標數由約100項精簡至60餘項","全體締約方一致同意設定具強制力的化石燃料退場時間表","美國以主辦國身分全程主導談判並提出最終文本","大會首次將CBAM正式納入UNFCCC體系"],a:0,ex:"COP30因石油生產國反對，未能將化石燃料淘汰路線圖納入最終協議；全球調適目標(GGA)指標數量因資金與透明度爭議，由約100項精簡為60餘項。美國缺席本屆會議，CBAM屬歐盟單邊貿易措施，並未納入UNFCCC體系。"},
+{unit:"L11101",uname:"COP歷程與決議",diff:"hard",q:"截至COP30，各國已提交的第三輪國家自定貢獻(NDC3.0)，其與全球升溫路徑的關係為何？",opts:["雖約100個締約方提交NDC3.0且涵蓋全球多數排放量，但整體承諾仍多停留於制度設計層面，全球升溫路徑仍朝約2.5°C方向發展，未與1.5°C目標對齊","NDC3.0提交後，全球升溫路徑已確定可控制在1.5°C以內","NDC3.0為強制性條約，未提交者將被逐出UNFCCC","NDC3.0僅適用於已開發國家"],a:0,ex:"COP30前後雖有大量締約方提交NDC3.0，惟多數承諾仍偏向制度面而非具體量化路徑，依現有承諾推估，全球仍朝約2.5°C升溫方向前進，與1.5°C目標仍有落差。"},
+{unit:"L11102",uname:"國內外極端氣候治理",diff:"easy",q:"台灣《氣候變遷因應法》於何時經立法院三讀通過？其重要意義為何？",opts:["2023年1月10日三讀通過，首次將「2050淨零排放」目標入法","2015年通過，為亞洲首部碳交易專法","2019年通過，僅規範溫室氣體盤查","2026年通過，取代原溫室氣體減量及管理法全文"],a:0,ex:"《氣候變遷因應法》於2023年1月10日經立法院三讀通過（原《溫室氣體減量及管理法》修正更名），首次將「2050淨零排放」目標明文入法，並建立碳費徵收等法源依據。"},
+{unit:"L11102",uname:"國內外極端氣候治理",diff:"medium",q:"依公開資訊，截至2025年底，台灣再生能源發電占比實際達成情形與原定2026年目標相比為何？",opts:["實際約12.7%，與原訂2026年底達20%之目標仍有明顯落差","已提前達成20%目標並超前","實際達35%，遠超原訂目標","台灣未訂定任何再生能源占比目標"],a:0,ex:"台灣能源轉型原訂目標為2026年底再生能源發電占比達20%，但截至2025年底實際僅約12.7%，顯示再生能源建置進度不如預期，受併網時程、土地與電網瓶頸等因素影響。"},
+{unit:"L11102",uname:"國內外極端氣候治理",diff:"medium",q:"關於台灣能源供需現況，下列敘述何者正確？",opts:["台灣能源供應高度依賴進口，約96%能源仰賴進口，戰備儲能在一般情境下僅能支撐約兩週","台灣能源自主率超過70%，無能源安全疑慮","台灣已無任何化石燃料進口需求","台灣戰備儲能可支撐一年以上用電需求"],a:0,ex:"台灣能源供應約96%仰賴進口，屬高度能源依賴經濟體；在一般消耗情境下，戰備儲能僅能支撐約兩週，使台灣對國際能源價格波動與供應風險格外敏感。"},
+{unit:"L11102",uname:"國內外極端氣候治理",diff:"medium",q:"台灣電力公司於2022年公布「強化電網韌性建設計畫」，其規劃重點為何？",opts:["10年投入新台幣5,645億元，以「分散、強固、防衛」三大主軸降低集中式電網單點故障風險","僅針對離島地區進行電網更新，本島不在計畫範圍","計畫期程為30年，預算超過5兆元","主要目的是淘汰所有再生能源併網設施"],a:0,ex:"台電「強化電網韌性建設計畫」規劃10年投入約5,645億元，以「分散、強固、防衛」三大主軸推動電網改善，目標降低集中式電網因單點故障導致大規模停電的風險，同時因應淨零轉型下日益增加的併網需求。"},
+{unit:"L11102",uname:"國內外極端氣候治理",diff:"hard",q:"面對夏季極端高溫帶動用電尖峰，並伴隨資料中心(Data Center)用電需求快速成長，台灣電網調度面臨的主要結構性挑戰為何？",opts:["再生能源建置進度落後、北部電網壓力大、可調度與可交付綠電不足，需透過儲能、地熱等具基載特性電源與需量反應因應","完全不受極端氣候影響，現行電網餘裕充足","資料中心用電需求極小，對電網無實質影響","唯一解方是全面禁止資料中心於台灣設置"],a:0,ex:"隨AI與雲端運算帶動資料中心用電快速成長，加上夏季極端高溫推升空調尖峰負載，台灣面臨北部電網壓力大、綠電供給與「可調度、可交付」品質不足等挑戰，政策因此引導資料中心朝中南部設點，並加速儲能、地熱等具基載特性電源與需量反應機制建置。"},
+{unit:"L11102",uname:"國內外極端氣候治理",diff:"medium",q:"台灣推動的「碳足跡標籤」（俗稱生活減碳標章）制度，其主要功能為何？",opts:["標示產品於生命週期中所產生的溫室氣體排放量，協助消費者於選購時辨識低碳產品，並引導廠商揭露與減量","僅適用於出口至歐盟之產品，國內銷售產品不須申請","屬強制性標準，所有市售商品皆須強制標示","與企業溫室氣體盤查制度完全無關"],a:0,ex:"碳足跡標籤透過量化產品生命週期溫室氣體排放，協助消費者辨識相對低碳之產品，並鼓勵廠商透過揭露與改善製程逐步降低碳足跡，是台灣推動全民減碳意識與綠色消費的政策工具之一，目前屬鼓勵性質而非全面強制。"},
+{unit:"L11102",uname:"國內外極端氣候治理",diff:"medium",q:"比較國際間極端氣候治理作法，下列敘述何者正確？",opts:["各國因應途徑多元，包括歐盟綠色政綱推動法制化減碳目標、美國通膨削減法案(IRA)以租稅優惠驅動潔淨能源投資等不同政策工具組合","全球僅有歐盟單一國家推動氣候治理立法","所有國家皆採用完全相同的碳定價制度","極端氣候治理僅涉及防災工程，與減碳政策無關"],a:0,ex:"各國因應氣候變遷的治理路徑不盡相同，例如歐盟以「歐洲綠色政綱」推動具法律約束力的減碳目標與CBAM等貿易工具，美國則透過《降低通膨法案》(IRA)以租稅抵減等財政誘因驅動潔淨能源投資，顯示政策工具組合具高度多樣性。"},
+{unit:"L11103",uname:"淨零專有名詞",diff:"easy",q:"「碳中和」(Carbon Neutrality)與「淨零排放」(Net Zero)兩者最主要的差異為何？",opts:["碳中和通常聚焦於二氧化碳的排放與移除平衡，適用範圍可為組織或產品；淨零排放則涵蓋所有溫室氣體，國家層級淨零通常要求更全面的範疇","兩者完全相同，可互換使用","碳中和僅適用於國家層級，淨零排放僅適用於企業層級","碳中和不允許使用任何碳權，淨零排放則完全依賴碳權"],a:0,ex:"碳中和概念較早出現，原則上聚焦CO2排放與移除（或抵換）之平衡，常見於產品、活動或組織層級；淨零排放則涵蓋多種溫室氣體（CO2、CH4、N2O等），且通常用於描述國家或大型組織更全面、更嚴格的長期目標。"},
+{unit:"L11103",uname:"淨零專有名詞",diff:"easy",q:"「殘餘排放」(Residual Emissions)係指何種排放？",opts:["經過所有可行技術與管理措施減量後，仍無法完全消除、必須透過移除或抵換處理的排放量","企業尚未進行任何盤查的排放量","僅指範疇三供應鏈排放","專指農業甲烷排放"],a:0,ex:"殘餘排放是指組織或產品在採取所有合理可行的減量措施後，仍無法消除的溫室氣體排放，依ISO 14068-1等標準，此部分需透過增加碳移除或經核可之碳權抵換，方能達成碳中和或淨零目標。"},
+{unit:"L11103",uname:"淨零專有名詞",diff:"medium",q:"「碳移除」(Carbon Removal)與「碳減量」(Emission Reduction)兩者概念上的差異為何？",opts:["碳移除是將已存在於大氣中的二氧化碳主動移除並長期儲存（如造林、土壤碳匯、直接空氣捕獲），碳減量則是降低原本會產生的排放量","兩者意義完全相同","碳移除專指購買再生能源憑證","碳減量僅適用於範疇二排放"],a:0,ex:"碳減量是指透過提升能效、燃料轉換等方式，降低原本將產生的溫室氣體排放；碳移除則是透過自然碳匯或工程技術（如直接空氣捕獲、CCUS）將已存在大氣中的二氧化碳移除並儲存，兩者在淨零路徑中扮演不同且互補的角色。"},
+{unit:"L11103",uname:"淨零專有名詞",diff:"medium",q:"「碳洩漏」(Carbon Leakage)係指何種現象？",opts:["企業因國內嚴格的碳管制成本增加，將生產或投資移轉至碳管制較寬鬆國家，導致全球整體排放未實質下降甚至增加的現象","碳交易市場中因駭客攻擊導致碳權遺失","碳盤查報告書中的數據誤差","企業自願揭露超出法規要求的排放資訊"],a:0,ex:"碳洩漏指因各國碳定價或管制力度不一，企業為規避高碳成本而將高排放產業或投資移轉至碳管制較寬鬆地區，導致全球整體排放未因單一國家政策而實質下降，CBAM等邊境調整機制即為因應碳洩漏風險而設計的政策工具。"},
+{unit:"L11103",uname:"淨零專有名詞",diff:"hard",q:"關於溫室氣體盤查「範疇一、二、三」(Scope 1, 2, 3)排放之定義，下列何者正確？",opts:["範疇一為組織自有或控制排放源之直接排放；範疇二為外購電力、熱、蒸氣等能源所產生之間接排放；範疇三為價值鏈上下游其他間接排放","範疇一專指供應鏈排放，範疇三專指廠內直接排放","範疇二僅適用於製造業，服務業無範疇二排放","三個範疇排放量加總後即等於企業碳足跡，兩者定義完全相同"],a:0,ex:"依GHG Protocol及ISO 14064-1架構，範疇一為自有或控制設施之直接排放；範疇二為外購電力、蒸氣、熱或冷等能源使用所造成之間接排放；範疇三則涵蓋價值鏈中其他十五類間接排放，通常是企業排放占比最大但最難掌握的部分，供應鏈碳成本轉嫁壓力也日益升高。"},
+{unit:"L11103",uname:"淨零專有名詞",diff:"hard",q:"關於「碳權／碳信用」(Carbon Credit)、「碳交易」(Carbon Trading)與「碳稅／碳費」(Carbon Tax/Fee)三者關係，下列敘述何者正確？",opts:["碳權是經核證代表一定減量或移除成果的權益單位，可於碳交易市場買賣；碳稅／碳費則是政府對排放行為直接課徵之價格機制，兩者皆屬「碳定價」工具但運作邏輯不同","三者為同一概念的不同名稱，可完全互換","碳交易只能在政府機關間進行，企業不得參與","課徵碳費後，企業即自動取得等額碳權"],a:0,ex:"碳權（碳信用）是透過核證方法學確認之減量或移除成果，可於自願性或法遵性碳市場交易；碳稅／碳費則是政府依排放量直接課徵之財政工具，兩者皆屬廣義「碳定價」範疇，但繳納碳費並不會自動產生可交易之碳權。"},
+{unit:"L11104",uname:"全球減碳趨勢與政策工具",diff:"medium",q:"全球主要碳定價政策工具中，「碳稅／碳費」與「總量管制與交易制度」(ETS)的核心差異為何？",opts:["碳稅／碳費屬「價格機制」，由政府直接訂定每噸碳價；ETS屬「數量機制」，由政府設定排放總量上限並透過市場交易決定碳價","兩者本質完全相同，僅是用詞不同","ETS僅適用於開發中國家","碳稅／碳費必然比ETS涵蓋更多排放量"],a:0,ex:"碳稅／碳費為「價格機制」，由政府直接設定每噸排放之費率，排放量則由市場依價格自行調整；ETS（如歐盟EU ETS）則為「數量機制」，政府先設定排放總量上限並分配或拍賣排放配額，碳價則由市場供需決定，許多國家亦會雙軌並行。"},
+{unit:"L11104",uname:"全球減碳趨勢與政策工具",diff:"medium",q:"依世界銀行《State and Trends of Carbon Pricing》相關報告，全球碳定價機制發展現況概略為何？",opts:["全球已實施約80個碳定價機制，約略各半為碳稅／碳費與ETS制度，累計籌集超過1,000億美元用於環境與基礎建設等用途","全球僅有不到5個國家實施碳定價","所有碳定價機制皆已統一為單一全球碳價","碳定價機制僅存在於歐洲地區"],a:0,ex:"依世界銀行相關報告，全球已有約80個碳定價機制在運作，其中包含約43個碳稅／碳費制度及約37個ETS制度，合計已籌集超過1,000億美元資金，挹注於環境改善與基礎建設等用途。"},
+{unit:"L11104",uname:"全球減碳趨勢與政策工具",diff:"medium",q:"相較於歐盟EU ETS，台灣目前推動碳定價的主要制度設計為何？",opts:["台灣目前以「碳費」（價格機制）為主要碳定價工具，尚未建立如EU ETS之全面總量管制與配額交易制度，但已成立碳權交易平台處理自願性碳權交易","台灣已建立與EU ETS規模相當之強制性總量管制交易市場","台灣完全不存在任何碳定價機制","台灣碳費費率高於EU ETS市場碳價"],a:0,ex:"台灣目前以《氣候變遷因應法》為基礎，採行「碳費」此一價格機制作為主要碳定價工具，尚未如歐盟建立涵蓋多產業、強制性配額交易之總量管制制度；另設有台灣碳權交易所，但目前主要處理自願性碳權之交易與媒合，與EU ETS之強制配額交易性質不同。"},
+{unit:"L11104",uname:"全球減碳趨勢與政策工具",diff:"hard",q:"比較「命令管制型」、「市場機制型」與「自願性」三類減碳政策工具的特性，下列敘述何者正確？",opts:["命令管制型執行明確但彈性較低；市場機制型成本效益較佳但需健全市場配套；自願性工具依賴企業自主性，約束力較弱但常具示範與引導效果","三類工具效果完全相同，可任意替換","自願性工具的法律約束力與命令管制型完全相同","市場機制型工具不需要任何政府監管即可自行運作"],a:0,ex:"命令管制型工具透過明確的排放標準或禁令直接規範行為，執行效果明確但缺乏彈性；市場機制型工具（如碳稅、ETS）讓企業依自身成本決定減量或付費，須有健全的監測報告查證(MRV)制度配套；自願性工具則依賴企業自主承諾與聲譽壓力，常作為政策先行指標，三者在政策組合中常互補運用。"},
+{unit:"L11104",uname:"全球減碳趨勢與政策工具",diff:"hard",q:"碳定價制度（如台灣碳費）與CBAM等邊境碳調整機制之間的政策邏輯關聯為何？",opts:["邊境碳調整機制旨在彌補國內碳定價與貿易對手國碳成本之落差，避免國內已課徵碳費之高碳排產業因競爭力下降而產生碳洩漏，並可透過扣除已支付之國內碳價，避免重複課費","CBAM與各國國內碳定價制度完全無關，互不影響","課徵CBAM的目的是取代各國國內的碳稅或碳費制度","只要國內未實施碳定價，出口至歐盟的產品即可完全免除CBAM義務"],a:0,ex:"CBAM等邊境碳調整機制的政策邏輯，是為避免國內實施嚴格碳定價之高碳排產業因生產成本上升而產生碳洩漏，同時對進口至歐盟之產品課徵相當於歐盟碳價之費用；若出口國已對該產品實際支付碳價，依規定可於申報時扣除已支付部分，但並非完全免除CBAM申報義務。"},
+{unit:"L11201",uname:"國際倡議(CDP/SBTi/RE100等)",diff:"medium",q:"國際企業自願性倡議「RE100」對其會員企業設定的再生能源使用目標期程為何？",opts:["要求會員最遲於2050年達成100%使用再生能源電力，並建議於2030年達成60%、2040年達成90%之中期里程碑","要求會員須於加入後一年內立即達成100%再生能源","RE100不設定任何期程，純屬象徵性宣示","RE100僅適用於電力業，製造業不得加入"],a:0,ex:"RE100由氣候組織(Climate Group)與CDP共同發起，要求會員企業承諾最遲於2050年達成100%使用再生能源電力，並建議設定2030年60%、2040年90%等中期目標。"},
+{unit:"L11201",uname:"國際倡議(CDP/SBTi/RE100等)",diff:"easy",q:"CDP（原Carbon Disclosure Project）是一個什麼性質的國際倡議平台？",opts:["由投資人支持、協助企業揭露氣候變遷、水安全、森林等環境資訊的全球性環境資訊揭露系統","專門核發碳權的官方認證機構","聯合國轄下強制性氣候條約執行單位","僅限歐洲企業參與的區域性組織"],a:0,ex:"CDP是由投資人支持發起的全球環境資訊揭露平台，協助企業、城市及地區揭露氣候變遷、水安全與森林相關之環境衝擊與管理資訊，並提供評級供投資人參考，本身並不核發碳權。"},
+{unit:"L11201",uname:"國際倡議(CDP/SBTi/RE100等)",diff:"medium",q:"TCFD（氣候相關財務揭露建議）架構包含哪四大核心揭露面向？",opts:["治理(Governance)、策略(Strategy)、風險管理(Risk Management)、指標與目標(Metrics and Targets)","資產、負債、股東權益、現金流量","環境、社會、治理、財務","範疇一、範疇二、範疇三、範疇四"],a:0,ex:"TCFD建議架構涵蓋四大核心要素：治理、策略、風險管理、指標與目標，現已由IFRS永續揭露準則(ISSB)接續推動。"},
+{unit:"L11201",uname:"國際倡議(CDP/SBTi/RE100等)",diff:"medium",q:"IFRS永續揭露準則（ISSB制定之IFRS S1、S2）與TCFD之間的關係為何？",opts:["IFRS S1為一般永續資訊揭露要求，IFRS S2為氣候相關揭露準則，其架構建立並整併TCFD之四大核心要素，並承接TCFD停止運作後的氣候揭露推動角色","IFRS永續揭露準則與TCFD毫無關聯，採完全不同架構","TCFD是用來取代IFRS S1、S2的更新版本","IFRS S1、S2僅適用於非上市公司"],a:0,ex:"國際永續準則理事會(ISSB)所制定之IFRS S1（一般規定）與IFRS S2（氣候相關揭露）係建立並整併TCFD四大核心要素，隨TCFD於2023年完成階段性任務後，由IFRS永續揭露準則接續作為全球氣候揭露之主要參考架構。"},
+{unit:"L11201",uname:"國際倡議(CDP/SBTi/RE100等)",diff:"medium",q:"比較GRI與SASB兩套永續報告準則之主要差異，下列敘述何者正確？",opts:["GRI著重廣泛利害關係人觀點與組織對環境社會之衝擊（衝擊重大性），SASB則聚焦特定產業別、以投資人決策所需之財務重大性資訊為主","GRI僅適用於亞洲企業，SASB僅適用於美洲企業","兩者揭露範疇與目標完全相同，無須區分","SASB準則涵蓋範圍比GRI更廣泛、不分產業別"],a:0,ex:"GRI準則強調廣泛利害關係人需求，著重企業對經濟、環境、社會所造成之衝擊（衝擊重大性）；SASB則按行業別訂定揭露指標，聚焦財務重大性資訊，主要服務投資人決策需求，SASB現已併入IFRS永續揭露準則架構之下。"},
+{unit:"L11201",uname:"國際倡議(CDP/SBTi/RE100等)",diff:"hard",q:"SBTi於2026年6月11日發布之《企業淨零標準2.0版》，相較現行V1.3版，技術面之重大更新不包含下列何者？",opts:["取消所有範疇三排放之減量要求，企業僅需管理範疇一、二排放","範疇一新增「資產去碳計畫」(Asset Decarbonization Plan)作為減量路徑選項之一","範疇二要求企業最遲於2040年達成100%低碳電力，並強化環境屬性憑證(EAC)品質規範","範疇三聚焦高排放來源，引入「活動群組」(Activity Pools)概念並限量使用EAC"],a:0,ex:"SBTi V2.0並未取消範疇三要求，反而調整其管理方式：聚焦高排放來源、可排除低影響活動，並引入活動群組與更具彈性的目標設定方法，同時範疇一新增資產去碳計畫選項、範疇二明確要求2040年達成100%低碳電力，整體而言V2.0是強化而非取消範疇三管理要求。"},
+{unit:"L11201",uname:"國際倡議(CDP/SBTi/RE100等)",diff:"hard",q:"關於SBTi《企業淨零標準2.0版》的發布與適用時程，下列敘述何者正確？",opts:["V2.0於2026年6月11日發布，預定2027年2月1日生效，確證(Validation)作業預計2027年初開放，全面取代現行V1.3版本之期程為2028年1月1日","V2.0發布後立即全面取代V1.3，舊版即刻失效","V2.0自2024年起即已全面強制適用","SBTi已宣布終止企業淨零標準，未來不再更新版本"],a:0,ex:"SBTi於2026年6月11日正式發布V2.0，標準預定於2027年2月1日生效，確證作業預計於2027年初開放申請；2026年計畫設定或更新目標之企業，仍建議優先以現行V1.3.1版本提交目標，V2.0將於2028年1月1日起全面取代V1.3版本。"},
+{unit:"L11202",uname:"CBAM碳關稅",diff:"easy",q:"CBAM（Carbon Border Adjustment Mechanism）的中文名稱及其主要政策目的為何？",opts:["「碳邊境調整機制」，旨在對進口至歐盟之高碳排產品課徵相當於歐盟碳價之費用，以避免碳洩漏並維護產業公平競爭","「碳邊境調整機制」，目的是取代各國國內碳交易市場","「碳邊境補貼機制」，目的是補貼歐盟出口商","與碳排放管理完全無關，純屬關稅優惠措施"],a:0,ex:"CBAM中文譯為「碳邊境調整機制」，是歐盟「Fit for 55」一籃子氣候政策之一環，主要目的是對進口至歐盟之特定高碳排產品課徵相當於歐盟碳價之費用，避免歐盟境內已負擔碳成本之產業因國際競爭力下降而產生碳洩漏。"},
+{unit:"L11202",uname:"CBAM碳關稅",diff:"easy",q:"CBAM目前納管之主要產品類別不包含下列何者？",opts:["紡織成衣","鋼鐵","鋁","水泥"],a:0,ex:"CBAM目前納管產品類別包含鋼鐵、鋁、水泥、肥料、電力及氫氣等高碳洩漏風險產業，紡織成衣目前並未納入CBAM管制範圍。"},
+{unit:"L11202",uname:"CBAM碳關稅",diff:"medium",q:"CBAM「過渡期」與「正式期」(definitive period)的時間劃分為何？",opts:["過渡期為2023年10月1日至2025年12月31日，僅須申報排放資訊；正式期自2026年1月1日起，進口商須開始購買並繳交CBAM憑證","過渡期與正式期同時自2026年起開始","過渡期至今尚未結束，正式期尚無時間表","正式期已於2023年即開始課徵費用"],a:0,ex:"CBAM過渡期自2023年10月1日起至2025年12月31日止，此期間進口商僅須申報產品所含排放量；自2026年1月1日起進入正式適用期，進口商須依規定購買並繳交CBAM憑證以反映進口產品所含碳排放成本。"},
+{unit:"L11202",uname:"CBAM碳關稅",diff:"medium",q:"依2025年10月生效之CBAM簡化規則(Omnibus簡化方案)，申報豁免門檻有何重大調整？",opts:["將原本以每批貨物價值150歐元以下為豁免標準，改為以進口商「年度累計納管產品總重量未超過50公噸」為新豁免標準，大幅減少約九成申報義務企業，同時仍涵蓋約九成九之納管排放量","完全取消所有申報豁免門檻，所有進口一律須申報","將豁免門檻提高至每批貨物1萬歐元","豁免門檻調整僅適用於水泥產業"],a:0,ex:"2025年10月生效之CBAM簡化規則，將原本以每批貨物價值150歐元以下作為豁免標準，改為以進口商「年度累計納管產品總重量不超過50公噸」作為新的數量基準豁免門檻，此調整使約九成原本須申報之進口商得以豁免，同時仍可涵蓋約九成九之納管排放量。"},
+{unit:"L11202",uname:"CBAM碳關稅",diff:"medium",q:"2025年10月CBAM簡化規則對進口商「憑證持有義務」之調整為何？",opts:["將進口商每季須持有之CBAM憑證，由原規劃之「累計排放量80%」調降為「累計排放量50%」，以減輕進口商資金與行政負擔","將憑證持有比例由50%提高至100%","完全取消憑證持有義務","改為每月須持有累計排放量100%之憑證"],a:0,ex:"為減輕進口商資金壓力與行政成本，2025年10月CBAM簡化規則將進口商每季所須持有之CBAM憑證比例，由原規劃之累計含碳排放量80%調降為50%。"},
+{unit:"L11202",uname:"CBAM碳關稅",diff:"hard",q:"關於CBAM正式適用期之申報與罰則規定，下列敘述何者正確？",opts:["進口商須於每年5月底前提交前一年度CBAM年度申報書，並購買繳交相應憑證；未依規定履行義務者，最高可處每噸CO2當量100歐元之罰鍰","CBAM申報書僅須每五年提交一次","違反CBAM申報義務不會受到任何罰則，僅屬建議性質","罰鍰金額與排放量及碳價無關，採固定金額制"],a:0,ex:"依CBAM正式適用期規定，進口商須於每年5月底前提交上一年度全部進口產品之CBAM年度申報書，並購買、繳交相當於含碳排放量之CBAM憑證；未依規定履行義務者，可能面臨最高每公噸CO2當量100歐元之罰鍰。"},
+{unit:"L11202",uname:"CBAM碳關稅",diff:"hard",q:"假設某台灣鋼鐵出口商之產品已依台灣《氣候變遷因應法》規定，就該批產品生產過程實際繳納碳費，於申報CBAM時，下列敘述何者正確？",opts:["出口商於申報CBAM時，得就該產品已於台灣實際支付之碳價部分申請扣除，以避免對同一含碳排放重複課徵費用，惟仍須完整申報該產品之含碳排放量及計算方法","已繳納台灣碳費者，可完全免除CBAM申報義務","台灣碳費與CBAM憑證費用須同時全額支付，不得扣除","CBAM僅承認歐盟會員國境內已支付之碳價，第三國碳價一律不得扣除"],a:0,ex:"CBAM制度設計允許進口商於申報時，就產品於原產國已實際支付之碳價部分申請扣除，以避免對同一含碳排放重複課徵，但出口商仍須完整申報產品含碳排放量及其計算依據，並非自動免除申報義務。"},
+{unit:"L11203",uname:"台灣2050淨零路徑",diff:"easy",q:"台灣2050淨零排放路徑規劃之「四大轉型」加上兩項治理基礎，下列敘述何者正確？",opts:["四大轉型為能源轉型、產業轉型、生活轉型、社會轉型，並以科技研發及氣候法制作為兩大治理基礎","四大轉型分別為農業、工業、商業、服務業轉型","僅有能源轉型一項重點，無其他轉型面向","治理基礎為財政與外交兩大支柱"],a:0,ex:"台灣2050淨零排放路徑以能源轉型、產業轉型、生活轉型、社會轉型為四大轉型主軸，並以「科技研發」及「氣候法制」作為兩大治理基礎，下轄十二項關鍵戰略具體推動相關行動方案。"},
+{unit:"L11203",uname:"台灣2050淨零路徑",diff:"medium",q:"台灣2050淨零路徑下之「十二項關鍵戰略」，下列何者不屬於其中規劃之戰略項目？",opts:["全面禁止化石燃料進口","風電/光電","氫能","資源循環零廢棄"],a:0,ex:"台灣十二項關鍵戰略涵蓋風電/光電、氫能、前瞻能源、電力系統與儲能、節能、碳捕捉利用及封存(CCUS)、運具電動化及無碳化、資源循環零廢棄、自然碳匯、綠色金融、公正轉型、淨零綠生活等面向，並未規劃「全面禁止化石燃料進口」此一戰略。"},
+{unit:"L11203",uname:"台灣2050淨零路徑",diff:"medium",q:"依台灣碳費三項子法規定，碳費費率設計包含哪些層級？",opts:["一般費率每公噸新台幣300元，另設優惠費率A（每公噸50元）及優惠費率B（每公噸100元），企業提出符合指定減碳目標之自主減量計畫者得適用優惠費率","僅有單一固定費率，無優惠機制","費率採每年隨機抽籤決定","優惠費率高於一般費率，用以鼓勵企業多繳費"],a:0,ex:"依碳費三項子法規定，碳費一般費率訂為每公噸新台幣300元；若企業提出「自主減量計畫」並符合指定減碳目標規劃，則可分別適用優惠費率A（每公噸50元）或優惠費率B（每公噸100元）。"},
+{unit:"L11203",uname:"台灣2050淨零路徑",diff:"hard",q:"關於台灣碳費首波徵收對象與涵蓋範圍，下列敘述何者正確？",opts:["首波徵收對象為年溫室氣體排放量超過2.5萬公噸二氧化碳當量之電力業、燃氣供應業及製造業，預估涵蓋約500家工廠，收費排放量合計約占全國總排放量54%","首波徵收對象包含所有住宅與小型商店","首波徵收對象僅限農業部門","碳費徵收範圍涵蓋全國100%排放量，無任何門檻"],a:0,ex:"台灣碳費首波徵收對象鎖定年溫室氣體排放量合計達2.5萬公噸二氧化碳當量以上之電力業、燃氣供應業及製造業，預估涵蓋約500家工廠，收費排放量總計約1.55億公噸二氧化碳當量，約占全國總排放量54%，並未涵蓋營建業、住商及運輸部門。"},
+{unit:"L11203",uname:"台灣2050淨零路徑",diff:"hard",q:"某製造業工廠年溫室氣體排放量（含直接排放與用電間接排放）為4萬公噸二氧化碳當量，已提出符合指定減碳目標之自主減量計畫並適用優惠費率A，依規定得扣除起徵門檻2.5萬公噸，該廠應繳碳費約為何？",opts:["(40,000 − 25,000) × 50元 = 75萬元","40,000 × 300元 = 1,200萬元","(40,000 − 25,000) × 300元 = 450萬元","40,000 × 50元 = 200萬元"],a:0,ex:"依碳費收費辦法，企業計算收費排放量時可扣除起徵門檻2.5萬公噸，故收費排放量為40,000−25,000=15,000公噸；該廠適用優惠費率A每公噸50元，碳費為15,000×50＝75萬元，此即優惠費率機制可大幅降低積極減碳企業負擔之具體展現。"},
+{unit:"L11204",uname:"碳資產交易架構",diff:"medium",q:"「自願性碳市場」(Voluntary Carbon Market)與「法遵性碳市場」(Compliance Carbon Market)之主要差異為何？",opts:["法遵性碳市場係依法律或法規要求運作，具強制參與及法律約束力；自願性碳市場則由企業基於自身淨零承諾或形象需求自願參與碳權買賣，不具法定強制力","兩者皆具相同強制力，僅交易所不同","自願性碳市場僅存在於台灣，全球其他地區皆無此類市場","法遵性碳市場不需要任何主管機關監管"],a:0,ex:"法遵性碳市場是依特定法規（如歐盟ETS）強制要求納管對象參與之碳權／配額交易市場；自願性碳市場則是企業基於自身淨零目標自願購買碳權以抵換排放，不具法定強制參與義務，兩者在法律基礎與碳權品質要求上均有差異。"},
+{unit:"L11204",uname:"碳資產交易架構",diff:"medium",q:"台灣碳權交易所(TCX)之主要功能與成立背景為何？",opts:["由台灣證券交易所與國家發展基金共同出資成立，初期主要辦理國內外自願性碳權之國際碳權交易與媒合，並逐步發展國內碳權交易機制","TCX為政府機關，具核發碳費繳納憑證之法定權限","TCX僅可交易股票，與碳權無關","TCX成立後立即取代台電成為電力交易平台"],a:0,ex:"台灣碳權交易所(TCX)由台灣證券交易所與國家發展基金共同出資成立，主要功能是建立碳權交易與媒合平台，初期聚焦協助企業購買符合國際標準之自願性碳權，並逐步發展國內依法產生之自願減量額度交易機制，與依法課徵碳費屬不同制度設計。"},
+{unit:"L11204",uname:"碳資產交易架構",diff:"hard",q:"評估碳權／碳信用品質時，國際公認應檢視的核心要件不包含下列何者？",opts:["發行碳權之企業股價表現","額外性(Additionality)：減量成果須是若無該專案則不會發生者","永久性(Permanence)：碳移除或減量成果須具一定存續期間，避免逆轉","可量化驗證性(Verifiability)：減量成果須經獨立第三方查證，並避免重複計算"],a:0,ex:"評估碳權品質的國際公認核心要件包括額外性、永久性、可量化驗證性等，發行碳權企業之股價表現與碳權本身的環境誠信並無直接關聯，並非品質評估要件。"},
+{unit:"L11205",uname:"ISO14068-1碳中和標準",diff:"easy",q:"ISO 14068-1:2023標準主要取代下列哪一份原有的碳中和規範文件？",opts:["PAS 2060:2014，該規範已自2025年底正式失效","ISO 14064-1:2018","GHG Protocol企業會計準則","京都議定書"],a:0,ex:"ISO 14068-1:2023是首份正式發布之碳中和國際標準，建立並取代原本廣為使用之PAS 2060:2014碳中和規範，PAS 2060於ISO 14068-1發布滿一定期間（約2025年底）後正式失效。"},
+{unit:"L11205",uname:"ISO14068-1碳中和標準",diff:"medium",q:"ISO 14068-1規範之碳中和「管理層級」(hierarchy)原則，其優先順序為何？",opts:["優先進行溫室氣體排放減量、其次強化溫室氣體移除，最後才是以碳權進行抵換，且應持續改善並逐步降低對抵換之依賴","優先購買碳權抵換，其次才考慮減量","三者並無優先順序，企業可任意選擇","僅允許使用移除措施，完全禁止使用減量或抵換"],a:0,ex:"ISO 14068-1建立明確之碳中和管理層級：優先於邊界內進行排放減量，其次強化移除能力，唯有前兩者無法完全達成碳中和時，才考慮以經核可之碳權抵換，並要求持續降低對抵換措施之依賴程度。"},
+{unit:"L11205",uname:"ISO14068-1碳中和標準",diff:"hard",q:"依ISO 14068-1規定，用於抵換殘餘排放之碳權，須符合下列哪些要求？及碳中和路徑之目標設定原則為何？",opts:["須為「事後型」碳權(ex-post，代表已實際發生之減量或移除成果)，並應於報告期間結束後12個月內辦理註銷；同時碳中和路徑應包含短期目標（通常5至10年）與長期目標（通常至少20年），共同目標年份多訂為2050年","可使用尚未實際發生之「事前型」(ex-ante)預期減量成果，且無須辦理註銷","碳中和路徑僅須設定單一年度目標，無須區分短中長期","抵換碳權之註銷期限為報告期間結束後10年內"],a:0,ex:"ISO 14068-1要求用於抵換殘餘排放之碳權須為「事後型」（ex-post），並應於報告期間結束後12個月內辦理註銷；同時要求碳中和路徑須包含短期目標（通常5至10年）及長期目標（通常至少20年），多數企業及國家普遍採共同目標年份2050年作為長期參照。"}
+];
+
+const TOTAL = QUESTIONS.length;
+let answers = new Array(TOTAL).fill(null);
+let current = 0;
+let filterMode = 'all';
+
+const diffLabel = {easy:'易',medium:'中',hard:'難'};
+const diffClass = {easy:'diff-easy',medium:'diff-medium',hard:'diff-hard'};
+
+const gridCards = document.getElementById('gridCards');
+const qText = document.getElementById('qText');
+const optionsWrap = document.getElementById('optionsWrap');
+const explainBox = document.getElementById('explainBox');
+const explainText = document.getElementById('explainText');
+const unitPill = document.getElementById('unitPill');
+const diffPill = document.getElementById('diffPill');
+const qCount = document.getElementById('qCount');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const answeredCount = document.getElementById('answeredCount');
+const correctCount = document.getElementById('correctCount');
+const quizCard = document.getElementById('quizCard');
+const resultsCard = document.getElementById('resultsCard');
+
+function buildGrid(){
+  gridCards.innerHTML = '';
+  QUESTIONS.forEach((q,i)=>{
+    const c = document.createElement('div');
+    c.className = 'cell ' + (q.unit.indexOf('L112')===0 ? 'unit-L112' : 'unit-L111');
+    c.textContent = i+1;
+    c.id = 'cell-'+i;
+    c.addEventListener('click', function(){ filterMode='all'; updateFilterChips(); current=i; render(); });
+    gridCards.appendChild(c);
+  });
+}
+
+function updateFilterChips(){
+  document.querySelectorAll('.chip').forEach(function(ch){
+    ch.classList.toggle('active', ch.dataset.filter===filterMode);
+  });
+}
+
+function visibleIndices(){
+  if(filterMode==='all') return QUESTIONS.map(function(_,i){return i;});
+  return QUESTIONS.map(function(_,i){return i;}).filter(function(i){return QUESTIONS[i].unit.indexOf(filterMode)===0;});
+}
+
+function renderOptions(qi){
+  const q = QUESTIONS[qi];
+  optionsWrap.innerHTML = '';
+  const letters = ['A','B','C','D'];
+  const userAns = answers[qi];
+  q.opts.forEach(function(opt,oi){
+    const row = document.createElement('button');
+    row.type = 'button';
+    row.className = 'opt' + (userAns!==null ? ' locked' : '');
+    row.innerHTML = '<span class="opt-letter">'+letters[oi]+'</span><span>'+opt+'</span>';
+    if(userAns!==null){
+      if(oi===q.a){ row.classList.add('reveal-correct'); }
+      if(oi===userAns && userAns!==q.a){ row.classList.add('selected-wrong'); }
+      if(oi===userAns && userAns===q.a){ row.classList.remove('reveal-correct'); row.classList.add('selected-correct'); }
+    }
+    row.addEventListener('click', function(){
+      if(answers[qi]!==null) return;
+      answers[qi] = oi;
+      render();
+    });
+    optionsWrap.appendChild(row);
+  });
+}
+
+function render(){
+  const q = QUESTIONS[current];
+  unitPill.textContent = q.unit;
+  unitPill.className = 'pill unit' + (q.unit.indexOf('L112')===0 ? ' l112' : '');
+  diffPill.textContent = diffLabel[q.diff];
+  diffPill.className = 'pill ' + diffClass[q.diff];
+  qCount.textContent = '第 ' + (current+1) + ' 題 / ' + TOTAL + '　·　' + q.uname;
+  qText.textContent = q.q;
+  renderOptions(current);
+
+  if(answers[current]!==null){
+    explainBox.classList.add('show');
+    explainText.textContent = q.ex;
+  } else {
+    explainBox.classList.remove('show');
+  }
+
+  document.querySelectorAll('.cell').forEach(function(c,i){
+    c.classList.remove('current','correct','incorrect');
+    if(answers[i]!==null){
+      c.classList.add(answers[i]===QUESTIONS[i].a ? 'correct' : 'incorrect');
+    }
+  });
+  const curCell = document.getElementById('cell-'+current);
+  if(curCell) curCell.classList.add('current');
+
+  const ansN = answers.filter(function(a){return a!==null;}).length;
+  const corN = answers.filter(function(a,i){return a!==null && a===QUESTIONS[i].a;}).length;
+  answeredCount.textContent = ansN;
+  correctCount.textContent = corN;
+
+  prevBtn.disabled = current===0;
+  nextBtn.textContent = current===TOTAL-1 ? '查看成績總覽 →' : '下一題 →';
+}
+
+prevBtn.addEventListener('click', function(){ if(current>0){ current--; render(); } });
+nextBtn.addEventListener('click', function(){
+  if(current<TOTAL-1){ current++; render(); }
+  else { showResults(); }
+});
+
+document.getElementById('jumpUnanswered').addEventListener('click', function(){
+  const idx = answers.findIndex(function(a){return a===null;});
+  if(idx===-1){ showResults(); return; }
+  current = idx; render();
+});
+
+document.querySelectorAll('.chip').forEach(function(ch){
+  ch.addEventListener('click', function(){
+    filterMode = ch.dataset.filter;
+    updateFilterChips();
+    const vis = visibleIndices();
+    if(vis.indexOf(current)===-1) current = vis[0];
+    render();
+  });
+});
+
+function showResults(){
+  quizCard.style.display='none';
+  resultsCard.classList.add('show');
+
+  const corN = answers.filter(function(a,i){return a!==null && a===QUESTIONS[i].a;}).length;
+  document.getElementById('finalScore').textContent = corN + ' / ' + TOTAL;
+
+  const byUnit = {L111:{c:0,t:0},L112:{c:0,t:0}};
+  const byDiff = {easy:{c:0,t:0},medium:{c:0,t:0},hard:{c:0,t:0}};
+  QUESTIONS.forEach(function(q,i){
+    const ukey = q.unit.indexOf('L112')===0 ? 'L112' : 'L111';
+    byUnit[ukey].t++;
+    byDiff[q.diff].t++;
+    if(answers[i]===q.a){ byUnit[ukey].c++; byDiff[q.diff].c++; }
+  });
+  document.getElementById('byUnit').innerHTML =
+    '<div class="bd-row"><span>L111 國際趨勢與治理</span><span class="n">'+byUnit.L111.c+' / '+byUnit.L111.t+'</span></div>' +
+    '<div class="bd-row"><span>L112 淨零管理基礎概論</span><span class="n">'+byUnit.L112.c+' / '+byUnit.L112.t+'</span></div>';
+  document.getElementById('byDiff').innerHTML =
+    '<div class="bd-row"><span>易（基礎定義）</span><span class="n">'+byDiff.easy.c+' / '+byDiff.easy.t+'</span></div>' +
+    '<div class="bd-row"><span>中（法規應用／計算）</span><span class="n">'+byDiff.medium.c+' / '+byDiff.medium.t+'</span></div>' +
+    '<div class="bd-row"><span>難（整合判斷）</span><span class="n">'+byDiff.hard.c+' / '+byDiff.hard.t+'</span></div>';
+
+  const wrongWrap = document.getElementById('wrongList');
+  const wrongs = QUESTIONS.map(function(q,i){return i;}).filter(function(i){ return answers[i]!==null && answers[i]!==QUESTIONS[i].a; });
+  const unanswered = QUESTIONS.map(function(q,i){return i;}).filter(function(i){ return answers[i]===null; });
+
+  let html = '';
+  if(wrongs.length===0 && unanswered.length===0){
+    html = '<p class="no-wrong">恭喜，全數作答正確！</p>';
+  } else {
+    if(wrongs.length===0 && unanswered.length>0){
+      html += '<p class="no-wrong">已作答題目全數正確，仍有 '+unanswered.length+' 題尚未作答。</p>';
+    }
+    wrongs.forEach(function(i){
+      html += '<div class="wrong-item" data-i="'+i+'"><span class="qn">Q'+(i+1)+'</span><span class="qt">'+QUESTIONS[i].q+'</span></div>';
+    });
+    if(unanswered.length>0){
+      html += '<div class="bd-row" style="margin-top:8px;padding-top:10px;border-top:1px dashed var(--slate-line);"><span>尚未作答</span><span class="n">'+unanswered.length+' 題</span></div>';
+    }
+  }
+  wrongWrap.innerHTML = html;
+  wrongWrap.querySelectorAll('.wrong-item').forEach(function(el){
+    el.addEventListener('click', function(){
+      current = parseInt(el.getAttribute('data-i'),10);
+      filterMode='all'; updateFilterChips();
+      backToQuiz();
+      render();
+    });
+  });
+}
+
+function backToQuiz(){
+  resultsCard.classList.remove('show');
+  quizCard.style.display='block';
+}
+
+document.getElementById('toResultsBtn').addEventListener('click', showResults);
+document.getElementById('backToQuizBtn').addEventListener('click', backToQuiz);
+document.getElementById('restartBtn').addEventListener('click', function(){
+  answers = new Array(TOTAL).fill(null);
+  current = 0;
+  filterMode='all';
+  updateFilterChips();
+  backToQuiz();
+  render();
+});
+
+buildGrid();
+render();
+</script>
+</body>
+</html>
