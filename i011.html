@@ -19,31 +19,31 @@
   --text:#0f172a; --text2:#334155; --text3:#64748b; --text4:#94a3b8;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--bg);color:var(--text);font-family:'Noto Sans TC',sans-serif;font-size: 18px;line-height:1.7}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans TC',sans-serif;font-size: 20px;line-height:1.7}
 header{margin-top: 60px;background:linear-gradient(135deg,#f0fdf4,#ecfdf5 40%,#f0f9ff);border-bottom:2px solid var(--green);padding:20px;position:relative;overflow:hidden}
 header::after{content:'';position:absolute;top:0;right:0;bottom:0;width:200px;background:linear-gradient(90deg,transparent,rgba(22,163,74,.05))}
-.badge{display:inline-flex;align-items:center;gap:6px;background:var(--green-l);border:1px solid var(--green-m);color:var(--green);padding:3px 12px;border-radius:20px;font-size: 18px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px}
-.badge::before{content:'●';font-size: 18px;animation:blink 2s infinite}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--green-l);border:1px solid var(--green-m);color:var(--green);padding:3px 12px;border-radius:20px;font-size: 20px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px}
+.badge::before{content:'●';font-size: 20px;animation:blink 2s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 h1{font-family:'Noto Serif TC',serif;font-size:clamp(19px,3.2vw,32px);font-weight:900;line-height:1.3;color:var(--text)}
 h1 span{color:var(--green)}
-.hmeta{display:flex;flex-wrap:wrap;gap:20px;margin-top:16px;font-size: 18px;color:var(--text3)}
+.hmeta{display:flex;flex-wrap:wrap;gap:20px;margin-top:16px;font-size: 20px;color:var(--text3)}
 .hmi{display:flex;align-items:center;gap:6px}
 .dot{width:7px;height:7px;border-radius:50%}
 nav{background:#fff;border-bottom:1px solid var(--border);padding:0 10px;display:flex;gap:0;overflow-x:auto;scrollbar-width:none;position:sticky;top:0;z-index:100;box-shadow:0 1px 4px rgba(0,0,0,.06)}
 nav::-webkit-scrollbar{display:none}
-.nb{padding:8px;border:none;background:none;color:var(--text3);font-size: 18px;font-family:'Noto Sans TC',sans-serif;cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;transition:all .18s;font-weight:500}
+.nb{padding:8px;border:none;background:none;color:var(--text3);font-size: 20px;font-family:'Noto Sans TC',sans-serif;cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;transition:all .18s;font-weight:500}
 .nb:hover{color:var(--text);background:var(--surface)}
 .nb.active{color:var(--green);border-bottom-color:var(--green);font-weight:700}
 .container{max-width:1860px;margin:0 auto;padding:10px}
 .section{display:none}.section.active{display:block}
 .sec-title{font-family:'Noto Serif TC',serif;font-size:20px;font-weight:900;color:var(--text);margin-bottom:5px;display:flex;align-items:center;gap:10px}
-.sico{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size: 18px;flex-shrink:0}
-.sec-sub{color:var(--text3);font-size: 18px;margin-bottom:8px;padding-left:44px}
+.sico{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size: 20px;flex-shrink:0}
+.sec-sub{color:var(--text3);font-size: 20px;margin-bottom:8px;padding-left:44px}
 .card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:8px;margin-bottom:8px;box-shadow:0 1px 4px rgba(0,0,0,.04);transition:box-shadow .2s,border-color .2s}
 .card:hover{box-shadow:0 3px 12px rgba(0,0,0,.08);border-color:var(--border-d)}
 .cht{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px}
-.ct{font-weight:700;font-size: 18px;color:var(--text);display:flex;align-items:center;gap:8px}
+.ct{font-weight:700;font-size: 20px;color:var(--text);display:flex;align-items:center;gap:8px}
 .badge2{display:inline-block;padding:8px;border-radius:10px;font-size: 14px;font-weight:700;letter-spacing:.04em;flex-shrink:0}
 .b-red{background:var(--red-l);color:var(--red);border:1px solid #fca5a5}
 .b-orange{background:var(--orange-l);color:var(--orange);border:1px solid #fdba74}
@@ -52,12 +52,12 @@ nav::-webkit-scrollbar{display:none}
 .fg{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:13px;margin:6px 0}
 .fg-1{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:13px;margin:6px 0}
 .fi{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:10px;padding:8px}
-.fl{font-size: 18px;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
-.fv{font-size: 18px;font-weight:700;font-family:'DM Mono',monospace;color:var(--teal)}
-.fd{font-size: 18px;color:var(--text3);margin-top:3px}
+.fl{font-size: 20px;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.fv{font-size: 20px;font-weight:700;font-family:'DM Mono',monospace;color:var(--teal)}
+.fd{font-size: 20px;color:var(--text3);margin-top:3px}
 .tw{overflow-x:auto;margin:8px 0;border-radius:10px;border:1px solid var(--border)}
-table{width:100%;border-collapse:collapse;font-size: 18px;}
-th{background:var(--surface2);padding:8px;text-align:left;font-weight:700;font-size: 18px;color:var(--text2);text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--border-d)}
+table{width:100%;border-collapse:collapse;font-size: 20px;}
+th{background:var(--surface2);padding:8px;text-align:left;font-weight:700;font-size: 20px;color:var(--text2);text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--border-d)}
 td{padding:8px;border-bottom:1px solid var(--border);vertical-align:top}
 tr:last-child td{border-bottom:none}
 tr:nth-child(even) td{background:var(--surface)}
@@ -73,22 +73,22 @@ tr:nth-child(even) td{background:var(--surface)}
 .hlb{background:var(--blue-l);border-color:var(--blue)}
 .hlp{background:var(--purple-l);border-color:var(--purple)}
 .hli{background:var(--indigo-l);border-color:var(--indigo)}
-.hl-tt{font-size: 18px;font-weight:800;text-transform:uppercase;letter-spacing:.09em;margin-bottom:7px}
+.hl-tt{font-size: 20px;font-weight:800;text-transform:uppercase;letter-spacing:.09em;margin-bottom:7px}
 .hlg .hl-tt{color:var(--green)}.hlt .hl-tt{color:var(--teal)}.hlo .hl-tt{color:var(--orange)}.hlr .hl-tt{color:var(--red)}.hlb .hl-tt{color:var(--blue)}.hlp .hl-tt{color:var(--purple)}.hli .hl-tt{color:var(--indigo)}
 .hl ul,.hl ol{padding-left:18px}
-.hl li{font-size: 18px;color:var(--text2);margin-bottom:4px}
+.hl li{font-size: 20px;color:var(--text2);margin-bottom:4px}
 .hl li strong{color:var(--text)}
-.hl p{font-size: 18px;color:var(--text2)}
+.hl p{font-size: 20px;color:var(--text2)}
 .hl p strong{color:var(--text)}
 .tl{position:relative;padding-left:22px}
 .tl::before{content:'';position:absolute;left:7px;top:0;bottom:0;width:2px;background:var(--border-d)}
 .tli{position:relative;margin-bottom:8px}
 .tld{position:absolute;left:-18px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--green);border:2px solid #fff;box-shadow:0 0 0 2px var(--green)}
-.tly{font-family:'DM Mono',monospace;font-size: 18px;color:var(--green);font-weight:700;margin-bottom:3px}
-.tlc{font-size: 18px;color:var(--text2)}
+.tly{font-family:'DM Mono',monospace;font-size: 20px;color:var(--green);font-weight:700;margin-bottom:3px}
+.tlc{font-size: 20px;color:var(--text2)}
 .tlc strong{color:var(--text)}
 .kws{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}
-.kw{padding:3px 11px;border-radius:6px;font-size: 18px;font-weight:500}
+.kw{padding:3px 11px;border-radius:6px;font-size: 20px;font-weight:500}
 .kwg{background:var(--green-l);color:var(--green);border:1px solid #86efac}
 .kwb{background:var(--blue-l);color:var(--blue);border:1px solid #93c5fd}
 .kwo{background:var(--orange-l);color:var(--orange);border:1px solid #fdba74}
@@ -99,39 +99,39 @@ tr:nth-child(even) td{background:var(--surface)}
 .cmp{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin:8px 0}
 @media(max-width:600px){.cmp{grid-template-columns:1fr}}
 .cmc{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:8px}
-.cmc h4{font-size: 18px;font-weight:700;margin-bottom:8px}
+.cmc h4{font-size: 20px;font-weight:700;margin-bottom:8px}
 .cmc ul{padding-left:10px}
-.cmc li{font-size: 18px;color:var(--text2);margin-bottom:4px}
+.cmc li{font-size: 20px;color:var(--text2);margin-bottom:4px}
 .cmc li strong{color:var(--text)}
 .steps{display:flex;flex-direction:column;gap:9px;margin:8px 0}
 .step{display:flex;align-items:flex-start;gap:13px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:8px}
-.snum{width:28px;height:28px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:800;font-size: 18px;font-family:'DM Mono',monospace}
+.snum{width:28px;height:28px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:800;font-size: 20px;font-family:'DM Mono',monospace}
 .sg{background:var(--green-l);color:var(--green)}.sb{background:var(--blue-l);color:var(--blue)}.so{background:var(--orange-l);color:var(--orange)}
-.sc1{flex:1}.stit{font-weight:700;font-size: 18px;color:var(--text)}.sdsc{font-size: 18px;color:var(--text3);margin-top:2px}
+.sc1{flex:1}.stit{font-weight:700;font-size: 20px;color:var(--text)}.sdsc{font-size: 20px;color:var(--text3);margin-top:2px}
 .divider{border:none;border-top:1px solid var(--border);margin:8px 0}
 /* Quiz */
 .qi{margin-bottom:8px}
-.qq{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--orange);border-radius:10px;padding:8px;margin-bottom:9px;font-size: 18px;font-weight:500}
-.qtag{font-size: 18px;color:var(--orange);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;font-weight:700}
+.qq{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--orange);border-radius:10px;padding:8px;margin-bottom:9px;font-size: 20px;font-weight:500}
+.qtag{font-size: 20px;color:var(--orange);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;font-weight:700}
 .opts{display:grid;grid-template-columns:1fr 1fr;gap:7px}
 @media(max-width:600px){.opts{grid-template-columns:1fr}}
-.opt{padding:8px;border-radius:8px;cursor:pointer;border:1px solid var(--border);background:#fff;font-size: 18px;color:var(--text2);transition:all .18s;text-align:left;font-family:'Noto Sans TC',sans-serif}
+.opt{padding:8px;border-radius:8px;cursor:pointer;border:1px solid var(--border);background:#fff;font-size: 20px;color:var(--text2);transition:all .18s;text-align:left;font-family:'Noto Sans TC',sans-serif}
 .opt:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-l)}
 .opt.correct{border-color:var(--green)!important;background:var(--green-l)!important;color:var(--green)!important;font-weight:600}
 .opt.wrong{border-color:var(--red)!important;background:var(--red-l)!important;color:var(--red)!important}
 .opt:disabled{cursor:default}
-.exp{margin-top:8px;padding:8px;background:var(--teal-l);border:1px solid #5eead4;border-radius:8px;font-size: 18px;color:var(--teal);display:none}
+.exp{margin-top:8px;padding:8px;background:var(--teal-l);border:1px solid #5eead4;border-radius:8px;font-size: 20px;color:var(--teal);display:none}
 .exp.show{display:block}
 .qscore{background:var(--green-l);border:1px solid #86efac;border-radius:12px;padding:8px;text-align:center;margin-bottom:22px;display:none}
 .qscore.show{display:block}
 .scnum{font-size:40px;font-weight:900;font-family:'DM Mono',monospace;color:var(--green)}
-.rbtn{background:var(--green);color:#fff;border:none;padding:8px;border-radius:8px;cursor:pointer;font-size: 18px;font-family:'Noto Sans TC',sans-serif;margin-top:10px;transition:background .2s}
+.rbtn{background:var(--green);color:#fff;border:none;padding:8px;border-radius:8px;cursor:pointer;font-size: 20px;font-family:'Noto Sans TC',sans-serif;margin-top:10px;transition:background .2s}
 .rbtn:hover{background:#15803d}
 /* Print FAB */
 .pfab{position:fixed;bottom:28px;right:28px;z-index:999;width:52px;height:52px;border-radius:50%;background:var(--green);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(22,163,74,.35);transition:transform .2s,box-shadow .2s;font-size:20px;color:#fff}
 .pfab:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(22,163,74,.5)}
 .pfab:active{transform:scale(.96)}
-.ptip{position:fixed;bottom:88px;right:28px;z-index:999;background:var(--text);color:#fff;font-size: 18px;font-weight:600;padding:5px 12px;border-radius:7px;white-space:nowrap;pointer-events:none;opacity:0;transform:translateY(5px);transition:opacity .2s,transform .2s;font-family:'Noto Sans TC',sans-serif}
+.ptip{position:fixed;bottom:88px;right:28px;z-index:999;background:var(--text);color:#fff;font-size: 20px;font-weight:600;padding:5px 12px;border-radius:7px;white-space:nowrap;pointer-events:none;opacity:0;transform:translateY(5px);transition:opacity .2s,transform .2s;font-family:'Noto Sans TC',sans-serif}
 .ptip.show{opacity:1;transform:translateY(0)}
 /* Print */
 @media print{
@@ -167,7 +167,7 @@ header {margin-top: 100px;padding:8px 18px 30px;}
 
 a.badge1 {
     display: inline-block;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 400;
     padding: 3px 10px;
     border-radius: 20px;
@@ -181,7 +181,7 @@ a.badge1 {
 
 a.badge2 {
     display: inline-block;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 400;
     padding: 3px 10px;
     border-radius: 20px;
@@ -194,7 +194,7 @@ a.badge2 {
 }
 a.badge3 {
     display: inline-block;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 400;
     padding: 3px 10px;
     border-radius: 20px;
@@ -240,7 +240,7 @@ a.badge3 {
 
   <div class="card">
     <div class="cht"><div class="ct">🌍 第一章｜極端氣候下國際因應歷程與趨勢</div><div class="badge2 b-red">★★★ 必考</div></div>
-    <p style="font-size: 18px;color:var(--text3);margin-bottom:8px">COP大事記年份、京都議定書數字、巴黎協定目標、台灣NDC，偏好「何者為非」與年份辨別題。</p>
+    <p style="font-size: 20px;color:var(--text3);margin-bottom:8px">COP大事記年份、京都議定書數字、巴黎協定目標、台灣NDC，偏好「何者為非」與年份辨別題。</p>
     <div class="kws">
       <span class="kw kwg">COP1=1995年柏林</span><span class="kw kwg">京都議定書-5.2%/2008-2012</span>
       <span class="kw kwo">巴黎協定2℃/1.5℃</span><span class="kw kwo">COP28損失損害基金</span>
@@ -251,7 +251,7 @@ a.badge3 {
 
   <div class="card">
     <div class="cht"><div class="ct">📣 第二章 2.1｜國際重要倡議（CDP/SBTi/RE100/GRI/TCFD）</div><div class="badge2 b-red">★★★ 必考</div></div>
-    <p style="font-size: 18px;color:var(--text3);margin-bottom:8px">各倡議成立年份、數字要求、創辦機構。每個倡議出2-3題，常出「不符合規範」題型。</p>
+    <p style="font-size: 20px;color:var(--text3);margin-bottom:8px">各倡議成立年份、數字要求、創辦機構。每個倡議出2-3題，常出「不符合規範」題型。</p>
     <div class="kws">
       <span class="kw kwb">CDP成立2000年</span><span class="kw kwb">SBTi四創辦機構</span>
       <span class="kw kwg">RE100每年100GWh</span><span class="kw kwg">GRI三套準則</span>
@@ -261,7 +261,7 @@ a.badge3 {
 
   <div class="card">
     <div class="cht"><div class="ct">💶 第二章 2.2｜國際碳稅關貿政策（CBAM）</div><div class="badge2 b-red">★★★ 必考</div></div>
-    <p style="font-size: 18px;color:var(--text3);margin-bottom:8px">CBAM目的、時程、六大管制品項、憑證計算規則，計算題概念必考。</p>
+    <p style="font-size: 20px;color:var(--text3);margin-bottom:8px">CBAM目的、時程、六大管制品項、憑證計算規則，計算題概念必考。</p>
     <div class="kws">
       <span class="kw kwr">六大品項：鋼鐵鋁水泥肥料電力氫</span><span class="kw kwr">9月30日繳交</span>
       <span class="kw kwo">過渡期2023-2025</span><span class="kw kwo">正式2026起</span>
@@ -271,7 +271,7 @@ a.badge3 {
 
   <div class="card">
     <div class="cht"><div class="ct">🇹🇼 第二章 2.3│台灣2050淨零排放路徑</div><div class="badge2 b-orange">★★ 中頻</div></div>
-    <p style="font-size: 18px;color:var(--text3);margin-bottom:8px">十二項關鍵戰略、2030發電數字（30GW太陽能、13.1GW離岸風電）、NDC目標數字。</p>
+    <p style="font-size: 20px;color:var(--text3);margin-bottom:8px">十二項關鍵戰略、2030發電數字（30GW太陽能、13.1GW離岸風電）、NDC目標數字。</p>
     <div class="kws">
       <span class="kw kwg">十二項關鍵戰略</span><span class="kw kwg">2030 NDC -28±2%</span>
       <span class="kw kwb">太陽能2030: 30GW</span><span class="kw kwb">離岸風電2030: 13.1GW</span>
@@ -281,7 +281,7 @@ a.badge3 {
 
   <div class="card">
     <div class="cht"><div class="ct">💰 第二章 2.4-2.5│碳資產管理 + ISO 14068-1</div><div class="badge2 b-red">★★★ 必考</div></div>
-    <p style="font-size: 18px;color:var(--text3);margin-bottom:8px">碳稅vs碳費差異、碳交所規則、台灣碳費制度數字、ISO 14068步驟與適用範圍。</p>
+    <p style="font-size: 20px;color:var(--text3);margin-bottom:8px">碳稅vs碳費差異、碳交所規則、台灣碳費制度數字、ISO 14068步驟與適用範圍。</p>
     <div class="kws">
       <span class="kw kwr">碳稅=財政部；碳費=環境部</span><span class="kw kwr">碳費2.5萬噸門檻</span>
       <span class="kw kwo">碳交所USD計價</span><span class="kw kwo">114年試申報不繳費</span>
@@ -290,7 +290,7 @@ a.badge3 {
   </div>
 
   <hr class="divider">
-  <div class="sec-title" style="font-size: 18px;margin-bottom:8px"><div class="sico" style="background:var(--orange-l)">🔢</div>必背關鍵數字速查</div>
+  <div class="sec-title" style="font-size: 20px;margin-bottom:8px"><div class="sico" style="background:var(--orange-l)">🔢</div>必背關鍵數字速查</div>
   <div class="fg">
     <div class="fi"><div class="fl">UNFCCC 生效</div><div class="fv" style="color:var(--green)">1994年</div><div class="fd">公約1992年簽署，1994年3月21日生效</div></div>
     <div class="fi"><div class="fl">COP 首屆</div><div class="fv" style="color:var(--blue)">1995年</div><div class="fd">柏林；2024年為COP29（巴庫）</div></div>
@@ -817,7 +817,7 @@ a.badge3 {
       <div class="hl-tt">⚠️ ISO 14068-1 不適用範疇（常出考題）</div>
       <p>ISO 14068-1<strong>不適用</strong>於<strong>領土（Territory）</strong>層級——即國家/地區/城市整體排放量的碳中和宣告。適用：組織、產品、建築物、活動/服務。</p>
     </div>
-    <div class="ct" style="margin-bottom:8px;font-size: 18px;margin-top:8px">ISO 14068-1 碳中和四步驟</div>
+    <div class="ct" style="margin-bottom:8px;font-size: 20px;margin-top:8px">ISO 14068-1 碳中和四步驟</div>
     <div class="steps">
       <div class="step"><div class="snum sg">1</div><div class="sc1"><div class="stit">碳中和承諾</div><div class="sdsc">取代PAS2060的確證程序；明確表示碳中和承諾，設定路徑</div></div></div>
       <div class="step"><div class="snum sg">2</div><div class="sc1"><div class="stit">GHG量化排放與移除</div><div class="sdsc">依ISO 14064-1或ISO 14067盤查；至少每年重新量化</div></div></div>
@@ -852,7 +852,7 @@ a.badge3 {
 <div id="quiz" class="section">
   <div class="sec-title"><div class="sico" style="background:var(--orange-l)">📝</div>官方樣題模擬測驗（精選30題）</div>
   <div class="sec-sub">涵蓋兩大章節官方樣題精華，點擊選項即時作答</div>
-  <div id="quiz-score" class="qscore"><div class="scnum" id="score-display">0/30</div><div style="color:var(--text3);margin-top:4px;font-size: 18px;">本次測驗得分</div><button class="rbtn" onclick="resetQuiz()">↺ 重新作答</button></div>
+  <div id="quiz-score" class="qscore"><div class="scnum" id="score-display">0/30</div><div style="color:var(--text3);margin-top:4px;font-size: 20px;">本次測驗得分</div><button class="rbtn" onclick="resetQuiz()">↺ 重新作答</button></div>
   <div id="quiz-container"></div>
 </div>
 

@@ -25,11 +25,11 @@ body{background:#fff;color:var(--tx);font-family:"Noto Sans TC","PingFang TC","M
 .cv-tag{display:inline-block;border:1px solid rgba(255,255,255,.42);border-radius:20px;padding:3px 15px;font-size:.74rem;letter-spacing:1.5px;margin-bottom:14px;background:rgba(255,255,255,.11);}
 .cover h1{font-size:22px;font-weight:900;line-height:1.3;position:relative;}
 .cover h1 span{color:#a8ffd8;}
-.cover .sub{font-size: 18px;opacity:.84;margin-top:10px;position:relative;}
-.cv-meta{display:flex;gap:20px;flex-wrap:wrap;margin-top:22px;font-size: 18px;opacity:.72;position:relative;}
+.cover .sub{font-size: 20px;opacity:.84;margin-top:10px;position:relative;}
+.cv-meta{display:flex;gap:20px;flex-wrap:wrap;margin-top:22px;font-size: 20px;opacity:.72;position:relative;}
 
 /* PRINT */
-.print-btn{position:fixed;bottom:28px;right:28px;z-index:999;background:var(--gm);color:#fff;border:none;border-radius:50px;padding:11px 22px;font-size: 18px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:7px;box-shadow:0 4px 20px rgba(26,122,90,.45);transition:transform .2s,box-shadow .2s;}
+.print-btn{position:fixed;bottom:28px;right:28px;z-index:999;background:var(--gm);color:#fff;border:none;border-radius:50px;padding:11px 22px;font-size: 20px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:7px;box-shadow:0 4px 20px rgba(26,122,90,.45);transition:transform .2s,box-shadow .2s;}
 .print-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(26,122,90,.55);}
 @media print{.print-btn{display:none!important;}body{padding:0;}h2{break-before:page;}.q-ans{display:block!important;}.cop-card{break-inside:avoid;}}
 
@@ -38,19 +38,19 @@ body{background:#fff;color:var(--tx);font-family:"Noto Sans TC","PingFang TC","M
 
 /* HEADINGS */
 h2{font-size:20px;font-weight:800;color:var(--gd);margin:52px 0 18px;padding-bottom:10px;border-bottom:3px solid var(--gl);display:flex;align-items:center;gap:10px;}
-h2 .ch{background:var(--gd);color:#fff;border-radius:6px;padding:2px 10px;font-size: 18px;;letter-spacing:1px;}
-h3{font-size: 18px;font-weight:700;color:var(--gm);margin:24px 0 10px;padding-left:10px;border-left:4px solid var(--gl);}
+h2 .ch{background:var(--gd);color:#fff;border-radius:6px;padding:2px 10px;font-size: 20px;;letter-spacing:1px;}
+h3{font-size: 20px;font-weight:700;color:var(--gm);margin:24px 0 10px;padding-left:10px;border-left:4px solid var(--gl);}
 
 /* TABLES */
 .tw{overflow-x:auto;margin:14px 0 20px;}
-table{width:100%;border-collapse:collapse;font-size: 18px;}
-th{background:var(--gd);color:#fff;padding:9px 13px;text-align:left;font-size: 18px;font-weight:700;}
+table{width:100%;border-collapse:collapse;font-size: 20px;}
+th{background:var(--gd);color:#fff;padding:9px 13px;text-align:left;font-size: 20px;font-weight:700;}
 td{padding:8px 13px;border-bottom:1px solid #ddeee5;vertical-align:top;}
 tr:nth-child(even) td{background:#f2fbf6;}
 tr:hover td{background:#dff5ea;}
 
 /* TAGS */
-.tag{display:inline-block;border-radius:4px;padding:1px 8px;font-size: 18px;font-weight:700;margin:1px 3px 1px 0;}
+.tag{display:inline-block;border-radius:4px;padding:1px 8px;font-size: 20px;font-weight:700;margin:1px 3px 1px 0;}
 .tg{background:var(--gp);color:var(--gd);}
 .tr{background:var(--rp);color:var(--rd);}
 .ta{background:var(--ap);color:#92400e;}
@@ -59,8 +59,8 @@ tr:hover td{background:#dff5ea;}
 .tc{background:#cffafe;color:#0e7490;}
 
 /* ALERTS */
-.alert{border-radius:8px;padding:12px 16px;margin:14px 0;font-size: 18px;display:flex;gap:10px;align-items:flex-start;}
-.ai{flex-shrink:0;font-size: 18px;margin-top:1px;}
+.alert{border-radius:8px;padding:12px 16px;margin:14px 0;font-size: 20px;display:flex;gap:10px;align-items:flex-start;}
+.ai{flex-shrink:0;font-size: 20px;margin-top:1px;}
 .alert.tip{background:#f0fff8;border-left:4px solid var(--gl);}
 .alert.warn{background:var(--ap);border-left:4px solid var(--ab);}
 .alert.danger{background:var(--rp);border-left:4px solid var(--rd);}
@@ -70,10 +70,10 @@ tr:hover td{background:#dff5ea;}
 .cop-timeline{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin:20px 0;}
 .cop-card{border-radius:12px;padding:18px 16px;color:#fff;position:relative;overflow:hidden;cursor:default;}
 .cop-card::after{content:attr(data-cop);position:absolute;right:-8px;bottom:-10px;font-size:3.8rem;font-weight:900;opacity:.15;line-height:1;}
-.cop-card .year{font-size: 18px;opacity:.8;margin-bottom:2px;letter-spacing:1px;}
-.cop-card .city{font-size: 18px;font-weight:800;margin-bottom:6px;}
+.cop-card .year{font-size: 20px;opacity:.8;margin-bottom:2px;letter-spacing:1px;}
+.cop-card .city{font-size: 20px;font-weight:800;margin-bottom:6px;}
 .cop-card .emoji{font-size:1.4rem;margin-bottom:6px;}
-.cop-card .key{font-size: 18px;opacity:.92;line-height:1.7;}
+.cop-card .key{font-size: 20px;opacity:.92;line-height:1.7;}
 .c21{background:linear-gradient(135deg,#584575,#8276a8);}
 .c24{background:linear-gradient(135deg,#6762b5,#847ee0);}
 .c26{background:linear-gradient(135deg,#059669,#10b981);}
@@ -83,9 +83,9 @@ tr:hover td{background:#dff5ea;}
 .c30{background:linear-gradient(135deg,#16a34a,#22c55e);}
 
 /* STORY */
-.story{border:1px solid #fde68a;border-radius:10px;padding:20px 22px;background:linear-gradient(135deg,#fffbeb,#fef9e7);font-size: 18px;margin:16px 0;position:relative;}
+.story{border:1px solid #fde68a;border-radius:10px;padding:20px 22px;background:linear-gradient(135deg,#fffbeb,#fef9e7);font-size: 20px;margin:16px 0;position:relative;}
 .story::before{content:attr(data-icon);position:absolute;top:-14px;left:16px;background:#fff;padding:0 6px;font-size:1.3rem;}
-.story-title{font-weight:800;font-size: 18px;color:#78350f;margin-bottom:10px;}
+.story-title{font-weight:800;font-size: 20px;color:#78350f;margin-bottom:10px;}
 
 /* HORIZONTAL TIMELINE */
 .h-timeline{overflow-x:auto;padding:20px 0 16px;margin:20px 0;}
@@ -93,9 +93,9 @@ tr:hover td{background:#dff5ea;}
 .h-tl-inner::before{content:"";position:absolute;top:28px;left:0;right:0;height:3px;background:linear-gradient(to right,var(--cop21),var(--cop24),var(--cop26),var(--cop27),var(--cop28),var(--cop29),var(--cop30));z-index:0;}
 .h-item{flex:1;text-align:center;position:relative;padding-top:0;}
 .h-dot{width:18px;height:18px;border-radius:50%;margin:20px auto 8px;border:3px solid #fff;box-shadow:0 0 0 2px currentColor;position:relative;z-index:1;}
-.h-year{font-size: 18px;font-weight:700;margin-bottom:2px;}
-.h-city{font-size: 18px;;font-weight:700;margin-bottom:4px;}
-.h-event{font-size: 18px;color:#555;line-height:1.5;padding:0 4px;}
+.h-year{font-size: 20px;font-weight:700;margin-bottom:2px;}
+.h-city{font-size: 20px;;font-weight:700;margin-bottom:4px;}
+.h-event{font-size: 20px;color:#555;line-height:1.5;padding:0 4px;}
 .h-item:nth-child(1) .h-dot,.h-item:nth-child(1) .h-year{color:var(--cop21);}
 .h-item:nth-child(2) .h-dot,.h-item:nth-child(2) .h-year{color:var(--cop24);}
 .h-item:nth-child(3) .h-dot,.h-item:nth-child(3) .h-year{color:var(--cop26);}
@@ -115,8 +115,8 @@ tr:hover td{background:#dff5ea;}
 .trap-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0;}
 @media(max-width:540px){.trap-grid{grid-template-columns:1fr;}}
 .trap-card{border-radius:10px;padding:14px 16px;border:2px solid;}
-.trap-card h4{font-size: 18px;font-weight:800;margin-bottom:8px;}
-.trap-card .vs{display:flex;gap:8px;font-size: 18px;margin-bottom:4px;}
+.trap-card h4{font-size: 20px;font-weight:800;margin-bottom:8px;}
+.trap-card .vs{display:flex;gap:8px;font-size: 20px;margin-bottom:4px;}
 .trap-card .vs-label{font-weight:700;white-space:nowrap;}
 .tc-rd{background:#fff8f8;border-color:#fca5a5;}.tc-rd h4{color:var(--rd);}
 .tc-bl{background:#f0f7ff;border-color:#93c5fd;}.tc-bl h4{color:var(--bl);}
@@ -124,26 +124,26 @@ tr:hover td{background:#dff5ea;}
 /* KEY NUMBERS */
 .num-grid{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0;}
 .num-card{flex:1 1 130px;border:2px solid var(--gl);border-radius:10px;padding:14px 12px;text-align:center;background:#fff;}
-.num-card .big{font-size: 18px;font-weight:900;color:var(--gd);line-height:1;}
-.num-card .lbl{font-size: 18px;color:#555;margin-top:6px;line-height:1.5;}
+.num-card .big{font-size: 20px;font-weight:900;color:var(--gd);line-height:1;}
+.num-card .lbl{font-size: 20px;color:#555;margin-top:6px;line-height:1.5;}
 
 /* QUIZ */
 .q-block{border:1px solid #d0e8d8;border-radius:10px;margin-bottom:16px;overflow:hidden;}
 .q-head{background:#e8f7ee;padding:10px 16px;display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none;transition:background .15s;}
 .q-head:hover{background:#d4f0e0;}
 .q-num{background:var(--gd);color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:.74rem;font-weight:800;flex-shrink:0;}
-.q-cat{font-size: 18px;background:#d0e8d8;color:var(--gd);border-radius:4px;padding:1px 7px;font-weight:700;flex-shrink:0;white-space:nowrap;}
-.q-text{font-size: 18px;font-weight:600;flex:1;color:#1a3a2a;}
-.q-tog{font-size: 18px;;color:#888;flex-shrink:0;white-space:nowrap;}
-.q-body{padding:12px 16px;font-size: 18px;}
+.q-cat{font-size: 20px;background:#d0e8d8;color:var(--gd);border-radius:4px;padding:1px 7px;font-weight:700;flex-shrink:0;white-space:nowrap;}
+.q-text{font-size: 20px;font-weight:600;flex:1;color:#1a3a2a;}
+.q-tog{font-size: 20px;;color:#888;flex-shrink:0;white-space:nowrap;}
+.q-body{padding:12px 16px;font-size: 20px;}
 .q-opts{list-style:none;margin:8px 0;}
 .q-opts li{padding:5px 0 5px 32px;position:relative;line-height:1.6;}
-.q-opts li::before{content:attr(data-o);position:absolute;left:0;width:22px;height:22px;background:#e0e0e0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size: 18px;font-weight:700;color:#555;}
+.q-opts li::before{content:attr(data-o);position:absolute;left:0;width:22px;height:22px;background:#e0e0e0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size: 20px;font-weight:700;color:#555;}
 .q-opts li.ok::before{background:var(--gl);color:#fff;}
-.q-ans{background:#f0fdf5;border-top:1px dashed #b0ddc0;padding:12px 14px;font-size: 18px;display:none;}
+.q-ans{background:#f0fdf5;border-top:1px dashed #b0ddc0;padding:12px 14px;font-size: 20px;display:none;}
 .q-ans.show{display:block;}
 .q-ans strong{color:var(--gd);}
-.q-note{background:#fff;border:1px solid var(--bd);border-radius:6px;padding:8px 12px;margin-top:8px;font-size: 18px;color:#555;}
+.q-note{background:#fff;border:1px solid var(--bd);border-radius:6px;padding:8px 12px;margin-top:8px;font-size: 20px;color:#555;}
 
 /* STORY TIMELINE */
 .love-story{display:flex;flex-direction:column;gap:0;margin:16px 0;}
@@ -152,10 +152,10 @@ tr:hover td{background:#dff5ea;}
 .ls-item:last-child::before{display:none;}
 .ls-icon{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;z-index:1;}
 .ls-body{flex:1;padding-top:4px;}
-.ls-year{font-size: 18px;;font-weight:700;margin-bottom:2px;}
+.ls-year{font-size: 20px;;font-weight:700;margin-bottom:2px;}
 .ls-title{font-size:18px;font-weight:800;margin-bottom:6px;}
 .ls-desc{font-size:18px;line-height:1.7;}
-.ls-tip{font-size: 18px;font-weight:700;margin-top:8px;padding:5px 10px;border-radius:6px;display:inline-block;}
+.ls-tip{font-size: 20px;font-weight:700;margin-top:8px;padding:5px 10px;border-radius:6px;display:inline-block;}
 .ls1{background:#ede9fe;}.ls1 .ls-year{color:var(--cop21);}.ls1 .ls-icon{background:#ede9fe;}.ls1 .ls-tip{background:#ede9fe;color:var(--pu);}
 .ls2{background:#dbeafe;}.ls2 .ls-year{color:var(--cop24);}.ls2 .ls-icon{background:#dbeafe;}.ls2 .ls-tip{background:#dbeafe;color:var(--bl);}
 .ls3{background:#d1fae5;}.ls3 .ls-year{color:var(--cop26);}.ls3 .ls-icon{background:#d1fae5;}.ls3 .ls-tip{background:#d1fae5;color:#065f46;}
@@ -168,8 +168,8 @@ tr:hover td{background:#dff5ea;}
 .footer{background:var(--gd);color:rgba(255,255,255,.62);text-align:center;padding:24px;font-size:.75rem;margin-top:60px;}
 hr{border:none;border-top:1px dashed var(--bd);margin:32px 0;}
 ul,ol{padding-left:20px;}
-ul li,ol li{margin-bottom:5px;font-size: 18px;}
-.card{border:1px solid var(--bd);border-radius:10px;padding:18px 22px;margin-bottom:16px;background:var(--gp);font-size: 18px;}
+ul li,ol li{margin-bottom:5px;font-size: 20px;}
+.card{border:1px solid var(--bd);border-radius:10px;padding:18px 22px;margin-bottom:16px;background:var(--gp);font-size: 20px;}
 .card.amber{background:var(--ap);border-color:var(--ab);}
 .card.red{background:var(--rp);border-color:#fca5a5;}
 .card.blue{background:var(--bp);border-color:#93c5fd;}
@@ -177,7 +177,7 @@ ul li,ol li{margin-bottom:5px;font-size: 18px;}
 @media(max-width:768px){
   .cover{margin-top: 100px;padding:8px 18px 30px;}
   .cover h1{font-size:1.35rem;}
-  h2{font-size: 18px;}
+  h2{font-size: 20px;}
   .wrap{padding:0 14px;}
   .cop-timeline{grid-template-columns:1fr 1fr;}
   .num-grid{gap:8px;}
@@ -199,7 +199,7 @@ ul li,ol li{margin-bottom:5px;font-size: 18px;}
 
 a.badge1 {
     display: inline-block;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 400;
     padding: 3px 10px;
     border-radius: 20px;
@@ -213,7 +213,7 @@ a.badge1 {
 
 a.badge2 {
     display: inline-block;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 400;
     padding: 3px 10px;
     border-radius: 20px;
@@ -226,7 +226,7 @@ a.badge2 {
 }
 a.badge3 {
     display: inline-block;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 400;
     padding: 3px 10px;
     border-radius: 20px;
@@ -382,8 +382,8 @@ a.badge3 {
 	</div>
 	<div class="tw">
 	<table>
-	  <tr><th style="background:#584575;color:#fff;padding:9px 13px;text-align:left;font-size: 18px;font-weight:700;">核心內容</th>
-	  <th style="background:#584575;color:#fff;padding:9px 13px;text-align:left;font-size: 18px;font-weight:700;">說明</th></tr>
+	  <tr><th style="background:#584575;color:#fff;padding:9px 13px;text-align:left;font-size: 20px;font-weight:700;">核心內容</th>
+	  <th style="background:#584575;color:#fff;padding:9px 13px;text-align:left;font-size: 20px;font-weight:700;">說明</th></tr>
 	  <tr><td>升溫目標</td><td>「遠低於 2°C，努力 1.5°C」</td></tr>
 	  <tr><td>NDC</td><td>各國自提「國家自定貢獻」，每 5 年更新一次</td></tr>
 	  <tr><td>法律性質</td><td><span class="tag tr">有約束力但無罰則</span>——靠道德與同儕壓力</td></tr>
@@ -404,8 +404,8 @@ a.badge3 {
 </div>
 <div class="tw">
 <table>
-  <tr><th style="background:#575db5;color:#fff;padding:9px 13px;text-align:left;font-size: 18px;font-weight:700;">核心內容</th>
-  <th style="background:#575db5;color:#fff;padding:9px 13px;text-align:left;font-size: 18px;font-weight:700;">說明</th></tr>
+  <tr><th style="background:#575db5;color:#fff;padding:9px 13px;text-align:left;font-size: 20px;font-weight:700;">核心內容</th>
+  <th style="background:#575db5;color:#fff;padding:9px 13px;text-align:left;font-size: 20px;font-weight:700;">說明</th></tr>
   <tr><td>卡托維茲氣候套案</td><td>通過「巴黎協定工作計畫（Katowice Climate Package）」</td></tr>
   <tr><td>透明度框架</td><td>建立統一的格式：各國用同一套格式報告排放量</td></tr>
   <tr><td>NDC 機制</td><td>強化 NDC 的報告、審查機制</td></tr>
@@ -421,8 +421,8 @@ a.badge3 {
 </div>
 <div class="tw">
 <table>
-  <tr><th style="background:#2f9c48;color:#fff;padding:9px 13px;text-align:left;font-size: 18px;font-weight:700;">核心內容</th>
-  <th style="background:#2f9c48;color:#fff;padding:9px 13px;text-align:left;font-size: 18px;font-weight:700;">說明</th></tr>
+  <tr><th style="background:#2f9c48;color:#fff;padding:9px 13px;text-align:left;font-size: 20px;font-weight:700;">核心內容</th>
+  <th style="background:#2f9c48;color:#fff;padding:9px 13px;text-align:left;font-size: 20px;font-weight:700;">說明</th></tr>
   <tr><td>煤炭決議</td><td><span class="tag tr">phase DOWN（逐步減少）</span>而非 phase OUT（淘汰）——印度最後關頭堅持</td></tr>
   <tr><td>甲烷承諾</td><td>超過 100 國承諾 2030 年前減少 <strong>30%</strong> 甲烷排放</td></tr>
   <tr><td>森林承諾</td><td>超過 100 國承諾 2030 年前<strong>停止森林砍伐</strong></td></tr>
@@ -444,8 +444,8 @@ a.badge3 {
 </div>
 <div class="tw">
 <table>
-  <tr><th style="background:#ad5e7a;color:#fff;padding:9px 13px;text-align:left;font-size: 18px;font-weight:700;">核心內容</th>
-  <th style="background:#ad5e7a;color:#fff;padding:9px 13px;text-align:left;font-size: 18px;font-weight:700;">說明</th></tr>
+  <tr><th style="background:#ad5e7a;color:#fff;padding:9px 13px;text-align:left;font-size: 20px;font-weight:700;">核心內容</th>
+  <th style="background:#ad5e7a;color:#fff;padding:9px 13px;text-align:left;font-size: 20px;font-weight:700;">說明</th></tr>
   <tr><td>損失與損害基金</td><td>劃時代決定——正式設立，這是 COP27 最大亮點</td></tr>
   <tr><td>重要細節</td><td><span class="tag tr">不叫「賠償」</span>——法律上刻意避開賠償二字，但實質有錢</td></tr>
   <tr><td>減排進展</td><td>減緩（減排）進展不足，被批評是「退步的 COP」</td></tr>
@@ -465,8 +465,8 @@ a.badge3 {
 </div>
 <div class="tw">
 <table>
-  <tr><th style="background:#b0885a;color:#fff;padding:9px 13px;text-align:left;font-size: 18px;font-weight:700;">核心內容</th>
-  <th style="background:#b0885a;color:#fff;padding:9px 13px;text-align:left;font-size: 18px;font-weight:700;">說明</th></tr>
+  <tr><th style="background:#b0885a;color:#fff;padding:9px 13px;text-align:left;font-size: 20px;font-weight:700;">核心內容</th>
+  <th style="background:#b0885a;color:#fff;padding:9px 13px;text-align:left;font-size: 20px;font-weight:700;">說明</th></tr>
   <tr><td>化石燃料</td><td>史上第一次出現「在能源系統中<strong>轉型脫離</strong>（transitioning away from）化石燃料」</td></tr>
   <tr><td>再生能源目標</td><td>2030 年前全球裝置容量提升至現有的 <span class="tag ta">3 倍</span></td></tr>
   <tr><td>能源效率目標</td><td>2030 年前全球能源效率改善速度提升至 <span class="tag ta">2 倍</span></td></tr>
@@ -509,8 +509,8 @@ a.badge3 {
 
 <div class="tw">
 <table>
-  <tr><th style="background:#2e92a3;color:#fff;padding:9px 13px;text-align:left;font-size: 18px;font-weight:700;">核心內容</th>
-  <th style="background:#2e92a3;color:#fff;padding:9px 13px;text-align:left;font-size: 18px;font-weight:700;">說明</th></tr>
+  <tr><th style="background:#2e92a3;color:#fff;padding:9px 13px;text-align:left;font-size: 20px;font-weight:700;">核心內容</th>
+  <th style="background:#2e92a3;color:#fff;padding:9px 13px;text-align:left;font-size: 20px;font-weight:700;">說明</th></tr>
   <tr><td>氣候融資（最核心）</td><td>已開發國家承諾 2035 年前每年至少 <strong>3000 億美元</strong>；整體目標（含多元來源）每年 <strong>1.3 兆美元</strong></td></tr>
   <tr><td>碳市場第 6 條完成</td><td>第 6.2 條（ITMOs，雙邊）+ 第 6.4 條（SDM，UN 統一管）技術規則均通過</td></tr>
   <tr><td>透明度框架</td><td>通過「巴庫透明度框架」，建立更嚴格的雙年透明度報告（BTR）</td></tr>
@@ -532,8 +532,8 @@ a.badge3 {
 </div>
 <div class="tw">
 <table>
-  <tr><th style="background:#8276a8;color:#fff;padding:9px 13px;text-align:left;font-size: 18px;font-weight:700;">核心議題</th>
-  <th style="background:#8276a8;color:#fff;padding:9px 13px;text-align:left;font-size: 18px;font-weight:700;">說明</th></tr>
+  <tr><th style="background:#8276a8;color:#fff;padding:9px 13px;text-align:left;font-size: 20px;font-weight:700;">核心議題</th>
+  <th style="background:#8276a8;color:#fff;padding:9px 13px;text-align:left;font-size: 20px;font-weight:700;">說明</th></tr>
   <tr><td><strong>NDC 2.0 大考核</strong></td><td>各國須提交涵蓋 2035 年的新版 NDC，是 1.5°C 路徑的「最後機會視窗」</td></tr>
   <tr><td>貝倫氣候行動議程</td><td>巴西主推「<strong>熱帶雨林保護</strong>」；8 個南美洲國家簽署亞馬遜宣言</td></tr>
   <tr><td>NbS 議題</td><td>「<strong>自然為本解決方案（NbS）</strong>」正式成為核心議程</td></tr>
@@ -663,8 +663,8 @@ a.badge3 {
 
 <!-- 口訣 -->
 <div class="card" style="margin-top:24px;background:linear-gradient(135deg,#f0fff8,#e6f7f0);">
-  <p style="font-weight:800;font-size: 18px;color:var(--gd);margin-bottom:10px;">🗣️ 最後的懶人包口訣——唸三遍，考試不會忘</p>
-  <p style="font-size: 18px;line-height:2;font-weight:600;color:#1a3a2a;">
+  <p style="font-weight:800;font-size: 20px;color:var(--gd);margin-bottom:10px;">🗣️ 最後的懶人包口訣——唸三遍，考試不會忘</p>
+  <p style="font-size: 20px;line-height:2;font-weight:600;color:#1a3a2a;">
     「巴黎求婚沒罰款，<br>
     卡托補簽婚前約，<br>
     格拉斯哥煤炭慢慢戒，<br>
@@ -685,25 +685,25 @@ a.badge3 {
     <h4>🚬 Phase out vs Phase down</h4>
     <div class="vs"><span class="vs-label tag tr">Phase out</span><span>= 完全淘汰（原草案，最後沒通過）</span></div>
     <div class="vs"><span class="vs-label tag tg">Phase down</span><span>= 逐步減少（COP26 最終版，印度堅持改的）</span></div>
-    <p style="margin-top:8px;font-size: 18px;color:#666;">一字之差，印度改變了歷史</p>
+    <p style="margin-top:8px;font-size: 20px;color:#666;">一字之差，印度改變了歷史</p>
   </div>
   <div class="trap-card tc-bl">
     <h4>💰 3000 億 vs 1.3 兆</h4>
     <div class="vs"><span class="vs-label tag tc">3000 億</span><span>= 已開發國家核心承諾（COP29）</span></div>
     <div class="vs"><span class="vs-label tag tb">1.3 兆</span><span>= 整體氣候融資目標（含開發中、私部門）</span></div>
-    <p style="margin-top:8px;font-size: 18px;color:#666;">考題常互換，請務必記清楚</p>
+    <p style="margin-top:8px;font-size: 20px;color:#666;">考題常互換，請務必記清楚</p>
   </div>
   <div class="trap-card tc-rd">
     <h4>🌐 第 6.2 條 vs 第 6.4 條</h4>
     <div class="vs"><span class="vs-label tag ta">6.2 條</span><span>= 兩國之間自己談（雙邊 ITMOs）</span></div>
     <div class="vs"><span class="vs-label tag tb">6.4 條</span><span>= 聯合國統一管（全球 SDM，品質較嚴格）</span></div>
-    <p style="margin-top:8px;font-size: 18px;color:#666;">COP29 才讓這兩個機制真正落地</p>
+    <p style="margin-top:8px;font-size: 20px;color:#666;">COP29 才讓這兩個機制真正落地</p>
   </div>
   <div class="trap-card tc-bl">
     <h4>♻️ 再生 3 倍 vs 效率 2 倍</h4>
     <div class="vs"><span class="vs-label tag tg">再生 3 倍</span><span>= 2030 年全球再生能源裝置容量</span></div>
     <div class="vs"><span class="vs-label tag ta">效率 2 倍</span><span>= 2030 年全球能源效率改善速度</span></div>
-    <p style="margin-top:8px;font-size: 18px;color:#666;">COP28 決議，兩個數字都要背</p>
+    <p style="margin-top:8px;font-size: 20px;color:#666;">COP28 決議，兩個數字都要背</p>
   </div>
 </div>
 
@@ -995,7 +995,7 @@ a.badge3 {
 
 <!-- 最後叮嚀 -->
 <div class="card amber" style="margin-top:36px;">
-  <p style="font-size: 18px;font-weight:800;color:#78350f;margin-bottom:12px;">📣 命題委員的最後叮嚀</p>
+  <p style="font-size: 20px;font-weight:800;color:#78350f;margin-bottom:12px;">📣 命題委員的最後叮嚀</p>
   <p>COP 是「人類集體協商的舞台」，每一屆都是一場鬥智、鬥力、鬥耐心的馬拉松。</p>
   <p style="margin-top:8px;">考試問的不是「你知道發生了什麼」，而是「<strong>你能不能在情境中快速判斷這件事對應到哪屆 COP 的哪個機制</strong>」。</p>
   <p style="margin-top:8px;">最後再唸一次口訣：<br>
