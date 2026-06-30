@@ -112,7 +112,7 @@ margin-top: 60px;
 
 /* ── NAV ── */
 .toc-bar {
-  background: var(--white);
+  background:#435e50;color:#fff;
   border-bottom: 1px solid var(--border);
   padding: 0 40px;
   position: sticky; top: 0; z-index: 100;
@@ -128,13 +128,14 @@ margin-top: 60px;
   display: flex; align-items: center; gap: 7px;
   padding: 13px 16px;
   font-size: 20px; font-weight: 600;
-  color: var(--text-dim);
+  color:#fff;
   cursor: pointer;
   border-bottom: 2px solid transparent;
   white-space: nowrap;
   transition: all .2s; text-decoration: none;
 }
-.toc-item:hover { color: var(--green); border-bottom-color: var(--green); }
+.toc-item:hover { background:#fff;color:#435e50; border-bottom-color: var(--green); }
+.toc-item.active{color: yellow;border-bottom-color:var(--green);font-weight:700}
 .toc-num {
   background: var(--light-gray);
   color: var(--text-dim);
