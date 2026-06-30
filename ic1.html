@@ -63,15 +63,15 @@ margin-top: 60px;
 .b-blue  { background: var(--tag-blue);  border-color: var(--teal);  color: var(--teal); }
 
 /* ── NAV ── */
-.nav { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 48px; display: flex; overflow-x: auto; gap: 0; }
+.nav { background:#435e50;color:#fff; border-bottom: 1px solid var(--border); padding: 0 48px; display: flex; overflow-x: auto; gap: 0; }
 .nav-btn {
   padding: 13px 18px; font-size: 20px; font-weight: 500;
-  color: var(--text-muted); background: none; border: none;
+  color:#fff; background: none; border: none;
   border-bottom: 2px solid transparent; cursor: pointer; white-space: nowrap;
   font-family: 'Noto Sans TC', sans-serif; transition: all 0.2s;
 }
-.nav-btn:hover { color: var(--text); }
-.nav-btn.active { color: var(--green); border-bottom-color: var(--green); }
+.nav-btn:hover { background:#fff;color:#435e50; }
+.nav-btn.active { color: yellow; border-bottom-color: var(--green); }
 
 /* ── MAIN ── */
 .main { max-width: 1900px; padding: 40px 48px; }
@@ -327,16 +327,11 @@ a.badge3 {
 		<div><a href="https://snoweryi.github.io/yilearn/ie.html" class="badge1">ESG</a></div>
 		<div><a href="https://snoweryi.github.io/yilearn/menu.html" class="badge3">目錄</a></div>
 	</div>
-  <div class="hmeta">
-    <div class="hmi"><div class="dot" style="background:var(--red)"></div>CBAM正式實施：2026年1月1日</div>
-    <div class="hmi"><div class="dot" style="background:var(--blue)"></div>首次憑證繳交：2027年9月30日前</div>
-    <div class="hmi"><div class="dot" style="background:var(--green)"></div>涵蓋：完整時程 × 計算邏輯 × 台灣因應 × 30道模擬題</div>
-  </div>
+
 <!-- HERO -->
-<header class="hero">
-  <div class="hero-eyebrow">IPAS 淨零碳管理師 · 2026 考前衝刺</div>
-  <h1>碳中和<span>（Carbon Neutrality）</span><br>深度專題筆記</h1>
-  <p class="hero-sub">命題委員視角整理 · ISO 14068-1:2023 · P-A-R-C 四步驟 · 20 道模擬試題 · 漂綠陷阱解析</p>
+<header class="hero">  
+  <h1>碳中和<span>（Carbon Neutrality）</span></h1>
+  <p class="hero-sub">命題委員視角整理 · ISO 14068-1:2023 · P-A-R-C 四步驟</p>
   <div class="hero-badges">
     <span class="badge b-green">ISO 14068-1:2023</span>
     <span class="badge b-green">ISO 14064-1:2018</span>
@@ -344,6 +339,11 @@ a.badge3 {
     <span class="badge b-blue">GHG Protocol</span>
     <span class="badge b-amber">SBTi Net-Zero Standard</span>
     <span class="badge b-amber">巴黎協定第6條</span>
+  </div>
+    <div class="hmeta">
+    <div class="hmi"><div class="dot" style="background:var(--red)"></div>CBAM正式實施：2026年1月1日</div>
+    <div class="hmi"><div class="dot" style="background:var(--blue)"></div>首次憑證繳交：2027年9月30日前</div>
+
   </div>
 </header>
 
