@@ -23,7 +23,7 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--bg);color:var(--text);font-family:'Noto Sans TC',sans-serif;font-size: 20px;line-height:1.7}
 
-header{margin-top: 80px;background:linear-gradient(135deg,#fffbeb,#fff7ed 40%,#eff6ff);border-bottom:3px solid var(--orange);padding:36px 48px 28px;position:relative;overflow:hidden}
+header{background:linear-gradient(135deg,#fffbeb,#fff7ed 40%,#eff6ff);border-bottom:3px solid var(--orange);padding:60px 48px 28px;position:relative;overflow:hidden}
 header::before{content:'';position:absolute;top:-40px;right:-60px;width:280px;height:280px;background:radial-gradient(circle,rgba(234,88,12,.08),transparent 70%);border-radius:50%}
 .badge{display:inline-flex;align-items:center;gap:6px;background:#fff7ed;border:1px solid #fed7aa;color:var(--orange);padding:3px 12px;border-radius:20px;font-size: 20px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px}
 .badge::before{content:'🔴';font-size: 20px;animation:blink 1.5s infinite}
@@ -36,11 +36,11 @@ h1 .sub{color:var(--blue);font-size:clamp(18px,3vw,22px)}
 .dot{width:7px;height:7px;border-radius:50%}
 .live-badge{display:inline-flex;align-items:center;gap:5px;background:#fee2e2;border:1px solid #fca5a5;color:var(--red);padding:3px 10px;border-radius:20px;font-size: 20px;font-weight:700;margin-left:8px}
 
-nav{background:#fff;border-bottom:1px solid var(--bd);padding:0 10px;display:flex;overflow-x:auto;scrollbar-width:none;position:sticky;top:0;z-index:100;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+nav{background:#435e50;color:#fff;border-bottom:1px solid var(--bd);padding:0 10px;display:flex;overflow-x:auto;scrollbar-width:none;position:sticky;top:0;z-index:100;box-shadow:0 1px 4px rgba(0,0,0,.06)}
 nav::-webkit-scrollbar{display:none}
-.nb{padding:8px;border:none;background:none;color:var(--t3);font-size: 20px;font-family:'Noto Sans TC',sans-serif;cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;transition:all .18s;font-weight:500}
-.nb:hover{color:var(--text);background:var(--sf)}
-.nb.active{color:var(--orange);border-bottom-color:var(--orange);font-weight:700}
+.nb{padding:8px;border:none;background:none;color:#fff;font-size: 20px;font-family:'Noto Sans TC',sans-serif;cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;transition:all .18s;font-weight:500}
+.nb:hover{background:#fff;color:#435e50;}
+.nb.active{color: yellow;border-bottom-color:var(--orange);font-weight:700}
 
 .container{max-width:1860px;margin:0 auto;padding:8px}
 .section{display:none}.section.active{display:block}
@@ -197,7 +197,7 @@ tr:nth-child(even) td{background:var(--sf)}
 }
 .cover{margin-top: 120px;background:linear-gradient(135deg,#0a3d2e 0%,#1a7a5a 55%,#22c47a 100%);color:#fff;padding:56px 40px 48px;position:relative;overflow:hidden;}
 @media (max-width: 768px) {
-	.cover {margin-top: 8rem;padding:8px 18px 30px;}
+	header {margin-top: 8rem;padding:8px 18px 30px;}
 }
 .badgerowbt {
     position: fixed;
@@ -273,7 +273,7 @@ a.badge3 {
 		<div><a href="https://snoweryi.github.io/yilearn/menu.html" class="badge3">目錄</a></div>
 	</div>
   
-<header class="cover">  
+<header >  
 	<h1>歐盟 <span>CBAM 碳邊境調整機制</span><br><span class="sub">2026正式上路 完全攻略</span><span class="live-badge">🔴 LIVE 2026.01.01</span></h1>
 	
 </header>
