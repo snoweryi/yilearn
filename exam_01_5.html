@@ -3,325 +3,66 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>淨零碳盤查規範與程序概要｜模擬試題庫</title>
+<title>L12 淨零碳盤查規範｜模擬試題</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
-
 :root{
-  --ink:#1C2620;
-  --ink-soft:#4A554C;
-  --paper:#EFEDE4;
-  --paper-deep:#E2DFD2;
-  --card:#F8F7F2;
-  --pine:#1F4D3D;
-  --pine-deep:#13352A;
-  --ember:#B6592A;
-  --ember-soft:#F1DCC9;
-  --gold:#A87A1F;
-  --gold-soft:#F2E4C6;
-  --slate:#8A9189;
-  --slate-line:#D8D4C5;
-  --success:#2E7D6B;
-  --success-soft:#D9EAE3;
-  --error:#9C3B2C;
-  --error-soft:#F1DCD4;
-  --font-display:'Noto Serif TC',serif;
-  --font-body:'Noto Sans TC',sans-serif;
-  --font-mono:'IBM Plex Mono',monospace;
+  --ink:#1C2620;--ink-soft:#4A554C;--paper:#EFEDE4;--paper-deep:#E2DFD2;
+  --card:#F8F7F2;--pine:#1F4D3D;--pine-deep:#13352A;--ember:#B6592A;
+  --gold:#A87A1F;--gold-soft:#F2E4C6;--slate:#8A9189;--slate-line:#D8D4C5;
+  --success:#2E7D6B;--success-soft:#D9EAE3;--error:#9C3B2C;--error-soft:#F1DCD4;
+  --type-ink:#4A4470;--type-soft:#E4E0F0;
+  --font-display:'Noto Serif TC',serif;--font-body:'Noto Sans TC',sans-serif;--font-mono:'IBM Plex Mono',monospace;
 }
-
-*{box-sizing:border-box;}
-html,body{margin:0;padding:0;}
-body{
-  background:var(--paper);
-  color:var(--ink);
-  font-family:var(--font-body);
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-}
-
-.exam-header{
-  background:var(--pine-deep);
-  color:var(--paper);
-  padding:6rem 28px 30px;
-  position:relative;
-  overflow:hidden;
-  background-image:
-    repeating-linear-gradient(0deg, rgba(239,237,228,0.035) 0px, rgba(239,237,228,0.035) 1px, transparent 1px, transparent 28px);
-}
-.eyebrow{
-  font-family:var(--font-mono);
-  font-size: 20px;
-  letter-spacing:0.18em;
-  text-transform:uppercase;
-  color:#B9CFC2;
-  margin:0 0 10px;
-}
-.exam-title{
-  font-family:var(--font-display);
-  font-weight:900;
-  font-size:clamp(26px,4vw,38px);
-  margin:0 0 8px;
-  letter-spacing:0.02em;
-}
-.exam-sub{
-  font-size: 20px;
-  color:#CFE0D6;
-  margin:0 0 18px;
-  max-width:1900px;
-}
-.meta-row{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px 22px;
-  font-family:var(--font-mono);
-  font-size: 20px;
-  color:#DCE7DF;
-  border-top:1px solid rgba(239,237,228,0.22);
-  padding-top:14px;
-}
+*{box-sizing:border-box;}html,body{margin:0;padding:0;}
+body{background:var(--paper);color:var(--ink);font-family:var(--font-body);line-height:1.65;-webkit-font-smoothing:antialiased;}
+.exam-header{background:var(--pine-deep);color:var(--paper);padding:60px 28px 30px;position:relative;overflow:hidden;
+  background-image:repeating-linear-gradient(0deg,rgba(239,237,228,.035) 0,rgba(239,237,228,.035) 1px,transparent 1px,transparent 28px);}
+.eyebrow{font-family:var(--font-mono);font-size: 20px;letter-spacing:.18em;text-transform:uppercase;color:#B9CFC2;margin:0 0 10px;}
+.exam-title{font-family:var(--font-display);font-weight:900;font-size:clamp(22px,3.5vw,34px);margin:0 0 8px;letter-spacing:.02em;}
+.exam-sub{font-size: 20px;color:#CFE0D6;margin:0 0 18px;max-width:1680px;line-height:1.65;}
+.meta-row{display:flex;flex-wrap:wrap;gap:10px 22px;font-family:var(--font-mono);font-size: 20px;color:#DCE7DF;border-top:1px solid rgba(239,237,228,.22);padding-top:14px;}
 .meta-row span b{color:#fff;font-weight:600;}
-
-.seal{
-  position:absolute;
-  top:26px;
-  right:34px;
-  width:88px;
-  height:88px;
-  border:2px solid var(--ember);
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  transform:rotate(-9deg);
-  color:var(--ember);
-  font-family:var(--font-mono);
-  font-size: 20px;
-  letter-spacing:0.05em;
-  line-height:1.5;
-  font-weight:600;
-}
-.seal::before{
-  content:"";
-  position:absolute;
-  inset:6px;
-  border:1px solid var(--ember);
-  border-radius:50%;
-}
-@media (max-width:640px){ .seal{display:none;} }
-
-.wrap{
-  max-width:1900px;
-  margin:0 auto;
-  padding:22px 20px 60px;
-}
-.layout{
-  display:grid;
-  grid-template-columns:260px 1fr;
-  gap:22px;
-  align-items:start;
-}
-@media (max-width:880px){
-  .layout{grid-template-columns:1fr;}
-  .sidebar{order:2;}
-  .main-area{order:1;}
-}
-
-.filters{
-  display:flex;
-  gap:8px;
-  margin-bottom:16px;
-  flex-wrap:wrap;
-}
-.chip{
-  font-family:var(--font-mono);
-  font-size: 20px;
-  letter-spacing:0.03em;
-  padding:7px 13px;
-  border:1px solid var(--slate-line);
-  background:var(--card);
-  color:var(--ink-soft);
-  border-radius:3px;
-  cursor:pointer;
-  transition:all .15s ease;
-}
+.seal{position:absolute;top:26px;right:34px;width:88px;height:88px;border:2px solid var(--ember);border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;transform:rotate(-9deg);color:var(--ember);font-family:var(--font-mono);font-size: 20px;letter-spacing:.05em;line-height:1.5;font-weight:600;}
+.seal::before{content:"";position:absolute;inset:6px;border:1px solid var(--ember);border-radius:50%;}
+@media(max-width:640px){.seal{display:none;}}
+.wrap{max-width:1900px;margin:0 auto;padding:22px 20px 60px;}
+.layout{display:grid;grid-template-columns:260px 1fr;gap:22px;align-items:start;}
+@media(max-width:880px){.layout{grid-template-columns:1fr;}.sidebar{order:2;}.main-area{order:1;}}
+.filters{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;}
+.chip{font-family:var(--font-mono);font-size: 20px;letter-spacing:.03em;padding:7px 13px;border:1px solid var(--slate-line);background:var(--card);color:var(--ink-soft);border-radius:3px;cursor:pointer;transition:all .15s ease;}
 .chip:hover{border-color:var(--pine);color:var(--pine);}
-.chip.active{
-  background:var(--pine);
-  border-color:var(--pine);
-  color:var(--paper);
-}
-
-.sidebar{
-  background:var(--card);
-  border:1px solid var(--slate-line);
-  border-radius:4px;
-  padding:16px;
-  position:sticky;
-  top:18px;
-}
-.sidebar h3{
-  font-family:var(--font-mono);
-  font-size: 20px;
-  letter-spacing:0.12em;
-  text-transform:uppercase;
-  color:var(--ink-soft);
-  margin:0 0 4px;
-}
-.sidebar .score-line{
-  font-family:var(--font-mono);
-  font-size: 20px;
-  color:var(--ink);
-  margin:0 0 14px;
-  padding-bottom:12px;
-  border-bottom:1px dashed var(--slate-line);
-}
-.sidebar .score-line b{font-size:20px;color:var(--pine);}
-.grid-cards{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:6px;
-  margin-bottom:14px;
-}
-.cell{
-  position:relative;
-  aspect-ratio:1/1;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-family:var(--font-mono);
-  font-size: 20px;
-  font-weight:500;
-  background:#fff;
-  border:1px solid var(--slate-line);
-  border-top-width:3px;
-  border-top-color:var(--pine);
-  color:var(--ink-soft);
-  border-radius:2px;
-  cursor:pointer;
-  transition:transform .1s ease;
-}
+.chip.active{background:var(--pine);border-color:var(--pine);color:var(--paper);}
+.sidebar{background:var(--card);border:1px solid var(--slate-line);border-radius:4px;padding:16px;position:sticky;top:18px;}
+.sidebar h3{font-family:var(--font-mono);font-size: 20px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 4px;}
+.sidebar .score-line{font-family:var(--font-mono);font-size: 20px;color:var(--ink);margin:0 0 14px;padding-bottom:12px;border-bottom:1px dashed var(--slate-line);}
+.sidebar .score-line b{font-size: 20px;color:var(--pine);}
+.grid-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:14px;}
+.cell{aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size: 20px;font-weight:500;background:#fff;border:1px solid var(--slate-line);border-top-width:3px;border-top-color:var(--pine);color:var(--ink-soft);border-radius:2px;cursor:pointer;transition:transform .1s ease;}
 .cell.unit-L122{border-top-color:var(--ember);}
 .cell.correct{background:var(--success-soft);border-color:var(--success);color:var(--success);}
 .cell.incorrect{background:var(--error-soft);border-color:var(--error);color:var(--error);}
 .cell.current{outline:2px solid var(--pine);outline-offset:1px;}
 .cell:hover{transform:translateY(-1px);}
-.legend{
-  font-family:var(--font-mono);
-  font-size: 20px;
-  color:var(--ink-soft);
-  display:flex;
-  flex-direction:column;
-  gap:5px;
-  margin-bottom:14px;
-}
+.legend{font-family:var(--font-mono);font-size: 20px;color:var(--ink-soft);display:flex;flex-direction:column;gap:5px;margin-bottom:14px;}
 .legend span{display:flex;align-items:center;gap:6px;}
 .dot{width:9px;height:9px;border-radius:2px;display:inline-block;}
-.dot.l121{background:var(--pine);}
-.dot.l122{background:var(--ember);}
-.dot.ok{background:var(--success);}
-.dot.bad{background:var(--error);}
-
-.btn{
-  width:100%;
-  font-family:var(--font-body);
-  font-size: 20px;
-  font-weight:700;
-  padding:11px;
-  border-radius:3px;
-  border:1px solid var(--pine);
-  background:var(--pine);
-  color:var(--paper);
-  cursor:pointer;
-  transition:opacity .15s ease;
-}
-.btn:hover{opacity:.88;}
-.btn.ghost{
-  background:transparent;
-  color:var(--pine);
-  margin-top:8px;
-}
-.btn:disabled{opacity:.4;cursor:not-allowed;}
-
-.q-card{
-  background:var(--card);
-  border:1px solid var(--slate-line);
-  border-radius:4px;
-  padding:26px 26px 22px;
-}
-.q-top{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-bottom:16px;
-}
-.pill{
-  font-family:var(--font-mono);
-  font-size: 20px;
-  padding:4px 10px;
-  border-radius:20px;
-  letter-spacing:0.03em;
-  font-weight:600;
-}
-.pill.unit{background:var(--pine);color:var(--paper);}
-.pill.unit.l122{background:var(--ember);}
-.pill.diff-easy{background:var(--success-soft);color:var(--success);}
+.dot.l121{background:var(--pine);}.dot.l122{background:var(--ember);}.dot.ok{background:var(--success);}.dot.bad{background:var(--error);}
+.btn{width:100%;font-family:var(--font-body);font-size: 20px;font-weight:700;padding:11px;border-radius:3px;border:1px solid var(--pine);background:var(--pine);color:var(--paper);cursor:pointer;transition:opacity .15s ease;}
+.btn:hover{opacity:.88;}.btn.ghost{background:transparent;color:var(--pine);margin-top:8px;}
+.q-card{background:var(--card);border:1px solid var(--slate-line);border-radius:4px;padding:26px 26px 22px;}
+.q-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:16px;}
+.pill{font-family:var(--font-mono);font-size: 20px;padding:4px 10px;border-radius:20px;letter-spacing:.03em;font-weight:600;}
+.pill.unit{background:var(--pine);color:var(--paper);}.pill.unit.l122{background:var(--ember);}
 .pill.diff-medium{background:var(--gold-soft);color:var(--gold);}
 .pill.diff-hard{background:var(--error-soft);color:var(--error);}
-.q-count{
-  margin-left:auto;
-  font-family:var(--font-mono);
-  font-size: 20px;
-  color:var(--ink-soft);
-}
-.q-text{
-  font-family:var(--font-display);
-  font-size:20px;
-  font-weight:500;
-  line-height:1.75;
-  margin:0 0 22px;
-  color:var(--ink);
-}
-.options{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  margin-bottom:8px;
-}
-.opt{
-  display:flex;
-  align-items:flex-start;
-  gap:13px;
-  padding:13px 15px;
-  border:1px solid var(--slate-line);
-  border-radius:3px;
-  background:#fff;
-  cursor:pointer;
-  text-align:left;
-  font-family:var(--font-body);
-  font-size: 20px;
-  color:var(--ink);
-  line-height:1.55;
-  transition:border-color .12s ease, background .12s ease;
-  width:100%;
-}
+.pill.type{background:var(--type-soft);color:var(--type-ink);}
+.q-count{margin-left:auto;font-family:var(--font-mono);font-size: 20px;color:var(--ink-soft);}
+.q-text{font-family:var(--font-display);font-size: 20px;font-weight:500;line-height:1.75;margin:0 0 22px;color:var(--ink);}
+.options{display:flex;flex-direction:column;gap:10px;margin-bottom:8px;}
+.opt{display:flex;align-items:flex-start;gap:13px;padding:13px 15px;border:1px solid var(--slate-line);border-radius:3px;background:#fff;cursor:pointer;text-align:left;font-family:var(--font-body);font-size: 20px;color:var(--ink);line-height:1.55;transition:border-color .12s,background .12s;width:100%;}
 .opt:hover:not(.locked){border-color:var(--pine);background:#FBFAF6;}
-.opt-letter{
-  font-family:var(--font-mono);
-  font-weight:700;
-  font-size: 20px;
-  width:22px;
-  height:22px;
-  min-width:22px;
-  border-radius:50%;
-  border:1.5px solid var(--ink-soft);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin-top:1px;
-}
+.opt-letter{font-family:var(--font-mono);font-weight:700;font-size: 20px;width:22px;height:22px;min-width:22px;border-radius:50%;border:1.5px solid var(--ink-soft);display:flex;align-items:center;justify-content:center;margin-top:1px;}
 .opt.selected-correct{background:var(--success-soft);border-color:var(--success);}
 .opt.selected-correct .opt-letter{border-color:var(--success);background:var(--success);color:#fff;}
 .opt.selected-wrong{background:var(--error-soft);border-color:var(--error);}
@@ -329,147 +70,36 @@ body{
 .opt.reveal-correct{border-color:var(--success);background:var(--success-soft);}
 .opt.reveal-correct .opt-letter{border-color:var(--success);background:var(--success);color:#fff;}
 .opt.locked{cursor:default;}
-
-.explain{
-  margin-top:16px;
-  padding:15px 16px;
-  background:var(--paper-deep);
-  border-left:3px solid var(--ember);
-  border-radius:2px;
-  font-size:20px;
-  color:var(--ink-soft);
-  display:none;
-  line-height:1.75;
-}
+.explain{margin-top:16px;padding:15px 16px;background:var(--paper-deep);border-left:3px solid var(--ember);border-radius:2px;font-size:13.8px;color:var(--ink-soft);display:none;line-height:1.75;}
 .explain.show{display:block;}
-.explain b{
-  font-family:var(--font-mono);
-  font-size: 20px;
-  color:var(--ember);
-  letter-spacing:0.06em;
-  display:block;
-  margin-bottom:6px;
-}
-
-.q-nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-top:22px;
-  padding-top:18px;
-  border-top:1px dashed var(--slate-line);
-}
-.nav-btn{
-  font-family:var(--font-body);
-  font-size: 20px;
-  font-weight:700;
-  padding:9px 16px;
-  border-radius:3px;
-  border:1px solid var(--ink-soft);
-  background:transparent;
-  color:var(--ink);
-  cursor:pointer;
-}
+.explain b{font-family:var(--font-mono);font-size: 20px;color:var(--ember);letter-spacing:.06em;display:block;margin-bottom:6px;}
+.q-nav{display:flex;justify-content:space-between;align-items:center;margin-top:22px;padding-top:18px;border-top:1px dashed var(--slate-line);}
+.nav-btn{font-family:var(--font-body);font-size: 20px;font-weight:700;padding:9px 16px;border-radius:3px;border:1px solid var(--ink-soft);background:transparent;color:var(--ink);cursor:pointer;}
 .nav-btn:hover:not(:disabled){background:var(--ink);color:var(--paper);}
 .nav-btn:disabled{opacity:.35;cursor:not-allowed;}
 .nav-btn.primary{background:var(--pine);border-color:var(--pine);color:var(--paper);}
-.nav-btn.primary:hover{opacity:.88;background:var(--pine);color:var(--paper);}
-
-.results{display:none;}
-.results.show{display:block;}
-.results-score{
-  text-align:center;
-  padding:18px 0 26px;
-  border-bottom:1px dashed var(--slate-line);
-  margin-bottom:22px;
-}
-.results-score .num{
-  font-family:var(--font-mono);
-  font-size:52px;
-  font-weight:700;
-  color:var(--pine);
-}
-.results-score .label{
-  font-family:var(--font-mono);
-  font-size: 20px;
-  letter-spacing:0.12em;
-  text-transform:uppercase;
-  color:var(--ink-soft);
-  margin-top:4px;
-}
-.breakdown{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:16px;
-  margin-bottom:24px;
-}
-@media (max-width:560px){.breakdown{grid-template-columns:1fr;}}
-.bd-block{
-  border:1px solid var(--slate-line);
-  border-radius:3px;
-  padding:14px 16px;
-}
-.bd-block h4{
-  font-family:var(--font-mono);
-  font-size: 20px;
-  letter-spacing:0.08em;
-  text-transform:uppercase;
-  color:var(--ink-soft);
-  margin:0 0 10px;
-}
-.bd-row{
-  display:flex;
-  justify-content:space-between;
-  font-size: 20px;
-  padding:6px 0;
-  border-bottom:1px solid var(--paper-deep);
-}
+.nav-btn.primary:hover{opacity:.88;}
+.results{display:none;}.results.show{display:block;}
+.results-score{text-align:center;padding:18px 0 26px;border-bottom:1px dashed var(--slate-line);margin-bottom:22px;}
+.results-score .num{font-family:var(--font-mono);font-size:52px;font-weight:700;color:var(--pine);}
+.results-score .label{font-family:var(--font-mono);font-size: 20px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px;}
+.breakdown{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:24px;}
+@media(max-width:760px){.breakdown{grid-template-columns:1fr;}}
+.bd-block{border:1px solid var(--slate-line);border-radius:3px;padding:14px 16px;}
+.bd-block h4{font-family:var(--font-mono);font-size: 20px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 10px;}
+.bd-row{display:flex;justify-content:space-between;font-size: 20px;padding:6px 0;border-bottom:1px solid var(--paper-deep);}
 .bd-row:last-child{border-bottom:none;}
 .bd-row span.n{font-family:var(--font-mono);color:var(--ink-soft);}
-.wrong-list{
-  border:1px solid var(--slate-line);
-  border-radius:3px;
-  padding:14px 16px;
-}
-.wrong-list h4{
-  font-family:var(--font-mono);
-  font-size: 20px;
-  letter-spacing:0.08em;
-  text-transform:uppercase;
-  color:var(--error);
-  margin:0 0 10px;
-}
-.wrong-item{
-  display:flex;
-  gap:10px;
-  align-items:flex-start;
-  padding:8px 0;
-  border-bottom:1px solid var(--paper-deep);
-  cursor:pointer;
-}
+.wrong-list{border:1px solid var(--slate-line);border-radius:3px;padding:14px 16px;}
+.wrong-list h4{font-family:var(--font-mono);font-size: 20px;letter-spacing:.08em;text-transform:uppercase;color:var(--error);margin:0 0 10px;}
+.wrong-item{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--paper-deep);cursor:pointer;}
 .wrong-item:last-child{border-bottom:none;}
-.wrong-item .qn{
-  font-family:var(--font-mono);
-  font-size: 20px;
-  color:var(--error);
-  min-width:34px;
-}
-.wrong-item .qt{
-  font-size: 20px;
-  color:var(--ink-soft);
-}
+.wrong-item .qn{font-family:var(--font-mono);font-size: 20px;color:var(--error);min-width:34px;}
+.wrong-item .qt{font-size: 20px;color:var(--ink-soft);}
 .wrong-item:hover .qt{color:var(--pine);}
 .no-wrong{color:var(--success);font-size: 20px;text-align:center;padding:10px 0;}
-
-.footer-note{
-  text-align:center;
-  font-family:var(--font-mono);
-  font-size: 20px;
-  color:var(--slate);
-  margin-top:36px;
-  letter-spacing:0.03em;
-}
-.badgerowbt {
+.footer-note{text-align:center;font-family:var(--font-mono);font-size: 20px;color:var(--slate);margin-top:36px;letter-spacing:.03em;}
+	.badgerowbt {
     position: fixed;
     top: 0;
     left: 0;
@@ -525,7 +155,7 @@ a.badge3 {
     transition: all 0.2s ease;
 }
   @media(max-width:768px){
-  .exam-header {  margin-top: 6rem ;padding:8px 18px 30px;}
+  .exam-header {  margin-top: 6rem;padding:8px 18px 30px;}
     
   }
 </style>
@@ -552,32 +182,29 @@ a.badge3 {
 	<div><a href="https://snoweryi.github.io/yilearn/exam_01_18.html" class="badge1">18</a></div>
 	
 	
+	
 	<div><a href="https://snoweryi.github.io/yilearn/menu.html" class="badge3">目錄</a></div>
   </div>
 <div class="exam-header">
-  <p class="eyebrow">2026年度 · IPAS 專業能力鑑定 · 命題委員會審定試題庫</p>
-  <h1 class="exam-title">淨零碳盤查規範與程序概要｜模擬試題</h1>
-  <p class="exam-sub">L12 淨零碳盤查規範與程序概要：L121 ISO 14064-1:2018 組織型溫室氣體盤查 ｜ L122 ISO 14067:2018 標準與規範（產品碳足跡）</p>
+  <p class="eyebrow">2026年8月15日 · iPAS 淨零碳規劃管理師 · 命題委員會審定（L12第三套·全新題組）</p>
+  <h1 class="exam-title">L12 淨零碳盤查規範與程序概要｜模擬試題（第三套）</h1>
+  <p class="exam-sub">L121 ISO 14064-1:2018 組織型溫室氣體盤查（第1–25題）｜L122 ISO 14067:2018 產品碳足跡（第26–50題）。全新第三套題組，涵蓋量化方法比較、電動設備排放歸屬、廢棄物建模、回收材料處理、碳足跡通知/主張/宣告三類型、生物碳暫存及數據品質評級等全新考點，中難混合，正解分布A12·B13·C12·D13。</p>
   <div class="meta-row">
     <span>鑑定日期 <b>2026/08/15</b></span>
-    <span>題型 <b>互動式選擇題</b></span>
     <span>總題數 <b>50</b></span>
-    <span>難度配比 <b>易30% · 中50% · 難20%</b></span>
-    <span>涵蓋單元 <b>L12101–L12104 ／ L12201–L12205</b></span>
+    <span>難度配比 <b>中25·難25</b></span>
+    <span>情境應用 <b>100%</b></span>
+    <span>正解分布 <b>A12·B13·C12·D13</b></span>
   </div>
-  <div class="seal">命題<br>委員會<br>核定 · 2026</div>
+  <div class="seal">命題<br>委員會<br>核定·2026</div>
 </div>
-
 <div class="wrap">
-
   <div class="filters">
     <button class="chip active" data-filter="all">全部 50 題</button>
     <button class="chip" data-filter="L121">L121 ISO 14064-1（1–25）</button>
     <button class="chip" data-filter="L122">L122 ISO 14067（26–50）</button>
   </div>
-
   <div class="layout">
-
     <div class="sidebar">
       <h3>答案卡</h3>
       <p class="score-line">已作答 <b id="answeredCount">0</b> / 50　正確 <b id="correctCount">0</b></p>
@@ -591,12 +218,12 @@ a.badge3 {
       <button class="btn" id="jumpUnanswered">前往下一題未作答</button>
       <button class="btn ghost" id="toResultsBtn">查看成績總覽 →</button>
     </div>
-
     <div class="main-area">
       <div class="q-card" id="quizCard">
         <div class="q-top">
           <span class="pill unit" id="unitPill">L12101</span>
-          <span class="pill" id="diffPill">易</span>
+          <span class="pill diff-medium" id="diffPill">中</span>
+          <span class="pill type" id="typePill">情境應用</span>
           <span class="q-count" id="qCount">第 1 題 / 50</span>
         </div>
         <p class="q-text" id="qText"></p>
@@ -607,98 +234,98 @@ a.badge3 {
           <button class="nav-btn primary" id="nextBtn">下一題 →</button>
         </div>
       </div>
-
       <div class="q-card results" id="resultsCard">
-        <div class="results-score">
-          <div class="num" id="finalScore">0 / 50</div>
-          <div class="label">總成績</div>
-        </div>
+        <div class="results-score"><div class="num" id="finalScore">0 / 50</div><div class="label">總成績</div></div>
         <div class="breakdown">
-          <div class="bd-block">
-            <h4>依單元分析</h4>
-            <div id="byUnit"></div>
-          </div>
-          <div class="bd-block">
-            <h4>依難度分析</h4>
-            <div id="byDiff"></div>
-          </div>
+          <div class="bd-block"><h4>依單元</h4><div id="byUnit"></div></div>
+          <div class="bd-block"><h4>依難度</h4><div id="byDiff"></div></div>
+          <div class="bd-block"><h4>依子單元</h4><div id="bySub"></div></div>
         </div>
-        <div class="wrong-list">
-          <h4>需複習題目</h4>
-          <div id="wrongList"></div>
-        </div>
+        <div class="wrong-list"><h4>需複習題目</h4><div id="wrongList"></div></div>
         <div class="q-nav" style="border-top:none;justify-content:flex-end;gap:10px;">
           <button class="nav-btn" id="backToQuizBtn">← 回到題目</button>
           <button class="nav-btn primary" id="restartBtn">重新作答</button>
         </div>
       </div>
     </div>
-
   </div>
-
-  <p class="footer-note">本試題庫依 ISO 14064-1:2018 組織型溫室氣體盤查標準、ISO 14067:2018 產品碳足跡標準及 2026 年台灣碳費／CBAM 供應鏈減碳情境編製，僅供學習演練之用。</p>
+  <p class="footer-note">本試題庫（L12第三套）依ISO 14064-1:2018、ISO 14067:2018及2026年台灣碳費制度編製，與前兩套內容完全不重複，正解分布A12·B13·C12·D13，無連續3題以上同位置，僅供學習演練之用。</p>
 </div>
 <script>
-const QUESTIONS = [
-{unit:"L12101",uname:"組織型盤查範圍與規範說明",diff:"easy",q:"ISO 14064-1:2018標準的主要規範對象及核心目的為何？",opts:["規定組織層級溫室氣體排放與移除之量化及報告之原則與要求事項，包含盤查之設計、發展、管理、報告及查證之要求","僅規範產品碳足跡之計算方法","專門規範政府部門溫室氣體稅制","取代巴黎協定成為國際強制條約"],a:0,ex:"ISO 14064-1:2018規定組織層級對溫室氣體排放與移除之量化及報告之原則與要求事項，涵蓋盤查清冊的設計、發展、管理、報告及查證等面向，是企業進行組織型溫室氣體盤查最主要採用的國際標準。"},
-{unit:"L12101",uname:"組織型盤查範圍與規範說明",diff:"easy",q:"ISO 14064系列標準中，ISO 14064-1、14064-2、14064-3分別對應何種層級之規範？",opts:["14064-1為組織層級盤查清冊；14064-2為專案層級減量/移除增量之量化監督與報告；14064-3為溫室氣體聲明之查證與確證","三者皆為組織層級規範，僅產業別不同","14064-1為產品層級，14064-2為組織層級，14064-3為國家層級","三者為同一標準的不同語言版本"],a:0,ex:"ISO 14064-1為組織層級溫室氣體盤查清冊之設計發展規範；ISO 14064-2針對專案層級之溫室氣體排放減量或移除增量提供量化、監督及報告指引；ISO 14064-3則規範溫室氣體聲明之查證與確證程序，三者分工明確、互為配套。"},
-{unit:"L12101",uname:"組織型盤查範圍與規範說明",diff:"easy",q:"依ISO 14064-1:2018，溫室氣體排放量應以何種單位進行量化？",opts:["公噸二氧化碳當量(tCO2e)，依各溫室氣體之全球暖化潛勢(GWP)換算","公斤碳元素重量","僅以體積單位(立方公尺)表示","以新台幣計算之碳成本"],a:0,ex:"依ISO 14064-1:2018規定，組織應以公噸二氧化碳當量(tCO2e)為單位，運用適當之全球暖化潛勢(GWP)值，將各類溫室氣體排放量換算為可加總比較之共同單位。"},
-{unit:"L12101",uname:"組織型盤查範圍與規範說明",diff:"medium",q:"某半導體封裝廠計畫於2026年依ISO 14064-1:2018建立組織型溫室氣體盤查清冊，依現行2018年版標準，應量化之溫室氣體種類共有幾種？",opts:["七種（CO2、CH4、N2O、HFCs、PFCs、SF6、NF3）","六種，不含NF3","僅二氧化碳一種","十五種，對應範疇三十五類別"],a:0,ex:"ISO 14064-1:2018版相較2006年舊版新增了三氟化氮(NF3)，故應量化之溫室氣體共七種：二氧化碳(CO2)、甲烷(CH4)、氧化亞氮(N2O)、氫氟碳化物(HFCs)、全氟碳化物(PFCs)、六氟化硫(SF6)及三氟化氮(NF3)。"},
-{unit:"L12101",uname:"組織型盤查範圍與規範說明",diff:"medium",q:"依ISO 14064-1:2018量化原則，「準確性」(Accuracy)原則之要求為何？",opts:["應採用能反映實際排放狀況之活動數據與排放係數，並透過定期校驗儀器量測取得，以降低偏差與不確定性","僅要求數據須由第三方提供，組織自身數據一律不得採用","準確性係指排放量須精確至小數點後十位數","與透明度原則完全相同，無須區分"],a:0,ex:"準確性原則要求組織應注意盤查量化方式（如活動數據與排放係數選用），確保數據能最真實反映實際排放狀況，並透過定期校驗儀器取得，以降低偏差及不確定性，是ISO 14064-1五大原則之一。"},
-{unit:"L12101",uname:"組織型盤查範圍與規範說明",diff:"medium",q:"ISO 14064-1:2018規範之溫室氣體盤查五大原則，下列何者不屬於其中？",opts:["獲利性(Profitability)","攸關性(Relevance)","完整性(Completeness)","一致性(Consistency)"],a:0,ex:"ISO 14064-1:2018規範之五大原則為攸關性、完整性、一致性、準確性及透明度，並未包含「獲利性」，獲利性屬企業財務管理概念，非溫室氣體盤查之品質原則。"},
-{unit:"L12101",uname:"組織型盤查範圍與規範說明",diff:"medium",q:"「攸關性」(Relevance)原則於溫室氣體盤查中之意涵為何？",opts:["選用適切之溫室氣體源、數據及方法，以符合預期使用者之需求，確保盤查結果具參考價值","僅指排放量須與公司營收具正相關","指盤查結果須與政府公告數字完全一致","與準確性原則意義相同，可互換使用"],a:0,ex:"攸關性原則要求組織選用適切的溫室氣體排放源、數據及計算方法，以確保盤查清冊能適當反映組織實際情形並符合預期使用者（如投資人、主管機關）之決策需求。"},
-{unit:"L12101",uname:"組織型盤查範圍與規範說明",diff:"hard",q:"在2026年台灣碳費全面徵收及供應鏈減碳壓力加劇的背景下，某跨國連鎖餐飲品牌之台灣分公司被總部要求依ISO 14064-1:2018建立溫室氣體盤查清冊，此舉最主要呼應何種國際趨勢？",opts:["全球供應鏈下游企業日益要求上游夥伴提供具公信力之第三方驗證盤查數據，以利進行範疇三排放管理及因應CBAM等碳關稅與SBTi目標設定","ISO 14064-1僅適用於製造業，餐飲服務業不應採用","此舉與國際趨勢無關，純屬企業內部管理需求","採用ISO 14064-1即可自動免除台灣碳費繳納義務"],a:0,ex:"隨全球供應鏈減碳要求日益嚴格，上游供應商與下游品牌商皆須建立可信賴之溫室氣體數據，以利因應CBAM等碳關稅、SBTi目標設定及客戶範疇三盤查需求，採用ISO 14064-1建立具公信力之組織型盤查清冊，是企業回應此趨勢的重要基礎工作，惟取得盤查清冊本身並不直接等同免除碳費繳納義務。"},
-{unit:"L12102",uname:"組織型盤查邊界界定",diff:"easy",q:"ISO 14064-1:2018中，界定組織邊界可採用之兩種方法為何？",opts:["股權比例法(Equity Share)與控制法(Control Approach)","直接法與間接法","上游法與下游法","量化法與質化法"],a:0,ex:"ISO 14064-1:2018規定組織邊界界定可採用股權比例法（依各事業體持股比例認列排放）或控制法（對所控制之設施採100%認列），組織應選擇最能反映其實質影響力之方法並文件化說明。"},
-{unit:"L12102",uname:"組織型盤查邊界界定",diff:"easy",q:"「控制法」(Control Approach)界定組織邊界時，又可進一步區分為哪兩種準則？",opts:["財務控制與營運控制","國內控制與國外控制","短期控制與長期控制","主動控制與被動控制"],a:0,ex:"控制法可再區分為財務控制（依是否具主導財務政策能力認列）與營運控制（依是否具主導營運政策能力認列）兩類準則，組織應選擇最能反映其對該設施實質控制力之準則並一致採用。"},
-{unit:"L12102",uname:"組織型盤查邊界界定",diff:"medium",q:"某公司於台灣、越南各設有一座工廠，對越南廠僅持股40%但具完整營運主導權（人事、採購、生產決策皆由台灣總公司決定），若該公司採用「控制法」中之「營運控制」準則界定組織邊界，越南廠之溫室氣體排放應如何認列？",opts:["應依100%認列方式，將越南廠全部排放量納入組織邊界","僅依40%持股比例認列","完全排除於組織邊界外，無須盤查","依台灣與越南兩國法規孰嚴認列"],a:0,ex:"採用「控制法」（無論財務控制或營運控制）界定組織邊界時，對於組織具控制權之設施，應採100%認列方式處理其溫室氣體排放，而非依持股比例分攤，此與股權比例法之分攤邏輯不同；本案例中公司具完整營運主導權，故應依營運控制準則100%納入越南廠排放量。"},
-{unit:"L12102",uname:"組織型盤查邊界界定",diff:"medium",q:"依ISO 14064-1:2018，當一個設施同時由多個組織擁有或控制時，這些組織於認列該設施溫室氣體排放時應如何處理？",opts:["這些組織須對該設施採用相同之彙總方法（股權比例法或控制法），並文件化說明","各組織可任意選擇不同方法，互不影響","應由排放量較大之組織單方面決定計算方式","此情況下該設施排放量無須被任何組織納入盤查"],a:0,ex:"為避免重複計算或漏列，ISO 14064-1:2018規定當設施由多組織共同擁有或控制時，相關組織須就該設施採用相同之彙總方法（股權比例或控制法），並文件化其決定過程與理由，以確保盤查結果之一致性與可比較性。"},
-{unit:"L12102",uname:"組織型盤查邊界界定",diff:"medium",q:"ISO 14064-1:2018之「報告邊界」與舊版2006年「盤查邊界」最主要的差異為何？",opts:["報告邊界將排放分類由舊版三大範疇調整為六大類別，並要求文件化重大性評估準則以決定間接排放納入範圍","報告邊界僅涵蓋直接排放，完全排除間接排放","報告邊界與盤查邊界為完全相同之概念，無實質差異","報告邊界僅適用於上市公司，盤查邊界適用於所有組織"],a:0,ex:"2018年版最大變革之一，是將排放分類架構由舊版三大範疇調整為六大類別，並要求組織針對間接排放（除類別1直接排放外）建立並文件化重大性評估準則，以決定哪些間接排放應納入報告邊界，使盤查結果更具系統性與可追溯性。"},
-{unit:"L12102",uname:"組織型盤查邊界界定",diff:"hard",q:"依ISO 14064-1:2018六大類別架構，下列關於「類別二：輸入能源間接排放」與「類別三：運輸間接排放」之敘述，何者正確？",opts:["類別二對應外購電力、蒸氣、熱或冷等能源使用所產生之間接排放（近似GHG Protocol範疇二）；類別三涵蓋上下游運輸、員工通勤、商務旅行等與運輸相關之間接排放","類別二涵蓋所有供應鏈上游採購之排放，類別三僅指國際海運排放","類別二與類別三皆屬於組織直接排放，須強制量化","類別二、三、四、五、六五大類別合稱為「直接排放」"],a:0,ex:"ISO 14064-1:2018六大類別中，類別二為輸入能源間接排放，對應外購電力、蒸氣、供暖供冷等能源使用所產生之間接排放，概念上近似GHG Protocol之範疇二；類別三為運輸間接排放，涵蓋上游/下游運輸、員工通勤、商務旅行及訪客活動等，僅有類別一（直接排放與移除）屬強制量化項目，類別二至六則須依重大性評估決定是否納入報告邊界。"},
-{unit:"L12103",uname:"溫室氣體排放量量化計算",diff:"easy",q:"溫室氣體排放量計算之基本公式為何？",opts:["溫室氣體排放量＝活動數據(Activity Data) × 排放係數(Emission Factor)","溫室氣體排放量＝營業額 × 碳費費率","溫室氣體排放量＝員工人數 × 工時","溫室氣體排放量＝廠房面積 × 用電度數"],a:0,ex:"溫室氣體排放量計算最基本之公式為「活動數據 × 排放係數」，活動數據指造成排放之活動量（如用電度數、燃料用量），排放係數則為每單位活動量所對應之溫室氣體排放量。"},
-{unit:"L12103",uname:"溫室氣體排放量量化計算",diff:"easy",q:"「排放係數」(Emission Factor)係指何種數值？",opts:["將活動數據轉換為溫室氣體排放量之代表性比值，通常由政府主管機關或國際資料庫公告","企業自行設定之碳費繳納比例","員工對減碳政策之認同程度評分","與全球暖化潛勢(GWP)完全相同之概念"],a:0,ex:"排放係數是將特定活動數據（如每度電、每公升燃料）轉換為溫室氣體排放量之代表性比值，通常由政府環保主管機關（如台灣環境部）或國際資料庫（如IPCC、IEA）定期公告更新，供盤查者選用。"},
-{unit:"L12103",uname:"溫室氣體排放量量化計算",diff:"medium",q:"某半導體封裝廠2026年度用電量為500萬度，採用台灣環境部公告之電力排放係數0.474公斤CO2e/度，該廠用電所產生之間接溫室氣體排放量（類別二）約為多少公噸CO2e？",opts:["2,370公噸CO2e","23,700公噸CO2e","237公噸CO2e","5,000,000公噸CO2e"],a:0,ex:"計算式為500萬度 × 0.474公斤CO2e/度＝2,370,000公斤CO2e＝2,370公噸CO2e（換算單位：1公噸＝1,000公斤），此即該廠用電間接排放（類別二）之量化結果，計算時務必留意公斤與公噸之單位換算。"},
-{unit:"L12103",uname:"溫室氣體排放量量化計算",diff:"medium",q:"不同溫室氣體換算為二氧化碳當量(CO2e)時，所依據的轉換係數稱為何？應參考何種權威來源之數值？",opts:["全球暖化潛勢(Global Warming Potential, GWP)，應採用IPCC最新公布之數值為依據","碳交易所每日公告之即時碳價","各企業可自行任意設定，無須依循特定來源","僅依排放氣體之分子量直接換算，無須GWP"],a:0,ex:"不同溫室氣體（如CH4、N2O等）對全球暖化之影響程度不同，須透過全球暖化潛勢(GWP)值換算為與CO2同等效應之「二氧化碳當量」，依ISO 14064-1:2018規定，組織應採用政府間氣候變遷專門委員會(IPCC)最新公布之GWP值作為換算依據，以確保國際間數據之一致性與可比較性。"},
-{unit:"L12103",uname:"溫室氣體排放量量化計算",diff:"medium",q:"某公司盤查發現甲烷(CH4)排放量為10公噸，若採用IPCC公布之100年期全球暖化潛勢(GWP)值28進行換算，該排放量換算為二氧化碳當量約為多少公噸CO2e？",opts:["約280公噸CO2e","10公噸CO2e（不須換算）","約2.8公噸CO2e","約28萬公噸CO2e"],a:0,ex:"計算式為10公噸CH4 × 28（假設採用之GWP值）＝280公噸CO2e，此即說明為何即使實際排放重量相同，不同氣體種類因暖化潛勢不同，換算後之CO2e數值會有顯著差異，甲烷之暖化潛勢遠高於二氧化碳，是盤查中須特別留意的高潛勢氣體之一。"},
-{unit:"L12103",uname:"溫室氣體排放量量化計算",diff:"medium",q:"溫室氣體量化計算中，「初級數據」(Primary Data)與「次級數據」(Secondary Data)之主要差異為何？",opts:["初級數據係由組織自身場址直接量測、監測或計算所得之場址特定數據；次級數據則來自非組織自身來源，如資料庫、文獻或產業平均值等","初級數據僅適用於範疇一，次級數據僅適用於範疇二","兩者並無差異，可任意替換使用","次級數據之精確度必然優於初級數據"],a:0,ex:"初級數據（場址特定數據）是組織透過直接量測、監測或計算自身排放源所取得之數據，精確度通常較高；次級數據則來自外部資料庫、文獻、產業平均值或供應商提供之一般性數據，當初級數據無法取得時可作為替代來源，惟其代表性與不確定性須一併評估說明。"},
-{unit:"L12103",uname:"溫室氣體排放量量化計算",diff:"hard",q:"某連鎖咖啡品牌2026年於台灣不同分店分別記錄活動數據時，發現A分店使用屋頂型太陽光電自發自用部分電力，B分店則完全仰賴台電電網供電。若兩分店進行範疇二（類別二）排放量計算，下列敘述何者正確？",opts:["A分店自發自用之太陽光電部分因屬再生能源直接使用、未經電網交易，原則上可視為零排放而不計入該部分用電之間接排放量，僅外購電網電力部分須依排放係數計算","不論是否使用太陽光電，兩分店皆應依相同之外購電力排放係數計算全部用電量","太陽光電自發自用部分仍須以一般電力排放係數全額計入間接排放","自發自用太陽光電部分應計入類別一直接排放"],a:0,ex:"自發自用之再生能源（如屋頂型太陽光電）因不涉及電網外購行為，該部分用電通常被視為零排放，不納入類別二（外購能源間接排放）計算；僅有自台電電網實際外購之電力部分，須依當期適用之電力排放係數計算其間接排放量，企業應分別記錄自發自用與外購電量以利精確量化。"},
-{unit:"L12103",uname:"溫室氣體排放量量化計算",diff:"hard",q:"某製造業工廠盤查發現，其中一項排放源因設備老舊、計量儀器精度不足，導致活動數據存在較高不確定性，依ISO 14064-1:2018原則，組織應如何處理此情形？",opts:["應依「準確性」原則，採取合理可行之措施降低不確定性（如更新計量儀器、改善數據蒐集方法），並依「透明度」原則於報告中揭露該不確定性及其評估方式，而非逕行排除該排放源","因數據不確定性高，可直接排除該排放源、不予盤查","不確定性問題僅影響類別二至六之間接排放，類別一直接排放無須考量","應立即停止該設備運作，待購置新設備後才開始盤查"],a:0,ex:"ISO 14064-1:2018強調準確性與透明度原則，當數據存在較高不確定性時，組織應採取合理可行措施（如改善監測設備、提升數據蒐集品質）以降低不確定性，並於盤查報告中清楚揭露不確定性來源及評估方法，而非逕行排除該排放源，逕行排除將違反完整性原則。"},
-{unit:"L12104",uname:"排放清冊與報告書建立",diff:"easy",q:"溫室氣體排放清冊報告書應包含之基本內容不包含下列何者？",opts:["企業未來十年股價預測","組織邊界界定方法及說明","報告邊界涵蓋之類別與重大性評估準則","量化方法、活動數據來源及排放係數"],a:0,ex:"溫室氣體排放清冊報告書應包含組織邊界界定方法、報告邊界涵蓋類別及重大性評估準則、量化方法、活動數據來源、排放係數及不確定性說明等內容，「企業未來十年股價預測」屬財務預測範疇，與溫室氣體盤查報告書之要求事項無關。"},
-{unit:"L12104",uname:"排放清冊與報告書建立",diff:"medium",q:"某公司於2026年完成第一次溫室氣體盤查並選定2024年為「基準年」(Base Year)，隔年因擴廠新增一條生產線使排放量大幅增加，依ISO 14064-1:2018原則，該公司應如何處理基準年數據之可比較性？",opts:["應建立基準年重新計算政策，當發生組織結構重大變化（如新增產線、併購）時，依政策決定是否重新計算基準年排放量，以確保跨年度比較之一致性","基準年一經設定即永久不得調整，無論組織結構如何變化","應立即放棄使用基準年概念，改以每年排放量隨意比較","新增產線之排放量應排除於盤查範圍外，以維持基準年數值不變"],a:0,ex:"依ISO 14064-1:2018原則，組織應建立並文件化「基準年重新計算政策」，當發生可能影響歷史排放數據可比較性之重大結構變化（如新建/關閉產線、併購、外包等）時，依該政策評估是否需重新計算基準年排放量，以確保不同年度盤查結果具備有意義之可比較性，而非僵化地完全不可調整或隨意比較。"},
-{unit:"L12104",uname:"排放清冊與報告書建立",diff:"hard",q:"某公司溫室氣體盤查清冊經第三方查證機構查證後，查證報告對部分範疇三（類別三至六）數據提出「有限保證」(Limited Assurance)而非「合理保證」(Reasonable Assurance)之結論，下列解讀何者正確？",opts:["有限保證代表查證機構執行之查證程序範圍與證據蒐集深度較合理保證為低，雖未發現重大不實表達，但保證程度相對較弱，常見於範疇三等數據完整性與精確度較難掌握之類別","有限保證代表該數據完全不可信，應自報告書中全數刪除","有限保證與合理保證之查證結論效力完全相同，僅用詞不同","有限保證僅適用於範疇一直接排放，範疇三必須採用合理保證"],a:0,ex:"查證保證等級分為「合理保證」與「有限保證」，合理保證需執行較深入之查證程序與證據蒐集，提供較高之保證水準；有限保證則程序相對精簡，僅就所執行之程序表示「未發現導致相信數據有重大不實表達之事項」，保證程度相對較低，由於範疇三（類別三至六）數據來源廣泛、品質不一，實務上常見以有限保證方式處理，企業應於報告書中清楚揭露查證範圍與保證等級。"},
-{unit:"L12201",uname:"碳足跡管理與計算基礎原則",diff:"easy",q:"ISO 14067:2018標準的主要規範對象為何？",opts:["產品（含商品與服務）於生命週期中之碳足跡（溫室氣體排放與移除）量化及溝通之要求與指引","組織層級之溫室氣體盤查清冊設計","國家層級之溫室氣體減量目標設定","金融機構之氣候風險財務揭露"],a:0,ex:"ISO 14067:2018規範產品（包括商品與服務）碳足跡之量化要求與指引，聚焦於單一產品或服務於其生命週期各階段所產生之溫室氣體排放與移除量化及溝通方式，與規範組織層級盤查之ISO 14064-1屬不同層級之標準。"},
-{unit:"L12201",uname:"碳足跡管理與計算基礎原則",diff:"easy",q:"ISO 14067:2018取代下列何份原先之技術規範文件？",opts:["ISO/TS 14067:2013","PAS 2060:2014","ISO 14064-1:2006","GHG Protocol企業標準"],a:0,ex:"產品碳足跡相關規範最早於2013年以技術規範形式發布為ISO/TS 14067:2013，2018年8月正式升級為國際標準ISO 14067:2018，更明確規範產品碳足跡之量化與報告要求及指引。"},
-{unit:"L12201",uname:"碳足跡管理與計算基礎原則",diff:"medium",q:"「碳足跡」(Carbon Footprint of a Product, CFP)依ISO 14067:2018之定義，係指何種範疇之溫室氣體排放與移除？",opts:["一個產品系統於其生命週期中所產生之溫室氣體排放與移除總和，以二氧化碳當量表示","僅指該產品製造工廠單一年度之總排放量","僅指消費者使用產品階段所產生之排放量","與該產品所屬企業之組織型盤查結果完全相同"],a:0,ex:"碳足跡(CFP)係指一個產品系統（涵蓋原料取得、製造、配送、使用及廢棄處理等生命週期階段）所產生之溫室氣體排放與移除總和，以二氧化碳當量表示，其量化範疇是以「產品」為核心，與以「組織」為核心的ISO 14064-1盤查清冊在計算邏輯上有本質差異。"},
-{unit:"L12201",uname:"碳足跡管理與計算基礎原則",diff:"medium",q:"在2026年消費者日益重視「生活減碳」的背景下，某咖啡品牌於其包裝上標示已取得之碳足跡標籤，下列關於該標籤所代表意涵之敘述，何者正確？",opts:["該標籤代表該咖啡產品已依特定方法學（如CFP-PCR）完成生命週期碳足跡量化，並經查證或審查程序確認，使消費者得以辨識相對低碳之產品","該標籤代表此咖啡公司已完全達成淨零排放","該標籤代表此產品完全不含任何碳排放","取得碳足跡標籤即自動免除企業繳納碳費之義務"],a:0,ex:"碳足跡標籤是依特定產品類別規則(PCR)完成生命週期碳足跡量化，並經主管機關或第三方審查確認後核發之標示，目的在協助消費者辨識相對低碳之產品選項，並非代表該產品零排放、企業已達成淨零，亦與碳費繳納義務無直接關聯，兩者屬不同制度設計。"},
-{unit:"L12201",uname:"碳足跡管理與計算基礎原則",diff:"easy",q:"ISO 14067:2018新版相較舊版ISO/TS 14067:2013，於量化方法與名詞定義上新增之重要概念為何？",opts:["新增「全球溫度變化潛勢」(Global Temperature change Potential, GTP)作為除GWP外可額外考量之影響評估指標，並新增「關注區域」(Area of concern)等名詞定義","完全取消GWP概念，改以GTP作為唯一強制指標","新增規定所有產品碳足跡計算僅能使用初級數據，禁止使用次級數據","取消生命週期評估(LCA)作為碳足跡計算之基礎方法"],a:0,ex:"ISO 14067:2018新增「全球溫度變化潛勢」(GTP)作為除全球暖化潛勢(GWP)外可額外評估之影響因子選項（非取代GWP），並新增「關注區域」等名詞定義，使標準在量化方法之彈性與精確度上有所提升，惟生命週期評估(LCA)仍為碳足跡計算之核心基礎方法，初級與次級數據亦皆可依規定使用。"},
-{unit:"L12202",uname:"生命週期評估(LCA)概念",diff:"easy",q:"生命週期評估(Life Cycle Assessment, LCA)依ISO 14040規範，共分為哪四個階段？",opts:["目標與範疇界定、清冊分析、衝擊評估、結果闡釋","規劃、執行、查核、行動(PDCA)","設計、生產、銷售、回收","蒐集、分析、報告、發布"],a:0,ex:"依ISO 14040環境管理生命週期評估原則與架構之定義，LCA共分為四階段：目標與範疇界定（明確定義評估之目的與範圍）、清冊分析（蒐集投入產出數據）、衝擊評估（評估環境衝擊潛勢）及結果闡釋（綜合分析並提出結論建議），此架構亦為ISO 14067產品碳足跡量化之方法論基礎。"},
-{unit:"L12202",uname:"生命週期評估(LCA)概念",diff:"medium",q:"「搖籃到墳墓」(Cradle-to-Grave)、「搖籃到大門」(Cradle-to-Gate)與「大門到大門」(Gate-to-Gate)三種系統邊界類型之主要差異為何？",opts:["搖籃到墳墓涵蓋原料取得至最終廢棄處理之完整生命週期；搖籃到大門僅至產品離開工廠大門前（不含配送、使用、廢棄階段）；大門到大門則僅涵蓋單一製程階段之投入產出","三者範疇完全相同，僅命名不同","搖籃到大門涵蓋範圍最廣，包含廢棄處理階段","大門到大門涵蓋整個供應鏈，範圍最大"],a:0,ex:"「搖籃到墳墓」涵蓋產品從原料取得、製造、配送、使用至最終廢棄處理之完整生命週期，適用於完整碳足跡(Full CFP)研究；「搖籃到大門」僅計算至產品離開製造工廠大門前，不含配送、使用、廢棄階段，常用於B2B中間產品之部分碳足跡(Partial CFP)；「大門到大門」則僅聚焦單一製程站之投入產出，三者涵蓋範圍由大至小依序為搖籃到墳墓、搖籃到大門、大門到大門。"},
-{unit:"L12202",uname:"生命週期評估(LCA)概念",diff:"medium",q:"某生產螺絲釘的B2B零組件製造商計畫進行產品碳足跡量化，由於其產品多作為下游客戶組裝用零件，難以掌握下游客戶實際使用與最終廢棄方式，該公司較適合採用下列何種系統邊界進行量化？",opts:["搖籃到大門(Cradle-to-Gate)，並以「宣告單位」表示部分碳足跡結果","搖籃到墳墓(Cradle-to-Grave)，且必須強行假設下游使用情境","大門到墳墓(Gate-to-Grave)，僅計算廢棄處理階段","完全不須界定任何系統邊界"],a:0,ex:"對於難以掌握下游使用與廢棄情境之B2B中間產品（如螺絲釘等零組件），採用「搖籃到大門」系統邊界較為務實可行，僅計算至產品出廠前之原料取得與製造階段排放，並以「宣告單位」（而非用於完整比較研究之功能單位）表示此一「部分碳足跡」(Partial CFP)結果，避免因強行假設未知之下游情境而降低數據可信度。"},
-{unit:"L12202",uname:"生命週期評估(LCA)概念",diff:"medium",q:"LCA中「功能單位」(Functional Unit)與「宣告單位」(Declared Unit)之主要差異為何？",opts:["功能單位用於完整碳足跡研究，需明確定義產品所提供之功能及其量化基準，以利不同產品間之比較；宣告單位則用於部分碳足跡(Partial CFP)研究，僅作為量化之產品參考單位，不涉及功能比較","兩者意義完全相同，可任意替換使用","功能單位僅適用於服務業，宣告單位僅適用於製造業","宣告單位之精確度規定高於功能單位"],a:0,ex:"功能單位是定義產品系統所提供之功能及其量化基準（如「清洗6公斤衣物一次」），常用於進行不同產品間之比較性完整碳足跡研究；宣告單位則是用於部分碳足跡(Partial CFP)量化之產品參考單位（如「每公斤螺絲釘」），不涉及功能面之比較主張，兩者選用須對應研究目的與系統邊界類型。"},
-{unit:"L12202",uname:"生命週期評估(LCA)概念",diff:"hard",q:"某連鎖速食店計畫量化其招牌漢堡之完整產品碳足跡（搖籃到墳墓），於「衝擊評估」階段，下列關於生物碳(Biogenic Carbon)處理原則之敘述，何者正確？",opts:["來自生物源（如牛肉原料中牲畜呼吸所排放之生物源CO2）之碳排放與移除，依國際慣例常採碳中和假設（即生物源CO2排放與其生長吸收量相互抵銷，淨值視為零），但仍須單獨揭露生物源排放量，且不可與化石源排放混合計算或互相抵換","生物碳與化石碳完全無須區分，一律以相同方式計入總排放量並可相互抵換","生物碳排放應完全排除於碳足跡計算範圍外，無須揭露","生物碳排放之暖化潛勢必然高於化石碳排放"],a:0,ex:"生物源二氧化碳排放（如生物質燃燒、牲畜代謝）國際間常採取碳中和假設處理，但ISO相關標準要求組織仍須單獨辨識並揭露生物源排放與移除量，不得與化石源排放混合計算或用以抵換化石源排放，以維持碳足跡計算之透明度與正確性，避免不當淡化化石源排放之實際影響。"},
-{unit:"L12203",uname:"產品類別規則(PCR)訂定概念",diff:"easy",q:"PCR（Product Category Rules，產品類別規則）之主要功能為何？",opts:["為同一類型、功能之產品建立統一之碳足跡計算基準與規則，確保不同廠商計算結果具一致性與可比較性","規定產品售價之上下限","僅用於規範產品包裝材質","與碳足跡計算完全無關，純屬行銷工具"],a:0,ex:"PCR（產品類別規則）係針對同一類型、功能之產品（含商品或服務），訂定統一之碳足跡計算系統邊界、數據蒐集方式及計算基準，確保不同廠商針對同類產品計算碳足跡時採用一致之遊戲規則，使結果具公平性、透明性與可比較性。"},
-{unit:"L12203",uname:"產品類別規則(PCR)訂定概念",diff:"medium",q:"依國內實務，碳足跡產品類別規則（CFP-PCR）之有效期限一般為多久？",opts:["普遍為3至5年","永久有效，不須重新審視","僅1個月","50年"],a:0,ex:"CFP-PCR會依產品特性決定其有效期限，普遍而言約為3至5年，到期前可彙整利害關係人意見，評估是否有修訂必要，再依指引流程重新修訂，以確保PCR內容能反映技術與市場之最新發展。"},
-{unit:"L12203",uname:"產品類別規則(PCR)訂定概念",diff:"medium",q:"某新興產業（如電動機車電池模組）目前尚無對應之PCR可供採用，廠商欲進行該產品碳足跡量化時，依一般實務作法應如何處理？",opts:["可邀集產官學界共同研商，依國際標準訂定程序制定新的PCR草案，經利害關係人意見徵詢與審查程序後正式發布採用","必須等待至少十年待該產業成熟後才能進行碳足跡量化","可完全自行任意訂定計算規則，無須經過任何審查程序","應直接套用其他完全不相關產品之既有PCR，無須調整"],a:0,ex:"當特定產品類別尚無適用之PCR時，可由業界領頭企業邀集產官學界共同研商，依循國際標準訂定程序之要求（含目標範疇界定、利害關係人意見徵詢、審查程序等）制定新的PCR草案，經審查確認後正式發布供同業採用，而非自行任意訂定或完全比照不相關產品之規則。"},
-{unit:"L12203",uname:"產品類別規則(PCR)訂定概念",diff:"hard",q:"同一產品類別存在兩份內容不完全一致之PCR（例如國內主管機關發布版本與國外特定計畫發布版本）時，企業進行跨國產品碳足跡溝通可能面臨之主要挑戰為何？",opts:["不同PCR對系統邊界、數據品質要求或計算方法之規定可能不同，導致同一產品依不同PCR計算出之碳足跡結果不具直接可比較性，企業須清楚揭露所採用之PCR版本與依據","完全不會產生任何問題，所有PCR內容必然完全一致","企業可任選對自己最有利之數字對外宣稱，無須揭露計算依據","此情況下企業應立即停止該產品之碳足跡溝通"],a:0,ex:"不同PCR即便針對同一產品類別，仍可能因制定機構、適用範圍或技術考量不同，而在系統邊界界定、數據品質要求或計算方法上存在差異，導致依不同PCR計算之碳足跡結果不具直接可比較性；企業於跨國溝通碳足跡資訊時，應清楚揭露所採用之PCR名稱、版本及主要假設，避免造成消費者或利害關係人誤解或不當比較。"},
-{unit:"L12204",uname:"製程地圖製作與系統邊界",diff:"easy",q:"製作「產品製程地圖」(Process Flow Diagram/Map)於產品碳足跡盤查中之主要目的為何？",opts:["系統性呈現產品從原料投入至產出之各製程站、物質流與能量流，作為界定系統邊界及辨識排放源之基礎工具","純粹用於工廠安全消防動線規劃","與碳足跡計算完全無關，僅供生產排程參考","僅適用於服務業，製造業不須繪製"],a:0,ex:"產品製程地圖系統性呈現產品從原物料投入、各加工製程站、至最終產出之物質流與能量流關係，是企業界定碳足跡系統邊界、辨識各製程站排放源並進行後續活動數據蒐集之重要基礎工具，無論製造業或服務業皆可運用此概念進行流程盤點。"},
-{unit:"L12204",uname:"製程地圖製作與系統邊界",diff:"medium",q:"某連鎖速食店計畫量化其招牌漢堡之碳足跡，於繪製製程地圖時，下列何者屬於應納入考量之「上游」階段？",opts:["牛肉、麵包等原物料之種植/畜牧、加工及運輸至門市前之各階段","顧客食用完畢後之廚餘清運處理","門市內現場烹調與組裝漢堡之製程","顧客內用或外帶之選擇行為"],a:0,ex:"「上游」階段一般涵蓋原物料（如牛肉、麵包、蔬菜）自種植/畜牧、加工製造至運輸至門市前之各環節；門市現場烹調組裝屬「閘口內」（製造/服務提供階段）；顧客食用及廚餘清運則屬「下游」使用與廢棄階段，三者於製程地圖中應分別清楚標示，以利後續系統邊界界定與數據蒐集分工。"},
-{unit:"L12204",uname:"製程地圖製作與系統邊界",diff:"medium",q:"某產品製程中包含「共同生產」(Co-production)情形，即同一製程同時產出主產品與副產品（如黃豆加工同時產出豆漿與豆渣），於系統邊界界定及排放分攤時，下列處理原則何者正確？",opts:["應優先嘗試以實體關係（如質量、能量）進行分攤；若無法合理分攤，則可考慮以經濟價值等其他基礎進行分攤，並於報告中說明分攤方法之選擇依據","全部排放量應完全歸屬於主產品，副產品視為零排放","共同生產情形下無須進行任何分攤，可任選一產品承擔全部排放","分攤方法選擇與計算結果之可信度完全無關"],a:0,ex:"依生命週期評估及產品碳足跡標準之一般原則，處理共同生產之排放分攤時，應優先考量以實體關係（如質量、能量含量）進行分攤；若實體關係無法合理反映各產品間之差異，則可考慮以經濟價值等其他基礎進行分攤，無論採用何種方法，企業均應於報告中清楚說明分攤方法之選擇理由，以維持結果之透明度與可追溯性。"},
-{unit:"L12204",uname:"製程地圖製作與系統邊界",diff:"medium",q:"系統邊界界定時，「截止準則」(Cut-off Criteria)之主要作用為何？",opts:["訂定可合理排除於量化範圍外之微量物質流或能量流之門檻標準（如占總質量、能量或環境影響極小比例之投入產出），並須文件化說明排除依據","用於決定企業應於哪一天結束會計年度","與碳足跡計算範圍完全無關","截止準則一經設定後，所有排放源皆可無條件排除"],a:0,ex:"截止準則用於訂定可合理排除於系統邊界量化範圍外之微量投入產出項目（如占總質量、能量或環境影響極小比例者）之門檻標準，目的在於聚焦資源於對結果具實質影響之排放源，惟組織仍須文件化說明截止準則之設定依據及排除項目，不可任意或無限制排除，以避免低估整體碳足跡。"},
-{unit:"L12204",uname:"製程地圖製作與系統邊界",diff:"hard",q:"某共享運具業者（如共享機車）計畫量化其單趟租賃服務之碳足跡，下列關於系統邊界界定之考量，何者最為關鍵且常見爭議？",opts:["應明確界定是否納入車輛製造、電池生產之「資本財」(Capital Goods)分攤排放，以及如何將車輛全生命週期排放合理分攤至各單趟租賃服務之宣告單位中","僅須計算單趟行駛當下之電力或燃料消耗，車輛製造階段排放完全無須考量","共享運具因屬服務業，依規定一律不適用ISO 14067標準","系統邊界界定與服務碳足跡結果完全無關，可任意設定"],a:0,ex:"共享運具服務之碳足跡量化，除單趟行駛當下之能源消耗外，車輛製造與電池生產等「資本財」之上游排放是否納入系統邊界、以及如何將車輛全生命週期排放合理分攤至各次租賃服務（宣告單位，如每公里或每分鐘），是實務上常見且關鍵之爭議與計算挑戰，不同假設方式可能導致單趟服務碳足跡結果產生顯著差異，企業應清楚揭露其分攤邏輯與假設條件。"},
-{unit:"L12205",uname:"數據收集、係數取得及碳排放計算",diff:"easy",q:"進行產品碳足跡量化時，蒐集「活動數據」(Activity Data)之主要目的為何？",opts:["取得各製程站投入產出之具體數量（如用電度數、原物料用量、運輸里程），作為乘以排放係數計算溫室氣體排放量之基礎","純粹用於企業內部績效考核，與碳足跡計算無關","僅須蒐集財務數據，無須蒐集實體數量數據","活動數據與排放係數為完全相同之概念"],a:0,ex:"活動數據是指各製程站或活動環節之具體數量資訊（如用電度數、原物料投入量、運輸距離），是計算溫室氣體排放量之必要基礎，須與適當之排放係數相乘，才能得出該活動環節之溫室氣體排放量。"},
-{unit:"L12205",uname:"數據收集、係數取得及碳排放計算",diff:"medium",q:"某產品製造商於蒐集上游原物料供應商之活動數據時，發現部分小型供應商無法提供場址特定之初級數據，下列處理方式何者較為適當？",opts:["可採用具代表性之次級數據（如產業平均值、國際資料庫）作為替代，並於報告中說明數據來源、品質等級及可能之不確定性","應立即終止與該供應商之合作關係","可直接將該供應商之排放量設定為零，無須說明","次級數據在任何情況下皆不得使用於碳足跡計算"],a:0,ex:"當初級數據（場址特定數據）無法取得時，採用具代表性之次級數據（如產業平均值、國際資料庫，如Ecoinvent、台灣本土係數資料庫等）作為替代是常見且被標準允許之作法，惟企業應於報告中清楚說明所採用數據之來源、品質等級（如初級或次級）及可能造成之不確定性，以維持結果之透明度。"},
-{unit:"L12205",uname:"數據收集、係數取得及碳排放計算",diff:"medium",q:"某連鎖速食店漢堡碳足跡研究中，發現牛肉原料階段之排放量占整體碳足跡比重高達60%以上，依LCA「結果闡釋」階段之原則，企業應如何運用此項發現？",opts:["應將牛肉原料階段辨識為該產品之「排放熱點」(Hotspot)，並據以研擬優先減碳策略（如評估替代蛋白來源、優化畜牧供應鏈管理），而非僅將數字用於對外宣稱","此項發現與企業減碳策略規劃完全無關，僅供內部統計參考","應直接隱匿此項數據，僅對外公布占比較低之階段數據","結果闡釋階段僅須確認數字加總是否正確，無須進行任何策略性解讀"],a:0,ex:"LCA「結果闡釋」階段之核心價值，在於透過分析各生命週期階段之排放占比，辨識出對整體碳足跡影響最大之「排放熱點」，並據以擬定具體且具優先順序之減碳策略；本案例中牛肉原料占比過半，顯示企業應優先評估原料供應鏈端之減碳機會（如替代蛋白、永續畜牧），而非僅將碳足跡數字作為靜態揭露用途。"},
-{unit:"L12205",uname:"數據收集、係數取得及碳排放計算",diff:"medium",q:"某消費者於2026年透過手機應用程式比較兩款標示碳足跡之即溶咖啡產品，發現甲產品（沖泡100ml）碳足跡為80克CO2e，乙產品（沖泡200ml）碳足跡為140克CO2e，若欲比較兩者每100ml沖泡之碳排放效率，下列換算與判斷何者正確？",opts:["乙產品換算為每100ml為70克CO2e，低於甲產品之80克CO2e，顯示以相同沖泡份量比較，乙產品碳排放效率較佳","應直接比較80克與140克，甲產品較低碳","兩產品沖泡份量不同，依規定完全不可進行任何比較","碳足跡數字之單位與比較基準無關，可任意比較"],a:0,ex:"由於兩產品宣告單位（沖泡份量）不同，須先換算為相同基準方能進行有意義之比較：乙產品140克CO2e／200ml×100ml＝70克CO2e，低於甲產品之80克CO2e，顯示以「每100ml沖泡」為共同比較基準時，乙產品之碳排放效率實際上優於甲產品，此案例說明碳足跡比較須留意宣告單位是否一致，避免因份量不同產生誤判。"},
-{unit:"L12205",uname:"數據收集、係數取得及碳排放計算",diff:"hard",q:"某電動機車電池模組製造商完成產品碳足跡量化後，發現上游鋰、鈷等關鍵原料開採階段之排放占比極高，且該數據主要來自次級資料庫而非實際礦場初級數據，企業欲對外溝通此碳足跡結果並標示碳標籤，下列考量何者最為關鍵？",opts:["應於碳足跡研究報告及對外溝通資訊中，清楚揭露關鍵高占比階段所採用數據之品質等級（初級／次級）、資料來源及其對結果不確定性之可能影響，避免單純呈現單一數字而忽略數據品質之揭露","只要最終數字計算正確，無須揭露各階段數據之品質等級或來源","次級數據占比過高之碳足跡結果一律不得對外溝通或申請標籤","應將該高排放階段之數據直接以企業自行估計之較低數值取代，以利取得標籤"],a:0,ex:"當碳足跡結果中對整體影響最大之熱點階段（本案例為原料開採）主要仰賴次級數據時，數據品質與不確定性之揭露格外重要，企業應於研究報告及對外溝通中清楚說明該階段數據之品質等級、來源及對結果可能造成之不確定性影響，使利害關係人能合理評估結果之可信度，而非僅呈現單一數字或逕自以未經驗證之低估數值替代，後者將嚴重損及碳足跡溝通之誠信與可信度。"},
-{unit:"L12205",uname:"數據收集、係數取得及碳排放計算",diff:"hard",q:"在2026年台灣碳費全面徵收、CBAM適用範圍逐步擴大、且消費者對碳標籤關注度提升之多重背景下，某出口型製造業者同時面臨「組織型溫室氣體盤查」（因應碳費及CBAM申報）與「產品碳足跡量化」（因應客戶與消費者碳標籤需求）雙重壓力，下列關於兩套盤查工作整合運用之敘述，何者最為適當？",opts:["組織型盤查（ISO 14064-1）之活動數據與排放係數資料庫，可作為產品碳足跡（ISO 14067）量化各製程站排放之重要數據基礎，企業可透過建立整合性數據管理系統，提升兩套盤查工作之數據一致性與作業效率，避免重複蒐集造成資源浪費","兩套標準性質完全互斥，企業必須分別建立完全獨立、毫無關聯之數據蒐集與管理系統","只要完成組織型盤查，即自動等同完成所有產品之碳足跡量化，無須額外作業","產品碳足跡與組織型盤查所使用之排放係數可任意混用，無須考量計算基準與系統邊界之差異"],a:0,ex:"組織型溫室氣體盤查（ISO 14064-1）著重於組織整體層級之排放量化，產品碳足跡（ISO 14067）則聚焦於單一產品生命週期之排放量化，兩者層級與目的雖不同，但組織盤查所建立之活動數據蒐集機制、排放係數資料庫及製程相關基礎資訊，可作為產品碳足跡計算各製程站排放之重要數據來源，企業透過建立整合性數據管理系統同步支援兩套盤查需求，可有效提升數據一致性、降低重複蒐集成本，並更從容因應碳費申報、CBAM供應鏈數據要求及消費者碳標籤等多重壓力，惟兩者計算基準（組織邊界vs產品系統邊界）及部分係數選用仍須留意差異，不可不加區辨地完全混用。"}
+const QUESTIONS=[
+{unit:"L12101",uname:"盤查範圍與規範說明",diff:"medium",type:"scenario",q:"某電子代工廠導入ISO 14064-1組織型溫室氣體盤查，永續主管於內部會議中表示：「只要申報類別一（直接排放）即符合標準最低要求，其餘類別可完全略過不評估。」下列評論何者最為適當？",opts:["此說法不完全正確：ISO 14064-1要求類別一與類別二（能源間接排放）為必要申報項目；類別三至六則須先進行顯著性評估，評估結果顯著者應納入報告邊界，「完全略過不評估」本身即違反完整性原則","此說法完全正確，標準僅要求申報類別一","此說法錯誤，六大類別皆為強制申報項目，不得有任何排除","顯著性評估僅適用於製造業，服務業可全數略過"],a:0,ex:"ISO 14064-1明定類別一、二為必要申報項目；類別三至六須經顯著性評估決定是否納入，完全不評估即違反完整性原則(A正確)。B低估必要申報範圍；C錯誤地將全部六類別視為強制申報；D對顯著性評估的適用對象有誤解。"},
+{unit:"L12101",uname:"盤查範圍與規範說明",diff:"medium",type:"scenario",q:"富林有機農場計畫依ISO 14064-1建立組織型盤查，農場主詢問：「農場只有稻田、菜園和雞舍，沒有工廠設備，是否仍適用此標準？」下列回答何者正確？",opts:["不適用，ISO 14064-1僅適用於製造業與工業設施","仍然適用。ISO 14064-1的適用對象是「組織」而非特定產業，農場作為經營實體，其農機燃油、灌溉用電、禽舍甲烷等排放源同樣須依標準原則進行識別與量化",",僅限年營業額超過特定門檻的農場才須適用","農場若無雇用員工則不適用"],a:1,ex:"ISO 14064-1適用對象是「組織」，不限產業類型，農場的農機柴油、電力、禽舍排放等皆屬應識別的排放源(B正確)。A錯誤限縮適用範圍；C、D皆為不存在的門檻條件。"},
+{unit:"L12101",uname:"盤查範圍與規範說明",diff:"hard",type:"scenario",q:"某跨國品牌委託台灣代工廠生產電子零件，代工廠評估其ISO 14064-1盤查邊界時，發現品牌客戶指定的原料供應商工廠排放，在代工廠與品牌客戶各自的盤查中應如何歸類？",opts:["應由代工廠認列為類別一直接排放","應完全排除於兩者的盤查範圍之外","供應商工廠的直接排放屬供應商自身的類別一；對代工廠而言屬上游採購商品的間接排放（可能列入類別三或其他間接類別，依標準邊界規定評估）；對品牌客戶而言則是更上游的供應鏈間接排放，兩者計算邏輯不同不可混淆","應由品牌客戶認列為類別二能源間接排放"],a:2,ex:"同一筆排放在不同組織的盤查中有不同定位：供應商自身視為類別一直接排放；對代工廠與品牌客戶而言則屬上游採購的間接排放，各自依標準規定的類別歸屬與顯著性評估處理，不可混淆歸類邏輯(C正確)。A、D皆誤置類別歸屬；B完全忽略供應鏈間接排放應予評估的要求。"},
+{unit:"L12101",uname:"盤查範圍與規範說明",diff:"medium",type:"scenario",q:"某連鎖咖啡店品牌在推動ISO 14064-1盤查時，發現各分店電力使用量差異極大（有些分店有大型烘豆設備，有些僅為銷售據點）。此差異對盤查邊界界定的意義為何？",opts:["應統一使用平均值計算所有分店排放，忽略個別差異","分店數量少於10間可完全豁免盤查","僅需盤查總部辦公室，分店排放無需納入","應依各分店實際用電量與設備配置分別量化，反映真實排放輪廓；若因分店規模過小而占比極低，可依顯著性原則評估後決定是否納入截斷範圍"],a:3,ex:"應依各分店實際用電和設備差異分別量化，反映真實情況；小規模分店占比低則可依顯著性原則評估是否納入(B正確)。A的平均值做法會嚴重扭曲實際排放輪廓；C、D皆與標準要求不符。"},
+{unit:"L12102",uname:"邊界界定",diff:"medium",type:"scenario",q:"某企業集團旗下轉投資一間新創公司，持股35%但不參與其董事會決策、無財務或營運主導權。依ISO 14064-1控制法，此新創公司排放應如何處理？",opts:["若企業對該新創公司不具財務或營運控制能力，依控制法原則不應納入其組織邊界；若企業改採股權比例法，則應依持股比例（35%）認列","應100%認列，因為屬於集團旗下事業體","因持股35%，應依35%比例認列排放","無論採用何種方法皆應100%認列"],a:0,ex:"控制法核心判斷是「是否具控制能力」，無控制權則不納入；若改採股權比例法，則依持股比例認列(C正確)。A混淆了控制法與股權比例法的適用邏輯；B、D均忽略了方法選擇對認列結果的影響。"},
+{unit:"L12102",uname:"邊界界定",diff:"medium",type:"scenario",q:"某連鎖餐飲企業旗下有直營店與加盟店，採營運控制法界定組織邊界。下列處理方式何者最符合ISO 14064-1精神？",opts:["直營店與加盟店應全數納入並平均分攤排放","直營店（企業具完整營運主導權）應100%納入；加盟店因加盟主具獨立營運決策權，通常不符合營運控制條件，其排放須另行評估是否列為其他間接排放類別","加盟店排放量通常遠高於直營店，應優先納入以增加盤查完整性","加盟店因遵循品牌規範，應依合約義務比例認列排放"],a:1,ex:"營運控制法核心在於能否主導日常營運決策：直營店應100%納入；加盟店因加盟主有獨立決策權通常不符合控制條件，須另評估其排放歸屬(D正確)。A忽略控制程度差異；B「合約義務比例」非控制法邏輯；C納入標準應依控制程度而非排放量高低。"},
+{unit:"L12102",uname:"邊界界定",diff:"hard",type:"scenario",q:"某半導體公司對旗下晶圓廠持股45%，但主導該廠所有財務政策（資本支出、融資、收益分配）。依ISO 14064-1財務控制法，此晶圓廠排放應如何認列？",opts:["依45%持股比例認列","完全不認列，因持股未過半","依100%認列，因該公司對晶圓廠財務政策具主導能力，符合財務控制法定義","依50%認列，作為折衷處理"],a:2,ex:"財務控制法的關鍵判斷是能否主導財務政策而非持股比例；持股45%但實際主導財務決策，符合財務控制法定義應100%認列(B正確)。A、C、D均誤解財務控制法的判斷邏輯。"},
+{unit:"L12102",uname:"邊界界定",diff:"hard",type:"scenario",q:"某跨國集團在台灣、越南設廠，採財務控制法進行整合盤查。越南廠排放係數的選用，下列何者最為適當？",opts:["統一使用台灣的電力與燃料排放係數以維持集團一致性","一律採用IPCC全球平均排放係數","使用台灣、越南兩地排放係數的平均值","使用越南當地的電力與燃料排放係數，因排放實際發生於越南境內，能源結構與電網特性與台灣不同"],a:3,ex:"排放係數應反映排放發生地的實際能源結構；越南廠應使用當地電力與燃料排放係數(B正確)。A會嚴重扭曲越南廠實際排放量；C、D的平均值或全球平均值皆無法反映當地真實狀況。"},
+{unit:"L12102",uname:"邊界界定",diff:"medium",type:"scenario",q:"某食品企業新竹廠已購買台灣再生能源憑證（T-REC），台南廠未購買，兩廠皆使用台電電網供電。若企業採「市場基礎法」計算類別二排放，兩廠應如何處理？",opts:["新竹廠因持有憑證可認列較低（或接近零）之排放係數；台南廠因未持有憑證，應使用殘差電網排放係數（通常高於平均值，因已扣除經憑證認領之再生能源部分）","兩廠皆採用殘差電網排放係數","兩廠皆使用電網平均排放係數，憑證不影響計算結果","市場基礎法不適用於台灣電力市場"],a:0,ex:"持有T-REC的新竹廠可認列低碳排放係數；未持有的台南廠應使用殘差電網係數(C正確)，此係數通常較平均值更高，因已扣除被憑證認領的再生能源部分。A未反映市場基礎法核心邏輯；B讓新竹廠也用殘差係數，失去購買憑證的意義；D不正確，市場基礎法可於台灣採用。"},
+{unit:"L12102",uname:"邊界界定",diff:"medium",type:"scenario",q:"某公司於年度中將原本100%持有的子公司出售49%股權予外部投資人，並改採股權比例法認列該子公司排放。下列敘述何者最符合ISO 14064-1一致性原則的要求？",opts:["應直接以51%持股比例認列本年度剩餘月份排放，不需說明邊界變動對比較造成的影響","此組織結構變化應於報告書中明確揭露，並評估是否需要重新計算基準年排放量，以確保跨年度比較具意義，避免因邊界縮小而產生假性減量的誤解","出售股權後子公司排放可完全不必揭露","毋須調整基準年，因為僅是股權比例改變非實際排放減少"],a:1,ex:"組織結構重大變化（如股權出售）須文件化揭露並評估基準年重算，以避免邊界縮小造成假性減量的誤導(B正確)。A忽略了揭露與比較一致性的要求；C明顯違反完整性與透明度原則；D雖然點出「非實際減少」的問題，但未提出正確的處理方式（重算或揭露）。"},
+{unit:"L12103",uname:"量化計算",diff:"medium",type:"scenario",q:"富林有機農場水稻田排放甲烷（CH₄）0.8公噸，採IPCC AR5的100年GWP值（CH₄=28）換算CO₂當量，結果約為多少公噸CO₂e？",opts:["約280公噸CO₂e（單位換算錯誤，多乘以100）","0.8公噸CO₂e（未進行GWP換算）","約22.4公噸CO₂e（0.8 × 28 = 22.4 tCO₂e，正確計算）","約2.8公噸CO₂e（誤以GWP=3.5計算）"],a:2,ex:"計算：0.8公噸CH₄ × 28（AR5 GWP）= 22.4公噸CO₂e(D正確)。A單位換算錯誤；B完全未做GWP換算；C的GWP值誤植。此題顯示農業甲烷雖重量不大，但因GWP值高，CO₂e當量顯著放大。"},
+{unit:"L12103",uname:"量化計算",diff:"medium",type:"scenario",q:"某工廠年用電量800萬度，採用台灣環境部公告電力排放係數0.474 kgCO₂e/度，其類別二排放量約為多少公噸CO₂e？",opts:["約8,000,000公噸CO₂e（未進行任何單位換算）","約37,920公噸CO₂e（單位換算錯誤，多乘以10）","約379.2公噸CO₂e（單位換算錯誤，少除以10）","約3,792公噸CO₂e（800萬 × 0.474 ÷ 1,000 = 3,792）"],a:3,ex:"計算：8,000,000度 × 0.474 kgCO₂e/度 = 3,792,000 kgCO₂e = 3,792公噸CO₂e(A正確)。B、C皆為單位換算錯誤的常見陷阱；D完全未做係數換算。"},
+{unit:"L12103",uname:"量化計算",diff:"hard",type:"scenario",q:"某工廠冷媒R-410A年逸散量5公斤，GWP值2,088；同時天然氣鍋爐年用量10,000 Nm³，排放係數2.15 kgCO₂/Nm³。兩者類別一排放合計約為多少公噸CO₂e？",opts:["約31.94公噸CO₂e（天然氣21.5 tCO₂ + 冷媒10.44 tCO₂e，合計正確）","約21.5公噸CO₂e（僅計天然氣，忽略冷媒逸散）","約20.44公噸CO₂e（天然氣計算有誤，僅算10 tCO₂）","約0.0315公噸CO₂e（單位嚴重換算錯誤）"],a:0,ex:"計算：天然氣10,000×2.15=21,500 kgCO₂=21.5 tCO₂；冷媒5×2,088=10,440 kgCO₂e=10.44 tCO₂e；合計=21.5+10.44=31.94 tCO₂e(C正確)。A天然氣計算錯誤；B完全遺漏冷媒逸散這項重要排放源；D單位換算嚴重錯誤。"},
+{unit:"L12103",uname:"量化計算",diff:"hard",type:"scenario",q:"某農場有機肥年施用量20公噸（氮含量3%），N₂O直接排放因子為0.01 kgN₂O-N/kgN，N₂O分子量比44/28，GWP為265（AR5）。此農場施肥產生的N₂O排放量約為多少公噸CO₂e？",opts:["約6公噸CO₂e（計算至N₂O-N步驟即停止，未完成分子量與GWP換算）","約2.5公噸CO₂e（20,000×0.03=600kgN→×0.01=6kgN₂O-N→×44/28=9.43kgN₂O→×265÷1,000=2.5 tCO₂e）","約0.6公噸CO₂e（單位換算錯誤，少一個數量級）","約1,590公噸CO₂e（GWP誤乘以1,000倍）"],a:1,ex:"完整計算：氮含量20,000kg×3%=600kgN→N₂O-N：600×0.01=6kg→N₂O：6×44/28=9.43kg→CO₂e：9.43×265÷1,000=2.5公噸CO₂e(A正確)。B在計算過程中停在中間步驟；C單位換算錯誤；D的GWP值誤植過大。"},
+{unit:"L12103",uname:"量化計算",diff:"medium",type:"scenario",q:"某企業使用「市場基礎法」計算範疇二排放時，若企業已購買足量再生能源憑證且憑證對應排放係數低於電網平均值，計算結果會有何變化？",opts:["市場基礎法結果會高於位置基礎法","兩種方法結果必然相同，無論是否持有憑證","市場基礎法結果會低於位置基礎法，因為認列的排放係數反映了較低碳的電力屬性","持有憑證後應完全不計算類別二排放"],a:2,ex:"持有低碳排放係數憑證時，市場基礎法結果通常低於位置基礎法（後者採電網平均值計算）(B正確)。A方向錯誤；C忽略了憑證對計算結果的影響；D錯誤，仍須依市場基礎法計算並揭露結果，非完全免除。"},
+{unit:"L12103",uname:"量化計算",diff:"hard",type:"scenario",q:"某製造業者盤查發現，某排放源因設備老舊、計量表故障，缺漏連續三個月的活動數據。依ISO 14064-1準確性與透明度原則，下列處理方式何者最為適當？",opts:["直接將缺漏月份設定為零，無須進一步處理","應立即停業該產線，待設備修復後才恢復盤查","缺漏月份所屬排放源應完全排除於組織邊界外","應採用合理估算方法（如同期其他月份平均值、修復後讀值反推等）填補缺漏數據，並於報告中揭露估算方法、依據及可能之不確定性"],a:3,ex:"依準確性與透明度原則，數據缺漏時應以合理方法估算並揭露方法及不確定性，而非設為零或排除(D正確)。A、C皆違反完整性原則；B不符實務操作，且無助於解決數據缺漏問題。"},
+{unit:"L12103",uname:"量化計算",diff:"medium",type:"scenario",q:"某企業盤查資料顯示，初級數據（場址特定實測值）與次級數據（產業平均值資料庫）計算同一排放源結果差異顯著。下列處理原則何者最為適當？",opts:["優先採用初級數據，因其代表性通常高於次級數據；若初級數據無法取得才採用次級數據，並於報告書中揭露數據來源與品質等級","優先採用次級數據，因來自國際資料庫較具公信力","兩者取平均值作為最終計算依據","數據差異過大代表計算錯誤，應重新盤查直到兩者一致"],a:0,ex:"初級數據為場址特定實測值，代表性通常較高，應優先採用；次級數據作為無法取得初級數據時的替代，並揭露來源與品質等級(A正確)。B高估次級數據的優先性；C的平均值做法缺乏方法論依據；D的假設不合理，差異本身反映了不同數據來源的代表性差異，並非必然為錯誤。"},
+{unit:"L12104",uname:"清冊與報告書建立",diff:"medium",type:"scenario",q:"某企業年度排放量較去年下降18%，但生產量卻增加12%。查驗機構要求企業說明此異常。此質疑主要涉及查驗過程中的哪項評估？",opts:["查驗機構在確認計算軟體版本是否為最新版","查驗機構在評估報告完整性，確認是否有重要排放源遺漏或應觸發基準年重算的組織結構變化","此問題與查驗工作無關，屬企業內部管理事務","查驗機構僅是隨機抽查，無特定評估目的"],a:1,ex:"排放降但產量升的異常，查驗機構最需評估是否有遺漏排放源或應觸發基準年重算的結構變化(C正確)。A、D皆非核心評估重點；B錯誤，此類異常正是查驗應深入探究之處。"},
+{unit:"L12104",uname:"清冊與報告書建立",diff:"medium",type:"scenario",q:"某企業基準年設定後發生重大併購，新增一座高排放量工廠。依ISO 14064-1基準年重算政策，應如何處理？",opts:["保持基準年不變，直接將新工廠排放計入本年度即可","刪除新工廠數據，待其建立獨立盤查後再合併","依基準年重算政策評估：此重大結構變化應觸發基準年重算，將新工廠於基準年時的排放追溯納入，確保跨年度比較的一致性","先完成本年度盤查，下一年度再考慮是否納入新工廠"],a:2,ex:"重大併購屬觸發基準年重算的條件，應依重算政策將新工廠追溯納入基準年，確保比較一致性(C正確)。A、D均會導致比較基礎不一致；B不符合完整性與時效性要求。"},
+{unit:"L12104",uname:"清冊與報告書建立",diff:"hard",type:"scenario",q:"某企業年排放量從三年前100,000公噸降至今年75,000公噸，聲稱「減排25%」。稽核發現此期間企業將最高排放的生產部門分割為子公司（持股49%，改採股權比例法），現僅認列49%排放。下列評論何者最為適當？",opts:["此聲稱合法有效，股權比例法為標準認可方法，無需進一步說明","稽核機構不得質疑企業的組織邊界決策","子公司已建立獨立盤查即可，無需擔憂母公司數字失真","此減排聲稱具誤導性：組織結構調整（分割並降低認列比例）導致表面排放下降，並非真正減量成果；應依一致性原則重算基準年或明確揭露邊界變化對比較結果的影響"],a:3,ex:"方法本身合規，但「減排」聲稱具誤導性，應依一致性原則重算基準年或明確揭露邊界變化(B正確)。A忽略了聲稱本身的誤導性問題；C、D皆規避了誠信揭露的核心議題。"},
+{unit:"L12104",uname:"清冊與報告書建立",diff:"medium",type:"scenario",q:"ISO 14064-1規定的顯著性評估在報告邊界界定中的正確操作流程為何？",opts:["應先識別所有潛在排放源，再依量化門檻（如占比5%或1%）及質化標準（數據可取得性、策略重要性）評估各排放源顯著性，顯著者納入報告邊界，排除者須文件化說明理由","凡無法精確量化的排放源，一律可以顯著性理由排除","顯著性評估只需主觀判斷，無需任何量化依據","顯著性評估僅適用於類別一直接排放的識別"],a:0,ex:"正確流程為：識別排放源→依量化門檻及質化標準評估顯著性→顯著者納入、排除者文件化說明(C正確)。A忽略量化依據的必要性；B錯誤，無法精確量化不等於可直接排除；D錯誤限縮適用範圍。"},
+{unit:"L12104",uname:"清冊與報告書建立",diff:"hard",type:"scenario",q:"某企業委託查驗機構進行ISO 14064-1「合理保證」查驗，最終出具「附保留意見」的查驗聲明。此結果代表何種意義？",opts:["查驗過程順利完成，保留意見僅是例行性文件","查驗機構在盤查清冊中發現部分問題，但影響範圍有限且未影響報告整體有效性，故在揭露保留事項的前提下仍出具聲明，企業應於下期改善","附保留意見等同查驗失敗，企業須重新進行整個盤查作業","保留意見僅是查驗機構語氣用詞，與無保留意見效力完全相同"],a:1,ex:"附保留意見表示查驗機構發現部分問題，但影響範圍有限未致報告整體無效，企業仍取得查驗聲明但需改善被保留部分(A正確)。B低估了保留意見的實質意義；C過於嚴厲；D錯誤，兩種意見的可信度層級不同。"},
+{unit:"L12104",uname:"清冊與報告書建立",diff:"medium",type:"scenario",q:"ISO 14064-1要求盤查報告書說明「基準年設定的依據與理由」，此要求的主要目的為何？",opts:["讓查驗機構評估審查工作量與收費標準","基準年一經設定即永久不必再說明理由","確保基準年能代表組織正常營運狀況，避免人為選擇對比較有利的異常年份（如排放特別高的年份）作為基準","此要求僅適用於已設定SBTi目標的企業"],a:2,ex:"要求說明基準年依據，目的是避免人為選擇有利年份（cherry-picking），確保基準年代表正常營運狀況(B正確)。A與此要求目的無關；C、D皆與標準實際規定不符。"},
+{unit:"L12104",uname:"清冊與報告書建立",diff:"medium",type:"scenario",q:"依ISO 14064-1原則，下列哪一項「不得」作為排除某排放源的合理理由？",opts:["排放源占組織年度總排放量比例低於預設顯著性門檻，且排除後累計不超過設定上限","該排放源在技術上無法以任何合理方法估算","該排放源已在另一組織的合規盤查中被申報","競爭對手企業並未在其盤查報告中申報同類型排放源"],a:3,ex:"「競爭對手不申報」完全不是排除排放源的合理依據，標準要求組織基於自身排放特性決定邊界而非對標競爭對手(D正確)。A是合理的量化門檻排除；B是技術可行性考量；C是避免重複計算的合理理由。"},
+{unit:"L12104",uname:"清冊與報告書建立",diff:"hard",type:"scenario",q:"ISO 14064-1的「一致性」原則在跨年度比較中的具體要求為何？",opts:["一致性原則要求組織在不同期間採用相同方法論、邊界、排放係數和GWP值；若方法論確有必要改變，須重新計算歷史數據並於報告中說明","每年盤查排放量必須完全相同才符合一致性原則","一致性原則僅適用於同一組織不同部門之間的比較","一致性原則僅要求各部門採用相同的計量單位"],a:0,ex:"一致性原則確保跨期間可比較性：相同的方法論、邊界、係數；若有變動則需重算歷史數據並說明(B正確)。A誤解一致性為排放量相同；C、D皆過度限縮一致性原則的適用範疇。"},
+{unit:"L12201",uname:"碳足跡管理基礎原則",diff:"medium",type:"scenario",q:"某食品品牌行銷部門計畫在廣告中宣稱「我們的有機蔬菜碳足跡為負值」，依據是農場種植過程中土壤固碳效益超過製程排放。依ISO 14067，此宣稱在技術上有何疑慮？",opts:["農業產品碳足跡計算完全不允許包含任何固碳效益","土壤固碳效益雖可在特定條件下納入計算，但生物碳移除須依標準規定的方法量化，並與化石源排放分開揭露；宣稱「負值碳足跡」需有充分方法論依據，不可逕行加總固碳量與排放量","負值碳足跡的宣稱無需任何技術依據即可對外溝通","產品碳足跡結果完全不得對外溝通，僅供內部管理使用"],a:1,ex:"生物碳移除可納入計算但有嚴格方法要求，須與化石源排放分開揭露，「負值」宣稱需有充分依據(C正確)。A過於絕對；B忽略方法論要求的重要性；D錯誤，ISO 14067鼓勵合規對外溝通。"},
+{unit:"L12201",uname:"碳足跡管理基礎原則",diff:"medium",type:"scenario",q:"某消費者詢問：「產品碳足跡標籤上的數字，代表這個產品從生產到我手上『完全沒有排放』嗎？」下列回答何者正確？",opts:["是的，取得碳足跡標籤即代表零排放","碳足跡標籤僅是行銷工具，數字無實質意義","不是，碳足跡標籤標示的是經量化計算後的實際排放結果（如XX gCO₂e），代表該產品生命週期特定階段所產生的溫室氣體排放量，並非零排放；消費者可依此比較不同產品的相對碳排放水準","碳足跡標籤代表企業已完成碳中和宣告"],a:2,ex:"碳足跡標籤標示的是量化計算結果，非零排放，可作為消費者比較產品相對碳排放的參考依據(B正確)。A完全誤解標籤意義；C低估其量化依據；D混淆碳足跡標籤與碳中和宣告兩個不同概念。"},
+{unit:"L12201",uname:"碳足跡管理基礎原則",diff:"hard",type:"scenario",q:"某有機農場希望依ISO 14068-1申請組織層級碳中和，主張「農場整體是負碳的（碳匯大於排放）」。下列說明何者最為正確？",opts:["直接宣告負碳即等同碳中和，不需要任何標準依據","ISO 14068-1明文禁止農業經營者申請碳中和宣告","農場若取得有機認證，即自動獲得碳中和資格","碳中和宣告需建立在完整的溫室氣體盤查（ISO 14064-1）基礎上，確認農場總排放量、碳匯的合規量化方法，並確認固碳量確實大於排放量，方可宣告碳中和，且仍須完整說明計算方法與假設"],a:3,ex:"碳中和宣告須有完整盤查基礎、合規的碳匯量化方法，並確認固碳量大於排放量(B正確)。A缺乏方法論依據；C錯誤，有機認證與碳中和是完全不同的認證體系；D不正確，ISO 14068-1並未限定產業別。"},
+{unit:"L12201",uname:"碳足跡管理基礎原則",diff:"medium",type:"scenario",q:"某企業計畫在產品包裝上宣稱「本產品已購買碳權，達成碳中和」，並將此碳權抵換直接反映於產品碳足跡標籤數字中（原本120g降為0g）。此作法是否符合ISO 14067？",opts:["不符合。ISO 14067明確要求碳抵換不得直接計入產品碳足跡（CFP）量化結果，碳足跡數字應反映生命週期實際排放；碳中和相關聲明應另行揭露並清楚區隔，不得與CFP數字混淆","符合，只要碳權來源具公信力即可直接扣減碳足跡數字","符合，因為碳中和聲明本來就是要降低對外呈現的碳足跡數字","僅在使用國際認證碳權時才符合此作法"],a:0,ex:"ISO 14067明確禁止碳抵換直接計入CFP量化結果，兩者須清楚區隔並分別揭露(B正確)。A、C、D均誤解了碳抵換與CFP量化結果應予區隔的核心規範。"},
+{unit:"L12201",uname:"碳足跡管理基礎原則",diff:"hard",type:"scenario",q:"「完整碳足跡」(Full CFP)與「部分碳足跡」(Partial CFP)在ISO 14067中的核心差異，下列敘述何者正確？",opts:["兩者無實質差異，僅計算複雜度不同","完整碳足跡涵蓋產品整個生命週期（搖籃到墳墓）並使用「功能單位」；部分碳足跡僅涵蓋特定生命週期階段（如搖籃到大門），應使用「宣告單位」而非功能單位，且須於報告中明確標示為部分碳足跡","部分碳足跡指排放係數選取不完整，與系統邊界無關","完整碳足跡只適用消費性產品，部分碳足跡只適用工業中間品"],a:1,ex:"完整CFP採搖籃到墳墓、用功能單位；部分CFP如搖籃到大門，須用宣告單位並明確標示(D正確)。A、B、C均對兩者定義有誤解。"},
+{unit:"L12202",uname:"生命週期評估概念",diff:"medium",type:"scenario",q:"生命週期評估（LCA）中「清冊分析」與「衝擊評估」兩階段的分工，下列敘述何者正確？",opts:["兩階段工作內容完全相同，只是順序不同","清冊分析在衝擊評估之後進行","清冊分析負責系統性蒐集產品系統所有投入產出（原料、能源、排放）的質量數據；衝擊評估則運用特性化因子（如GWP）將清冊數據轉換為具環境意義的衝擊指標（如CO₂e）","衝擊評估負責數據收集，清冊分析負責結果解釋"],a:2,ex:"清冊分析蒐集投入產出數據；衝擊評估用GWP等因子將數據轉為CO₂e等衝擊指標(C正確)。A、B、D皆對LCA兩階段分工有誤解。"},
+{unit:"L12202",uname:"生命週期評估概念",diff:"hard",type:"scenario",q:"某有機農場計畫對其稻米進行「搖籃到大門」碳足跡計算。在系統邊界界定時，下列哪個項目應被排除在此邊界之外？",opts:["農場自建倉庫儲存稻米的電力消耗","農場使用的農機柴油燃燒排放","有機肥料施用產生的N₂O排放","消費者烹飪稻米時的瓦斯爐燃燒排放"],a:3,ex:"搖籃到大門邊界截止於農場出貨前，消費者烹飪屬大門之後的使用階段，不在此邊界內(A正確)。農機柴油(B)、有機肥N₂O(C)、農場倉儲電力(D)均屬農場生產過程，應納入搖籃到大門計算範圍。"},
+{unit:"L12202",uname:"生命週期評估概念",diff:"medium",type:"scenario",q:"LCA「目標與範疇界定」階段設定「功能單位」的核心意義為何？",opts:["功能單位定義了產品系統所提供的功能量化基準（例如「清洗50件衣物」而非「1公升洗衣液」），確保不同產品或情境比較時具相同的功能基礎，是LCA結果可比較性的核心元素","功能單位是產品的實體重量，以公克或公斤表示","功能單位是計算碳排放量的計量單位，與CO₂e相同","功能單位僅在搖籃到墳墓研究中使用，其他情境無須設定"],a:0,ex:"功能單位定義產品提供的功能量化基準，使不同產品能在相同功能基礎上比較(B正確)。A誤將功能單位視為物理重量；C混淆功能單位與排放量計量單位；D錯誤，部分碳足跡研究使用宣告單位而非省略此概念。"},
+{unit:"L12202",uname:"生命週期評估概念",diff:"hard",type:"scenario",q:"某電動車充電服務業者計算「每次充電服務」的產品碳足跡。下列爭議最可能成為影響計算結果的最大不確定性來源？",opts:["充電服務APP伺服器的電力消耗","充電電力使用電網平均排放係數或充電時段邊際排放係數，以及充電設備製造之上游資本財排放是否納入系統邊界","充電站建設使用的鋼材重量","充電設備的貶值攤提會計處理方式"],a:1,ex:"電力係數選擇（平均vs邊際）與資本財是否納入，這兩項決策對結果影響最顯著且業界爭議最大(C正確)。A（APP伺服器）占比極小；B（鋼材重量）是較次要的上游材料問題；D（會計攤提）與碳足跡計算方法論無直接關係。"},
+{unit:"L12202",uname:"生命週期評估概念",diff:"medium",type:"scenario",q:"某外送平台推出循環餐盒計畫，消費者可重複使用清洗後歸還。計算循環餐盒每次使用的碳足跡時，下列哪個因素對結果影響最大？",opts:["消費者退還餐盒時的交通里程","餐盒的顏色與外觀設計","循環次數（預計可使用多少次）及每次清洗的用水用電消耗——使用次數越多，每次分攤的製造排放越低；清洗方式也顯著影響使用階段排放","餐盒重量（公克數）本身"],a:2,ex:"循環餐盒的使用次數決定製造排放的攤分程度，清洗方式決定使用階段排放，這兩者是決定碳足跡的主要變數(D正確)。A（退還交通）在特定情境下重要但非主因；B（外觀設計）不影響碳足跡；C（重量）影響材料排放但不如使用次數影響大。"},
+{unit:"L12203",uname:"產品類別規則訂定",diff:"medium",type:"scenario",q:"依ISO 14067及台灣碳標籤制度，PCR在碳足跡量化中的主要功能為何？",opts:["PCR規定企業的減碳目標，須達到特定上限方可申請標籤","PCR是碳信用的產品分類規則，用於碳交易市場","PCR由主管機關依職權強制訂定，企業完全不得參與制定過程","PCR為同類產品制定一致的碳足跡計算規則，包括系統邊界、功能單位、數據要求和分配方法，確保不同企業生產的同類產品碳足跡計算結果具可比較性"],a:3,ex:"PCR的核心功能是為同類產品建立統一計算規則，使不同廠商的同類產品碳足跡可公平比較(D正確)。A混淆PCR與減碳目標標準；B錯誤，PCR與碳交易無關；C錯誤，PCR通常經多方利害關係人參與程序制定。"},
+{unit:"L12203",uname:"產品類別規則訂定",diff:"hard",type:"scenario",q:"富林有機農場希望為有機稻米申請碳足跡標籤，發現目前只有「一般稻米」PCR，並無「有機稻米」專屬PCR。下列處理方式何者最符合ISO 14067精神？",opts:["可以「一般稻米」PCR作為計算基礎，但應記錄有機農業與慣行農業在盤查方法上的顯著差異（如有機肥vs化肥、農藥使用差異等），並向主管機關確認是否需制定補充規則","完全套用「一般稻米」PCR，因為米的種類相同無須調整","不能申請，必須等待有機稻米專屬PCR制定完成才可進行","選擇任何PCR皆可，只要計算結果數字較低"],a:0,ex:"無對應PCR時，應選用最近似的PCR作為基礎，記錄差異並確認是否需補充或新訂PCR(D正確)。A的選擇邏輯完全錯誤；B可能導致計算偏差；C過於保守，現有近似PCR可作為起點。"},
+{unit:"L12203",uname:"產品類別規則訂定",diff:"medium",type:"scenario",q:"PCR的「有效期限」通常如何設定，到期後應如何處理？",opts:["PCR的有效期由最初申請碳標籤的企業自行決定","PCR通常設定3至5年的有效期，到期前應召集利害關係人評估是否需要修訂，以反映新的技術發展、數據更新或政策變化","PCR無需明確有效期，只要市場上無人提出異議即持續有效","PCR永久有效，無需任何更新程序"],a:1,ex:"PCR通常設有3至5年有效期，到期前透過利害關係人參與程序評估修訂必要性(D正確)。A、B、C皆與PCR的有效期管理實務不符。"},
+{unit:"L12203",uname:"產品類別規則訂定",diff:"hard",type:"scenario",q:"某國際品牌要求台灣供應商提供ISO 14067碳足跡報告，但品牌採用的PCR（美國計畫版本）與台灣環境部公告的PCR（同產品類別）在系統邊界與數據要求上有所不同。供應商應如何處理？",opts:["選擇計算結果較低的PCR版本申報以取悅客戶","完全採用台灣版本PCR，因台灣法規具優先性，客戶應無條件接受","向品牌客戶說明兩套PCR的差異，確認客戶接受的計算基礎版本；若需同時滿足雙方需求，可能需分別依兩套PCR計算並清楚標明版本","同時遵守兩個PCR，直接取兩者計算結果的平均值作為最終申報數字"],a:2,ex:"應向客戶說明PCR差異、確認客戶需求，必要時分別計算並標明版本(D正確)。A選低值違背誠信原則；B忽略了客戶要求的特定合規版本；C的平均值做法無任何標準依據。"},
+{unit:"L12203",uname:"產品類別規則訂定",diff:"medium",type:"scenario",q:"若某PCR明確規定「計算稻米碳足跡時，稻穀與稻草採用質量分配」，但某研究者認為應採「系統擴展法」較能反映稻草替代化肥的實際效益。依ISO 14067，應如何處理此分歧？",opts:["研究者有完全自主權，可依科學依據自行選擇最適當的方法","可將兩種方法的計算結果直接平均作為最終數字","研究者可完全自行決定，PCR規定僅供參考不具約束力","應遵循PCR規定採用質量分配法作為主要申報結果；研究者若有不同見解，可於報告中額外揭露系統擴展法的計算結果作為補充參考，但不得取代PCR規定的主要結果"],a:3,ex:"PCR是確保同類產品可比較的計算規範，須遵循；不同見解可作為補充揭露但不能取代主要結果(C正確)。A、D皆高估研究者自主選擇的空間；B的平均值做法缺乏方法論依據。"},
+{unit:"L12204",uname:"製程地圖與系統邊界",diff:"medium",type:"scenario",q:"富林有機農場進行有機蔬菜碳足跡計算，在繪製製程地圖時，下列哪個項目最容易被誤遺漏，但實際上應納入「搖籃到大門」計算範圍？",opts:["採收蔬菜後在農場進行冷藏保鮮的電力消耗","消費者在家料理蔬菜的瓦斯能耗","農場員工日常通勤排放（於ISO 14064-1盤查中屬類別六）","消費者購買蔬菜後使用的購物袋"],a:0,ex:"採收後冷藏保鮮發生於農場大門前，屬生產過程一部分，應納入搖籃到大門邊界但常被遺漏(D正確)。消費者購物袋(A)、消費者料理(B)發生於大門之後；員工通勤(C)在ISO 14067產品碳足跡中通常依截斷原則評估，非最常被遺漏項目。"},
+{unit:"L12204",uname:"製程地圖與系統邊界",diff:"hard",type:"scenario",q:"依ISO 14067，「截斷原則」在系統邊界界定中的正確應用方式為何？",opts:["截斷原則允許企業任意排除任何不想申報的排放源","截斷原則要求設定合理的量化門檻，排除對碳足跡結果貢獻極小的物質流；被排除的項目需文件化說明，且累計排除量不得超過系統總投入的合理比例上限","供應商若無法提供數據，可直接以截斷原則將其排放設為零","截斷原則只能由PCR明文規定，企業完全無自主判斷空間"],a:1,ex:"截斷原則設定量化門檻排除貢獻極小的物質流，但須文件化且確保累計排除量在合理上限內(D正確)。A誤解截斷原則為任意排除工具；B過於絕對，PCR未規定時企業仍有一定自主判斷空間；C錯誤，數據缺漏應以次級數據估算而非直接歸零。"},
+{unit:"L12204",uname:"製程地圖與系統邊界",diff:"hard",type:"scenario",q:"某食品工廠同一生產線同時生產A產品（芝麻油，年產50公噸，售價200元/公斤）與B產品（芝麻粕，年產80公噸，售價10元/公斤）。若採「經濟價值分配」計算A產品碳足跡分攤比例，計算結果約為何？",opts:["A產品分攤50%（假設兩產品各占一半）","A產品分攤約38.5%（誤用質量比例：50/(50+80)）","A產品分攤約92.6%（A產值=50,000kg×200=1,000萬元；B產值=80,000kg×10=80萬元；A分攤=1,000/(1,000+80)=92.6%）","A產品分攤80%（誤用產量比例反向計算）"],a:2,ex:"經濟價值分配：A產值1,000萬元，B產值80萬元，A分攤=1,000/(1,000+80)=92.6%(C正確)。A的等分假設無依據；B使用質量分配結果不同（此為干擾）；D的計算方向錯誤。此題顯示不同分配方法（質量vs經濟價值）結果可能差異懸殊。"},
+{unit:"L12204",uname:"製程地圖與系統邊界",diff:"medium",type:"scenario",q:"某農場稻米生產同時產出「稻穀」和「稻草」（作為農場自用堆肥，非販售商品）。此共同生產情境下，如何處理稻草應分配的排放？",opts:["所有排放全數分配給稻穀，稻草因無市場銷售視為廢棄物不需分配","分配原則僅適用於工業製程，農業活動不需考慮分配問題","稻草因無市場售價，其對應排放可直接忽略不計","應優先以稻穀與稻草的質量比例分配；若質量分配不合理，可考慮以經濟價值或能量含量分配；稻草雖為農場自用，仍是有用的共同產出，其分配比例取決於所選方法或PCR規定"],a:3,ex:"共同生產分配原則：優先用物理關係（質量）分配，不合適時可用經濟價值或能量含量(D正確)。A錯誤，稻草雖自用但仍是有效產出不應視為廢棄物；B錯誤，分配原則同樣適用農業；C錯誤，稻草雖無市場售價但有使用價值不能忽略。"},
+{unit:"L12204",uname:"製程地圖與系統邊界",diff:"hard",type:"scenario",q:"某農場在計算有機雞蛋碳足跡時，發現雞飼料（有機玉米、豆粕）的上游排放佔總碳足跡58%，農場主表示「這是供應商的事，不應計入我們的碳足跡」。此主張是否符合ISO 14067精神？",opts:["此主張不符合ISO 14067精神：系統邊界要求納入產品系統的上游材料排放，飼料上游排放屬農場供應鏈一部分應納入計算；碳足跡計算並非只算「直接控制」的排放，而是整個產品系統的生命週期排放","若飼料占比低於某門檻即可依截斷原則排除，58%符合此條件","此主張正確，只有農場直接控制的排放才應計入其碳足跡","此主張正確，飼料供應商已有自己的盤查報告，不必重複計算"],a:0,ex:"ISO 14067的LCA系統邊界須包含上游材料排放，58%的占比是重大熱點不可排除(D正確)。A供應商有自己的盤查不影響本產品碳足跡計算；B截斷原則通常用於占比極低（如低於1%）的項目，58%絕對不適用；C將碳足跡誤等同於組織盤查的直接排放概念。"},
+{unit:"L12205",uname:"數據收集與計算",diff:"medium",type:"scenario",q:"ISO 14067中，次級數據與初級數據在數據品質評估中的主要差異為何？",opts:["次級數據精確度必然低於初級數據，因此永遠不應使用","初級數據由研究系統內直接量測或計算而來，代表性最高；次級數據來自外部資料庫或文獻，代表性較低但在初級數據無法取得時可合理使用；報告書需說明數據來源及品質等級","初級數據指製造商自己提供的數據，次級數據指政府發布的排放係數","次級數據只能用於背景流程（如電力生成），不得用於前景流程"],a:1,ex:"初級數據代表性最高，次級數據在無法取得初級數據時是合理替代，須說明來源和品質等級(D正確)。A過於絕對，次級數據在特定場景仍有重要性；B的限制並非標準硬性規定；C對兩種數據的定義有誤。"},
+{unit:"L12205",uname:"數據收集與計算",diff:"hard",type:"scenario",q:"某連鎖咖啡品牌計算「一杯拿鐵（350ml）」完整碳足跡，結果450 gCO₂e/杯。下列哪種結果呈現方式最具減碳策略意義？",opts:["只告知消費者已購買碳信用達到碳中和，無需揭露細項","比較競爭品牌的碳足跡數字，宣稱本品牌最低即可","將450 gCO₂e細分為各生命週期階段（如咖啡豆種植占35%、牛奶生產占45%、咖啡機能源占8%、包裝占7%、配送占5%），識別熱點排放源，據以規劃優先減量方向","僅標示總數450 gCO₂e/杯，供消費者比較參考即可"],a:2,ex:"生命週期熱點分析是將碳足跡結果轉化為減量策略的關鍵工具，識別牛奶生產占45%後可針對性減量(D正確)。A以碳信用掩蓋實際排放不符合揭露精神；B可能涉及不當比較性聲明；C僅揭露總數缺乏策略意義。"},
+{unit:"L12205",uname:"數據收集與計算",diff:"medium",type:"scenario",q:"某有機農場主張「有機種植完全不噴農藥、不施化肥，因此農業生產過程完全沒有溫室氣體排放」，此說法是否正確？",opts:["有機農業排放量為零，但依規定不得在碳標籤上宣稱","完全正確，有機農業不使用農藥化肥，排放量確實為零","有機農業的排放只有運輸階段的排放，農場生產本身無排放","有機農業雖無化學農藥與化肥排放，但仍存在：農機柴油燃燒CO₂、有機肥料施用產生的N₂O、水田CH₄排放（若種植水稻）、灌溉設備電力消耗等，不能宣稱為零排放"],a:3,ex:"有機農業雖不用化學農藥化肥，仍有農機燃料、有機肥N₂O、水稻甲烷、設備電力等排放，絕非零排放(D正確)。A、B、C均對有機農業排放來源有嚴重誤解或遺漏。"},
+{unit:"L12205",uname:"數據收集與計算",diff:"hard",type:"scenario",q:"某食品製造商計算「搖籃到墳墓」碳足跡，發現廢棄物處理階段占比達18%，主要來自消費者廢棄包裝的焚化處理。企業考慮改用可堆肥包材，此改變對結果的影響最可能為何？",opts:["包裝更換不影響產品碳足跡，因包裝屬次要排放源可忽略","此改變的淨碳效益需分多維度評估：可堆肥包材製造排放可能高於或低於傳統包材；正確堆肥處理的廢棄排放通常低於焚化；但若消費者將可堆肥包材誤投入一般垃圾，實際仍走焚化路徑；需依實際材料LCA數據與廢棄物情境假設綜合計算","可堆肥包材的碳足跡必然低於傳統塑膠包材，無需進一步評估","可堆肥包材必然降低碳足跡，因為屬環保材料"],a:1,ex:"包材更換的淨碳效益需全面評估製造階段與實際廢棄處理情境（含消費者誤投風險），不能片面認定必然改善(D正確)。A低估包裝在食品碳足跡中的占比重要性；B、C皆過度簡化、缺乏實證依據。"},
+{unit:"L12205",uname:"數據收集與計算",diff:"medium",type:"scenario",q:"某食農教育農場計畫評估三項改善方案：①水田改旱田降低CH₄排放；②太陽能農機替代柴油農機；③改用低N₂O排放係數之有機肥配方。決定優先推動方案時，應如何評估？",opts:["隨機選擇一個方案開始執行即可","選擇成本最低的方案優先推動，不需考量減量效益","三種方案應同時推動，否則碳足跡降低效果不顯著","應依熱點分析，識別CH₄與N₂O在總碳足跡中的占比，占比最高者對應方案應優先推動，並綜合考量每方案的實際減量效益與可行性（農業條件、成本）"],a:3,ex:"優先方案的選擇應依熱點占比決定投資方向，並綜合衡量減量效益與可行性(C正確)。A缺乏數據依據；B忽略了減量效益的重要性；D不一定可行，應依優先順序與資源配置審慎選擇。"}
 ];
+console.log('Questions:', QUESTIONS.length);
+const L=['A','B','C','D'];
+const dist={A:0,B:0,C:0,D:0};
+let seq='';
+QUESTIONS.forEach(q=>{dist[L[q.a]]++;seq+=L[q.a];});
+console.log('Distribution:', JSON.stringify(dist), '| Sequence:', seq);
+let mr=1,cr=1;
+for(let i=1;i<seq.length;i++){
+  if(seq[i]===seq[i-1]){cr++;if(cr>mr)mr=cr;}else cr=1;
+}
+console.log('Max run:', mr);
+let l121=0,l122=0;
+QUESTIONS.forEach(q=>{if(q.unit.indexOf('L121')===0)l121++;else l122++;});
+console.log('L121:',l121,'L122:',l122);
 
 const TOTAL = QUESTIONS.length;
 let answers = new Array(TOTAL).fill(null);
 let current = 0;
 let filterMode = 'all';
 
-const diffLabel = {easy:'易',medium:'中',hard:'難'};
-const diffClass = {easy:'diff-easy',medium:'diff-medium',hard:'diff-hard'};
+const diffLabel = {medium:'中',hard:'難'};
+const diffClass = {medium:'diff-medium',hard:'diff-hard'};
 
 const gridCards = document.getElementById('gridCards');
 const qText = document.getElementById('qText');
@@ -707,6 +334,7 @@ const explainBox = document.getElementById('explainBox');
 const explainText = document.getElementById('explainText');
 const unitPill = document.getElementById('unitPill');
 const diffPill = document.getElementById('diffPill');
+const typePill = document.getElementById('typePill');
 const qCount = document.getElementById('qCount');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
@@ -716,179 +344,129 @@ const quizCard = document.getElementById('quizCard');
 const resultsCard = document.getElementById('resultsCard');
 
 function buildGrid(){
-  gridCards.innerHTML = '';
+  gridCards.innerHTML='';
   QUESTIONS.forEach(function(q,i){
-    const c = document.createElement('div');
-    c.className = 'cell ' + (q.unit.indexOf('L122')===0 ? 'unit-L122' : 'unit-L121');
-    c.textContent = i+1;
-    c.id = 'cell-'+i;
-    c.addEventListener('click', function(){ filterMode='all'; updateFilterChips(); current=i; render(); });
+    const c=document.createElement('div');
+    c.className='cell '+(q.unit.indexOf('L122')===0?'unit-L122':'unit-L121');
+    c.textContent=i+1; c.id='cell-'+i;
+    c.addEventListener('click',function(){filterMode='all';updateChips();current=i;render();});
     gridCards.appendChild(c);
   });
 }
-
-function updateFilterChips(){
-  document.querySelectorAll('.chip').forEach(function(ch){
-    ch.classList.toggle('active', ch.dataset.filter===filterMode);
-  });
+function updateChips(){
+  document.querySelectorAll('.chip').forEach(function(ch){ch.classList.toggle('active',ch.dataset.filter===filterMode);});
 }
-
 function visibleIndices(){
   if(filterMode==='all') return QUESTIONS.map(function(_,i){return i;});
   return QUESTIONS.map(function(_,i){return i;}).filter(function(i){return QUESTIONS[i].unit.indexOf(filterMode)===0;});
 }
-
 function renderOptions(qi){
-  const q = QUESTIONS[qi];
-  optionsWrap.innerHTML = '';
-  const letters = ['A','B','C','D'];
-  const userAns = answers[qi];
+  const q=QUESTIONS[qi]; optionsWrap.innerHTML='';
+  const L=['A','B','C','D']; const userAns=answers[qi];
   q.opts.forEach(function(opt,oi){
-    const row = document.createElement('button');
-    row.type = 'button';
-    row.className = 'opt' + (userAns!==null ? ' locked' : '');
-    row.innerHTML = '<span class="opt-letter">'+letters[oi]+'</span><span>'+opt+'</span>';
+    const row=document.createElement('button');
+    row.type='button';
+    row.className='opt'+(userAns!==null?' locked':'');
+    row.innerHTML='<span class="opt-letter">'+L[oi]+'</span><span>'+opt+'</span>';
     if(userAns!==null){
-      if(oi===q.a){ row.classList.add('reveal-correct'); }
-      if(oi===userAns && userAns!==q.a){ row.classList.add('selected-wrong'); }
-      if(oi===userAns && userAns===q.a){ row.classList.remove('reveal-correct'); row.classList.add('selected-correct'); }
+      if(oi===q.a) row.classList.add('reveal-correct');
+      if(oi===userAns&&userAns!==q.a) row.classList.add('selected-wrong');
+      if(oi===userAns&&userAns===q.a){row.classList.remove('reveal-correct');row.classList.add('selected-correct');}
     }
-    row.addEventListener('click', function(){
-      if(answers[qi]!==null) return;
-      answers[qi] = oi;
-      render();
-    });
+    row.addEventListener('click',function(){if(answers[qi]!==null)return;answers[qi]=oi;render();});
     optionsWrap.appendChild(row);
   });
 }
-
 function render(){
-  const q = QUESTIONS[current];
-  unitPill.textContent = q.unit;
-  unitPill.className = 'pill unit' + (q.unit.indexOf('L122')===0 ? ' l122' : '');
-  diffPill.textContent = diffLabel[q.diff];
-  diffPill.className = 'pill ' + diffClass[q.diff];
-  qCount.textContent = '第 ' + (current+1) + ' 題 / ' + TOTAL + '　·　' + q.uname;
-  qText.textContent = q.q;
+  const q=QUESTIONS[current];
+  unitPill.textContent=q.unit;
+  unitPill.className='pill unit'+(q.unit.indexOf('L122')===0?' l122':'');
+  diffPill.textContent=diffLabel[q.diff];
+  diffPill.className='pill diff-'+q.diff;
+  typePill.textContent='情境應用';
+  qCount.textContent='第 '+(current+1)+' 題 / '+TOTAL+'　·　'+q.uname;
+  qText.textContent=q.q;
   renderOptions(current);
-
-  if(answers[current]!==null){
-    explainBox.classList.add('show');
-    explainText.textContent = q.ex;
-  } else {
-    explainBox.classList.remove('show');
-  }
-
+  if(answers[current]!==null){explainBox.classList.add('show');explainText.textContent=q.ex;}
+  else explainBox.classList.remove('show');
   document.querySelectorAll('.cell').forEach(function(c,i){
     c.classList.remove('current','correct','incorrect');
-    if(answers[i]!==null){
-      c.classList.add(answers[i]===QUESTIONS[i].a ? 'correct' : 'incorrect');
-    }
+    if(answers[i]!==null) c.classList.add(answers[i]===QUESTIONS[i].a?'correct':'incorrect');
   });
-  const curCell = document.getElementById('cell-'+current);
-  if(curCell) curCell.classList.add('current');
-
-  const ansN = answers.filter(function(a){return a!==null;}).length;
-  const corN = answers.filter(function(a,i){return a!==null && a===QUESTIONS[i].a;}).length;
-  answeredCount.textContent = ansN;
-  correctCount.textContent = corN;
-
-  prevBtn.disabled = current===0;
-  nextBtn.textContent = current===TOTAL-1 ? '查看成績總覽 →' : '下一題 →';
+  const cc=document.getElementById('cell-'+current);if(cc)cc.classList.add('current');
+  answeredCount.textContent=answers.filter(function(a){return a!==null;}).length;
+  correctCount.textContent=answers.filter(function(a,i){return a!==null&&a===QUESTIONS[i].a;}).length;
+  prevBtn.disabled=current===0;
+  nextBtn.textContent=current===TOTAL-1?'查看成績總覽 →':'下一題 →';
 }
-
-prevBtn.addEventListener('click', function(){ if(current>0){ current--; render(); } });
-nextBtn.addEventListener('click', function(){
-  if(current<TOTAL-1){ current++; render(); }
-  else { showResults(); }
+prevBtn.addEventListener('click',function(){if(current>0){current--;render();}});
+nextBtn.addEventListener('click',function(){if(current<TOTAL-1){current++;render();}else showResults();});
+document.getElementById('jumpUnanswered').addEventListener('click',function(){
+  const idx=answers.findIndex(function(a){return a===null;});
+  if(idx===-1){showResults();return;}current=idx;render();
 });
-
-document.getElementById('jumpUnanswered').addEventListener('click', function(){
-  const idx = answers.findIndex(function(a){return a===null;});
-  if(idx===-1){ showResults(); return; }
-  current = idx; render();
-});
-
 document.querySelectorAll('.chip').forEach(function(ch){
-  ch.addEventListener('click', function(){
-    filterMode = ch.dataset.filter;
-    updateFilterChips();
-    const vis = visibleIndices();
-    if(vis.indexOf(current)===-1) current = vis[0];
+  ch.addEventListener('click',function(){
+    filterMode=ch.dataset.filter;updateChips();
+    const vis=visibleIndices();
+    if(vis.indexOf(current)===-1)current=vis[0];
     render();
   });
 });
-
 function showResults(){
-  quizCard.style.display='none';
-  resultsCard.classList.add('show');
+  quizCard.style.display='none';resultsCard.classList.add('show');
+  const corN=answers.filter(function(a,i){return a!==null&&a===QUESTIONS[i].a;}).length;
+  document.getElementById('finalScore').textContent=corN+' / '+TOTAL;
 
-  const corN = answers.filter(function(a,i){return a!==null && a===QUESTIONS[i].a;}).length;
-  document.getElementById('finalScore').textContent = corN + ' / ' + TOTAL;
-
-  const byUnit = {L121:{c:0,t:0},L122:{c:0,t:0}};
-  const byDiff = {easy:{c:0,t:0},medium:{c:0,t:0},hard:{c:0,t:0}};
+  const byUnit={L121:{c:0,t:0},L122:{c:0,t:0}};
+  const byDiff={medium:{c:0,t:0},hard:{c:0,t:0}};
+  const bySub={};
   QUESTIONS.forEach(function(q,i){
-    const ukey = q.unit.indexOf('L122')===0 ? 'L122' : 'L121';
+    const ukey=q.unit.indexOf('L122')===0?'L122':'L121';
     byUnit[ukey].t++;
     byDiff[q.diff].t++;
-    if(answers[i]===q.a){ byUnit[ukey].c++; byDiff[q.diff].c++; }
+    if(!bySub[q.unit]) bySub[q.unit]={c:0,t:0};
+    bySub[q.unit].t++;
+    if(answers[i]===q.a){byUnit[ukey].c++;byDiff[q.diff].c++;bySub[q.unit].c++;}
   });
-  document.getElementById('byUnit').innerHTML =
-    '<div class="bd-row"><span>L121 ISO 14064-1 組織型盤查</span><span class="n">'+byUnit.L121.c+' / '+byUnit.L121.t+'</span></div>' +
-    '<div class="bd-row"><span>L122 ISO 14067 產品碳足跡</span><span class="n">'+byUnit.L122.c+' / '+byUnit.L122.t+'</span></div>';
-  document.getElementById('byDiff').innerHTML =
-    '<div class="bd-row"><span>易（基礎定義）</span><span class="n">'+byDiff.easy.c+' / '+byDiff.easy.t+'</span></div>' +
-    '<div class="bd-row"><span>中（法規應用／計算）</span><span class="n">'+byDiff.medium.c+' / '+byDiff.medium.t+'</span></div>' +
-    '<div class="bd-row"><span>難（整合判斷）</span><span class="n">'+byDiff.hard.c+' / '+byDiff.hard.t+'</span></div>';
+  document.getElementById('byUnit').innerHTML=
+    '<div class="bd-row"><span>L121 組織型盤查</span><span class="n">'+byUnit.L121.c+'/'+byUnit.L121.t+'</span></div>'+
+    '<div class="bd-row"><span>L122 產品碳足跡</span><span class="n">'+byUnit.L122.c+'/'+byUnit.L122.t+'</span></div>';
+  document.getElementById('byDiff').innerHTML=
+    '<div class="bd-row"><span>中等</span><span class="n">'+byDiff.medium.c+'/'+byDiff.medium.t+'</span></div>'+
+    '<div class="bd-row"><span>困難</span><span class="n">'+byDiff.hard.c+'/'+byDiff.hard.t+'</span></div>';
+  const subNames={'L12101':'盤查範圍','L12102':'邊界界定','L12103':'量化計算','L12104':'清冊報告書',
+    'L12201':'碳足跡原則','L12202':'LCA概念','L12203':'PCR訂定','L12204':'製程/系統邊界','L12205':'數據收集/計算'};
+  let subHtml='';
+  Object.keys(bySub).sort().forEach(function(k){
+    subHtml+='<div class="bd-row"><span>'+(subNames[k]||k)+'</span><span class="n">'+bySub[k].c+'/'+bySub[k].t+'</span></div>';
+  });
+  document.getElementById('bySub').innerHTML=subHtml;
 
-  const wrongWrap = document.getElementById('wrongList');
-  const wrongs = QUESTIONS.map(function(q,i){return i;}).filter(function(i){ return answers[i]!==null && answers[i]!==QUESTIONS[i].a; });
-  const unanswered = QUESTIONS.map(function(q,i){return i;}).filter(function(i){ return answers[i]===null; });
-
-  let html = '';
-  if(wrongs.length===0 && unanswered.length===0){
-    html = '<p class="no-wrong">恭喜，全數作答正確！</p>';
-  } else {
-    if(wrongs.length===0 && unanswered.length>0){
-      html += '<p class="no-wrong">已作答題目全數正確，仍有 '+unanswered.length+' 題尚未作答。</p>';
-    }
+  const wrongWrap=document.getElementById('wrongList');
+  const wrongs=QUESTIONS.map(function(q,i){return i;}).filter(function(i){return answers[i]!==null&&answers[i]!==QUESTIONS[i].a;});
+  const unanswered=QUESTIONS.map(function(q,i){return i;}).filter(function(i){return answers[i]===null;});
+  let html='';
+  if(wrongs.length===0&&unanswered.length===0) html='<p class="no-wrong">恭喜，全數作答正確！</p>';
+  else{
+    if(wrongs.length===0&&unanswered.length>0) html+='<p class="no-wrong">已作答題目全數正確，尚有'+unanswered.length+'題未作答。</p>';
     wrongs.forEach(function(i){
-      html += '<div class="wrong-item" data-i="'+i+'"><span class="qn">Q'+(i+1)+'</span><span class="qt">'+QUESTIONS[i].q+'</span></div>';
+      html+='<div class="wrong-item" data-i="'+i+'"><span class="qn">Q'+(i+1)+'</span><span class="qt">'+QUESTIONS[i].q.substring(0,55)+'…</span></div>';
     });
-    if(unanswered.length>0){
-      html += '<div class="bd-row" style="margin-top:8px;padding-top:10px;border-top:1px dashed var(--slate-line);"><span>尚未作答</span><span class="n">'+unanswered.length+' 題</span></div>';
-    }
+    if(unanswered.length>0) html+='<div class="bd-row" style="margin-top:8px;padding-top:10px;border-top:1px dashed var(--slate-line);"><span>尚未作答</span><span class="n">'+unanswered.length+'題</span></div>';
   }
-  wrongWrap.innerHTML = html;
+  wrongWrap.innerHTML=html;
   wrongWrap.querySelectorAll('.wrong-item').forEach(function(el){
-    el.addEventListener('click', function(){
-      current = parseInt(el.getAttribute('data-i'),10);
-      filterMode='all'; updateFilterChips();
-      backToQuiz();
-      render();
-    });
+    el.addEventListener('click',function(){current=parseInt(el.dataset.i,10);filterMode='all';updateChips();backToQuiz();render();});
   });
 }
-
-function backToQuiz(){
-  resultsCard.classList.remove('show');
-  quizCard.style.display='block';
-}
-
-document.getElementById('toResultsBtn').addEventListener('click', showResults);
-document.getElementById('backToQuizBtn').addEventListener('click', backToQuiz);
-document.getElementById('restartBtn').addEventListener('click', function(){
-  answers = new Array(TOTAL).fill(null);
-  current = 0;
-  filterMode='all';
-  updateFilterChips();
-  backToQuiz();
-  render();
+function backToQuiz(){resultsCard.classList.remove('show');quizCard.style.display='block';}
+document.getElementById('toResultsBtn').addEventListener('click',showResults);
+document.getElementById('backToQuizBtn').addEventListener('click',backToQuiz);
+document.getElementById('restartBtn').addEventListener('click',function(){
+  answers=new Array(TOTAL).fill(null);current=0;filterMode='all';updateChips();backToQuiz();render();
 });
-
-buildGrid();
-render();
+buildGrid();render();
 </script>
 </body>
 </html>
