@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ISO 標準 × SBTi × CBAM · iPAS速記筆記</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@500;700&display=swap');
+:root{
+  --forest:#1A3A2F;--sage:#3D6B5E;--sage-l:#6FA896;
+  --cream:#F5F0E6;--cream-d:#EBE4D4;
+  --gold:#C8860A;--gold-s:#F2DFA0;
+  --slate:#2C4A7C;--slate-s:#D4DDEF;
+  --ember:#C04A28;--ember-s:#F1D5C8;
+  --violet:#5A2C7C;--violet-s:#E0C8F0;
+  --teal:#1A6B7C;--teal-s:#C8E8F0;
+  --ink:#1C2418;--ink-m:#4A5244;--ink-l:#8A9187;
+  --rule:#C8C0AC;
+  --ff:'Noto Sans TC',sans-serif;
+  --fs:'Noto Serif TC',serif;
+  --fm:'IBM Plex Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--ink);font-family:var(--ff);line-height:1.65;font-size:15px;}
+
+.hero{background:linear-gradient(135deg,var(--forest) 0%,#2A4A5C 100%);color:var(--cream);padding:60px 28px 44px;text-align:center;}
+.hero-eyebrow{font-family:var(--fm);font-size: 22px;letter-spacing:.2em;text-transform:uppercase;color:var(--sage-l);margin-bottom:14px;}
+.hero h1{font-family:var(--fs);font-weight:900;font-size:clamp(26px,4.5vw,42px);line-height:1.2;margin-bottom:12px;}
+.hero h1 em{color:var(--gold-s);font-style:normal;}
+.hero-sub{font-size:14.5px;color:#AECCC4;max-width:1900px;margin:0 auto 26px;}
+.tag-row{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;}
+.htag{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:4px;padding:5px 12px;font-family:var(--fm);font-size: 22px;color:#D4EAE2;}
+
+.page{max-width:1900px;margin:0 auto;padding:36px 20px 80px;}
+
+.sec{margin-top:52px;}
+.sec-hd{display:flex;align-items:center;gap:12px;margin-bottom:22px;}
+.sec-hd .stag{font-family:var(--fm);font-size: 22px;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);padding:4px 10px;border-radius:2px;white-space:nowrap;}
+.sec-hd h2{font-family:var(--fs);font-size:21px;font-weight:700;}
+.sec-hd::after{content:"";flex:1;height:1px;background:var(--rule);}
+
+/* ── LADDER (timeline / hierarchy) ── */
+.ladder{display:flex;flex-direction:column;gap:0;}
+.rung{display:grid;grid-template-columns:110px 1fr;gap:0;position:relative;}
+.rung::before{content:"";position:absolute;left:108px;top:0;bottom:0;width:2px;background:var(--rule);}
+.rung:last-child::before{bottom:50%;}
+.rung-label{padding:14px 16px 14px 0;text-align:right;}
+.rung-code{font-family:var(--fm);font-size: 22px;font-weight:700;}
+.rung-yr{font-size: 22px;color:var(--ink-l);display:block;margin-top:2px;}
+.rung-dot{position:absolute;left:103px;top:18px;width:12px;height:12px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 2px var(--rule);}
+.rung-body{padding:12px 0 12px 24px;border-bottom:1px dashed var(--cream-d);}
+.rung:last-child .rung-body{border-bottom:none;}
+.rung-title{font-family:var(--fs);font-size:14px;font-weight:700;margin-bottom:4px;}
+.rung-desc{font-size: 22px;color:var(--ink-m);line-height:1.65;}
+.rung-desc b{color:var(--ink);}
+.rung-desc .pill{display:inline-block;padding:1px 7px;border-radius:2px;font-family:var(--fm);font-size:10.5px;margin-left:4px;}
+
+/* ── SPEC BOX ── */
+.spec{background:#fff;border:1.5px solid var(--rule);border-radius:6px;overflow:hidden;margin-bottom:18px;}
+.spec-head{padding:14px 18px;display:flex;align-items:center;gap:14px;}
+.spec-head .icon{font-size:26px;}
+.spec-head .meta{}
+.spec-head .code{font-family:var(--fm);font-size: 22px;font-weight:700;}
+.spec-head .name{font-size: 22px;color:inherit;opacity:.8;margin-top:1px;}
+.spec-body{padding:16px 18px;display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;}
+@media(max-width:560px){.spec-body{grid-template-columns:1fr;}}
+.spec-row{font-size: 22px;line-height:1.6;}
+.spec-row .k{font-family:var(--fm);font-size: 22px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-l);display:block;margin-bottom:2px;}
+.spec-row .v b{color:var(--ink);}
+.spec-full{grid-column:1/-1;}
+.spec-mem{grid-column:1/-1;padding:10px 12px;border-radius:4px;font-size: 22px;line-height:1.65;}
+.spec-mem .ml{font-family:var(--fm);font-size: 22px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px;display:block;}
+
+.c-iso14064{border-color:#3D6B5E;}.c-iso14064 .spec-head{background:#3D6B5E;color:#fff;}.c-iso14064 .spec-mem{background:#C8E8D8;}
+.c-iso14067{border-color:#4B6B2C;}.c-iso14067 .spec-head{background:#4B6B2C;color:#fff;}.c-iso14067 .spec-mem{background:#DDF0CA;}
+.c-iso14068{border-color:#7C5A2C;}.c-iso14068 .spec-head{background:#7C5A2C;color:#fff;}.c-iso14068 .spec-mem{background:#F0E4C8;}
+.c-sbti{border-color:#2C4A7C;}.c-sbti .spec-head{background:#2C4A7C;color:#fff;}.c-sbti .spec-mem{background:#D4DDEF;}
+.c-cbam{border-color:#7C2C2C;}.c-cbam .spec-head{background:#7C2C2C;color:#fff;}.c-cbam .spec-mem{background:#F0D4D4;}
+
+/* ── PYRAMID ── */
+.pyramid-wrap{background:var(--cream-d);border:1px solid var(--rule);border-radius:6px;padding:24px;margin-bottom:24px;}
+.pyramid-title{font-family:var(--fs);font-size:22px;font-weight:700;text-align:center;margin-bottom:18px;color:var(--forest);}
+.pyr{display:flex;flex-direction:column;gap:4px;align-items:center;}
+.pyr-row{border-radius:3px;padding:10px 16px;text-align:center;font-size: 22px;color:#fff;font-weight:500;line-height:1.4;}
+.pyr-row b{font-family:var(--fm);font-size:15px;display:block;margin-bottom:2px;}
+.pyr-row small{font-size: 22px;opacity:.85;}
+
+/* ── FLOW ── */
+.flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:12px 0;}
+.flow-step{background:#fff;border:1.5px solid var(--rule);border-radius:4px;padding:8px 14px;font-size: 22px;text-align:center;min-width:80px;}
+.flow-step b{font-family:var(--fm);font-size: 22px;display:block;color:var(--ink-l);margin-bottom:2px;}
+.flow-arr{font-size:22px;color:var(--rule);}
+
+/* ── NUMBER CALLOUTS ── */
+.num-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:16px 0;}
+.num-card{background:#fff;border:1px solid var(--rule);border-radius:5px;padding:14px 16px;text-align:center;}
+.num-card .big{font-family:var(--fm);font-size:26px;font-weight:700;display:block;margin-bottom:4px;}
+.num-card .label{font-size: 22px;color:var(--ink-m);line-height:1.45;}
+
+/* ── COMPARISON STRIP ── */
+.vs{display:grid;grid-template-columns:1fr 28px 1fr;gap:0;margin:16px 0;}
+.vs-col{background:#fff;border:1px solid var(--rule);padding:14px 16px;font-size: 22px;line-height:1.65;}
+.vs-col:first-child{border-radius:5px 0 0 5px;}
+.vs-col:last-child{border-radius:0 5px 5px 0;}
+.vs-mid{display:flex;align-items:center;justify-content:center;background:var(--cream-d);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);font-family:var(--fm);font-size: 22px;font-weight:700;writing-mode:vertical-rl;color:var(--ink-l);}
+.vs-col h4{font-family:var(--fm);font-size: 22px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;}
+
+/* ── TRAPS ── */
+.trap-list{list-style:none;display:grid;gap:10px;}
+.trap{background:#fff;border-left:4px solid var(--ember);border-radius:0 5px 5px 0;padding:12px 16px;display:flex;gap:10px;}
+.trap .ti{font-size:22px;flex-shrink:0;}
+.trap .tt{font-size:22px;line-height:1.7;color:var(--ink-m);}
+.trap .tt b{color:var(--ink);}
+.trap .tt em{color:var(--ember);font-style:normal;font-weight:700;}
+
+/* ── CHEAT ── */
+.cheat{background:var(--forest);color:var(--cream);border-radius:6px;padding:24px;margin-top:40px;}
+.cheat h3{font-family:var(--fs);font-size: 22px;font-weight:700;color:var(--gold-s);margin-bottom:16px;}
+.cheat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+@media(max-width:540px){.cheat-grid{grid-template-columns:1fr;}}
+.ci{background:rgba(255,255,255,.07);border-radius:4px;padding:10px 12px;}
+.ci .cq{font-size:22px;color:#9FBFB4;margin-bottom:4px;}
+.ci .ca{font-size: 22px;color:#EBF2EE;font-weight:500;line-height:1.5;}
+.ci .ca b{color:var(--gold-s);}
+
+.fn{text-align:center;font-family:var(--fm);font-size: 22px;color:var(--ink-l);margin-top:48px;letter-spacing:.04em;}
+
+@media (max-width: 768px) {
+	.hero {margin-top: 8rem;padding:8px 18px 30px;}
+}
+.badgerowbt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px;
+    background: #ffffff;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+a.badge1 {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #007286;
+    color: #fff;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+a.badge2 {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #007286;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+a.badge3 {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #b8238d;
+    color: yellow;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+</style>
+</head>
+<body>
+<div class="badgerowbt">    
+		
+		<div><a href="https://snoweryi.github.io/yilearn/" class="badge1" >永續架構</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/iu.html" class="badge1">UNFCCC</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/iz.html" class="badge1">條文</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/iy.html" class="badge1">年份</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/iw.html" class="badge1">氣候法</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/ic1.html" class="badge1">碳中和</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/ic.html" class="badge1">CBAM</a></div>	
+		<div><a href="https://snoweryi.github.io/yilearn/is.html" class="badge1">舊SBTi</a></div>		
+		<div><a href="https://snoweryi.github.io/yilearn/isb.html" class="badge1">新舊SBTi</a></div>	
+		<div><a href="https://snoweryi.github.io/yilearn/ir.html" class="badge1">RE100</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/ie.html" class="badge1">ESG</a></div>
+<div><a href="https://snoweryi.github.io/yilearn/iso_sbti_cbam.html" class="badge2">iso_sbti_cbam</a></div><br>		
+		<div><a href="https://snoweryi.github.io/yilearn/menu.html" class="badge3">目錄</a></div>
+	</div>
+<div class="hero">
+  <p class="hero-eyebrow">iPAS 淨零碳規劃管理師 · 第二份速記筆記 2026</p>
+  <h1>ISO 標準 × SBTi × <em>CBAM</em></h1>
+  <p class="hero-sub">搭配 ESG 框架筆記使用，這三塊是 L12 與 L112 的核心計算考點</p>
+  <div class="tag-row">
+    <span class="htag">📋 ISO 14064-1 組織型盤查</span>
+    <span class="htag">🏷️ ISO 14067 產品碳足跡</span>
+    <span class="htag">🌿 ISO 14068-1 碳中和</span>
+    <span class="htag">🎯 SBTi v2.0</span>
+    <span class="htag">🇪🇺 CBAM 碳邊境</span>
+  </div>
+</div>
+
+<div class="page">
+
+<!-- ISO 系列演化 -->
+<div class="sec">
+  <div class="sec-hd"><span class="stag" style="background:var(--sage);">ISO 系列</span><h2 style="color:var(--forest);">ISO 14000 系列的「碳管理三兄弟」</h2></div>
+
+  <div class="pyramid-wrap">
+    <div class="pyramid-title">三個 ISO 標準，從大到小，從組織到產品</div>
+    <div class="pyr">
+      <div class="pyr-row" style="background:var(--forest);width:90%;"><b>ISO 14068-1:2023</b><small>碳中和——最終宣告，整合前兩者成果</small></div>
+      <div class="pyr-row" style="background:var(--sage);width:75%;"><b>ISO 14064-1:2018</b><small>組織型溫室氣體盤查——誰排了多少？</small></div>
+      <div class="pyr-row" style="background:#4B6B2C;width:60%;"><b>ISO 14067:2018</b><small>產品碳足跡——這個產品排了多少？</small></div>
+    </div>
+    <p style="text-align:center;font-size: 22px;color:var(--ink-l);margin-top:12px;">記法：先盤查（14064）→ 算產品（14067）→ 宣告碳中和（14068）。數字小→大，就是流程順序。</p>
+  </div>
+
+  <!-- ISO 14064-1 -->
+  <div class="spec c-iso14064">
+    <div class="spec-head">
+      <div class="icon">📋</div>
+      <div class="meta">
+        <div class="code">ISO 14064-1:2018</div>
+        <div class="name">組織型溫室氣體盤查規範 · 考點最多</div>
+      </div>
+    </div>
+    <div class="spec-body">
+      <div class="spec-row"><span class="k">適用對象</span><span class="v"><b>組織層級</b>（公司、工廠、機關）</span></div>
+      <div class="spec-row"><span class="k">量化氣體</span><span class="v">七種：CO₂ CH₄ N₂O HFCs PFCs SF₆ <b>NF₃</b>（2018新增）</span></div>
+      <div class="spec-row"><span class="k">五大原則</span><span class="v"><b>攸關 完整 一致 準確 透明</b>（無「獲利性」！）</span></div>
+      <div class="spec-row"><span class="k">組織邊界</span><span class="v"><b>股權比例法</b> vs <b>控制法</b>（財務/營運控制）</span></div>
+      <div class="spec-row"><span class="k">六大類別</span><span class="v">類別一（直接）→ 二（能源）→ 三至六（各種間接）</span></div>
+      <div class="spec-row"><span class="k">vs 舊版</span><span class="v">2018新增 NF₃；三大範疇改為<b>六大類別</b></span></div>
+      <div class="spec-row spec-full"><span class="k">計算公式</span><span class="v"><b>排放量 = 活動數據 × 排放係數</b>（再 × GWP = CO₂e）</span></div>
+      <div class="spec-mem">
+        <span class="ml">🧠 速記</span>
+        <b>「盤查三步：邊界→排放源→量化」</b>。先決定算誰（組織邊界），再找排放源（六類別），再用公式算。<br>
+        <b>控制法</b> = 不論持股多少，有控制就 100% 算；<b>股權法</b> = 持多少股算多少比例。
+      </div>
+    </div>
+  </div>
+
+  <!-- ISO 14067 -->
+  <div class="spec c-iso14067">
+    <div class="spec-head">
+      <div class="icon">🏷️</div>
+      <div class="meta">
+        <div class="code">ISO 14067:2018</div>
+        <div class="name">產品碳足跡量化與報告規範</div>
+      </div>
+    </div>
+    <div class="spec-body">
+      <div class="spec-row"><span class="k">適用對象</span><span class="v"><b>產品/服務層級</b>（單一產品的生命週期）</span></div>
+      <div class="spec-row"><span class="k">取代</span><span class="v">ISO/TS 14067:2013（技術規範升格為標準）</span></div>
+      <div class="spec-row"><span class="k">基礎方法</span><span class="v">生命週期評估 (LCA)，依 ISO 14040/44</span></div>
+      <div class="spec-row"><span class="k">系統邊界</span><span class="v">搖籃到墳墓 / 搖籃到大門 / 大門到大門</span></div>
+      <div class="spec-row"><span class="k">功能單位</span><span class="v">完整 CFP 用「功能單位」；部分 CFP 用「宣告單位」</span></div>
+      <div class="spec-row"><span class="k">PCR</span><span class="v">產品類別規則，確保同類產品計算可比較</span></div>
+      <div class="spec-row spec-full"><span class="k">碳抵換限制</span><span class="v">⚠️ <b>碳抵換（Offset）不得計入 CFP 量化結果</b>！（可另行揭露，但不能改變 CFP 數字）</span></div>
+      <div class="spec-mem">
+        <span class="ml">🧠 速記</span>
+        <b>「搖籃到墳墓 = 完整；搖籃到大門 = B2B 中間品常用」</b><br>
+        B2B 難以掌握下游使用，採「搖籃到大門」＋「宣告單位」呈現部分碳足跡
+      </div>
+    </div>
+  </div>
+
+  <!-- ISO 14068-1 -->
+  <div class="spec c-iso14068">
+    <div class="spec-head">
+      <div class="icon">🌿</div>
+      <div class="meta">
+        <div class="code">ISO 14068-1:2023</div>
+        <div class="name">碳中和——取代 PAS 2060:2014</div>
+      </div>
+    </div>
+    <div class="spec-body">
+      <div class="spec-row"><span class="k">取代</span><span class="v"><b>PAS 2060:2014</b>（英國規範，已廢止）</span></div>
+      <div class="spec-row"><span class="k">核心精神</span><span class="v"><b>減量優先階層</b>：先減→再移除→最後才抵換</span></div>
+      <div class="spec-row"><span class="k">宣告層級</span><span class="v">產品 / 組織 / 活動 → 三種層級可分別宣告</span></div>
+      <div class="spec-row"><span class="k">碳抵換資格</span><span class="v">必須為<b>事後型（ex-post）</b>且通過第三方查驗</span></div>
+      <div class="spec-row"><span class="k">路徑要求</span><span class="v">須設定<b>短期＋長期</b>目標，野心逐年提高</span></div>
+      <div class="spec-row"><span class="k">宣告週期</span><span class="v">針對<b>特定期間</b>，不是永久有效</span></div>
+      <div class="spec-row spec-full"><span class="k">最大考點</span><span class="v">⚠️ <b>「大量買碳權就能宣稱碳中和」= 錯誤！</b> 必須先減量，碳信用只是抵換殘餘排放的最後手段</span></div>
+      <div class="spec-mem">
+        <span class="ml">🧠 記憶故事</span>
+        想像碳中和是一道菜：<b>先把排放量「煮小」</b>（減量），<b>剩下的「調味」</b>（移除），<b>最後才「加醬」</b>（抵換）。
+        買很多醬（碳權）但菜沒煮熟（未減量），廚師（查證機構）不會讓你過關。
+      </div>
+    </div>
+  </div>
+
+  <!-- ISO 三兄弟 vs 比較 -->
+  <div class="vs">
+    <div class="vs-col">
+      <h4>🗂️ ISO 14064-1 組織盤查</h4>
+      邊界：全公司所有設施<br>
+      單位：公噸 CO₂e / 年<br>
+      目的：了解整體碳排放量<br>
+      輸出：溫室氣體盤查清冊
+    </div>
+    <div class="vs-mid">VS</div>
+    <div class="vs-col">
+      <h4>🏷️ ISO 14067 產品碳足跡</h4>
+      邊界：單一產品生命週期<br>
+      單位：CO₂e / 功能單位<br>
+      目的：計算產品碳標籤<br>
+      輸出：產品碳足跡報告
+    </div>
+  </div>
+</div>
+
+<!-- SBTi v2.0 -->
+<div class="sec">
+  <div class="sec-hd"><span class="stag" style="background:var(--slate);">SBTi v2.0</span><h2 style="color:var(--slate);">SBTi v2.0 科學基礎減碳目標</h2></div>
+
+  <div class="spec c-sbti">
+    <div class="spec-head">
+      <div class="icon">🎯</div>
+      <div class="meta">
+        <div class="code">SBTi Corporate Net-Zero Standard v2.0</div>
+        <div class="name">2026 年 6 月 11 日發布 · 取代 v1.3.1</div>
+      </div>
+    </div>
+    <div class="spec-body">
+      <div class="spec-row"><span class="k">發布日期</span><span class="v"><b>2026/06/11</b>；2028/01/01 起全面取代 v1.3.1</span></div>
+      <div class="spec-row"><span class="k">近期目標</span><span class="v">5-10年內，範疇一、二至少減量 <b>42%</b>（1.5°C路徑）</span></div>
+      <div class="spec-row"><span class="k">長期目標</span><span class="v">2050 年，範疇一、二、三 <b>90%以上絕對減量</b></span></div>
+      <div class="spec-row"><span class="k">淨零宣告</span><span class="v">殘餘排放以<b>永久性強碳移除</b>中和（非一般碳信用）</span></div>
+      <div class="spec-row"><span class="k">範疇二新規</span><span class="v">最遲 2040 年達 100% 低碳電力；EAC 需<b>時間地理匹配</b></span></div>
+      <div class="spec-row"><span class="k">轉型計畫</span><span class="v">v2.0 要求同步提交並<b>公開</b>轉型計畫，含資本支出路徑</span></div>
+      <div class="spec-row"><span class="k">FLAG 企業</span><span class="v">森林/土地/農業企業須分別設定化石燃料＋土地利用兩套目標</span></div>
+      <div class="spec-row"><span class="k">活動群組</span><span class="v">範疇三依「活動群組」分類，可排除極低比例排放來源</span></div>
+      <div class="spec-row spec-full"><span class="k">⚠️最大考點</span><span class="v">v2.0 淨零宣告 ≠ ISO 14068-1 碳中和！SBTi 是<b>長期路徑承諾</b>，ISO 14068-1 是<b>當年度特定範圍的平衡宣告</b></span></div>
+      <div class="spec-mem">
+        <span class="ml">🧠 三重門速記</span>
+        達成 SBTi 淨零宣告需過三關：<br>
+        <b>①近期門</b>：範疇一、二減量 42%（約 2030）<br>
+        <b>②長期門</b>：整體減量 90% 以上（2050）<br>
+        <b>③殘餘門</b>：剩下 10% 以永久性強碳移除中和<br>
+        ❌ 「買很多碳信用直接達到淨零」= <b>不行！</b>
+      </div>
+    </div>
+  </div>
+
+  <div class="num-grid">
+    <div class="num-card"><span class="big" style="color:var(--slate);">42%</span><span class="label">近期目標（1.5°C路徑）<br>範疇一、二絕對減量</span></div>
+    <div class="num-card"><span class="big" style="color:var(--forest);">90%+</span><span class="label">長期目標（2050年）<br>整體絕對排放減量</span></div>
+    <div class="num-card"><span class="big" style="color:var(--gold);">2040</span><span class="label">範疇二<br>100% 低碳電力期限</span></div>
+    <div class="num-card"><span class="big" style="color:var(--ember);">v2.0</span><span class="label">2026/06/11 發布<br>2028/01 強制適用</span></div>
+  </div>
+</div>
+
+<!-- CBAM -->
+<div class="sec">
+  <div class="sec-hd"><span class="stag" style="background:var(--ember);">CBAM</span><h2 style="color:var(--ember);">CBAM 碳邊境調整機制</h2></div>
+
+  <div class="spec c-cbam">
+    <div class="spec-head">
+      <div class="icon">🇪🇺</div>
+      <div class="meta">
+        <div class="code">Carbon Border Adjustment Mechanism</div>
+        <div class="name">歐盟碳邊境調整機制 · 2025/10 月簡化規則後正式適用</div>
+      </div>
+    </div>
+    <div class="spec-body">
+      <div class="spec-row"><span class="k">目的</span><span class="v">對進口高碳排產品課徵相當於歐盟碳價的費用，防止<b>碳洩漏</b></span></div>
+      <div class="spec-row"><span class="k">納管產品</span><span class="v"><b>鋼鐵、鋁、水泥、肥料、電力、氫氣</b>（六大類）</span></div>
+      <div class="spec-row"><span class="k">豁免門檻</span><span class="v">年度累計進口 <b>≤50公噸</b> 可豁免（2025/10 簡化規則）</span></div>
+      <div class="spec-row"><span class="k">憑證持有</span><span class="v">每季至少持有累計排放量 <b>50%</b>（原80%降低）</span></div>
+      <div class="spec-row"><span class="k">申報期限</span><span class="v">每年 <b>5月31日</b> 前提交年度申報書</span></div>
+      <div class="spec-row"><span class="k">罰則</span><span class="v">未履行最高 <b>100 歐元/公噸CO₂e</b></span></div>
+      <div class="spec-row"><span class="k">申報人</span><span class="v"><b>歐盟境內進口商</b>（授權申報人），非出口國廠商直接申報</span></div>
+      <div class="spec-row"><span class="k">嵌入排放</span><span class="v">計算特定產品生產過程中的<b>直接排放</b>（部分產品含間接排放）</span></div>
+      <div class="spec-row"><span class="k">扣抵機制</span><span class="v">出口國已繳碳費，可申請<b>扣除</b>對應 CBAM 費用（需提交文件）</span></div>
+      <div class="spec-row"><span class="k">與 EU ETS</span><span class="v">CBAM 擴大 → EU ETS 免費配額<b>逐步退場</b>（連動設計）</span></div>
+      <div class="spec-row spec-full"><span class="k">⚠️考試陷阱</span><span class="v">CBAM 義務人 = <b>歐盟進口商</b>（非台灣出口商），但台灣出口商須提供嵌入排放計算數據支援；豁免門檻從「150歐元/批」改為「50公噸/年」是 2025/10 的重大改變</span></div>
+      <div class="spec-mem">
+        <span class="ml">🧠 記憶故事</span>
+        CBAM 就像是「碳關稅海關」：歐盟海關看到高碳排的進口商品，就問進口商「你願意繳碳費嗎？」。若出口國（如台灣）已對這批商品收過碳費，進口商可以拿收據抵扣，但若台灣碳費費率比歐盟低，差額還是要補繳。
+      </div>
+    </div>
+  </div>
+
+  <!-- CBAM 時間軸 -->
+  <div class="ladder" style="margin-top:8px;">
+    <div class="rung">
+      <div class="rung-label"><div class="rung-code">2023</div><span class="rung-yr">10月</span></div>
+      <div class="rung-dot" style="background:var(--ember);"></div>
+      <div class="rung-body"><div class="rung-title">過渡期開始</div><div class="rung-desc">進口商只需申報嵌入排放，<b>暫不需繳納費用</b></div></div>
+    </div>
+    <div class="rung">
+      <div class="rung-label"><div class="rung-code">2025</div><span class="rung-yr">10月</span></div>
+      <div class="rung-dot" style="background:var(--ember);"></div>
+      <div class="rung-body"><div class="rung-title">Omnibus 簡化規則生效</div><div class="rung-desc">豁免門檻 → <b>50公噸/年</b>；憑證持有比例 → <b>50%</b>（原80%）；減少約 9 成申報義務企業</div></div>
+    </div>
+    <div class="rung">
+      <div class="rung-label"><div class="rung-code">2026</div><span class="rung-yr">正式適用</span></div>
+      <div class="rung-dot" style="background:var(--ember);"></div>
+      <div class="rung-body"><div class="rung-title">CBAM 正式適用期</div><div class="rung-desc">授權申報人須購買並繳交 CBAM 憑證；<b>每年 5/31 申報</b>上一年度</div></div>
+    </div>
+    <div class="rung">
+      <div class="rung-label"><div class="rung-code">2034</div><span class="rung-yr">完全落地</span></div>
+      <div class="rung-dot" style="background:var(--ink-l);"></div>
+      <div class="rung-body"><div class="rung-title">EU ETS 免費配額完全退場</div><div class="rung-desc">CBAM 對進口品 = EU ETS 對本地品，真正實現「公平競爭」</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- TRAPS -->
+<div class="sec">
+  <div class="sec-hd"><span class="stag" style="background:var(--ember);">考試陷阱</span><h2 style="color:var(--ember);">常考易錯的 8 個觀念</h2></div>
+  <ul class="trap-list">
+    <li class="trap">
+      <span class="ti">⚠️</span>
+      <div class="tt"><b>①「七種溫室氣體」vs「六類排放類別」不要搞混</b><br>
+      七種氣體（CO₂ CH₄ N₂O HFCs PFCs SF₆ NF₃）是「量化對象」；六大類別（一直接→二能源→三至六各種間接）是「排放來源分類」。完全不同的兩個概念。</div>
+    </li>
+    <li class="trap">
+      <span class="ti">⚠️</span>
+      <div class="tt"><b>② ISO 14068-1 取代的是 PAS 2060，不是 ISO 14064-1</b><br>
+      ISO 14068-1 是碳中和標準，取代英國的 PAS 2060:2014。ISO 14064-1 是組織型盤查，兩者是<em>互補的不同標準</em>，無取代關係。</div>
+    </li>
+    <li class="trap">
+      <span class="ti">⚠️</span>
+      <div class="tt"><b>③ 碳抵換在 ISO 14067 中<em>不得</em>計入 CFP 數字</b><br>
+      產品碳足跡的量化結果只能反映生命週期實際排放，碳抵換（碳信用購買）應「另行揭露」，絕對不能直接從 CFP 數字扣除。</div>
+    </li>
+    <li class="trap">
+      <span class="ti">⚠️</span>
+      <div class="tt"><b>④ SBTi 「淨零」≠ ISO 14068-1 「碳中和」</b><br>
+      <em>SBTi 淨零</em>：長期路徑承諾（2050年，90%減量＋永久性碳移除）<br>
+      <em>ISO 14068-1 碳中和</em>：特定期間、特定邊界的排放與移除/抵換平衡宣告。兩者可並存，但意義、要求和時間框架完全不同。</div>
+    </li>
+    <li class="trap">
+      <span class="ti">⚠️</span>
+      <div class="tt"><b>⑤ CBAM 義務人是歐盟「進口商」，不是台灣出口商</b><br>
+      台灣廠商的責任是提供嵌入排放計算數據給歐盟進口商，由進口商負責向歐盟申報與繳交 CBAM 憑證費用。但數據不準確，進口商會要求台灣出口商補充或更正。</div>
+    </li>
+    <li class="trap">
+      <span class="ti">⚠️</span>
+      <div class="tt"><b>⑥ 台灣碳費的「起徵門檻」是 2.5 萬公噸，不是排放量</b><br>
+      碳費計算時可扣除 2.5 萬公噸的起徵門檻。若年排放 8 萬噸，計費基礎為 (8 - 2.5) = 5.5 萬公噸 × 費率。千萬不要用全部 8 萬公噸計算！</div>
+    </li>
+    <li class="trap">
+      <span class="ti">⚠️</span>
+      <div class="tt"><b>⑦ SBTi v2.0 的「近期 42%」是相對基準年的絕對減量，非強度目標</b><br>
+      SBTi 優先要求<em>絕對排放量</em>下降 42%（1.5°C路徑）。「我們的單位排放量有降低」（排放強度目標）不等同於「絕對排放量減少 42%」。</div>
+    </li>
+    <li class="trap">
+      <span class="ti">⚠️</span>
+      <div class="tt"><b>⑧ 組織型盤查（ISO 14064-1）≠ 產品碳足跡（ISO 14067），完成前者不等同完成後者</b><br>
+      14064-1 計算全廠組織邊界的排放總量；14067 計算單一產品生命週期的排放。兩者的邊界定義、計算邏輯和目的完全不同，但底層活動數據可以共用。</div>
+    </li>
+  </ul>
+</div>
+
+<!-- CHEAT -->
+<div class="cheat">
+  <h3>📋 關鍵數字速查表</h3>
+  <div class="cheat-grid">
+    <div class="ci"><div class="cq">台灣碳費一般費率</div><div class="ca"><b>300 元</b>/公噸CO₂e</div></div>
+    <div class="ci"><div class="cq">台灣碳費優惠費率A（指定目標）</div><div class="ca"><b>50 元</b>/公噸CO₂e</div></div>
+    <div class="ci"><div class="cq">台灣碳費優惠費率B（一般目標）</div><div class="ca"><b>100 元</b>/公噸CO₂e</div></div>
+    <div class="ci"><div class="cq">台灣碳費起徵門檻</div><div class="ca"><b>2.5 萬</b>公噸CO₂e/年</div></div>
+    <div class="ci"><div class="cq">台灣首波徵收企業數/排放占比</div><div class="ca">約 <b>500家</b>工廠，占全國 <b>54%</b></div></div>
+    <div class="ci"><div class="cq">CBAM 豁免門檻（2025/10後）</div><div class="ca">年度累計 <b>≤50公噸</b></div></div>
+    <div class="ci"><div class="cq">CBAM 憑證季持有比例</div><div class="ca">累計排放量 <b>50%</b>（原80%）</div></div>
+    <div class="ci"><div class="cq">CBAM 年度申報期限</div><div class="ca">每年 <b>5月31日</b>前</div></div>
+    <div class="ci"><div class="cq">CBAM 最高罰鍰</div><div class="ca"><b>100 歐元</b>/公噸CO₂e</div></div>
+    <div class="ci"><div class="cq">SBTi v2.0 發布日期</div><div class="ca"><b>2026/06/11</b></div></div>
+    <div class="ci"><div class="cq">SBTi 近期目標最低減量（1.5°C）</div><div class="ca">範疇一、二 <b>42%</b>絕對減量</div></div>
+    <div class="ci"><div class="cq">SBTi 長期目標最低減量</div><div class="ca"><b>90%</b>以上絕對減量（2050年）</div></div>
+    <div class="ci"><div class="cq">台灣電力排放係數（2025）</div><div class="ca"><b>0.474</b> kgCO₂e/度</div></div>
+    <div class="ci"><div class="cq">ISO 14064-1 需量化氣體種類</div><div class="ca"><b>7種</b>（含2018新增NF₃）</div></div>
+  </div>
+</div>
+
+<p class="fn">本筆記依 ISO 14064-1:2018、ISO 14067:2018、ISO 14068-1:2023、SBTi v2.0（2026/06/11）、CBAM 2025/10 簡化規則及台灣《氣候變遷因應法》編製，僅供 iPAS 考試學習參考用。</p>
+
+</div>
+</body>
+</html>
