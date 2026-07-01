@@ -1,14 +1,104 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
+
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-    body { font-size: 1.2rem;font-family: 'Noto Sans TC', sans-serif; line-height: 1.75; color: #333; max-width: 1900px; margin: 20px auto; padding: 20px; background-color: #fdfdfd; }
-    h1 { color: #2c3e50; text-align: center; border-bottom: 2px solid #3498db; padding-bottom: 1rem; }
-    .q-block { font-size: 1.2rem;margin-bottom: 20px; padding: 1rem; background: #fff; border: 1px solid #ddd; border-radius: 16px; }
-    .q-text { font-size: 1.2rem;font-weight: bold; margin-bottom: 10px; }
-    .opt-list { font-size: 1.2rem;list-style-type: none; padding-left: 0; }
-    .ans-block { font-size: 1.2rem;margin-top: 1rem; padding: 1rem; background: #e8f4fc; border-left: 4px solid #3498db;  }
+body{
+    font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;
+    font-size:22px;
+    line-height:1.9;
+    color:#333;
+    background:#f5f7fa;
+    max-width:1000px;
+    margin:auto;
+    padding:20px;
+}
+
+h1{
+    font-size:2.2rem;
+    text-align:center;
+    color:#234;
+    margin-bottom:30px;
+}
+
+.q-block{
+    background:#fff;
+    border-radius:18px;
+    padding:24px;
+    margin-bottom:30px;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.q-text{
+    font-size:1.5rem;
+    font-weight:700;
+    line-height:1.8;
+    margin-bottom:18px;
+    color:#1f2937;
+}
+
+.opt-list{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.opt-list li{
+    font-size:1.35rem;
+    line-height:2;
+    padding:10px 15px;
+    margin:10px 0;
+    background:#f8fafc;
+    border-radius:10px;
+    transition:.2s;
+}
+
+.opt-list li:hover{
+    background:#e8f4fc;
+}
+
+.ans-block{
+    margin-top:20px;
+    padding:18px;
+    background:#eef8ff;
+    border-left:6px solid #3498db;
+    border-radius:10px;
+    font-size:1.25rem;
+    line-height:1.9;
+}
+@media (max-width:768px){
+
+    body{
+        font-size:1.6rem;
+        padding:16px;
+    }
+
+    h1{
+        font-size:2rem;margin-top: 6rem ;padding:8px 18px 30px;
+    }
+
+    .q-block{
+        padding:20px;
+        border-radius:14px;
+    }
+
+    .q-text{
+        font-size:1.6rem;
+    }
+
+    .opt-list li{
+        font-size:1.6rem;
+        padding:14px;
+    }
+
+    .ans-block{
+        font-size:1.6rem;
+    }
+
+}
+
 .badgerowbt {
     position: fixed;
     top: 0;
@@ -65,7 +155,7 @@ a.badge3 {
     transition: all 0.2s ease;
 }
   @media(max-width:768px){
-  .container {  margin-top: 6rem ;padding:8px 18px 30px;}
+  
     
   }
 </style>
