@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+    font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;
+    font-size:22px;
+    line-height:1.9;
+    color:#333;
+    background:#f5f7fa;
+    max-width:1900px;
+    margin:auto;
+    padding:20px;
+}
+
+h1{
+    font-size:2.2rem;
+    text-align:center;
+    color:#234;
+    margin-bottom:30px;
+}
+
+.q-block{
+    background:#fff;
+    border-radius:18px;
+    padding:24px;
+    margin-bottom:30px;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.q-text{
+    font-size:1.5rem;
+    font-weight:700;
+    line-height:1.8;
+    margin-bottom:18px;
+    color:#1f2937;
+}
+
+.opt-list{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.opt-list li{
+    font-size:1.35rem;
+    line-height:2;
+    padding:10px 15px;
+    margin:10px 0;
+    background:#f8fafc;
+    border-radius:10px;
+    transition:.2s;
+}
+
+.opt-list li:hover{
+    background:#e8f4fc;
+}
+
+.ans-block{
+    margin-top:20px;
+    padding:18px;
+    background:#eef8ff;
+    border-left:6px solid #3498db;
+    border-radius:10px;
+    font-size:1.25rem;
+    line-height:1.9;
+}
+@media (max-width:768px){
+
+    body{
+        font-size:1.6rem;
+        padding:16px;
+    }
+
+    h1{
+        font-size:2rem;margin-top: 6rem ;padding:8px 18px 30px;
+    }
+
+    .q-block{
+        padding:20px;
+        border-radius:14px;
+    }
+
+    .q-text{
+        font-size:1.6rem;
+    }
+
+    .opt-list li{
+        font-size:1.6rem;
+        padding:14px;
+    }
+
+    .ans-block{
+        font-size:1.6rem;
+    }
+
+}
+
+.badgerowbt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px;
+    background: #ffffff;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+a.badge1 {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #007286;
+    color: #fff;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+a.badge2 {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #007286;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+a.badge3 {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #b8238d;
+    color: yellow;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+</style>
+</head>
+<body>
+<div class="badgerowbt">	
+	考科一<div><a href="https://snoweryi.github.io/yilearn/exam_01_1.html" class="badge1">1</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_2.html" class="badge1">2</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_3.html" class="badge1">3</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_4.html" class="badge1">4</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_5.html" class="badge1">5</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_6.html" class="badge1">6</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_7.html" class="badge1">7</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_8.html" class="badge1">8</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_9.html" class="badge1">9</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_10.html" class="badge1">10</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_11.html" class="badge1">11</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_12.html" class="badge1">12</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_13.html" class="badge1">13</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_14.html" class="badge1">14</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_15.html" class="badge2">15</a></div>
+	
+	
+	<div><a href="https://snoweryi.github.io/yilearn/menu.html" class="badge3">目錄</a></div>
+  </div>
+<h1>iPAS 淨零碳規劃管理師模擬題庫</h1>
+<div class="q-block">
+    <div class="q-text">151. 企業進行產品碳足跡 (ISO 14067) 盤查時，若某項原料的碳排放數據無法從供應商取得，且市面上無該材料之 LCA 資料庫數據，依據標準應如何處置？</div>
+    <ul class="opt-list">
+        <li>A. 直接視為 0。</li>
+        <li>B. 使用相似材料之保守估計值 (Conservative proxy data)，並在報告中完整揭露該假設之來源與限制。</li>
+        <li>C. 刪除該原料之盤查。</li>
+        <li>D. 僅填寫「待補」。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：LCA 盤查嚴禁隨意剔除，必須以保守原則進行替代估計，以避免低估產品足跡。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">152. 在歐盟 CBAM 申報實務中，對於「電力」產生的間接排放，若進口商無法提供發電來源證明，申報時應預設採用何種係數？</div>
+    <ul class="opt-list">
+        <li>A. 歐盟電網平均排放強度（通常較高）。</li>
+        <li>B. 0。</li>
+        <li>C. 買方所在國之電網平均值。</li>
+        <li>D. 廠商口頭承諾。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：A</strong> | 解析：CBAM 對於無法驗證的電力來源，會強制套用歐盟區域內較高的排放係數，作為對申報不透明的財務懲罰。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">153. 關於綠色金融 (Green Finance) 之認定，企業發行「綠色債券」之資金，必須符合哪一核心要求？</div>
+    <ul class="opt-list">
+        <li>A. 資金僅能用於支付員工薪水。</li>
+        <li>B. 資金必須專款專用於具備實質環境效益之綠色投資計畫（如再生能源、能效提升）。</li>
+        <li>C. 資金可隨意配置至任何獲利項目。</li>
+        <li>D. 只要公司有名氣即可發行。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：綠色債券的核心在於「資金用途」的連結性，必須通過第三方認證以防漂綠。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">154. 企業盤查範疇三 Category 8 (租賃資產) 時，若企業為「承租方 (Lessee)」，應如何判定其排放歸屬？</div>
+    <ul class="opt-list">
+        <li>A. 若採營運控制權，租賃空間之能源消耗應視為承租方之範疇二排放。</li>
+        <li>B. 無需盤查。</li>
+        <li>C. 全歸出租方。</li>
+        <li>D. 皆視為範疇一。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：A</strong> | 解析：GHG Protocol 要求承租方若對資產具營運控制權，該能源消費應計入其範疇二。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">155. 「碳邊境調整機制 (CBAM)」申報時，對於前驅物 (Precursors) 之計算，若前驅物在製程中重複使用，應如何處理以避免重複計算？</div>
+    <ul class="opt-list">
+        <li>A. 兩次皆計算。</li>
+        <li>B. 依據物質平衡 (Mass Balance) 原理，僅計算該物質「淨投入」至系統之排放量。</li>
+        <li>C. 完全不計算。</li>
+        <li>D. 由海關決定。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：CBAM 核算要求追蹤物質路徑，對於循環使用之原料應扣除內部循環量，以呈現真實的產品碳含量。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">156. 企業在設定 SBTi 近程目標時，若其供應鏈排放占比極高（如食品業），應採用何種減量範疇？</div>
+    <ul class="opt-list">
+        <li>A. 僅減量範疇一。</li>
+        <li>B. 必須強制涵蓋範疇三，且目標必須符合 1.5°C 路徑。</li>
+        <li>C. 範疇三可由企業自由決定是否納入。</li>
+        <li>D. 只要有心即可。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：SBTi v2.0 規定，範疇三排放若佔總量 40% 以上，必須納入科學基礎減量目標。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">157. 企業欲提升「碳數據品質 (Data Quality)」，下列何者為最有效的數位工具應用？</div>
+    <ul class="opt-list">
+        <li>A. 單純使用 Excel 手動輸入。</li>
+        <li>B. 建置「碳管理數位平台 (Carbon Management System)」，串接 ERP、EMS 與供應鏈平台，實現數據自動化採集與驗證。</li>
+        <li>C. 增加紙本存檔。</li>
+        <li>D. 減少員工數量。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：數位轉型不僅是為了方便，更是為了透過系統邏輯檢核，確保數據採集過程符合查證需求。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">158. 在氣候財務揭露中，何謂「氣候韌性 (Climate Resilience)」？</div>
+    <ul class="opt-list">
+        <li>A. 公司完全不會受到氣候變遷影響的能力。</li>
+        <li>B. 公司面對氣候變化相關的風險與衝擊時，仍能維持營運、調整策略並在變動環境中尋求機會的能力。</li>
+        <li>C. 增加工廠隔熱層厚度。</li>
+        <li>D. 僅指安裝太陽能板。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：韌性不僅是避險，更是企業在氣候轉型期間適應變動與維持競爭優勢的動態能力。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">159. 企業購買之「碳移除憑證 (Removal Credits)」相較於「減量憑證 (Reduction Credits)」，其最大不同點為何？</div>
+    <ul class="opt-list">
+        <li>A. 移除憑證較便宜。</li>
+        <li>B. 移除憑證證明了二氧化碳已從大氣中被物理移除並封存，而減量憑證僅代表避免了排放。</li>
+        <li>C. 減量憑證較難取得。</li>
+        <li>D. 兩者完全沒區別。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：移除型憑證是邁向「淨零」定義中最後一哩路的核心工具，具備物理減量的科學意義。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">160. 關於「碳費」與「碳稅」之區別，下列敘述何者正確？</div>
+    <ul class="opt-list">
+        <li>A. 碳稅是隨意徵收。</li>
+        <li>B. 碳費通常具專款專用性質（用於減碳推動），碳稅則屬於一般稅收，進國庫統籌運用。</li>
+        <li>C. 兩者皆無法避稅。</li>
+        <li>D. 企業可自選繳納對象。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：法律性質不同，碳費的專款專用特性決定了其作為「引導減碳政策工具」的功能。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">161. 企業進行碳盤查邊界重組時，什麼情況會導致「基線 (Baseline) 必須重新計算」？</div>
+    <ul class="opt-list">
+        <li>A. 辦公室裝潢更換。</li>
+        <li>B. 發生顯著的合併、收購、或盤查方法論改變，造成基線數據失去可比性。</li>
+        <li>C. 每週更新一次基線。</li>
+        <li>D. 員工離職。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：為了確保減量成效計算的真實性，當營運邊界大幅變更，必須重定基線以維持比較基礎。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">162. 針對供應鏈碳排，何謂「支出基準法 (Spend-based method)」的碳排計算原理？</div>
+    <ul class="opt-list">
+        <li>A. 直接讀取電表。</li>
+        <li>B. 將購買金額乘上產業平均之碳排放強度係數 (Emission Factor)。</li>
+        <li>C. 詢問供應商的喜好。</li>
+        <li>D. 將購買量乘上物價指數。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：這是數據匱乏時的權宜之計，但準確度低，通常作為識別熱點之初期篩選工具。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">163. 在淨零規劃中，針對「範疇二」減量路徑，下列哪項策略最具備「額外性 (Additionality)」？</div>
+    <ul class="opt-list">
+        <li>A. 購買已存在的綠電憑證。</li>
+        <li>B. 與開發商簽署長期採購合約 (PPA) 以支持新設再生能源電廠的興建。</li>
+        <li>C. 使用政府配給的電力。</li>
+        <li>D. 買柴油發電機備用。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：PPA 透過挹注資金支持新產能，產生了額外的綠電價值，符合國際 ESG 高階要求。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">164. 關於溫室氣體盤查報告之「透明度」要求，下列何者不符合原則？</div>
+    <ul class="opt-list">
+        <li>A. 明確列出盤查方法與假設。</li>
+        <li>B. 不說明數據品質的限制與不確定性。</li>
+        <li>C. 說明排除排放源的原因。</li>
+        <li>D. 交代數據採集路徑。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：所有盤查皆有不確定性，透明地揭露限制（如數據缺失）反而能增加報告的可信度。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">165. 企業進行產品碳足跡時，若採用「從搖籃到大門 (Cradle-to-Gate)」之邊界，其結束點為何？</div>
+    <ul class="opt-list">
+        <li>A. 產品送達消費者手中。</li>
+        <li>B. 產品離開工廠大門，包含上游原料取得與廠內製程，但不含後續使用與廢棄。</li>
+        <li>C. 產品報廢。</li>
+        <li>D. 產品包裝好。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：這是工業產品最常見的邊界定義，用於 B2B 供應鏈碳數據交換最為適切。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">166. 若企業盤查報告指出某年排放量下降，但實質產量也下降，這是減碳嗎？</div>
+    <ul class="opt-list">
+        <li>A. 是，這是總量下降。</li>
+        <li>B. 不一定，必須區分這是「強度下降 (Intensity)」還是「絕對量下降 (Absolute)」，且需分析是否為產能緊縮所致。</li>
+        <li>C. 絕對是。</li>
+        <li>D. 以上皆非。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：若未調整產能因子，僅是總量下降無法判斷減碳績效，可能只是營運萎縮的假象。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">167. 下列何者屬於氣候變遷之「轉型風險 (Transition Risk)」？</div>
+    <ul class="opt-list">
+        <li>A. 工廠被颱風淹沒。</li>
+        <li>B. 因碳費徵收導致生產成本大幅上升。</li>
+        <li>C. 持續的極端高溫。</li>
+        <li>D. 乾旱導致水源枯竭。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：轉型風險源於社會轉向低碳經濟的過程中，政策、科技、市場與聲譽變動帶來的財務衝擊。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">168. 關於「SBTi 目標與企業淨零目標 (Net Zero) 之區別」，何者敘述正確？</div>
+    <ul class="opt-list">
+        <li>A. 兩者意思完全一樣。</li>
+        <li>B. 近程 SBT 目標專注於 5-10 年內的科學減排，而淨零目標則要求至 2050 年必須達成深度減排與殘餘排放的完全移除。</li>
+        <li>C. 淨零目標不需減排。</li>
+        <li>D. SBT 目標較嚴格。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：SBTi 提供了一套完整的路徑圖，近程減量是淨零的基礎，缺一不可。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">169. 企業導入「能源管理系統 (ISO 50001)」之首要步驟為何？</div>
+    <ul class="opt-list">
+        <li>A. 買節能燈泡。</li>
+        <li>B. 進行「能源審查 (Energy Review)」，鑑別能源使用狀況與重大能源使用 (SEU) 以建立基線。</li>
+        <li>C. 張貼節電海報。</li>
+        <li>D. 更換總經理。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：無法度量就無法管理，能源審查是系統化節能的第一道核心門檻。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">170. 若企業欲透過「價值鏈議合」減少範疇三排放，何謂「議合 (Engagement)」的最佳做法？</div>
+    <ul class="opt-list">
+        <li>A. 發封電子郵件要求供應商降價。</li>
+        <li>B. 將供應商減碳績效納入採購合約、提供技術支援、共同開發低碳專案。</li>
+        <li>C. 強制命令供應商購買碳權。</li>
+        <li>D. 什麼都不做。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：議合應為雙向合作而非單向命令，建立誘因結構才能長期驅動供應鏈減排。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">171. 何謂「碳足跡標籤 (Carbon Footprint Labeling)」？</div>
+    <ul class="opt-list">
+        <li>A. 產品上的廣告貼紙。</li>
+        <li>B. 在產品包裝上揭露其全生命週期之碳排數據，以透明資訊供消費者選擇。</li>
+        <li>C. 僅標示產地。</li>
+        <li>D. 無特殊意義。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：透過消費者行為改變推動市場減碳，是碳標籤的核心目的。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">172. 當企業使用太陽能電廠自發自用並宣告零碳，若未申請憑證 (T-REC)，其能宣告「綠電」嗎？</div>
+    <ul class="opt-list">
+        <li>A. 可以，只要有電廠即可。</li>
+        <li>B. 不可以，因為缺乏環境屬性的宣告權，無法避免外部稽核時被認定為重複計算。</li>
+        <li>C. 隨便宣告就好。</li>
+        <li>D. 只有政府可以宣告。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：憑證是環境效益的唯一證明，沒有憑證的電能僅能作為「節電」貢獻，不能主張「使用綠電」。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">173. 進行盤查時，關於「購入電力」排放計算，市場基礎法 (Market-based) 比起位置基礎法 (Location-based) 的優勢為何？</div>
+    <ul class="opt-list">
+        <li>A. 計算較簡單。</li>
+        <li>B. 能反映企業購買綠電、再生能源憑證等策略性選擇的減碳成效。</li>
+        <li>C. 完全不用計算。</li>
+        <li>D. 數值較小。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：位置法僅反映電網碳排，市場法則反映企業的採購選擇權，更能驅動市場綠電需求。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">174. 何謂「氣候變遷風險矩陣 (Risk Matrix)」？</div>
+    <ul class="opt-list">
+        <li>A. 財務主管的私人筆記。</li>
+        <li>B. 將氣候風險依「可能性 (Likelihood)」與「衝擊影響 (Impact)」進行量化排序之分析工具。</li>
+        <li>C. 隨機圖表。</li>
+        <li>D. 僅為了畫圖。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：風險矩陣是 TCFD 揭露中，說明風險重要性優先次序的標準化展示手段。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">175. 企業若要進行「供應鏈碳盤查」，為何通常建議先盤查範疇一與範疇二？</div>
+    <ul class="opt-list">
+        <li>A. 因為範疇三太難了。</li>
+        <li>B. 因為那是企業最能直接控制的排放，且為盤查之基礎建設。</li>
+        <li>C. 沒特別理由。</li>
+        <li>D. 因為比較簡單。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：由內而外建立盤查能力與數據文化，是實務上最穩健的轉型路徑。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">176. 關於「碳權」的購買策略，何謂「碳權組合 (Carbon Portfolio)」？</div>
+    <ul class="opt-list">
+        <li>A. 隨便買各種碳權。</li>
+        <li>B. 根據專案類型（如森林、能源、移除型）、品質與成本，採取混合策略以達到風險分散與品質提升之目的。</li>
+        <li>C. 僅買最便宜的。</li>
+        <li>D. 僅買最貴的。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：高品質淨零策略需同時配置各類碳權，以平衡經濟成本與環境科學誠信。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">177. 企業在進行「碳價」影響評估時，若納入「影子碳價 (Shadow Carbon Price)」，其目的為何？</div>
+    <ul class="opt-list">
+        <li>A. 為了降低稅金。</li>
+        <li>B. 提前模擬外部碳稅與碳費對獲利之侵蝕，促使部門在投資決策時將「碳」視為成本考慮。</li>
+        <li>C. 為了廣告宣傳。</li>
+        <li>D. 為了配合會計師。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：影子碳價是激勵企業內部行為改變的強效治理工具。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">178. 何謂「範疇三」之「上游運輸與配送」？</div>
+    <ul class="opt-list">
+        <li>A. 企業銷售產品給客戶之運輸。</li>
+        <li>B. 供應商運送原料至企業之運輸，以及企業間的中間配送活動。</li>
+        <li>C. 員工去旅遊。</li>
+        <li>D. 以上皆非。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：這也是數據收集時最常與下游配送搞混的類別，盤查時應嚴格分開。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">179. 在氣候治理中，何謂「董事會之氣候監督責任」？</div>
+    <ul class="opt-list">
+        <li>A. 董事會什麼都不用管。</li>
+        <li>B. 董事會須將氣候變遷納入企業策略、風險與目標之最終核准決策層級，並負監督責任。</li>
+        <li>C. 董事會負責掃地。</li>
+        <li>D. 僅需在會中討論一次。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：ESG已列入公司治理核心，董事會的氣候素養是決定轉型成敗的天花板。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">180. 關於「碳中和」與「淨零 (Net Zero)」之差異，何者正確？</div>
+    <ul class="opt-list">
+        <li>A. 兩者完全一樣。</li>
+        <li>B. 淨零強調「深度減量」(通常需達 90% 以上) 後方能抵換殘餘，定義較碳中和更為嚴格。</li>
+        <li>C. 碳中和較嚴格。</li>
+        <li>D. 淨零不需減量。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：科學界對淨零要求極高，明確規定減排為先，抵換為後，且有量化門檻。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">181. 企業盤查「範疇三」時，若無法取得原始數據，常見之「替代法」有哪些？</div>
+    <ul class="opt-list">
+        <li>A. 什麼都不做。</li>
+        <li>B. 支出基準法、基於平均數據法 (如平均燃料消耗)、比例估算法等。</li>
+        <li>C. 隨機填寫。</li>
+        <li>D. 照抄競爭對手。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：這些方法為盤查初期常用，但隨著數據成熟度提升，必須逐步從替代法轉向實測法。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">182. 進行「氣候風險壓力測試 (Climate Stress Test)」的目的為何？</div>
+    <ul class="opt-list">
+        <li>A. 測試員工耐熱度。</li>
+        <li>B. 模擬極端氣候情境下，公司資產負債表與獲利狀況之韌性。</li>
+        <li>C. 為了寫報告。</li>
+        <li>D. 為了減低工廠空調。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：壓力測試是風險管理的精髓，確認企業是否能在惡劣環境下生存。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">183. 供應鏈中，何謂「碳熱點 (Carbon Hotspot)」？</div>
+    <ul class="opt-list">
+        <li>A. 工廠鍋爐太熱。</li>
+        <li>B. 在產品生命週期中，碳排放貢獻量最大的環節或原料。</li>
+        <li>C. 碳交易市場最熱鬧的地方。</li>
+        <li>D. 辦公室暖氣。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：找到熱點才能進行精準減排，避免資源分散投入在低排項目的優化上。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">184. 關於溫室氣體盤查報告之「第三方查證」，其主要價值為何？</div>
+    <ul class="opt-list">
+        <li>A. 為了讓查證公司賺錢。</li>
+        <li>B. 透過獨立機構的專業檢核，提高利害關係人對企業盤查數據之信任度。</li>
+        <li>C. 因為法規強迫。</li>
+        <li>D. 為了證明自己很聰明。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：查證報告是企業氣候治理誠信度的證明，是與國際資金、客戶溝通的必要憑證。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">185. 企業進行「雙軸轉型」之核心意義為何？</div>
+    <ul class="opt-list">
+        <li>A. 為了趕流行。</li>
+        <li>B. 利用數位化工具（如雲端、AI、IoT）驅動綠色轉型（盤查自動化、節能調度、循環經濟）。</li>
+        <li>C. 為了裁員。</li>
+        <li>D. 為了購買新電腦。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：沒有數位轉型，綠色轉型將陷入數據混亂；沒有綠色轉型，數位投資缺乏長遠應用目標。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">186. 在 ESG 報告中，關於「範疇三」之揭露，最核心的挑戰為何？</div>
+    <ul class="opt-list">
+        <li>A. 沒有軟體。</li>
+        <li>B. 數據追溯鏈 (Traceability) 不完整，難以與多層供應商完成數據對接。</li>
+        <li>C. 員工不願意。</li>
+        <li>D. 公司沒興趣。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：這是範疇三盤查的技術天花板，必須透過數位串聯才能解決。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">187. 什麼是「科學基礎目標倡議 (SBTi)」？</div>
+    <ul class="opt-list">
+        <li>A. 企業減碳隨便寫寫的目標。</li>
+        <li>B. 要求企業設定之減量目標必須對齊《巴黎協定》溫控目標 (1.5°C) 的國際標準倡議。</li>
+        <li>C. 僅由台灣發起的倡議。</li>
+        <li>D. 為了賣碳權的倡議。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：SBTi 是企業氣候目標可信度的黃金標準，全球大型企業皆競相加入。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">188. 在盤查報告中，「排放當量 (CO2e)」計算之用意為何？</div>
+    <ul class="opt-list">
+        <li>A. 讓數字看起來很大。</li>
+        <li>B. 將不同溫室氣體 (CH4, N2O等) 依照 GWP 值轉換為二氧化碳當量，以利總量加總計算。</li>
+        <li>C. 減稅用。</li>
+        <li>D. 讓數學老師比較好計算。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：這是科學化的基礎，沒有當量轉換，企業根本無法算出淨零總量。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">189. 若供應商承諾 2040 淨零，這對採購方企業的淨零目標有何影響？</div>
+    <ul class="opt-list">
+        <li>A. 有負面影響。</li>
+        <li>B. 有正面助益，因其能縮減採購方的範疇三排放量。</li>
+        <li>C. 完全沒影響。</li>
+        <li>D. 採購方需幫忙繳罰款。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：這正是為什麼價值鏈議合如此重要，合作夥伴的進度就是自身的進度。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">190. 何謂「氣候資訊揭露框架 (如 TCFD/IFRS S2)」？</div>
+    <ul class="opt-list">
+        <li>A. 隨便寫寫的日記。</li>
+        <li>B. 要求企業在報告中說明氣候變遷如何影響公司之治理、策略、風險與績效的國際標準。</li>
+        <li>C. 為了畫海報。</li>
+        <li>D. 僅供政府內部參考。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：這是現代投資人評估企業 ESG 韌性的核心文件，不再只是選擇性揭露。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">191. 在盤查時，關於「移動燃燒」與「固定燃燒」的差別？</div>
+    <ul class="opt-list">
+        <li>A. 一個會動，一個不會動。</li>
+        <li>B. 固定燃燒指鍋爐、發電機等固定設備；移動燃燒指公務車、物流運輸等交通工具。</li>
+        <li>C. 沒差別。</li>
+        <li>D. 一個耗油，一個耗電。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：這是盤查最基礎的分類方式，必須嚴格拆分以分別套用正確的排放係數。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">192. 何謂「碳資產管理」？</div>
+    <ul class="opt-list">
+        <li>A. 賣掉公司資產。</li>
+        <li>B. 將盤查結果、抵減配額、綠電憑證等視為資產進行策略性管理與交易優化。</li>
+        <li>C. 數錢。</li>
+        <li>D. 買新碳權。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：碳已是企業的「資產負債表」科目，碳管理能力直接影響企業獲利性。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">193. 在規劃淨零路徑時，如何決定投資項目的優先順序？</div>
+    <ul class="opt-list">
+        <li>A. 抽籤決定。</li>
+        <li>B. 比較「碳減量效益 (Mitigation Potential)」與「投資成本 (Cost of Abatement)」，評估投資報酬率 (ROI)。</li>
+        <li>C. 挑最貴的做。</li>
+        <li>D. 挑最省事的做。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：淨零需要成本優化，透過邊際減量成本曲線 (MACC) 工具可有效安排投資時程。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">194. 關於「範疇三」之「員工通勤」，盤查重點應放在哪裡？</div>
+    <ul class="opt-list">
+        <li>A. 鼓勵員工坐公車而非開車。</li>
+        <li>B. 透過調查收集通勤距離與交通方式，進行量化計算並嘗試改善通勤模式。</li>
+        <li>C. 檢查員工駕照。</li>
+        <li>D. 沒重點。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：範疇三的減量不僅是數據收集，更涉及企業文化（如彈性辦公）的變革。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">195. 若要讓供應商提供高品質碳數據，身為採購方的企業該做什麼？</div>
+    <ul class="opt-list">
+        <li>A. 只負責罵供應商。</li>
+        <li>B. 建立供應商數據平台，提供計算公式與減量指導手冊，協助數據品質提升。</li>
+        <li>C. 威脅如果不給就終止合作。</li>
+        <li>D. 放任不管。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：賦能 (Enablement) 比監督 (Enforcement) 更有助於提升供應鏈整體之減碳成熟度。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">196. 企業宣稱「零碳工廠」時，為何一定要經過第三方查證？</div>
+    <ul class="opt-list">
+        <li>A. 為了讓查證單位賺錢。</li>
+        <li>B. 避免「漂綠」爭議，向客戶與投資人證明減碳路徑之真實性。</li>
+        <li>C. 因為無聊。</li>
+        <li>D. 因為法規要求所有人都要查。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：漂綠不僅是聲譽風險，在歐美法規下更是法律風險，第三方查證是保護企業的防護盾。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">197. 何謂「氣候變遷之調適 (Adaptation)」？</div>
+    <ul class="opt-list">
+        <li>A. 減少排放量。</li>
+        <li>B. 針對已發生或預期將發生之氣候影響（如海平面上升、旱災），採取行動減低風險與損害。</li>
+        <li>C. 無視氣候變遷。</li>
+        <li>D. 改換空調。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：調適（適應）與減緩（減排）是應對氣候危機的兩大支柱，缺一不可。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">198. 在盤查範疇一中，哪一類排放通常最難處理？</div>
+    <ul class="opt-list">
+        <li>A. 辦公室用電。</li>
+        <li>B. 製程逸散排放（如半導體製程氣體、冷媒洩露）。</li>
+        <li>C. 同事講話呼吸。</li>
+        <li>D. 以上皆非。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：製程氣體種類複雜、GWP 極高且難以完全捕集，是技術轉型的深水區。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">199. 企業若要落實「淨零願景」，除了盤查，還需要建立什麼制度？</div>
+    <ul class="opt-list">
+        <li>A. 每天寫日記。</li>
+        <li>B. 健全的氣候治理架構（董事會監督、KPI考核、內部碳價機制、數位管理系統）。</li>
+        <li>C. 購買大量廣告。</li>
+        <li>D. 將冷氣關掉。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：願景需要制度支撐，治理架構決定了淨零行動是「口號」還是「日常營運的一部分」。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">200. 作為淨零碳規劃管理師，您認為最關鍵的職業素養為何？</div>
+    <ul class="opt-list">
+        <li>A. 懂得將氣候挑戰連結至企業價值鏈，並持續學習與整合跨法規標準的能力。</li>
+        <li>B. 只要會 Excel。</li>
+        <li>C. 買賣碳權。</li>
+        <li>D. 只要會翻譯文件。</li>
+    </ul>
+    <div class="ans-block"><strong>解答：A</strong> | 解析：淨零是一場長跑，具備系統性思考、財務韌性評估與持續合規優化能力的專業人員，才是企業轉型最寶貴的資源。</div>
+</div>
+</body></html>

@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+    font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;
+    font-size:22px;
+    line-height:1.9;
+    color:#333;
+    background:#f5f7fa;
+    max-width:1900px;
+    margin:auto;
+    padding:20px;
+}
+
+h1{
+    font-size:2.2rem;
+    text-align:center;
+    color:#234;
+    margin-bottom:30px;
+}
+
+.q-block{
+    background:#fff;
+    border-radius:18px;
+    padding:24px;
+    margin-bottom:30px;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.q-text{
+    font-size:1.5rem;
+    font-weight:700;
+    line-height:1.8;
+    margin-bottom:18px;
+    color:#1f2937;
+}
+
+.opt-list{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.opt-list li{
+    font-size:1.35rem;
+    line-height:2;
+    padding:10px 15px;
+    margin:10px 0;
+    background:#f8fafc;
+    border-radius:10px;
+    transition:.2s;
+}
+
+.opt-list li:hover{
+    background:#e8f4fc;
+}
+
+.ans-block{
+    margin-top:20px;
+    padding:18px;
+    background:#eef8ff;
+    border-left:6px solid #3498db;
+    border-radius:10px;
+    font-size:1.25rem;
+    line-height:1.9;
+}
+@media (max-width:768px){
+
+    body{
+        font-size:1.6rem;
+        padding:16px;
+    }
+
+    h1{
+        font-size:2rem;margin-top: 6rem ;padding:8px 18px 30px;
+    }
+
+    .q-block{
+        padding:20px;
+        border-radius:14px;
+    }
+
+    .q-text{
+        font-size:1.6rem;
+    }
+
+    .opt-list li{
+        font-size:1.6rem;
+        padding:14px;
+    }
+
+    .ans-block{
+        font-size:1.6rem;
+    }
+
+}
+
+.badgerowbt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px;
+    background: #ffffff;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+a.badge1 {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #007286;
+    color: #fff;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+a.badge2 {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #007286;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+a.badge3 {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #b8238d;
+    color: yellow;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+</style>
+</head>
+<body>
+<div class="badgerowbt">	
+	考科一<div><a href="https://snoweryi.github.io/yilearn/exam_01_1.html" class="badge1">1</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_2.html" class="badge1">2</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_3.html" class="badge1">3</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_4.html" class="badge1">4</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_5.html" class="badge1">5</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_6.html" class="badge1">6</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_7.html" class="badge1">7</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_8.html" class="badge1">8</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_9.html" class="badge1">9</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_10.html" class="badge1">10</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_11.html" class="badge1">11</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_12.html" class="badge1">12</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_13.html" class="badge1">13</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_14.html" class="badge2">14</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_15.html" class="badge1">15</a></div>
+	
+	
+	<div><a href="https://snoweryi.github.io/yilearn/menu.html" class="badge3">目錄</a></div>
+  </div>
+<h1>iPAS 淨零碳規劃管理師模擬題庫</h1>
+<div class="q-block">
+    <div class="q-text">101. 企業在進行 SBTi v2.0 設定目標時，若範疇三排放占比超過 40%，企業卻採取「目標邊界篩選」將該項目排除，在第三方查證中會被判定為何種缺失？</div>
+    <ul class="opt-list">
+        <li>A. 輕微缺失，不影響目標有效性</li>
+        <li>B. 重大缺失 (Major Non-conformity)，導致目標無法通過審核</li>
+        <li>C. 僅為行政說明建議</li>
+        <li>D. 商業策略調整，屬企業自由權限</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：SBTi v2.0 對範疇三設定嚴格的完整性門檻，蓄意排除重大項目違反其科學性要求。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">102. 當歐盟 CBAM 預設值與企業實際產品碳強度（經查證）出現顯著差異，且實測數據顯示為預設值的 1.5 倍時，進口商應採何種策略？</div>
+    <ul class="opt-list">
+        <li>A. 依法申報實測數據，即便增加短期申報碳成本，以維護透明度與避免潛在合規風險</li>
+        <li>B. 隱匿實測數據，優先選擇預設值以降低成本</li>
+        <li>C. 要求供應商更改產地資訊以規避申報</li>
+        <li>D. 申報實測數據的 50% 以達成帳面減碳目標</li>
+    </ul>
+    <div class="ans-block"><strong>解答：A</strong> | 解析：欺瞞 CBAM 數據屬嚴重違法行為。專業規劃師需重視合規風險與長期碳資產管理。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">150. (邏輯題) 若一家跨國企業在 ISO 14068-1 碳中和架構下，利用「高品質碳移除專案」進行抵銷。該專案必須符合下列哪項高階科學標準，以避免被視為漂綠？</div>
+    <ul class="opt-list">
+        <li>A. 專案具備社會公益屬性即可</li>
+        <li>B. 須證明符合「永久性封存」(如地質封存) 且具備「基線基準」外加性，確保非重複抵換</li>
+        <li>C. 只要該碳權在碳交所交易熱絡即可</li>
+        <li>D. 由企業自行簽署內部證明書</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：ISO 14068-1 對碳移除之品質要求極高，必須具備長久性與科學實證，嚴格區分「碳避免」與「碳移除」。</div>
+</div>
+<div class="q-block">
+    <div class="q-text">101. 依據 GHG Protocol 規範，企業在進行範疇三（Scope 3）「資本財 (Capital Goods)」盤查時，正確的排放量認列時間點為何？</div>
+    <ul class="opt-list">
+        <li>A. 依據會計折舊年限，逐年攤提排放量以平滑化數據</li>
+        <li>B. 必須在該資本財「取得（採購）之當年度」，全數認列其從搖籃到大門的總碳排放</li>
+        <li>C. 僅在資本財報廢時認列</li>
+        <li>D. 依照資本財每年的實際使用時數比例認列</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：與財務會計不同，GHG Protocol 嚴格規定資本財的碳排放不得分年攤提，必須在獲取當年全額認列，這是高難度的實務盲點。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">102. 2026 年台灣碳費徵收機制中，針對「高碳洩漏風險」產業，企業若提出並經核定符合科學基礎之「自主減量計畫」，其所適用的排放量扣減機制（碳洩漏風險係數）主要目的為何？</div>
+    <ul class="opt-list">
+        <li>A. 完全免除企業碳費負擔</li>
+        <li>B. 避免國內產業因碳費成本過高而將產能外移至無碳管制國家，維持國際競爭力</li>
+        <li>C. 鼓勵企業購買海外低價碳權</li>
+        <li>D. 變相補貼企業高階主管薪資</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：碳洩漏風險係數（如過渡期給予一定比例之排放量免計）是為了平衡產業國際競爭力與減碳責任的關鍵過渡機制。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">103. 在 IFRS S2 揭露規範下，關於「情境分析 (Scenario Analysis)」的要求，若企業判定其缺乏量化分析的技術與資源，應如何處置以符合合規性？</div>
+    <ul class="opt-list">
+        <li>A. 直接聲明不適用並拒絕揭露</li>
+        <li>B. 允許使用「質性分析 (Qualitative Analysis)」來描述氣候韌性，但須解釋無法量化之原因，並說明未來提升量化能力之計畫</li>
+        <li>C. 委外隨機生成數據以應付法規</li>
+        <li>D. 僅需引用政府公開報告即可</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：IFRS S2 具備「相稱性 (Proportionality)」機制，允許企業依自身資源提供定性描述，但嚴格要求透明度與未來改善路徑。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">104. 企業簽署虛擬購電合約 (VPPA) 以達成 RE100 目標。在進行範疇二「市場基礎法 (Market-based)」盤查時，下列何者是避免「重複計算 (Double Counting)」的絕對要件？</div>
+    <ul class="opt-list">
+        <li>A. 確認 VPPA 的結算電價低於市電</li>
+        <li>B. 企業必須實質獲得並「註銷 (Retire)」與該 VPPA 綁定的再生能源憑證 (EACs/T-REC)</li>
+        <li>C. 虛擬綠電必須直接透過實體電網傳輸至企業廠區</li>
+        <li>D. 企業必須自行投資太陽能板</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：VPPA 屬財務合約（不涉及實體電力交割），企業唯有宣告並註銷合約附帶之再生能源憑證，才能合法主張減碳效益。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">105. 關於 CBAM 於正式期（2026年起）的規範，進口商若無法取得非歐盟供應商實際之產品碳排數據，將被迫使用「預設值 (Default Values)」。該預設值的設定邏輯為何？</div>
+    <ul class="opt-list">
+        <li>A. 採用歐盟該產業平均排放值</li>
+        <li>B. 採用全球最低排放值</li>
+        <li>C. 採用出口國該產品表現最差之特定比例（具懲罰性，通常遠高於平均值），以迫使供應商揭露實測數據</li>
+        <li>D. 採用零碳排計算</li>
+    </ul>
+    <div class="ans-block"><strong>解答：C</strong> | 解析：CBAM 正式期的預設值設計帶有強烈的懲罰性質，目的是消滅資訊不透明，促使真實數據流動。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">106. 若企業之減碳策略包含「內部碳定價 (Internal Carbon Pricing, ICP)」，採取「影子價格 (Shadow Price)」機制的運作方式為何？</div>
+    <ul class="opt-list">
+        <li>A. 向各部門實際徵收現金，存入中央減碳基金</li>
+        <li>B. 在投資專案的 NPV 評估中，將碳排量乘上影子價格作為虛擬成本，以影響最終投資決策，但不發生實質資金移轉</li>
+        <li>C. 將影子價格公開為產品售價的一部分</li>
+        <li>D. 向政府繳納之碳費</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：影子價格主要用於資本支出 (CAPEX) 的風險評估，透過將潛在碳成本內部化來引導低碳投資，不涉及真實金流。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">107. 在自願性碳市場中，ICVCM 提出「核心碳原則 (Core Carbon Principles, CCPs)」，其中「外加性 (Additionality)」若屬「法規外加性」，其意義為何？</div>
+    <ul class="opt-list">
+        <li>A. 該專案之減碳行為未受任何現行法規強制要求，若無法規要求且無碳權收益則不會執行</li>
+        <li>B. 該專案完全符合現行環保法規</li>
+        <li>C. 該專案受到政府的專案補助</li>
+        <li>D. 該專案產生的碳權能用來抵免所有法規稅費</li>
+    </ul>
+    <div class="ans-block"><strong>解答：A</strong> | 解析：法規外加性意指該專案不是為了「遵守法律」而做。如果是法律已經強制要求的減碳行為，則不能再申請碳權。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">108. 企業設定 SBTi FLAG（森林、土地與農業）目標時，與一般工業減量目標最大的差異為何？</div>
+    <ul class="opt-list">
+        <li>A. FLAG 目標不需涵蓋範疇三</li>
+        <li>B. FLAG 目標必須將土地使用變更 (LUC) 的排放與生物碳匯 (Biogenic Removals) 納入清冊與目標計算</li>
+        <li>C. FLAG 目標可完全以購買林業碳權來達成</li>
+        <li>D. FLAG 目標容許排放量逐年增加</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：FLAG 指引是針對依賴土地資源之企業，強制要求盤查並設定土地相關排放與碳移除之科學目標。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">109. ISO 14064-1:2018 導入了「顯著性 (Significance)」準則。若企業在盤查範疇三（間接排放）時，某一排放源雖然排放量僅佔總量 1%，但屬於利害關係人極度關注的高風險污染源。依據標準，應如何處理？</div>
+    <ul class="opt-list">
+        <li>A. 依量化占比低於 5% 直接排除</li>
+        <li>B. 基於利害關係人關注度與風險考量，將其判定為「顯著間接排放源」並納入盤查邊界</li>
+        <li>C. 僅作定性描述，不進行量化</li>
+        <li>D. 將其轉移至範疇一計算</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：ISO 14064-1 判定顯著性的標準不限於「排放量大小」，還包含利害關係人關注程度、法規風險等定性指標。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">110. 某企業聲稱其產品達成了「迴避排放 (Avoided Emissions / Scope 4)」，例如生產了超高效率馬達協助客戶減碳。在組織溫室氣體盤查報告中，這筆減碳量應如何呈現？</div>
+    <ul class="opt-list">
+        <li>A. 直接從企業自身的範疇一、二排放量中扣除</li>
+        <li>B. 直接從範疇三的產品使用階段排放中扣除</li>
+        <li>C. 絕對不得從企業範疇 1-3 排放清冊中扣除，必須作為獨立的比較數據單獨揭露</li>
+        <li>D. 轉換為碳權並於財報中認列營收</li>
+    </ul>
+    <div class="ans-block"><strong>解答：C</strong> | 解析：GHG Protocol 嚴禁將「迴避排放」用來抵銷企業自身的價值鏈碳足跡，避免誤導性的「淨零」宣告。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">111. 關於產品碳足跡 (ISO 14067)，若工廠採用汽電共生系統 (CHP) 同時產出電力與熱能（蒸汽），在計算碳足跡時，這兩種能源的碳排放應如何「分配 (Allocation)」最符合 ISO 精神？</div>
+    <ul class="opt-list">
+        <li>A. 全部算在電力上</li>
+        <li>B. 全部算在熱能上</li>
+        <li>C. 依據產出的經濟價值或物理特性（如熱值/能量轉換效率）進行合理分配</li>
+        <li>D. 不需分配，兩者皆視為零碳排</li>
+    </ul>
+    <div class="ans-block"><strong>解答：C</strong> | 解析：共同產出物的碳排分配必須依據物理因果關係（如熱值）或經濟價值進行，此為生命週期評估 (LCA) 的核心挑戰。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">112. 巴黎協定第六條 (Article 6) 中，為了防止跨國碳權交易產生「雙重計算 (Double Counting)」，賣出碳權的國家必須執行哪一項關鍵行政程序？</div>
+    <ul class="opt-list">
+        <li>A. 提高碳稅</li>
+        <li>B. 執行「相應調整 (Corresponding Adjustment, CA)」，將賣出的減量額度從國家自定貢獻 (NDC) 的帳本中扣除</li>
+        <li>C. 禁止企業參與碳市場</li>
+        <li>D. 向聯合國繳納手續費</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：相應調整是 Article 6 的核心防弊機制，確保減碳成效不會同時被賣方國家與買方企業（或國家）重複認列。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">113. 在 TCFD 架構下評估「實體風險 (Physical Risks)」時，「急性風險 (Acute Risks)」與「慢性風險 (Chronic Risks)」的區別為何？</div>
+    <ul class="opt-list">
+        <li>A. 急性指碳稅增加，慢性指消費者偏好改變</li>
+        <li>B. 急性指極端天氣事件（如颱風、洪水），慢性指氣候模式的長期轉變（如海平面上升、持續性熱浪）</li>
+        <li>C. 急性僅影響範疇一，慢性僅影響範疇三</li>
+        <li>D. 兩者皆為假議題</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：此題測驗氣候風險分類精準度。實體風險嚴格區分為突發的急性災害與長期氣候基線變化的慢性影響。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">114. 針對範疇三 Category 11 (售出產品之使用階段)，分為「直接使用階段排放」與「間接使用階段排放」。下列何者屬於「直接」？</div>
+    <ul class="opt-list">
+        <li>A. 售出之服飾在消費者家中使用洗衣機清洗所耗之電力</li>
+        <li>B. 售出之燃油汽車在行駛時直接燃燒汽油所產生之排放</li>
+        <li>C. 售出之保溫杯在使用中的自然磨損</li>
+        <li>D. 售出之腳踏車使用過程</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：「直接」使用階段排放指產品運行「本身」即需消耗能源（如吃電的家電、燒油的車輛）；服飾清洗則是「間接」依賴其他耗能設備。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">115. 企業欲宣告「組織碳中和」(ISO 14068-1)，在減量路徑圖中，若依賴 CCUS (碳捕存) 技術作為減碳手段，必須確保捕獲的碳去向為何方能被認列為有效減量？</div>
+    <ul class="opt-list">
+        <li>A. 轉化為碳酸飲料中的氣泡釋放</li>
+        <li>B. 透過地質封存 (Geological Storage) 或礦化等方式達到長期且永久之隔離</li>
+        <li>C. 僅在工廠內部短暫儲存後排放</li>
+        <li>D. 轉化為一般燃料再次燃燒</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：CCUS 的減碳認定極度重視「永久性」。若捕獲的碳最終仍迅速排回大氣（如飲料、短生命週期燃料），則不可認列為實質減量或移除。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">116. 若企業在進行組織邊界設定時，針對某合資企業持有 40% 股權，但擁有其日常營運之絕對決策權。若採用「營運控制權法 (Operational Control)」，應認列該合資企業多少比例的碳排？</div>
+    <ul class="opt-list">
+        <li>A. 40%</li>
+        <li>B. 100%</li>
+        <li>C. 0%</li>
+        <li>D. 50%</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：在營運控制權法下，只要具備控制權，即須 100% 認列其排放量；股權比例法 (Equity Share) 才是認列 40%。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">117. 金融機構在計算其範疇三 Category 15 (投資/投融資) 排放時，目前國際主流採用之方法學標準為何？</div>
+    <ul class="opt-list">
+        <li>A. ISO 14001</li>
+        <li>B. PCAF (碳會計金融合作夥伴關係) 準則</li>
+        <li>C. CBAM 準則</li>
+        <li>D. ISO 9001</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：PCAF 提供了金融業將放款與投資部位之財務數據轉換為溫室氣體排放量（Financed Emissions）的唯一全球通用標準。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">118. 供應鏈議合策略中，企業推動「採購要求 (Spend-based to Supplier-specific)」轉換。當企業將盤查數據從「支出基準法」切換為「供應商特定法」時，初期常遇到什麼現象？</div>
+    <ul class="opt-list">
+        <li>A. 碳排放帳面數字必定立刻歸零</li>
+        <li>B. 由於數據顆粒度提升，可能會發現實際排放量高於過去依據金額估算的排放量，導致帳面碳排短期上升</li>
+        <li>C. 數據不需經過查證即可使用</li>
+        <li>D. 供應商會自動降價</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：支出法常因產業平均係數而失真。改用實測數據（Supplier-specific）初期常因揭露隱藏排放源而使數字上升，這是走向精準管理的必經陣痛期。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">119. 台灣碳交易市場分為「國內減量額度」與「國外碳權」。依現行規範，企業於國內碳交所購買之國際碳權，能否直接用於抵銷國內的「碳費」？</div>
+    <ul class="opt-list">
+        <li>A. 可全額抵扣且無上限</li>
+        <li>B. 僅限符合環境部嚴格規定之特定高品質國際碳權，且抵換上限通常被限制（如不得超過應繳費排放量之 5%）</li>
+        <li>C. 國際碳權皆不可用於抵減國內碳費</li>
+        <li>D. 只要有聯合國認證皆可 100% 抵扣</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：為保障國內減量誘因，環境部對國際碳權抵扣碳費設有極嚴格的品質條件與比例上限。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">120. 依歐盟綠色聲明指令 (Green Claims Directive) 精神，企業若對外宣傳「對氣候無害 (Climate Neutral)」，最需防範哪種法律風險？</div>
+    <ul class="opt-list">
+        <li>A. 被強制下架產品</li>
+        <li>B. 因缺乏科學實證與完整生命週期評估，或過度依賴無品質保障之碳權，而面臨「漂綠 (Greenwashing)」之訴訟與鉅額罰款</li>
+        <li>C. 被要求增加產品包裝</li>
+        <li>D. 被要求調降產品售價</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：歐盟嚴厲打擊模糊的環保宣稱，未經嚴格查證且過度依賴碳抵換的「碳中和」標籤將面臨嚴重法遵風險。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">121. 在進行溫室氣體盤查外部查證時，「合理保證 (Reasonable Assurance)」與「有限保證 (Limited Assurance)」的主要差異為何？</div>
+    <ul class="opt-list">
+        <li>A. 合理保證僅查核總排放量，有限保證查核所有細節</li>
+        <li>B. 合理保證要求查驗機構獲取充分且適當之證據以提供積極性結論（數據實質正確）；有限保證則提供消極性結論（未發現數據有重大錯誤）</li>
+        <li>C. 合理保證收費較低</li>
+        <li>D. 有限保證由企業內部人員執行即可</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：此為查證標準 ISO 14064-3 的核心概念。合理保證深度與廣度皆遠高於有限保證，提供較高信心水準。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">122. 企業在進行範疇三盤查時，關於「Category 1: 購買之商品與服務」，若將向雲端服務供應商（如 AWS, GCP）租用伺服器所產生的碳排放納入，其盤查難度主要為何？</div>
+    <ul class="opt-list">
+        <li>A. 雲端伺服器不耗電</li>
+        <li>B. 屬於共享基礎設施，企業難以精確拆分自身運算所佔用之耗能比例與 PUE 差異</li>
+        <li>C. 雲端供應商拒絕提供任何報告</li>
+        <li>D. 雲端計算產生的僅為水蒸氣</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：資料中心的碳排分配屬於複雜的混合服務盤查，高度依賴供應商提供基於 API 呼叫或運算時間的特定分配模型。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">123. SBTi 針對企業減量目標設定，要求其必須對齊《巴黎協定》的何種溫控路徑？</div>
+    <ul class="opt-list">
+        <li>A. 全球升溫控制在 2.0°C 內</li>
+        <li>B. 全球升溫控制在 3.0°C 內</li>
+        <li>C. 全球升溫限制在 1.5°C 內</li>
+        <li>D. 只要有減量即可，無溫度限制</li>
+    </ul>
+    <div class="ans-block"><strong>解答：C</strong> | 解析：SBTi 現行標準（如 v1.1 以後之近程目標）已全面汰除 2°C 或 WBT2°C，強制要求對齊 1.5°C 路徑。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">124. 針對「內部碳定價 (ICP)」之「內部碳費 (Internal Fee)」機制，其收取的資金最適合用於下列何種用途，以極大化氣候治理成效？</div>
+    <ul class="opt-list">
+        <li>A. 發放給股東作為股利</li>
+        <li>B. 成立氣候轉型專項基金，用於投資低碳技術研發、購買高品質綠電或輔導供應鏈減排</li>
+        <li>C. 用於支付員工旅遊費用</li>
+        <li>D. 用於公司一般日常行政開銷</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：內部碳費必須做到「專款專用 (Earmarking)」於減碳相關計畫，才能形成財務機制與永續目標的正向循環。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">125. 關於碳盤查中的「全球暖化潛勢 (GWP)」，依據最新的法規要求（如台灣環境部或國際盤查指引），通常應採用 IPCC 第幾次評估報告 (AR) 的數值？</div>
+    <ul class="opt-list">
+        <li>A. 永遠使用 AR4</li>
+        <li>B. 目前多數強制要求已過渡至 AR6 (第六次評估報告) 之數值，以確保與最新氣候科學一致</li>
+        <li>C. 使用企業自行實驗測量的值</li>
+        <li>D. 忽略 GWP 直接以公噸加總</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：隨科學進展，GWP 值會更新（如甲烷 GWP 在 AR6 有所調整）。2026年之合規盤查均要求使用最新發布之 AR6 係數。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">126. 若一家大型量販店欲計算其範疇三 Category 12（售出產品之廢棄處理）排放，其數據收集之最大挑戰為？</div>
+    <ul class="opt-list">
+        <li>A. 產品包裝沒有重量</li>
+        <li>B. 產品種類繁多且銷售至不同地區，各地廢棄物處理方式（掩埋、焚化、回收）比例差異極大，難以追蹤確切終端去向</li>
+        <li>C. 廢棄物不會產生碳排</li>
+        <li>D. 消費者不允許收集廢棄物數據</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：Cat 12 高度依賴產品銷售區域的環保署統計數據作為情境預設，因精確追蹤末端處理途徑在實務上幾乎不可能。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">127. 循環經濟策略中的「產品服務化 (Product-as-a-Service, PaaS)」（如：賣照明服務而非賣燈泡），如何影響企業的溫室氣體盤查邊界？</div>
+    <ul class="opt-list">
+        <li>A. 完全消除範疇一排放</li>
+        <li>B. 原本屬於範疇三 (售出產品使用) 的碳排，可能因企業維持資產所有權與營運控制權，而轉移至範疇一或範疇二中</li>
+        <li>C. 不影響任何盤查邊界</li>
+        <li>D. 直接消除範疇三計算需求</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：商業模式轉型改變了「控制權」。企業保留資產所有權意味著其運作能耗成為組織自身的直接/間接能源責任，是邊界界定的進階考題。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">128. 企業建置一套智慧能源管理系統 (EMS)，宣稱可降低 15% 用電。在進行減量專案量化時，如何確定此 15% 不是因為產能下降所導致？</div>
+    <ul class="opt-list">
+        <li>A. 只要看電費單總額即可</li>
+        <li>B. 必須建立「基線情境 (Baseline Scenario)」，並使用產能、氣溫等相關變數進行迴歸模型校正 (Normalization)，比較基線與實際排放之差額</li>
+        <li>C. 由總經理簽署保證書</li>
+        <li>D. 直接以去年與今年的用電量相減</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：減量專案的量化（如 ISO 14064-2）必須剔除營運變數（產能、氣溫）的干擾，正規化後的基線對比才能證明實質節能。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">129. 當企業面臨「公正轉型 (Just Transition)」壓力時，其淨零策略需考量哪一面向的風險？</div>
+    <ul class="opt-list">
+        <li>A. 僅考量股東利潤極大化</li>
+        <li>B. 評估減碳政策（如關閉高碳排舊廠房）對員工就業、當地社區經濟及弱勢群體的社會衝擊，並提供重塑技能之輔導</li>
+        <li>C. 僅需確保碳中和即可，無視社會責任</li>
+        <li>D. 要求供應商提供低於成本的報價</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：公正轉型是 COP28 以後的氣候治理核心，強調在追求環境指標(E)時，不能引發重大之社會(S)危機，需確保勞工權益與技能轉型。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">130. 依據 CBAM 規範，若進口產品含有「前驅物 (Precursors)」（例如螺絲由鋼鐵製成），其內含排放量 (Embedded Emissions) 應如何計算？</div>
+    <ul class="opt-list">
+        <li>A. 僅計算螺絲工廠的加工電力</li>
+        <li>B. 必須將上游「鋼鐵」在生產過程中產生的直接與間接排放，依據材料耗用比例加總至螺絲的內含排放中</li>
+        <li>C. 忽略前驅物排放</li>
+        <li>D. 僅採用螺絲重量乘上固定常數</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：CBAM 的系統邊界包含了「複雜產品」的前驅物排放，這要求企業必須具備跨階層供應商碳數據的追溯能力。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">131. 關於「自然相關財務揭露 (TNFD)」與氣候 (TCFD) 的關聯，企業為何需進行整合評估？</div>
+    <ul class="opt-list">
+        <li>A. 因為氣候變遷與生物多樣性喪失高度連動，例如過度依賴單一林業碳權可能造成自然資源耗竭風險</li>
+        <li>B. 兩者毫無關聯</li>
+        <li>C. TNFD 是 TCFD 的替代品，只需做一個</li>
+        <li>D. TNFD 僅針對農業公司有約束力</li>
+    </ul>
+    <div class="ans-block"><strong>解答：A</strong> | 解析：自然正向 (Nature Positive) 與淨零 (Net Zero) 雙軸並行是 2026 年永續治理主流，忽略自然風險的氣候解方往往會帶來意想不到的負面衝擊。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">132. 若企業進行組織碳盤查，發現其使用之生質燃料 (Biomass fuel) 燃燒產生之二氧化碳。依據 GHG Protocol，此部分排放應如何處理？</div>
+    <ul class="opt-list">
+        <li>A. 計入範疇一，並需繳納碳費</li>
+        <li>B. 在範疇一中不予計入 $CO_2$，但需在報告外以「生物源碳排 (Biogenic $CO_2$ emissions)」單獨列示；惟其燃燒產生之 $CH_4$ 與 $N_2O$ 仍須計入範疇一</li>
+        <li>C. 視為零碳排，完全不紀錄</li>
+        <li>D. 計入範疇二</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：生質能燃燒的 $CO_2$ 被視為自然界短循環的一部分（非化石源），故在總量核算中抽離，但非 $CO_2$ 氣體因GWP效應仍須核算。這是高難度的計算題。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">133. 「碳洩漏 (Carbon Leakage)」除了指產業外移，在碳抵換專案（如森林保育）中亦指什麼現象？</div>
+    <ul class="opt-list">
+        <li>A. 森林發生火災導致碳流失</li>
+        <li>B. 專案保護了 A 區森林，卻導致伐木行為轉移到未受保護的 B 區，造成總體排放並未減少</li>
+        <li>C. 碳封存技術的管線破裂</li>
+        <li>D. 樹木自然死亡釋放碳</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：碳權專案設計必須評估並扣除洩漏風險 (Leakage assessment)，以確保減量效益的完整性。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">134. 在規劃「淨零建築 (Net Zero Building)」時，評估其全生命週期碳足跡 (Whole Life Carbon)，除了營運碳 (Operational Carbon) 外，最重要的另一半為何？</div>
+    <ul class="opt-list">
+        <li>A. 員工通勤碳排</li>
+        <li>B. 蘊含碳 (Embodied Carbon)，即建材製造、運輸、施工及拆除階段之碳排放</li>
+        <li>C. 建築物內之印表機碳排</li>
+        <li>D. 建築物周邊植物之呼吸作用</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：隨著營運能效提升與綠電普及，建材本身（如水泥、鋼筋）的蘊含碳成為建築業邁向淨零最難克服的瓶頸。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">135. 若企業因採購低碳原物料導致成本上升，進而調高產品售價，此舉在商業策略上被稱作什麼溢價？</div>
+    <ul class="opt-list">
+        <li>A. 通膨溢價</li>
+        <li>B. 綠色溢價 (Green Premium)</li>
+        <li>C. 品牌溢價</li>
+        <li>D. 風險溢價</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：綠色溢價是指採用零碳/低碳技術相比於傳統高碳技術所多付出的額外成本，是衡量氣候科技商業化可行性的關鍵指標。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">136. 當企業簽訂太陽能 PPA 取得憑證後，若將該綠電憑證 (EAC) 於市場上二次轉售獲利，則企業在自身碳盤查時該筆用電應如何計算？</div>
+    <ul class="opt-list">
+        <li>A. 仍可用零碳排計算，因為有實體用電</li>
+        <li>B. 必須退回使用「電網平均排放係數 (或殘餘係數)」計算，因環境屬性已售出，不可重複宣告</li>
+        <li>C. 可以與買家各自宣告一半</li>
+        <li>D. 可用於抵銷範疇三排放</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：綠電憑證是「環境聲明權」的載體，一旦脫手轉賣，賣方即喪失主張該電力為零碳的權利，防範漂綠。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">137. 某高科技廠建置了高效率之「氟化氣體 (F-gas) 尾氣破壞設備」，在計算其範疇一減量成效時，除了運轉時數，最關鍵的確證數據為何？</div>
+    <ul class="opt-list">
+        <li>A. 設備購買價格</li>
+        <li>B. 破壞去除效率 (DRE, Destruction and Removal Efficiency) 的實測與連續監控數據</li>
+        <li>C. 設備重量</li>
+        <li>D. 設備佔地面積</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：半導體等製程之溫室氣體減量，極度依賴尾氣處理設備之實際去除效率，未經驗證之 DRE 不得直接套用預設值。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">138. 依據 GHG Protocol，特許經營店（Franchises）的碳排放，對於特許經營授權方（品牌方）而言，應歸類於哪一範疇？</div>
+    <ul class="opt-list">
+        <li>A. 範疇一</li>
+        <li>B. 範疇二</li>
+        <li>C. 範疇三 (Category 14: 特許經營)</li>
+        <li>D. 視為顧客排放，不須盤查</li>
+    </ul>
+    <div class="ans-block"><strong>解答：C</strong> | 解析：加盟店（Franchises）不具備財務或營運控制權，但屬於品牌方價值鏈延伸，故明確歸屬範疇三第 14 類。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">139. 企業在導入 ISO 50001 (能源管理系統) 以協助減碳時，其核心運作架構為何？</div>
+    <ul class="opt-list">
+        <li>A. 買進與賣出碳權</li>
+        <li>B. PDCA (Plan-Do-Check-Act) 持續改善循環，透過建立能源基線與能源績效指標 (EnPI) 進行管理</li>
+        <li>C. 僅為了應付碳盤查查證</li>
+        <li>D. 汰換所有員工的電腦</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：ISO 50001 是落實企業範疇一、二減量的最佳系統化工具，強調以 PDCA 循環持續優化能源績效。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">140. 在執行供應商碳數據查核時，若發現供應商提供之產品碳足跡報告邊界為「搖籃到大門 (Cradle-to-Gate)」，作為採購方的企業應如何運用此數據？</div>
+    <ul class="opt-list">
+        <li>A. 此數據不完整，必須退件要求提供到墳墓 (Grave) 的數據</li>
+        <li>B. 此數據恰好對應採購方之「採購之原物料」排放源，可直接串接納入自身的範疇三清冊中</li>
+        <li>C. 採購方需再自行加上供應商工廠內的耗電量</li>
+        <li>D. 此數據僅能用於產品行銷</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：供應商的「搖籃到大門」邊界，正好等於採購方範疇三的上游端點。這是 B2B 供應鏈碳數據串聯的正確接合點。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">141. 針對台灣《氣候變遷因應法》，若企業隱匿其排放量或提供虛偽不實之盤查資料，將面臨什麼等級之處罰？</div>
+    <ul class="opt-list">
+        <li>A. 僅行政勸導</li>
+        <li>B. 除高額罰鍰外，可能涉及刑事責任（如偽造文書）及追繳漏繳之碳費</li>
+        <li>C. 僅取消政府補助</li>
+        <li>D. 沒有法源依據可處罰</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：碳數據已具備「財務數據」同等之法律效力，蓄意造假屬嚴重違法行為，將面臨極高之法遵與商譽代價。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">142. 在情境評估中，何謂「擱淺資產 (Stranded Assets)」？</div>
+    <ul class="opt-list">
+        <li>A. 發生海嘯被淹沒的工廠</li>
+        <li>B. 因氣候法規趨嚴、碳價高漲或低碳技術取代，導致在預期壽命結束前失去經濟價值之高碳排資產（如煤礦場、燃油車廠）</li>
+        <li>C. 未能賣出的產品庫存</li>
+        <li>D. 公司閒置資金</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：擱淺資產是氣候轉型風險中對金融業與重工業衝擊最大的財務項目，必須在資產減損評估中提前考量。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">143. SBTi 要求企業設定近程目標 (Near-term target) 的年限框架為何？</div>
+    <ul class="opt-list">
+        <li>A. 自提交日起算 20 年</li>
+        <li>B. 自提交日起算 5 至 10 年內達成</li>
+        <li>C. 僅需設定 2050 年目標</li>
+        <li>D. 隔年即須達成</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：SBTi 強調「立即行動」，因此近程目標嚴格限制在 5-10 年的窗口，避免企業將減碳壓力推遲至未來。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">144. 若企業採用「大量平衡法 (Mass Balance Approach)」計算循環再生材料之碳含量，其主要邏輯為何？</div>
+    <ul class="opt-list">
+        <li>A. 實體分子追蹤，保證產品 100% 由再生料製成</li>
+        <li>B. 透過會計與稽核系統，確保系統中輸入的再生料總量與宣告產出的再生產品總量在帳面上平衡，不強求物理分子的絕對對應</li>
+        <li>C. 利用重量測量碳排</li>
+        <li>D. 完全隨機分配碳含量</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：在化工或塑膠產業，由於實體管線混合難以分拆，大量平衡法（如 ISCC PLUS 認證）是公認能追溯再生料減碳效益的機制。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">145. IFRS S2 強調揭露氣候目標對企業「財務規劃 (Financial Planning)」之影響，規劃師應確認財報中哪一部分具備對應性？</div>
+    <ul class="opt-list">
+        <li>A. 員工旅遊支出預算</li>
+        <li>B. 資本支出 (CAPEX) 與營運支出 (OPEX) 中，用於支持低碳轉型技術或氣候調適基礎設施之資金配置</li>
+        <li>C. 廣告投放費用</li>
+        <li>D. 辦公室文具採購費</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：氣候承諾不能僅是口號，IFRS 要求投資人必須在財務報表的資本支出與營運支出計畫中看到實質的資金承諾。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">146. 當碳中和專案涉及「林業碳匯」時，為應對森林火災或病蟲害導致碳重新釋放之風險，國際認證標準（如 VCS）通常會採取何種機制確保永久性？</div>
+    <ul class="opt-list">
+        <li>A. 替樹木買保險</li>
+        <li>B. 建立「緩衝帳戶 (Buffer Pool)」，扣留一定比例的核發碳權作為風險準備金，不予交易</li>
+        <li>C. 事後要求購買方退款</li>
+        <li>D. 忽略此風險</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：緩衝帳戶機制是確保留存於大氣的淨碳量不受自然災害破壞影響的金融與會計防線，維持碳權信用度。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">147. 企業在評估「直接空氣捕獲 (DAC)」技術作為範疇一減量手段時，目前面臨的最大挑戰通常是？</div>
+    <ul class="opt-list">
+        <li>A. 捕獲的氣體具有劇毒</li>
+        <li>B. 技術成熟度不足，且系統運作需耗費極大能源，若無豐沛綠電支撐，可能產生更多衍生碳排，且成本極高</li>
+        <li>C. 法規完全禁止使用</li>
+        <li>D. 設備體積小易遺失</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：DAC 雖為終極負碳技術，但其高耗能特性 (Energy Penalty) 要求必須搭配 100% 潔淨能源，否則在生命週期評估上會得不償失。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">148. 在範疇三盤查中，針對「Category 7: 員工通勤」，若企業實施「一週三天居家辦公 (WFH)」政策，這對盤查的影響為何？</div>
+    <ul class="opt-list">
+        <li>A. 不需盤查員工通勤，視為零碳排</li>
+        <li>B. 需扣除通勤排放，但依 GHG Protocol 建議，應評估並納入員工居家辦公時所產生之額外能源消耗（如冷氣、電腦用電）作為替代性間接排放</li>
+        <li>C. 僅需計算主管的通勤量</li>
+        <li>D. 將居家辦公視為範疇二排放</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：居家辦公改變了排放源位置，專業盤查必須考量「邊界移轉」，以真實反映遠距工作的淨氣候效益。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">149. 關於台灣碳交所之運作，對於「自願減量專案」產生的碳權，其交易機制設計具備何種特色以防範投機炒作？</div>
+    <ul class="opt-list">
+        <li>A. 允許無限次數的低買高賣當沖交易</li>
+        <li>B. 限制碳權交易僅能在有實質減量抵換需求之企業間進行，且購買後可能面臨轉售限制或須進行註銷</li>
+        <li>C. 開放一般民眾作為投資商品買賣</li>
+        <li>D. 由政府統一制定每日固定價格</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：台灣碳權市場定位為「服務實體經濟減碳需求」，法規嚴格防範純金融投機行為，確保額度回歸環境效益。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">150. (終極情境題) 身為淨零規劃管理師，當公司面臨「獲利衰退」且董事會要求削減減碳預算時，您應如何運用 TCFD 與碳定價工具說服高層？</div>
+    <ul class="opt-list">
+        <li>A. 威脅董事會若不減碳會被環保團體抗議</li>
+        <li>B. 運用內部碳定價結合情境分析，量化若延遲減碳，未來將面臨的碳費暴增與供應鏈掉單之「過渡風險 NPV 損失」，證明「現在投資低碳」的防禦性財務價值遠大於短期預算削減</li>
+        <li>C. 同意削減預算，將減碳目標延後 10 年</li>
+        <li>D. 建議偽造碳盤查數據以通過審核</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：最高階的淨零管理師不僅懂計算，更必須具備「將環境語言轉譯為財務風險語言」的跨界溝通能力，這是推動企業實質轉型的決勝關鍵。</div>
+</div>
+
+
+</body></html>
