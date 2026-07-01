@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+    font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;
+    font-size:22px;
+    line-height:1.9;
+    color:#333;
+    background:#f5f7fa;
+    max-width:1900px;
+    margin:auto;
+    padding:20px;
+}
+
+h1{
+    font-size:2.2rem;
+    text-align:center;
+    color:#234;
+    margin-bottom:30px;
+}
+
+.q-block{
+    background:#fff;
+    border-radius:18px;
+    padding:24px;
+    margin-bottom:30px;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.q-text{
+    font-size:1.5rem;
+    font-weight:700;
+    line-height:1.8;
+    margin-bottom:18px;
+    color:#1f2937;
+}
+
+.opt-list{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.opt-list li{
+    font-size:1.35rem;
+    line-height:2;
+    padding:10px 15px;
+    margin:10px 0;
+    background:#f8fafc;
+    border-radius:10px;
+    transition:.2s;
+}
+
+.opt-list li:hover{
+    background:#e8f4fc;
+}
+
+.ans-block{
+    margin-top:20px;
+    padding:18px;
+    background:#eef8ff;
+    border-left:6px solid #3498db;
+    border-radius:10px;
+    font-size:1.25rem;
+    line-height:1.9;
+}
+@media (max-width:768px){
+
+    body{
+        font-size:1.6rem;
+        padding:16px;
+    }
+
+    h1{
+        font-size:2rem;margin-top: 6rem ;padding:8px 18px 30px;
+    }
+
+    .q-block{
+        padding:20px;
+        border-radius:14px;
+    }
+
+    .q-text{
+        font-size:1.6rem;
+    }
+
+    .opt-list li{
+        font-size:1.6rem;
+        padding:14px;
+    }
+
+    .ans-block{
+        font-size:1.6rem;
+    }
+
+}
+
+.badgerowbt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px;
+    background: #ffffff;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+a.badge1 {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #007286;
+    color: #fff;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+a.badge2 {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #007286;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+a.badge3 {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #b8238d;
+    color: yellow;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+</style>
+</head>
+<body>
+<div class="badgerowbt">	
+	考科二_<div><a href="https://snoweryi.github.io/yilearn/exam_02_1.html" class="badge1">1</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_02_01.html" class="badge1">2</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_02_3.html" class="badge1">3</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_02_4.html" class="badge1">4</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_02_5.html" class="badge1">5</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_02_6.html" class="badge1">6</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_02_7.html" class="badge2">7</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_02_8.html" class="badge1">8</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_02_9.html" class="badge1">9</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_02_10.html" class="badge1">10</a></div>
+	
+	<div><a href="https://snoweryi.github.io/yilearn/menu.html" class="badge3">目錄</a></div>
+  </div>
+<div class="q-block">
+    <div class="q-text">1. [組織邊界] ISO 14064-1 盤查時，關於「營運控制權」的定義，下列何者正確？</div>
+    <ul class="opt-list">
+        <li>A. 僅需盤查財務股權佔比超過 50% 的子公司</li>
+        <li>B. 對該資產或運作具備導入與執行營運政策之權力</li>
+        <li>C. 僅需盤查辦公室照明用電</li>
+        <li>D. 僅盤查廠房租賃契約中載明的設備</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：營運控制權強調對排放源的操作管理能力。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">2. [計算] 企業使用 500 公斤 R-134a 冷媒 (GWP=1430)，該逸散排放之 CO2e 為？</div>
+    <ul class="opt-list">
+        <li>A. 143,000 kg</li>
+        <li>B. 715,000 kg</li>
+        <li>C. 500,000 kg</li>
+        <li>D. 715 kg</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：500 * 1430 = 715,000。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">3. [政策] 2026 年台灣碳費制度下，若企業未完成盤查登錄，影響為何？</div>
+    <ul class="opt-list">
+        <li>A. 罰鍰但可免除自主減量申請</li>
+        <li>B. 無法申請自主減量計畫及費率折減</li>
+        <li>C. 企業獲利不受任何影響</li>
+        <li>D. 產品自動獲得綠色標章</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：盤查登錄是取得減量優惠的先決條件。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">4. [標準] ISO 14067 中，何者「不屬於」產品碳足跡之系統邊界？</div>
+    <ul class="opt-list">
+        <li>A. 原材料獲取</li>
+        <li>B. 產品製造</li>
+        <li>C. 消費者使用後行為（未經定義時）</li>
+        <li>D. 產品配送</li>
+    </ul>
+    <div class="ans-block"><strong>解答：C</strong> | 解析：消費者使用後端通常屬範疇三下游，非必備邊界。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">5. [系統] 「從搖籃到大門 (Cradle-to-Gate)」之結束點為何？</div>
+    <ul class="opt-list">
+        <li>A. 送達消費者</li>
+        <li>B. 產品離開製造廠大門</li>
+        <li>C. 廢棄回收</li>
+        <li>D. 設計階段</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：Cradle-to-Gate 指原料至產品出廠。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">6. [品質] 若盤查數據品質為「低」，通常意指？</div>
+    <ul class="opt-list">
+        <li>A. 數據為真實電表測量</li>
+        <li>B. 依賴產業平均值或粗略估算</li>
+        <li>C. 已過第三方查證</li>
+        <li>D. 來自 ERP 系統</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：依賴產業平均係數而非實測數據是主因。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">7. [範疇] 半導體蝕刻製程中，PFCs 之逸散屬於？</div>
+    <ul class="opt-list">
+        <li>A. 範疇一</li>
+        <li>B. 範疇二</li>
+        <li>C. 範疇三</li>
+        <li>D. 不需盤查</li>
+    </ul>
+    <div class="ans-block"><strong>解答：A</strong> | 解析：製程氣體直接逸散屬範疇一。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">8. [報告] ISO 14064-1 報告書要求哪項原則？</div>
+    <ul class="opt-list">
+        <li>A. 獲利預測</li>
+        <li>B. 計算方法與假設之透明度</li>
+        <li>C. 員工薪資表</li>
+        <li>D. 股東紀錄</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：透明度原則是報告的核心。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">9. [係數] 下列何者為正確排放量計算？</div>
+    <ul class="opt-list">
+        <li>A. 活動數據 × 排放係數</li>
+        <li>B. 排放係數 ÷ 活動數據</li>
+        <li>C. 產量 × 產值</li>
+        <li>D. 隨意設定</li>
+    </ul>
+    <div class="ans-block"><strong>解答：A</strong> | 解析：這是碳盤查的基本公式。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">10. [範疇] 餐飲業盤查「外送包材」，屬於？</div>
+    <ul class="opt-list">
+        <li>A. 範疇一</li>
+        <li>B. 範疇二</li>
+        <li>C. 範疇三 - 購置產品</li>
+        <li>D. 不需處理</li>
+    </ul>
+    <div class="ans-block"><strong>解答：C</strong> | 解析：購買之包材屬於範疇三類別一。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">11. [查證] 外部查證的主要目的？</div>
+    <ul class="opt-list">
+        <li>A. 提高數據可信度</li>
+        <li>B. 降低電費</li>
+        <li>C. 取得補助</li>
+        <li>D. 訓練體能</li>
+    </ul>
+    <div class="ans-block"><strong>解答：A</strong> | 解析：第三方查證提供公正的檢核。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">12. [分配] LCA 中「分配原則」用意？</div>
+    <ul class="opt-list">
+        <li>A. 隨機分攤</li>
+        <li>B. 將共同製程排放分攤給多項產品</li>
+        <li>C. 全部歸零</li>
+        <li>D. 僅算主要產品</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：針對多項聯產品需按比例分攤。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">13. [GWP] GWP 數值越高，代表？</div>
+    <ul class="opt-list">
+        <li>A. 溫室效應越強</li>
+        <li>B. 越環保</li>
+        <li>C. 全為 1</li>
+        <li>D. 無特殊意義</li>
+    </ul>
+    <div class="ans-block"><strong>解答：A</strong> | 解析：GWP 代表暖化潛力。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">14. [綠電] 購買 I-REC 在市場基礎法下？</div>
+    <ul class="opt-list">
+        <li>A. 視為零排放</li>
+        <li>B. 僅環保宣告，不能減少電力排放</li>
+        <li>C. 照常計算但可揭露綠電購買</li>
+        <li>D. 無意義</li>
+    </ul>
+    <div class="ans-block"><strong>解答：C</strong> | 解析：市場基礎法可主張綠電屬性。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">15. [週期] 盤查週期為？</div>
+    <ul class="opt-list">
+        <li>A. 每日</li>
+        <li>B. 每月</li>
+        <li>C. 每年</li>
+        <li>D. 每十年</li>
+    </ul>
+    <div class="ans-block"><strong>解答：C</strong> | 解析：通常以年度報告。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">16. [標籤] 碳足跡標籤之用意？</div>
+    <ul class="opt-list">
+        <li>A. 保證零排放</li>
+        <li>B. 透明揭露產品碳排資訊</li>
+        <li>C. 美化包裝</li>
+        <li>D. 銷售稅金</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：供消費者作為購買決策之參考。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">17. [燃燒] 柴油發電機之排放歸屬於？</div>
+    <ul class="opt-list">
+        <li>A. 範疇一</li>
+        <li>B. 範疇二</li>
+        <li>C. 範疇三</li>
+        <li>D. 不需盤查</li>
+    </ul>
+    <div class="ans-block"><strong>解答：A</strong> | 解析：屬廠內直接燃燒。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">18. [數據] LCA 之「主要活動數據」為何？</div>
+    <ul class="opt-list">
+        <li>A. 競爭對手產能</li>
+        <li>B. 廠內實測之物料量與能源</li>
+        <li>C. 員工滿意度</li>
+        <li>D. 未來匯率</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：必須為現場實際測量值。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">19. [原則] 應避免哪種碳中和做法？</div>
+    <ul class="opt-list">
+        <li>A. 誠實減量</li>
+        <li>B. 過度依賴廉價碳權而無實質減量 (漂綠)</li>
+        <li>C. 採用國際標準</li>
+        <li>D. 公布數據</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：漂綠行為不僅有風險且誤導社會。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">20. [誤差] 如何處理盤查誤差？</div>
+    <ul class="opt-list">
+        <li>A. 隱藏誤差</li>
+        <li>B. 說明原因如設備精度或假設限制</li>
+        <li>C. 忽略</li>
+        <li>D. 禁止盤查誤差</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：誠實說明可增強可信度。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">21. [識別] 新增設備屬於？</div>
+    <ul class="opt-list">
+        <li>A. 排放源識別</li>
+        <li>B. 碳稅減免</li>
+        <li>C. 設計變更</li>
+        <li>D. 無意義</li>
+    </ul>
+    <div class="ans-block"><strong>解答：A</strong> | 解析：新增設備需加入清冊。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">22. [估算] 若無電費單如何計算？</div>
+    <ul class="opt-list">
+        <li>A. 填 0</li>
+        <li>B. 依樓地板面積與產業平均估算</li>
+        <li>C. 隨機填寫</li>
+        <li>D. 放棄</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：可用合理的技術方法補充。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">23. [重點] 最須關注之氣體？</div>
+    <ul class="opt-list">
+        <li>A. 氧氣</li>
+        <li>B. 二氧化碳</li>
+        <li>C. 氮氣</li>
+        <li>D. 氬氣</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：CO2 是人為排放主力。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">24. [供應鏈] 如何議合供應商？</div>
+    <ul class="opt-list">
+        <li>A. 終止合作</li>
+        <li>B. 協助提升數據收集與節能能力</li>
+        <li>C. 忽略</li>
+        <li>D. 罰款</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：合作能強化競爭力。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">25. [原則] 重大性原則意指？</div>
+    <ul class="opt-list">
+        <li>A. 報告要厚</li>
+        <li>B. 盤查須涵蓋顯著影響之排放源</li>
+        <li>C. 盤查時間長</li>
+        <li>D. 顧問貴</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：應聚焦於對總量佔比大的項目。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">26. [太陽能] 自發自用對範疇二影響？</div>
+    <ul class="opt-list">
+        <li>A. 增加範疇一</li>
+        <li>B. 減少購入電力，降低範疇二</li>
+        <li>C. 無影響</li>
+        <li>D. 範疇三</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：減少網電購買。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">27. [計算] 10 輛車，每車 1000L 汽油，係數 2.3，排放量？</div>
+    <ul class="opt-list">
+        <li>A. 2.3 公噸</li>
+        <li>B. 23 公噸</li>
+        <li>C. 230 公噸</li>
+        <li>D. 23,000 公噸</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：10 * 1000 * 2.3 = 23,000kg。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">28. [系統] 系統邊界定義為何？</div>
+    <ul class="opt-list">
+        <li>A. 廠房門內</li>
+        <li>B. 盤查之起點至終點</li>
+        <li>C. 人員範圍</li>
+        <li>D. 行銷範圍</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：界定了盤查的範疇。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">29. [品質] ISO 14067 品質原則？</div>
+    <ul class="opt-list">
+        <li>A. 完美數據</li>
+        <li>B. 相關/完整/一致/準確/透明</li>
+        <li>C. 免費</li>
+        <li>D. 指定</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：這是標準的核心品質要求。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">30. [係數] 排放係數定義？</div>
+    <ul class="opt-list">
+        <li>A. 抵銷稅率</li>
+        <li>B. 轉換活動數據至排放量的乘數</li>
+        <li>C. 利潤公式</li>
+        <li>D. 品質指數</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：單位消耗對應之排放。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">31. [策略] 減碳第一步？</div>
+    <ul class="opt-list">
+        <li>A. 碳盤查找出熱點</li>
+        <li>B. 更換包裝</li>
+        <li>C. 買碳權</li>
+        <li>D. 裁員</li>
+    </ul>
+    <div class="ans-block"><strong>解答：A</strong> | 解析：量化是管理的基礎。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">32. [準則] GHG Protocol 是？</div>
+    <ul class="opt-list">
+        <li>A. 國際會計準則</li>
+        <li>B. 交易貨幣</li>
+        <li>C. 保固規範</li>
+        <li>D. 電價標準</li>
+    </ul>
+    <div class="ans-block"><strong>解答：A</strong> | 解析：全球通用的盤查會計準則。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">33. [農產] 咖啡種植階段屬？</div>
+    <ul class="opt-list">
+        <li>A. 原料取得</li>
+        <li>B. 銷售</li>
+        <li>C. 廢棄</li>
+        <li>D. 行政</li>
+    </ul>
+    <div class="ans-block"><strong>解答：A</strong> | 解析：農產品種植即為原料端。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">34. [商旅] 商務旅行屬？</div>
+    <ul class="opt-list">
+        <li>A. 上班通勤</li>
+        <li>B. 出差之飛機/火車</li>
+        <li>C. 午餐</li>
+        <li>D. 不歸屬</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：商務旅行為範疇三。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">35. [計算] 0.45 kg/度, 10,000 度, 範疇二？</div>
+    <ul class="opt-list">
+        <li>A. 4.5 公噸</li>
+        <li>B. 45 公噸</li>
+        <li>C. 450 公噸</li>
+        <li>D. 4.5 噸</li>
+    </ul>
+    <div class="ans-block"><strong>解答：A</strong> | 解析：4500 kg = 4.5 公噸。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">36. [原則] 保守性原則？</div>
+    <ul class="opt-list">
+        <li>A. 高估排放以防低估影響</li>
+        <li>B. 隱藏排放</li>
+        <li>C. 不做盤查</li>
+        <li>D. 隨便填</li>
+    </ul>
+    <div class="ans-block"><strong>解答：A</strong> | 解析：防止誇大減量績效。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">37. [移除] 包含移除嗎？</div>
+    <ul class="opt-list">
+        <li>A. 不包含</li>
+        <li>B. 包含，如 CCS 與森林活動</li>
+        <li>C. 僅算排放</li>
+        <li>D. 屬碳稅範疇</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：盤查可揭露移除量。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">38. [製程] 製程地圖用途？</div>
+    <ul class="opt-list">
+        <li>A. 美化</li>
+        <li>B. 釐清物流與能流，防止遺漏</li>
+        <li>C. 繳費</li>
+        <li>D. 興趣</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：確保盤查範圍完整。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">39. [價值] 範疇三揭露優點？</div>
+    <ul class="opt-list">
+        <li>A. 增加支出</li>
+        <li>B. 識別熱點，帶動供應鏈轉型</li>
+        <li>C. 增加員工負擔</li>
+        <li>D. 無優點</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：協助供應鏈綠色轉型。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">40. [誠信] 提供模擬數據影響？</div>
+    <ul class="opt-list">
+        <li>A. 沒差</li>
+        <li>B. 遭質疑數據真實性</li>
+        <li>C. 開心</li>
+        <li>D. 電費省</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：缺乏誠信將面臨風險。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">41. [化學] CH4 與 CO2 暖化效果？</div>
+    <ul class="opt-list">
+        <li>A. 弱</li>
+        <li>B. 強</li>
+        <li>C. 一樣</li>
+        <li>D. 不可比</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：甲烷 GWP 極高。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">42. [風險] 碳洩漏？</div>
+    <ul class="opt-list">
+        <li>A. 漏水</li>
+        <li>B. 生產移至管制寬鬆區</li>
+        <li>C. 資料外洩</li>
+        <li>D. 設備故障</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：CBAM 防範之目標。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">43. [治理] 董事會參與？</div>
+    <ul class="opt-list">
+        <li>A. 親自測量</li>
+        <li>B. 設定策略並考核 KPI</li>
+        <li>C. 掃地</li>
+        <li>D. 不參與</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：氣候治理是轉型關鍵。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">44. [標準] PCR 作用？</div>
+    <ul class="opt-list">
+        <li>A. 統一計算規則</li>
+        <li>B. 自動減碳</li>
+        <li>C. 取代盤查</li>
+        <li>D. 漲價</li>
+    </ul>
+    <div class="ans-block"><strong>解答：A</strong> | 解析：確保產品可比性。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">45. [總量] 25 kgCO2e/kg, 1000kg 總量？</div>
+    <ul class="opt-list">
+        <li>A. 25</li>
+        <li>B. 250</li>
+        <li>C. 25000</li>
+        <li>D. 1000</li>
+    </ul>
+    <div class="ans-block"><strong>解答：C</strong> | 解析：25 * 1000 = 25,000。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">46. [漂綠] 漂綠定義？</div>
+    <ul class="opt-list">
+        <li>A. 成功減碳</li>
+        <li>B. 廣告誇大環保績效但無實質作為</li>
+        <li>C. 政策方案</li>
+        <li>D. 綠化辦公室</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：漂綠具法律與聲譽風險。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">47. [缺失] 數據缺失如何處理？</div>
+    <ul class="opt-list">
+        <li>A. 不揭露</li>
+        <li>B. 合規估算並記錄原因</li>
+        <li>C. 抄別家</li>
+        <li>D. 裝無排放</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：完整性需透過透明紀錄達成。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">48. [趨勢] AI 優化能效屬？</div>
+    <ul class="opt-list">
+        <li>A. 雙軸轉型</li>
+        <li>B. 放棄生產</li>
+        <li>C. 節省人力</li>
+        <li>D. 以上皆非</li>
+    </ul>
+    <div class="ans-block"><strong>解答：A</strong> | 解析：數位與綠色轉型結合。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">49. [策略] 抵換用途？</div>
+    <ul class="opt-list">
+        <li>A. 首要減量手段</li>
+        <li>B. 處理最後殘餘排放</li>
+        <li>C. 取代盤查</li>
+        <li>D. 較簡單</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：減量優先，抵換為後。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">50. [困難] 針對 ISO 14068-1，碳中和聲明中若提及「殘餘排放」？</div>
+    <ul class="opt-list">
+        <li>A. 忽略</li>
+        <li>B. 必須用高品質碳移除抵銷並說明來源</li>
+        <li>C. 歸零</li>
+        <li>D. 轉移</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：殘餘排放需高品質移除。</div>
+</div>
+</body></html>
