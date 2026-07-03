@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iPAS 淨零碳規劃管理師｜L12 淨零碳盤查規範與程序概要 模擬題庫（第二套）</title>
+<style>
+  :root{
+    --navy:#0f2c4c;
+    --navy-light:#1d4e78;
+    --accent:#0e8a6d;
+    --accent-light:#e6f5f1;
+    --warn:#c0392b;
+    --warn-light:#fdecea;
+    --gray-bg:#f6f8fa;
+    --border:#dbe2e8;
+    --text:#1f2d3a;
+    --muted:#6b7c8c;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:"Noto Sans TC","Microsoft JhengHei",-apple-system,sans-serif;background:var(--gray-bg);color:var(--text);line-height:1.7;}
+  header{background:linear-gradient(135deg,var(--navy),var(--navy-light));color:#fff;padding:60px 20px 22px;text-align:center;}
+  header h1{margin:0 0 6px;font-size: 22px;}
+  header p{margin:4px 0;font-size: 22px;opacity:0.9;}
+  .container{max-width:1900px;margin:0 auto;padding:20px 16px 60px;}
+  .info-box{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin-bottom:20px;font-size: 22px;color:var(--muted);}
+  .info-box b{color:var(--navy);}
+  #progress-wrap{position:sticky;top:0;z-index:10;background:var(--gray-bg);padding:10px 0;}
+  #progress-bar-bg{background:#dfe6ec;border-radius:20px;height:10px;overflow:hidden;}
+  #progress-bar{background:var(--accent);height:100%;width:0%;transition:width .3s;}
+  #progress-text{font-size: 22px;color:var(--muted);text-align:right;margin-top:4px;}
+  .q-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px 20px;margin-bottom:16px;}
+  .q-tag{display:inline-block;font-size: 22px;background:var(--accent-light);color:var(--accent);padding:2px 10px;border-radius:20px;margin-bottom:8px;font-weight:600;}
+  .q-num{color:var(--muted);font-size: 22px;margin-right:6px;}
+  .q-text{font-size: 22px;font-weight:600;margin:6px 0 12px;color:var(--navy);}
+  .q-scenario{font-size: 22px;color:var(--muted);background:#f9fafb;border-left:3px solid var(--navy-light);padding:8px 12px;margin-bottom:12px;border-radius:4px;}
+  .options label{display:block;padding:9px 12px;margin-bottom:7px;border:1px solid var(--border);border-radius:8px;cursor:pointer;font-size:0.95rem;transition:.15s;}
+  .options label:hover{background:#f0f4f7;}
+  .options input{margin-right:8px;}
+  .options label.selected{border-color:var(--navy-light);background:#eef4fa;}
+  .explain{display:none;margin-top:12px;padding:12px 14px;border-radius:8px;font-size: 22px;}
+  .explain.correct-bg{background:var(--accent-light);border:1px solid var(--accent);}
+  .explain.wrong-bg{background:var(--warn-light);border:1px solid var(--warn);}
+  .explain b{display:block;margin-bottom:4px;}
+  .opt-correct{border-color:var(--accent) !important;background:var(--accent-light) !important;}
+  .opt-wrong{border-color:var(--warn) !important;background:var(--warn-light) !important;}
+  #submit-btn, #retry-btn{display:block;width:100%;padding:14px;font-size: 22px;font-weight:700;background:var(--navy);color:#fff;border:none;border-radius:10px;cursor:pointer;margin-top:10px;}
+  #submit-btn:hover, #retry-btn:hover{background:var(--navy-light);}
+  #result-panel{background:#fff;border:2px solid var(--navy);border-radius:12px;padding:22px;text-align:center;margin-bottom:20px;display:none;}
+  #result-panel h2{color:var(--navy);margin:0 0 6px;}
+  #score-num{font-size:2.4rem;font-weight:800;color:var(--accent);}
+  #cat-breakdown{text-align:left;font-size: 22px;margin-top:14px;background:#f9fafb;border-radius:8px;padding:12px 16px;}
+  #cat-breakdown div{display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px dashed var(--border);}
+  .hint{font-size: 22px;color:var(--muted);text-align:center;margin-top:6px;}
+.badgerowbt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px;
+    background: #ffffff;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+a.badge1 {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #007286;
+    color: #fff;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+a.badge2 {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #007286;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+a.badge3 {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #b8238d;
+    color: yellow;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+ @media(max-width:768px){
+  header{ margin-top: 6rem;padding:8px 18px 30px;}
+    
+  }
+</style>
+</head>
+<body>
+<div class="badgerowbt">	
+	考科二_<div><a href="https://snoweryi.github.io/yilearn/exam_02_1.html" class="badge1">1</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_02_01.html" class="badge1">2</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_02_3.html" class="badge1">3</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_02_4.html" class="badge1">4</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_02_5.html" class="badge1">5</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_02_6.html" class="badge1">6</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_02_7.html" class="badge1">7</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_02_8.html" class="badge1">8</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_02_9.html" class="badge1">9</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_02_10.html" class="badge1">10</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_02_11.html" class="badge1">11</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_02_12.html" class="badge2">12</a></div>
+	
+	<div><a href="https://snoweryi.github.io/yilearn/menu.html" class="badge3">目錄</a></div>
+  </div>
+
+<header>
+  <h1>iPAS 淨零碳規劃管理師證照｜模擬題庫（第二套）</h1>
+  <p>L12 淨零碳盤查規範與程序概要（ISO 14064-1 × ISO 14067）</p>
+  <p style="font-size: 22px;">2026 企業實務情境版｜共 50 題｜四選一單選｜與第一套題目不重複</p>
+</header>
+
+<div class="container">
+
+  <div class="info-box">
+    <b>作答說明：</b>本套為第二套模擬題庫，情境改以紡織成衣外銷廠、食品加工廠、物流配送業、連鎖零售業、電動車充電服務、太陽能案場、社區堆肥等場景出題，避免與第一套重複。計算題中排放係数、GWP、活動數據均為<b>題目自訂假設數值</b>，僅供計算邏輯練習，實務應以主管機關或 IPCC 最新公告值為準。
+    <br><br>
+    <b>單元配分：</b>L121 ISO 14064-1（24題）／L122 ISO 14067（26題），細項比例與第一套一致。
+  </div>
+
+  <div id="progress-wrap">
+    <div id="progress-bar-bg"><div id="progress-bar"></div></div>
+    <div id="progress-text">已作答 0 / 50 題</div>
+  </div>
+
+  <div id="result-panel">
+    <h2>測驗結果</h2>
+    <div id="score-num">0 / 50</div>
+    <div class="hint">下方每題已標示正確答案（綠色）與您的錯誤選項（紅色），並附詳解。</div>
+    <div id="cat-breakdown"></div>
+    <button id="retry-btn" onclick="location.reload()">重新測驗</button>
+  </div>
+
+  <div id="quiz-area"></div>
+
+  <button id="submit-btn" onclick="submitQuiz()">送出全部答案，查看成績與詳解</button>
+
+</div>
+
+<script>
+const questions = [
+// ===== L12101 範圍與規範說明 (5題) =====
+{
+  cat:"L12101 範圍與規範說明",
+  scenario:"某紡織成衣外銷廠因國際買主要求，開始評估導入 ISO 14064-1 進行組織型溫室氣體盤查。",
+  q:"下列何者最能說明該廠導入 ISO 14064-1 的核心目的？",
+  options:["僅為取得政府補助款，與國際客戶要求無關","以組織為單位系統性量化並報告溫室氣體排放與移除量，回應供應鏈揭露要求","僅需計算單一成衣產品之碳足跡即可完全滿足客戶需求","此標準僅適用於製造流程中之單一機台"],
+  answer:1,
+  explain:"ISO 14064-1 之核心目的在於以「組織」整體為邊界，系統性量化並報告其溫室氣體排放與移除量，可作為回應國際客戶供應鏈碳揭露要求之基礎文件。"
+},
+{
+  cat:"L12101 範圍與規範說明",
+  scenario:"",
+  q:"標準條文中使用「may／得」之用語，其性質為何？",
+  options:["表示強制性要求，等同於「應」","表示允許性之選擇性作法，企業可自行決定是否採行","表示條文已廢止，不再適用","表示僅適用於已通過驗證之組織"],
+  answer:1,
+  explain:"「may／得」用於表示允許性之選擇性做法，賦予組織依自身情況彈性決定是否採行，效力上不同於強制性之「shall／應」。"
+},
+{
+  cat:"L12101 範圍與規範說明",
+  scenario:"",
+  q:"下列何者不屬於 ISO 14064 系列標準之組成？",
+  options:["ISO 14064-1（組織層級盤查）","ISO 14064-2（專案層級量化）","ISO 14064-3（查證與確效之指引）","ISO 26000（社會責任指引）"],
+  answer:3,
+  explain:"ISO 14064 系列由 14064-1（組織）、14064-2（專案）、14064-3（查證/確效指引）三部分組成；ISO 26000 為社會責任指引，屬另一套獨立標準，非 14064 系列成員。"
+},
+{
+  cat:"L12101 範圍與規範說明",
+  scenario:"某物流配送業評估是否需要同時導入 ISO 14064-1 與 ISO 14067。",
+  q:"若該公司希望「對外揭露單一件貨物配送服務之碳排放數值」以供電商客戶比較不同物流商，較適合參考下列何種概念邏輯？",
+  options:["ISO 14064-1 組織邊界邏輯","以服務／產品為量化標的之碳足跡邏輯（ISO 14067 精神），即使物流屬服務業仍可比照量化","僅需採用範疇三計算即可，無需其他標準概念","此類需求無標準可循，應自行創造規則且不必參考任何原則"],
+  answer:1,
+  explain:"雖然 ISO 14067 標題聚焦「產品」，但其生命週期量化、系統邊界與功能單位等核心概念，亦可比照應用於服務型碳足跡（如單件貨物配送）之量化邏輯，以利跨物流商比較。"
+},
+{
+  cat:"L12101 範圍與規範說明",
+  scenario:"",
+  q:"下列關於 ISO 14064-1:2018 適用對象之敘述，何者正確？",
+  options:["僅適用於上市櫃公司","適用於任何規模與型態之組織，包括企業、非營利組織、政府機關等","僅適用於出口導向製造業","僅適用於能源密集產業"],
+  answer:1,
+  explain:"ISO 14064-1 之適用對象不限產業別、規模或組織型態，任何欲量化並報告其溫室氣體排放與移除量之組織均可採用，涵蓋企業、非營利組織、政府機關等。"
+},
+
+// ===== L12102 邊界界定 (6題) =====
+{
+  cat:"L12102 邊界界定",
+  scenario:"某連鎖零售業於全台設有 30 間直營門市及 10 間加盟門市，加盟店由加盟主自負盈虧並自行決定人事與採購政策。",
+  q:"若該零售業採「營運控制法」設定組織邊界，下列處理方式何者較適當？",
+  options:["30 間直營門市及 10 間加盟門市，全數等比例納入邊界","僅納入具營運控制權之 30 間直營門市，加盟門市因非屬其營運控制範圍，原則上不納入（惟仍可揭露相關資訊）","僅納入加盟門市，直營門市不需列入","應將全部門市之排放平均分攤後再納入"],
+  answer:1,
+  explain:"營運控制法之判定重點在於組織是否具備主導營運政策（如人事、採購、日常決策）之實質權力；直營門市由總部直接營運管理，應納入邊界，加盟門市因加盟主自主決策，原則上不納入該組織之邊界，但可於報告中補充揭露相關資訊。"
+},
+{
+  cat:"L12102 邊界界定",
+  scenario:"某食品加工廠向上游承租一台冷凍貨櫃車，用於原料運送，該貨櫃車由承租廠商自行派遣司機並負責維護保養。",
+  q:"若採「財務控制法」判斷，該貨櫃車運送過程之排放，較可能歸屬下列何者之邊界？",
+  options:["食品加工廠之範疇一（自有設備直接排放）","食品加工廠之範疇三（其他間接排放，如租賃運輸服務）","與食品加工廠完全無關，無需揭露","應由查證機構自行認定，企業無需判斷"],
+  answer:1,
+  explain:"該貨櫃車非食品加工廠自有或直接控制之資產（由承租廠商派遣司機並維護），其運輸排放通常歸屬食品加工廠之範疇三（其他間接排放，如上游運輸與配送），而非範疇一。"
+},
+{
+  cat:"L12102 邊界界定",
+  scenario:"某太陽能案場開發商同時擁有案場土地與發電設備，並自行操作維護。",
+  q:"該案場運維過程中巡檢車輛使用之柴油燃燒排放，應歸屬下列何種範疇？",
+  options:["範疇一（自有設備直接排放）","範疇二（外購電力間接排放）","範疇三（其他間接排放）","不需計入任何範疇"],
+  answer:0,
+  explain:"巡檢車輛屬案場自有且由開發商直接操作控制之設備，其柴油燃燒屬組織自有排放源之直接排放，應歸屬範疇一。"
+},
+{
+  cat:"L12102 邊界界定",
+  scenario:"",
+  q:"下列何者屬於範疇三（其他間接排放）之典型項目？",
+  options:["廠內鍋爐燃燒燃料","外購市電使用","上游原物料生產階段之排放、員工商務差旅、廢棄物處理","以上皆非"],
+  answer:2,
+  explain:"範疇三涵蓋組織價值鏈中非自有排放源亦非外購能源之其他間接排放，如上游原物料生產、商務差旅、廢棄物處理、下游配送與產品使用等，範圍通常最廣且項目繁多。"
+},
+{
+  cat:"L12102 邊界界定",
+  scenario:"某企業於邊界界定過程中，決議「僅計算範疇一、二排放，不揭露任何範疇三項目」，並對外宣稱已完成完整組織型盤查。",
+  q:"此作法之主要疑慮為何？",
+  options:["完全符合標準，無需揭露範疇三","範疇三對多數企業常占總排放量相當大之比重，僅計算範疇一、二並宣稱「完整」盤查，可能造成報告使用者對企業實際碳足跡之低估與誤解","範疇三僅適用於服務業，製造業無需考慮","此作法可提升企業碳排放數據之準確性"],
+  answer:1,
+  explain:"雖然範疇三之揭露屬報告書可分階段納入之項目，但對許多企業而言範疇三（如供應鏈、產品使用）常占總碳足跡相當大比重；若僅計算範疇一、二卻宣稱「完整」盤查，將導致報告使用者對企業實際碳足跡產生低估與誤解，應於報告中明確揭露範疇涵蓋範圍與限制。"
+},
+{
+  cat:"L12102 邊界界定",
+  scenario:"",
+  q:"組織邊界一經以「控制法」設定後，下列敘述何者正確？",
+  options:["日後可隨意逐年切換股權比例法與控制法，不必說明理由","應維持方法之一致性，若因故變更應於報告中揭露變更理由並評估對歷史數據可比性之影響","邊界設定與報告書內容無關，無需交叉核對","控制法僅能用於單一年度，次年須強制更換方法"],
+  answer:1,
+  explain:"邊界設定方法應保持跨年度一致性，以利趨勢比較；若因組織重大變動等原因需變更方法，應於報告書中明確揭露變更理由，並評估對歷史數據可比性之影響，必要時配合基準年重新計算。"
+},
+
+// ===== L12103 排放量量化計算 (7題) =====
+{
+  cat:"L12103 排放量量化計算",
+  scenario:"",
+  q:"下列排放量計算公式之敘述，何者正確？",
+  options:["排放量（CO2e）＝ 活動數據 × 排放係数 × GWP","排放量（CO2e）＝ 排放係数 × GWP ÷ 活動數據","排放量（CO2e）＝ 活動數據 ÷ GWP","排放量（CO2e）＝ 活動數據 － 排放係数"],
+  answer:0,
+  explain:"標準計算邏輯為活動數據（如用量）乘以排放係数，再乘以 GWP（將不同氣體換算為 CO2 當量），三者相乘得出以 CO2e 表示之排放量。"
+},
+{
+  cat:"L12103 排放量量化計算",
+  scenario:"某物流配送業年度柴油車隊總耗油量為 80,000 公升，假設排放係数為 2.68 kgCO2e／公升（已含GWP換算）。",
+  q:"該車隊當年度範疇一排放量約為多少公噸 CO2e？",
+  options:["21.44 公噸 CO2e","214.4 公噸 CO2e","2,144 公噸 CO2e","21,440 公噸 CO2e"],
+  answer:1,
+  explain:"80,000 公升 × 2.68 kgCO2e／公升 ＝ 214,400 kgCO2e ＝ 214.4 公噸 CO2e（1公噸＝1,000公斤）。"
+},
+{
+  cat:"L12103 排放量量化計算",
+  scenario:"某連鎖零售業全台門市年度外購電力為 12,000,000 度，假設當年度排放係数為 0.480 kgCO2e/度。",
+  q:"該公司範疇二排放量為多少公噸 CO2e？",
+  options:["576 公噸 CO2e","5,760 公噸 CO2e","57,600 公噸 CO2e","576,000 公噸 CO2e"],
+  answer:1,
+  explain:"12,000,000 度 × 0.480 kgCO2e/度 ＝ 5,760,000 kgCO2e ＝ 5,760 公噸 CO2e。"
+},
+{
+  cat:"L12103 排放量量化計算",
+  scenario:"盤查團隊發現某分店 3 個月之用電度數紀錄因系統更換而遺失，僅有其餘 9 個月完整數據。",
+  q:"下列補值方式，何者較符合資料品質管理原則？",
+  options:["直接以 9 個月數據總和作為全年排放量，不做任何調整","以該分店近 3 年同期（去年及前年同月份）之平均用電量進行外插估算，並於報告中揭露估算方法","以總公司全年用電量除以分店數量作為估算基礎，忽略分店規模差異","直接刪除該分店全年數據，不予揭露"],
+  answer:1,
+  explain:"針對缺漏之特定月份數據，較適當之做法是參考同分店歷史同期資料進行合理外插估算，較能反映該分店實際用電型態，並應於報告中揭露估算方法與假設，以維持透明度。"
+},
+{
+  cat:"L12103 排放量量化計算",
+  scenario:"",
+  q:"下列關於不同溫室氣體 GWP 值大小關係之敘述，何者較為合理？",
+  options:["CO2 之 GWP 為 1，係作為其他氣體換算之基準","所有溫室氣體之 GWP 皆小於 1","N2O 之 GWP 通常低於 CO2","SF6 之 GWP 通常遠低於 CH4"],
+  answer:0,
+  explain:"CO2 為 GWP 之計算基準，定義為 1；其餘氣體如 CH4、N2O、SF6 等之 GWP 值依其增溫效應與大氣中滯留時間而定，多數遠高於 1（例如 SF6 可達數千至二萬倍以上）。"
+},
+{
+  cat:"L12103 排放量量化計算",
+  scenario:"某企業盤查團隊於試算後發現，範疇一排放量僅占總排放量 3%，範疇二占 12%，範疇三占 85%。",
+  q:"依此結果，該企業於後續減碳策略規劃上，較合理之優先順序為何？",
+  options:["應僅專注於範疇一之減碳措施，因其計算最容易","應優先聚焦範疇三相關之供應鏈與價值鏈減碳策略，同時兼顧範疇一、二之能源效率改善","應完全忽略範疇三，因其非組織直接控制範圍","三個範疇之減碳優先順序恆定不變，與占比無關"],
+  answer:1,
+  explain:"減碳策略應依據各範疇占比擬定優先順序；若範疇三占比顯著偏高（如供應鏈、產品使用階段），企業應優先發展供應鏈溝通、綠色採購等策略同時兼顧範疇一、二之能源效率提升，而非僅聚焦占比最低之範疇一。"
+},
+{
+  cat:"L12103 排放量量化計算",
+  scenario:"某企業因單位換算錯誤，將原本應為「公噸 CO2e」之數值誤植為「公斤 CO2e」對外發布，且未加註說明。",
+  q:"此錯誤最可能造成之後果為何？",
+  options:["對外揭露數值將被高估約1,000倍，嚴重影響報告可信度並可能引發利害關係人質疑","對外揭露數值將被低估約1,000倍，對報告可信度無影響","不會造成任何影響，因為數字本身正確","僅影響內部管理，對外部無任何風險"],
+  answer:0,
+  explain:"若實際應為公噸卻誤植為公斤且未進行換算（即直接以公斤數值填入公噸欄位），將導致對外揭露之排放量數值被誤植為遠高於實際情況（相差1,000倍），屬單位標示與換算之重大品質風險，應透過內部QA/QC機制防範。"
+},
+
+// ===== L12104 排放清冊與報告書建立 (6題) =====
+{
+  cat:"L12104 排放清冊與報告書建立",
+  scenario:"某物流配送業首次建立排放清冊，欲選定 2024 年作為基準年，因該年度資料最為完整。",
+  q:"下列關於基準年設定原則之敘述，何者正確？",
+  options:["基準年應選擇企業排放量最低之年度，以利未來宣稱大幅減碳成效","基準年應以資料完整性與代表性為核心考量，並建立重新計算政策以因應未來重大變動","基準年一經設定，永遠不得因任何原因調整","企業無需對外揭露基準年選定之理由"],
+  answer:1,
+  explain:"基準年選定應以資料品質與代表性為核心考量，而非刻意選擇排放量偏低之年度；同時應建立重新計算政策，於發生併購、邊界或方法重大變動時，依政策評估是否調整基準年數據，並於報告中揭露選定理由。"
+},
+{
+  cat:"L12104 排放清冊與報告書建立",
+  scenario:"某連鎖零售業於基準年後，因應展店策略新增 20 間門市，且與既有門市規模與能耗型態相近。",
+  q:"下列處理方式，何者較符合基準年管理原則？",
+  options:["新增門市排放量無論規模大小，皆不影響基準年，永遠不需重新計算","應依事先建立之重新計算門檻（如占比超過一定比例）評估是否需調整基準年排放量，以維持逐年可比性","應立即全數重新計算過去所有年度之排放量，不論變動幅度大小","應停止使用原基準年，改以展店當年度作為新基準年，且無需說明理由"],
+  answer:1,
+  explain:"組織規模擴增（如新增門市）是否需要重新計算基準年，應依事先設定之重新計算門檻（如占總排放量之百分比）進行評估，若達門檻則調整基準年數據以維持逐年比較之一致性，並非所有變動皆需重新計算，亦非完全不需評估。"
+},
+{
+  cat:"L12104 排放清冊與報告書建立",
+  scenario:"",
+  q:"下列何者較不屬於溫室氣體報告書應揭露之核心要素？",
+  options:["組織邊界設定方法與納入設施清單","排放量化方法與排放係数來源","不確定性評估與資料品質說明","企業內部員工之個人薪資明細"],
+  answer:3,
+  explain:"報告書應聚焦於邊界設定、量化方法、排放係数來源、不確定性評估、品質管理等與溫室氣體盤查直接相關之要素；員工個人薪資明細與盤查報告目的無關，不屬於應揭露內容。"
+},
+{
+  cat:"L12104 排放清冊與報告書建立",
+  scenario:"某食品加工廠委託第三方機構針對其「已完成之 2025 年度排放清冊」進行查證，確認數據是否真實反映實際排放狀況。",
+  q:"此作業性質屬於下列何者？",
+  options:["確效（Validation）","查證（Verification）","認證（Certification）","僅屬企業內部稽核，非第三方作業"],
+  answer:1,
+  explain:"查證（Verification）係針對組織「已發生」之歷史排放數據進行第三方確信，確認其是否真實反映實際排放狀況，與確效（Validation，多用於專案未來預期效果之事前確認）性質不同。"
+},
+{
+  cat:"L12104 排放清冊與報告書建立",
+  scenario:"2026 年某電子零組件品牌商發函要求其上游太陽能案場設備供應商提出經第三方查證之組織型盤查報告，作為採購評選加分項目。",
+  q:"此情境最主要反映下列何種趨勢？",
+  options:["品牌商僅關注設備價格，碳排放數據對採購評選無實質影響","品牌商將供應商之碳盤查數據品質與查證公信力納入採購評選考量，反映供應鏈碳管理要求日益深化","此類要求僅存在於直接客戶關係，對二階以上供應商無影響","此為單一產業之特殊個案，不具普遍趨勢意義"],
+  answer:1,
+  explain:"隨著淨零承諾與供應鏈碳管理要求提升，愈來愈多品牌商將供應商之碳盤查數據品質（含是否經第三方查證）納入採購評選或加分機制，此趨勢反映供應鏈碳管理已從「揭露」逐步走向「評選標準化」。"
+},
+{
+  cat:"L12104 排放清冊與報告書建立",
+  scenario:"",
+  q:"企業建立內部品質管理（QA/QC）機制之效益，下列敘述何者較不適當？",
+  options:["提升活動數據蒐集與計算過程之正確性與一致性","有助於降低第三方查證過程中發現重大不符合事項之風險","可完全取代第三方查證程序，企業無需再委託查證機構","有助於建立可追溯之數據蒐集與計算紀錄"],
+  answer:2,
+  explain:"內部 QA/QC 機制雖能大幅提升數據品質、降低查證時發現重大問題之風險，但仍無法完全取代具獨立性之第三方查證程序，兩者應並行，以確保報告之公正性與外部可信度。"
+},
+
+// ===== L12201 碳足跡管理基礎原則 (5題) =====
+{
+  cat:"L12201 碳足跡管理基礎原則",
+  scenario:"消費者於連鎖超市選購兩款同類型洗衣精，其中一款瓶身印有第三方查證之碳足跡標籤，另一款無任何碳相關標示。",
+  q:"下列敘述何者最能說明碳標籤對消費者之意義？",
+  options:["碳標籤僅為行銷噱頭，對消費者無實質參考價值","碳標籤提供經量化（甚至查證）之產品碳排放資訊，可作為消費者比較同類產品環境衝擊之參考依據之一","碳標籤代表產品完全不產生任何溫室氣體排放","碳標籤僅適用於食品，不適用於清潔用品"],
+  answer:1,
+  explain:"碳標籤係依 ISO 14067 等標準量化產品生命週期碳足跡後之揭露機制，可作為消費者比較同類產品環境衝擊之參考依據之一，惟並不代表產品「零排放」，而是揭露其量化後之相對數值。"
+},
+{
+  cat:"L12201 碳足跡管理基礎原則",
+  scenario:"",
+  q:"下列關於 ISO 14067 與組織型盤查（ISO 14064-1）在資料運用上之關係，敘述何者正確？",
+  options:["兩者完全獨立，不能共用任何數據","企業進行產品碳足跡量化時，常可援引組織盤查中已蒐集之能源使用等活動數據作為基礎，惟仍須依產品系統邊界重新分攤","組織盤查數據無法用於任何產品層級之量化工作","ISO 14067 僅能使用政府公告之排放係数，不得引用企業自有數據"],
+  answer:1,
+  explain:"企業於進行產品碳足跡量化時，常可援引組織型盤查已蒐集之用電、燃料使用等活動數據作為基礎資料，惟需依產品之系統邊界與功能單位，將相關數據合理分攤至特定產品，而非直接套用組織總量。"
+},
+{
+  cat:"L12201 碳足跡管理基礎原則",
+  scenario:"",
+  q:"下列關於產品碳足跡系統邊界「從搖籃到大門」之敘述，何者正確？",
+  options:["涵蓋原料取得至產品出廠前之階段，不含消費者使用與廢棄階段","涵蓋消費者使用至最終廢棄處理之全部階段","僅涵蓋產品運送至消費者手中之運輸階段","涵蓋範圍與「從搖籃到墳墓」完全相同"],
+  answer:0,
+  explain:"「從搖籃到大門（cradle-to-gate）」涵蓋原料取得至產品出廠（工廠大門）前之階段，不含後續配送、消費者使用及廢棄處理，範圍較「從搖籃到墳墓」窄。"
+},
+{
+  cat:"L12201 碳足跡管理基礎原則",
+  scenario:"某食品加工廠欲對外宣稱其產品為「低碳產品」，但內部僅粗略估算未依標準量化，亦未揭露計算依據。",
+  q:"此作法可能面臨之主要風險為何？",
+  options:["完全無風險，因為僅為行銷用語","可能構成缺乏依據之環境宣稱，面臨消費者質疑、主管機關關注或漂綠指控之風險","僅需事後補做量化報告即可完全免除風險","此類宣稱不受任何法規或標準規範"],
+  answer:1,
+  explain:"未依標準完成量化且未揭露計算依據之「低碳」等環境宣稱，屬缺乏實證基礎之宣稱，可能面臨消費者質疑、主管機關關注或漂綠指控等風險，企業應依 ISO 14067 完成量化並適度揭露方法與假設，以降低此類風險。"
+},
+{
+  cat:"L12201 碳足跡管理基礎原則",
+  scenario:"",
+  q:"下列何種作法最能降低企業產品碳足跡宣告之「漂綠」風險？",
+  options:["僅使用「環保」「綠色」等籠統形容詞，避免揭露具體數字","依標準完整量化、明確揭露系統邊界與假設，並視情況取得第三方查證或確認","引用同業或競爭對手之碳足跡數值作為自身宣稱依據","延後所有碳足跡相關溝通，避免任何對外揭露"],
+  answer:1,
+  explain:"降低漂綠風險之關鍵在於依標準完整量化、明確揭露系統邊界、資料來源與假設，並視情況取得第三方查證或確認，使宣稱具備可驗證之實證基礎，而非僅使用籠統形容詞或迴避揭露。"
+},
+
+// ===== L12202 LCA概念 (5題) =====
+{
+  cat:"L12202 生命週期評估概念",
+  scenario:"",
+  q:"LCA 四大階段中，「生命週期清單分析（LCI）」之主要工作內容為何？",
+  options:["訂定產品之市場售價策略","蒐集並彙整系統邊界內各製程階段之投入（原料、能源）與產出（產品、排放、廢棄物）數據","僅進行最終結果之文字撰寫","僅評估產品之包裝設計美感"],
+  answer:1,
+  explain:"生命週期清單分析（LCI）之核心工作為系統性蒐集並彙整系統邊界內各製程階段之投入（原物料、能源）與產出（產品、排放、廢棄物）數據，作為後續衝擊評估之基礎。"
+},
+{
+  cat:"L12202 生命週期評估概念",
+  scenario:"某電動車充電服務業者欲計算其充電服務之碳足跡，範圍涵蓋充電樁製造、安裝、日常用電、維護及最終汰役回收。",
+  q:"此案例涵蓋之生命週期階段組合，最接近下列何者？",
+  options:["僅使用階段（充電當下）","製造、安裝（原料取得與建置）、使用（日常用電與維護）、廢棄（汰役回收）等較完整之生命週期階段","僅原料取得階段","僅廢棄處理階段"],
+  answer:1,
+  explain:"此情境涵蓋充電樁製造與安裝（原料取得與建置）、日常用電與維護（使用階段）、汰役回收（廢棄階段），屬較完整之生命週期涵蓋範圍，非僅單一階段。"
+},
+{
+  cat:"L12202 生命週期評估概念",
+  scenario:"",
+  q:"若欲比較「一次性紙杯」與「可重複使用馬克杯」之環境衝擊，下列何者為合理之功能單位設定方式？",
+  options:["以「一個杯子」為單位直接比較，不考慮使用次數","以「盛裝並飲用固定容量飲品達到相同總使用次數（如1,000次）」為功能單位，將馬克杯之總碳足跡分攤至每次使用","僅比較兩者之採購單價","僅比較兩者之製造地點"],
+  answer:1,
+  explain:"由於馬克杯可重複使用而紙杯多為一次性，若僅以「一個杯子」比較將失去公平性；應以「達到相同總使用次數之功能」設定功能單位，將可重複使用產品之總碳足跡合理分攤至每次使用，方能公平比較兩者之環境衝擊。"
+},
+{
+  cat:"L12202 生命週期評估概念",
+  scenario:"",
+  q:"下列關於「結果闡釋（Interpretation）」於 LCA 四階段中角色之敘述，何者正確？",
+  options:["結果闡釋僅於最後一次性進行，與其他三階段完全無關聯","結果闡釋應貫穿並回饋於目標與範疇界定、清單分析、衝擊評估等各階段，用以檢視結果之完整性、一致性與敏感度","結果闡釋僅需列出最終數字，無需說明限制","結果闡釋僅適用於產品碳足跡，不適用於一般 LCA"],
+  answer:1,
+  explain:"結果闡釋雖列為 LCA 之第四階段，但其精神在於貫穿並回饋前三階段，透過完整性檢查、一致性檢查與敏感度分析等方式，確保整體評估結果之可信度與合理性，而非僅於最終單獨列出數字。"
+},
+{
+  cat:"L12202 生命週期評估概念",
+  scenario:"分析人員於衝擊評估階段，將產品生命週期中排放之 CH4、N2O 等不同氣體數據進行彙整。",
+  q:"此彙整過程主要運用下列何種概念完成？",
+  options:["以各氣體之市場交易價格加權平均","以 GWP 為特性化因子，將不同氣體排放量統一換算為 CO2 當量後加總","以各氣體之分子式字母排序加總","以各氣體之顏色進行分類彙整"],
+  answer:1,
+  explain:"衝擊評估階段之氣候變遷類別，係以 GWP 作為特性化因子，將 CH4、N2O 等不同溫室氣體排放量統一換算為 CO2 當量（CO2e）後加總，形成單一可比較之衝擊指標。"
+},
+
+// ===== L12203 PCR概念 (4題) =====
+{
+  cat:"L12203 產品類別規則(PCR)概念",
+  scenario:"",
+  q:"下列關於 PCR 目的之敘述，何者最為正確？",
+  options:["PCR 目的在於規範產品之定價策略，與碳足跡計算無關","PCR 目的在於針對特定產品類別建立一致之計算規則，以利同類產品間碳足跡結果之比較","PCR 僅為行銷部門使用之內部文件，不涉及技術規範","PCR 一經公告即不再需要任何更新或審查"],
+  answer:1,
+  explain:"PCR 之核心目的在於針對特定產品類別（如成衣、電子零組件、食品）建立一致之系統邊界、分配規則與資料品質要求，確保同類產品間碳足跡結果具有可比較性，並通常需定期審查更新。"
+},
+{
+  cat:"L12203 產品類別規則(PCR)概念",
+  scenario:"某太陽能模組製造商欲對外宣告其模組產品之碳足跡，但發現該產品類別目前尚無正式發布之 PCR。",
+  q:"依 ISO 14067 精神，下列處理方式何者較適當？",
+  options:["因無 PCR，故完全不得進行任何碳足跡量化或宣告","可依 ISO 14067 通則性規定進行量化，並於報告中明確揭露未採用特定 PCR 之情形及所依循之假設與方法","可隨意套用其他不相關產品類別之 PCR 而不揭露差異","應無限期擱置，直到全球所有國家皆發布統一PCR"],
+  answer:1,
+  explain:"當特定產品類別尚無正式 PCR 時，企業仍可依 ISO 14067 通則性原則進行量化與揭露，惟應於報告中明確說明未採用特定 PCR 之情形，以及所採用之系統邊界、分配規則等假設與方法，以維持透明度。"
+},
+{
+  cat:"L12203 產品類別規則(PCR)概念",
+  scenario:"",
+  q:"下列何者通常不屬於 PCR 所規範之內容範疇？",
+  options:["產品之系統邊界與功能單位","共同生產之分配規則","資料品質要求與應揭露之報告要素","企業員工之考績評核標準"],
+  answer:3,
+  explain:"PCR 聚焦於特定產品類別之系統邊界、功能單位、分配規則、資料品質要求及報告揭露要素等技術性規範；員工考績評核標準與產品碳足跡計算規則無關，不屬於 PCR 範疇。"
+},
+{
+  cat:"L12203 產品類別規則(PCR)概念",
+  scenario:"某產業公會邀集多家會員企業、學研機構及第三方驗證機構共同研擬該產業之 PCR 草案，並公開徵詢意見。",
+  q:"此運作方式之主要意義為何？",
+  options:["透過多方利害關係人參與及公開審查程序，強化 PCR 之代表性、專業性與公信力","此舉純屬形式，對 PCR 品質無實質影響","公開徵詢意見會降低 PCR 之權威性，應避免採用","僅需公會單方面決定即可，無需納入其他利害關係人意見"],
+  answer:0,
+  explain:"透過產業公會、學研機構、第三方驗證機構等多方利害關係人共同參與及公開審查程序，有助於確保 PCR 內容兼顧技術專業性、產業代表性與公信力，避免由單一角色片面主導而失去客觀性。"
+},
+
+// ===== L12204 製程地圖與系統邊界 (5題) =====
+{
+  cat:"L12204 製程地圖與系統邊界",
+  scenario:"某紡織成衣外銷廠繪製自棉花採收、紡紗、織布、染整至成衣裁縫、包裝出貨之完整製程地圖。",
+  q:"此製程地圖對後續產品碳足跡量化之主要助益為何？",
+  options:["僅有助於財務成本試算，與碳足跡無關","協助辨識各製程階段之能資源投入與主要排放熱點（如染整階段常為高耗能環節），作為系統邊界界定與活動數據蒐集重點之依據","僅用於員工教育訓練，對碳足跡計算無實質助益","製程地圖與系統邊界設定完全無關"],
+  answer:1,
+  explain:"完整製程地圖有助於辨識各製程階段（如染整常為紡織業高耗能、高排放熱點）之能資源投入與排放來源，作為後續系統邊界界定與活動數據蒐集優先順序規劃之重要依據。"
+},
+{
+  cat:"L12204 製程地圖與系統邊界",
+  scenario:"",
+  q:"下列關於「截斷準則（cut-off criteria）」應用之敘述，何者較不適當？",
+  options:["可用於合理排除對總碳足跡影響甚微之次要投入項目","排除項目應於報告中揭露排除理由，以維持透明度","可用於任意排除占總排放量顯著比例之主要製程，且無需揭露","截斷準則之設定應具一致性，避免隨意變動"],
+  answer:2,
+  explain:"截斷準則之精神在於合理排除影響甚微之次要項目，而非用於排除占總排放量顯著比例之主要製程；任何排除項目（無論大小）皆應揭露理由，若排除重大排放源且未揭露，將嚴重損害量化結果之完整性與可信度。"
+},
+{
+  cat:"L12204 製程地圖與系統邊界",
+  scenario:"某食品加工廠同一產線同時產出主產品（罐頭）與具經濟價值之副產品（食品加工下腳料，售予飼料廠）。",
+  q:"此情境涉及下列何種系統邊界處理議題？",
+  options:["功能單位定義問題","共同生產（co-product）之分配（allocation）問題","組織邊界控制法判定問題","基準年重新計算問題"],
+  answer:1,
+  explain:"當同一產線同時產出主產品與具經濟價值之副產品時，需依質量、經濟價值或系統擴展等分配方法，將該製程排放量合理分攤至主產品與副產品，此即共同生產之分配問題。"
+},
+{
+  cat:"L12204 製程地圖與系統邊界",
+  scenario:"某社區推動廚餘堆肥計畫，將原本需焚化處理之廚餘轉為堆肥再利用於農地，並宣稱可降低整體碳足跡。",
+  q:"欲驗證此宣稱，系統邊界應完整納入下列哪些階段以進行公平比較？",
+  options:["僅計算焚化處理階段之排放，忽略堆肥過程","應完整比較「焚化處理」與「堆肥處理（含收集、發酵、運送至農地）」兩套系統之全生命週期排放，包含甲烷逸散等潛在因子","僅計算廚餘之運輸階段排放","無需納入任何比較，直接採信堆肥必然較低碳之假設"],
+  answer:1,
+  explain:"欲驗證堆肥是否確實降低碳足跡，應完整比較「焚化處理」與「堆肥處理」兩套系統之全生命週期排放，並納入堆肥發酵過程可能產生之甲烷逸散等潛在排放因子，避免僅憑直覺假設堆肥必然較低碳而忽略potential排放。"
+},
+{
+  cat:"L12204 製程地圖與系統邊界",
+  scenario:"",
+  q:"下列關於產品碳足跡系統邊界設定之敘述，何者最為適當？",
+  options:["邊界設定應依產品製程地圖辨識主要排放來源，並與所採用之 PCR（若有）保持一致，同時揭露納入與排除項目之理由","邊界設定可完全依企業行銷需求任意調整，無需依循任何原則","邊界設定僅需考慮直接生產成本最低之方案","邊界設定與查證結果完全無關"],
+  answer:0,
+  explain:"系統邊界設定應以製程地圖辨識之主要排放來源為基礎，並儘量與適用之 PCR 保持一致，同時完整揭露納入與排除項目之理由，以確保量化結果之完整性、一致性與可查證性。"
+},
+
+// ===== L12205 活動數據與結果闡釋 (7題) =====
+{
+  cat:"L12205 活動數據與結果闡釋",
+  scenario:"",
+  q:"下列關於活動數據品質順序之敘述，何者正確？",
+  options:["次級數據（產業平均值）品質恆優於初級數據（企業實測值）","應優先採用初級數據（企業實測值），於無法取得時方以次級數據（產業平均值）補充，並揭露數據品質等級","初級數據與次級數據可任意混用，無需區分揭露","僅能使用次級數據，不得使用初級數據"],
+  answer:1,
+  explain:"活動數據品質原則上以初級數據（企業自身實測或紀錄之數據）優先，因較能反映實際製程狀況；於初級數據無法取得時，方以次級數據（如產業平均值）補充，並應於報告中揭露所採用數據之品質等級與來源。"
+},
+{
+  cat:"L12205 活動數據與結果闡釋",
+  scenario:"",
+  q:"下列關於排放係数選用之敘述，何者正確？",
+  options:["排放係数選用後即永久固定，不受版本更新影響","應優先選用與活動數據性質、地理範圍及時間點相符之排放係数，並揭露其來源與版本","排放係数可由企業自行隨意假設，無需任何依據","不同國家之排放係数必然相同，選用時無需考慮地理範圍"],
+  answer:1,
+  explain:"排放係数之選用應盡量與活動數據之性質（如燃料種類）、地理範圍（如所在國家電網）及時間點（年度）相符，並於報告中揭露來源與版本，以確保計算結果之合理性與可追溯性。"
+},
+{
+  cat:"L12205 活動數據與結果闡釋",
+  scenario:"某成衣品牌計算一件T恤之產品碳足跡，假設：棉花種植與紡紗階段排放為 2.5 kgCO2e、織布與染整階段為 4.0 kgCO2e、成衣裁縫階段為 0.8 kgCO2e、包裝材料製造為 0.3 kgCO2e。",
+  q:"此件T恤（不含配送、使用與廢棄階段）之總碳足跡約為多少？",
+  options:["6.8 kgCO2e","7.1 kgCO2e","7.6 kgCO2e","8.0 kgCO2e"],
+  answer:2,
+  explain:"2.5＋4.0＋0.8＋0.3＝7.6 kgCO2e。"
+},
+{
+  cat:"L12205 活動數據與結果闡釋",
+  scenario:"承上題，若再加計海運配送階段排放 0.4 kgCO2e，以及消費者洗滌與最終衣物回收階段合計排放 1.0 kgCO2e。",
+  q:"此件T恤（搖籃到墳墓）之總碳足跡約為多少？",
+  options:["7.6 kgCO2e","8.6 kgCO2e","9.0 kgCO2e","9.4 kgCO2e"],
+  answer:2,
+  explain:"7.6 kgCO2e（前四階段）＋ 0.4 kgCO2e（配送）＋ 1.0 kgCO2e（使用與廢棄）＝ 9.0 kgCO2e。"
+},
+{
+  cat:"L12205 活動數據與結果闡釋",
+  scenario:"某企業員工共 4 人共乘一輛電動車前往企業 ESG 教育參訪活動，該趟行程總排放量為 12 kgCO2e。",
+  q:"若採「人均分攤」方式估算個人通勤碳足跡，每人分攤之排放量為多少？",
+  options:["2 kgCO2e","3 kgCO2e","4 kgCO2e","12 kgCO2e"],
+  answer:1,
+  explain:"12 kgCO2e ÷ 4 人 ＝ 3 kgCO2e／人，此為依人數平均分攤之簡化估算方式；實務上亦可依里程、載重占比等更精細之基礎進行分攤。"
+},
+{
+  cat:"L12205 活動數據與結果闡釋",
+  scenario:"某太陽能案場開發商於產品（案場發電服務）碳足跡報告中，僅提供單一總數值，未說明資料蒐集期間、係数來源或計算假設。",
+  q:"此報告撰寫方式之主要缺失為何？",
+  options:["無任何缺失，總數值已足夠供外部使用","缺乏透明度，使報告使用者無法評估數據品質、適用範圍與限制，增加誤用或誤解風險","僅需附上公司logo即可解決此問題","此為業界標準做法，無需改進"],
+  answer:1,
+  explain:"結果闡釋章節之核心目的在於協助報告使用者理解數據之計算基礎、資料品質、假設與限制；僅提供單一總數值而未說明相關資訊，將降低報告透明度，增加被誤用或誤解之風險，應予以改善。"
+},
+{
+  cat:"L12205 活動數據與結果闡釋",
+  scenario:"某品牌商要求其太陽能設備供應商針對產品碳足跡數據進行第三方確認，供應商決定同時揭露「主要假設」「資料品質等級」與「未涵蓋之次要排放來源」。",
+  q:"此作法對報告可信度之影響為何？",
+  options:["屬多餘揭露，可能造成品牌商誤解，應避免","有助於提升報告透明度與可信度，使品牌商能更完整評估數據之適用情境與限制","僅對特定市場之客戶有意義，對其餘客戶無實質幫助","將導致企業碳足跡數值失去法律效力"],
+  answer:1,
+  explain:"完整揭露主要假設、資料品質等級與未涵蓋之次要排放來源，有助於報告使用者（品牌商、投資人、查證機構）更完整評估數據之適用情境與潛在限制，是符合 ISO 14067 結果闡釋精神之良好實務，可有效提升報告透明度與可信度。"
+}
+];
+
+const userAnswers = new Array(questions.length).fill(null);
+const quizArea = document.getElementById('quiz-area');
+
+function letter(i){ return ["A","B","C","D"][i]; }
+
+function renderQuiz(){
+  let html = "";
+  questions.forEach((item, qi) => {
+    html += `<div class="q-card" id="qcard-${qi}">`;
+    html += `<span class="q-tag">${item.cat}</span>`;
+    html += `<div class="q-text"><span class="q-num">第 ${qi+1} 題</span>${item.q}</div>`;
+    if(item.scenario){
+      html += `<div class="q-scenario">情境：${item.scenario}</div>`;
+    }
+    html += `<div class="options" id="options-${qi}">`;
+    item.options.forEach((opt, oi) => {
+      html += `<label id="opt-${qi}-${oi}" onclick="selectAnswer(${qi},${oi})">
+        <input type="radio" name="q${qi}" value="${oi}"> ${letter(oi)}. ${opt}
+      </label>`;
+    });
+    html += `</div>`;
+    html += `<div class="explain" id="explain-${qi}"></div>`;
+    html += `</div>`;
+  });
+  quizArea.innerHTML = html;
+}
+
+function selectAnswer(qi, oi){
+  userAnswers[qi] = oi;
+  for(let i=0;i<4;i++){
+    document.getElementById(`opt-${qi}-${i}`).classList.remove('selected');
+  }
+  document.getElementById(`opt-${qi}-${oi}`).classList.add('selected');
+  updateProgress();
+}
+
+function updateProgress(){
+  const answered = userAnswers.filter(a => a !== null).length;
+  const pct = Math.round((answered/questions.length)*100);
+  document.getElementById('progress-bar').style.width = pct + "%";
+  document.getElementById('progress-text').textContent = `已作答 ${answered} / ${questions.length} 題`;
+}
+
+function submitQuiz(){
+  const unanswered = userAnswers.filter(a => a === null).length;
+  if(unanswered > 0){
+    if(!confirm(`您尚有 ${unanswered} 題未作答，確定要送出並查看成績嗎？`)) return;
+  }
+  let score = 0;
+  const catStats = {};
+
+  questions.forEach((item, qi) => {
+    const correctIdx = item.answer;
+    const userIdx = userAnswers[qi];
+    const isCorrect = userIdx === correctIdx;
+    if(isCorrect) score++;
+
+    if(!catStats[item.cat]) catStats[item.cat] = {correct:0,total:0};
+    catStats[item.cat].total++;
+    if(isCorrect) catStats[item.cat].correct++;
+
+    for(let oi=0; oi<4; oi++){
+      const label = document.getElementById(`opt-${qi}-${oi}`);
+      label.onclick = null;
+      label.style.cursor = "default";
+      if(oi === correctIdx){
+        label.classList.add('opt-correct');
+      } else if(oi === userIdx && !isCorrect){
+        label.classList.add('opt-wrong');
+      }
+    }
+
+    const explainDiv = document.getElementById(`explain-${qi}`);
+    explainDiv.style.display = "block";
+    explainDiv.classList.add(isCorrect ? 'correct-bg' : 'wrong-bg');
+    const userText = userIdx === null ? "未作答" : `${letter(userIdx)}. ${item.options[userIdx]}`;
+    explainDiv.innerHTML = `<b>${isCorrect ? "✔ 答對了" : "✘ 答錯了"}｜正確答案：${letter(correctIdx)}. ${item.options[correctIdx]}</b>
+      您的作答：${userText}<br><br>詳解：${item.explain}`;
+  });
+
+  document.getElementById('score-num').textContent = `${score} / ${questions.length}`;
+  let breakdownHtml = "";
+  Object.keys(catStats).forEach(cat => {
+    const s = catStats[cat];
+    breakdownHtml += `<div><span>${cat}</span><span>${s.correct} / ${s.total}</span></div>`;
+  });
+  document.getElementById('cat-breakdown').innerHTML = breakdownHtml;
+
+  document.getElementById('result-panel').style.display = "block";
+  document.getElementById('submit-btn').style.display = "none";
+  document.getElementById('result-panel').scrollIntoView({behavior:"smooth"});
+}
+
+renderQuiz();
+</script>
+</body>
+</html>
