@@ -10,26 +10,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-size: 20px;font-family: 'Noto Sans TC', sans-serif; line-height: 1.6; color: #2c3e50; background-color: #f8fafc; padding: 40px 20px; }
+        body { font-size: 22px;font-family: 'Noto Sans TC', sans-serif; line-height: 1.6; color: #2c3e50; background-color: #f8fafc; padding: 40px 20px; }
         .container { max-width: 1900px; margin: 3rem auto; background-color: #ffffff; border-radius: 12px; box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05); padding: 40px; }
         header { border-bottom: 3px solid #3b82f6; padding-bottom: 20px; margin-bottom: 30px; }
         h1 { color: #1e3a8a; font-size: 26px; font-weight: 700; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
-        .meta-info { background-color: #eff6ff; border-left: 5px solid #3b82f6; padding: 20px; border-radius: 4px; font-size: 20px; color: #1e40af; margin-bottom: 35px; }
+        .meta-info { background-color: #eff6ff; border-left: 5px solid #3b82f6; padding: 20px; border-radius: 4px; font-size: 22px; color: #1e40af; margin-bottom: 35px; }
         .meta-info ul { list-style: none; margin-top: 8px; }
         .meta-info li { margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
         .question-block { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 25px; margin-bottom: 30px; transition: all 0.3s ease; }
         .question-block:hover { border-color: #cbd5e1; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
-        .q-header { font-weight: 700; font-size: 20px;; color: #1e293b; margin-bottom: 15px; line-height: 1.6; }
-        .q-meta { font-size: 20px; color: #64748b; margin-bottom: 15px; display: flex; flex-wrap: wrap; gap: 15px; background: #f1f5f9; padding: 6px 12px; border-radius: 4px; width: fit-content; }
+        .q-header { font-weight: 700; font-size: 22px; color: #1e293b; margin-bottom: 15px; line-height: 1.6; }
+        .q-meta { font-size: 22px; color: #64748b; margin-bottom: 15px; display: flex; flex-wrap: wrap; gap: 15px; background: #f1f5f9; padding: 6px 12px; border-radius: 4px; width: fit-content; }
         .options { margin-left: 10px; margin-bottom: 20px; }
         .option { margin: 12px 0; display: flex; align-items: flex-start; padding: 12px 15px; border-radius: 6px; background-color: #f8fafc; border: 1px solid #f1f5f9; cursor: pointer; transition: all 0.2s; }
         .option:hover { background-color: #f1f5f9; border-color: #e2e8f0; }
-        .option-letter { font-weight: 700; color: #0f172a; margin-right: 12px; background: #e2e8f0; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 20px; }
-        .option-text { font-size: 20px; color: #334155; padding-top: 1px; }
+        .option-letter { font-weight: 700; color: #0f172a; margin-right: 12px; background: #e2e8f0; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 22px; }
+        .option-text { font-size: 22px; color: #334155; padding-top: 1px; }
         .ans-panel { margin-top: 15px; padding: 20px; background-color: #fffdf5; border-left: 4px solid #eab308; display: none; border-radius: 4px; animation: fadeIn 0.3s ease; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
-        .ans-title { font-weight: 700; color: #854d0e; font-size: 20px; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
-        .ans-text { font-size: 20px; color: #451a03; line-height: 1.6; }
+        .ans-title { font-weight: 700; color: #854d0e; font-size: 22px; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+        .ans-text { font-size: 22px; color: #451a03; line-height: 1.6; }
         .show-ans-btn { background-color: #3b82f6; color: white; border: none; padding: 8px 18px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 500; display: inline-flex; align-items: center; gap: 8px; }
         .show-ans-btn:hover { background-color: #2563eb; }
         @media print { body { background-color: #fff; padding: 0; } .container { box-shadow: none; padding: 0; } .show-ans-btn { display: none; } .ans-panel { display: block !important; } }
@@ -51,7 +51,7 @@
 
 a.badge1 {
     display: inline-block;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 400;
     padding: 3px 10px;
     border-radius: 20px;
@@ -65,7 +65,7 @@ a.badge1 {
 
 a.badge2 {
     display: inline-block;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 400;
     padding: 3px 10px;
     border-radius: 20px;
@@ -78,7 +78,7 @@ a.badge2 {
 }
 a.badge3 {
     display: inline-block;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 400;
     padding: 3px 10px;
     border-radius: 20px;
