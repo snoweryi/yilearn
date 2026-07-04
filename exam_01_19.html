@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>淨零碳盤查題庫｜ISO 14064-1 & ISO 14067（進階版）</title>
+<style>
+  :root{
+    --bg:#f4f6f3;
+    --paper:#ffffff;
+    --ink:#1f2b22;
+    --ink-soft:#5b6b5f;
+    --line:#dfe6dd;
+    --pine:#2f5d3a;
+    --pine-deep:#1e4028;
+    --moss:#7aa06b;
+    --clay:#b5793a;
+    --tag-l:#e7f0e2;
+    --tag-l-ink:#3a6b45;
+    --tag-a:#fbeede;
+    --tag-a-ink:#a5622a;
+    --shadow: 0 1px 2px rgba(31,43,34,0.06), 0 8px 24px rgba(31,43,34,0.06);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 600px at 10% -10%, #eef4ea 0%, transparent 60%),
+      radial-gradient(1000px 500px at 100% 0%, #f1f5ee 0%, transparent 55%),
+      var(--bg);
+    color:var(--ink);
+    font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",-apple-system,sans-serif;
+    line-height:1.75;
+    padding:0 0 80px;
+  }
+  header.hero{
+    position:relative; padding:56px 20px 40px; color:#f4f8f1; overflow:hidden;
+    background:
+      repeating-linear-gradient(115deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 2px, transparent 2px, transparent 26px),
+      linear-gradient(135deg, var(--pine-deep), var(--pine) 60%, var(--moss));
+  }
+  header.hero::after{
+    content:""; position:absolute; inset:0;
+    background: radial-gradient(500px 260px at 85% 20%, rgba(201,154,61,0.35), transparent 70%);
+    pointer-events:none;
+  }
+  .hero-inner{max-width:1900px;margin:0 auto;position:relative;z-index:1;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px; font-size: 22px; letter-spacing:.14em; text-transform:uppercase;
+    color:#d9ecd0; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.22);
+    padding:5px 12px; border-radius:999px; margin-bottom:18px;
+  }
+  h1{font-size:clamp(24px,4vw,34px); margin:0 0 10px; font-weight:800;}
+  .hero p.sub{color:#e4efdd; font-size: 22px; max-width:680px; margin:0 0 22px;}
+  .hero-stats{display:flex; gap:14px; flex-wrap:wrap;}
+  .stat{background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); border-radius:12px; padding:10px 16px; min-width:110px;}
+  .stat b{display:block; font-size:22px;}
+  .stat span{font-size: 22px; color:#dcecd3;}
+
+  .toolbar{
+    position:sticky; top:0; z-index:20; background:rgba(244,246,243,0.92); backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line); padding:14px 20px;
+  }
+  .toolbar-inner{max-width:920px;margin:0 auto; display:flex; gap:10px; flex-wrap:wrap; align-items:center;}
+  .toolbar-label{font-size: 22px; color:var(--ink-soft); margin-right:2px;}
+  .chip{border:1px solid var(--line); background:var(--paper); color:var(--ink-soft); padding:7px 14px; border-radius:999px; font-size: 22px; cursor:pointer; transition:.15s ease;}
+  .chip:hover{border-color:var(--moss); color:var(--pine-deep);}
+  .chip.active{background:var(--pine); border-color:var(--pine); color:#fff;}
+  .search{margin-left:auto; flex:1 1 180px; max-width:240px; border:1px solid var(--line); border-radius:999px; padding:7px 14px; font-size: 22px; background:var(--paper); color:var(--ink);}
+  .search:focus{outline:2px solid var(--moss); outline-offset:1px;}
+
+  .section-nav{max-width:920px;margin:22px auto 0; padding:0 20px; display:flex; gap:8px; flex-wrap:wrap; font-size: 22px;}
+  .section-nav a{color:var(--ink-soft); text-decoration:none; border:1px solid var(--line); padding:4px 10px; border-radius:8px; background:var(--paper);}
+  .section-nav a:hover{color:var(--pine-deep); border-color:var(--moss);}
+
+  main{max-width:920px; margin:26px auto 0; padding:0 20px;}
+  .unit-block{margin-top:36px;}
+  .unit-title{display:flex; align-items:baseline; gap:10px; margin-bottom:14px; border-bottom:2px solid var(--pine); padding-bottom:8px;}
+  .unit-code{font-family:"SFMono-Regular",Consolas,monospace; font-size: 22px; color:#fff; background:var(--clay); padding:3px 9px; border-radius:6px;}
+  .unit-title h2{font-size: 22px; margin:0; color:var(--pine-deep); font-weight:700;}
+
+  .qcard{background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:18px 20px 16px; margin-bottom:14px; box-shadow:var(--shadow); scroll-margin-top:80px;}
+  .qcard.hidden{display:none;}
+  .qhead{display:flex; align-items:center; gap:8px; margin-bottom:8px; flex-wrap:wrap;}
+  .qnum{font-weight:800; color:var(--pine-deep); font-size: 22px; min-width:34px;}
+  .tag{font-size: 22px; padding:2px 9px; border-radius:999px; font-weight:600;}
+  .tag.l{background:var(--tag-l); color:var(--tag-l-ink);}
+  .tag.a{background:var(--tag-a); color:var(--tag-a-ink);}
+  .qtext{font-size: 22px; font-weight:600; margin:6px 0 12px; color:var(--ink);}
+  .options{list-style:none; margin:0 0 10px; padding:0; display:grid; gap:7px;}
+  .options li{font-size: 22px; color:var(--ink-soft); padding:8px 12px 8px 36px; position:relative; border:1px solid var(--line); border-radius:9px; background:#fbfcfa;}
+  .options li .opt-key{position:absolute; left:10px; top:8px; font-weight:700; color:var(--moss);}
+  details{margin-top:8px;}
+  summary{cursor:pointer; font-size: 22px; color:var(--pine); font-weight:700; list-style:none; display:inline-flex; align-items:center; gap:6px; padding:6px 12px; border:1px solid var(--pine); border-radius:999px; width:fit-content; transition:.15s;}
+  summary::-webkit-details-marker{display:none;}
+  summary:hover{background:var(--pine); color:#fff;}
+  details[open] summary{background:var(--pine); color:#fff;}
+  .answer-box{margin-top:12px; padding:12px 14px; background:#f3f8f0; border-left:4px solid var(--pine); border-radius:0 10px 10px 0;}
+  .answer-box .ans-line{font-size: 22px; font-weight:700; color:var(--pine-deep); margin-bottom:4px;}
+  .answer-box .exp{font-size:22px; color:var(--ink);}
+
+  .empty-state{text-align:center; color:var(--ink-soft); padding:50px 20px; display:none;}
+  .empty-state.show{display:block;}
+  footer{max-width:920px; margin:50px auto 0; padding:20px; text-align:center; color:var(--ink-soft); font-size: 22px; border-top:1px solid var(--line);}
+.badgerowbt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px;
+    background: #ffffff;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+a.badge1 {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #007286;
+    color: #fff;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+a.badge2 {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #007286;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+a.badge3 {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #b8238d;
+    color: yellow;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+  @media (max-width:720px){
+    header.hero{padding:6rem 16px 30px;}
+    .qcard{padding:14px 14px 12px;}
+  }
+</style>
+</head>
+<body>
+<div class="badgerowbt">	
+	考科一<div><a href="https://snoweryi.github.io/yilearn/exam_01_1.html" class="badge1">1</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_2.html" class="badge1">2</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_3.html" class="badge1">3</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_4.html" class="badge1">4</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_5.html" class="badge1">5</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_6.html" class="badge1">6</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_7.html" class="badge1">7</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_8.html" class="badge1">8</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_9.html" class="badge1">9</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_10.html" class="badge1">10</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_11.html" class="badge1">11</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_12.html" class="badge1">12</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_13.html" class="badge1">13</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_14.html" class="badge1">14</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_15.html" class="badge1">15</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_16.html" class="badge1">16</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_17.html" class="badge1">17</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_18.html" class="badge1">18</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_19.html" class="badge2">19</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_20.html" class="badge1">20</a></div>
+	
+	
+	
+	<div><a href="https://snoweryi.github.io/yilearn/menu.html" class="badge3">目錄</a></div>
+  </div>
+<header class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">淨零碳盤查規範與程序 · 進階題庫</span>
+    <h1>ISO 14064-1 × ISO 14067 完整題庫（進階版）</h1>
+    <p class="sub">全部為四選一選擇題，選項長度盡量一致並附理由敘述，避免一眼看出答案。涵蓋組織型溫室氣體盤查與產品碳足跡兩大主題，共 50 題，進階理解題與情境應用題各半，每題附正解與解析。</p>
+    <div class="hero-stats">
+      <div class="stat"><b>50</b><span>題總數</span></div>
+      <div class="stat"><b>25 / 25</b><span>理解 / 應用</span></div>
+      <div class="stat"><b>4選1</b><span>選項等長設計</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="toolbar">
+  <div class="toolbar-inner">
+    <span class="toolbar-label">篩選：</span>
+    <button class="chip active" data-filter-type="all">全部</button>
+    <button class="chip" data-filter-type="理解">進階理解題</button>
+    <button class="chip" data-filter-type="應用">情境應用題</button>
+    <input class="search" id="searchBox" type="text" placeholder="搜尋題目關鍵字…">
+  </div>
+</div>
+
+<div class="section-nav" id="sectionNav"></div>
+
+<main>
+  <div id="quizContainer"></div>
+  <div class="empty-state" id="emptyState">找不到符合條件的題目，請調整篩選或搜尋字詞。</div>
+</main>
+
+<footer>
+  富林有機農場 × 城邦控股集團 ESG 學習教材　｜　範圍：L121 ISO 14064-1:2018　L122 ISO 14067:2018
+</footer>
+
+<script>
+const UNITS = {
+  "L12101": "組織型溫室氣體盤查範圍與規範說明",
+  "L12102": "組織型溫室氣體盤查邊界界定",
+  "L12103": "溫室氣體排放量量化計算",
+  "L12104": "溫室氣體排放清冊與報告書建立",
+  "L12201": "碳足跡管理與計算基礎原則",
+  "L12202": "生命週期評估（LCA）概念",
+  "L12203": "產品類別規則（PCR）訂定概念",
+  "L12204": "產品製程地圖製作與系統邊界",
+  "L12205": "活動數據收集、排放係數取得、產品碳排放量計算與結果闡釋"
+};
+
+const QUESTIONS = [
+{id:1,unit:"L12101",type:"理解",q:"ISO 14064-1:2018 主要規範對象為何？",opts:[
+ "用於量化組織之溫室氣體排放與移除，因為其聚焦於組織邊界內的直接與間接排放",
+ "用於量化單一產品全生命週期排放，因為其聚焦於原料到廢棄的產品碳足跡計算",
+ "用於量化減量專案之額外性效益，因為其聚焦於專案基準線與實際減量比較",
+ "用於量化供應商財務風險評估，因為其聚焦於供應鏈財務資訊之揭露要求"
+],ans:0,exp:"ISO 14064-1 為組織型溫室氣體盤查標準，聚焦於組織邊界內之直接與間接排放量化與報告；產品層級屬 ISO 14067，專案層級屬 ISO 14064-2。"},
+
+{id:2,unit:"L12101",type:"理解",q:"溫室氣體盤查五大原則之正確組合為何？",opts:[
+ "攸關性、完整性、一致性、準確性、透明性，因為此五項用以確保盤查結果具品質與可信度",
+ "經濟性、效率性、公平性、安全性、便利性，因為此五項用以確保企業營運具競爭優勢",
+ "創新性、成長性、獲利性、穩定性、彈性，因為此五項用以評估企業財務體質良窳",
+ "合法性、即時性、便捷性、通用性、彈性，因為此五項用以簡化行政作業流程負擔"
+],ans:0,exp:"五大原則為攸關性、完整性、一致性、準確性、透明性，用以確保盤查結果具品質且可供外部比較與信賴。"},
+
+{id:3,unit:"L12101",type:"理解",q:"ISO 14064-1 2018 年版相較 2006 年版之主要調整重點為何？",opts:[
+ "強化與其他溫室氣體準則之接軌並增訂量化報告細節，因為國際準則協調有助跨國比較",
+ "全面取消第三方查證程序要求，因為查證成本過高不利中小企業導入盤查制度",
+ "不再要求組織邊界界定作業，因為邊界界定被認為缺乏實務參考價值",
+ "取消基準年設定相關規定，因為基準年比較容易造成企業間資料混淆誤解"
+],ans:0,exp:"2018 年版強化與其他溫室氣體準則之接軌，並增訂多項量化與報告細節要求，惟第三方查證、邊界界定與基準年設定等基本要求仍持續適用。"},
+
+{id:4,unit:"L12101",type:"應用",q:"某集團導入 ISO 14064-1 進行盤查，第一步驟應為何？",opts:[
+ "先界定組織邊界確認納入盤查之公司範圍，因為邊界確立後才能進行後續排放量化",
+ "先計算各子公司排放量再合併加總，因為由下而上彙整較能反映實際排放情形",
+ "先撰寫完整報告書送交查證機構，因為報告書內容決定後續盤查方向與範圍",
+ "先向主管機關申請盤查認證資格，因為取得資格後才具備進行盤查之法定地位"
+],ans:0,exp:"進行盤查前須先界定組織邊界（採股權比例法或控制法），確定納入盤查之公司範圍後，才能進行後續排放量化與報告撰寫。"},
+
+{id:5,unit:"L12101",type:"應用",q:"城邦控股集團採「控制法」界定組織邊界，下列何者不會被納入盤查範圍？",opts:[
+ "具財務控制之全資子公司排放，因為財務控制代表對該公司具實質主導權",
+ "具營運控制之合資子公司排放，因為營運控制代表對該公司具決策主導權",
+ "持股一成且無控制權之被投資公司排放，因為無控制力則不具實質主導權",
+ "具董事會多數席次子公司排放，因為多數席次代表對該公司具治理主導權"
+],ans:2,exp:"控制法依實質控制力（財務或營運控制）決定納入範圍，僅持股且無控制權者不具實質主導權，故不納入盤查邊界。"},
+
+{id:6,unit:"L12102",type:"理解",q:"組織邊界界定方法中，股權比例法分配排放量之依據為何？",opts:[
+ "依企業持有被投資公司之股權比例分配，因為股權比例反映實際經濟利益歸屬",
+ "依企業員工人數比例分配計算排放，因為人力規模能間接反映營運活動強度",
+ "依企業年度營收比例分配計算排放，因為營收多寡能直接反映排放責任大小",
+ "依企業董事會席次比例分配排放，因為席次多寡能反映對公司之治理程度"
+],ans:0,exp:"股權比例法依企業持有被投資公司之股權比例，按比例分配應計入之排放量，反映實際經濟利益歸屬。"},
+
+{id:7,unit:"L12102",type:"理解",q:"外購電力使用產生之間接排放，依定義應屬於哪一範疇？",opts:[
+ "屬於範疇一直接排放，因為電力使用發生於企業自有廠區設施範圍之內",
+ "屬於範疇二間接排放，因為電力於場外生產但於企業設施內使用消耗",
+ "屬於範疇三其他間接排放，因為電力屬於供應鏈上游採購之間接活動",
+ "不屬於任何排放範疇，因為外購電力非屬企業自身產生之排放來源"
+],ans:1,exp:"外購電力於場外生產但於企業設施內使用消耗，其產生之間接排放依定義屬於範疇二。"},
+
+{id:8,unit:"L12102",type:"理解",q:"報告邊界（reporting boundary）之設定，主要決定的內容為何？",opts:[
+ "決定應納入盤查之範疇一二三排放類別，因為此設定影響最終量化結果之完整範圍",
+ "決定企業總部與分支機構之地址，因為此設定影響郵寄報告書之實際送達地點",
+ "決定財務報表所採用之會計格式，因為此設定影響年度損益表之呈現方式",
+ "決定員工薪資結構與福利制度，因為此設定影響人力資源部門之預算編列"
+],ans:0,exp:"報告邊界決定組織選擇納入計算與報告之直接與間接排放類別範圍（範疇一、二及自願性範疇三）。"},
+
+{id:9,unit:"L12102",type:"應用",q:"某科技公司海外辦公室無實質營運控制權，依「營運控制法」界定邊界時應如何處理？",opts:[
+ "因無實質控制力而不納入母公司盤查邊界，因為控制法以決策主導權作為納入依據",
+ "因屬集團成員而全數納入母公司盤查邊界，因為集團成員身分即代表應納入計算",
+ "依股權持有比例部分納入母公司邊界，因為股權比例法與控制法可交叉混用計算",
+ "由海外辦公室自行決定是否納入計算，因為當地管理階層最了解實際排放情形"
+],ans:0,exp:"營運控制法以是否具備營運決策主導權決定納入與否，無實質控制之海外辦公室排放不納入母公司盤查邊界。"},
+
+{id:10,unit:"L12102",type:"應用",q:"富林有機農場欲區分「生產區域」與「食農教育園區」進行邊界界定，最合理之作法為何？",opts:[
+ "依土地與設施使用範圍明確劃分並分別量化，因為分區量化有助精準管理與後續呈現",
+ "僅計算生產區域排放而教育區域全數排除，因為教育區域非屬營利性質不需計算",
+ "兩區域合併計算不做任何區分處理，因為合併計算能簡化整體盤查作業流程",
+ "依兩區域面積比例隨意分攤總排放量，因為面積比例是最快速簡便之分攤方式"
+],ans:0,exp:"邊界界定應依實際場域、設施與活動範圍明確劃分，以利精準量化，並利於呈現不同功能區塊之管理成效。"},
+
+{id:11,unit:"L12102",type:"應用",q:"某企業於盤查邊界內新增一座倉庫，隔年應如何處理基準年排放量？",opts:[
+ "依重大性原則評估是否需追溯重新計算基準年，因為結構性改變影響逐年比較一致性",
+ "完全不需調整基準年排放數據，因為基準年一經設定即不得有任何形式變動",
+ "直接刪除該倉庫相關所有排放資料，因為新增設施資料不具參考比較價值",
+ "立即停止該年度全部盤查作業，因為結構改變已使既有盤查失去實質意義"
+],ans:0,exp:"組織結構若發生重大改變（如新增或處分設施），應依重大性門檻評估是否需追溯調整基準年排放量，以維持逐年比較之一致性。"},
+
+{id:12,unit:"L12103",type:"理解",q:"溫室氣體排放量計算之基本公式為何？",opts:[
+ "排放量等於活動數據乘以排放係數，因為此公式為國際通用之量化計算基礎方式",
+ "排放量等於活動數據除以排放係數，因為此公式能反映單位排放效率高低程度",
+ "排放量等於排放係數減去活動數據，因為此公式能呈現實際減量之淨值成果",
+ "排放量等於活動數據乘以員工人數，因為此公式能反映企業規模對排放之影響"
+],ans:0,exp:"排放量量化之基本公式為活動數據乘以對應之排放係數，此為國際通用之計算基礎方式。"},
+
+{id:13,unit:"L12103",type:"理解",q:"某製造業公司的碳盤查團隊在計算排放時，需確認溫室氣體暖化潛勢（GWP）。關於 GWP 的概念，下列何者正確？",opts:[
+ "所有溫室氣體的GWP值固定不變不受評估版本影響，因為分子的物理特性不會隨時間改變",
+ "GWP值越高代表該氣體在大氣中存留時間越長，因為存留時間是衡量暖化效果的唯一重要指標",
+ "GWP是將不同溫室氣體換算為碳當量的標準化係數，因為不同氣體暖化效果需要統一比較基準",
+ "GWP只適用於計算工業製程排放溫室氣體，因為自然界排放不需要換算為碳當量數值"
+],ans:2,exp:"GWP 用以將不同溫室氣體之暖化效應，依統一時間基準換算為 CO2 當量之標準化係數；其數值會隨 IPCC 評估報告版本更新而調整，並非固定不變，也不僅取決於存留時間，且適用於各類排放源。"},
+
+{id:14,unit:"L12103",type:"理解",q:"京都議定書所列之六種法定溫室氣體組成為何？",opts:[
+ "包含二氧化碳、甲烷、氧化亞氮及三種含氟氣體，因為此六種氣體具明確暖化潛勢可換算比較",
+ "包含二氧化碳、氧氣、氮氣及三種惰性氣體，因為此六種氣體皆為大氣中主要組成成分",
+ "包含二氧化碳、水蒸氣、臭氧及三種懸浮微粒，因為此六種物質皆會影響大氣輻射平衡",
+ "包含甲烷、氫氣、氦氣及三種放射性氣體，因為此六種氣體皆具有高度可燃性特質"
+],ans:0,exp:"京都議定書六種法定溫室氣體為 CO2、CH4、N2O 及三種含氟氣體（HFCs、PFCs、SF6）。"},
+
+{id:15,unit:"L12103",type:"應用",q:"某企業於選用排放係數時，應遵循之優先順序原則為何？",opts:[
+ "優先採用在地官方係數再考慮國際通用係數，因為在地係數較貼近實際營運條件",
+ "一律優先採用國際通用係數不考慮在地係數，因為國際係數具備較高學術權威地位",
+ "依企業自行偏好任意選擇任一來源係數，因為不同來源係數差異對結果影響有限",
+ "完全依供應商口頭提供之係數估算，因為供應商最了解自身產品實際排放情形"
+],ans:0,exp:"量化時應優先採用在地官方係數（如環境部係數管理表），若無在地係數再採用 IPCC 等國際通用係數，以提升結果之準確性與適用性。"},
+
+{id:16,unit:"L12103",type:"應用",q:"富林有機農場飼養蛋雞，欲計算其甲烷排放量，應蒐集之活動數據為何？",opts:[
+ "飼養蛋雞頭數或糞便管理量，因為此數據能對應腸道發酵及糞便管理排放係數",
+ "雞蛋銷售金額與市場售價，因為此數據能反映農場整體營收規模大小情形",
+ "農場員工總人數與工時，因為此數據能反映飼養作業所投入之人力成本",
+ "農場總面積與土地地目，因為此數據能反映農場整體土地利用規劃情形"
+],ans:0,exp:"家禽腸道發酵及糞便管理之排放量，應以飼養頭數或糞便管理量作為活動數據，乘以對應排放係數計算。"},
+
+{id:17,unit:"L12103",type:"應用",q:"某公司使用柴油發電機，欲計算其範疇一排放量，需要之資料為何？",opts:[
+ "柴油使用量及對應之柴油排放係數，因為固定燃燒源排放需以實際燃料量換算",
+ "發電機購買價格及保固年限，因為設備成本能間接反映其排放量高低情形",
+ "發電機廠牌型號及製造年份，因為不同廠牌型號代表不同排放技術水準",
+ "發電機運轉噪音分貝數值，因為噪音大小能反映引擎燃燒效率好壞情形"
+],ans:0,exp:"固定燃燒源排放量計算需以實際燃料使用量（活動數據）乘以該燃料對應之排放係數。"},
+
+{id:18,unit:"L12103",type:"應用",q:"某排放源缺乏實際監測數據時，依準則精神應採取之處理方式為何？",opts:[
+ "採用合理保守估算方法並揭露相關假設與限制，因為透明揭露有助維持報告可信度",
+ "直接排除該排放源不予計算納入，因為缺乏數據代表該排放源不具重大性意義",
+ "憑經驗任意填寫估計數字即可，因為盤查結果本就無法完全反映實際排放情形",
+ "立即暫停整體盤查作業程序，因為單一排放源缺漏已使整體盤查失去參考價值"
+],ans:0,exp:"缺乏實測數據時，依準則精神應採用合理保守之估算方法，並於報告中揭露相關假設與限制，以維持透明性。"},
+
+{id:19,unit:"L12104",type:"理解",q:"溫室氣體排放清冊應包含之基本要素為何？",opts:[
+ "排放源清單、活動數據、係數來源及量化方法，因為此四項為建立清冊之核心資訊",
+ "公司股價走勢、財務比率及信用評等，因為此三項能反映企業整體經營體質良窳",
+ "員工出勤紀錄、薪資結構及福利制度，因為此三項能反映企業人力資源管理成效",
+ "產品定價策略、通路布局及廣告預算，因為此三項能反映企業行銷策略執行成效"
+],ans:0,exp:"排放清冊應包含排放源清單、活動數據、係數來源及量化方法等核心資訊，作為後續報告與查證之基礎。"},
+
+{id:20,unit:"L12104",type:"理解",q:"「基準年」設定之主要目的為何？",opts:[
+ "作為未來減量成效比較之基礎年度，因為需有固定基準才能衡量排放增減趨勢",
+ "作為決定員工年終獎金之依據年度，因為績效獎金需參考特定年度營運表現",
+ "作為選擇第三方查證機構之依據，因為不同查證機構收費標準逐年有所調整",
+ "作為計算企業所得稅負之基礎，因為稅務申報需以特定會計年度作為依據"
+],ans:0,exp:"基準年作為衡量未來排放增減與減量成效之比較基準，通常選擇資料完整且具代表性之年度。"},
+
+{id:21,unit:"L12104",type:"應用",q:"城邦控股集團欲取得利害關係人信任，對外揭露盤查結果之合適作法為何？",opts:[
+ "委託第三方查證並公開發布溫室氣體報告書，因為查證公信力有助提升揭露品質",
+ "僅於內部會議口頭說明盤查結果概況，因為內部溝通已足以滿足資訊揭露需求",
+ "延後至五年後再統一整理對外公布，因為累積多年數據更能呈現完整趨勢變化",
+ "僅將盤查結果提供予少數高階主管，因為管理階層決策不需仰賴全面公開資訊"
+],ans:0,exp:"透過第三方查證取得公信力，並公開發布報告書，可有效提升客戶、投資人與主管機關對企業永續資訊之信任度。"},
+
+{id:22,unit:"L12104",type:"應用",q:"富林農場因擴大稻田面積導致排放上升，撰寫報告書時應如何處理？",opts:[
+ "揭露排放增加原因並說明對應管理措施，因為透明揭露變化脈絡有助維持報告可信度",
+ "隱藏該年度異常增加之排放數據資料，因為異常數據可能造成外界不必要之誤解",
+ "調整計算方式使該年度數值趨於平緩，因為平緩趨勢較符合外界對永續形象之期待",
+ "直接停止該年度後續盤查相關作業，因為排放異常增加已使既有盤查失去意義"
+],ans:0,exp:"依透明性原則，報告書應如實揭露排放變化之原因與脈絡，並可同步說明因應之管理或減量措施，以維持報告可信度。"},
+
+{id:23,unit:"L12104",type:"應用",q:"溫室氣體報告書經第三方查證後，查證機構主要確認之事項為何？",opts:[
+ "報告內容是否符合準則且數據無重大誤述，因為此為查證制度最核心之把關功能",
+ "企業產品之市場競爭力與品牌知名度，因為此攸關企業未來營運發展之潛力",
+ "企業內部員工之工作滿意度調查結果，因為此攸關企業人力資源管理之成效",
+ "企業歷年股價漲跌幅度與交易量變化，因為此攸關企業資本市場之表現情形"
+],ans:0,exp:"第三方查證主要確認排放量化與報告書內容是否符合所依循準則，資料是否一致且無重大誤述。"},
+
+{id:24,unit:"L12201",type:"理解",q:"ISO 14067:2018 主要規範之對象為何？",opts:[
+ "產品之碳足跡如搖籃到墳墓或搖籃到大門，因為其聚焦於單一產品生命週期排放計算",
+ "組織整體之溫室氣體排放與移除量，因為其聚焦於企業邊界內全部營運排放計算",
+ "減量專案之額外性與基準線效益，因為其聚焦於特定專案相對於基準情境之減量",
+ "供應鏈整體之財務風險與資訊揭露，因為其聚焦於上下游廠商之財務體質評估"
+],ans:0,exp:"ISO 14067 規範產品層級碳足跡之量化與溝通，範圍可為搖籃到墳墓或搖籃到大門，與組織型（14064-1）不同。"},
+
+{id:25,unit:"L12201",type:"理解",q:"碳足跡量化所依循之核心原則組合為何？",opts:[
+ "攸關性、完整性、一致性、準確性、透明性，因為此組合確保量化結果具品質可比較",
+ "經濟性、效率性、公平性、安全性、便利性，因為此組合確保企業營運具競爭優勢",
+ "快速性、低成本、高彈性、易操作、可複製，因為此組合確保量化作業具實務效率",
+ "合法性、及時性、通用性、獨特性、穩定性，因為此組合確保企業符合法規遵循"
+],ans:0,exp:"ISO 14067 與 14064-1 皆採用共通之五大原則，確保量化結果具品質與可比較性。"},
+
+{id:26,unit:"L12201",type:"理解",q:"「Cradle-to-gate」之計算範圍界定為何？",opts:[
+ "從原料取得至產品出廠不含使用廢棄階段，因為此範圍聚焦於生產端之排放責任",
+ "從原料取得至廢棄物處置之全生命週期，因為此範圍涵蓋產品從生到死全部階段",
+ "僅計算產品運送至消費者手中之運輸階段，因為此範圍聚焦於物流環節之排放量",
+ "僅計算產品於零售通路銷售之階段排放，因為此範圍聚焦於銷售端之排放責任"
+],ans:0,exp:"Cradle-to-gate 僅涵蓋原料取得至產品離開工廠大門之階段，不含使用與廢棄階段；cradle-to-grave 則涵蓋全生命週期。"},
+
+{id:27,unit:"L12201",type:"應用",q:"富林農場欲計算「有機白米」碳足跡以利對外行銷溝通，應採用之標準為何？",opts:[
+ "採用ISO14067產品碳足跡標準進行量化，因為此標準專門規範單一產品之生命週期排放",
+ "採用ISO14064-1組織型盤查標準進行量化，因為此標準能涵蓋整體農場之營運排放",
+ "採用ISO45001職業安全衛生標準進行量化，因為此標準能確保員工作業環境安全無虞",
+ "採用ISO9001品質管理標準進行量化，因為此標準能確保產品品質符合國際規範要求"
+],ans:0,exp:"欲計算單一產品之碳足跡並對外溝通，應依循 ISO 14067 產品碳足跡標準進行量化與揭露。"},
+
+{id:28,unit:"L12201",type:"應用",q:"產品碳足跡與組織型盤查最主要之差異為何？",opts:[
+ "前者以產品為量化標的後者以組織為量化標的，因為兩者聚焦之計算單元本質不同",
+ "前者不需進行任何邊界界定作業，因為產品層級量化本就無邊界概念存在",
+ "後者完全不需採用排放係數計算，因為組織層級排放能直接由電費單估算得出",
+ "兩者於方法學與計算原則上完全相同，因為兩套標準本質上僅為同一套規範"
+],ans:0,exp:"ISO 14067 聚焦單一產品或服務之生命週期碳排放，ISO 14064-1 則聚焦整體組織營運範圍內之排放，兩者計算單元本質不同。"},
+
+{id:29,unit:"L12202",type:"理解",q:"LCA（生命週期評估）四大階段之正確執行順序為何？",opts:[
+ "目標與範疇界定、清冊分析、衝擊評估、結果闡釋，因為此順序符合ISO14040規範流程",
+ "結果闡釋、清冊分析、目標界定、衝擊評估，因為此順序能優先掌握最終結論方向",
+ "衝擊評估、目標界定、清冊分析、結果闡釋，因為此順序能提早發現主要排放熱點",
+ "清冊分析、結果闡釋、目標界定、衝擊評估，因為此順序能減少重複蒐集數據作業"
+],ans:0,exp:"依 ISO 14040，LCA 流程為先界定目標與範疇，進行清冊分析（LCI），再進行衝擊評估（LCIA），最後闡釋結果。"},
+
+{id:30,unit:"L12202",type:"應用",q:"執行 LCI（生命週期清冊分析）時，實務上主要之工作內容為何？",opts:[
+ "收集各階段投入與產出之物質能源數據，因為此為後續衝擊評估之基礎資料來源",
+ "撰寫產品行銷文案與廣告標語內容，因為吸引消費者注意是產品推廣重要環節",
+ "決定產品最終訂價與促銷方案內容，因為訂價策略攸關企業獲利能力高低",
+ "規劃員工教育訓練課程與排班表，因為人力資源管理攸關企業營運效率良窳"
+],ans:0,exp:"LCI 階段係彙整產品生命週期各階段所使用之原料、能源投入及排放物、廢棄物等產出數據，作為後續衝擊評估之基礎，此為實際執行之核心工作內容。"},
+
+{id:31,unit:"L12202",type:"理解",q:"LCIA（生命週期衝擊評估）之核心目的為何？",opts:[
+ "將清冊數據轉換為環境衝擊類別之量化結果，因為需將原始數據轉為可比較之衝擊指標",
+ "統計產品各階段所耗費之生產成本，因為成本統計有助企業掌握獲利空間高低",
+ "調查消費者對產品之滿意度評分，因為滿意度調查有助改善產品未來設計方向",
+ "分析競爭對手之市場定價與策略，因為市場分析有助企業擬定因應競爭策略"
+],ans:0,exp:"LCIA 將 LCI 所蒐集之數據，依特徵化模式（如 GWP）轉換為各項環境衝擊指標之量化結果。"},
+
+{id:32,unit:"L12202",type:"應用",q:"富林農場欲了解有機蔬菜生產何階段碳排放貢獻最大，應執行之步驟為何？",opts:[
+ "執行衝擊評估與熱點分析之結果闡釋階段，因為此階段能辨識各階段對總排放之貢獻程度",
+ "僅執行目標與範疇界定階段即可判斷，因為此階段已足以確定各製程排放高低順序",
+ "僅執行清冊分析階段蒐集數據即可判斷，因為原始數據本身已能直接呈現排放熱點",
+ "完全不需執行任何生命週期評估步驟，因為憑經驗判斷已足以掌握排放熱點所在"
+],ans:0,exp:"透過衝擊評估後之結果闡釋（熱點分析），可辨識生命週期各階段對總碳排放之貢獻程度，找出減碳優先介入點。"},
+
+{id:33,unit:"L12202",type:"理解",q:"依 ISO 14044，LCA 結果闡釋階段應包含之工作內容為何？",opts:[
+ "顯著性議題辨識及完整性一致性檢核並提出結論建議，因為此階段須整合前述所有分析成果",
+ "僅需彙整原始清冊數據不做任何進一步分析，因為原始數據本身已具備完整參考價值",
+ "完全交由第三方單獨完成無需團隊參與討論，因為外部觀點較能維持結果客觀中立性",
+ "直接跳過此階段進入下一輪生命週期評估，因為此階段對整體評估結果影響甚微"
+],ans:0,exp:"結果闡釋階段須辨識重大貢獻項目、檢核資料完整性與一致性，並提出結論、限制與改善建議，屬於整合性分析步驟。"},
+
+{id:34,unit:"L12203",type:"理解",q:"PCR（產品類別規則）之主要功能為何？",opts:[
+ "規範特定產品類別之量化方法邊界以利同類比較，因為統一規則能確保結果具可比較性",
+ "決定特定產品類別之市場零售訂價，因為訂價策略需參考同類產品之市場行情",
+ "規範特定產品類別之員工薪資結構，因為薪資結構需參考同業之市場水準",
+ "決定特定產品類別之廣告投放預算，因為預算編列需參考同業之行銷慣例"
+],ans:0,exp:"PCR 針對特定產品類別訂定一致之量化規則、系統邊界與功能單位，確保同類產品碳足跡結果具可比較性。"},
+
+{id:35,unit:"L12203",type:"應用",q:"某產品類別尚無現行 PCR 可依循時，應如何處理？",opts:[
+ "依ISO14067一般原則自訂邊界規則並於報告中揭露，因為透明揭露假設依據可維持可信度",
+ "直接判定該產品無法進行任何碳足跡計算，因為缺乏PCR即代表量化基礎完全不存在",
+ "逕自套用其他無關產品類別之PCR規則，因為不同產品之量化規則本質上可互通適用",
+ "完全放棄該產品之碳足跡相關研究計畫，因為缺乏既定規則已使研究失去實務意義"
+],ans:0,exp:"無對應 PCR 時，執行者可依 ISO 14067 之一般性原則自訂邊界及規則，並清楚揭露所採用之假設與依據，以維持透明性，此為實務上常見之應對做法。"},
+
+{id:36,unit:"L12203",type:"應用",q:"城邦控股集團出版事業欲推動紙本書籍碳足跡標示，第一步驟應為何？",opts:[
+ "確認是否已有紙本書籍PCR若無則先行建立參考，因為既定規則有助確保邊界一致可比較",
+ "直接印製碳標籤黏貼於書籍封面上方，因為標示外觀設計較實質計算方法更為重要",
+ "跳過確認規則步驟直接展開量化作業，因為量化速度較規則一致性更具行銷急迫性",
+ "僅詢問少數消費者對標示外觀之意見，因為消費者主觀偏好即足以決定標示方式"
+],ans:0,exp:"進行產品碳足跡量化前應先確認該產品類別是否已有既定 PCR 可依循，以確保邊界界定與計算方法之一致性與可比較性。"},
+
+{id:37,unit:"L12203",type:"理解",q:"PCR 訂定過程通常納入多方利害關係人參與，主要目的為何？",opts:[
+ "提升規則之公正性與產業代表性，因為多方參與有助平衡不同立場之專業觀點",
+ "加速產品上市時程並降低生產成本，因為多方參與能簡化行政審核作業流程",
+ "減少企業日後法規遵循相關義務，因為多方參與能協助企業規避法規要求",
+ "提高產品最終售價以增加企業利潤，因為多方參與有助建立產品高端品牌形象"
+],ans:0,exp:"PCR 訂定過程納入產業、學研、驗證機構等多方利害關係人參與，以確保規則具公正性、專業性與產業代表性。"},
+
+{id:38,unit:"L12204",type:"理解",q:"「產品製程地圖」之主要用途為何？",opts:[
+ "呈現各製程步驟及物料能源流向作為邊界界定基礎，因為完整流向有助辨識排放來源",
+ "呈現企業財務報表之收支結構與現金流量，因為財務資訊有助評估企業經營體質",
+ "呈現企業行銷活動之排程與預算分配，因為行銷規劃有助提升產品市場能見度",
+ "呈現企業員工之排班表與請假紀錄，因為排班資訊有助掌握人力資源運用情形"
+],ans:0,exp:"製程地圖以流程圖形式呈現產品生產各階段之投入與產出，是界定系統邊界與蒐集活動數據之重要工具。"},
+
+{id:39,unit:"L12204",type:"理解",q:"系統邊界之「截切原則」用途為何？",opts:[
+ "依重大性門檻判斷次要投入或流程是否可合理排除，因為此舉能簡化計算並聚焦重大排放源",
+ "決定產品於市場上之最終零售定價，因為定價策略需參考成本結構之高低情形",
+ "決定企業內部員工之編制人數規模，因為人力配置需參考製程複雜程度高低",
+ "決定企業辦公場所之選址地點，因為選址考量需參考交通便利性等因素"
+],ans:0,exp:"截切原則用以判斷對整體碳足跡貢獻極小之次要物質或流程是否可合理排除，以簡化計算並聚焦重大排放源。"},
+
+{id:40,unit:"L12204",type:"應用",q:"富林農場繪製「有機稻米」製程地圖時，應納入之關鍵節點為何？",opts:[
+ "整地育苗插秧施肥灌溉收割乾燥包裝等完整流程，因為完整節點有助識別各階段排放來源",
+ "僅需納入最終包裝出貨單一階段即可，因為包裝階段最貼近消費者實際感受",
+ "僅需納入收割當日單一階段即可，因為收割階段最能代表整體生產成果",
+ "僅需納入銷售通路上架單一階段即可，因為銷售階段最直接影響企業實際營收"
+],ans:0,exp:"完整之產品製程地圖應涵蓋從田間整地至最終包裝出貨之全部關鍵製程節點，以利完整識別各階段排放來源。"},
+
+{id:41,unit:"L12204",type:"應用",q:"某公司之產品製程地圖顯示「包裝材料採購」占總碳足跡不到百分之一，依截切原則應如何處理？",opts:[
+ "依重大性門檻評估後於揭露假設前提下適度簡化排除，因為透明揭露假設仍可維持報告品質",
+ "必須鉅細靡遺完整計算絕不得有任何省略，因為任何微小佔比項目皆具同等重大意義",
+ "直接忽略該項目且無需於報告中加以說明，因為佔比極低代表完全不具參考揭露價值",
+ "因該項目佔比過低而應立即停止整體計算，因為單一微小項目已足以影響整體結果效度"
+],ans:0,exp:"依截切原則，貢獻度極低之項目可在合理重大性門檻下簡化處理，惟仍應於報告書中揭露相關假設與排除項目，維持透明性。"},
+
+{id:42,unit:"L12205",type:"理解",q:"「活動數據」之定義為何？",opts:[
+ "各項生產或營運活動之實際數量如用電度數或耗油量，因為此為計算排放量之關鍵輸入資訊",
+ "產品於市場上之定價策略與促銷方案，因為定價資訊有助企業掌握獲利空間高低",
+ "員工出勤紀錄與請假申請相關資料，因為出勤資訊有助掌握人力資源運用情形",
+ "企業歷年沿革與重大事件紀錄，因為沿革資訊有助外界了解企業發展脈絡"
+],ans:0,exp:"活動數據為量化排放所需之實際營運或活動數量資訊，是計算排放量的關鍵輸入之一。"},
+
+{id:43,unit:"L12205",type:"理解",q:"排放係數資料庫之常見來源為何？",opts:[
+ "環境部溫室氣體排放係數管理表及IPCC等國際資料庫，因為此類來源具公信力且經專業審查",
+ "股票交易所公開之上市公司財務資料，因為財務資料有助評估企業整體經營體質",
+ "氣象單位發布之逐日天氣預報資訊，因為天氣資訊有助預測未來排放變化趨勢",
+ "社群媒體平台上使用者自行分享之數據，因為使用者分享數據具備即時更新特性"
+],ans:0,exp:"常用排放係數資料庫包括我國環境部發布之係數管理表、IPCC 指南等，應優先採用適用且具公信力之來源。"},
+
+{id:44,unit:"L12205",type:"理解",q:"「熱點分析」之目的為何？",opts:[
+ "找出生命週期或營運中排放貢獻最大之關鍵環節以利優先減碳，因為聚焦重點更能有效配置資源",
+ "找出企業產品中銷售業績最佳之品項，因為業績表現有助企業擬定未來行銷策略",
+ "找出員工出勤異常或請假頻繁之情形，因為出勤異常有助人資部門掌握管理狀況",
+ "找出企業財務報表中潛在之漏洞風險，因為財務漏洞有助稽核單位提早發現問題"
+],ans:0,exp:"熱點分析透過結果闡釋辨識出對總排放貢獻最大之製程或活動，作為後續減碳策略優先投入資源之依據。"},
+
+{id:45,unit:"L12205",type:"應用",q:"不同排放係數來源計算結果差異甚大時，正確之處理方式為何？",opts:[
+ "進行敏感度分析並揭露不確定性來源與採用依據，因為透明揭露有助外界理解結果之侷限性",
+ "直接選擇數值較低之來源以美化最終報告，因為呈現較佳結果有助提升企業外部形象",
+ "忽略來源間之差異並僅擇一呈現即可，因為差異幅度大小對整體結果影響通常有限",
+ "因差異過大而停止該項目後續報告撰寫，因為數據矛盾已使該項目失去參考價值"
+],ans:0,exp:"面對係數差異，應執行敏感度分析評估其對結果之影響程度，並於報告中透明揭露所採用係數之依據與相關不確定性。"},
+
+{id:46,unit:"L12205",type:"應用",q:"計算灌溉用電之範疇二排放量，所需蒐集之活動數據為何？",opts:[
+ "灌溉抽水設備之實際用電度數，因為需以實際用電量乘以電力排放係數計算範疇二排放",
+ "農場稻田之總種植面積大小，因為面積數據能反映農場整體規模與產量情形",
+ "農場專職員工之總編制人數，因為人力數據能反映農場整體營運人力成本",
+ "農場稻米之年度平均銷售價格，因為售價數據能反映農場整體營收獲利情形"
+],ans:0,exp:"範疇二排放計算需以實際用電度數乘以電力排放係數，故應蒐集灌溉抽水設備之實際用電度數。"},
+
+{id:47,unit:"L12205",type:"應用",q:"估算網站雲端主機資訊系統之碳排放，較合理之活動數據為何？",opts:[
+ "伺服器耗電量或雲端服務商提供之用電碳排放報告，因為耗電量能直接對應電力排放係數計算",
+ "網站每月瀏覽人次與訪客停留時間，因為瀏覽數據能間接反映伺服器運算負載情形",
+ "網站程式碼總行數與檔案儲存容量，因為程式規模能反映系統開發複雜程度高低",
+ "網域註冊年限與相關續約費用金額，因為註冊資訊能反映網站營運年資長短情形"
+],ans:0,exp:"資訊系統碳排放估算應以實際或供應商提供之伺服器用電量作為活動數據，而非與能耗無直接關聯之瀏覽人次或程式規模。"},
+
+{id:48,unit:"L12205",type:"應用",q:"某農場發現肥料運輸與施用為碳足跡主要熱點後，較合適之行動為何？",opts:[
+ "依熱點分析結果研議調整施肥方式或優化運輸以降低排放，因為找出熱點後應研擬具體改善對策",
+ "忽略分析結果並維持原有施肥運輸模式不變，因為既有作業模式已行之有年不宜輕易調整",
+ "因熱點分析結果不佳而停止該項作物種植，因為排放偏高已代表該作物不具永續發展價值",
+ "隱瞞熱點分析結果避免對外公開揭露內容，因為公開不佳數據可能損及農場既有品牌形象"
+],ans:0,exp:"碳足跡量化之目的在於支持決策，發現熱點後應研擬具體改善措施，並可作為 ESG 永續教育與行銷之亮點。"},
+
+{id:49,unit:"L12205",type:"理解",q:"排放係數版本更新時，進行跨年度比較之正確做法為何？",opts:[
+ "統一採用同一版本係數重新計算或明確揭露版本差異並校正，因為版本一致才能確保比較基礎相同",
+ "直接以新舊版本係數混合計算不做任何調整，因為係數版本差異對整體結果影響通常可忽略",
+ "完全忽略係數版本更新之相關問題，因為係數本質上多年間不會出現重大幅度變動",
+ "因版本更新而停止進行任何跨年度比較，因為版本落差已使歷年數據失去比較意義"
+],ans:0,exp:"為確保跨年度比較之一致性原則，應採用相同版本係數重新計算，或明確揭露版本差異並進行必要校正，避免誤判減碳成效。"},
+
+{id:50,unit:"L12205",type:"應用",q:"城邦控股集團欲將網站碳足跡結果應用於 ESG 報告書及與農場合作之教育內容，適當作法為何？",opts:[
+ "整合量化結果方法學依據與改善措施並轉化為易懂教材，因為透明溝通與轉譯應用能創造企業農場綜效",
+ "僅將量化結果留供內部參考不對外揭露，因為內部留存已足以滿足資訊管理之基本需求",
+ "直接刪除不利於企業形象之相關數據，因為呈現正面數據更有助維持企業對外品牌形象",
+ "僅提供予集團少數高階主管參閱使用，因為決策階層已足以掌握運用該項量化結果"
+],ans:0,exp:"量化結果之價值在於透明溝通與後續應用，可整合至 ESG 報告書強化揭露品質，並轉譯為淺顯教材，創造企業與農場之綜效。"}
+];
+
+const OPT_KEYS = ["A","B","C","D"];
+const container = document.getElementById("quizContainer");
+const nav = document.getElementById("sectionNav");
+const emptyState = document.getElementById("emptyState");
+
+let unitOrder = Object.keys(UNITS);
+unitOrder.forEach(code=>{
+  const a = document.createElement("a");
+  a.href = "#unit-"+code;
+  a.textContent = code;
+  nav.appendChild(a);
+});
+
+function render(){
+  container.innerHTML = "";
+
+  unitOrder.forEach(code=>{
+    const items = QUESTIONS.filter(q=>q.unit===code);
+    if(!items.length) return;
+
+    const block = document.createElement("div");
+    block.className = "unit-block";
+    block.id = "unit-"+code;
+
+    const title = document.createElement("div");
+    title.className = "unit-title";
+    title.innerHTML = `<span class="unit-code">${code}</span><h2>${UNITS[code]}</h2>`;
+    block.appendChild(title);
+
+    items.forEach(item=>{
+      const card = document.createElement("div");
+      card.className = "qcard";
+      card.dataset.type = item.type;
+      card.dataset.searchtext = (item.q + " " + item.opts.join(" ") + " " + item.exp).toLowerCase();
+
+      const optsHtml = item.opts.map((o,i)=>`<li><span class="opt-key">${OPT_KEYS[i]}.</span>${o}</li>`).join("");
+
+      card.innerHTML = `
+        <div class="qhead">
+          <span class="qnum">Q${item.id}</span>
+          <span class="tag ${item.type==='理解'?'l':'a'}">${item.type==='理解'?'進階理解':'情境應用'}</span>
+        </div>
+        <div class="qtext">${item.q}</div>
+        <ul class="options">${optsHtml}</ul>
+        <details>
+          <summary>顯示答案與解析</summary>
+          <div class="answer-box">
+            <div class="ans-line">正確答案：${OPT_KEYS[item.ans]}．${item.opts[item.ans]}</div>
+            <div class="exp">解析：${item.exp}</div>
+          </div>
+        </details>
+      `;
+      block.appendChild(card);
+    });
+
+    container.appendChild(block);
+  });
+
+  applyFilters();
+}
+
+let currentType = "all";
+function applyFilters(){
+  const keyword = document.getElementById("searchBox").value.trim().toLowerCase();
+  const cards = document.querySelectorAll(".qcard");
+  let visibleCount = 0;
+
+  cards.forEach(card=>{
+    const typeMatch = currentType === "all" || card.dataset.type === currentType;
+    const searchMatch = !keyword || card.dataset.searchtext.includes(keyword);
+    const show = typeMatch && searchMatch;
+    card.classList.toggle("hidden", !show);
+    if(show) visibleCount++;
+  });
+
+  document.querySelectorAll(".unit-block").forEach(block=>{
+    const visibleInBlock = block.querySelectorAll(".qcard:not(.hidden)").length;
+    block.style.display = visibleInBlock ? "" : "none";
+  });
+
+  emptyState.classList.toggle("show", visibleCount === 0);
+}
+
+document.querySelectorAll(".chip[data-filter-type]").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    document.querySelectorAll(".chip[data-filter-type]").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    currentType = btn.dataset.filterType;
+    applyFilters();
+  });
+});
+
+document.getElementById("searchBox").addEventListener("input", applyFilters);
+
+render();
+</script>
+
+</body>
+</html>
