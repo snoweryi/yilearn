@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iPAS 淨零碳規劃管理師｜L11 模擬題庫（第二套）</title>
+<style>
+  :root{
+    --bg:#f4f6f3; --paper:#ffffff; --ink:#1f2b22; --ink-soft:#5b6b5f; --line:#dfe6dd;
+    --pine:#3a5a78; --pine-deep:#243c52; --moss:#6f96ab; --clay:#3f7a5c;
+    --tag-l:#e4eef4; --tag-l-ink:#2c5470;
+    --tag-a:#e6f2ec; --tag-a-ink:#2c6b4c;
+    --diff-m:#eef3e9; --diff-m-ink:#4c6b3a;
+    --diff-h:#fbeaea; --diff-h-ink:#a13c3c;
+    --shadow: 0 1px 2px rgba(31,43,34,0.06), 0 8px 24px rgba(31,43,34,0.06);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 600px at 10% -10%, #eaf0f2 0%, transparent 60%),
+      radial-gradient(1000px 500px at 100% 0%, #eef4f2 0%, transparent 55%),
+      var(--bg);
+    color:var(--ink); font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",-apple-system,sans-serif;
+    line-height:1.75; padding:0 0 80px;
+  }
+  header.hero{
+    position:relative; padding:60px 20px 40px; color:#f2f6f7; overflow:hidden;
+    background:
+      repeating-linear-gradient(115deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 2px, transparent 2px, transparent 26px),
+      linear-gradient(135deg, var(--pine-deep), var(--pine) 60%, var(--moss));
+  }
+  header.hero::after{
+    content:""; position:absolute; inset:0;
+    background: radial-gradient(500px 260px at 85% 20%, rgba(63,122,92,0.32), transparent 70%);
+    pointer-events:none;
+  }
+  .hero-inner{max-width: 1900px;margin:0 auto;position:relative;z-index:1;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px; font-size: 22px; letter-spacing:.14em; text-transform:uppercase;
+    color:#dcebe4; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.22);
+    padding:5px 12px; border-radius:999px; margin-bottom:18px;
+  }
+  h1{font-size:clamp(22px,3.6vw,32px); margin:0 0 10px; font-weight:800;}
+  .hero p.sub{color:#e3edea; font-size: 22px; max-width:1900px; margin:0 0 22px;}
+  .hero-stats{display:flex; gap:14px; flex-wrap:wrap;}
+  .stat{background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); border-radius:12px; padding:10px 16px; min-width:110px;}
+  .stat b{display:block; font-size:22px;}
+  .stat span{font-size: 22px; color:#d7e6df;}
+
+  .toolbar{
+    position:sticky; top:0; z-index:20; background:rgba(244,246,243,0.94); backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line); padding:14px 20px;
+  }
+  .toolbar-inner{max-width: 1900px;margin:0 auto; display:flex; gap:10px; flex-wrap:wrap; align-items:center;}
+  .toolbar-label{font-size: 22px; color:var(--ink-soft); margin-right:2px;}
+  .chip{border:1px solid var(--line); background:var(--paper); color:var(--ink-soft); padding:7px 14px; border-radius:999px; font-size: 22px; cursor:pointer; transition:.15s ease;}
+  .chip:hover{border-color:var(--moss); color:var(--pine-deep);}
+  .chip.active{background:var(--pine); border-color:var(--pine); color:#fff;}
+  .search{margin-left:auto; flex:1 1 180px; max-width:240px; border:1px solid var(--line); border-radius:999px; padding:7px 14px; font-size: 22px; background:var(--paper); color:var(--ink);}
+  .search:focus{outline:2px solid var(--moss); outline-offset:1px;}
+  .divider{width:1px; height:20px; background:var(--line); margin:0 4px;}
+
+  .section-nav{max-width: 1900px;margin:22px auto 0; padding:0 20px; display:flex; gap:8px; flex-wrap:wrap; font-size: 22px;}
+  .section-nav a{color:var(--ink-soft); text-decoration:none; border:1px solid var(--line); padding:4px 10px; border-radius:8px; background:var(--paper);}
+  .section-nav a:hover{color:var(--pine-deep); border-color:var(--moss);}
+
+  main{max-width: 1900px; margin:26px auto 0; padding:0 20px;}
+  .unit-block{margin-top:36px;}
+  .unit-title{display:flex; align-items:baseline; gap:10px; margin-bottom:14px; border-bottom:2px solid var(--pine); padding-bottom:8px;}
+  .unit-code{font-family:"SFMono-Regular",Consolas,monospace; font-size: 22px; color:#fff; background:var(--clay); padding:3px 9px; border-radius:6px;}
+  .unit-title h2{font-size: 22px; margin:0; color:var(--pine-deep); font-weight:700;}
+
+  .qcard{background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:18px 20px 16px; margin-bottom:14px; box-shadow:var(--shadow); scroll-margin-top:80px;}
+  .qcard.hidden{display:none;}
+  .qhead{display:flex; align-items:center; gap:8px; margin-bottom:8px; flex-wrap:wrap;}
+  .qnum{font-weight:800; color:var(--pine-deep); font-size: 22px; min-width:34px;}
+  .tag{font-size: 22px; padding:2px 9px; border-radius:999px; font-weight:600;}
+  .tag.l{background:var(--tag-l); color:var(--tag-l-ink);}
+  .tag.a{background:var(--tag-a); color:var(--tag-a-ink);}
+  .tag.dm{background:var(--diff-m); color:var(--diff-m-ink);}
+  .tag.dh{background:var(--diff-h); color:var(--diff-h-ink);}
+  .qtext{font-size: 22px; font-weight:600; margin:6px 0 12px; color:var(--ink);}
+  .options{list-style:none; margin:0 0 10px; padding:0; display:grid; gap:7px;}
+  .options li{font-size: 22px; color:var(--ink-soft); padding:8px 12px 8px 36px; position:relative; border:1px solid var(--line); border-radius:9px; background:#fbfcfa;}
+  .options li .opt-key{position:absolute; left:10px; top:8px; font-weight:700; color:var(--moss);}
+  details{margin-top:8px;}
+  summary{cursor:pointer; font-size: 22px; color:var(--pine); font-weight:700; list-style:none; display:inline-flex; align-items:center; gap:6px; padding:6px 12px; border:1px solid var(--pine); border-radius:999px; width:fit-content; transition:.15s;}
+  summary::-webkit-details-marker{display:none;}
+  summary:hover{background:var(--pine); color:#fff;}
+  details[open] summary{background:var(--pine); color:#fff;}
+  .answer-box{margin-top:12px; padding:12px 14px; background:#eaf1ee; border-left:4px solid var(--pine); border-radius:0 10px 10px 0;}
+  .answer-box .ans-line{font-size: 22px; font-weight:700; color:var(--pine-deep); margin-bottom:4px;}
+  .answer-box .exp{font-size: 22px; color:var(--ink);}
+
+  .empty-state{text-align:center; color:var(--ink-soft); padding:50px 20px; display:none;}
+  .empty-state.show{display:block;}
+  footer{max-width: 1900px; margin:50px auto 0; padding:20px; text-align:center; color:var(--ink-soft); font-size: 22px; border-top:1px solid var(--line);}
+.badgerowbt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px;
+    background: #ffffff;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+a.badge1 {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #007286;
+    color: #fff;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+a.badge2 {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #007286;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+a.badge3 {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #b8238d;
+    color: yellow;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+  @media (max-width:768px){
+    header.hero{padding:120px 16px 30px;}
+    .qcard{padding:14px 14px 12px;}
+  }
+</style>
+</head>
+<body>
+<div class="badgerowbt">	
+	考科一<div><a href="https://snoweryi.github.io/yilearn/exam_01_1.html" class="badge1">1</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_2.html" class="badge1">2</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_3.html" class="badge1">3</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_4.html" class="badge1">4</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_5.html" class="badge1">5</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_6.html" class="badge1">6</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_7.html" class="badge1">7</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_8.html" class="badge1">8</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_9.html" class="badge1">9</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_10.html" class="badge1">10</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_11.html" class="badge1">11</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_12.html" class="badge1">12</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_13.html" class="badge1">13</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_14.html" class="badge1">14</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_15.html" class="badge1">15</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_16.html" class="badge1">16</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_17.html" class="badge1">17</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_18.html" class="badge1">18</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_19.html" class="badge1">19</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_20.html" class="badge2">20</a></div>
+	
+	
+	
+	<div><a href="https://snoweryi.github.io/yilearn/menu.html" class="badge3">目錄</a></div>
+  </div>
+<header class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">iPAS 淨零碳規劃管理師 · 模擬題庫 第二套</span>
+    <h1>L11 淨零碳規劃管理基礎概論｜50 題模擬試題（第二套）</h1>
+    <p class="sub">與第一套完全不重複，新增角度涵蓋京都議定書、COP26煤炭用語折衝、公正轉型、漂綠風險辨識、剩餘排放、躉購費率與拍賣制比較、跨轄區碳市場連結、SBTi FLAG指引、RE100額外性、CBAM憑證定價機制、台灣半導體與建築部門轉型、碳資產重複計算風險、ISO14068-1與PAS2060比較等。全部四選一，選項長度盡量一致並附理由敘述。</p>
+    <div class="hero-stats">
+      <div class="stat"><b>50</b><span>題總數</span></div>
+      <div class="stat"><b>25 / 25</b><span>中等 / 困難</span></div>
+      <div class="stat"><b>25 / 25</b><span>理解 / 應用</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="toolbar">
+  <div class="toolbar-inner">
+    <span class="toolbar-label">題型：</span>
+    <button class="chip active" data-filter-type="all">全部</button>
+    <button class="chip" data-filter-type="理解">進階理解題</button>
+    <button class="chip" data-filter-type="應用">情境應用題</button>
+    <div class="divider"></div>
+    <span class="toolbar-label">難度：</span>
+    <button class="chip active" data-filter-diff="all">全部</button>
+    <button class="chip" data-filter-diff="中等">中等</button>
+    <button class="chip" data-filter-diff="困難">困難</button>
+    <input class="search" id="searchBox" type="text" placeholder="搜尋題目關鍵字…">
+  </div>
+</div>
+
+<div class="section-nav" id="sectionNav"></div>
+
+<main>
+  <div id="quizContainer"></div>
+  <div class="empty-state" id="emptyState">找不到符合條件的題目，請調整篩選或搜尋字詞。</div>
+</main>
+
+<footer>
+  iPAS 淨零碳規劃管理師專業能力鑑定 模擬題庫（第二套）　｜　範圍：L111 極端氣候國際因應歷程與趨勢　L112 淨零碳管理基礎概論
+</footer>
+
+<script>
+const UNITS = {
+  "L11101": "聯合國氣候變遷大會締約方大會(COP)歷程與重要決議",
+  "L11102": "國內外極端氣候變遷治理與因應作法",
+  "L11103": "淨零排放專有名詞解釋",
+  "L11104": "全球主要減碳趨勢與政策工具",
+  "L11201": "國際重要倡議概要與重點(CDP、SBTi、RE100、GRI、SASB、TCFD、IFRS等)",
+  "L11202": "國際碳稅關貿政策(如CBAM等)",
+  "L11203": "台灣2050淨零排放路徑及轉型策略作法",
+  "L11204": "碳資產交易管理架構導論",
+  "L11205": "ISO 14068-1 碳中和標準"
+};
+
+const QUESTIONS = [
+{id:1,unit:"L11101",diff:"中等",type:"理解",q:"京都議定書於哪一次締約方大會通過？",opts:[
+ "COP3，因為該次大會首度為已開發國家設定具法律約束力之量化減量承諾",
+ "COP1，因為該次大會首度召開即直接通過具法律約束力之全球減量協議",
+ "COP15，因為該次大會首度就已開發國家減量承諾達成共識並簽署",
+ "COP21，因為該次大會首度為已開發國家設定具法律約束力之量化減量承諾"
+],ans:0,exp:"京都議定書於1997年COP3（日本京都）通過，首度為已開發國家設定具法律約束力之量化減量承諾；COP1僅為首次會議尚未有具體協議，COP15哥本哈根未能達成具約束力共識，COP21則通過巴黎協定。"},
+
+{id:2,unit:"L11101",diff:"中等",type:"理解",q:"COP26 格拉斯哥氣候協定就煤炭使用所採用之最終決議用語為何？",opts:[
+ "「逐步削減（phase down）」煤炭使用，因為此用語為談判折衝後之最終共識版本",
+ "「立即全面禁止」煤炭使用，因為此用語為原始草案中未經修改之最終版本",
+ "「逐步淘汰（phase out）」煤炭使用，因為此用語為COP26最終定案且未有任何爭議之版本",
+ "決議文中完全未提及煤炭相關用語，因為煤炭議題於COP26中並未被列入討論議程"
+],ans:0,exp:"COP26格拉斯哥氣候協定最終版本因印度等產煤國家立場，將原草案「逐步淘汰（phase out）」修改為「逐步削減（phase down）」煤炭使用，是談判折衝之結果，並非全面禁止或未列入議程。"},
+
+{id:3,unit:"L11101",diff:"困難",type:"理解",q:"首次「全球盤點（Global Stocktake）」於哪次COP完成並產生何種效應？",opts:[
+ "COP28完成首次全球盤點並促成「轉型脫離化石燃料」共識用語之納入，因為盤點結果顯示現行減量進度落後於目標",
+ "COP21完成首次全球盤點並直接促成京都議定書之修訂，因為當屆會議之核心議程即為檢視京都議定書成效",
+ "COP15完成首次全球盤點並促成損失與損害基金之設立，因為該次會議首度討論資金分配相關議題",
+ "COP3完成首次全球盤點並促成巴黎協定之提前簽署，因為當屆會議已預先擬定巴黎協定草案內容"
+],ans:0,exp:"首次全球盤點（依巴黎協定機制，每五年一次）於COP28完成，盤點結果顯示現行減量進度落後於升溫控制目標，進而促成「轉型脫離化石燃料」共識用語納入決議文，並非發生於COP21、COP15或COP3。"},
+
+{id:4,unit:"L11101",diff:"困難",type:"應用",q:"城邦控股集團評估國際氣候談判對供應鏈之長期影響，若欲掌握全球整體減碳進展與目標落差，應優先關注何種國際機制？",opts:[
+ "巴黎協定下每五年一次之全球盤點結果，因為該機制系統性檢視各國承諾與實際進展間之落差",
+ "京都議定書第一承諾期之歷史減量數據，因為該數據為衡量全球現況進展之唯一有效依據",
+ "蒙特婁議定書關於臭氧層物質淘汰之執行報告，因為該報告與溫室氣體減量進展直接相關",
+ "里約公約秘書處每月發布之會議記錄摘要，因為會議記錄本身已足以反映全球整體減碳進展"
+],ans:0,exp:"巴黎協定下每五年一次之全球盤點機制，系統性檢視各國自訂貢獻（NDC）與實際進展間之落差，是掌握全球整體減碳進展之關鍵依據，京都議定書承諾期已屆滿，蒙特婁議定書則聚焦臭氧層議題而非溫室氣體。"},
+
+{id:5,unit:"L11101",diff:"中等",type:"應用",q:"台灣企業評估是否應提前因應COP決議可能衍生之貿易規範，較合適之做法為何？",opts:[
+ "定期追蹤COP決議對貿易與揭露規範之後續轉化情形並提前調整因應策略，因為國際決議常於數年內轉化為具體規範",
+ "僅需於相關規範正式生效當天才開始評估因應措施即可，因為提前準備對企業並無實質助益",
+ "完全不需追蹤任何COP決議內容，因為COP決議屬純粹外交性質文件不具實質約束力",
+ "僅需比照國內主管機關公告內容即可，因為國際決議與國內法規制定完全屬於獨立且無關之程序"
+],ans:0,exp:"COP決議常於數年內轉化為具體貿易規範（如CBAM）或揭露要求，企業宜定期追蹤並提前調整因應策略，而非等到正式生效才開始準備，或誤認國際決議與國內法規制定完全無關。"},
+
+{id:6,unit:"L11101",diff:"中等",type:"理解",q:"巴黎協定生效門檻之設計原則為何？",opts:[
+ "須達一定數量締約國批准且其溫室氣體排放合計達全球一定比例，因為此雙重門檻確保協定具備足夠代表性",
+ "僅需單一大國批准即可使協定立即生效，因為協定設計上僅考量單一國家之排放規模",
+ "須全體聯合國會員國一致同意批准方能生效，因為協定生效門檻要求完全一致之共識決",
+ "協定生效完全不設任何批准門檻，因為協定簽署後即自動對所有國家產生法律拘束力"
+],ans:0,exp:"巴黎協定生效門檻設計採雙重標準：須達一定數量締約國批准，且其溫室氣體排放量合計達全球一定比例，以確保協定具備足夠代表性與實質意義，並非僅需單一大國批准或要求全體一致同意。"},
+
+{id:7,unit:"L11102",diff:"中等",type:"理解",q:"台灣現行電力結構中，天然氣發電占比提升之政策考量為何？",opts:[
+ "作為能源轉型過渡期間之相對低碳選項並可搭配再生能源調度，因為天然氣機組具較高調度彈性",
+ "天然氣發電完全不產生任何溫室氣體排放，因為天然氣屬於零碳排放能源之一種",
+ "天然氣發電成本必然低於所有其他發電方式，因為天然氣燃料採購成本長期呈現穩定下降趨勢",
+ "提升天然氣占比係為完全取代再生能源發展，因為政策目標為降低再生能源投資規模"
+],ans:0,exp:"天然氣發電雖仍產生溫室氣體排放，但相較燃煤具較低碳排強度，且機組調度彈性較高，可作為能源轉型過渡期間搭配再生能源間歇性特質之選項，並非零碳排放能源，亦非用以取代再生能源發展。"},
+
+{id:8,unit:"L11102",diff:"困難",type:"理解",q:"仙台減災綱領（Sendai Framework）與氣候調適治理之關聯性為何？",opts:[
+ "該綱領提供災害風險管理架構，與氣候調適所需之韌性建構具高度互補性，因為極端氣候常以災害形式衝擊社會",
+ "該綱領與氣候調適議題完全無關，因為其僅聚焦於地震等地質性災害而不涉及氣候因素",
+ "該綱領完全取代聯合國氣候變化綱要公約下之調適相關機制，因為兩者屬於相互競爭之治理架構",
+ "該綱領僅適用於已開發國家而完全排除開發中國家參與，因為其資金機制設計上排除開發中國家"
+],ans:0,exp:"仙台減災綱領提供全球災害風險管理之治理架構，與氣候調適所需之韌性建構具高度互補性，因極端氣候事件（如洪水、颱風）常以災害形式衝擊社會，兩者並非互斥或完全取代關係，資金機制亦未排除開發中國家。"},
+
+{id:9,unit:"L11102",diff:"中等",type:"應用",q:"富林農場欲評估農場設施因應極端降雨風險之調適規劃，較合適之參考架構為何？",opts:[
+ "參考災害風險管理與氣候調適韌性建構之相關原則，因為此有助系統性評估農場基礎設施之脆弱度",
+ "僅需參考鄰近農場過去口耳相傳之經驗即可，因為系統性風險評估架構對小型農場並無實際助益",
+ "完全不需進行任何調適規劃，因為極端降雨對農場設施完全不具任何實質風險",
+ "僅需增加農場保險投保金額即可完全解決極端降雨相關風險，因為保險理賠可完全彌補所有可能損失"
+],ans:0,exp:"農場評估極端降雨風險之調適規劃，宜參考災害風險管理與氣候調適韌性建構之相關原則，系統性評估基礎設施脆弱度並研擬具體強化措施，而非僅憑經驗判斷或單純仰賴保險理賠因應。"},
+
+{id:10,unit:"L11102",diff:"困難",type:"應用",q:"城邦控股集團評估台灣電力備轉容量於夏季極端高溫期間之風險，較完整之風險評估面向應包含何者？",opts:[
+ "尖峰負載成長趨勢、機組歲修排程與再生能源出力不確定性之綜合評估，因為單一面向評估難以完整反映實際供電風險",
+ "僅需評估單日最高氣溫數值即可完整掌握供電風險，因為氣溫數值本身已足以決定供電穩定與否",
+ "僅需評估電力公司歷史發電總量即可完整掌握供電風險，因為歷史總量數據已能完全預測未來供電情形",
+ "僅需評估企業自身用電契約容量即可完整掌握供電風險，因為契約容量與整體電網供電穩定性並無關聯"
+],ans:0,exp:"評估夏季極端高溫期間之電力備轉容量風險，應綜合考量尖峰負載成長趨勢、機組歲修排程安排及再生能源出力之不確定性等多重面向，單一指標（如氣溫或歷史發電量）難以完整反映實際供電風險。"},
+
+{id:11,unit:"L11102",diff:"中等",type:"應用",q:"台灣溫室氣體階段管制目標之設計精神於企業實務規劃上應如何應用？",opts:[
+ "企業宜對照中長期階段目標時程規劃自身減碳里程碑並保留調整彈性，因為分階段設計有助循序漸進達成長期目標",
+ "企業僅需一次性設定最終目標而完全不設任何中間查核點，因為分階段設計對企業內部規劃並無實質助益",
+ "企業目標一經設定即不得有任何形式之後續檢討調整，因為目標調整將損及企業對外承諾之公信力",
+ "企業僅需關注電力部門相關目標而完全排除其他部門，因為電力部門為唯一納管之排放來源"
+],ans:0,exp:"台灣溫室氣體階段管制目標依中長期路徑分階段設定並定期檢討，企業實務規劃上宜對照此時程規劃自身減碳里程碑，並保留因技術或市場變化調整之彈性，而非僅設定單一終點目標或排除特定部門。"},
+
+{id:12,unit:"L11102",diff:"困難",type:"應用",q:"富林農場評估將食農教育內容融入極端氣候調適教育時，較合適之課程設計方向為何？",opts:[
+ "結合農場實際案例說明調適與減緩措施並引導學員思考在地行動方案，因為實境連結有助提升學員理解與參與感",
+ "僅需講授國際氣候科學理論而不連結任何在地實務案例，因為理論講授本身已足以達成教育目標",
+ "僅需播放國外極端氣候災害影片而不進行任何延伸討論，因為影片本身已具備完整教育效果",
+ "完全不涉及氣候變遷相關內容，因為食農教育與氣候調適議題屬於完全無關之獨立領域"
+],ans:0,exp:"將食農教育內容融入極端氣候調適教育，宜結合農場實際案例說明調適與減緩措施，並引導學員思考在地可行之行動方案，實境連結有助提升學員理解與參與感，而非僅止於理論講授或影片播放。"},
+
+{id:13,unit:"L11103",diff:"中等",type:"理解",q:"「公正轉型（Just Transition）」概念之核心精神為何？",opts:[
+ "於推動能源與產業轉型過程中兼顧受影響勞工與社區之權益保障，因為轉型過程可能對特定族群造成衝擊",
+ "僅聚焦於企業股東於轉型過程中之財務利益保障，因為公正轉型之核心對象僅限於企業投資人",
+ "完全排除任何形式之勞工權益保障措施，因為公正轉型之定義聚焦於技術面而非社會面向",
+ "僅適用於已開發國家內部之產業轉型議題，因為公正轉型概念設計上排除開發中國家適用"
+],ans:0,exp:"公正轉型強調於推動能源與產業轉型過程中，須兼顧受影響勞工與社區之權益保障（如再就業輔導、社區溝通），因轉型過程可能對特定族群造成衝擊，並非僅聚焦股東利益或排除特定國家適用。"},
+
+{id:14,unit:"L11103",diff:"困難",type:"理解",q:"「碳匯（Carbon Sink）」與「碳抵換（Carbon Offset）」之概念差異為何？",opts:[
+ "碳匯係指自然或人為機制實際吸收並儲存溫室氣體之過程，碳抵換則為透過購買減量額度抵銷自身排放之財務行為，因為兩者運作邏輯不同",
+ "兩者為完全相同之概念且可任意互換使用，因為國際間對此二詞彙並未進行任何區分",
+ "碳匯僅存在於森林生態系統而完全不涉及海洋或土壤等其他自然機制，因為碳匯定義上僅限於森林",
+ "碳抵換必然涉及實際之碳吸收行為而與財務交易完全無關，因為抵換本質上屬於實體減量行為"
+],ans:0,exp:"碳匯係指森林、海洋、土壤等自然或人為機制實際吸收並儲存溫室氣體之過程，碳抵換則為透過購買減量或移除額度以抵銷自身排放之財務性行為，兩者運作邏輯不同，碳匯亦不限於森林生態系統。"},
+
+{id:15,unit:"L11103",diff:"困難",type:"理解",q:"「漂綠（Greenwashing）」風險常見之成因為何？",opts:[
+ "企業對外宣稱之環境效益與實際作為間存在顯著落差且缺乏充分佐證，因為誇大或誤導性宣稱易引發外界質疑",
+ "企業完整揭露排放數據與減量措施之具體執行成果，因為完整揭露本身即為漂綠風險之主要成因",
+ "企業委託具公信力之第三方查證機構驗證揭露內容，因為第三方查證本身即為引發漂綠疑慮之來源",
+ "企業設定具體可衡量之科學基礎減碳目標並定期追蹤進度，因為具體目標設定本身即容易構成漂綠疑慮"
+],ans:0,exp:"漂綠風險常源於企業對外宣稱之環境效益與實際作為間存在顯著落差，且缺乏充分數據佐證或第三方查證，選項B、C、D所述之完整揭露、第三方查證及科學基礎目標設定，實為降低而非引發漂綠風險之作法。"},
+
+{id:16,unit:"L11103",diff:"中等",type:"應用",q:"城邦控股集團欲降低旗下ESG報告書之漂綠風險，較合適之做法為何？",opts:[
+ "確保對外宣稱之環境效益皆有具體數據佐證並經合理查證，因為充分佐證與查證有助降低外界質疑",
+ "盡量使用抽象模糊之環保用語而避免提供任何具體數據，因為模糊用語較不易受到外界檢視",
+ "僅摘錄對企業最有利之單一年度數據對外宣稱整體成效，因為片面數據較能塑造正面企業形象",
+ "完全不對外揭露任何與環境相關之具體作為，因為不揭露即可完全避免任何漂綠相關疑慮"
+],ans:0,exp:"降低漂綠風險之合適做法為確保對外宣稱之環境效益皆有具體數據佐證並經合理查證，而非使用模糊用語、片面呈現數據或完全不揭露，後三者反而可能削弱報告書之可信度。"},
+
+{id:17,unit:"L11103",diff:"中等",type:"理解",q:"「剩餘排放（Residual Emissions）」於淨零路徑規劃中之意義為何？",opts:[
+ "經技術與經濟可行之減量措施後仍難以完全消除之排放量，因為此部分通常需仰賴移除或抵換處理",
+ "企業年度財務報表中尚未認列之潛在負債金額，因為此為財務會計上之專有名詞而非排放概念",
+ "企業盤查作業中因資料蒐集疏漏而遺漏計算之排放量，因為此純粹屬於作業疏失而非規劃概念",
+ "政府課徵碳費後企業仍可自由排放且無需負擔任何成本之排放額度，因為此為碳費制度下之豁免額度"
+],ans:0,exp:"剩餘排放係指組織經技術與經濟可行之減量措施後，仍難以完全消除之排放量，於淨零路徑規劃中通常需仰賴碳移除或高品質抵換機制處理，並非財務負債、作業疏失或費用豁免額度之概念。"},
+
+{id:18,unit:"L11103",diff:"困難",type:"應用",q:"富林農場欲評估其活動是否構成漂綠風險，於規劃食農教育行銷素材時應優先檢視之項目為何？",opts:[
+ "素材中所提及之減碳或永續數據是否皆有實際盤查或計算依據，因為缺乏依據之宣稱易生誤導疑慮",
+ "素材視覺設計是否採用綠色系配色，因為配色選擇與宣稱內容之真實性並無直接關聯",
+ "素材文案字數是否符合行銷單位所訂之字數上限，因為字數限制與宣稱內容之真實性並無直接關聯",
+ "素材發布時段是否選在假日流量較高之時段，因為發布時段與宣稱內容之真實性並無直接關聯"
+],ans:0,exp:"規劃食農教育行銷素材時，應優先檢視素材中所提及之減碳或永續相關數據是否皆有實際盤查或計算依據，避免因缺乏依據之宣稱而構成誤導性漂綠風險，配色、字數或發布時段等形式面向並非核心檢視重點。"},
+
+{id:19,unit:"L11104",diff:"中等",type:"應用",q:"某國政府欲降低再生能源發電業者投資風險以帶動建置量能，較適合採用之政策工具為何？",opts:[
+ "躉購費率制度，因為政府保證固定價格躉購有助降低業者面臨之市場價格波動風險",
+ "完全不設任何價格保障機制而任由市場浮動價格決定，因為此做法之核心精神為政府完全不干預",
+ "要求所有用電戶須以固定金額購買等量再生能源憑證，因為此為對消費端之直接補貼要求",
+ "對再生能源發電業者課徵較一般電廠更高之稅賦，因為此做法可用以挹注一般性財政支出"
+],ans:0,exp:"躉購費率制度由政府保證再生能源發電業者於一定期間內以固定價格躉購其發電量，有效降低業者面臨之市場價格波動風險，帶動再生能源建置量能，並非完全不干預、對消費端課予直接負擔或對業者課徵較高稅賦。"},
+
+{id:20,unit:"L11104",diff:"困難",type:"應用",q:"某國政府評估將再生能源電力躉購改採拍賣制以控制政策支出，較主要之政策效益為何？",opts:[
+ "透過競標決定躉購價格與規模，較能反映市場實際成本並有效控制財政支出，因為競標機制引入價格競爭",
+ "拍賣制之躉購價格由政府片面決定且完全不涉及任何競標程序，因為兩制度於價格決定機制上完全相同",
+ "拍賣制完全消除業者投資再生能源之任何財務誘因，因為競標程序之核心目的為壓低業者投資意願",
+ "拍賣制與財政支出控制完全無關，因為價格決定機制之差異對政策支出並無實質影響"
+],ans:0,exp:"拍賣制透過競標程序決定躉購價格與建置規模，較能反映市場實際成本並有效控制政策支出，是政府控制財政負擔之常見政策設計，並非片面決價、消除投資誘因或與支出控制無關。"},
+
+{id:21,unit:"L11104",diff:"困難",type:"理解",q:"「跨轄區碳市場連結（Linking of Emissions Trading Systems）」之主要效益為何？",opts:[
+ "擴大碳權交易之市場規模並可能降低整體減量成本，因為連結後企業可於更大市場範圍內尋求成本效益最佳之減量方案",
+ "完全消除各轄區碳市場間之任何價格差異，因為市場連結後所有轄區之碳權價格將立即完全一致",
+ "使各轄區完全喪失自主訂定減量目標之權限，因為連結後所有政策決定權將移轉至單一國際機構",
+ "僅適用於已開發國家間之市場連結而完全排除開發中國家參與，因為此機制設計上排除開發中國家"
+],ans:0,exp:"跨轄區碳市場連結透過擴大交易市場規模，使企業可於更大範圍內尋求成本效益最佳之減量方案，有助降低整體減量成本，惟價格未必立即完全一致，各轄區仍保有自主政策決定權，機制設計上亦未排除開發中國家參與。"},
+
+{id:22,unit:"L11104",diff:"中等",type:"應用",q:"城邦控股集團評估是否參與自願性產品碳標籤制度以強化消費者溝通，較合適之考量重點為何？",opts:[
+ "評估標籤所依循之計算方法與查證機制是否具公信力，因為此攸關標籤對消費者之溝通效果與企業信譽",
+ "僅需評估標籤製作之印刷成本高低即可決定是否參與，因為印刷成本為唯一需考量之決策因素",
+ "僅需評估競爭對手是否已採用相同標籤即可決定是否參與，因為跟隨競爭對手做法即為最合適策略",
+ "完全不需評估任何相關因素，因為產品碳標籤本質上對消費者溝通並無任何實質助益"
+],ans:0,exp:"評估是否參與自願性產品碳標籤制度，應優先評估標籤所依循之計算方法與查證機制是否具公信力，此攸關標籤對消費者之溝通效果與企業自身信譽，而非僅考量印刷成本或單純跟隨競爭對手做法。"},
+
+{id:23,unit:"L11104",diff:"困難",type:"應用",q:"某已開發國家與開發中國家簽署「公正能源轉型夥伴關係（JETP）」類型協議，其政策設計之核心精神為何？",opts:[
+ "已開發國家提供資金與技術支持開發中國家加速能源轉型並兼顧公正轉型原則，因為此有助平衡減碳速度與社會經濟衝擊",
+ "已開發國家單方面要求開發中國家立即停止使用化石燃料而不提供任何配套支持，因為此類協議之核心精神為單向要求",
+ "開發中國家須完全承擔轉型過程之全部財務成本，因為協議設計上已開發國家不負擔任何資金責任",
+ "此類協議完全不涉及任何社會面向考量而僅聚焦於技術轉移，因為公正轉型原則與此類協議之設計無關"
+],ans:0,exp:"公正能源轉型夥伴關係（JETP）類型協議之核心精神為已開發國家提供資金與技術支持開發中國家加速能源轉型，並兼顧公正轉型原則以平衡減碳速度與社會經濟衝擊，並非單方要求或完全排除已開發國家之資金責任。"},
+
+{id:24,unit:"L11104",diff:"中等",type:"理解",q:"「綠色公共採購（Green Public Procurement）」政策工具之主要目的為何？",opts:[
+ "透過政府採購程序優先選用具環境效益之產品或服務，因為政府採購規模龐大可帶動市場供給結構調整",
+ "完全禁止政府機關採購任何形式之一般性產品或服務，因為此政策要求政府僅能採購零排放產品",
+ "僅適用於中央政府機關而完全排除地方政府之採購行為，因為此政策設計上限定中央機關適用",
+ "與市場供給結構調整完全無關，因為政府採購規模對整體市場影響甚微不足以帶動任何改變"
+],ans:0,exp:"綠色公共採購透過政府採購程序優先選用具環境效益之產品或服務，藉政府採購之龐大規模帶動市場供給結構朝低碳方向調整，並非完全禁止一般採購或限定中央機關適用。"},
+
+{id:25,unit:"L11201",diff:"中等",type:"理解",q:"CDP 對企業揭露內容之評分等級設計，其主要用途為何？",opts:[
+ "依企業揭露完整度與管理成熟度分級評分，協助投資人快速辨識企業環境管理表現，因為分級評分具備標準化比較功能",
+ "評分等級僅用於決定企業年度營業稅率高低，因為CDP評分與稅務機關之課稅基礎直接掛勾",
+ "評分等級完全不具備任何比較功能，因為每家企業之評分標準彼此完全獨立且無法比較",
+ "評分等級僅提供予企業內部人資部門作為員工考核依據，因為CDP評分本質上屬於人力資源管理工具"
+],ans:0,exp:"CDP 依企業揭露完整度與管理成熟度設計分級評分機制，協助投資人快速辨識並比較不同企業之環境管理表現，具備標準化比較功能，與稅務課稅或人資考核無關。"},
+
+{id:26,unit:"L11201",diff:"困難",type:"應用",q:"某林業相關企業欲依 SBTi 設定減碳目標，發現須額外參考「土地利用、林業及農業（FLAG）」指引，其主要原因為何？",opts:[
+ "此類部門排放與碳匯機制交互影響且量化方法有其特殊性，因為一般性減碳目標設定方法未必完全適用",
+ "此類部門完全不產生任何形式之溫室氣體排放，因為FLAG部門本質上僅具碳匯功能而無排放來源",
+ "此類部門之減碳目標設定方法與其他產業完全相同，因為SBTi制定FLAG指引純粹為行政分類需求",
+ "FLAG指引僅適用於已開發國家之相關產業，因為開發中國家依規定完全排除於FLAG指引適用範圍外"
+],ans:0,exp:"林業、土地利用及農業（FLAG）部門排放與碳匯機制交互影響，且涉及土地利用變化等特殊量化議題，一般性減碳目標設定方法未必完全適用，故SBTi另訂特定指引，並非該部門不產生排放或指引限定已開發國家適用。"},
+
+{id:27,unit:"L11201",diff:"困難",type:"理解",q:"RE100 對企業採購再生能源憑證所要求之「額外性（Additionality）」概念為何？",opts:[
+ "憑證所對應之再生能源專案應為因該採購行為而新增建置之發電容量，因為此有助確保採購真正帶動再生能源增量",
+ "額外性係指企業可額外要求供應商提供任何形式之贈品或優惠，因為額外性與再生能源憑證品質完全無關",
+ "額外性係指企業採購憑證之數量須額外超出其實際用電量兩倍以上，因為此為RE100對憑證數量之硬性要求",
+ "額外性完全不影響憑證之品質認定，因為只要憑證形式合乎規定即可完全滿足RE100之相關要求"
+],ans:0,exp:"額外性概念強調企業採購之再生能源憑證，其對應專案應為因該採購行為而新增建置之發電容量，而非既有專案之憑證轉售，此有助確保企業採購行為真正帶動再生能源增量，而非僅涉及贈品優惠或憑證數量倍數要求。"},
+
+{id:28,unit:"L11201",diff:"中等",type:"理解",q:"GRI 通用準則架構中，「GRI 3：重大主題」之主要功能為何？",opts:[
+ "引導組織辨識並優先呈現對經濟、環境及人群具重大影響之永續主題，因為重大性判斷有助聚焦報告核心內容",
+ "規範企業財務報表附註之揭露格式，因為GRI 3之核心內容聚焦於財務會計揭露要求",
+ "規範企業內部人力資源招募流程之標準作業程序，因為GRI 3之核心內容聚焦於人資管理領域",
+ "規範企業產品定價策略之訂定方式，因為GRI 3之核心內容聚焦於產品定價相關議題"
+],ans:0,exp:"GRI 3（重大主題）引導組織透過重大性評估程序，辨識並優先呈現對經濟、環境及人群具重大影響之永續主題，聚焦報告核心內容，與財務附註、人資招募或產品定價無關。"},
+
+{id:29,unit:"L11201",diff:"困難",type:"應用",q:"城邦控股集團評估依 SASB 準則揭露永續資訊時，應如何決定適用之產業別揭露指標？",opts:[
+ "依SASB永續產業分類系統（SICS）比對自身核心業務性質選擇對應產業別指標，因為不同產業之財務重大性議題有所差異",
+ "直接沿用集團旗下所有子公司共通之單一指標組合，因為不同產業之財務重大性議題本質上完全相同",
+ "隨機選擇任一產業別指標組合進行揭露，因為指標選擇對揭露品質與可比較性並無實質影響",
+ "完全不需選擇任何產業別指標，因為SASB準則並未針對不同產業設計差異化指標組合"
+],ans:0,exp:"依 SASB 準則揭露永續資訊，應依其永續產業分類系統（SICS）比對自身核心業務性質，選擇對應之產業別揭露指標，因不同產業之財務重大性議題有所差異，並非沿用單一指標組合或隨機選擇。"},
+
+{id:30,unit:"L11201",diff:"困難",type:"應用",q:"城邦控股集團欲評估自身於不同升溫路徑下之潛在財務衝擊，較合適採用之 TCFD 分析工具為何？",opts:[
+ "情境分析，因為此工具用以評估企業於不同氣候情境下之潛在財務衝擊與營運韌性",
+ "員工滿意度調查，因為此工具用以評估企業內部人力資源管理成效與士氣狀況",
+ "行銷活動成效評估，因為此工具用以評估企業年度行銷投入之預期報酬情形",
+ "產品定價彈性分析，因為此工具用以評估企業產品於市場上之價格調整空間"
+],ans:0,exp:"TCFD 架構中之情境分析，用以評估企業於不同氣候情境（如不同升溫路徑或政策情境）下之潛在財務衝擊與營運韌性，協助企業提前規劃因應策略，並非員工滿意度、行銷成效或定價彈性分析工具。"},
+
+{id:31,unit:"L11201",diff:"中等",type:"應用",q:"城邦控股集團評估是否須因應 ISSB 準則之強制性揭露要求，較合適之判斷依據為何？",opts:[
+ "確認集團所屬上市地或主要營運地是否已將 ISSB 準則納入強制性法規要求，因為不同轄區採用時程與強制性有所差異",
+ "僅需參考集團自身主觀意願決定是否採用，因為ISSB準則於全球任何轄區皆屬完全自願性質",
+ "僅需參考競爭對手是否已採用作為唯一判斷依據，因為主管機關要求與競爭對手做法完全無關",
+ "完全不需進行任何確認，因為ISSB準則於全球任何轄區皆尚未有任何採用或強制規劃"
+],ans:0,exp:"是否須因應 ISSB 準則之強制性揭露要求，應確認集團所屬上市地或主要營運地是否已將該準則納入強制性法規要求，因不同轄區之採用時程與強制性程度有所差異，並非單純依主觀意願或競爭對手做法判斷。"},
+
+{id:32,unit:"L11201",diff:"中等",type:"應用",q:"富林農場若欲對外溝通其ESG作為以爭取企業客戶合作，較合適之揭露架構參考方向為何？",opts:[
+ "參考GRI等永續報告準則之重大性評估邏輯，聚焦企業客戶關注之環境與社會面向重點說明，因為對應客戶需求有助提升溝通效果",
+ "直接套用大型上市公司完整版之ISSB準則全套揭露要求，因為完整套用可展現農場之專業程度",
+ "完全不參考任何既定揭露架構而僅憑自身直覺撰寫溝通內容，因為既定架構對小型農場並無實用價值",
+ "僅需羅列農場歷年得獎紀錄而不涉及任何環境或社會面向說明，因為得獎紀錄本身已足以展現ESG作為"
+],ans:0,exp:"富林農場對外溝通ESG作為以爭取企業客戶合作，宜參考GRI等準則之重大性評估邏輯，聚焦企業客戶關注之環境與社會面向重點說明，而非直接套用大型企業完整揭露要求或僅羅列得獎紀錄，後者未必能有效回應客戶實際關注點。"},
+
+{id:33,unit:"L11202",diff:"中等",type:"理解",q:"CBAM 過渡期後之正式管理階段，企業所面臨之主要義務為何？",opts:[
+ "需依實際內含碳排放量申報並購買對應數量之CBAM憑證，因為正式階段已由單純申報轉為實質財務義務",
+ "僅需持續進行申報而完全不涉及任何憑證購買或財務支出義務，因為正式階段之義務與過渡期完全相同",
+ "完全免除任何申報或憑證購買義務，因為正式階段之政策設計目的為全面豁免企業相關責任",
+ "僅需一次性繳納固定金額之行政規費即可完全免除後續任何申報義務，因為正式階段採一次性規費制度"
+],ans:0,exp:"CBAM 進入過渡期後之正式管理階段，企業除申報內含碳排放量外，尚須購買對應數量之CBAM憑證以反映其碳成本，義務內容已由單純申報轉為具實質財務支出之義務，並非完全免除或維持過渡期原有做法。"},
+
+{id:34,unit:"L11202",diff:"困難",type:"理解",q:"CBAM 憑證價格之訂定機制與歐盟碳排放交易體系（EU ETS）之關聯為何？",opts:[
+ "CBAM憑證價格通常參考EU ETS拍賣價格週均值訂定，因為此設計有助使進口商品與境內產業面對相近之碳成本",
+ "CBAM憑證價格與EU ETS拍賣價格完全無關且分別獨立訂定，因為兩制度於設計上刻意採取互不參考之定價邏輯",
+ "CBAM憑證價格恆定不變且不隨EU ETS市場價格波動調整，因為CBAM採取固定價格制度而非浮動定價",
+ "EU ETS拍賣價格完全依CBAM憑證價格反向決定，因為CBAM制度之定價邏輯優先於EU ETS既有機制"
+],ans:0,exp:"CBAM憑證價格通常參考EU ETS拍賣價格之週均值訂定，此設計有助使進口商品與歐盟境內產業面對相近之碳成本，避免境內外碳成本落差過大，並非兩者完全無關、固定不變或反向決定之關係。"},
+
+{id:35,unit:"L11202",diff:"困難",type:"應用",q:"城邦控股集團評估CBAM對台灣出口產業之整體影響，較全面之評估角度應包含何者？",opts:[
+ "涵蓋直接受CBAM納管產業之申報成本及間接供應鏈客戶要求之揭露壓力，因為影響範圍不限於直接納管產業本身",
+ "僅需評估直接受CBAM納管產業之申報成本即可，因為間接供應鏈影響完全不屬於評估範疇",
+ "僅需評估台灣整體出口總額變化即可，因為總體出口數據已足以反映CBAM對個別產業之實際影響",
+ "完全不需進行任何評估，因為CBAM僅適用於歐盟境內企業而與台灣出口產業完全無關"
+],ans:0,exp:"評估CBAM對台灣出口產業之整體影響，應涵蓋直接受CBAM納管產業之申報成本，以及間接因供應鏈客戶要求提升碳排放揭露而衍生之壓力，影響範圍不限於直接納管產業本身，亦非僅憑總體出口數據即可完整評估。"},
+
+{id:36,unit:"L11202",diff:"中等",type:"理解",q:"英國、美國等其他國家評估研議之邊境碳調整機制，與歐盟CBAM之關係為何？",opts:[
+ "屬於各國因應碳洩漏問題所發展之類似政策工具，其設計細節可能因國情而有所差異，因為政策目標相近但具體規範未必完全一致",
+ "完全複製歐盟CBAM之全部規範內容且無任何差異，因為國際間邊境碳調整機制須採取完全一致之規範標準",
+ "與歐盟CBAM之政策目標完全相反，因為其他國家研議機制之目的為鼓勵而非限制碳密集產品進口",
+ "僅為口頭政策宣示而完全不具備任何具體規劃內容，因為目前僅歐盟具備發展邊境碳調整機制之能力"
+],ans:0,exp:"英國、美國等國研議之邊境碳調整機制，屬於各國因應碳洩漏問題所發展之類似政策工具，惟具體規範內容（如涵蓋產業、計價方式）可能因國情而有所差異，並非完全複製歐盟CBAM或目標相反，亦非僅止於口頭宣示。"},
+
+{id:37,unit:"L11202",diff:"中等",type:"應用",q:"富林農場評估自身加工農產品短期內尚不具外銷至CBAM相關市場之計畫，是否仍需關注CBAM發展？",opts:[
+ "仍宜持續關注發展趨勢，因為未來市場策略調整或供應鏈客戶要求變化時可提前做好準備",
+ "完全不需關注，因為短期內無外銷計畫即代表CBAM發展與農場永遠不具任何關聯性",
+ "僅需於確定外銷計畫後一次性關注即可，因為提前追蹤發展趨勢對農場並無任何實質助益",
+ "應立即全面調整所有生產流程以符合CBAM要求，因為即便無外銷計畫仍應優先滿足國際規範標準"
+],ans:0,exp:"即便短期內無外銷至CBAM相關市場之計畫，農場仍宜持續關注發展趨勢，因未來市場策略或供應鏈客戶要求可能隨時調整，提前掌握發展有助降低未來因應之不確定性，惟毋須立即全面調整生產流程。"},
+
+{id:38,unit:"L11202",diff:"困難",type:"理解",q:"CBAM 對開發中國家出口產業可能造成之結構性挑戰為何？",opts:[
+ "中小型出口廠商可能因缺乏碳排放量化能力而面臨較高之申報與合規成本，因為量化能力建置需仰賴技術與資金投入",
+ "開發中國家出口產業完全不受CBAM任何形式之影響，因為CBAM設計上已全面排除開發中國家相關產品",
+ "CBAM會直接全額補貼開發中國家出口廠商之申報成本，因為此為CBAM制度設計中之核心資金支持機制",
+ "開發中國家出口產業因CBAM實施而享有較已開發國家更優惠之申報條件，因為CBAM制度設計上刻意給予差別待遇"
+],ans:0,exp:"CBAM可能對開發中國家中小型出口廠商造成結構性挑戰，因其可能缺乏碳排放量化能力與資源，面臨較高之申報與合規成本，而非完全不受影響、獲得全額補貼或享有較優惠條件。"},
+
+{id:39,unit:"L11203",diff:"困難",type:"理解",q:"台灣2050淨零排放路徑中「負碳技術」之定位為何？",opts:[
+ "作為輔助達成剩餘排放抵換之技術選項並仍需優先推動源頭減量，因為負碳技術現階段成本與規模仍具限制",
+ "作為完全取代源頭減量措施之主要手段，因為負碳技術已具備大規模商轉且成本低廉之條件",
+ "完全排除於台灣淨零排放路徑之技術選項之外，因為負碳技術於現階段被認定為不具任何發展價值",
+ "僅適用於農業部門而完全排除工業與能源部門之應用可能性，因為負碳技術設計上僅服務農業減碳需求"
+],ans:0,exp:"負碳技術（如碳捕捉封存、直接空氣捕捉）於台灣淨零路徑中定位為輔助達成剩餘排放抵換之技術選項，惟現階段成本與規模仍具限制，仍須優先推動源頭減量，並非取代源頭減量或排除於路徑之外。"},
+
+{id:40,unit:"L11203",diff:"困難",type:"應用",q:"城邦控股集團評估旗下涉及IC設計相關業務時，應理解半導體產業因應淨零轉型所面臨之特殊挑戰為何？",opts:[
+ "製程用電密集且部分特化氣體具高暖化潛勢，減碳需同時兼顧用電結構調整與製程氣體管理，因為產業特性使減碳路徑較一般製造業複雜",
+ "半導體產業完全不涉及任何形式之溫室氣體排放，因為晶片製造過程被認定為零碳排放製程",
+ "半導體產業之減碳路徑與一般傳統製造業完全相同且不具任何特殊挑戰，因為所有製造業之排放來源本質上完全一致",
+ "半導體產業僅需關注範疇一排放而完全不需理會範疇二用電相關排放，因為範疇二排放與晶片製造完全無關"
+],ans:0,exp:"半導體產業因製程用電密集，且部分特化氣體（如全氟化碳類）具高暖化潛勢，減碳路徑需同時兼顧用電結構調整（範疇二）與製程氣體管理（範疇一），較一般製造業複雜，並非零排放或與傳統製造業完全相同。"},
+
+{id:41,unit:"L11203",diff:"中等",type:"應用",q:"城邦控股集團評估旗下辦公大樓因應台灣建築部門淨零轉型政策，較合適之優先強化方向為何？",opts:[
+ "評估建築能效提升與既有設備汰換為高效節能設備之可行性，因為建築部門轉型多聚焦於能效改善與設備更新",
+ "僅需重新粉刷大樓外牆顏色即可完全符合建築部門淨零轉型要求，因為外觀顏色與建築能效並無直接關聯",
+ "僅需增加大樓保全人員數量即可完全符合相關轉型要求，因為保全人力配置與建築能效並無直接關聯",
+ "完全不需進行任何改善，因為既有建築物依規定完全排除於淨零轉型政策適用範圍之外"
+],ans:0,exp:"建築部門淨零轉型多聚焦於建築能效提升與既有設備汰換為高效節能設備，企業辦公大樓宜優先評估此方向之可行性，而非透過外牆顏色或保全人力等與能效無關之調整因應。"},
+
+{id:42,unit:"L11203",diff:"困難",type:"應用",q:"台灣推動運輸部門電動化轉型過程中，企業車隊轉型面臨之主要考量因素為何？",opts:[
+ "需綜合評估充電基礎設施可用性、車輛總持有成本及營運里程需求，因為多重因素交互影響轉型可行性與時程",
+ "僅需評估電動車購置價格單一因素即可完成轉型評估，因為購置價格為唯一影響轉型決策之關鍵因素",
+ "完全不需考量任何基礎設施配套，因為電動車轉型與充電設施建置屬於完全獨立且無關之議題",
+ "僅需比照國外品牌車隊轉型時程逕行複製即可，因為國內外基礎設施與營運情境完全相同不具差異"
+],ans:0,exp:"企業車隊電動化轉型需綜合評估充電基礎設施可用性、車輛總持有成本（含購置與維護）及實際營運里程需求等多重因素，因各因素交互影響轉型可行性與合理時程，並非僅憑單一購置價格或直接複製國外經驗即可完成評估。"},
+
+{id:43,unit:"L11203",diff:"中等",type:"理解",q:"台灣淨零路徑中「社會溝通與公正轉型」戰略之主要考量為何？",opts:[
+ "於推動能源與產業轉型過程中兼顧受影響族群之溝通與配套支持，因為轉型過程可能對特定產業與勞工造成衝擊",
+ "僅聚焦於政府對外之形象宣傳工作，因為社會溝通戰略之核心僅涉及公關宣傳而非實質配套",
+ "完全不涉及任何勞工或社區權益之具體配套措施，因為此戰略純粹屬於資訊揭露層面之工作",
+ "僅適用於能源部門之轉型溝通而完全排除其他受影響產業，因為此戰略設計上僅服務能源部門"
+],ans:0,exp:"台灣淨零路徑中之社會溝通與公正轉型戰略，強調於推動能源與產業轉型過程中，兼顧受影響族群（如傳統能源相關產業勞工）之溝通與配套支持措施，並非僅止於形象宣傳或限定單一部門適用。"},
+
+{id:44,unit:"L11203",diff:"中等",type:"應用",q:"富林農場評估參與台灣淨零路徑下之「森林碳匯」相關政策資源時，較合適之準備方向為何？",opts:[
+ "了解農場現有林木或綠地面積之碳匯潛力評估方式並諮詢相關輔導單位，因為具體評估有助掌握可申請之資源類型",
+ "完全不需了解任何評估方式，因為森林碳匯政策僅適用於大型國有林地而完全排除私有農場",
+ "僅需擴大農場非生產性建物面積即可自動取得碳匯相關資源，因為建物面積與森林碳匯政策並無直接關聯",
+ "僅需增加農場員工人數即可自動符合森林碳匯相關政策申請資格，因為人力配置與碳匯政策申請資格並無直接關聯"
+],ans:0,exp:"評估參與森林碳匯相關政策資源，農場宜先了解現有林木或綠地面積之碳匯潛力評估方式，並諮詢相關輔導單位掌握可申請之資源類型，而非誤認政策僅限大型國有林地，或透過增加建物面積、員工人數等無關做法取得資格。"},
+
+{id:45,unit:"L11204",diff:"中等",type:"理解",q:"台灣碳權交易平台之主要功能定位為何？",opts:[
+ "提供國內自願性減量額度及國外碳權之交易與媒合服務，因為此有助企業取得合格碳權以輔助自願性減碳承諾",
+ "直接強制規範所有企業每年須完成之碳權交易數量，因為該平台之核心功能為訂定企業強制交易額度",
+ "僅提供國外碳權之交易服務而完全排除國內自願性減量額度，因為平台設計上僅聚焦國際碳權交易",
+ "完全不涉及任何碳權交易媒合服務，因為該平台僅具備碳權資訊公告之單純宣導功能"
+],ans:0,exp:"台灣碳權交易平台提供國內自願性減量額度及符合規定之國外碳權交易與媒合服務，協助企業取得合格碳權以輔助自願性減碳承諾，並非強制規範交易數量、僅限國外碳權或僅具宣導功能。"},
+
+{id:46,unit:"L11204",diff:"困難",type:"理解",q:"企業於碳資產管理上常見之「重複計算（Double Counting）」風險，其主要成因為何？",opts:[
+ "同一減量成果被不同主體或不同機制重複主張抵換或聲明，因為缺乏統一登錄與註銷機制易生重疊主張",
+ "企業因盤查方法錯誤導致排放量計算結果偏低，因為此純屬量化方法誤差而非重複主張問題",
+ "企業因排放係數選用錯誤導致排放量計算結果偏高，因為此純屬係數選用誤差而非重複主張問題",
+ "企業因資料蒐集時間點不一致導致跨年度數據無法比較，因為此純屬時間點差異而非重複主張問題"
+],ans:0,exp:"重複計算風險主要成因為同一減量成果被不同主體（如專案開發方與購買方）或不同機制（如自願性市場與強制性市場）重複主張抵換或聲明，缺乏統一登錄與註銷機制易生此類重疊主張，與盤查方法誤差或時間點差異無直接關聯。"},
+
+{id:47,unit:"L11204",diff:"困難",type:"應用",q:"城邦控股集團評估建立內部碳資產管理制度時，較合適之設計方向為何？",opts:[
+ "建立碳權取得、註銷與使用紀錄之集中管理機制以避免重複主張及漂綠風險，因為集中管理有助確保碳資產運用之透明度與可追溯性",
+ "由各部門自行分散管理各自取得之碳權而不建立任何集中登錄機制，因為分散管理較能提升各部門之決策彈性",
+ "完全不記錄碳權取得與使用情形，因為碳資產管理制度之建立對企業並無任何實質效益",
+ "僅需於年度財務報表中揭露碳權採購總金額而不記錄其他任何細節，因為財務金額本身已足以完整反映碳資產管理狀況"
+],ans:0,exp:"建立內部碳資產管理制度，宜建立碳權取得、註銷與使用紀錄之集中管理機制，避免重複主張及漂綠風險，確保碳資產運用之透明度與可追溯性，而非分散管理、不記錄或僅揭露採購金額。"},
+
+{id:48,unit:"L11205",diff:"中等",type:"理解",q:"ISO 14068-1 與 PAS 2060 皆為碳中和相關標準，兩者關係可如何理解？",opts:[
+ "皆強調減量優先並以合格抵換處理剩餘排放之核心精神，惟發布機構與部分細節要求有所不同，因為國際間存在多套碳中和標準並行之情形",
+ "兩者於核心原則與細節要求上完全相同且可完全互換使用，因為國際間對碳中和標準已完成單一化整合",
+ "PAS 2060 之效力優先於 ISO 14068-1 且可完全取代其規範，因為PAS 2060為國際標準組織所發布之標準",
+ "ISO 14068-1 完全否定PAS 2060之核心精神並提出相互矛盾之減量原則，因為兩套標準之制定機構立場對立"
+],ans:0,exp:"ISO 14068-1（國際標準組織發布）與 PAS 2060（英國標準協會發布）皆強調減量優先並以合格抵換處理剩餘排放之核心精神，惟發布機構與部分細節要求（如查證頻率）有所不同，國際間目前仍存在多套碳中和標準並行之情形，並非完全相同、單向取代或相互矛盾。"},
+
+{id:49,unit:"L11205",diff:"困難",type:"理解",q:"依 ISO 14068-1 精神，碳中和宣告之適用範疇可涵蓋之層級為何？",opts:[
+ "可涵蓋組織、產品、活動或事件等多元層級，因為標準設計具備彈性以因應不同宣告主體之需求",
+ "僅適用於整體組織層級之宣告而完全排除產品或活動層級，因為標準設計上僅服務組織整體宣告",
+ "僅適用於單一產品層級之宣告而完全排除組織整體或活動層級，因為標準設計上僅服務產品層級宣告",
+ "僅適用於大型跨國企業而完全排除中小企業或個別活動之宣告需求，因為標準設計上限定大型企業適用"
+],ans:0,exp:"ISO 14068-1 設計具備彈性，其碳中和宣告之適用範疇可涵蓋組織、產品、活動或事件等多元層級，以因應不同宣告主體之需求，並非僅限組織整體、單一產品或限定大型企業適用。"},
+
+{id:50,unit:"L11205",diff:"困難",type:"應用",q:"城邦控股集團若欲針對單一場企業ESG活動宣告碳中和，依 ISO 14068-1 精神應優先完成之工作為何？",opts:[
+ "界定該活動之範圍與排放來源並完成排放量化，再依減量層級原則規劃減量與抵換方案，因為活動層級宣告仍須遵循相同之核心方法論",
+ "直接購買與活動預估參與人數相對應之碳權即可完成宣告，因為活動層級宣告可完全簡化省略排放量化步驟",
+ "僅需於活動邀請函上加註碳中和標語即可完成宣告，因為標語加註本身已足以代表符合標準要求",
+ "僅需活動當天使用電子邀請函取代紙本邀請即可完成宣告，因為此單一措施已足以達成碳中和目標"
+],ans:0,exp:"依 ISO 14068-1 精神，即便是針對單一活動之碳中和宣告，仍須界定範圍與排放來源、完成排放量化，並依減量層級原則規劃減量與抵換方案，而非省略量化步驟直接購買碳權，或僅透過標語加註、電子邀請函等形式性措施完成宣告。"}
+];
+
+const OPT_KEYS = ["A","B","C","D"];
+const container = document.getElementById("quizContainer");
+const nav = document.getElementById("sectionNav");
+const emptyState = document.getElementById("emptyState");
+
+let unitOrder = Object.keys(UNITS);
+unitOrder.forEach(code=>{
+  const a = document.createElement("a");
+  a.href = "#unit-"+code;
+  a.textContent = code;
+  nav.appendChild(a);
+});
+
+function render(){
+  container.innerHTML = "";
+
+  unitOrder.forEach(code=>{
+    const items = QUESTIONS.filter(q=>q.unit===code);
+    if(!items.length) return;
+
+    const block = document.createElement("div");
+    block.className = "unit-block";
+    block.id = "unit-"+code;
+
+    const title = document.createElement("div");
+    title.className = "unit-title";
+    title.innerHTML = `<span class="unit-code">${code}</span><h2>${UNITS[code]}</h2>`;
+    block.appendChild(title);
+
+    items.forEach(item=>{
+      const card = document.createElement("div");
+      card.className = "qcard";
+      card.dataset.type = item.type;
+      card.dataset.diff = item.diff;
+      card.dataset.searchtext = (item.q + " " + item.opts.join(" ") + " " + item.exp).toLowerCase();
+
+      const optsHtml = item.opts.map((o,i)=>`<li><span class="opt-key">${OPT_KEYS[i]}.</span>${o}</li>`).join("");
+
+      card.innerHTML = `
+        <div class="qhead">
+          <span class="qnum">Q${item.id}</span>
+          <span class="tag ${item.type==='理解'?'l':'a'}">${item.type==='理解'?'進階理解':'情境應用'}</span>
+          <span class="tag ${item.diff==='中等'?'dm':'dh'}">${item.diff}</span>
+        </div>
+        <div class="qtext">${item.q}</div>
+        <ul class="options">${optsHtml}</ul>
+        <details>
+          <summary>顯示答案與解析</summary>
+          <div class="answer-box">
+            <div class="ans-line">正確答案：${OPT_KEYS[item.ans]}．${item.opts[item.ans]}</div>
+            <div class="exp">解析：${item.exp}</div>
+          </div>
+        </details>
+      `;
+      block.appendChild(card);
+    });
+
+    container.appendChild(block);
+  });
+
+  applyFilters();
+}
+
+let currentType = "all";
+let currentDiff = "all";
+
+function applyFilters(){
+  const keyword = document.getElementById("searchBox").value.trim().toLowerCase();
+  const cards = document.querySelectorAll(".qcard");
+  let visibleCount = 0;
+
+  cards.forEach(card=>{
+    const typeMatch = currentType === "all" || card.dataset.type === currentType;
+    const diffMatch = currentDiff === "all" || card.dataset.diff === currentDiff;
+    const searchMatch = !keyword || card.dataset.searchtext.includes(keyword);
+    const show = typeMatch && diffMatch && searchMatch;
+    card.classList.toggle("hidden", !show);
+    if(show) visibleCount++;
+  });
+
+  document.querySelectorAll(".unit-block").forEach(block=>{
+    const visibleInBlock = block.querySelectorAll(".qcard:not(.hidden)").length;
+    block.style.display = visibleInBlock ? "" : "none";
+  });
+
+  emptyState.classList.toggle("show", visibleCount === 0);
+}
+
+document.querySelectorAll(".chip[data-filter-type]").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    document.querySelectorAll(".chip[data-filter-type]").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    currentType = btn.dataset.filterType;
+    applyFilters();
+  });
+});
+
+document.querySelectorAll(".chip[data-filter-diff]").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    document.querySelectorAll(".chip[data-filter-diff]").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    currentDiff = btn.dataset.filterDiff;
+    applyFilters();
+  });
+});
+
+document.getElementById("searchBox").addEventListener("input", applyFilters);
+
+render();
+</script>
+
+</body>
+</html>
