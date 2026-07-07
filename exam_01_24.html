@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>iPAS 淨零碳規劃管理師-初級能力鑑定 進階模擬試題（2026年8月15日）</title>
+<style>
+  :root {
+    --primary: #8a3b1f;
+    --accent: #fbf0e8;
+    --border: #e8d3c4;
+    --text: #332620;
+  }
+  body {
+    font-family: "Microsoft JhengHei", "PingFang TC", "Noto Sans TC", sans-serif;
+    max-width: 1900px;
+    margin: 0 auto;
+    padding: 24px 20px 80px;
+    color: var(--text);
+    background: #fdfbf9;
+    line-height: 1.7;
+  }
+  header {
+  padding-top:60px;
+    text-align: center;
+    border-bottom: 3px solid var(--primary);
+    padding-bottom: 16px;
+    margin-bottom: 28px;
+  }
+  header h1 { color: var(--primary); margin-bottom: 4px; font-size: 22px; }
+  header p { margin: 2px 0; color: #555; font-size: 22px; }
+  .meta {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px;
+    background: var(--accent);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 22px;
+    margin-bottom: 24px;
+  }
+  .badge {
+    display: inline-block;
+    background: var(--primary);
+    color: #fff;
+    font-size: 22px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+  }
+  .question {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 14px;
+    background: #fff;
+  }
+  .q-num {
+    display: inline-block;
+    background: var(--primary);
+    color: #fff;
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 2px 10px;
+    margin-right: 8px;
+    font-size: 22px;
+  }
+  .q-text { font-weight: 600; margin: 6px 0 8px; }
+  .options { margin: 0; padding-left: 4px; list-style: none; }
+  .options li { margin: 3px 0; }
+  details { margin-top: 8px; }
+  summary {
+    cursor: pointer;
+    color: var(--primary);
+    font-size: 22px;
+    font-weight: 600;
+    outline: none;
+  }
+  .answer-box {
+    margin-top: 6px;
+    background: var(--accent);
+    border-left: 4px solid var(--primary);
+    padding: 8px 12px;
+    font-size: 22px;
+    border-radius: 4px;
+  }
+  .section-title {
+    color: var(--primary);
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 6px;
+    margin: 34px 0 16px;
+  }
+  .answer-key {
+    margin-top: 40px;
+    padding: 18px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+  .answer-key table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 22px;
+  }
+  .answer-key td, .answer-key th {
+    border: 1px solid var(--border);
+    padding: 6px 8px;
+    text-align: center;
+  }
+  .answer-key th { background: var(--accent); }
+  footer {
+    text-align: center;
+    color: #888;
+    font-size: 22px;
+    margin-top: 40px;
+  }
+  .toggle-all {
+    display: inline-block;
+    margin: 10px 0 20px;
+    padding: 8px 16px;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 22px;
+  }
+  .badgerowbt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px;
+    background: #ffffff;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+a.badge1 {
+    display: inline-block;
+   font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #007286;
+    color: #fff;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+a.badge2 {
+    display: inline-block;
+   font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #007286;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+a.badge3 {
+    display: inline-block;
+   font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #b8238d;
+    color: yellow;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+@media (max-width:768px){
+    header{padding:120px 16px 30px;}
+   
+  }
+</style>
+</head>
+<body>
+<div class="badgerowbt">	
+	考科一<div><a href="https://snoweryi.github.io/yilearn/exam_01_1.html" class="badge1">1</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_2.html" class="badge1">2</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_3.html" class="badge1">3</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_4.html" class="badge1">4</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_5.html" class="badge1">5</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_6.html" class="badge1">6</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_7.html" class="badge1">7</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_8.html" class="badge1">8</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_9.html" class="badge1">9</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_10.html" class="badge1">10</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_11.html" class="badge1">11</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_12.html" class="badge1">12</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_13.html" class="badge1">13</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_14.html" class="badge1">14</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_15.html" class="badge1">15</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_16.html" class="badge1">16</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_17.html" class="badge1">17</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_18.html" class="badge1">18</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_19.html" class="badge1">19</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_20.html" class="badge1">20</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_21.html" class="badge1">21</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_22.html" class="badge1">22</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_23.html" class="badge1">23</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_24.html" class="badge2">24</a></div>
+	
+	
+	<div><a href="https://snoweryi.github.io/yilearn/menu.html" class="badge3">目錄</a></div>
+  </div>
+<header>
+  <h1>iPAS 淨零碳規劃管理師-初級能力鑑定【進階模擬試題】</h1>
+  <p>第一科：淨零碳規劃管理基礎概論</p>
+  <p>模擬考試日期：2026 年 08 月 15 日</p>
+</header>
+
+<div class="meta">
+  <span>題型：單選題（共 50 題）<span class="badge">難度：進階</span></span>
+  <span>本份試題為自製練習題，非官方公告試題，聚焦細節判斷與易混淆概念</span>
+</div>
+
+<button class="toggle-all" onclick="toggleAll()">顯示 / 隱藏 全部解答</button>
+
+<h2 class="section-title">一、國際公約與市場機制細節</h2>
+
+<div class="question"><span class="q-num">1</span>
+<p class="q-text">依《巴黎協定》第六條，若甲國將其達成 NDC 之部分減量成果轉讓予乙國使用，下列敘述何者正確？</p>
+<ul class="options">
+<li>(A) 甲國無須進行任何帳務調整，可繼續全數計入自身 NDC</li>
+<li>(B) 甲國須進行「相應調整（Corresponding Adjustment）」，將該部分成果自其帳戶扣除</li>
+<li>(C) 該筆轉讓成果自動歸零，雙方皆不得計入 NDC</li>
+<li>(D) 僅需由聯合國秘書處備查，兩國帳目均無須變動</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：B。為避免重複計算，轉讓方須進行相應調整，將已轉讓之減量成果自其帳戶中扣除。</div></details>
+</div>
+
+<div class="question"><span class="q-num">2</span>
+<p class="q-text">關於 6.2 條（合作方式）與 6.4 條（集中管理機制）之差異，下列敘述何者正確？</p>
+<ul class="options">
+<li>(A) 6.2 條為雙邊或多邊協議下之自願合作，6.4 條則由監督機構集中管理核發信用額度</li>
+<li>(B) 6.2 條僅適用於已開發國家，6.4 條僅適用於開發中國家</li>
+<li>(C) 兩者皆不須進行相應調整，僅需登錄於各自國家清冊</li>
+<li>(D) 6.4 條已於 COP26 遭正式廢除，目前僅保留 6.2 條運作</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：A。6.2 條屬國家間自願合作架構，6.4 條則設有監督機構統一核發與管理信用額度。</div></details>
+</div>
+
+<div class="question"><span class="q-num">3</span>
+<p class="q-text">全球盤點（Global Stocktake）之運作週期與功能，下列敘述何者正確？</p>
+<ul class="options">
+<li>(A) 每十年進行一次，僅檢視已開發國家之減碳成效</li>
+<li>(B) 每五年進行一次，作為各國下一輪 NDC 修正之參考依據</li>
+<li>(C) 每年進行一次，並具強制性法律拘束力要求各國修法</li>
+<li>(D) 屬一次性檢視機制，僅於 2023 年執行一次後即結束</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：B。全球盤點每五年一次，作為強化各國下一輪 NDC 之依據，不具強制罰則。</div></details>
+</div>
+
+<h2 class="section-title">二、SBTi 與企業減碳目標細節</h2>
+
+<div class="question"><span class="q-num">4</span>
+<p class="q-text">依 SBTi 淨零標準（Net-Zero Standard），企業長期目標一般須將範疇一與二排放減少至基準年的多少比例以下，方能透過剩餘排放進行中和？</p>
+<ul class="options">
+<li>(A) 減少至基準年的 50% 以下</li>
+<li>(B) 減少至基準年的 25% 以下</li>
+<li>(C) 減少至基準年的 10% 以下</li>
+<li>(D) 減少至基準年的 5% 以下</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：C。SBTi 淨零標準要求長期目標將範疇一、二排放減量至基準年的 10% 以下（約 90% 以上減量），剩餘部分才可用中和處理。</div></details>
+</div>
+
+<div class="question"><span class="q-num">5</span>
+<p class="q-text">某企業採用 SBTi 快速路徑（SME Route）設定目標，下列關於其適用條件之敘述，何者不正確？</p>
+<ul class="options">
+<li>(A) 企業須為獨立公司，非任何集團之子公司</li>
+<li>(B) 企業可略過標準企業所需之「承諾」聲明步驟</li>
+<li>(C) 企業仍須提交範疇三之詳細分類清單並逐項設定目標</li>
+<li>(D) 企業之近程目標仍須對齊 1.5°C 路徑之減排幅度</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：C。SME 快速路徑簡化了範疇三之要求，企業無須逐項列出詳細分類清單，僅需承諾涵蓋整體範疇三之減量方向。</div></details>
+</div>
+
+<div class="question"><span class="q-num">6</span>
+<p class="q-text">依 SBTi 規範，企業設定範疇三近程目標時，若範疇三排放占總排放量 45%，其目標須至少涵蓋多少比例之範疇三排放量？</p>
+<ul class="options">
+<li>(A) 40%</li>
+<li>(B) 50%</li>
+<li>(C) 67%</li>
+<li>(D) 90%</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：C。當範疇三占比達 40% 以上時，近程目標須至少涵蓋 67% 之範疇三排放量。</div></details>
+</div>
+
+<div class="question"><span class="q-num">7</span>
+<p class="q-text">企業同時參與 SBTi 與 RE100 之關係，下列敘述何者最為正確？</p>
+<ul class="options">
+<li>(A) 兩者目標範疇不同但可互補，企業可同時參與且無強制先後順序</li>
+<li>(B) 須先完成 RE100 承諾，才能申請加入 SBTi</li>
+<li>(C) 兩者屬同一組織所主導，加入其一即自動納入另一項</li>
+<li>(D) 兩者均為政府強制規範，僅適用於上市公司</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：A。SBTi 聚焦整體排放目標，RE100 聚焦電力來源轉換，二者互補但無強制先後參與順序。</div></details>
+</div>
+
+<h2 class="section-title">三、CBAM 計算與制度細節</h2>
+
+<div class="question"><span class="q-num">8</span>
+<p class="q-text">CBAM 中「內含碳排放（Embedded Emissions）」計算原則上優先採用下列何種數據？</p>
+<ul class="options">
+<li>(A) 進口商所在國之官方統計平均值</li>
+<li>(B) 生產設施之實際監測數據，無法取得時方可採用預設值</li>
+<li>(C) 歐盟境內同類產品之排放係數，不論產地一律套用</li>
+<li>(D) 由申報人自行估計之數值，無須佐證資料</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：B。CBAM 原則上優先要求以生產設施實際監測數據計算，僅於資料不足時才允許採用預設值。</div></details>
+</div>
+
+<div class="question"><span class="q-num">9</span>
+<p class="q-text">CBAM 憑證價格之訂定機制與下列何者連動？</p>
+<ul class="options">
+<li>(A) 與國際原油價格連動</li>
+<li>(B) 依歐盟碳交易系統（EU ETS）每週平均拍賣價格計算</li>
+<li>(C) 由各會員國自行決定，彼此不一致</li>
+<li>(D) 採固定費率，不隨市場變動</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：B。CBAM 憑證價格參照 EU ETS 拍賣平台之每週平均價格計算，與碳市場價格連動。</div></details>
+</div>
+
+<div class="question"><span class="q-num">10</span>
+<p class="q-text">關於 CBAM 與 EU ETS 免費配額（Free Allocation）之關係，下列敘述何者正確？</p>
+<ul class="options">
+<li>(A) 兩者互不相關，免費配額不影響 CBAM 憑證繳交量</li>
+<li>(B) CBAM 涵蓋產業於 EU ETS 之免費配額將逐步調降，並反映於進口商應繳憑證量之扣減比例</li>
+<li>(C) 免費配額將於 CBAM 上路後立即全數取消，無過渡期</li>
+<li>(D) 免費配額僅適用於進口產品，境內生產不受影響</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：B。CBAM 設計上會隨 EU ETS 免費配額逐步調降，同步調整進口商應繳憑證之扣減比例，以避免重複保護。</div></details>
+</div>
+
+<h2 class="section-title">四、財務揭露框架的易混淆比較</h2>
+
+<div class="question"><span class="q-num">11</span>
+<p class="q-text">TCFD 建議之「情境分析（Scenario Analysis）」主要用途為何？</p>
+<ul class="options">
+<li>(A) 用以取代溫室氣體盤查作業</li>
+<li>(B) 評估企業在不同氣候政策與升溫路徑下之財務韌性與策略調整需求</li>
+<li>(C) 僅作為行銷宣傳素材，無實質分析功能</li>
+<li>(D) 專門用於計算碳權交易價格</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：B。情境分析用於評估企業在不同氣候與政策路徑下之策略韌性，屬前瞻性風險評估工具。</div></details>
+</div>
+
+<div class="question"><span class="q-num">12</span>
+<p class="q-text">CSRD（歐盟企業永續報告指令）採行之「雙重重大性（Double Materiality）」概念，其核心意涵為何？</p>
+<ul class="options">
+<li>(A) 僅評估企業對財務績效之影響，不考慮外部衝擊</li>
+<li>(B) 同時評估永續議題對企業財務之影響，以及企業活動對環境社會之外部衝擊</li>
+<li>(C) 僅適用於已開發國家之跨國企業</li>
+<li>(D) 指企業須編製兩份完全獨立、內容互不相關之報告書</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：B。雙重重大性同時考量「財務重大性」與「影響重大性」兩個面向，兩者並非互不相關而是併行評估。</div></details>
+</div>
+
+<div class="question"><span class="q-num">13</span>
+<p class="q-text">TNFD 建議採用之「LEAP」分析方法，其四階段依序為何？</p>
+<ul class="options">
+<li>(A) 界定（Locate）→ 評估（Evaluate）→ 分析（Assess）→ 準備（Prepare）</li>
+<li>(B) 準備（Prepare）→ 界定（Locate）→ 分析（Assess）→ 評估（Evaluate）</li>
+<li>(C) 分析（Assess）→ 界定（Locate）→ 準備（Prepare）→ 評估（Evaluate）</li>
+<li>(D) 評估（Evaluate）→ 分析（Assess）→ 界定（Locate）→ 準備（Prepare）</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：A。LEAP 為 Locate（界定介面）→ Evaluate（評估依賴與衝擊）→ Assess（評估風險與機會）→ Prepare（準備回應與揭露）。</div></details>
+</div>
+
+<div class="question"><span class="q-num">14</span>
+<p class="q-text">下列何者是 IFRS S2 與 TCFD 兩套架構之主要銜接關係？</p>
+<ul class="options">
+<li>(A) 兩者完全無關，各自獨立發展</li>
+<li>(B) IFRS S2 是以 TCFD 四大支柱為基礎，並進一步發展為可供財報審計之揭露準則</li>
+<li>(C) TCFD 已完全取代 IFRS S2，後者不再具實務效力</li>
+<li>(D) IFRS S2 僅適用於非上市公司，TCFD 僅適用於上市公司</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：B。IFRS S2 承繼並整併 TCFD 之四大支柱架構，並強化為具財務揭露性質之準則要求。</div></details>
+</div>
+
+<h2 class="section-title">五、碳權品質與方法學細節</h2>
+
+<div class="question"><span class="q-num">15</span>
+<p class="q-text">碳權核發流程中「外加性」測試常見之判定方式，下列何者非屬其中之一？</p>
+<ul class="options">
+<li>(A) 財務投資分析測試（判斷計畫是否具財務吸引力）</li>
+<li>(B) 障礙分析測試（判斷計畫是否面臨技術或制度障礙）</li>
+<li>(C) 共同實踐分析測試（判斷該做法是否已成為產業普遍常規）</li>
+<li>(D) 產品保固期限測試（判斷設備是否在保固期內運作）</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：D。常見外加性測試包含<span style="color:red;font-weight:900">財務投資分析、障礙分析、共同實踐分析</span>等，產品保固期限並非外加性判定方法。</div></details>
+</div>
+
+<div class="question"><span class="q-num">16</span>
+<p class="q-text">造林碳匯專案中所稱之「緩衝庫（Buffer Pool）」機制，其主要功能為何？</p>
+<ul class="options">
+<li>(A) 提供計畫開發商額外收益來源</li>
+<li>(B) 用以因應火災、蟲害等意外事件導致之碳匯逆轉風險，確保永久性</li>
+<li>(C) 作為計畫審核單位之保證金帳戶，與碳匯逆轉風險無關</li>
+<li>(D) 用於支付驗證機構之查證費用</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：B。緩衝庫是預留一定比例信用額度，用以因應碳匯逆轉（如森林火災）風險，確保專案整體永久性。</div></details>
+</div>
+
+<div class="question"><span class="q-num">17</span>
+<p class="q-text">核心碳原則（Core Carbon Principles, CCP）由下列哪一機構所發布，用以提升自願性碳市場信用額度品質？</p>
+<ul class="options">
+<li>(A) 國際碳市場誠信理事會（ICVCM）</li>
+<li>(B) 世界銀行</li>
+<li>(C) 國際標準化組織（ISO）</li>
+<li>(D) 世界貿易組織（WTO）</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：A。核心碳原則由國際碳市場誠信理事會（ICVCM）制定，作為自願性碳市場信用額度品質之基準。</div></details>
+</div>
+
+<div class="question"><span class="q-num">18</span>
+<p class="q-text">碳權方法學中所稱「洩漏（Leakage）」風險，主要指下列何種情形？</p>
+<ul class="options">
+<li>(A) 計畫因設備故障導致排放數據遺失</li>
+<li>(B) 計畫活動導致排放轉移至專案邊界之外，抵銷部分減量成效</li>
+<li>(C) 計畫開發商將收益轉移至境外帳戶</li>
+<li>(D) 監測設備因外洩事故而毀損</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：B。洩漏指專案活動使排放轉移至邊界外（如禁伐區導致伐木轉移至他處），削弱整體減量效果。</div></details>
+</div>
+
+<h2 class="section-title">六、台灣政策的細節辨析</h2>
+
+<div class="question"><span class="q-num">19</span>
+<p class="q-text">依台灣《氣候變遷因應法》相關子法，企業提出自主減量計畫並經核准後，主要可獲得下列何種效益？</p>
+<ul class="options">
+<li>(A) 直接免除當年度碳費繳交義務</li>
+<li>(B) 適用經核定之優惠費率，而非完全免繳</li>
+<li>(C) 取得政府發放之現金補貼</li>
+<li>(D) 自動取得 CBAM 憑證之豁免資格</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：B。自主減量計畫經核准後，適用的是優惠費率而非完全免除碳費繳交義務。</div></details>
+</div>
+
+<div class="question"><span class="q-num">20</span>
+<p class="q-text">台灣十二項關鍵戰略中，「碳捕捉、利用與封存（CCUS）」戰略主要鎖定之對象為何？</p>
+<ul class="options">
+<li>(A) 家戶用電之碳排放</li>
+<li>(B) 水泥、鋼鐵等難以透過電氣化大幅減量之產業</li>
+<li>(C) 交通運輸部門之個人車輛排放</li>
+<li>(D) 農業部門之甲烷排放</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：B。CCUS 主要鎖定水泥、鋼鐵等「難減量產業」，其製程排放難以透過電氣化或燃料替代大幅降低。</div></details>
+</div>
+
+<div class="question"><span class="q-num">21</span>
+<p class="q-text">關於台灣自然碳匯發展受限之主因，下列敘述何者最為精確？</p>
+<ul class="options">
+<li>(A) 缺乏相關法規與政策工具</li>
+<li>(B) 樹木生長速度過慢，短期內難見成效</li>
+<li>(C) 地狹人稠使可擴增森林與海洋碳匯之土地與海域空間有限</li>
+<li>(D) 民眾對造林活動參與意願低落</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：C。台灣土地面積有限、開發密度高，可用於擴增碳匯之空間本身受地理條件限制，是主要瓶頸。</div></details>
+</div>
+
+<div class="question"><span class="q-num">22</span>
+<p class="q-text">台灣氫能發展規劃中，短中期優先應用領域主要為何？</p>
+<ul class="options">
+<li>(A) 家用瓦斯全面替換</li>
+<li>(B) 工業製程燃料替代與電力調度輔助等難電氣化領域</li>
+<li>(C) 個人家用電動車充電</li>
+<li>(D) 農業灌溉系統動力來源</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：B。氫能短中期規劃聚焦工業製程燃料替代與電力系統調度輔助等難以直接電氣化之領域。</div></details>
+</div>
+
+<h2 class="section-title">七、盤查邊界與方法學辨析</h2>
+
+<div class="question"><span class="q-num">23</span>
+<p class="q-text">企業採用「財務控制法」設定組織邊界時，其判斷依據主要為何？</p>
+<ul class="options">
+<li>(A) 企業對該營運單位是否具有股權多數</li>
+<li>(B) 企業是否具備主導該營運單位財務與營運政策之能力</li>
+<li>(C) 企業是否為該營運單位之唯一供應商</li>
+<li>(D) 該營運單位是否位於同一國家境內</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：B。財務控制法判斷依據為企業是否具主導該營運單位財務與營運政策之能力，而非單純股權比例。</div></details>
+</div>
+
+<div class="question"><span class="q-num">24</span>
+<p class="q-text">範疇二排放「市場基礎法」計算時，若企業未購買任何再生能源憑證，應如何處理？</p>
+<ul class="options">
+<li>(A) 直接以零排放計算</li>
+<li>(B) 採用該市場之「剩餘混合排放係數（Residual Mix）」計算</li>
+<li>(C) 全數比照地區基礎法計算結果，不再區分兩種方法</li>
+<li>(D) 無須揭露範疇二排放數據</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：B。未購買憑證之企業於市場基礎法下應採用剩餘混合排放係數計算，該係數通常高於一般電網平均值。</div></details>
+</div>
+
+<div class="question"><span class="q-num">25</span>
+<p class="q-text">金融機構依循 PCAF（Partnership for Carbon Accounting Financials）方法學計算「融資排放」時，其核心概念為何？</p>
+<ul class="options">
+<li>(A) 依放款金額占被投資企業總資本或負債之比例，分攤該企業之排放量</li>
+<li>(B) 僅計算金融機構自身辦公室之用電排放</li>
+<li>(C) 以放款總額直接乘以固定碳排放係數</li>
+<li>(D) 完全排除對中小企業之放款計算</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：A。PCAF 方法學核心為依歸屬比例（放款/投資金額占被投資對象總資本或負債之比例）分攤排放量。</div></details>
+</div>
+
+<div class="question"><span class="q-num">26</span>
+<p class="q-text">關於 ISO 14064-1、ISO 14067 與 ISO 14068-1 三項標準之適用範疇，下列敘述何者正確？</p>
+<ul class="options">
+<li>(A) 三者皆專門用於產品碳足跡計算，內容高度重疊</li>
+<li>(B) ISO 14064-1 用於組織層級盤查、14067 用於產品碳足跡、14068-1 用於碳中和管理</li>
+<li>(C) ISO 14068-1 專門規範財務報告揭露格式，與碳排放無關</li>
+<li>(D) 三者皆已被 IFRS S2 取代，不再具實務效力</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：B。三項標準分別對應組織層級盤查（14064-1）、產品碳足跡（14067）與碳中和管理（14068-1），適用範疇各不相同。</div></details>
+</div>
+
+<h2 class="section-title">八、碳定價與制度設計的細緻比較</h2>
+
+<div class="question"><span class="q-num">27</span>
+<p class="q-text">碳排放交易制度（ETS）中「總量管制與交易（Cap-and-Trade）」設計，其減碳確定性主要來自於何處？</p>
+<ul class="options">
+<li>(A) 市場自由競價機制</li>
+<li>(B) 政府事先設定之排放總量上限，價格則隨供需浮動</li>
+<li>(C) 固定不變之單位碳價</li>
+<li>(D) 企業自願申報之排放量上限</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：B。Cap-and-Trade 設計的減碳確定性來自政府預先設定之總量上限，價格則交由市場機制決定。</div></details>
+</div>
+
+<div class="question"><span class="q-num">28</span>
+<p class="q-text">企業設定「影子碳價（Shadow Carbon Price）」高於現行法規碳費費率之主要考量為何？</p>
+<ul class="options">
+<li>(A) 為配合政府稽核要求，須採用較高數值</li>
+<li>(B) 用以將未來碳定價政策趨嚴之風險提前納入投資決策評估</li>
+<li>(C) 影子碳價須與實際碳費費率完全一致，不能有差異</li>
+<li>(D) 純粹為提升企業永續報告書之外觀數據</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：B。企業採較高之影子碳價，主要目的在於將未來政策趨嚴的風險提前納入長期投資評估，強化決策韌性。</div></details>
+</div>
+
+<div class="question"><span class="q-num">29</span>
+<p class="q-text">下列何者為碳定價機制中「價格型工具」與「數量型工具」之根本差異？</p>
+<ul class="options">
+<li>(A) 價格型工具固定費率、排放量隨市場調整；數量型工具固定總量、價格隨市場調整</li>
+<li>(B) 價格型工具僅適用於能源業，數量型工具僅適用於製造業</li>
+<li>(C) 兩者對減碳成效完全相同，僅名稱不同</li>
+<li>(D) 數量型工具不涉及任何市場交易機制</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：A。價格型工具（如碳稅）固定價格、排放量隨經濟活動變動；數量型工具（如 ETS）固定總量、價格隨市場供需調整。</div></details>
+</div>
+
+<h2 class="section-title">九、循環經濟與農業應用（進階）</h2>
+
+<div class="question"><span class="q-num">30</span>
+<p class="q-text">循環經濟中所稱之「R 策略」層級（如減量、再利用、再製造、回收），其排序原則通常為何？</p>
+<ul class="options">
+<li>(A) 優先順序由回收開始，其次才考慮減量</li>
+<li>(B) 優先考量從源頭減少資源投入，其次為再利用與再製造，回收列為較後選項</li>
+<li>(C) 各層級無優先順序之分，可任意選擇</li>
+<li>(D) 僅適用於工業製造業，不適用於農業</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：B。R 策略層級原則上優先考量源頭減量，其次為再利用、再製造，回收通常列為資源循環的較後端選項。</div></details>
+</div>
+
+<div class="question"><span class="q-num">31</span>
+<p class="q-text">農場推動有機質循環利用（如禽畜糞肥堆肥回田），對其碳足跡計算之主要影響為何？</p>
+<ul class="options">
+<li>(A) 可降低化學肥料製造與運輸階段之間接排放</li>
+<li>(B) 對碳足跡計算完全無影響，僅屬管理面議題</li>
+<li>(C) 會使碳足跡計算範圍縮小，不再需要納入施肥階段</li>
+<li>(D) 僅影響產品外觀品質，與排放係數無關</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：A。以有機堆肥取代部分化學肥料，可降低肥料製造與運輸階段之間接排放，屬碳足跡計算中可量化之改善項目。</div></details>
+</div>
+
+<div class="question"><span class="q-num">32</span>
+<p class="q-text">企業辦理 ESG 農場參訪活動，若欲避免被質疑為「漂綠」，下列作法何者較為適當？</p>
+<ul class="options">
+<li>(A) 對外宣稱活動已使企業達成碳中和</li>
+<li>(B) 清楚說明活動性質為教育示範，並揭露數據來源與計算假設之侷限性</li>
+<li>(C) 完全不提供任何數據，僅著重活動氣氛</li>
+<li>(D) 將活動照片作為唯一佐證資料對外發布</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：B。清楚界定教育示範性質、揭露數據來源與計算假設之侷限，是降低漂綠爭議風險的適當做法。</div></details>
+</div>
+
+<h2 class="section-title">十、綜合判斷題</h2>
+
+<div class="question"><span class="q-num">33</span>
+<p class="q-text">某企業之範疇一、二排放占比極低，主要排放來自其供應鏈上游原物料採購，該企業依 SBTi 指引應優先強化下列何種措施？</p>
+<ul class="options">
+<li>(A) 汰換辦公室空調設備以降低範疇二排放</li>
+<li>(B) 與上游供應商合作推動採購標準與供應鏈減碳計畫</li>
+<li>(C) 僅專注於自有廠房之能源效率提升</li>
+<li>(D) 停止揭露範疇三排放數據以降低盤查成本</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：B。若排放主要集中於供應鏈上游（範疇三類別 1），企業應優先透過供應商合作與採購政策推動減碳。</div></details>
+</div>
+
+<div class="question"><span class="q-num">34</span>
+<p class="q-text">某農場欲同時滿足教育展示與碳盤查標準精神，下列何種呈現方式最能兼顧兩者？</p>
+<ul class="options">
+<li>(A) 以口號式標語取代具體數據，強調環保理念</li>
+<li>(B) 展示各生產階段之活動數據與對應排放係數，並註明數據來源與估算方式</li>
+<li>(C) 僅呈現最終產品之碳足跡總值，不揭露計算過程</li>
+<li>(D) 引用他人研究結論，未標示是否適用於本場條件</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：B。兼具教育性與盤查精神的呈現方式，須包含各階段活動數據、排放係數，並清楚標示資料來源與估算方法。</div></details>
+</div>
+
+<div class="question"><span class="q-num">35</span>
+<p class="q-text">企業於永續報告書中同時採用 GRI 準則與 IFRS 永續揭露準則，其主要合理性為何？</p>
+<ul class="options">
+<li>(A) 兩套準則內容完全相同，重複採用僅為形式需求</li>
+<li>(B) GRI 回應廣泛利害關係人資訊需求，IFRS 回應投資人財務決策需求，兩者可互補</li>
+<li>(C) 採用兩套準則違反國際慣例，應擇一即可</li>
+<li>(D) IFRS 準則已涵蓋 GRI 全部內容，無須並行採用</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：B。GRI 著重廣泛利害關係人資訊需求（雙重重大性），IFRS 聚焦投資人財務決策需求，兩者定位不同、可互補使用。</div></details>
+</div>
+
+<div class="question"><span class="q-num">36</span>
+<p class="q-text">關於碳權「登錄與註銷（Registration and Retirement）」機制之目的，下列敘述何者正確？</p>
+<ul class="options">
+<li>(A) 僅為方便計畫開發商追蹤銷售紀錄，與重複計算無關</li>
+<li>(B) 確保碳權於使用後即從流通市場移除，避免同一減量成果被重複主張</li>
+<li>(C) 註銷後之碳權仍可再次於市場上轉售</li>
+<li>(D) 登錄機制僅適用於強制性碳市場，自願性市場不需要</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：B。註銷機制確保碳權使用後正式退出流通，防止同一減量成果被不同主體重複主張，是避免重複計算的關鍵設計。</div></details>
+</div>
+
+<div class="question"><span class="q-num">37</span>
+<p class="q-text">下列關於「碳洩漏（Carbon Leakage）」於國家政策層級之定義，何者最為精確？</p>
+<ul class="options">
+<li>(A) 指企業因國內碳定價成本上升，將生產移轉至碳管制較寬鬆之國家，導致全球排放未實質減少</li>
+<li>(B) 指企業因設備老舊導致排放數據外洩至競爭對手</li>
+<li>(C) 指碳權交易平台發生資安事件導致額度遺失</li>
+<li>(D) 指森林大火造成儲存於林木中的碳釋出至大氣</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：A。國家政策層級之碳洩漏，指企業因國內碳成本上升而將產能移轉至管制較寬鬆國家，使全球整體排放未實質下降。</div></details>
+</div>
+
+<div class="question"><span class="q-num">38</span>
+<p class="q-text">企業於揭露 IFRS S2 相關資訊時，若其範疇三排放具重大性，下列敘述何者正確？</p>
+<ul class="options">
+<li>(A) 範疇三排放屬選擇性揭露項目，企業可自由決定是否揭露</li>
+<li>(B) 具重大性之範疇三排放應予揭露，並可說明資料品質限制與估算方法</li>
+<li>(C) 範疇三排放僅限於製造業揭露，服務業無須揭露</li>
+<li>(D) 揭露範疇三排放將自動觸發會計師出具保留意見</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：B。若範疇三排放具重大性，企業應予揭露，並可依實際資料取得狀況說明估算方法與限制，非全然自由選擇。</div></details>
+</div>
+
+<div class="question"><span class="q-num">39</span>
+<p class="q-text">下列何者最能說明「淨零標準」與單純「碳抵換為主之碳中和」在減碳路徑設計上的根本差異？</p>
+<ul class="options">
+<li>(A) 淨零標準要求深度實質減量為優先，抵換僅處理無法避免之殘餘排放</li>
+<li>(B) 兩者路徑完全相同，僅使用之詞彙不同</li>
+<li>(C) 碳中和路徑要求減量幅度高於淨零標準</li>
+<li>(D) 淨零標準完全禁止使用任何形式之碳權</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：A。淨零標準強調深度實質減量優先於抵換，抵換僅用於處理難以避免之殘餘排放，與單純以抵換平衡當期排放的作法有本質差異。</div></details>
+</div>
+
+<div class="question"><span class="q-num">40</span>
+<p class="q-text">企業導入內部碳定價後，若某投資案於現行碳費費率下具經濟效益，但於企業自設之影子碳價下不具效益，企業應如何解讀此結果？</p>
+<ul class="options">
+<li>(A) 直接否決該投資案，不需進一步評估</li>
+<li>(B) 該結果顯示此投資案在未來碳成本趨嚴情境下可能面臨較高風險，需納入策略評估</li>
+<li>(C) 影子碳價設定錯誤，應立即調降至與現行碳費一致</li>
+<li>(D) 此結果與投資決策無關，僅供內部參考不具實質意義</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：B。影子碳價下不具效益，反映該投資案在未來碳成本上升情境下可能承受較高風險，應納入策略性評估而非直接否決或忽略。</div></details>
+</div>
+
+<div class="question"><span class="q-num">41</span>
+<p class="q-text">關於水足跡（Water Footprint）概念中「灰水足跡（Grey Water Footprint）」之定義，下列何者正確？</p>
+<ul class="options">
+<li>(A) 指生產過程中實際消耗之地表水與地下水總量</li>
+<li>(B) 指稀釋污染物至符合水質標準所需之淡水量</li>
+<li>(C) 指作物生長所需之雨水總量</li>
+<li>(D) 指生產過程中蒸發散失之水量</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：B。灰水足跡指將污染物稀釋至符合環境水質標準所需之淡水量，與藍水（地表/地下水消耗）、綠水（雨水利用）足跡不同。</div></details>
+</div>
+
+<div class="question"><span class="q-num">42</span>
+<p class="q-text">企業推動生物多樣性淨增益（Biodiversity Net Gain）之核心精神為何？</p>
+<ul class="options">
+<li>(A) 開發活動須完全零衝擊，不得對生態環境造成任何影響</li>
+<li>(B) 開發活動對生物多樣性造成之損失，須透過補償措施使整體生態狀況優於開發前基準</li>
+<li>(C) 僅要求企業繳納生態保育基金，無須實際改善生態狀況</li>
+<li>(D) 適用範圍僅限於海洋生態系統</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：B。生物多樣性淨增益要求開發活動的生態損失須經補償措施抵銷後，使整體生態狀況優於開發前之基準狀態。</div></details>
+</div>
+
+<div class="question"><span class="q-num">43</span>
+<p class="q-text">下列何者最能描述歐盟永續分類標準（EU Taxonomy）中「不造成重大損害（DNSH）」原則之意涵？</p>
+<ul class="options">
+<li>(A) 經濟活動須對六大環境目標之一有實質貢獻，且不得對其餘目標造成重大損害</li>
+<li>(B) 經濟活動僅須符合當地法規即可，無須額外評估環境目標</li>
+<li>(C) DNSH 原則僅適用於能源產業，其他產業不須符合</li>
+<li>(D) 只要企業取得 ISO 認證，即自動符合 DNSH 原則</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：A。DNSH 原則要求經濟活動在對某一環境目標有實質貢獻的同時，不得對其他環境目標造成重大損害，兩者須同時滿足。</div></details>
+</div>
+
+<div class="question"><span class="q-num">44</span>
+<p class="q-text">下列關於第三方查驗機構（VVB）於碳權核發流程中之角色，何者敘述正確？</p>
+<ul class="options">
+<li>(A) VVB 負責直接核發碳權予計畫開發商</li>
+<li>(B) VVB 依方法學規範獨立查證計畫之減量成果，作為核發依據之一環，但非核發機構本身</li>
+<li>(C) VVB 僅負責計畫開發前之財務可行性評估</li>
+<li>(D) VVB 之查證結果不影響碳權最終核發數量</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：B。VVB（查驗機構）負責依方法學獨立查證減量成果之真實性，作為核發流程中的查證環節，但實際核發仍由登錄機構執行。</div></details>
+</div>
+
+<div class="question"><span class="q-num">45</span>
+<p class="q-text">關於「永久性（Permanence）」風險於林業碳匯專案中之意涵，下列敘述何者正確？</p>
+<ul class="options">
+<li>(A) 指專案土地所有權須永久登記於單一開發商名下</li>
+<li>(B) 指已計入之碳匯可能因火災、病蟲害等因素於未來逆轉釋出，需以監測與緩衝機制因應</li>
+<li>(C) 指專案一旦核發碳權後即永不需再監測</li>
+<li>(D) 與碳權品質評估無直接關聯</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：B。永久性風險指已計入之碳匯儲存量未來可能因自然或人為因素逆轉釋出，需透過長期監測與緩衝庫等機制管理。</div></details>
+</div>
+
+<div class="question"><span class="q-num">46</span>
+<p class="q-text">企業於揭露氣候相關風險時，若採用「情境分析」評估某升溫路徑下之資產減損風險，此作法主要對應下列何種風險類型？</p>
+<ul class="options">
+<li>(A) 僅對應實體風險，與轉型風險無關</li>
+<li>(B) 依所選情境內容，可能同時涵蓋實體風險與轉型風險兩者</li>
+<li>(C) 僅對應法律責任風險，與氣候無關</li>
+<li>(D) 情境分析僅用於評估企業聲譽風險</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：B。情境分析視所設定之路徑內容（如高排放情境或積極減碳情境），可能同時涉及實體風險與轉型風險之評估。</div></details>
+</div>
+
+<div class="question"><span class="q-num">47</span>
+<p class="q-text">下列關於自願性碳市場（VCM）與強制性碳市場（Compliance Market）之差異，何者敘述正確？</p>
+<ul class="options">
+<li>(A) 兩者交易之信用額度可完全互通，無須額外轉換程序</li>
+<li>(B) 強制性市場由法規強制設定總量上限並要求特定對象參與，自願性市場則無強制參與義務</li>
+<li>(C) 自願性市場僅存在於已開發國家</li>
+<li>(D) 強制性市場之信用額度價格恆低於自願性市場</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：B。強制性市場（如 EU ETS）由法規設定總量並要求特定對象參與，自願性市場則由企業自主參與，兩者制度基礎不同。</div></details>
+</div>
+
+<div class="question"><span class="q-num">48</span>
+<p class="q-text">某企業於永續報告書中揭露其已「完全達成碳中和」，但未提供任何第三方查證資料與抵換明細，此作法主要面臨下列何種風險？</p>
+<ul class="options">
+<li>(A) 無實質風險，因碳中和宣告不需查證</li>
+<li>(B) 可能構成漂綠疑慮，因宣告缺乏可驗證之量化依據</li>
+<li>(C) 僅屬行銷用語，不受任何規範檢視</li>
+<li>(D) 此作法完全符合 ISO 14068-1 之揭露要求</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：B。缺乏第三方查證與抵換明細之碳中和宣告，容易被質疑為漂綠，亦不符合 ISO 14068-1 對揭露透明度之要求。</div></details>
+</div>
+
+<div class="question"><span class="q-num">49</span>
+<p class="q-text">若某企業之產品碳足跡計算涵蓋原料取得、生產、配送、使用至廢棄處理等完整生命週期，此邊界設定方式稱為下列何者？</p>
+<ul class="options">
+<li>(A) 門到門（Gate-to-Gate）</li>
+<li>(B) 從搖籃到墳墓（Cradle-to-Grave）</li>
+<li>(C) 從搖籃到大門（Cradle-to-Gate）</li>
+<li>(D) 僅限生產階段之單一設施邊界</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：B。涵蓋原料、生產、配送、使用至廢棄處理之完整生命週期邊界，稱為「從搖籃到墳墓」。</div></details>
+</div>
+
+<div class="question"><span class="q-num">50</span>
+<p class="q-text">農場若欲將碳足跡教育內容轉化為可對接企業 ESG 報告之素材，下列何種作法最能兼顧數據嚴謹度與可實作性？</p>
+<ul class="options">
+<li>(A) 直接引用國外農場之碳足跡數據作為自身數值對外發布</li>
+<li>(B) 以政府公開排放係數搭配自行蒐集之活動數據估算，並清楚標示為教育示範性質與資料侷限</li>
+<li>(C) 委託行銷公司撰寫故事性文案，不涉及任何數據來源</li>
+<li>(D) 等待取得正式碳中和認證後才開始蒐集任何相關資料</li>
+</ul>
+<details><summary>顯示解答</summary><div class="answer-box">答案：B。結合政府公開係數與自行蒐集之實際活動數據，並清楚標示教育示範性質與限制，是兼顧嚴謹度與可執行性的務實作法。</div></details>
+</div>
+
+<div class="answer-key">
+<h2 class="section-title" style="margin-top:0">答案總覽</h2>
+<table>
+<tr><th>題號</th><th>答案</th><th>題號</th><th>答案</th><th>題號</th><th>答案</th><th>題號</th><th>答案</th><th>題號</th><th>答案</th></tr>
+<tr><td>1</td><td>B</td><td>11</td><td>B</td><td>21</td><td>C</td><td>31</td><td>A</td><td>41</td><td>B</td></tr>
+<tr><td>2</td><td>A</td><td>12</td><td>B</td><td>22</td><td>B</td><td>32</td><td>B</td><td>42</td><td>B</td></tr>
+<tr><td>3</td><td>B</td><td>13</td><td>A</td><td>23</td><td>B</td><td>33</td><td>B</td><td>43</td><td>A</td></tr>
+<tr><td>4</td><td>C</td><td>14</td><td>B</td><td>24</td><td>B</td><td>34</td><td>B</td><td>44</td><td>B</td></tr>
+<tr><td>5</td><td>C</td><td>15</td><td>D</td><td>25</td><td>A</td><td>35</td><td>B</td><td>45</td><td>B</td></tr>
+<tr><td>6</td><td>C</td><td>16</td><td>B</td><td>26</td><td>B</td><td>36</td><td>B</td><td>46</td><td>B</td></tr>
+<tr><td>7</td><td>A</td><td>17</td><td>A</td><td>27</td><td>B</td><td>37</td><td>A</td><td>47</td><td>B</td></tr>
+<tr><td>8</td><td>B</td><td>18</td><td>B</td><td>28</td><td>B</td><td>38</td><td>B</td><td>48</td><td>B</td></tr>
+<tr><td>9</td><td>B</td><td>19</td><td>B</td><td>29</td><td>A</td><td>39</td><td>A</td><td>49</td><td>B</td></tr>
+<tr><td>10</td><td>B</td><td>20</td><td>B</td><td>30</td><td>B</td><td>40</td><td>B</td><td>50</td><td>B</td></tr>
+</table>
+</div>
+
+<footer>
+本試題為依 iPAS 淨零碳規劃管理師公告試題主題延伸自製之進階練習題，僅供學習參考，非官方試題，內容以最新法規與國際準則公告為準。
+</footer>
+
+<script>
+function toggleAll() {
+  var all = document.querySelectorAll('details');
+  var anyClosed = Array.from(all).some(d => !d.open);
+  all.forEach(d => d.open = anyClosed);
+}
+</script>
+
+</body>
+</html>
