@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+    font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;
+    font-size:22px;
+    line-height:1.9;
+    color:#333;
+    background:#f5f7fa;
+    max-width:1900px;
+    margin:auto;
+    padding:20px;
+}
+
+h1{
+    font-size:2.2rem;
+    text-align:center;
+    color:#234;
+    margin-bottom:30px;
+}
+
+.q-block{
+	border-left:6px solid #18bbc9;
+    background:#fff;
+    border-radius:18px;
+    padding:24px;
+    margin-bottom:30px;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.q-text{
+    font-size: 22px;
+    font-weight:700;
+    line-height:1.8;
+    margin-bottom:18px;
+    color:#1f2937;
+}
+
+.opt-list{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.opt-list li{
+    font-size: 22px;
+    line-height:2;
+    padding:10px 15px;
+    margin:10px 0;
+    background:#f8fafc;
+    border-radius:10px;
+    transition:.2s;
+}
+
+.opt-list li:hover{
+    background:#e8f4fc;
+}
+
+.ans-block{
+    margin-top:20px;
+    padding:18px;
+    background:#eef8ff;
+    border-left:6px solid #3498db;
+    border-radius:10px;
+    font-size: 22px;
+    line-height:1.9;
+}
+@media (max-width:768px){
+
+    body{
+        font-size: 22px;
+        padding:16px;
+    }
+
+    h1{
+        font-size:2rem;margin-top: 6rem ;padding:8px 18px 30px;
+    }
+
+    .q-block{
+        padding:20px;
+        border-radius:14px;
+    }
+
+    .q-text{
+        font-size: 22px;
+    }
+
+    .opt-list li{
+        font-size: 22px;
+        padding:14px;
+    }
+
+    .ans-block{
+        font-size: 22px;
+    }
+
+}
+
+.badgerowbt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px;
+    background: #ffffff;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+a.badge1 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #007286;
+    color: #fff;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+a.badge2 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #007286;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+a.badge3 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #b8238d;
+    color: yellow;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+</style>
+</head>
+<body>
+<div class="badgerowbt">	
+	考科二_<div><a href="https://snoweryi.github.io/yilearn/exam_02_1.html" class="badge1">1</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_02_01.html" class="badge1">2</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_02_3.html" class="badge1">3</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_02_4.html" class="badge1">4</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_02_5.html" class="badge1">5</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_02_6.html" class="badge1">6</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_02_7.html" class="badge1">7</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_02_8.html" class="badge1">8</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_02_9.html" class="badge1">9</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_02_10.html" class="badge1">10</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_02_11.html" class="badge1">11</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_02_12.html" class="badge1">12</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_02_13.html" class="badge1">13</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_02_14.html" class="badge1">14</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_02_15.html" class="badge2">15</a></div>
+	
+	
+	
+	<div><a href="https://snoweryi.github.io/yilearn/menu.html" class="badge3">目錄</a></div>
+  </div>
+  <h1>iPAS 淨零碳規劃管理師模擬題庫</h1>
+<div class="q-block">
+    <div class="q-text">1. 某企業在碳足跡計算中遇到多產品共用製程的情況，需進行分配，下列對分配原則的理解何者正確？</div>
+    <ul class="opt-list">
+        <li>A. 一律按照各產品重量佔比來分配共用製程排放量即可完成報告，因為重量最簡單客觀可行</li>
+        <li>B. 共用製程分配結果不影響個別產品碳足跡數值的最終準確性結論，因為總排放量不變的</li>
+        <li>C. 應按照各產品經濟價值佔比來分配共用製程排放量才最為合理，因為高價應多擔碳排責任</li>
+        <li>D. 應優先嘗試避免分配或依物理因果關係分配共用製程排放量，因為ISO建議分配為最後</li>
+    </ul>
+    <div class="ans-block"><strong>解答：D</strong> | 解析：依據 ISO 14067 與 ISO 14044 的原則：
+	1. 優先避免分配（Avoid allocation）例如拆分製程、增加量測資料或擴大系統邊界。<BR>
+	2. 若無法避免分配：應優先採用物理因果關係（Physical relationship），例如：質量（重量）、能量、體積、加工時間、熱值等
+	3. 若仍無法建立物理關係：才可採用其他關係，例如經濟價值分配。<br>
+	因此，ISO 將分配視為最後手段，D 的敘述完全符合標準精神。<br>
+	考試記憶口訣：先避免、再物理、最後經濟。</div>
+</div>
+
+
+<div class="q-block">
+    <div class="q-text">2. 某食品公司欲計算產品碳足跡，需先進行生命週期評估，下列對LCA四階段的理解何者正確？</div>
+    <ul class="opt-list">
+        <li>A. 四階段應依序執行且後階段的發現可回饋迭代修正前段假設，因為是動態調整過程</li>
+        <li>B. 清單分析是LCA四階段中最後執行的步驟因為需先完成衝擊評估，因為順序固定在後</li>
+        <li>C. 目標範疇定義階段可在LCA執行過程中直接省略跳過不做，因為只要數據完整就夠了</li>
+        <li>D. 四個階段完全獨立運作互不影響彼此的執行結果和方向，因為每階段有各自的方法論</li>
+    </ul>
+    <div class="ans-block"><strong>解答：A</strong> | 解析：依據 ISO 14040 與 ISO 14044，LCA（Life Cycle Assessment，生命週期評估）包含四個階段：<BR>
+	目標與範疇定義（Goal and Scope Definition）<BR>
+	生命週期盤查分析（LCI, Life Cycle Inventory）<BR>
+	生命週期衝擊評估（LCIA, Life Cycle Impact Assessment）<BR>
+	結果解釋（Interpretation）<BR>
+
+	LCA 並非單向流程，而是**具有反覆修正（Iterative Process）**的特性。例如在盤查或解釋階段發現資料不足、系統邊界設定不合理，都可以回頭修正目標、範疇或盤查資料。<BR>
+	考試記憶口訣：目標 → 盤查 → 衝擊 → 解釋（可回頭修正）</div>
+</div>
+
+
+ABD
+<div class="q-block">
+    <div class="q-text">3. 某企業今年併購一家工廠，需調整盤查報告以反映組織變動，下列對重新計算基準年的理解何者正確？</div>
+    <ul class="opt-list">
+        <li>A. 併購新增工廠不影響已設定基準年排放數據因此完全無需調整處理，因為是新增非既有</li>
+        <li>B. 直接將新併購工廠的排放量加入當年度報告數據即可完成組織變動，因為發生在當年度</li>
+        <li>C. 只需在盤查報告中加註說明文字即可不需要實質調整基準年的數據，因為附註足以說明</li>
+        <li>D. 應將新工廠排放量回溯加入基準年重新計算以確保跨年度可比較，因為邊界變動須對齊</li>
+    </ul>
+    <div class="ans-block"><strong>解答：D</strong> | 解析：依據 GHG Protocol Corporate Standard 及 ISO 14064-1 的原則，當企業發生重大組織邊界變動（例如併購、出售、分割、合併）時，若對排放量具有重大影響，應重新計算（Recalculate）基準年排放量，以維持各年度資料的一致性與可比較性<BR>
+	考試記憶口訣：併購、出售、合併、分割 → 邊界變動 → 重算基準年。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">4. 某企業進行溫室氣體盤查時需評估數據品質，下列對數據品質管理的理解何者正確？</div>
+    <ul class="opt-list">
+        <li>A. 應建立系統化的數據品質評估與持續改善管理機制，因為數據可靠度影響盤查可信</li>
+        <li>B. 只要使用政府公告的官方排放係數數據就已足夠品質要求，因為官方數據無需再評</li>
+        <li>C. 數據品質的確認工作完全由第三方查驗機構來負責執行，因為企業無法客觀自我評</li>
+        <li>D. 合理估算得到的數據與現場實測的數據在品質上完全相同，因為ISO都認可這兩種</li>
+    </ul>
+    <div class="ans-block"><strong>解答：A</strong> | 解析：依據 ISO 14064-1 與 GHG Protocol Corporate Standard，企業應建立完整的**數據品質管理（Data Quality Management）**制度，包括：
+
+		評估數據品質<BR>
+		建立文件化程序<BR>
+		內部審查與品質管制（QA/QC）<BR>
+		持續改善資料蒐集方式<BR>
+		提升數據完整性、一致性、透明性與準確性<BR>
+
+		數據品質直接影響盤查結果的可信度及查證結果，因此企業本身就應負責建立管理機制。<BR>
+		考試記憶口訣：數據品質靠企業，建立制度持續改善；官方係數不等於高品質，估算不等於實測。
+		</div>
+</div>
+
+
+<div class="q-block">
+    <div class="q-text">5. 某企業想在產品上標示碳足跡數值供消費者參考，下列對碳足跡溝通的理解何者正確？</div>
+    <ul class="opt-list">
+        <li>A. 企業可自行設計碳足跡標示的格式和呈現方式而無需遵循任何的標準規範，因為無統一規定</li>
+        <li>B. 碳足跡標示須依ISO 14067溝通規範確保資訊透明且不被誤解，因為保護消費者的</li>
+        <li>C. 產品碳足跡標示只需標出最終計算的數值即可而不需要任何額外背景說明，因為簡潔明瞭</li>
+        <li>D. 碳足跡數值用於產品標示時完全不需經過任何第三方獨立查驗，因為屬行銷自主權</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：依據 ISO 14067，產品碳足跡（CFP）若對外溝通，應遵循標準的溝通要求，確保資訊：
+
+透明（Transparency）<BR>
+真實可信（Credibility）<BR>
+可追溯（Traceability）<BR>
+不誤導消費者（Not misleading）<BR>
+有足夠的背景資訊供理解<BR>
+
+若企業進一步使用碳足跡標章或公開宣告，通常還需符合主管機關或方案的規定，並可能需要第三方查證<BR>
+考試記憶口訣：碳足跡要公開：透明、不誤導、可查證。
+</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">6. 某企業在產品碳足跡報告中需處理不確定性，下列對不確定性管理的理解何者正確？</div>
+    <ul class="opt-list">
+        <li>A. 使用政府公告的官方排放係數來計算即可消除所有不確定性問題，因為官方數據已驗證</li>
+        <li>B. 碳足跡計算的不確定性僅來自量測設備的儀器誤差而不含其他來源，因為設備是主因</li>
+        <li>C. 不確定性數值偏高就直接代表碳足跡報告完全不可信賴而應該廢棄，因為品質太差了</li>
+        <li>D. 應系統性識別量化並在報告中透明揭露所有不確定性的來源和影響，因為提升報告可信</li>
+    </ul>
+    <div class="ans-block"><strong>解答：D</strong> | 解析：依據 ISO 14067 與生命週期評估（LCA）方法，不確定性管理的重點不是消除所有不確定性，而是：
+
+識別不確定性來源<BR>
+評估其影響程度<BR>
+進行合理量化分析<BR>
+在報告中透明揭露假設與限制<BR>
+
+完整的不確定性管理反而能提升碳足跡報告的可信度與可追溯性<BR>
+<strong STYLE="COLOR:RED">考試記憶口訣：不確定性不是隱藏，而是管理；不是消除，而是量化與揭露</strong>
+</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">7. 某企業在LCA衝擊評估階段需選擇適當的衝擊類別，下列對衝擊評估的理解何者正確？</div>
+    <ul class="opt-list">
+        <li>A. ISO 14067產品碳足跡只需評估全球暖化潛勢這單一衝擊類別即可，因為碳足跡聚焦氣候</li>
+        <li>B. 不同衝擊類別的評估結果數值可以直接加總為一個綜合環境分數來用，因為單位可統一</li>
+        <li>C. 應依研究目的選擇需要評估的相關衝擊類別因為完整LCA可涵蓋多類，因為須看研究需求</li>
+        <li>D. 特徵化步驟將清單分析的物質排放數據透過科學模型轉換為衝擊指標，因為須量化環境影</li>
+    </ul>
+    <div class="ans-block"><strong>解答：D</strong> | 解析：在 LCA（生命週期評估）的衝擊評估階段（Life Cycle Impact Assessment, LCIA）中，**特徵化（Characterization）**是重要步驟，其目的就是將生命週期清單分析（LCI）得到的：
+CO₂ 排放、CH₄ 排放、N₂O 排放、SO₂ 排放、重金屬排放等<BR>
+透過科學模型轉換成環境衝擊指標，例如：全球暖化潛勢（GWP，kg CO₂e）、酸化潛勢（AP）、優養化潛勢（EP）臭氧層破壞潛勢（ODP）<BR>
+<strong STYLE="COLOR:RED">LCI 找排放，LCIA 做轉換；特徵化就是把污染物變成環境衝擊數值。</strong>
+</div>
+</div>
+
+
+<div class="q-block">
+    <div class="q-text">8. 某企業欲取得產品碳足跡的環境產品宣告（EPD），下列對EPD與PCR的理解何者正確？</div>
+    <ul class="opt-list">
+        <li>A. 環境產品宣告可由企業自行編製並發布而完全不需經過第三方查驗，因為屬自我宣告型</li>
+        <li>B. 環境產品宣告編製不需遵循特定產品類別規則而可由企業自行定義計算方法，因為最了解</li>
+        <li>C. EPD須依PCR規則執行LCA並經第三方查驗以確保品質可比性，因為PCR統一基準</li>
+        <li>D. 產品類別規則可由單一企業自行制定並直接公布實施即具有完整效力適用，因為企業了解產品</li>
+    </ul>
+    <div class="ans-block"><strong>解答：C</strong> | 解析：ISO 14025 的環境產品宣告（Environmental Product Declaration, EPD）屬於第三類環境宣告（Type III Environmental Declaration）。
+
+EPD 的核心精神是：<BR>
+依據產品類別規則（Product Category Rules, PCR）建立一致的計算方法。<BR>
+依生命週期評估（LCA）方法計算環境資訊。<BR>
+經由獨立第三方查證，確認資料可靠性。<BR>
+提供不同產品間具有可比性的環境資訊。<BR>
+
+PCR 的作用就是建立同類產品共同遵循的計算邏輯，例如：<BR>
+系統邊界設定<BR>
+功能單位<BR>
+資料品質要求<BR>
+分配方法<BR>
+衝擊評估方法<BR>
+<strong STYLE="COLOR:RED">EPD = PCR + LCA + 第三方查驗</strong></div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">9. 某企業在產品碳足跡計算中需選用數據庫的排放係數，下列對數據品質的理解何者正確？</div>
+    <ul class="opt-list">
+        <li>A. 所有數據庫提供的排放係數在品質和準確度上都是完全相同的，因為都經科學方法建</li>
+        <li>B. 應優先選擇免費公開的數據庫資料來進行碳足跡計算而非付費商業版，因為公開透明度高</li>
+        <li>C. 數據的時間代表性地理代表性和技術代表性三個維度都很重要，因為直接影響計算準確度</li>
+        <li>D. 使用國際大型數據庫的排放係數一定比使用本地在地數據庫的結果更準確，因為樣本量大</li>
+    </ul>
+    <div class="ans-block"><strong>解答：C</strong> | 解析：在產品碳足跡與 LCA（生命週期評估）中，排放係數資料的品質評估通常需考量：
+
+時間代表性（Temporal Representativeness）<BR>
+數據是否符合研究期間的技術與能源結構。<BR>
+例如：使用 20 年前的電力排放係數，可能無法反映目前能源轉型後的排放情況。<BR>
+地理代表性（Geographical Representativeness）<BR>
+數據是否符合產品實際生產地區。<BR>
+例如：台灣工廠應優先使用台灣電力排放係數，而不是直接套用歐洲資料。<BR>
+技術代表性（Technological Representativeness）<BR>
+數據是否符合實際製程技術。<BR>
+例如：傳統燃煤製程與高效率設備，其排放差異可能很大。<BR>
+	<strong STYLE="COLOR:RED">LCA 數據品質三代表：時間、地理、技術。</strong></div>
+</div>
+
+
+<div class="q-block">
+    <div class="q-text">10. 某企業盤查報告被查驗員指出完整性不足，下列對完整性原則的理解何者正確？</div>
+    <ul class="opt-list">
+        <li>A. 完整性要求組織每一個排放源不論大小全部都必須要納入盤查報告，因為不可有遺漏</li>
+        <li>B. 完整性要求涵蓋所有重大排放源和溫室氣體且排除須有說明理由，因為不能遺漏的</li>
+        <li>C. 完整性原則僅適用於範疇一和範疇二排放源而不涵蓋範疇三的排放，因為三不在內</li>
+        <li>D. 只要增加盤查報告的總頁數和附錄內容即可有效提升完整性的評分，因為量多完整</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：在溫室氣體盤查（GHG Inventory）中，**完整性（Completeness）**原則並不是要求企業把所有微小排放源 100% 全部納入，而是要求：
+
+納入所有重大排放源。<BR>
+涵蓋相關溫室氣體種類。<BR>
+若有排除項目，必須說明：排除原因、判定依據、對整體盤查結果的影響<BR>
+
+完整性重點是「沒有重大遺漏」，而不是「所有細節無條件納入」<BR>
+	<strong STYLE="COLOR:RED">完整性 = 重大排放不能漏，排除項目要說明</strong>
+	</div>
+</div>
+
+
+<div class="q-block">
+    <div class="q-text">11. 某企業計算塑膠產品碳足跡時，需處理回收材料的碳排放分配，下列理解何者正確？</div>
+    <ul class="opt-list">
+        <li>A. 在切斷法下回收材料進入新產品時可視為零碳排投入因為負荷已由前生命週期承擔</li>
+        <li>B. 回收材料仍須承擔全部原始原料開採階段的碳排放負荷和環境衝擊，因為使用了資源</li>
+        <li>C. 回收材料的分配方法選擇對最終碳足跡計算結果的影響程度極為微小，因為回收佔比低</li>
+        <li>D. 回收帶來的環境效益應全數歸屬於選擇使用回收材料的下游產品製造商，因為是他們選擇</li>
+    </ul>
+    <div class="ans-block"><strong>解答：A</strong> | 解析：在產品碳足跡與 LCA（生命週期評估）中，回收材料的處理方式涉及不同分配方法。
+
+**切斷法（Cut-off method）**的核心概念：<BR>
+原生材料階段的環境負荷由「第一次使用產品」承擔。<BR>
+回收後形成的新材料，不承擔前一生命週期的原料開採與製造排放。<BR>
+下游使用回收材料的產品，只計算：回收處理過程排放、運輸排放、再製程排放<BR>
+因此，在切斷法下，回收塑膠粒作為投入材料時，通常視為不帶入原始材料階段碳排放負荷<BR>
+	
+	<strong STYLE="COLOR:RED">切斷法 = 前世不帶來，回收材料重新算</strong>
+	</div>
+</div>
+
+
+<div class="q-block">
+    <div class="q-text">12. 某企業盤查Scope 3排放時，面臨數據收集困難，下列對Scope 3的處理方式何者正確？</div>
+    <ul class="opt-list">
+        <li>A. 應識別所有重大間接排放類別並以合理方法估算揭露，因為ISO要求評估間接排放</li>
+        <li>B. Scope 3屬於自願性揭露項目因此在數據困難時可以完全跳過，因為非強制要求</li>
+        <li>C. Scope 3只需要納入上游供應商的排放數據就算完成間接排放盤查，因為最相關</li>
+        <li>D. 缺乏Scope 3數據時直接以零值申報即可滿足盤查報告的要求，因為無法取得</li>
+    </ul>
+    <div class="ans-block"><strong>解答：A</strong> | 解析：Scope 3（其他間接溫室氣體排放）雖然資料取得通常較困難，但正確做法不是忽略，而是：
+
+識別與企業相關的 Scope 3 排放類別。
+判斷重大性（significance）。
+依可取得資料程度，採用合理估算方法。
+說明：數據來源、估算方法、假設條件、不確定性
+	<strong STYLE="COLOR:RED">Scope 3 難收集 ≠ 可以不算；資料不足 → 合理估算 + 透明揭露</strong>
+	</div>
+</div>
+
+
+<div class="q-block">
+    <div class="q-text">13. 某企業的碳足跡報告需經第三方查驗，下列對查驗程序的理解何者正確？</div>
+    <ul class="opt-list">
+        <li>A. 查驗工作僅需確認碳足跡數學計算結果正確無誤即算完成所有程序，因為核對數字即可</li>
+        <li>B. 通過第三方查驗後碳足跡數值即具法律約束力且永久不可變動修正，因為已獲法律認證</li>
+        <li>C. 查驗涵蓋方法學適當性數據品質及報告完整性等多面向系統審視，因為確認符合ISO</li>
+        <li>D. 執行查驗機構可以是與受查企業有關聯的集團內部稽核單位也可行，因為熟悉效率高</li>
+    </ul>
+    <div class="ans-block"><strong>解答：C</strong> | 解析：第三方查驗（Verification）不是單純檢查計算結果，而是確認整個碳足跡盤查與計算流程是否合理、透明且符合相關標準要求。
+
+查驗通常包含：
+
+1. 方法學適當性：產品系統邊界設定是否合理。LCA 方法是否符合 ISO 14067 要求。分配方法是否合理。<BR>
+2. 數據品質確認：活動數據來源是否可靠。排放係數是否適用。是否考量時間、地理、技術代表性。
+3. 計算與報告完整性：計算公式是否正確。是否遺漏重大排放源。不確定性是否揭露。報告內容是否可追溯。
+	<strong STYLE="COLOR:RED">查驗不是查數字，是查整套方法、資料、計算、報告是否可信</strong>
+	</div>
+</div>
+
+
+<div class="q-block">
+    <div class="q-text">14. 某企業在產品碳足跡計算中需設定系統邊界，下列對系統邊界的理解何者正確？</div>
+    <ul class="opt-list">
+        <li>A. 系統邊界只需涵蓋自家工廠製造階段排放數據即已完整足夠不缺，因為上下游不在控制</li>
+        <li>B. 系統邊界範圍大小可由企業完全隨意決定擴大或縮小即可使用，因為ISO不限定邊界設定</li>
+        <li>C. 應依研究目的選搖籃到墳墓或搖籃到大門涵蓋相關生命週期，因為須追蹤全程碳排的量</li>
+        <li>D. 產品碳足跡系統邊界設定方式等同於ISO 14064-1組織盤查邊界，因為都屬ISO標準</li>
+    </ul>
+    <div class="ans-block"><strong>解答：C</strong> | 解析：產品碳足跡（Product Carbon Footprint, PCF）是以**生命週期評估（LCA）**為基礎，因此系統邊界必須依照研究目的與產品生命週期範圍設定，而不是只看企業控制範圍。
+
+常見系統邊界：
+
+1. 搖籃到大門（Cradle-to-Gate）：從原料取得開始。到產品離開工廠為止。適合：B2B 原料產品。下游製程仍需由其他企業評估的情況。<BR>
+2. 搖籃到墳墓（Cradle-to-Grave）`：從原料取得。生產。運輸。使用階段。報廢與回收。完整生命週期。<BR>
+產品碳足跡需明確說明系統邊界，確保不同產品間比較時具有一致性<BR>
+	<strong STYLE="COLOR:RED">產品看生命週期，組織看控制邊界</strong>
+	</div>
+</div>
+
+
+<div class="q-block">
+    <div class="q-text">15. 某製造業進行ISO 14064-1組織溫室氣體盤查，需先確定組織邊界，下列敘述何者正確？</div>
+    <ul class="opt-list">
+        <li>A. 應依營運控制權法界定組織邊界以確保排放源在管理範圍內可有效管理，因為有控制才管</li>
+        <li>B. 只需納入總公司所在地的排放數據即可完成組織層級的溫室氣體盤查，因為總部是主體</li>
+        <li>C. 組織盤查邊界應等同於財務報表的合併報表範圍來進行統一設定管理，因為須與財報一致</li>
+        <li>D. 企業可以任意選擇想要涵蓋的營運據點範圍來設定組織盤查邊界線，因為ISO不限定方法</li>
+    </ul>
+    <div class="ans-block"><strong>解答：A</strong> | 解析：ISO 14064-1 組織溫室氣體盤查需先界定組織邊界，企業可採用：
+
+營運控制權法（Operational Control Approach）
+財務控制權法（Financial Control Approach）
+股權比例法（Equity Share Approach）
+
+其中營運控制權法是企業常用方式，將企業具有營運控制權的設施、活動納入盤查範圍，因為企業能直接管理與改善相關排放。
+	<strong STYLE="COLOR:RED"></strong>
+	</div>
+</div>
+
+
+<div class="q-block">
+    <div class="q-text">16. 某企業進行LCA的清單分析階段，需收集產品所有投入產出的數據，下列理解何者正確？</div>
+    <ul class="opt-list">
+        <li>A. 應系統性收集所有單元過程的原料能源水等投入和產品排放廢棄物等產出，因為須完整</li>
+        <li>B. 清單分析只需要收集各階段的能源消耗數據即已足夠完成碳足跡計算，因為能源是主因</li>
+        <li>C. 所有數據可以全部使用文獻資料庫的次級數據來替代而不需要現場初級數，因為已足夠</li>
+        <li>D. 清單分析階段不需要考慮製程中產生的廢棄物和副產品的數據，因為屬於下游的範圍</li>
+    </ul>
+    <div class="ans-block"><strong>解答：A</strong> | 解析：LCA（生命週期評估）的生命週期清單分析（Life Cycle Inventory, LCI）階段，核心工作就是系統性蒐集產品生命週期中各單元過程的：
+
+1. 投入（Input）：原材料、能源、水資源、輔助材料、運輸資源<BR>
+
+2. 產出（Output）：產品、副產品、廢棄物、廢氣、廢水、排放物<BR>
+
+這些資料會作為後續生命週期衝擊評估（LCIA）的基礎<BR>
+	
+	<strong STYLE="COLOR:RED"></strong></div>
+</div>
+
+
+<div class="q-block">
+    <div class="q-text">17. 某企業比較兩款包裝材料的碳足跡，下列對碳足跡比較研究的要求，何者正確？</div>
+    <ul class="opt-list">
+        <li>A. 只要兩款產品使用完全相同的排放係數來源來計算就算公平比較，因為係數一致即公平</li>
+        <li>B. 比較研究須確保兩款產品使用相同功能單位和系統邊界作為基礎，因為須等量功能比較</li>
+        <li>C. 企業內部使用的比較研究結果完全不需要經過第三方獨立查驗認可，因為不涉及公開宣</li>
+        <li>D. 碳足跡數值較低的產品在所有環境面向上必定都比較環保友善，因為碳足跡已涵蓋全面</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：碳足跡比較研究最重要的是確保「可比性」，必須建立一致的比較基準，包括：
+
+1. 相同功能單位（Functional Unit）：例如：1000個包裝產品、包裝1公斤食品所需材料等<BR>
+2. 相同系統邊界（System Boundary）：
+例如都採「搖籃到大門」或都採「搖籃到墳墓」<BR>
+相同方法學與資料品質要求，只有在功能等量的基礎下，碳足跡數值比較才具有意義。
+	
+	<strong STYLE="COLOR:RED"></strong></div>
+</div>
+
+
+<div class="q-block">
+    <div class="q-text">18. 某企業在進行碳盤查報告編製時，面臨如何確保數據品質和透明度的挑戰。根據盤查報告原則，下列敘述何者正確？</div>
+    <ul class="opt-list">
+        <li>A. 數據準確性是指所有數據必須達到零誤差</li>
+        <li>B. 廠內實測之物料量與能源</li>
+        <li>C. 一致性是指年度間的排放數據必須完全相同C完整性是指盤查範圍需涵蓋所有排放源</li>
+        <li>D. 透明性要求企業公開所有盤查過程和數據來源</li>
+    </ul>
+    <div class="ans-block"><strong>解答：D</strong> | 解析：依據溫室氣體盤查原則（如 ISO 14064-1），透明性（Transparency）要求企業提供足夠資訊，使查驗者或利害關係人能理解：
+
+盤查方法與計算方式、
+組織與營運邊界設定、
+活動數據來源、
+排放係數來源、
+假設條件與估算方法、
+數據限制與不確定性，目的在於讓盤查結果具備可追溯性與可信度。
+	
+	<strong STYLE="COLOR:RED"></strong></div>
+</div>
+
+
+<div class="q-block">
+    <div class="q-text">19. 某公司在進行碳盤查時，需計算排放量。已知該公司使用煤炭作為能源，煤炭的排放係數為 2.5 kg CO2/kg 煤炭，全球暖化潛勢（GWP）為 1。下列關於排放量計算的敘述，何者正確？</div>
+    <ul class="opt-list">
+        <li>A. 排放量計算公式為：煤炭使用量 × 2.5 kg CO2/kg 煤炭</li>
+        <li>B. GWP 值為 1，不需要乘以 GWP</li>
+        <li>C. 排放量計算公式為：煤炭使用量 × 2.5 kg CO2/kg 煤炭 × 1</li>
+        <li>D. 排放量計算公式為：煤炭使用量 × 2.5 kg CO2e/kg 煤炭</li>
+    </ul>
+    <div class="ans-block"><strong>解答：C</strong> | 解析：溫室氣體排放量計算基本公式：
+
+排放量（kg CO₂e）＝活動數據 × 排放係數 × GWP<BR>
+
+本題：<BR>
+活動數據：煤炭使用量（kg煤炭）<BR>
+排放係數：2.5 kg CO₂/kg煤炭<BR>
+GWP：1<BR>
+
+因此：煤炭使用量 × 2.5 kg CO₂/kg煤炭 × 1 = kg CO₂e
+	
+	<strong STYLE="COLOR:RED">活動數據 × 排放係數 × GWP = CO₂e排放量</strong></div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">20. [誤差] 如何處理盤查誤差？</div>
+    <ul class="opt-list">
+        <li>A. 隱藏誤差</li>
+        <li>B. 說明原因如設備精度或假設限制</li>
+        <li>C. 忽略</li>
+        <li>D. 禁止盤查誤差</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：誠實說明可增強可信度。
+	
+	<strong STYLE="COLOR:RED"></strong></div>
+</div>
+
+
+<div class="q-block">
+    <div class="q-text">21. 某企業在進行碳盤查時，發現其生產過程中的溫室氣體排放量佔比最大的來源是原料的運輸過程。該企業欲透過優化物流與運輸方式來降低排放。下列關於碳費計算與碳權抵換的作法，何者正確？</div>
+    <ul class="opt-list">
+        <li>A. 該企業可將運輸過程的排放量納入碳費計算，並以碳權抵換的方式降低碳費支出，因為運輸排放占比最大</li>
+        <li>B. 業應優先採用電動車或 LNG 車輛進行運輸，因為這樣可以完全抵消運輸過程的溫室氣體排放</li>
+        <li>C. 該企該企業可申請碳權專案，以抵換運輸過程的部分排放量，但需確保專案的額外性與真實性</li>
+        <li>D. 該企業可直接將運輸排放量歸入 Scope 3 並忽略，因為這不是直接營運活動</li>
+    </ul>
+    <div class="ans-block"><strong>解答：C</strong> | 解析：新增設備需加入清冊。</div>
+</div>
+
+<div class="q-block">
+    <div class="q-text">22. [估算] 若無電費單如何計算？</div>
+    <ul class="opt-list">
+        <li>A. 填 0</li>
+        <li>B. 依樓地板面積與產業平均估算</li>
+        <li>C. 隨機填寫</li>
+        <li>D. 放棄</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：企業可以透過碳權專案抵換部分運輸排放，但碳權必須符合重要原則：
+
+<BR>額外性（Additionality）：若沒有碳權收益，該減碳行動不一定會發生。<BR>
+真實性（Real）：減少的排放必須實際存在。<BR>
+可量測與可驗證（Measurable & Verifiable）：必須有方法計算減碳量。<BR>
+
+例如：造林碳匯專案、再生能源專案、農業碳匯專案，取得碳權後，可抵換部分排放</div>
+</div>
+
+
+<div class="q-block">
+    <div class="q-text">23. 某公司在進行碳盤查時，需要判斷其外購電力所導致的溫室氣體排放。該公司參考了相關的排放係數和全球暖化潛勢（GWP）值。下列關於排放計算的敘述，何者正確？</div>
+    <ul class="opt-list">
+        <li>A. 直接監測電力消耗量，再乘以排放係數，即可計算出對應的溫室氣體排放量</li>
+        <li>B. 排放量計算時，應將活動數據乘以排放係數，並進一步乘以GWP值，得到CO2e排放量</li>
+        <li>C. 外購電力所導致的排放，應歸類為Scope 1直接排放，因為電力是公司營運的直接能源</li>
+        <li>D. 該公司可忽略外購電力排放，因為其佔總排放量比例極小，對整體碳績效影響不大</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：活動數據 × 排放係數 × 全球暖化潛勢（GWP） = CO₂e排放量
+
+<BR>例如外購電力：用電量（kWh）× 電力排放係數（kg CO₂/kWh）× GWP= 碳排放量（kg CO₂e）<BR>
+
+因此符合碳盤查計算邏輯。</div>
+</div>
+
+
+<div class="q-block">
+    <div class="q-text">24. 某工廠實施碳權抵換機制，以補償其溫室氣體排放。該工廠選擇通過 CDM 機制開發的碳權進行抵換。下列關於碳權抵換的敘述，何者正確？</div>
+    <ul class="opt-list">
+        <li>A. 該工廠可直接使用 CDM 專案產生的碳權進行抵換，無需審驗</li>
+        <li>B. 該工廠可將 CDM 專案的碳權進行重複抵換，以增加其碳排放餘量</li>
+        <li>C. 該工廠應確保 CDM 專案符合京都議定書的相關規定，並經過獨立審驗</li>
+        <li>D. 該工廠使用 CDM 專案的碳權，可免除其溫室氣體減排義務</li>
+    </ul>
+    <div class="ans-block"><strong>解答：C</strong> | 解析：CDM（Clean Development Mechanism，清潔發展機制）是《京都議定書》架構下的碳減量機制，專案產生的碳權（CERs）必須符合方法學要求，並經過第三方獨立查驗（Validation / Verification），確認減量成果具備：
+
+<BR>1.額外性（Additionality）：確認減量不是原本就會發生的情況。<BR>
+2. 可量測性（Measurable）：減量量化方式需符合方法學。<BR>
+3. 可驗證性（Verifiable）：需由獨立查驗機構確認。<BR>
+4. 避免重複計算（No Double Counting）：同一份減量成果不可被兩方重複使用</div>
+</div>
+
+
+<div class="q-block">
+    <div class="q-text">25. 某企業欲進行產品生命週期評估（LCA），以識別其產品環境足跡。該企業產品的功能單位為「每台電腦」，系統邊界涵蓋生產、運輸至客戶端的過程。下列關於該企業產品碳足跡計算的敘述，何者正確？</div>
+    <ul class="opt-list">
+        <li>A. 該企業僅需盤查生產過程的溫室氣體排放，因為運輸過程的排放可忽略不計</li>
+        <li>B. 該企業應將生產、運輸過程的溫室氣體排放納入計算，並設定適當的切斷準則</li>
+        <li>C. 該企業可直接使用業界平均數據作為產品碳足跡的計算基礎，無需進行個別生產過程的盤查</li>
+        <li>D. 該企業產品的碳足跡僅與生產過程的能源使用有關，與運輸距離無關</li>
+    </ul>
+    <div class="ans-block"><strong>解答：B</strong> | 解析：產品碳足跡（Product Carbon Footprint, PCF）依循生命週期評估（LCA）概念，需要考量產品在系統邊界內各階段的投入與產出。
+
+題目已設定系統邊界包含：生產階段、運輸至客戶端階段<BR>
+
+因此這些階段產生的溫室氣體排放都應納入計算。
+同時，LCA允許使用「切斷準則（Cut-off criteria）」排除影響極小或資料取得成本過高的項目，但必須：
+事先訂定合理的排除原則。
+說明排除項目的理由。
+確保不影響結果代表性</div>
+</div>
+
+
+<div class="q-block">
+    <div class="q-text">26. 某企業在進行碳盤查時，發現其生產過程中使用了大量的外購電力。該企業需要判斷其電力使用所導致的溫室氣體排放如何計算。下列關於電力使用排放計算的敘述，何者正確？</div>
+    <ul class="opt-list">
+        <li>A. 該企業應使用全國平均電力排放係數進行計算，因為這可以反映全國的電力生產情況</li>
+        <li>B. 該企業可以直接使用電力公司的排放報告數據，因為這是最準確的排放數據來源</li>
+        <li>C. 該企業應使用所在地電力排放係數進行計算，因為這可以反映當地電力生產的實際情況</li>
+        <li>D. 該企業無需計算電力使用排放，因為電力生產不屬於企業的直接排放</li>
+    </ul>
+    <div class="ans-block"><strong>解答：C</strong> | 解析：企業使用外購電力屬於 Scope 2（範疇二）間接溫室氣體排放。雖然發電產生的排放不是企業直接排放，但因企業消耗電力而間接造成，因此仍需納入溫室氣體盤查。
+
+<BR>計算方式通常為：外購電力使用量（kWh） × 電力排放係數（kg CO₂e/kWh） = 外購電力排放量<BR>
+
+排放係數選擇應優先考量：<BR>
+1.所在地電力排放係數（Location-based approach）<BR>
+2. 反映該地區電網平均發電排放情況。<BR>
+3. 適合一般組織盤查使用。<BR>
+4.若企業購買特定綠電或再生能源憑證，可能另採市場基礎法（Market-based approach）</div>
+</div>
+
+
+</body></html>
