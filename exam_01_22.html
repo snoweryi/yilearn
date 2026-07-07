@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IPAS 淨零碳管理師 - 能源統計手冊2024 題庫</title>
+<style>
+body {
+    font-family: "Microsoft JhengHei", Arial, sans-serif;
+    line-height: 1.8;
+    margin: 30px;
+    background:#f7f7f7;
+	font-size:22px;
+}
+h1 {
+    color:#1b5e20;
+}
+.question {
+    background:white;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:8px;
+}
+.option {
+    margin:8px 0;
+}
+button {
+    margin-top:10px;
+    padding:8px 15px;
+    cursor:pointer;
+}
+.answer {
+    display:none;
+    margin-top:15px;
+    padding:10px;
+    background:#e8f5e9;
+}
+.badgerowbt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px;
+    background: #ffffff;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+a.badge1 {
+    display: inline-block;
+   font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #007286;
+    color: #fff;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+a.badge2 {
+    display: inline-block;
+   font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #007286;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+a.badge3 {
+    display: inline-block;
+   font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #b8238d;
+    color: yellow;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+</style>
+</head>
+
+<body>
+<div class="badgerowbt">	
+	考科一<div><a href="https://snoweryi.github.io/yilearn/exam_01_1.html" class="badge1">1</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_2.html" class="badge1">2</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_3.html" class="badge1">3</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_4.html" class="badge1">4</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_5.html" class="badge1">5</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_6.html" class="badge1">6</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_7.html" class="badge1">7</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_8.html" class="badge1">8</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_9.html" class="badge1">9</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_10.html" class="badge1">10</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_11.html" class="badge1">11</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_12.html" class="badge1">12</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_13.html" class="badge1">13</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_14.html" class="badge1">14</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_15.html" class="badge1">15</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_16.html" class="badge1">16</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_17.html" class="badge1">17</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_18.html" class="badge1">18</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_19.html" class="badge1">19</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_20.html" class="badge1">20</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_21.html" class="badge1">21</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_22.html" class="badge2">22</a></div>
+	
+	
+	<div><a href="https://snoweryi.github.io/yilearn/menu.html" class="badge3">目錄</a></div>
+  </div>
+<h1>IPAS 淨零碳管理師考試題庫</h1>
+<h2>主題：經濟部《能源統計手冊（2024）》能源與淨零應用</h2>
+
+<div id="quiz"></div>
+
+<script>
+
+const questions = [
+
+{
+q:"1. 根據能源統計資料，能源統計主要目的為何？",
+o:[
+"提供能源價格資訊即可",
+"掌握能源供需、消費結構及政策規劃依據",
+"只用於發電企業財務分析",
+"只計算石油進出口"
+],
+a:1,
+e:"能源統計用於了解能源供需、消費型態與能源政策規劃，是能源管理的重要基礎。"
+},
+
+{
+q:"2. 台灣能源供給長期高度依賴進口能源，其主要原因為何？",
+o:[
+"國內能源資源有限",
+"國內電力需求不存在",
+"能源政策禁止進口",
+"再生能源完全取代化石能源"
+],
+a:0,
+e:"台灣能源資源有限，因此能源供應高度依賴進口燃料。"
+},
+
+{
+q:"3. 下列何者屬於一次能源？",
+o:[
+"電力",
+"汽油",
+"煤炭",
+"熱能"
+],
+a:2,
+e:"煤炭、原油、天然氣屬一次能源；電力屬二次能源。"
+},
+
+{
+q:"4. 電力在能源統計中通常被分類為？",
+o:[
+"一次能源",
+"二次能源",
+"不可再生能源",
+"能源原料"
+],
+a:1,
+e:"電力是由能源轉換產生，因此屬於二次能源。"
+},
+
+{
+q:"5. 能源密集度通常用於衡量？",
+o:[
+"能源使用效率",
+"人口數量",
+"能源價格",
+"設備壽命"
+],
+a:0,
+e:"能源密集度反映單位經濟產出所需能源量，可評估能源效率。"
+},
+
+{
+q:"6. 企業推動節能減碳時，降低能源密集度代表？",
+o:[
+"能源效率提升",
+"能源消耗增加",
+"碳排增加",
+"生產停止"
+],
+a:0,
+e:"能源密集度降低通常表示能源使用效率改善。"
+},
+
+{
+q:"7. 外購電力造成的溫室氣體排放屬於GHG Protocol中的？",
+o:[
+"Scope 1",
+"Scope 2",
+"Scope 3",
+"非排放"
+],
+a:1,
+e:"外購電力屬於範疇二間接排放。"
+},
+
+{
+q:"8. 再生能源發電增加主要有助於降低？",
+o:[
+"化石燃料依賴",
+"能源效率",
+"能源需求",
+"設備成本"
+],
+a:0,
+e:"再生能源可降低化石燃料使用及相關碳排放。"
+},
+
+{
+q:"9. 下列何者屬於化石能源？",
+o:[
+"太陽能",
+"風力",
+"天然氣",
+"水力"
+],
+a:2,
+e:"天然氣、煤炭、石油均屬化石能源。"
+},
+
+{
+q:"10. 能源統計中的能源消費量主要反映？",
+o:[
+"能源使用情形",
+"企業股票價格",
+"產品品質",
+"人口出生率"
+],
+a:0,
+e:"能源消費量可分析各部門能源使用狀況。"
+},
+
+{
+q:"11. 工業部門通常是能源消費的重要部門，其原因為？",
+o:[
+"製程需要大量能源",
+"不使用能源",
+"只使用人力",
+"能源完全免費"
+],
+a:0,
+e:"製造業製程設備需要大量電力與燃料。"
+},
+
+{
+q:"12. 能源轉型的重要方向包含？",
+o:[
+"提高化石燃料比例",
+"增加能源效率與再生能源",
+"停止所有能源使用",
+"降低能源管理"
+],
+a:1,
+e:"能源轉型核心包括節能、提升效率與發展低碳能源。"
+},
+
+{
+q:"13. 電力排放係數主要反映？",
+o:[
+"每度電造成的碳排放量",
+"電價",
+"設備成本",
+"用電時間"
+],
+a:0,
+e:"電力排放係數表示單位電力產生的溫室氣體排放量。"
+},
+
+{
+q:"14. 淨零排放策略中最優先措施通常為？",
+o:[
+"直接購買碳權",
+"能源效率改善",
+"增加能源浪費",
+"增加化石燃料使用"
+],
+a:1,
+e:"淨零策略遵循減量優先、抵換補充原則。"
+},
+
+{
+q:"15. 能源統計資料可協助企業進行？",
+o:[
+"能源管理與減碳規劃",
+"取消盤查",
+"避免所有成本",
+"停止生產"
+],
+a:0,
+e:"能源數據是企業能源管理與碳盤查的重要依據。"
+},
+
+{
+q:"16. 使用再生能源主要降低哪類風險？",
+o:[
+"能源價格與碳排放風險",
+"產品需求",
+"人力需求",
+"市場競爭"
+],
+a:0,
+e:"再生能源可降低能源價格波動及碳排放風險。"
+},
+
+{
+q:"17. 能源效率提升代表？",
+o:[
+"相同產出使用較少能源",
+"增加能源浪費",
+"增加排放",
+"降低產能"
+],
+a:0,
+e:"能源效率提升代表能源利用效益提高。"
+},
+
+{
+q:"18. 淨零碳管理中能源盤查最重要資料為？",
+o:[
+"能源使用量",
+"公司名稱",
+"員工數量",
+"產品顏色"
+],
+a:0,
+e:"能源活動數據是計算碳排放的重要基礎。"
+},
+
+{
+q:"19. 企業導入能源管理系統主要目的為？",
+o:[
+"持續改善能源績效",
+"增加能源浪費",
+"停止能源監控",
+"降低資料透明度"
+],
+a:0,
+e:"能源管理系統強調監測、改善與持續提升能源效率。"
+},
+
+{
+q:"20. 根據淨零趨勢，未來能源發展方向為？",
+o:[
+"高碳能源增加",
+"低碳能源與能源效率提升",
+"停止能源科技",
+"完全依賴單一能源"
+],
+a:1,
+e:"淨零路徑需要低碳能源、節能技術及能源效率改善。"
+},
+{
+q:"21. 根據能源統計手冊，能源統計主要目的為何？",
+o:[
+"僅統計能源價格變化",
+"掌握能源供需與能源政策規劃依據",
+"取代企業碳盤查",
+"限制能源使用"
+],
+a:1,
+e:""
+},
+{
+q:"22.  能源供給統計通常包含哪些主要資訊？",
+o:[
+"能源生產、進口、轉換與消費",
+"企業營收資料",
+"人口資料",
+"產品銷售資料"
+],
+a:0,
+e:""
+},
+{
+q:"23.  能源消費量統計可用於分析何項指標？",
+o:[
+"能源使用效率",
+"公司品牌價值",
+"市場占有率",
+"產品設計風格"
+],
+a:0,
+e:""
+},
+
+{
+q:"24.   電力消費量增加通常代表？",
+o:["電力需求提升",
+"一定代表能源效率提升",
+"不影響能源管理",
+"與產業無關",
+],
+a:0,
+e:""
+},
+{
+q:"25. 能源密集度可用來衡量？",
+o:["單位經濟活動所需能源量",
+"員工數量",
+"產品外觀",
+"公司規模",
+],
+a:0,
+e:""
+},
+{
+q:"26.再生能源的特色為何？",
+o:["可自然補充且降低化石能源依賴",
+"永遠不需管理",
+"不需設備投資",
+"不受環境影響",
+],
+a:0,
+e:""
+},
+{
+q:"7. 化石燃料主要包含？",
+o:["煤、石油、天然氣",
+"太陽能、水力",
+"風力、生質能",
+"地熱能",
+],
+a:0,
+e:""
+},
+{
+q:"28. 能源轉換效率提高可帶來？",
+o:["降低能源浪費",
+"增加能源消耗",
+"增加排放",
+"降低產能",
+],
+a:0,
+e:""
+},
+{
+q:"29. 企業能源管理的重要目的為何？",
+o:["提升能源使用效率並降低成本與排放",
+"增加能源浪費",
+"減少生產資訊",
+"取消能源監測",
+],
+a:0,
+e:""
+},
+{
+q:"30. 溫室氣體排放與能源使用的關係為何？",
+o:["多數能源使用可能伴隨碳排放",
+"完全沒有關聯",
+"只與水資源相關",
+"只與人力相關",
+],
+a:0,
+e:""
+},
+{
+q:"31. 能源統計中的能源平衡表主要用途為何？",
+o:["呈現能源供給與消費流向",
+"計算公司薪資",
+"分析市場行銷",
+"設計產品包裝",
+],
+a:0,
+e:""
+},
+{
+q:"32. 節約能源政策主要目的為何？",
+o:["減少能源消耗並提升效率",
+"增加能源浪費",
+"降低能源管理能力",
+"停止產業發展",
+],
+a:0,
+e:""
+},
+{
+q:"33. 天然氣相較煤炭燃燒通常具有？",
+o:["較低碳排放強度",
+"更高煤灰產生量",
+"無能源價值",
+"無法發電",
+],
+a:0,
+e:""
+},
+{
+q:"34. 能源統計資料可協助政府？",
+o:["制定能源政策",
+"決定企業產品價格",
+"管理私人帳戶",
+"取代企業管理",
+],
+a:0,
+e:""
+},
+{
+q:"35. 提升能源效率是淨零轉型的重要策略，原因為何？",
+o:["可降低能源需求與排放",
+"增加能源浪費",
+"降低設備效能",
+"增加化石能源依賴",
+],
+a:0,
+e:""
+},
+{
+q:"36. 電力排放係數主要反映？",
+o:["每單位用電造成的溫室氣體排放量",
+"電價高低",
+"公司規模",
+"人口數量",
+],
+a:0,
+e:""
+},
+{
+q:"37. 能源轉型的重要方向包含？",
+o:["發展再生能源與提升效率",
+"增加煤炭使用",
+"減少能源資訊",
+"停止能源管理",
+],
+a:0,
+e:""
+},
+{
+q:"38. 工業部門能源使用管理重點為？",
+o:["製程改善與能源效率提升",
+"增加能源浪費",
+"停止設備管理",
+"減少生產效率",
+],
+a:0,
+e:""
+},
+{
+q:"39. 能源統計中的「能源消費」指？",
+o:["使用能源進行生產或生活活動",
+"能源價格設定",
+"能源出口",
+"能源儲存",
+],
+a:0,
+e:""
+},
+{
+q:"40. 淨零排放策略中能源效率屬於？",
+o:["減量措施",
+"增排措施",
+"無關措施",
+"行銷措施",
+],
+a:0,
+e:""
+},
+
+{
+q:"41. 能源結構分析主要觀察？",
+o:["各類能源占比","公司人數","產品顏色","市場廣告",
+],
+a:0,
+e:""
+},
+{
+q:"42. 再生能源發展可降低？",
+o:["化石能源依賴","能源管理需求","數據分析","生產能力",
+],
+a:0,
+e:""
+},
+{
+q:"43. 能源效率改善通常需要？",
+o:["技術改善與管理措施","增加浪費","減少監測","忽略數據",
+],
+a:0,
+e:""
+},
+{
+q:"44. 能源使用數據分析可協助企業？",
+o:["找出節能機會","增加排放","降低透明度","停止改善",
+],
+a:0,
+e:""
+},
+{
+q:"45. 淨零碳管理需關注？",
+o:["能源使用與排放來源","僅營收","僅產品設計","僅人員",
+],
+a:0,
+e:""
+},
+{
+q:"46. 能源統計資料品質要求？",
+o:["正確性與一致性","隨意估算","無需來源","不需更新",
+],
+a:0,
+e:""
+},
+{
+q:"47. 企業推動節能措施前應先？",
+o:["建立能源使用基準","停止量測 ","忽略設備","增加耗能",
+],
+a:0,
+e:""
+},
+{
+q:"48. 能源管理與碳管理關係為？",
+o:["能源效率改善可降低碳排放","完全無關","只影響成本","不影響環境",
+],
+a:0,
+e:""
+},
+{
+q:"49. 淨零轉型能源策略通常包含？",
+o:["節能、能源替代、再生能源","增加化石燃料","減少數據","停止管理",
+],
+a:0,
+e:""
+},
+{
+q:"50. 能源統計手冊資料可作為企業何種用途？",
+o:[" 能源管理與政策分析參考","取代所有盤查","取代查驗","取消管理",
+],
+a:0,
+e:""
+}
+
+];
+
+
+let html="";
+
+questions.forEach((item,index)=>{
+
+html += `
+<div class="question">
+<b>${item.q}</b>
+
+${item.o.map((x,i)=>`
+<div class="option">
+<label>
+<input type="radio" name="q${index}" value="${i}">
+${String.fromCharCode(65+i)}. ${x}
+</label>
+</div>
+`).join("")}
+
+<button onclick="check(${index})" style="font-size:22px;">查看答案</button>
+
+<div class="answer" id="ans${index}">
+</div>
+
+</div>
+`;
+
+});
+
+document.getElementById("quiz").innerHTML=html;
+
+
+function check(i){
+
+let radios=document.getElementsByName("q"+i);
+let result="";
+
+for(let r of radios){
+
+if(r.checked){
+
+if(parseInt(r.value)==questions[i].a){
+
+result="✅ 答對！<br>解析："+questions[i].e;
+
+}else{
+
+result="❌ 答錯<br>正確答案："+String.fromCharCode(65+questions[i].a)+"<br>解析："+questions[i].e;
+
+}
+
+}
+
+}
+
+if(result==""){
+result="請先選擇答案";
+}
+
+document.getElementById("ans"+i).style.display="block";
+document.getElementById("ans"+i).innerHTML=result;
+
+}
+
+</script>
+
+</body>
+</html>
