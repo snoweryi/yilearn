@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>115年第二次淨零碳規劃管理師-初級能力鑑定 模擬試題（第二套）</title>
+<style>
+  :root{
+    --ink:#1f2a24;
+    --paper:#faf7f0;
+    --accent:#2f6f4f;
+    --accent2:#c98a3a;
+    --line:#dcd3bd;
+    --card:#ffffff;
+    --wrong:#b3432d;
+    --new:#1f6f9c;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.7;
+    padding-bottom:60px;
+  }
+  header{
+    background:linear-gradient(135deg,var(--new),#123a52);
+    color:#fff;
+    padding:60px 20px 26px;
+    text-align:center;
+  }
+  header h1{margin:0 0 6px;font-size:1.5rem;}
+  header p{margin:4px 0;opacity:.9;font-size: 22px;}
+  .meta-bar{
+    max-width:1900px;margin:18px auto 0;
+    display:flex;flex-wrap:wrap;gap:10px;justify-content:center;
+  }
+  .meta-bar span{
+    background:rgba(255,255,255,.15);
+    border:1px solid rgba(255,255,255,.35);
+    padding:5px 12px;border-radius:20px;font-size: 22px;
+  }
+  .toolbar{
+    max-width:1900px;margin:20px auto;padding:0 16px;
+    display:flex;gap:10px;flex-wrap:wrap;justify-content:center;
+  }
+  button.tool{
+    background:var(--new);color:#fff;border:none;
+    padding:9px 18px;border-radius:8px;cursor:pointer;font-size: 22px;
+    transition:.2s;
+  }
+  button.tool:hover{background:#164d6e;}
+  button.tool.secondary{background:var(--accent2);}
+  button.tool.secondary:hover{background:#a97327;}
+  #score-box{
+    max-width:1900px;margin:0 auto 10px;padding:0 16px;
+    text-align:center;font-weight:700;color:var(--new);min-height:24px;
+  }
+  main{max-width:1900px;margin:0 auto;padding:0 16px;}
+  .q-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:18px 20px;
+    margin-bottom:16px;
+    box-shadow:0 1px 3px rgba(0,0,0,.04);
+    position:relative;
+  }
+  .q-head{
+    display:flex;gap:10px;align-items:baseline;margin-bottom:10px;flex-wrap:wrap;
+  }
+  .q-num{
+    background:var(--new);color:#fff;font-weight:700;
+    font-size: 22px;padding:3px 10px;border-radius:14px;flex-shrink:0;
+  }
+  .q-text{font-weight:600;font-size: 22px;}
+  .badge-new{
+    background:#e3f0f7;color:var(--new);border:1px solid #b8dbe9;
+    font-size: 22px;padding:2px 9px;border-radius:10px;font-weight:700;
+  }
+  .options{list-style:none;padding:0;margin:0;}
+  .options li{margin-bottom:8px;}
+  .opt-btn{
+    width:100%;text-align:left;
+    background:#f4f0e6;
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:9px 14px;
+    cursor:pointer;
+    font-size: 22px;
+    color:var(--ink);
+    transition:.15s;
+  }
+  .opt-btn:hover{border-color:var(--new);}
+  .opt-btn.correct{background:#e3f2e6;border-color:var(--accent);color:#1f4d38;font-weight:700;}
+  .opt-btn.wrong{background:#fbe6e1;border-color:var(--wrong);color:var(--wrong);font-weight:700;}
+  .opt-btn[disabled]{cursor:default;}
+  .explain{
+    display:none;
+    margin-top:10px;
+    background:#fbf6ea;
+    border-left:4px solid var(--accent2);
+    padding:10px 14px;
+    font-size: 22px;
+    border-radius:0 6px 6px 0;
+    color:#4a4436;
+  }
+  .explain.show{display:block;}
+  footer{
+    text-align:center;color:#8a8371;font-size: 22px;margin-top:30px;
+  }
+  .disclaimer{
+    max-width:1900px;margin:20px auto;padding:14px 18px;
+    background:#fff3e0;border:1px solid #e8c891;border-radius:10px;
+    font-size: 22px;color:#6b4d1f;
+  }
+  .update-note{
+    max-width:1900px;margin:0 auto 20px;padding:14px 18px;
+    background:#e9f3ff;border:1px solid #b8dbe9;border-radius:10px;
+    font-size: 22px;color:#164d6e;
+  }
+    .badgerowbt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px;
+    background: #ffffff;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+a.badge1 {
+    display: inline-block;
+   font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #007286;
+    color: #fff;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+a.badge2 {
+    display: inline-block;
+   font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #007286;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+a.badge3 {
+    display: inline-block;
+   font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #b8238d;
+    color: yellow;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+@media (max-width:768px){
+    header{padding:120px 16px 30px;}
+   
+  }
+</style>
+</head>
+<body>
+<div class="badgerowbt">	
+	考科一<div><a href="https://snoweryi.github.io/yilearn/exam_01_1.html" class="badge1">1</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_2.html" class="badge1">2</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_3.html" class="badge1">3</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_4.html" class="badge1">4</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_5.html" class="badge1">5</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_6.html" class="badge1">6</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_7.html" class="badge1">7</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_8.html" class="badge1">8</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_9.html" class="badge1">9</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_10.html" class="badge1">10</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_11.html" class="badge1">11</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_12.html" class="badge1">12</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_13.html" class="badge1">13</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_14.html" class="badge1">14</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_15.html" class="badge1">15</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_16.html" class="badge1">16</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_17.html" class="badge1">17</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_18.html" class="badge1">18</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_19.html" class="badge1">19</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_20.html" class="badge1">20</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_21.html" class="badge1">21</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_22.html" class="badge1">22</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_23.html" class="badge1">23</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_24.html" class="badge1">24</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_25.html" class="badge1">25</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_26.html" class="badge2">26</a></div>
+	
+	
+	<div><a href="https://snoweryi.github.io/yilearn/menu.html" class="badge3">目錄</a></div>
+  </div>
+<header>
+  <h1>115年第二次淨零碳規劃管理師-初級能力鑑定</h1>
+  <p>第一科：淨零碳規劃管理基礎概論（模擬預測試題・第二套）</p>
+  <div class="meta-bar">
+    <span>共 50 題 · 單選題</span>
+    <span>納入CBAM正式期上路（2026/1/1起）</span>
+    <span>納入SBTi v2.0（2026/6/11發布）</span>
+  </div>
+</header>
+
+<div class="update-note">
+  📌 本套試題相較第一套，特別更新並強化以下最新時事考點：<br>
+  ① <b>CBAM 已於 2026年1月1日進入「正式期（Definitive Regime）」</b>——過渡期（2023.10–2025.12）結束，正式期涉及授權宣告人資格、憑證持有與繳交義務、年度申報等新規範；<br>
+  ② <b>SBTi 已於 2026年6月11日發布「企業淨零標準第2版（Corporate Net-Zero Standard V2.0）」</b>——導入企業分級（Category A / B）、範疇一獨立目標、範疇二時效性採購要求、「盡力而為」目標設定原則、持續排放責任分級認可機制、強制轉型計畫等重大變革。
+</div>
+
+<div class="disclaimer">
+  ⚠️ 本試題為根據官方最新發布資訊與出題邏輯所做之<b>模擬預測</b>，並非官方公告之正式試題，僅供複習與自我檢測參考，實際考題請以主辦單位公告為準。CBAM與SBTi相關規範仍可能持續調整，請以歐盟執委會（ec.europa.eu）與SBTi官方網站（sciencebasedtargets.org）最新公告為準。
+</div>
+
+<div class="toolbar">
+  <button class="tool" onclick="revealAll()">顯示全部答案</button>
+  <button class="tool secondary" onclick="resetAll()">重新作答</button>
+</div>
+<div id="score-box"></div>
+
+<main id="quiz"></main>
+
+<footer>富林有機農場 × 城邦技術顧問｜淨零碳規劃管理師 模擬試題（第二套）v1.0</footer>
+
+<script>
+const questions = [
+{q:"歐盟碳邊境調整機制（CBAM）自2026年1月1日起正式進入下列何種階段？",
+ opts:["過渡期（Transitional Phase）","正式期（Definitive Regime）","豁免期","立法草案期"],
+ ans:1,tag:"CBAM最新",
+ note:"CBAM過渡期為2023年10月至2025年12月，僅需申報無需繳費；自2026年1月1日起正式進入「正式期」，開始產生財務義務。"},
+
+{q:"CBAM正式期實施後，「納入豁免門檻」之規範方式為何？",
+ opts:["按貨物價值計算，門檻為150歐元","改按年度進口重量計算，門檻為50公噸（電力與氫不適用）","完全取消豁免門檻","僅適用歐盟會員國之間貿易"],
+ ans:1,tag:"CBAM最新",
+ note:"CBAM Omnibus簡化規則將豁免門檻由原先「單批貨物價值≤150歐元」改為「年度進口總重量≤50公噸」之單一質量門檻，但電力與氫不適用此豁免。"},
+
+{q:"依CBAM正式期規範，進口商於2026年進口covered goods，其CBAM憑證之實際購買與繳交義務發生於何時？",
+ opts:["2026年1月即須購買憑證","憑證銷售自2027年2月1日起開放，首次年度申報與繳交憑證截止日為2027年9月30日","無需購買憑證，僅申報即可","2028年才須申報"],
+ ans:1,tag:"CBAM最新",
+ note:"雖然2026年進口貨物即產生財務曝險，但CBAM憑證銷售延後至2027年2月1日開放，首次年度申報及憑證繳交截止日為2027年9月30日。"},
+
+{q:"CBAM正式期規範中，「授權CBAM申報人（Authorised CBAM Declarant）」制度之主要目的為何？",
+ opts:["僅適用於出口商","進口超過門檻之CBAM貨品，須取得此資格方可合法進口","僅為稅務登記用途，無實質限制","僅適用於歐盟境內企業"],
+ ans:1,tag:"CBAM最新",
+ note:"自2026年1月1日起，進口逾50公噸門檻之CBAM貨品者，須向會員國主管機關申請並取得「授權CBAM申報人」資格，方可合法進口。"},
+
+{q:"依CBAM正式期規定，申報人於每季須持有之預估憑證比例，經Omnibus簡化修正後調整為何？",
+ opts:["由80%調降至50%","由50%調升至80%","維持80%不變","調降至20%"],
+ ans:0,tag:"CBAM最新",
+ note:"CBAM Omnibus簡化規則將申報人每季須持有之預估憑證比例，由原先80%調降至50%，以減輕企業資金壓力。"},
+
+{q:"CBAM正式期之年度申報與憑證繳交截止日，相較原規劃之「每年5月31日」有何調整？",
+ opts:["提前至3月31日","維持不變","延後至每年9月30日","延後至12月31日"],
+ ans:2,tag:"CBAM最新",
+ note:"CBAM正式期將年度申報與憑證繳交截止日由原先規劃之5月31日，延後調整為每年9月30日。"},
+
+{q:"依CBAM正式期規範，未依規定繳交足額憑證之進口商，將面臨下列何種處罰？",
+ opts:["每噸CO2缺口罰款100歐元","僅口頭警告","自動撤銷進口權且無罰款","僅限暫停三個月"],
+ ans:0,tag:"CBAM最新",
+ note:"CBAM規範明訂，未依規定繳交足額憑證者，每噸CO2排放缺口將處以100歐元之罰款。"},
+
+{q:"CBAM正式期關於「預設排放值（Default Values）」之規範，下列敘述何者正確？",
+ opts:["預設值一律低於實際排放值，企業應盡量採用","作為缺乏可驗證實際數據時之備援值，且逐年將附加加成比例最高至30%以促使企業改用實際數據","預設值僅適用於電力產品","預設值永久免加成"],
+ ans:1,tag:"CBAM最新",
+ note:"預設排放值係作為缺乏可驗證實際數據時之備援機制，且將附加加成比例（至2028年最高達30%），以誘因促使進口商盡快改用可驗證之實際排放數據。"},
+
+{q:"CBAM正式期之財務影響採取「逐步調整係數（Phase-in Factor）」，其設計邏輯為何？",
+ opts:["與歐盟ETS免費配額逐步淘汰時程對應，至2034年完全反映憑證成本","與美國關稅政策同步調整","逐年提高至2027年即達100%","與台灣碳費費率連動"],
+ ans:0,tag:"CBAM最新",
+ note:"CBAM之財務影響採逐步調整係數，與歐盟ETS免費配額自2026年至2034年逐步淘汰之時程相對應，確保進口商與歐盟境內生產者之負擔漸進一致。"},
+
+{q:"CBAM正式期上路後，原「CBAM過渡登錄系統（Transitional Registry）」已由下列何者取代？",
+ opts:["CBAM正式登錄系統（CBAM Definitive Registry）","歐盟ETS登錄系統","WTO碳關稅資料庫","無需登錄系統"],
+ ans:0,tag:"CBAM最新",
+ note:"隨正式期上路，原過渡期使用之CBAM過渡登錄系統已由CBAM正式登錄系統（Definitive Registry）取代，作為申報人授權、憑證管理與申報作業之單一平台。"},
+
+{q:"SBTi於2026年6月11日正式發布之最新企業淨零標準版本為何？",
+ opts:["Corporate Net-Zero Standard V1.3.1","Corporate Net-Zero Standard V2.0","Near-Term Criteria V6.0","ISO 14068-2"],
+ ans:1,tag:"SBTi v2.0",
+ note:"SBTi於2026年6月11日發布「企業淨零標準第2版（Corporate Net-Zero Standard V2.0）」，為2021年首版發布以來最重大之全面修訂。"},
+
+{q:"SBTi V2.0導入之企業分級制度中，「Category A」企業之定義及主要義務為何？",
+ opts:["僅適用中小企業，義務較輕","符合規模門檻（如營收、員工數或排放量）之大型企業，須承擔完整義務（強制轉型計畫、強制持續排放責任等）","僅適用金融機構","僅適用於已開發國家之上市公司"],
+ ans:1,tag:"SBTi v2.0",
+ note:"SBTi V2.0將企業分為Category A（大型企業，依營收/員工數/排放量門檻認定）及Category B（規模較小或位於低收入國家之企業），Category A須承擔完整義務，包括強制性轉型計畫與持續排放責任。"},
+
+{q:"依SBTi V2.0規範，範疇一（Scope 1）目標設定方式相較舊版有何重大變革？",
+ opts:["範疇一目標不再要求設定","範疇一不再與範疇二合併設定，改為獨立設定目標，並提供三種設定方法","範疇一目標僅適用於製造業","範疇一目標須與範疇三合併計算"],
+ ans:1,tag:"SBTi v2.0",
+ note:"SBTi V2.0一大變革為範疇一不再與範疇二捆綁設定單一目標，而是獨立設定，並提供包括資產汰換法、低碳轉型規劃法等三種設定方法。"},
+
+{q:"依SBTi V2.0規範，關於範疇二（Scope 2）之新增規定，下列何者正確？",
+ opts:["取消再生能源憑證（EAC）品質要求","針對用電量達一定規模（如年用電≥10 GWh）之大型用戶，自2030年起須採用時效匹配（如逐時匹配）方式報告用電情形","範疇二目標僅限於再生能源占比達100%之企業","範疇二不再納入盤查範圍"],
+ ans:1,tag:"SBTi v2.0",
+ note:"SBTi V2.0強化範疇二品質要求，包括更嚴格之再生能源憑證（EAC）品質標準，並要求年用電量達10 GWh以上之大型用戶，自2030年起須採逐時匹配方式報告其電力採購情形。"},
+
+{q:"SBTi V2.0所提出之「盡力而為（Best Efforts）」目標設定原則，其核心精神為何？",
+ opts:["企業可隨意調整目標而無需說明","肯定積極減碳目標之催化作用，同時容許企業對超出自身控制之實施障礙保持透明並說明因應作為","僅適用於已完成減碳之企業","目標一旦設定即不可檢討調整"],
+ ans:1,tag:"SBTi v2.0",
+ note:"「盡力而為」原則承認企業設定積極目標具催化行動之價值，但同時體認供應鏈、技術與資金等外部因素可能影響進度，要求企業對此保持透明並說明其因應障礙之作為，只要持續運用可用手段努力邁向目標即可維持在SBTi框架內。"},
+
+{q:"SBTi V2.0新增之「持續排放責任（Ongoing Emissions Responsibility）」自願認可機制中，「Engaged」層級要求企業至少處理多少比例之持續排放？",
+ opts:["1%","10%","50%","100%"],
+ ans:0,tag:"SBTi v2.0",
+ note:"依SBTi V2.0，Engaged層級為入門等級，要求企業至少透過經驗證之減緩成果或碳定價（建議最低20美元/噸CO2e）處理其持續排放量之1%。"},
+
+{q:"SBTi V2.0「持續排放責任」認可機制中，「Leadership」層級要求企業對其排放適用之最低碳價為何？",
+ opts:["每噸CO2e 10美元","每噸CO2e 20美元","每噸CO2e 80美元","無須設定碳價"],
+ ans:2,tag:"SBTi v2.0",
+ note:"Leadership為最高等級，要求企業對其100%持續排放適用至少每噸CO2e 80美元之碳價，並將預算投入涵蓋研發、調適、韌性及損失損害融資等多元行動。"},
+
+{q:"依SBTi V2.0規範，Category A企業之「氣候轉型計畫（Climate Transition Plan）」須於目標經驗證後多久內完成公開發布？",
+ opts:["3個月內","6個月內","12個月內","無時限規定"],
+ ans:2,tag:"SBTi v2.0",
+ note:"SBTi V2.0要求Category A企業須於目標驗證通過後12個月內公開發布其氣候轉型計畫，內容須包含具體減碳路徑、里程碑、年度排放報告及董事會問責證據。"},
+
+{q:"依SBTi V2.0之時程規劃，V2.0預計自何時起成為所有新提交目標之強制標準？",
+ opts:["2026年6月11日發布當天起","2027年第一季起","2028年2月1日起","2030年起"],
+ ans:2,tag:"SBTi v2.0",
+ note:"依SBTi規劃，2026全年仍以V1.3.1為主要適用標準；2027年第一季至2028年1月31日為過渡期，企業可選擇提交V1.3.1或V2.0；自2028年2月1日起，V2.0成為所有新提交目標之強制標準。"},
+
+{q:"已完成目標驗證之企業，於SBTi V2.0發布後是否須重新依V2.0規範送件驗證？",
+ opts:["須立即重新送件驗證","不需要，現有已驗證目標於其原訂週期內仍維持有效，企業重心應放在落實執行與進度展現","須於三個月內補送資料","僅限製造業須重新驗證"],
+ ans:1,tag:"SBTi v2.0",
+ note:"SBTi明確表示，已完成驗證之企業目標於原訂目標週期內仍維持有效，無須因V2.0發布而重新送件；企業應將心力投入於實際減碳執行與進度展現，而非重新驗證程序。"},
+
+{q:"SBTi V2.0在碳移除（Carbon Removal）指引方面，下列敘述何者正確？",
+ opts:["完全禁止企業使用碳移除機制","建立三階段（三層級）碳移除認可架構，並與ISO淨零標準對齊，同時強調「先減量、後移除」原則","碳移除可完全取代溫室氣體減量義務","僅適用於農業部門"],
+ ans:1,tag:"SBTi v2.0",
+ note:"SBTi V2.0建立正式化之三階段碳移除認可架構，並與ISO淨零標準保持一致，但仍強調碳移除係補充而非取代企業自身之溫室氣體減量作為。"},
+
+{q:"依SBTi V2.0規劃，企業對「持續排放」之強制性責任（非自願認可層級），將自何時起適用於Category A之大型企業？",
+ opts:["2027年","2030年","2035年","2050年"],
+ ans:2,tag:"SBTi v2.0",
+ note:"SBTi V2.0除設有自願性認可機制外，亦規劃自2035年起，對Category A大型企業導入強制性之持續排放責任要求。"},
+
+{q:"下列關於SBTi V2.0與CBAM兩者對企業之共通啟示，何者較為正確？",
+ opts:["兩者皆為完全自願性、無任何時程壓力之倡議","兩者均反映國際淨零治理正由「宣示承諾」轉向「落實執行、驗證與問責」之趨勢","兩者僅適用於歐盟企業","兩者互相衝突，企業僅能擇一遵循"],
+ ans:1,tag:"綜合",
+ note:"CBAM正式期強化申報、驗證與財務義務，SBTi V2.0強調落實執行、透明揭露與持續排放問責，兩者共同反映國際淨零治理逐漸由「宣示承諾」邁向「落實執行與可驗證問責」的趨勢。"},
+
+{q:"依GHG Protocol，企業盤查邊界設定採用「控制法」時，可進一步區分為財務控制與下列何者？",
+ opts:["營運控制","地理控制","供應鏈控制","品牌控制"],
+ ans:0,tag:"基礎",
+ note:"控制法下可再區分為「財務控制」與「營運控制」兩種取向，企業須擇一並一致適用於盤查邊界設定。"},
+
+{q:"依TCFD架構，企業因應暴雨、颱風等極端氣候事件所面臨之風險，屬於下列何種風險類型？",
+ opts:["實體風險","轉型風險","流動性風險","信用風險"],
+ ans:0,tag:"基礎",
+ note:"暴雨、颱風、乾旱等極端氣候事件屬於TCFD分類中之「實體風險（Physical Risk）」，區別於政策法規、市場需求變化所致之「轉型風險」。"},
+
+{q:"依IFRS S2規範，企業揭露氣候相關財務資訊時，應優先考量下列何種原則？",
+ opts:["僅揭露正面成果","與投資人決策攸關之重大性資訊，並與財務報表整合呈現","僅揭露歷史資料","可完全獨立於財務報表之外呈現"],
+ ans:1,tag:"基礎",
+ note:"IFRS S2延續IFRS S1精神，要求揭露與投資人決策攸關（具重大性）之氣候相關財務資訊，並與財務報表整合呈現，而非獨立分離。"},
+
+{q:"依台灣氣候變遷因應法規範，中央目的事業主管機關應依權責訂定何種文件以落實部門減碳？",
+ opts:["部門別溫室氣體減量行動方案","企業年度財報","國家自定貢獻（NDC）","國際碳權採購清單"],
+ ans:0,tag:"台灣政策",
+ note:"氣候變遷因應法要求各中央目的事業主管機關依權責訂定「部門別溫室氣體減量行動方案」，以落實整體淨零排放目標。"},
+
+{q:"台灣碳費制度中，企業提出並經審核通過之「自主減量計畫」，可適用下列何種優惠？",
+ opts:["免徵碳費","依減碳目標與時程分級適用優惠費率","僅適用於中小企業","無任何優惠"],
+ ans:1,tag:"台灣政策",
+ note:"經審核通過之自主減量計畫，企業可依其設定之減碳目標與時程，適用較一般費率為低之分級優惠費率。"},
+
+{q:"依台灣2050淨零排放路徑，工業部門推動之關鍵減碳技術包括下列何者？",
+ opts:["碳捕捉與封存技術（CCUS）","全面禁止工業生產","僅仰賴國外碳權抵換","停止所有製造業投資"],
+ ans:0,tag:"台灣政策",
+ note:"依臺灣2050淨零排放路徑，工業部門減碳關鍵技術之一為發展碳捕捉、利用與封存（CCUS）技術，以協助難減量產業達成減碳目標。"},
+
+{q:"依台灣十二項關鍵戰略，「氫能」被定位為下列何種能源角色？",
+ opts:["立即取代所有家用電力之能源","前瞻能源之一，中長期應用於工業製程與發電摻氫","僅限國防用途之能源","已遭排除於能源戰略之外"],
+ ans:1,tag:"台灣政策",
+ note:"氫能為台灣十二項關鍵戰略中「前瞻能源」之一，中長期規劃應用於工業製程（如煉鋼）及火力發電摻氫，逐步擴大應用範疇。"},
+
+{q:"依經濟部能源統計，台灣能源自給率長期偏低之主因為何？",
+ opts:["再生能源發展過度快速","化石燃料（煤、油、氣）高度仰賴進口","核能發電占比過高","電力大量出口"],
+ ans:1,tag:"台灣政策",
+ note:"台灣能源結構高度仰賴進口化石燃料（煤、石油、天然氣），是造成能源自給率長期偏低之主因。"},
+
+{q:"依SBTi一般規範（不論V1或V2.0），企業設定「長期／淨零目標」，其排放降幅通常應於2050年前達成之標準為何？",
+ opts:["降低至少50%","降低至少70%","降低至少90%以上並輔以殘留排放之移除或抵換","無須降低，僅需維持現況"],
+ ans:2,tag:"基礎",
+ note:"SBTi淨零標準要求企業長期目標須於2050年前（部分產業更早）將範疇一至三排放降低至少90%以上，殘留排放則透過移除或高品質碳信用處理。"},
+
+{q:"依ISO 14068-1:2023規範，企業執行溫室氣體減量之優先順序為何？",
+ opts:["碳抵換→溫室氣體移除→溫室氣體減量","溫室氣體減量→溫室氣體移除→碳抵換","溫室氣體移除→碳抵換→溫室氣體減量","三者順序並無規定"],
+ ans:1,tag:"基礎",
+ note:"依ISO14068-1精神，優先順序為先執行溫室氣體「減量」，其次為「移除」，最後才以「碳抵換」處理無法避免之殘留排放。"},
+
+{q:"依ISO 14068-1:2023，企業碳中和聲明中，下列何者為必須揭露之內容？",
+ opts:["企業股價表現","購買碳權之來源、形式與註銷情形","員工薪資結構","競爭對手排放資料"],
+ ans:1,tag:"基礎",
+ note:"碳中和聲明須揭露所使用碳權之來源、形式與註銷情形，以確保聲明之可信度與可追蹤性。"},
+
+{q:"下列何者為「地點基礎法（Location-based Method）」計算範疇二排放之依據？",
+ opts:["企業自行採購之綠電憑證","所在電網區域之平均排放係數","供應商個別排放係數","企業內部碳定價"],
+ ans:1,tag:"基礎",
+ note:"地點基礎法依企業所在電網區域之平均排放係數計算，不論企業是否採購綠電或憑證，均採用同一區域平均值。"},
+
+{q:"下列何者為碳信用額度（Carbon Credit）核發前必要審查項目之一？",
+ opts:["外加性（Additionality）審查","企業年度財報審計","股東會決議紀錄","員工滿意度調查"],
+ ans:0,tag:"基礎",
+ note:"碳信用核發流程須經基準線設定、外加性審查、計畫確證與監測查證等程序，外加性審查為確保減碳成果具真實性之核心要件。"},
+
+{q:"依碳權市場常見分類，「自願性碳市場（VCM）」與「強制性碳市場（Compliance Market）」之主要差異為何？",
+ opts:["VCM參與者基於自願承諾購買碳權，Compliance Market則受法規總量管制要求","兩者本質完全相同","VCM僅限已開發國家使用","Compliance Market不涉及碳定價"],
+ ans:0,tag:"基礎",
+ note:"自願性碳市場參與者多基於企業自願淨零承諾購買碳權；強制性市場則受政府法規（如ETS）之總量管制要求約束。"},
+
+{q:"依CDP官方揭露問卷架構，企業首次參與時通常建議優先完成下列何項揭露？",
+ opts:["氣候變遷問卷","森林問卷","水安全問卷","塑膠問卷"],
+ ans:0,tag:"基礎",
+ note:"CDP問卷中，「氣候變遷（Climate Change）」問卷為企業最普遍且優先參與之基礎揭露項目。"},
+
+{q:"Climate Action 100+倡議之主要訴求為何？",
+ opts:["僅要求企業加入RE100","要求高排放企業設定符合1.5°C路徑之減碳目標並強化治理與揭露","僅需繳交碳費即可","要求企業立即停止所有化石燃料業務"],
+ ans:1,tag:"基礎",
+ note:"Climate Action 100+由機構投資人發起，要求高排放企業設定與巴黎協定1.5°C路徑一致之減碳目標，並強化氣候治理與資訊揭露。"},
+
+{q:"下列何者屬於企業推動「循環經濟」對淨零目標之貢獻？",
+ opts:["提高資源使用效率，降低原生材料開採及製程排放","增加一次性產品使用比例","擴大廢棄物掩埋規模","提高包裝材使用量"],
+ ans:0,tag:"基礎",
+ note:"循環經濟透過資源循環再利用、延長產品生命週期，可有效降低原物料開採與製造過程之碳排放。"},
+
+{q:"依TNFD架構，企業揭露自然相關風險時，主要聚焦於下列何種議題之財務衝擊？",
+ opts:["溫室氣體排放","生物多樣性與自然資本喪失","供應鏈人權","勞動安全"],
+ ans:1,tag:"基礎",
+ note:"TNFD聚焦於生物多樣性喪失及自然資本衰退可能造成的財務風險與機會揭露，與TCFD聚焦氣候風險有所區隔。"},
+
+{q:"下列何者為內部碳定價機制中「影子碳價（Shadow Price）」之主要應用情境？",
+ opts:["實際繳納給政府之稅費","企業內部評估投資案時納入之假設性碳成本","碳交易所之交易牌價","外部稽核依據"],
+ ans:1,tag:"基礎",
+ note:"影子碳價並非實際繳交之費用，而是企業內部評估投資決策時納入之假設性碳成本，用於決策參考。"},
+
+{q:"依金管會現行規定，永續報告書須取得會計師確信報告之趨勢為何？",
+ opts:["確信範圍逐年縮小","確信標的逐步擴大，並納入氣候相關財務資訊之確信要求","僅適用於上市櫃公司且永遠不變","確信要求已全面取消"],
+ ans:1,tag:"基礎",
+ note:"現行政策趨勢為逐步擴大確信報告涵蓋之產業與揭露範疇，並納入氣候相關財務資訊之確信要求。"},
+
+{q:"依碳邊境調整機制設計目的，CBAM除防止碳洩漏外，另一重要政策目的為何？",
+ opts:["促使貿易夥伴國建立自身碳定價機制，使進出口碳成本趨於一致","降低歐盟自身減碳目標","鼓勵企業將產線移出歐盟","取消歐盟碳交易市場"],
+ ans:0,tag:"基礎",
+ note:"CBAM除防止碳洩漏外，亦希望促使貿易夥伴國建立自身碳定價機制，使進出口碳成本趨於一致，帶動全球碳定價普及。"},
+
+{q:"企業同時參與SBTi與RE100倡議，下列敘述何者正確？",
+ opts:["兩者互相排斥，企業僅能擇一參與","兩者目標互補，RE100聚焦電力去碳（多屬範疇二），SBTi涵蓋範疇一至三之科學基礎減碳路徑","RE100為SBTi之前置審查程序","兩者皆屬強制性法規要求"],
+ ans:1,tag:"基礎",
+ note:"RE100聚焦企業用電之再生能源轉換（多屬範疇二排放），SBTi則涵蓋範疇一至三之科學基礎減碳路徑，兩者可互補並行。"},
+
+{q:"依碳中和ISO14068-1精神，「殘留排放（Residual Emissions）」係指下列何者？",
+ opts:["企業尚未盤查之排放","經減量與移除努力後，仍無法消除、須以碳抵換處理之排放","企業歷史累計排放總量","僅指供應鏈間接排放"],
+ ans:1,tag:"基礎",
+ note:"殘留排放指企業已盡力執行減量與移除措施後，仍無法避免之排放量，須透過碳抵換方式處理。"},
+
+{q:"下列何者為碳交易所（如台灣碳權交易所）在碳市場中之主要功能？",
+ opts:["核發碳權憑證","提供碳權買賣之交易平台與價格發現機制","制定各國NDC目標","進行碳盤查查證"],
+ ans:1,tag:"基礎",
+ note:"碳交易所主要提供交易撮合、定價與清算平台，碳權核發則由專責認證機構負責，非交易所之職能。"},
+
+{q:"企業推動供應鏈減碳（Scope 3）時，下列何者為常見具體作法？",
+ opts:["要求供應商揭露碳排放並設定共同減碳目標","停止與所有供應商合作","僅關注企業自身廠區排放","忽略運輸物流排放"],
+ ans:0,tag:"基礎",
+ note:"供應鏈減碳常見作法包括要求供應商進行碳盤查揭露、設定共同減碳目標並協助供應商能力建置，此與SBTi V2.0強調之持續排放責任精神相呼應。"},
+
+{q:"依台灣水資源調適政策，「需求面」管理策略之核心精神為何？",
+ opts:["僅專注於開發新水源","透過節水、精密灌溉、水足跡標示等方式降低用水需求","完全禁止農業用水","僅適用於工業用水"],
+ ans:1,tag:"基礎",
+ note:"需求面管理著重透過節水技術、精密灌溉、水足跡標示等方式，從降低用水需求端著手，以提升水資源使用效益。"},
+
+{q:"依現行國際趨勢，企業於永續報告書中揭露「氣候情境分析（Scenario Analysis）」之主要目的為何？",
+ opts:["展示企業歷史股價表現","評估企業於不同升溫情境下之財務韌性與策略調適能力","取代溫室氣體盤查程序","僅為行銷宣傳之用"],
+ ans:1,tag:"基礎",
+ note:"氣候情境分析旨在評估企業於不同升溫路徑（如1.5°C、2°C情境）下之財務曝險程度與策略調適韌性，為TCFD/IFRS S2核心要求之一。"},
+
+{q:"綜合CBAM正式期與SBTi V2.0之發展趨勢，企業因應淨零治理應優先強化下列何種能力？",
+ opts:["僅關注公關宣傳，無須實質減碳","建立可驗證、可追蹤之排放數據系統，並落實實際減碳執行與進度揭露","僅依賴購買碳權即可達成所有義務","忽略供應鏈排放，僅關注自身廠區"],
+ ans:1,tag:"綜合",
+ note:"無論CBAM之驗證與申報要求，或SBTi V2.0之持續排放問責與轉型計畫要求，均凸顯企業須建立可驗證、可追蹤之排放數據系統，並落實實際減碳執行與透明揭露，而非僅依賴宣傳或碳權抵換。"}
+];
+
+const quiz = document.getElementById('quiz');
+let answered = new Array(questions.length).fill(false);
+let correctCount = 0;
+
+function buildQuiz(){
+  quiz.innerHTML = '';
+  questions.forEach((item,qi)=>{
+    const card = document.createElement('div');
+    card.className='q-card';
+    card.id='card-'+qi;
+
+    const head = document.createElement('div');
+    head.className='q-head';
+    head.innerHTML = `<span class="q-num">Q${qi+1}</span><span class="q-text">${item.q}</span><span class="badge-new">${item.tag||''}</span>`;
+    card.appendChild(head);
+
+    const ul = document.createElement('ul');
+    ul.className='options';
+    const letters=['A','B','C','D'];
+    item.opts.forEach((opt,oi)=>{
+      const li=document.createElement('li');
+      const btn=document.createElement('button');
+      btn.className='opt-btn';
+      btn.innerHTML = `<b>${letters[oi]}.</b> ${opt}`;
+      btn.onclick = ()=>selectAnswer(qi,oi,btn);
+      li.appendChild(btn);
+      ul.appendChild(li);
+    });
+    card.appendChild(ul);
+
+    const exp = document.createElement('div');
+    exp.className='explain';
+    exp.id='exp-'+qi;
+    exp.innerHTML = `<b>詳解：</b>${item.note}`;
+    card.appendChild(exp);
+
+    quiz.appendChild(card);
+  });
+  updateScore();
+}
+
+function selectAnswer(qi, oi, btn){
+  if(answered[qi]) return;
+  answered[qi]=true;
+  const card = document.getElementById('card-'+qi);
+  const btns = card.querySelectorAll('.opt-btn');
+  btns.forEach((b,i)=>{
+    b.disabled=true;
+    if(i===questions[qi].ans) b.classList.add('correct');
+    else if(i===oi) b.classList.add('wrong');
+  });
+  if(oi===questions[qi].ans) correctCount++;
+  document.getElementById('exp-'+qi).classList.add('show');
+  updateScore();
+}
+
+function revealAll(){
+  questions.forEach((item,qi)=>{
+    if(!answered[qi]){
+      answered[qi]=true;
+      const card = document.getElementById('card-'+qi);
+      const btns = card.querySelectorAll('.opt-btn');
+      btns.forEach((b,i)=>{
+        b.disabled=true;
+        if(i===item.ans) b.classList.add('correct');
+      });
+      document.getElementById('exp-'+qi).classList.add('show');
+    }
+  });
+  updateScore(true);
+}
+
+function resetAll(){
+  answered = new Array(questions.length).fill(false);
+  correctCount = 0;
+  buildQuiz();
+}
+
+function updateScore(finalReveal){
+  const answeredCount = answered.filter(Boolean).length;
+  const box = document.getElementById('score-box');
+  if(answeredCount===0){ box.textContent=''; return; }
+  box.textContent = `已作答 ${answeredCount}/${questions.length} 題　正確 ${correctCount} 題`;
+}
+
+buildQuiz();
+</script>
+</body>
+</html>
