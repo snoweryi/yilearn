@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<link href="img/favicon.ico" rel="icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  :root{
+    --ink:#1f2a24;
+    --paper:#faf7f0;
+    --accent:#2f6f4f;
+    --accent2:#8a4fae;
+    --line:#dcd3bd;
+    --card:#ffffff;
+    --wrong:#b3432d;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.7;
+    padding-bottom:60px;
+  }
+  header{
+    background:linear-gradient(135deg,var(--accent2),#4a2b63);
+    color:#fff;
+    padding:60px 20px 26px;
+    text-align:center;
+  }
+  header h1{margin:0 0 6px;font-size:1.5rem;}
+  header p{margin:4px 0;opacity:.9;font-size: 22px;}
+  .meta-bar{
+    max-width: 1900px;margin:18px auto 0;
+    display:flex;flex-wrap:wrap;gap:10px;justify-content:center;
+  }
+  .meta-bar span{
+    background:rgba(255,255,255,.15);
+    border:1px solid rgba(255,255,255,.35);
+    padding:5px 12px;border-radius:20px;font-size: 22px;
+  }
+  .toolbar{
+    max-width: 1900px;margin:20px auto;padding:0 16px;
+    display:flex;gap:10px;flex-wrap:wrap;justify-content:center;
+  }
+  button.tool{
+    background:var(--accent2);color:#fff;border:none;
+    padding:9px 18px;border-radius:8px;cursor:pointer;font-size: 22px;
+    transition:.2s;
+  }
+  button.tool:hover{background:#6e3d8a;}
+  button.tool.secondary{background:var(--accent);}
+  button.tool.secondary:hover{background:#255c40;}
+  #score-box{
+    max-width: 1900px;margin:0 auto 10px;padding:0 16px;
+    text-align:center;font-weight:700;color:var(--accent2);min-height:24px;
+  }
+  main{max-width: 1900px;margin:0 auto;padding:0 16px;}
+  .q-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:18px 20px;
+    margin-bottom:16px;
+    box-shadow:0 1px 3px rgba(0,0,0,.04);
+  }
+  .q-head{
+    display:flex;gap:10px;align-items:baseline;margin-bottom:10px;flex-wrap:wrap;
+  }
+  .q-num{
+    background:var(--accent2);color:#fff;font-weight:700;
+    font-size: 22px;padding:3px 10px;border-radius:14px;flex-shrink:0;
+  }
+  .q-text{font-weight:600;font-size: 22px;white-space:pre-line;}
+  .badge{
+    background:#f0e6f7;color:var(--accent2);border:1px solid #ddc3ea;
+    font-size: 22px;padding:2px 9px;border-radius:10px;font-weight:700;
+  }
+  .options{list-style:none;padding:0;margin:0;}
+  .options li{margin-bottom:8px;}
+  .opt-btn{
+    width:100%;text-align:left;
+    background:#f4f0e6;
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:9px 14px;
+    cursor:pointer;
+    font-size: 22px;
+    color:var(--ink);
+    transition:.15s;
+  }
+  .opt-btn:hover{border-color:var(--accent2);}
+  .opt-btn.correct{background:#e3f2e6;border-color:var(--accent);color:#1f4d38;font-weight:700;}
+  .opt-btn.wrong{background:#fbe6e1;border-color:var(--wrong);color:var(--wrong);font-weight:700;}
+  .opt-btn[disabled]{cursor:default;}
+  .explain{
+    display:none;
+    margin-top:10px;
+    background:#f6eefb;
+    border-left:4px solid var(--accent2);
+    padding:10px 14px;
+    font-size: 22px;
+    border-radius:0 6px 6px 0;
+    color:#4a3652;
+  }
+  .explain.show{display:block;}
+  footer{
+    text-align:center;color:#8a8371;font-size: 22px;margin-top:30px;
+  }
+  .disclaimer{
+    max-width: 1900px;margin:20px auto;padding:14px 18px;
+    background:#fff3e0;border:1px solid #e8c891;border-radius:10px;
+    font-size: 22px;color:#6b4d1f;
+  }
+      .badgerowbt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px;
+    background: #ffffff;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+a.badge1 {
+    display: inline-block;
+   font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #007286;
+    color: #fff;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+a.badge2 {
+    display: inline-block;
+   font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #007286;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+a.badge3 {
+    display: inline-block;
+   font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #b8238d;
+    color: yellow;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+@media (max-width:768px){
+    header{padding:120px 16px 30px;}
+   
+  }
+</style>
+</head>
+<body>
+<div class="badgerowbt">	
+	考科一<div><a href="https://snoweryi.github.io/yilearn/exam_01_1.html" class="badge1">1</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_2.html" class="badge1">2</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_3.html" class="badge1">3</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_4.html" class="badge1">4</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_5.html" class="badge1">5</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_6.html" class="badge1">6</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_7.html" class="badge1">7</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_8.html" class="badge1">8</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_9.html" class="badge1">9</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_10.html" class="badge1">10</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_11.html" class="badge1">11</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_12.html" class="badge1">12</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_13.html" class="badge1">13</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_14.html" class="badge1">14</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_15.html" class="badge1">15</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_16.html" class="badge1">16</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_17.html" class="badge1">17</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_18.html" class="badge1">18</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_19.html" class="badge1">19</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_20.html" class="badge1">20</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_21.html" class="badge1">21</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_22.html" class="badge1">22</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_23.html" class="badge1">23</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_24.html" class="badge1">24</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_25.html" class="badge1">25</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_26.html" class="badge1">26</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/exam_01_27.html" class="badge2">27</a></div>
+	
+	
+	
+	<div><a href="https://snoweryi.github.io/yilearn/menu.html" class="badge3">目錄</a></div>
+  </div>
+<header>
+  <h1>115年第二次淨零碳規劃管理師-初級能力鑑定</h1>
+  <p>第二科：淨零碳盤查規範與程序概要（模擬預測試題）</p>
+  <div class="meta-bar">
+    <span>共 50 題 · 單選題</span>
+    <span>依第一次(115-05-16)第二科考古題出題邏輯預測</span>
+    <span>點擊選項可查看詳解</span>
+  </div>
+</header>
+
+<div class="disclaimer">
+  ⚠️ 本試題為根據「115年第一次」第二科公告試題之出題範圍、題型（含ISO14064-1組織型盤查、ISO14067產品碳足跡、GHG Protocol範疇分類、計算題等）與難度所做的<b>模擬預測</b>，並非官方公告之正式試題，僅供複習與自我檢測參考，實際考題請以主辦單位公告為準。
+</div>
+
+<div class="toolbar">
+  <button class="tool" onclick="revealAll()">顯示全部答案</button>
+  <button class="tool secondary" onclick="resetAll()">重新作答</button>
+</div>
+<div id="score-box"></div>
+
+<main id="quiz"></main>
+
+<footer>富林有機農場 × 城邦技術顧問｜淨零碳規劃管理師 第二科模擬試題 v1.0</footer>
+
+<script>
+const questions = [
+{q:"依「溫室氣體排放量盤查登錄及查驗管理辦法」規定，事業單位盤查所得之各類別排放量於彙總為總排放量時，應計算至小數點後第幾位？",
+ opts:["第一位","第二位","第三位","第四位"],ans:2,tag:"法規",
+ note:"依該辦法規定，溫室氣體總排放量應計算至小數點後第三位，以確保申報數據之一致性與精確度。"},
+
+{q:"某企業使用自有廠內鍋爐燃燒天然氣供應製程用熱，另向台電購買電力供辦公室使用。下列歸類何者正確？",
+ opts:["鍋爐燃燒天然氣屬能源間接排放；購買電力屬直接排放","鍋爐燃燒天然氣屬直接排放；購買電力屬能源間接排放","兩者皆屬直接排放","兩者皆屬能源間接排放"],ans:1,tag:"範疇分類",
+ note:"自有設備燃燒燃料屬類別一直接排放；外購電力使用屬類別二能源間接排放，此為ISO14064-1組織型盤查之基本分類原則。"},
+
+{q:"企業委託第三方物流公司運送原料，但企業並未持有運輸車輛之所有權或營運控制權，該運輸產生之排放應歸類為？",
+ opts:["類別一：直接排放","類別二：能源間接排放","類別三：運輸間接排放","類別四／五：其他間接排放"],ans:3,tag:"範疇分類",
+ note:"不具控制權之委外物流運輸排放，應歸類為ISO14064-1類別四（上游運輸）或類別五（下游運輸）等其他間接排放，而非直接排放。"},
+
+{q:"企業採用「營運控制權原則」設定組織邊界時，下列何種情況應納入盤查？",
+ opts:["僅具財務投資但無實質營運決策權之被投資公司","雖無持股，但實質具有該場所營運決策與政策制定權者","僅提供廠房出租、無營運參與之出租行為","與企業完全無契約關係之獨立廠商"],ans:1,tag:"邊界設定",
+ note:"營運控制權原則著重於「實質營運決策權」，即使無持股，只要具有實質營運決策與政策制定權，即應納入盤查邊界。"},
+
+{q:"企業欲提升溫室氣體盤查結果之可查證性，下列何者最為關鍵？",
+ opts:["所有數據皆以估算方式呈現，避免現場量測之複雜性","活動數據來源清楚且可追溯至原始憑證或紀錄","刻意排除不確定性較高之數據，僅呈現確定數據","僅針對電力使用排放進行盤查"],ans:1,tag:"查證",
+ note:"提升可查證性之核心在於活動數據具備可追溯性，須能追溯至原始憑證、紀錄或量測結果，而非任意排除或簡化數據。"},
+
+{q:"依ISO14064-1:2018規範，關於「誤差（Error）」與「不確定性（Uncertainty）」之敘述，下列何者正確？",
+ opts:["兩者定義完全相同，可交互使用","誤差係指測量值與真值之差異，應予以識別並修正；不確定性則反映數據本身固有之變異範圍","不確定性可透過校正儀器完全消除","查驗機構之職責僅在於計算不確定性，無須發現誤差"],ans:1,tag:"ISO14064-1",
+ note:"誤差指測量值與真值間之差異，應識別並修正；不確定性則是數據固有之變異或估計範圍，兩者概念不同，查驗機構須同時關注發現誤差並評估不確定性。"},
+
+{q:"依ISO14064-1:2018規範，除傳統燃燒與製程排放外，類別一（直接排放）額外涵蓋下列何項目？",
+ opts:["土地使用、土地使用變更及林業（LULUCF）相關直接排放","委外廢棄物處理排放","上游租賃資產排放","供應商投資產生之排放"],ans:0,tag:"ISO14064-1",
+ note:"ISO14064-1:2018類別一（直接排放）除燃燒與製程排放外，亦涵蓋土地使用、土地使用變更及林業（LULUCF）相關之直接排放。"},
+
+{q:"某企業使用天然氣5,000立方公尺（排放係數2.2 kgCO2e/立方公尺）供製程使用，並外購電力100,000度（排放係數0.495 kgCO2e/度）。請問該企業之總排放量約為多少公噸CO2e？",
+ opts:["60.5","605","11","49.5"],ans:0,tag:"計算題",
+ note:"天然氣：5,000×2.2＝11,000 kg＝11公噸；電力：100,000×0.495＝49,500 kg＝49.5公噸；合計11＋49.5＝60.5公噸CO2e。"},
+
+{q:"某工廠使用一台冰水機，冷媒原始填充量為0.01公噸，GWP值為1,430，自然溢散率為5%。當年度未重新填充之情境下，其溫室氣體排放量約為多少？",
+ opts:["7.15tCO2e","0.715tCO2e","71.5tCO2e","0.0715tCO2e"],ans:1,tag:"計算題",
+ note:"冷媒填充量0.01公噸＝10公斤；排放量＝10kg×5%×1,430＝715 kgCO2e＝0.715公噸CO2e。"},
+
+{q:"若企業採用「財務控制權法（Financial Control Approach）」界定組織邊界，下列敘述何者正確？",
+ opts:["僅需計入母公司自身排放，子公司一律排除","凡企業具有財務控制權之營運場所，其排放皆須納入盤查","財務控制法與營運控制法完全相同，僅名稱不同","此方法僅適用於上市公司"],ans:1,tag:"邊界設定",
+ note:"財務控制權法係以「是否具財務控制權」（如可主導財務與營運政策以獲取經濟利益）作為納入盤查邊界之判斷依據，凡具財務控制權之場所排放皆須納入。"},
+
+{q:"A公司與B公司共同持有一合資事業，各占50%股權，若B公司具有該合資事業之營運控制權，依環境部盤查申報規定，兩家公司排放量應如何計算？",
+ opts:["A公司與B公司各計入50%排放量","B公司應計入100%排放量，A公司不需計入","A公司應計入100%排放量，B公司不需計入","雙方均不需計入排放量"],ans:1,tag:"邊界設定",
+ note:"依營運控制權法，具有實質營運控制權之一方（本題為B公司）應計入合資事業100%之排放量，不具控制權之一方（A公司）則不需計入。"},
+
+{q:"某工廠將廠房屋頂出租予太陽能業者設置光電板，發電全數躉售予台電，工廠並未自用該電力。該太陽能發電量於工廠盤查邊界中應如何處理？",
+ opts:["應計入類別二，並扣抵工廠用電排放","應計入類別一，視為自產能源","不屬於該工廠之盤查邊界，不需列入清冊","應列於類別二，但排放係數設為0"],ans:2,tag:"邊界設定",
+ note:"該太陽能發電設施雖位於工廠土地上，但電力全數躉售台電、工廠未持有或使用該電力，故不屬於工廠之盤查邊界，不需列入清冊。"},
+
+{q:"某租賃公司將設備出租予客戶使用，且不掌握該設備運轉期間之能源使用控制權（燃料/電力由客戶自付），則客戶使用期間之排放，於出租公司報告中應歸屬為？",
+ opts:["類別一：直接排放","類別三：運輸間接排放","類別四：上游租賃資產","類別五：下游租賃資產"],ans:3,tag:"範疇分類",
+ note:"出租人將資產租予他人使用且不具營運控制權時，該資產使用期間之排放應歸類為ISO14064-1類別五（下游租賃資產）。"},
+
+{q:"企業採購一套製程設備（資本財），由供應商負責自國外海運至工廠。（1）設備製造過程排放；（2）設備運送至工廠之排放，分別屬於下列何類別？",
+ opts:["皆屬於類別三","（1）屬類別四；（2）屬類別三","（1）屬類別二；（2）屬類別三","皆屬於類別四"],ans:1,tag:"範疇分類",
+ note:"資本財製造過程之上游排放屬類別四（上游採購商品及服務）；運輸至工廠之排放則屬類別三（燃料與能源相關活動／運輸）。"},
+
+{q:"工廠於盤查邊界內建置太陽能發電設施，電力全數供廠內製程自發自用，未躉售台電。關於此部分電力之排放邊界界定，下列何者正確？",
+ opts:["屬於類別一，因太陽能排放係數為0，故排放量為0","屬於類別二，排放係數為0","不屬於盤查邊界，因未向外購買電力","應視為碳抵換，可扣減其他類別排放"],ans:1,tag:"邊界設定",
+ note:"自發自用之太陽能電力仍屬企業能源使用行為，應計入類別二（能源間接排放），惟因屬再生能源，其排放係數通常設為0。"},
+
+{q:"某製造商114年度燃燒天然氣達6,000立方公尺，用電量為150,000度。天然氣排放係數為2.0公斤CO2e/立方公尺，電力排放係數為0.495公斤CO2e/度。請問該製造商114年度之總排放量約為多少公噸CO2e？",
+ opts:["12","74.25","86.25","162"],ans:2,tag:"計算題",
+ note:"天然氣：6,000×2.0＝12,000kg＝12公噸；電力：150,000×0.495＝74,250kg＝74.25公噸；合計12＋74.25＝86.25公噸CO2e。"},
+
+{q:"依「溫室氣體排放量盤查登錄及查驗管理辦法」規定，以排放係數法計算燃料燃燒排放量時，應以燃料用量乘以何種位階之熱值及係數？",
+ opts:["高位熱值","中位熱值","低位熱值","高位或低位熱值皆可"],ans:2,tag:"法規",
+ note:"依該辦法規定，計算燃料燃燒排放量應採用「低位熱值（LHV）」及對應之排放係數，而非高位熱值。"},
+
+{q:"下列何者為排放係數法之標準計算公式？",
+ opts:["排放量＝活動數據×排放係數×全球暖化潛勢值","排放量＝燃料使用量÷排放係數","排放量＝濃度數據×流率×全球暖化潛勢值","排放量＝排放源數量÷活動數據"],ans:0,tag:"計算方法",
+ note:"排放係數法之標準公式為：排放量＝活動數據×排放係數×全球暖化潛勢值（GWP），為溫室氣體盤查最常用之計算方式。"},
+
+{q:"企業使用生質燃料（如稻殼、農業剩餘物）進行燃燒發電，依IPCC規範，其燃燒產生之二氧化碳排放量應如何處理？",
+ opts:["屬自然界碳循環，完全不需計算或量化","需量化計算，並直接加總計入公司總排放量","需量化計算，但應分別表列，不彙總入排放總量","應視為類別二之間接排放計算"],ans:2,tag:"IPCC規範",
+ note:"依IPCC規範，生質燃料燃燒之CO2排放雖屬碳循環概念（視為淨零貢獻），惟仍須量化計算並分別表列揭露，不彙總計入公司排放總量，以維持透明度。"},
+
+{q:"計算燃料燃燒排放量時，若供應商僅提供「高位熱值（HHV）」，依指引建議之轉換公式，「燃煤（固態燃料）」與「燃油（液態燃料）」之低位熱值轉換比例分別為何？",
+ opts:["固態95%；液態90%","固態90%；液態95%","皆為90%","皆為95%"],ans:0,tag:"計算方法",
+ note:"依指引建議，固態燃料（如煤炭）之HHV轉LHV比例約為95%，液態燃料（如燃油）之轉換比例則約為90%。"},
+
+{q:"某工廠全年度分四批次採購重油，每批次熱值不同。依《113年版溫室氣體排放量盤查作業指引》，計算全年度平均熱值時應採用下列何種統計方法？",
+ opts:["算術平均法","加權平均法（依採購數量加權）","直接採用最大熱值以保守估計","僅採用最後一批次熱值"],ans:1,tag:"計算方法",
+ note:"依指引規定，多批次採購且熱值不同時，應採用「加權平均法」（依各批次採購數量加權），以反映實際使用情形之平均熱值。"},
+
+{q:"依ISO14064-1:2018規範，下列何者不屬於GHG Protocol範疇三之盤查邊界？",
+ opts:["組織使用售出產品","員工通勤","廠內固定源燃燒排放","上游運輸與配送"],ans:2,tag:"範疇分類",
+ note:"廠內固定源燃燒排放屬於類別一（直接排放），並非範疇三（其他間接排放）之邊界內容；範疇三涵蓋供應鏈上下游之間接排放，如員工通勤、售出產品使用、上游運輸等。"},
+
+{q:"事業購買再生能源電力，若該筆電力之排放係數欲以0計算，依規定該憑證應符合何種要求？",
+ opts:["僅需購買再生能源憑證（T-REC），形式不拘","憑證類型須為「電證合一」，並檢附轉供證明","憑證類型須為「電證分離」即可","僅需向台電申請綠電標章"],ans:1,tag:"法規",
+ note:"依規定，事業欲以0排放係數計算購入之再生能源電力，該憑證類型須為「電證合一」，並檢附相關轉供證明文件，以確保該電力確實來自再生能源。"},
+
+{q:"溫室氣體盤查報告書中，「報告邊界」段落主要應呈現下列何種內容？",
+ opts:["描述績效追蹤之邊界","描述盤查報告涵蓋之期間","描述組織邊界與彙總方法","描述組織所考量之排放類別"],ans:3,tag:"報告撰寫",
+ note:"依報告書撰寫規範，「報告邊界」應描述組織所考量納入之排放類別範疇，區別於「組織邊界」（描述組織邊界與彙總方法）等其他段落。"},
+
+{q:"撰寫ISO14064-1盤查報告書時，若因數據無法取得而排除某些次要排放源，依指引原則，報告書應如何呈現該排除項目？",
+ opts:["僅於附錄列出，不需於報告主體揭露","僅需於清冊中標示為0","應透明陳述排除項目及其理由","須先取得環境部同意函後方可排除"],ans:2,tag:"報告撰寫",
+ note:"依ISO14064-1透明度原則，排除之次要排放源應於報告書中透明陳述排除項目名稱及其理由，而非僅隱含於附錄或標示為0。"},
+
+{q:"查驗機構完成查證並出具「查驗總結報告」，且查證過程中發現數據錯誤並已修正，事業於最終定稿之盤查報告書與清冊中，應如何處理？",
+ opts:["保留原始錯誤數據以示誠實","報告書與清冊之數據須與查驗結果完全一致","報告書採修正後數據，清冊保留修正前數據","僅需修正總量，細項數據不需修正"],ans:1,tag:"查證",
+ note:"依查證規範，事業最終定稿之盤查報告書與清冊，其數據須與查驗機構之查驗結果完全一致，以確保申報數據之正確性與可信度。"},
+
+{q:"報告書「排放量計算」章節中，針對所引用之排放係數（如電力係數、GWP值），下列哪一項揭露方式不符合指引要求？",
+ opts:["標註係數之發布單位","標註係數之年份或版本","僅寫「引用官方係數」而未標明具體來源與年份","使用自廠實測係數，並說明檢測方法與日期"],ans:2,tag:"報告撰寫",
+ note:"僅籠統寫「引用官方係數」而未標明具體發布單位、來源及年份或版本，將導致數據無法追溯，不符合資訊透明度要求。"},
+
+{q:"企業於廠區內種植樹木（碳匯）並計算其碳移除量（Removal）。填寫排放清冊時，此移除量應如何處理？",
+ opts:["直接與排放量相減，申報淨排放量","填寫於「直接排放」欄位並標示為負值","填寫於獨立之「溫室氣體移除量」欄位，不得與排放量相抵扣","視為購買綠電，係數設為0"],ans:2,tag:"報告撰寫",
+ note:"依規範，碳匯移除量應填寫於獨立之「溫室氣體移除量」欄位，不得與排放量直接相抵扣申報淨值，以維持排放與移除數據之透明度。"},
+
+{q:"企業發生下列何種變動時，通常需要在當年度報告書中重訂基準年或調整歷史數據？",
+ opts:["因產能自然擴增，導致排放量較去年增加15%","出售一家排放量占總量25%之子公司","員工人數自然增加5%","辦公室搬遷至同一縣市之新址"],ans:1,tag:"基準年"},
+
+{q:"查核盤查報告書時，發現其電力排放係數引用來源僅寫「環境部」。依ISO14064-1資訊透明度要求，此描述缺少何項關鍵資訊，將導致數據無法追溯？",
+ opts:["係數之計算公式","係數之發布日期或適用年份","環境部之地址","主管機關首長姓名"],ans:1,tag:"報告撰寫",
+ note:"僅標明發布機關而未標註係數之發布日期或適用年份，將導致無法確認該係數之時效性與適用性，數據因此無法追溯查證。"},
+
+{q:"依國內產品碳足跡計算相關指引，切斷原則規定：任何單一溫室氣體源之排放貢獻若低於總排放量之多少百分比，可於盤查時忽略；且所有被忽略項目之累積不得超過總排放量多少百分比？",
+ opts:["單一源≤5%；累積不得超過10%","單一源≤1%；累積不得超過5%","單一源≤0.5%；累積不得超過1%","單一源≤10%；累積不得超過20%"],ans:1,tag:"ISO14067",
+ note:"依國內產品碳足跡計算指引之切斷原則，任何單一排放源貢獻若低於總排放量1%，可於盤查時忽略，惟所有被忽略項目累積不得超過總排放量5%。"},
+
+{q:"依《氣候變遷因應法》第三十七條規定，中央主管機關審查核定產品碳足跡後，業者應於規定期限內依核定內容對產品進行何種標示？",
+ opts:["零碳標示","分級標示","再生能源比例標示","碳中和承諾標示"],ans:1,tag:"法規",
+ note:"依《氣候變遷因應法》第三十七條規定，業者應於規定期限內依核定內容對產品進行「分級標示」，以呈現產品碳足跡之等級。"},
+
+{q:"依ISO14067:2018標準，於進行碳排放數據量化時，若存在需分配之排放源，關於排放分配原則之引用優先順序，下列何者正確？",
+ opts:["物理性分配→經濟分配→無分配","經濟分配→物理性分配→無分配","無分配→經濟分配→物理性分配","無分配→物理性分配→經濟分配"],ans:3,tag:"ISO14067",
+ note:"依ISO14067規範，排放分配原則之優先順序為：優先採「無分配」（如系統擴展），其次為「物理性分配」，最後才採用「經濟分配」。"},
+
+{q:"下列何者為使用「排放係數法」計算燃料燃燒溫室氣體排放量時，所必須具備之數據？",
+ opts:["燃料消耗量與低位熱值","設備之總負荷量","燃料價格與碳稅金額","溫室氣體排放清冊之類別編號"],ans:0,tag:"計算方法",
+ note:"排放係數法計算燃料燃燒排放量時，必須具備燃料消耗量與其對應之低位熱值（LHV）及排放係數，方能進行正確計算。"},
+
+{q:"關於生命週期評估（LCA）之功能單位（Functional Unit, FU），下列何者為其主要目的？",
+ opts:["作為溝通產品外觀特性之指標","作為產品生命週期評估之量化比較基準","用於計算公司年度總排放量","僅提供產品使用階段之排放基礎"],ans:1,tag:"LCA",
+ note:"功能單位（FU）之主要目的為建立產品生命週期評估之量化比較基準，使不同產品或方案間之環境衝擊評估具有可比性。"},
+
+{q:"在生命週期衝擊評估（LCIA）中，將生命週期盤查（LCI）結果轉化為衝擊指數時，其程序依序為：分類、特徵化，接下來為下列何步驟？",
+ opts:["決策","替代方案之排序","權重","評價模式及方法"],ans:2,tag:"LCA",
+ note:"LCIA程序依序為：分類（Classification）、特徵化（Characterization），接下來為「權重（Weighting，選擇性步驟）」，最終形成衝擊指數結果。"},
+
+{q:"關於產品碳足跡（CFP）或部分CFP之生命週期衝擊評估（LCIA）中，計算產品系統之潛在氣候變遷衝擊時，應採用哪一種時間範圍之全球暖化潛勢（GWP）？",
+ opts:["20年","50年","100年","200年"],ans:2,tag:"LCA",
+ note:"依國際慣例與相關指引，計算產品碳足跡之氣候變遷衝擊時，應採用100年時間範圍之全球暖化潛勢（GWP-100）。"},
+
+{q:"下列何者屬於生命週期評估（LCA）之限制？",
+ opts:["無法分析環境衝擊","無法單獨定義產品是否「永續」，須輔以其他指標綜合判斷","完全無法使用實測數據","無法應用於製造業"],ans:1,tag:"LCA",
+ note:"LCA之限制之一在於其僅評估特定範疇之環境衝擊指標，無法單獨定義產品是否「永續」，須輔以社會、經濟等其他面向綜合判斷。"},
+
+{q:"依ISO14025:2006規定，產品類別規則（PCR）委員會制定PCR文件時應收集或製作適當之生命週期評估（LCA），此LCA之主要作用為何？",
+ opts:["確保單一企業內部碳排報告之保密性","決定產品功能單位應使用何種貨幣","確保特定產品類別內環境宣告（EPD）之間的可比性","規定產品之最終處置方式"],ans:2,tag:"ISO14025",
+ note:"PCR制定過程中收集之LCA資訊，主要作用在於確保同一產品類別內不同企業所發布之環境宣告（EPD）具有一致的計算基礎與可比性。"},
+
+{q:"下列哪一種溫室氣體通常不屬於類別一固定式燃燒源之主要排放物？",
+ opts:["二氧化碳（CO2）","甲烷（CH4）","氧化亞氮（N2O）","六氟化硫（SF6）"],ans:3,tag:"氣體類別",
+ note:"固定式燃燒源之主要排放物為CO2、CH4與N2O；六氟化硫（SF6）主要來自電氣設備（如高壓開關）之逸散，非屬燃燒源之主要排放物。"},
+
+{q:"某公司有一部柴油發電機，盤查同時收集到現場完整柴油使用紀錄、採購金額、及運轉時間等資料，下列何者作為活動數據較佳？",
+ opts:["使用現場使用紀錄統計年度實際用量","使用採購金額回推柴油數量","利用運轉時間與手冊單位耗用量推算年度用油量","以上皆可，準確度相同"],ans:0,tag:"活動數據"},
+
+{q:"依ISO14067:2018條文，當產品碳足跡之量化涉及能源屬性憑證（EACs），且電網相互連接下不同電力追溯系統可能導致結果差異時，應執行並報告何種分析？",
+ opts:["質量平衡分析","財務審計分析","敏感度分析","總量平衡分析"],ans:2,tag:"ISO14067",
+ note:"依ISO14067規範，當不同電力追溯系統可能導致計算結果差異時，應執行並報告「敏感度分析」，以揭露不同方法選擇對結果之影響程度。"},
+
+{q:"在生命週期評估（LCA）中，進行敏感性分析時應主要關注下列哪一類因素？",
+ opts:["關鍵數據之估算假設與不確定性","製程運行順序或工序選擇之差異","原物料價格或市場供需波動","產品設計變更對功能性能之影響"],ans:0,tag:"LCA",
+ note:"LCA敏感性分析主要關注關鍵數據之估算假設與不確定性，藉由改變假設條件觀察結果變化程度，以評估結論之穩健性。"},
+
+{q:"依環境部碳足跡產品類別規則訂定、引用及修訂指引規定，取得環境部文件登錄編號後，PCR應於多久內制定完成，以提送工作小組審查？",
+ opts:["60個工作天內","3個月內","半年內","一年內"],ans:2,tag:"法規"},
+
+{q:"在生命週期評估（LCA）中，下列哪一項資訊於闡釋（Interpretation）階段可不需進行說明？",
+ opts:["得採結論與建議之形式給予決策者","闡釋合併盤查分析與衝擊評估之觀察結果","對未來全新設計產品之環境衝擊改變預測","將盤查分析觀察結果與目的及範疇整合一致，以達成結論與建議"],ans:2,tag:"LCA",
+ note:"闡釋階段著重於現有評估結果之整合、結論與建議，對於「未來全新設計產品」之預測性衝擊改變並非闡釋階段之必要說明內容。"},
+
+{q:"下列哪一項產品類型較不適合向環境部申請取得產品碳足跡標籤？",
+ opts:["半導體晶圓片","民生消費性電子產品","服務類（如物流運輸服務）","糧食加工製品"],ans:2,tag:"碳足跡標籤",
+ note:"產品碳足跡標籤原則上適用於實體產品，服務類項目（如運輸、金融等服務）較不適合以現行產品碳足跡標籤制度申請標示。"},
+
+{q:"計算產品碳足跡（CFP）時，為何不建議直接使用組織型碳盤查（GHG Inventory）之電力排碳係數？",
+ opts:["GHG係數僅適用於B2C產品，不適用CFP","GHG係數僅計算發電端排放，與CFP係數涵蓋範圍或計算基礎可能不同","CFP係數僅考慮綠色能源，GHG係數考慮所有能源","CFP係數由台電提供，GHG係數由環境部提供"],ans:1,tag:"碳足跡計算",
+ note:"組織型盤查（GHG）之電力排放係數與產品碳足跡（CFP）計算所需之係數，其計算基礎、涵蓋範圍與更新週期可能有所不同，直接套用恐導致計算結果失真。"},
+
+{q:"關於作為碳足跡溝通所需依據之ISO標準，下列何者不正確？",
+ opts:["ISO14044","ISO14067","ISO14026","ISO9001"],ans:3,tag:"ISO標準",
+ note:"碳足跡溝通相關依據標準包括ISO14044（LCA）、ISO14067（產品碳足跡）、ISO14026（環境宣告）等；ISO9001為品質管理系統標準，與碳足跡溝通無直接關聯。"},
+
+{q:"依ISO14067:2018進行之產品碳足跡（CFP）研究報告內容，下列哪一項資訊應於報告中予以「分開描述」？",
+ opts:["預期應用及對象","碳足跡揭露報告摘要","生質碳排放量與移除量","數據品質評估與敏感度分析結果"],ans:2,tag:"ISO14067",
+ note:"依ISO14067規範，生質碳（biogenic carbon）排放量與移除量須於報告中「分開描述」，不得與化石燃料來源之排放量混合彙總呈現，以維持透明度。"},
+
+{q:"若產品為持續性提供（如量產商品），溫室氣體排放評估應涵蓋至少多久之期間？",
+ opts:["一季","半年","一年","三年"],ans:2,tag:"ISO14067",
+ note:"依相關指引規定，持續性提供之產品（如量產商品），其溫室氣體排放評估應涵蓋至少一年之期間，以反映季節性或批次差異之代表性數據。"},
+
+{q:"某企業盤查時發現一項次要排放源，因缺乏原始數據僅能以粗略推估方式估算，且該推估存在較大不確定性。依ISO14064-1原則，企業應如何處理？",
+ opts:["直接排除該排放源，不予揭露","仍應納入盤查並量化估算，同時揭露其數據品質等級與不確定性說明","僅記錄於內部工作底稿，不對外揭露","以0計算，待日後取得數據再補正"],ans:1,tag:"ISO14064-1",
+ note:"依ISO14064-1透明度原則，即使數據存在較大不確定性，仍應納入盤查並量化估算，同時於報告中揭露其數據品質等級與不確定性說明，而非逕行排除或隱匿。"},
+
+{q:"依GHG Protocol範疇二計算方法，「市場基礎法（Market-based Method）」與「地點基礎法（Location-based Method）」之主要差異為何？",
+ opts:["市場基礎法依電網區域平均排放係數計算，地點基礎法依契約性工具計算","地點基礎法依電網區域平均排放係數計算，市場基礎法依企業實際簽署之契約性工具（如購電合約、憑證）計算","兩者計算結果必然相同","地點基礎法僅適用於再生能源採購企業"],ans:1,tag:"GHG Protocol",
+ note:"地點基礎法依企業所在電網區域之平均排放係數計算；市場基礎法則依企業實際簽署之契約性工具（如購電合約、再生能源憑證）對應之排放係數計算，反映企業實際採購選擇。"}
+];
+
+const quiz = document.getElementById('quiz');
+let answered = new Array(questions.length).fill(false);
+let correctCount = 0;
+
+function buildQuiz(){
+  quiz.innerHTML = '';
+  questions.forEach((item,qi)=>{
+    const card = document.createElement('div');
+    card.className='q-card';
+    card.id='card-'+qi;
+
+    const head = document.createElement('div');
+    head.className='q-head';
+    head.innerHTML = `<span class="q-num">Q${qi+1}</span><span class="q-text">${item.q}</span><span class="badge">${item.tag||''}</span>`;
+    card.appendChild(head);
+
+    const ul = document.createElement('ul');
+    ul.className='options';
+    const letters=['A','B','C','D'];
+    item.opts.forEach((opt,oi)=>{
+      const li=document.createElement('li');
+      const btn=document.createElement('button');
+      btn.className='opt-btn';
+      btn.innerHTML = `<b>${letters[oi]}.</b> ${opt}`;
+      btn.onclick = ()=>selectAnswer(qi,oi,btn);
+      li.appendChild(btn);
+      ul.appendChild(li);
+    });
+    card.appendChild(ul);
+
+    const exp = document.createElement('div');
+    exp.className='explain';
+    exp.id='exp-'+qi;
+    exp.innerHTML = `<b>詳解：</b>${item.note || '請對照相關法規條文與ISO標準原則自行核對。'}`;
+    card.appendChild(exp);
+
+    quiz.appendChild(card);
+  });
+  updateScore();
+}
+
+function selectAnswer(qi, oi, btn){
+  if(answered[qi]) return;
+  answered[qi]=true;
+  const card = document.getElementById('card-'+qi);
+  const btns = card.querySelectorAll('.opt-btn');
+  btns.forEach((b,i)=>{
+    b.disabled=true;
+    if(i===questions[qi].ans) b.classList.add('correct');
+    else if(i===oi) b.classList.add('wrong');
+  });
+  if(oi===questions[qi].ans) correctCount++;
+  document.getElementById('exp-'+qi).classList.add('show');
+  updateScore();
+}
+
+function revealAll(){
+  questions.forEach((item,qi)=>{
+    if(!answered[qi]){
+      answered[qi]=true;
+      const card = document.getElementById('card-'+qi);
+      const btns = card.querySelectorAll('.opt-btn');
+      btns.forEach((b,i)=>{
+        b.disabled=true;
+        if(i===item.ans) b.classList.add('correct');
+      });
+      document.getElementById('exp-'+qi).classList.add('show');
+    }
+  });
+  updateScore(true);
+}
+
+function resetAll(){
+  answered = new Array(questions.length).fill(false);
+  correctCount = 0;
+  buildQuiz();
+}
+
+function updateScore(finalReveal){
+  const answeredCount = answered.filter(Boolean).length;
+  const box = document.getElementById('score-box');
+  if(answeredCount===0){ box.textContent=''; return; }
+  box.textContent = `已作答 ${answeredCount}/${questions.length} 題　正確 ${correctCount} 題`;
+}
+
+buildQuiz();
+</script>
+</body>
+</html>
