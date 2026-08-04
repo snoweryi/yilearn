@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<link href="img/favicon.ico" rel="icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iPAS 淨零碳規劃管理師（初級）考試筆記與情境選擇題</title>
+<style>
+  :root{
+    --blue-900:#0d2b4e; --blue-700:#1c4f8c; --blue-500:#3d7ac0; --blue-100:#e7f0fb;
+    --amber:#c88a2e; --ink:#1c232b; --paper:#f8f9fb; --line:#dbe2ea;
+    --green:#2f8a5b;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+    background:var(--paper); color:var(--ink); line-height:1.75;
+  }
+  .wrap{max-width:1900px; margin:0 auto; padding:32px 20px 80px;}
+  header.hero{
+    background:linear-gradient(135deg,var(--blue-900),var(--blue-700));
+    color:#fff; border-radius:16px; padding:36px 32px; margin-bottom:28px;
+    box-shadow:0 8px 24px rgba(13,43,78,.25);
+  }
+  header.hero h1{margin:0 0 8px; font-size:1.55rem;}
+  header.hero p{margin:4px 0; opacity:.92; font-size:22px;}
+  .badge{display:inline-block; background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.4);
+    border-radius:999px; padding:3px 12px; font-size:22px; margin-top:10px;}
+  nav.toc{
+    background:#fff; border:1px solid var(--line); border-radius:12px; padding:16px 20px; margin-bottom:28px;
+    font-size:22px;
+  }
+  nav.toc strong{color:var(--blue-700);}
+  nav.toc a{color:var(--blue-900); text-decoration:none; margin-right:14px; display:inline-block; margin-top:6px;}
+  nav.toc a:hover{text-decoration:underline;}
+  section{margin-bottom:36px;}
+  h2{
+    color:var(--blue-900); border-left:5px solid var(--blue-500); padding-left:12px;
+    font-size:22px; margin-top:0;
+  }
+  h3{color:var(--blue-700); font-size:22px;}
+  .card{background:#fff; border:1px solid var(--line); border-radius:12px; padding:20px 22px; margin-bottom:16px;}
+  table{width:100%; border-collapse:collapse; font-size:22px; background:#fff;}
+  th,td{border:1px solid var(--line); padding:9px 10px; text-align:left; vertical-align:top;}
+  th{background:var(--blue-100); color:var(--blue-900);}
+  tr:nth-child(even) td{background:#fafbfd;}
+  .tag{display:inline-block; background:var(--blue-100); color:var(--blue-700); border-radius:6px;
+    padding:1px 8px; font-size:22px; margin-right:4px;}
+  .tag.subj2{background:#eafaf1; color:var(--green);}
+  .note{background:#eef4fb; border-left:4px solid var(--blue-500); padding:10px 14px; border-radius:6px; font-size:22px;}
+  .warn{background:#fdf3e3; border-left:4px solid var(--amber); padding:10px 14px; border-radius:6px; font-size:22px;}
+  .pill-row{display:flex; gap:8px; flex-wrap:wrap; margin:10px 0;}
+  .pill{background:var(--blue-900); color:#fff; border-radius:999px; padding:4px 12px; font-size:22px;}
+  .pill.subj2{background:var(--green);}
+  footer{text-align:center; color:#8892a0; font-size:22px; margin-top:40px;}
+  .checklist li{margin-bottom:6px;}
+
+  /* Quiz styling */
+  .quiz-item{background:#fff; border:1px solid var(--line); border-radius:12px; padding:18px 20px; margin-bottom:16px;}
+  .quiz-item .qhead{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px;}
+  .quiz-item .qnum{font-weight:700; color:var(--blue-900);}
+  .quiz-item .qsubj{font-size:22px; color:#fff; background:var(--blue-500); padding:2px 10px; border-radius:999px;}
+  .quiz-item .qsubj.subj2{background:var(--green);}
+  .quiz-item .qtext{font-size:22px; margin-bottom:10px;}
+  .opts{list-style:none; padding:0; margin:0;}
+  .opts li{
+    padding:8px 12px; border:1px solid var(--line); border-radius:8px; margin-bottom:6px;
+    cursor:pointer; font-size:22px; transition:.15s;
+  }
+  .opts li:hover{background:var(--blue-100);}
+  .opts li.selected{border-color:var(--blue-500); background:var(--blue-100);}
+  .opts li.correct{border-color:var(--green); background:#eafaf1; font-weight:600;}
+  .opts li.wrong{border-color:#c0392b; background:#fbeceb;}
+  .explain{display:none; margin-top:10px; padding:10px 14px; background:#f5f7fa; border-radius:8px; font-size:.86rem; border-left:3px solid var(--blue-500);}
+  .explain.show{display:block;}
+  .score-bar{
+    position:sticky; top:0; z-index:10; background:#fff; border:1px solid var(--line); border-radius:10px;
+    padding:10px 16px; margin-bottom:20px; font-size:22px; display:flex; justify-content:space-between; align-items:center;
+    box-shadow:0 2px 8px rgba(0,0,0,.05);
+  }
+  .score-bar strong{color:var(--blue-700);}
+  .reset-btn{background:var(--blue-700); color:#fff; border:none; border-radius:8px; padding:6px 14px; font-size:.85rem; cursor:pointer;}
+  .reset-btn:hover{background:var(--blue-900);}
+  
+  @media (max-width: 768px) {
+	.wrap {margin-top: 8rem;padding:8px 18px 30px;}
+}
+  .badgerowbt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px;
+    background: #ffffff;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+a.badge1 {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #007286;
+    color: #fff;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+a.badge2 {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #007286;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+a.badge3 {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #b8238d;
+    color: yellow;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+</style>
+</head>
+<body>
+<div class="badgerowbt">    
+		
+		<div><a href="https://snoweryi.github.io/yilearn/" class="badge1" >永續架構</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/iu.html" class="badge1">UNFCCC</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/iz.html" class="badge1">條文</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/iy.html" class="badge1">年份</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/iw.html" class="badge1">氣候法</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/ic1.html" class="badge1">碳中和</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/ic.html" class="badge1">CBAM</a></div>	
+		<div><a href="https://snoweryi.github.io/yilearn/is.html" class="badge1">舊SBTi</a></div>		
+		<div><a href="https://snoweryi.github.io/yilearn/isb.html" class="badge1">新舊SBTi</a></div>	
+		<div><a href="https://snoweryi.github.io/yilearn/ir.html" class="badge1">RE100</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/ie.html" class="badge1">ESG</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/iso_sbti_cbam.html" class="badge1">iso_sbti_cbam</a></div><br>		
+		<div><a href="https://snoweryi.github.io/yilearn/iz01.html" class="badge1">碳價</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/iz_1.html" class="badge1">能源</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/iz02.html" class="badge2">複習</a></div>
+		
+		<div><a href="https://snoweryi.github.io/yilearn/menu.html" class="badge3">目錄</a></div>
+	</div>
+<div class="wrap">
+
+  <header class="hero">
+    <h1>📘 iPAS 淨零碳規劃管理師（初級）考試筆記</h1>
+    <p>兩科制：① 淨零碳規劃管理基礎概論　② 淨零碳盤查規範與程序概要</p>
+    <p>單選題｜每科 50 題／75 分鐘｜每科 70 分及格</p>
+    <span class="badge">筆記整理：2026 年 8 月｜情境式選擇題，貼近日常生活情境</span>
+  </header>
+
+  <nav class="toc">
+    <strong>目錄：</strong><br>
+    <a href="#overview">1. 考試總覽</a>
+    <a href="#s1">2. 第一科重點筆記：基礎概論</a>
+    <a href="#s2">3. 第二科重點筆記：碳盤查規範</a>
+    <a href="#checklist">4. 考前速記清單</a>
+    <a href="#quiz">5. 情境式模擬選擇題（20 題，可互動作答）</a>
+  </nav>
+
+  <section id="overview">
+    <h2>1. 考試總覽</h2>
+    <div class="card">
+      <table>
+        <tr><th style="width:26%;">項目</th><th>內容</th></tr>
+        <tr><td>主辦單位</td><td>經濟部產業人才能力鑑定（iPAS）</td></tr>
+        <tr><td>證照全名</td><td><cite index="17-1">淨零碳規劃管理師</cite>（初級）——台灣第一張政府考試發證之淨零碳規劃管理證照</td></tr>
+        <tr><td>題型</td><td><cite index="19-1">兩科皆為單選題，每科50題，各75分鐘</cite></td></tr>
+        <tr><td>及格標準</td><td><cite index="19-1">每科100分制，達70分及格；同時報考兩科者，平均達70分且單科不低於60分亦視為及格</cite></td></tr>
+        <tr><td>第一科側重</td><td><cite index="19-1">範圍較廣，涵蓋碳盤查、碳足跡、碳定價、碳中和、CBAM、SBTi、TCFD及淨零政策，較多數據與重要日期的記憶題</cite></td></tr>
+        <tr><td>第二科側重</td><td><cite index="19-1">聚焦碳盤查與碳足跡計算程序，包含排放源界定、數據品質分析、組織邊界劃定、內部查證程序等實務細節</cite></td></tr>
+        <tr><td>命題趨勢</td><td><cite index="18-1">CBAM相關題目特別多；其次是國際趨勢演變（如COP會議里程碑）；第三多為碳中和、淨零政策、SBTi相關題目</cite></td></tr>
+        <tr><td>備考建議</td><td><cite index="18-1">建議先讀完iPAS官方三份簡報打好基礎，條文類細節可留到練習題階段再熟悉</cite></td></tr>
+      </table>
+      <div class="warn" style="margin-top:12px;">⚠️ 官方簡章、報名時間與確切題庫內容以 iPAS 官網最新公告為準，本筆記僅作觀念複習與情境練習輔助。</div>
+    </div>
+  </section>
+
+  <section id="s1">
+    <h2>2. 第一科重點筆記：淨零碳規劃管理基礎概論</h2>
+    <div class="pill-row">
+      <span class="pill">國際趨勢與COP</span><span class="pill">碳定價</span><span class="pill">CBAM</span>
+      <span class="pill">SBTi</span><span class="pill">TCFD／ISSB</span><span class="pill">碳中和標準</span><span class="pill">台灣淨零路徑</span>
+    </div>
+
+    <div class="card">
+      <h3>2.1 國際趨勢與重要倡議</h3>
+      <ul>
+        <li><strong>京都議定書（1997）</strong>→<strong>巴黎協定（2015，COP21）</strong>：設定全球升溫控制在工業化前水準以上 2°C 內，並努力控制在 1.5°C 內。</li>
+        <li><strong>COP26（2021，格拉斯哥）</strong>：確立「淨零排放」成為全球共識用語，多國宣示 2050 淨零目標。</li>
+        <li><strong>國家自定貢獻（NDC）</strong>：各國依巴黎協定自行提報的減碳承諾。</li>
+        <li>常考混淆點：京都議定書僅約束已開發國家；巴黎協定則要求所有締約國都提出減碳承諾。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>2.2 碳定價與國際碳稅關貿政策</h3>
+      <ul>
+        <li>碳定價五大工具：<strong>碳稅、ETS（總量管制交易）、碳信用／抵換、CBAM、內部碳定價</strong>（詳見比較表）。</li>
+        <li><strong>CBAM（歐盟碳邊境調整機制）</strong>：2023/10 過渡期（僅申報）→ 2026/1/1 正式進入定義期（財務義務生效）→ 2027/2/1 起 CBAM 證書開始買賣。涵蓋部門：水泥、鋼鐵、鋁、肥料、電力、氫。</li>
+        <li><strong>SBTi（科學基礎減量目標倡議）</strong>：協助企業設定符合《巴黎協定》1.5°C 情境的減碳目標，是國際間評估企業減碳目標「是否夠積極」的常見標準。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>2.3 揭露框架：TCFD → ISSB（IFRS S1/S2）</h3>
+      <ul>
+        <li><strong>TCFD</strong>：氣候相關財務揭露建議，四大核心要素：治理、策略、風險管理、指標與目標。</li>
+        <li><strong>ISSB</strong>（國際永續準則理事會）整合 TCFD 架構，發布 <strong>IFRS S1（一般永續揭露）</strong>與<strong>IFRS S2（氣候相關揭露）</strong>，成為全球永續財務揭露的統一基準。</li>
+        <li>台灣：金管會規劃上市櫃公司分階段接軌 IFRS 永續揭露準則，資本額較大者優先適用。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>2.4 碳中和相關標準</h3>
+      <ul>
+        <li><strong>PAS 2060</strong>：國際間常用的「碳中和實施標準」，規範組織如何量化、減量、抵換並對外聲明碳中和。</li>
+        <li>碳中和聲明的基本流程：量化排放 → 訂定減碳計畫並執行 → 剩餘排放以碳權抵換 → 揭露與第三方查證。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>2.5 台灣 2050 淨零排放路徑</h3>
+      <ul>
+        <li>四大轉型主軸：<strong>能源轉型、產業轉型、生活轉型、社會轉型</strong>，並以<strong>科技研發</strong>與<strong>氣候法制</strong>為兩大治理基礎。</li>
+        <li>法源：《氣候變遷因應法》（由《溫室氣體減量及管理法》修正而來），明定 2050 淨零排放為國家長期目標。</li>
+        <li>台灣碳定價現況：碳費（2026年5月正式收費，一般費率每噸300元）已上路；ETS 尚在規劃試行階段。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="s2">
+    <h2>3. 第二科重點筆記：淨零碳盤查規範與程序概要</h2>
+    <div class="pill-row">
+      <span class="pill subj2">ISO 14064-1</span><span class="pill subj2">ISO 14067</span>
+      <span class="pill subj2">排放範疇 Scope 1/2/3</span><span class="pill subj2">組織邊界</span>
+      <span class="pill subj2">數據品質</span><span class="pill subj2">內部查證</span>
+    </div>
+
+    <div class="card">
+      <h3>3.1 ISO 14064-1：組織型溫室氣體盤查</h3>
+      <ul>
+        <li>規範組織如何界定盤查邊界、鑑別排放源、量化並報告溫室氣體排放與移除量。</li>
+        <li><strong>組織邊界劃定</strong>兩種方法：
+          <ul>
+            <li><strong>股權比例法</strong>：依持股比例認列排放量。</li>
+            <li><strong>控制權法</strong>：分為「財務控制」與「營運控制」，凡具控制權者需認列 100% 排放。</li>
+          </ul>
+        </li>
+        <li><strong>排放範疇（Scope）三分類：</strong>
+          <ul>
+            <li><strong>範疇一（直接排放）</strong>：組織自有或控制之排放源，如公司自有車輛燃油、鍋爐燃燒。</li>
+            <li><strong>範疇二（能源間接排放）</strong>：購入電力、蒸汽、熱或冷卻所產生的排放。</li>
+            <li><strong>範疇三（其他間接排放）</strong>：價值鏈上下游排放，如員工通勤、商務差旅、採購商品運輸、廢棄物處理等。</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>3.2 ISO 14067：產品碳足跡</h3>
+      <ul>
+        <li>規範單一產品「從搖籃到墳墓」的碳足跡計算方法。</li>
+        <li><strong>碳足跡五階段（生命週期）</strong>：原料取得 → 製造生產 → 配送銷售 → 使用 → 廢棄處理。</li>
+        <li>常考重點：不同產品類別依「產品類別規則（PCR）」制定計算邊界與方法，確保同類產品可互相比較。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>3.3 數據品質與不確定性分析</h3>
+      <ul>
+        <li><strong>數據等級（依代表性由高至低）</strong>：實測數據 &gt; 次級（次佳）數據 &gt; 預設值／文獻係數。</li>
+        <li>不確定性分析用於評估排放量估算結果的可信度，數據來源與計算方法差異會影響不確定性程度。</li>
+        <li>排放係數（Emission Factor）：將活動數據（如用電度數、用油公升數）轉換為溫室氣體排放量的轉換係數。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>3.4 內部查證程序</h3>
+      <ul>
+        <li>盤查完成後，組織可先進行<strong>內部查證</strong>，確認數據完整性、一致性與計算正確性，再送交第三方查證機構外部查證。</li>
+        <li>內部查證常見檢查重點：排放源是否有遺漏、活動數據來源是否可追溯、排放係數選用是否恰當、計算公式是否正確。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="checklist">
+    <h2>4. 考前速記清單</h2>
+    <div class="card">
+      <ul class="checklist">
+        <li>☐ 能區分範疇一／二／三分別對應哪些排放源</li>
+        <li>☐ 能說出碳足跡五階段（生命週期）：原料、製造、配送、使用、廢棄</li>
+        <li>☐ 記住 CBAM 三個時間點：2023/10、2026/1/1、2027/2/1</li>
+        <li>☐ 能分辨組織邊界的「股權比例法」vs.「控制權法」</li>
+        <li>☐ 記住 TCFD 四大核心要素：治理、策略、風險管理、指標與目標</li>
+        <li>☐ 知道 PAS 2060 是碳中和實施標準，SBTi 是科學基礎減量目標倡議</li>
+        <li>☐ 能說出台灣淨零四大轉型主軸：能源、產業、生活、社會</li>
+        <li>☐ 熟悉數據品質排序：實測 &gt; 次級數據 &gt; 預設值</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="quiz">
+    <h2>5. 情境式模擬選擇題（20 題）</h2>
+    <p style="font-size:22px; color:#556;">點選選項即可立即看到對錯與詳解，方便快速自我檢測。題目情境貼近日常生活（通勤、購物、居家用電、旅行等），協助將抽象概念套入具體情境理解。</p>
+
+    <div class="score-bar">
+      <span>作答進度：<strong id="scoreText">0 / 20</strong>　答對：<strong id="correctText" style="color:#2f8a5b;">0</strong></span>
+      <button class="reset-btn" onclick="resetQuiz()">重新作答</button>
+    </div>
+
+    <div id="quizContainer"></div>
+  </section>
+
+  <footer>
+    📚 本筆記整理自 iPAS 官方公開課程大綱、104職場力備考心得、ESG時報等公開資料（截至 2026/08）｜僅供個人考試複習使用，正式範圍與題型請以 iPAS 官方簡章為準
+  </footer>
+
+</div>
+
+<script>
+const quizData = [
+  // ===== 第一科：基礎概論 情境題 =====
+  {
+    subj:1,
+    q:"小陳計畫買一部新車，業務員告訴他這款車的碳排放量「只計算行駛時的油耗排放」。若以溫室氣體盤查的概念來看，這種算法忽略了汽車從製造、組裝到報廢回收整個過程的排放。這種「從搖籃到墳墓」完整計算一項產品全生命週期排放的方法，最接近下列哪一項標準？",
+    opts:["ISO 14064-1 組織型盤查","ISO 14067 產品碳足跡","PAS 2060 碳中和標準","TCFD 氣候財務揭露"],
+    correct:1,
+    explain:"ISO 14067 規範產品「從搖籃到墳墓」（原料取得、製造、配送、使用、廢棄）的碳足跡計算方式，適用於單一產品或服務，與組織層級盤查的 ISO 14064-1 不同。"
+  },
+  {
+    subj:1,
+    q:"小美準備出國旅遊，發現機票網站標示「本班機碳排放可透過付費購買造林專案來抵換」。這種讓消費者付費支持減碳專案、以抵銷自身排放的機制，屬於下列哪一種碳定價工具？",
+    opts:["碳稅","總量管制與排放交易（ETS）","碳信用／抵換機制","CBAM"],
+    correct:2,
+    explain:"消費者透過購買造林等減碳專案產生的「碳權」來抵換自身排放，屬於碳信用／抵換機制（Carbon Credit/Offset），常見於航空業自願性碳中和方案。"
+  },
+  {
+    subj:1,
+    q:"某家具製造商準備將產品外銷到歐盟，被告知未來出口鋼製傢俱零件時，須申報產品內含碳排放量，並可能須繳交相當費用的憑證。這項制度最可能是下列何者？",
+    opts:["SBTi 科學基礎減量目標","CBAM 碳邊境調整機制","PAS 2060 碳中和標準","ISO 14067 產品碳足跡"],
+    correct:1,
+    explain:"CBAM 針對進口至歐盟的高碳洩漏風險產品（如鋼鐵、鋁、水泥等）課徵相當於歐盟境內碳價的費用，出口商須申報產品內含碳排放，2026年起進入定義期正式收費。"
+  },
+  {
+    subj:1,
+    q:"一位金融從業人員向客戶說明，某上市公司在年報中揭露了氣候風險對財務的潛在影響，並說明公司治理層如何監督氣候相關議題。這份揭露最可能依循下列哪一項框架？",
+    opts:["TCFD 氣候相關財務揭露","ISO 14064-1","PAS 2060","碳足跡標籤制度"],
+    correct:0,
+    explain:"TCFD 要求企業從治理、策略、風險管理、指標與目標四大構面揭露氣候相關財務資訊，是目前全球氣候財務揭露最廣泛採用的架構，後續已被 ISSB 的 IFRS S2 整合。"
+  },
+  {
+    subj:1,
+    q:"小王家中去年安裝了太陽能板，並將多餘電力賣回台電。若小王想進一步了解「政府設定全國碳排放總量上限，並允許企業間交易排放配額」的制度，他應該查詢下列哪一項？",
+    opts:["碳稅","總量管制與排放交易（ETS）","碳足跡標籤","綠色關稅"],
+    correct:1,
+    explain:"ETS（總量管制與排放交易）由政府先設定排放總量上限，再核配或拍賣配額給企業，企業間可交易剩餘或不足的配額，屬於「數量確定、價格由市場決定」的工具。"
+  },
+  {
+    subj:1,
+    q:"某超商加盟主參加政府舉辦的淨零說明會，講師提到「台灣已於《氣候變遷因應法》中明訂 2050 年達成淨零排放的長期目標」。請問下列何者不屬於台灣推動淨零的四大轉型主軸？",
+    opts:["能源轉型","產業轉型","金融轉型","生活轉型"],
+    correct:2,
+    explain:"台灣2050淨零路徑的四大轉型主軸為能源轉型、產業轉型、生活轉型、社會轉型，並以科技研發與氣候法制作為兩大治理基礎；「金融轉型」並非官方正式列出的四大主軸之一。"
+  },
+  {
+    subj:1,
+    q:"一家新創公司想對外宣稱自己的辦公室營運已達成「碳中和」，除了盤查排放、執行減量措施外，仍希望遵循一套國際公認的碳中和實施標準來規範聲明流程，最可能參考下列何者？",
+    opts:["ISO 9001","PAS 2060","ISO 45001","GRI 302"],
+    correct:1,
+    explain:"PAS 2060 是國際間常用的碳中和實施標準，規範組織量化排放、執行減量、以碳權抵換剩餘排放、並對外揭露聲明的完整流程。"
+  },
+  {
+    subj:1,
+    q:"投資人在評估一家企業的減碳目標時，發現該公司宣稱其減碳目標「已通過科學基礎減量目標倡議審核，符合1.5°C情境」。這裡提到的倡議英文縮寫是？",
+    opts:["SBTi","TCFD","CBAM","GRI"],
+    correct:0,
+    explain:"SBTi（Science Based Targets initiative）協助企業設定符合《巴黎協定》升溫控制目標（如1.5°C情境）的科學基礎減量目標，並提供第三方審核機制。"
+  },
+  // ===== 第二科：碳盤查規範情境題 =====
+  {
+    subj:2,
+    q:"某公司總務在盤查辦公室溫室氣體排放時，將「員工每天開自己的車上下班」所產生的排放也一併估算進公司報告中。請問這屬於下列哪一個排放範疇？",
+    opts:["範疇一：直接排放","範疇二：能源間接排放","範疇三：其他間接排放","不需列入盤查範圍"],
+    correct:2,
+    explain:"員工通勤屬於價值鏈上的間接排放，歸類為範疇三（其他間接排放），與公司自有車輛（範疇一）或購入電力（範疇二）不同。"
+  },
+  {
+    subj:2,
+    q:"一間工廠的鍋爐直接燃燒天然氣來產生蒸汽，用於生產線加熱。這項排放屬於下列哪一個範疇？",
+    opts:["範疇一：直接排放","範疇二：能源間接排放","範疇三：其他間接排放","無須計算"],
+    correct:0,
+    explain:"工廠自有設備（鍋爐）直接燃燧燃料所產生的排放，屬於組織自有或控制排放源，歸類為範疇一（直接排放）。"
+  },
+  {
+    subj:2,
+    q:"某公司向台電購買電力供辦公室使用，這部分因用電所間接產生的溫室氣體排放，應歸類為？",
+    opts:["範疇一：直接排放","範疇二：能源間接排放","範疇三：其他間接排放","範疇四：供應鏈排放"],
+    correct:1,
+    explain:"購入電力、蒸汽、熱或冷卻所產生的間接排放歸類為範疇二；且盤查範疇僅分為一、二、三，並無「範疇四」的正式分類。"
+  },
+  {
+    subj:2,
+    q:"某集團持有子公司60%股權，在計算溫室氣體盤查邊界時，若採用「股權比例法」，該集團應如何認列子公司的排放量？",
+    opts:["全額100%認列","依60%股權比例認列","完全不認列","依子公司員工人數比例認列"],
+    correct:1,
+    explain:"股權比例法是依實際持股比例認列被投資公司的排放量；若採「控制權法」則凡具財務或營運控制權者，須認列100%排放，兩者計算邏輯不同。"
+  },
+  {
+    subj:2,
+    q:"某企業雖未持有工廠股權，但透過長期合約掌握該工廠的日常營運決策權（如生產排程、能源使用方式）。若採用控制權法中的「營運控制」認定，該企業應如何處理這座工廠的排放？",
+    opts:["視為範疇三間接排放，可選擇性揭露","須認列100%排放，比照自身排放源","僅需揭露不需計算","僅計算50%作為分攤"],
+    correct:1,
+    explain:"採用控制權法（尤其是營運控制）時，只要組織對該排放源具有實質營運控制權，即須認列100%排放量，即使並未持有股權。"
+  },
+  {
+    subj:2,
+    q:"某位盤查人員在計算公司用電排放量時，優先選用「台電當年度電力排放係數」乘以「公司實際用電度數」，而非直接套用國際預設係數。這樣的做法主要是為了提升下列哪一項？",
+    opts:["報告的美觀程度","數據品質與代表性","公司股價","碳費繳納金額"],
+    correct:1,
+    explain:"依數據品質等級，實測或在地化的排放係數（如台電當年度係數）代表性優於國際通用預設值，能提升盤查結果的準確度與可信度。"
+  },
+  {
+    subj:2,
+    q:"小林購買一瓶飲料，包裝上標示「碳足跡標籤：每瓶排放0.15公斤CO2e」。若要計算這個數字，須涵蓋原料種植、製造、配送、消費者飲用及回收處理等完整階段，這種計算方式對應下列哪一項標準？",
+    opts:["ISO 14064-1","ISO 14067","ISO 50001","ISO 26000"],
+    correct:1,
+    explain:"ISO 14067 規範產品碳足跡的生命週期計算方法，涵蓋原料取得、製造生產、配送銷售、使用、廢棄處理五個階段，飲料包裝上的碳足跡標籤即依此標準計算。"
+  },
+  {
+    subj:2,
+    q:"某公司完成年度溫室氣體盤查後，先由內部人員檢查「用電度數是否有登打錯誤」「排放係數是否選用正確年度版本」，之後才將報告送交外部機構查證。這個內部檢查步驟稱為？",
+    opts:["外部驗證","內部查證","碳中和聲明","碳權交易"],
+    correct:1,
+    explain:"組織在送交第三方查證前，先自行檢核數據完整性、一致性與計算正確性的程序，稱為內部查證，可降低外部查證時被發現重大錯誤的風險。"
+  },
+  {
+    subj:2,
+    q:"某餐廳老闆想盤查餐廳的溫室氣體排放，發現「食材從產地運送到餐廳」的運輸排放很難取得精確的實測數據，只能參考文獻提供的平均排放係數估算。這種情況下，此筆數據的品質等級相對於實測數據應如何評價？",
+    opts:["品質等級較高，因為來源具公信力","品質等級較低，因不確定性較高","與實測數據品質完全相同","品質無法比較"],
+    correct:1,
+    explain:"依數據品質等級排序，實測數據代表性最高，其次為次級數據，文獻或預設係數的代表性最低、不確定性較高，估算結果的可信度相對較低。"
+  },
+  {
+    subj:2,
+    q:"一家連鎖飲料店總部想盤查全台所有直營門市與加盟門市的溫室氣體排放，但只有直營門市的能源使用完全由總部決策與管理。若採用「營運控制法」界定組織邊界，加盟門市的排放應如何處理？",
+    opts:["加盟門市也須100%納入總部盤查範圍","加盟門市通常不納入總部的組織邊界（因總部無實質營運控制權）","加盟門市與直營門市一律各算50%","無論加盟或直營一律不計算"],
+    correct:1,
+    explain:"營運控制法以「是否具備實質營運決策權」作為認定基準，總部對加盟門市通常僅有品牌授權關係，並無日常營運控制權，故一般不納入組織邊界內的範疇一、二排放，但門市相關採購或加盟商供應鏈仍可能落入總部的範疇三揭露考量。"
+  },
+  {
+    subj:2,
+    q:"某物流公司統計「客戶委託運送商品」所產生的油耗排放，並計入自家車隊的盤查報告中。若這些貨車皆為公司自有並自行調度，這筆排放應歸類為？",
+    opts:["範疇一：直接排放","範疇二：能源間接排放","範疇三：其他間接排放","不需列入盤查"],
+    correct:0,
+    explain:"公司自有並自行調度使用的貨車，其燃油燃燒屬於組織自有或控制之直接排放源，應歸類為範疇一，即使運送的是「客戶委託」的貨物。"
+  },
+  {
+    subj:2,
+    q:"某辦公大樓向能源業者購買「冷氣集中系統的冷卻能源」供全棟大樓使用，而非自行發電或自建鍋爐。這項因購入冷卻能源而產生的間接排放，應歸類為？",
+    opts:["範疇一：直接排放","範疇二：能源間接排放","範疇三：其他間接排放","無須計算"],
+    correct:1,
+    explain:"依 ISO 14064-1 定義，範疇二涵蓋購入電力、蒸汽、熱或冷卻能源所產生的間接排放，大樓購入的集中式冷卻能源即屬此類。"
+  }
+];
+
+let userAnswers = new Array(quizData.length).fill(null);
+
+function renderQuiz(){
+  const container = document.getElementById('quizContainer');
+  container.innerHTML = '';
+  quizData.forEach((item, idx) => {
+    const div = document.createElement('div');
+    div.className = 'quiz-item';
+    const subjLabel = item.subj === 1 ? '第一科・基礎概論' : '第二科・碳盤查規範';
+    const subjClass = item.subj === 1 ? '' : 'subj2';
+    div.innerHTML = `
+      <div class="qhead">
+        <span class="qnum">第 ${idx+1} 題</span>
+        <span class="qsubj ${subjClass}">${subjLabel}</span>
+      </div>
+      <div class="qtext">${item.q}</div>
+      <ul class="opts" id="opts-${idx}"></ul>
+      <div class="explain" id="explain-${idx}"></div>
+    `;
+    container.appendChild(div);
+    const optsUl = div.querySelector(`#opts-${idx}`);
+    item.opts.forEach((optText, optIdx) => {
+      const li = document.createElement('li');
+      li.textContent = String.fromCharCode(65+optIdx) + '. ' + optText;
+      li.onclick = () => selectAnswer(idx, optIdx);
+      optsUl.appendChild(li);
+    });
+  });
+  updateScore();
+}
+
+function selectAnswer(qIdx, optIdx){
+  if(userAnswers[qIdx] !== null) return; // already answered
+  userAnswers[qIdx] = optIdx;
+  const optsUl = document.getElementById(`opts-${qIdx}`);
+  const lis = optsUl.querySelectorAll('li');
+  const correctIdx = quizData[qIdx].correct;
+  lis.forEach((li, i) => {
+    if(i === correctIdx) li.classList.add('correct');
+    else if(i === optIdx) li.classList.add('wrong');
+  });
+  const explainDiv = document.getElementById(`explain-${qIdx}`);
+  explainDiv.textContent = (optIdx === correctIdx ? '✅ 答對了！' : '❌ 答錯了，正確答案是 ' + String.fromCharCode(65+correctIdx) + '。') + ' ' + quizData[qIdx].explain;
+  explainDiv.classList.add('show');
+  updateScore();
+}
+
+function updateScore(){
+  const answered = userAnswers.filter(a => a !== null).length;
+  const correct = userAnswers.filter((a,i) => a === quizData[i].correct).length;
+  document.getElementById('scoreText').textContent = `${answered} / ${quizData.length}`;
+  document.getElementById('correctText').textContent = correct;
+}
+
+function resetQuiz(){
+  userAnswers = new Array(quizData.length).fill(null);
+  renderQuiz();
+  window.scrollTo({top: document.getElementById('quiz').offsetTop - 20, behavior:'smooth'});
+}
+
+renderQuiz();
+</script>
+
+</body>
+</html>
