@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>淨零碳排考試｜碳定價工具比較筆記與模擬考題（2026/08/15）</title>
+<style>
+  :root{
+    --green-900:#1b3a2b; --green-700:#2f6b46; --green-500:#4c9a6a; --green-100:#e8f3ec;
+    --amber:#c88a2e; --ink:#20281f; --paper:#fbfaf6; --line:#d8e3da;
+  }
+  *{box-sizing:border-box;}
+  body{
+  font-size:22px;
+    margin:0; font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+    background:var(--paper); color:var(--ink); line-height:1.75;
+  }
+  .wrap{max-width:1900px; margin:0 auto; padding:32px 20px 80px;}
+  header.hero{
+    background:linear-gradient(135deg,var(--green-900),var(--green-700));
+    color:#fff; border-radius:16px; padding:36px 32px; margin-bottom:28px;
+    box-shadow:0 8px 24px rgba(27,58,43,.25);
+  }
+  header.hero h1{margin:0 0 8px; font-size:1.6rem;}
+  header.hero p{margin:4px 0; opacity:.92; font-size:22px;}
+  .badge{display:inline-block; background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.4);
+    border-radius:999px; padding:3px 12px; font-size:22px; margin-top:10px;}
+  nav.toc{
+    background:#fff; border:1px solid var(--line); border-radius:12px; padding:16px 20px; margin-bottom:28px;
+    font-size:22px;
+  }
+  nav.toc strong{color:var(--green-700);}
+  nav.toc a{color:var(--green-900); text-decoration:none; margin-right:14px; display:inline-block; margin-top:6px;}
+  nav.toc a:hover{text-decoration:underline;}
+  section{margin-bottom:36px;}
+  h2{
+    color:var(--green-900); border-left:5px solid var(--green-500); padding-left:12px;
+    font-size:1.25rem; margin-top:0;
+  }
+  h3{color:var(--green-700); font-size:22px;}
+  .card{background:#fff; border:1px solid var(--line); border-radius:12px; padding:20px 22px; margin-bottom:16px;}
+  table{width:100%; border-collapse:collapse; font-size:22px; background:#fff;}
+  th,td{border:1px solid var(--line); padding:10px 10px; text-align:left; vertical-align:top;}
+  th{background:var(--green-100); color:var(--green-900);}
+  tr:nth-child(even) td{background:#fafcf9;}
+  .tag{display:inline-block; background:var(--green-100); color:var(--green-700); border-radius:6px;
+    padding:1px 8px; font-size:22px; margin-right:4px;}
+  .tag.amber{background:#f7ecd8; color:var(--amber);}
+  .note{background:#f2f7f0; border-left:4px solid var(--green-500); padding:10px 14px; border-radius:6px; font-size:22px;}
+  .farm{background:#f4f8e9; border-left:4px solid #7cb342;}
+  .company{background:#eef4fb; border-left:4px solid #4a7fc0;}
+  ol.q li{margin-bottom:16px;}
+  details{background:#fff; border:1px solid var(--line); border-radius:8px; padding:10px 14px; margin-top:8px;}
+  details summary{cursor:pointer; color:var(--green-700); font-weight:600;}
+  .ans{margin-top:8px; font-size:22px;}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media (max-width:640px){.grid2{grid-template-columns:1fr;}}
+  .pill-row{display:flex; gap:8px; flex-wrap:wrap; margin:10px 0;}
+  .pill{background:var(--green-900); color:#fff; border-radius:999px; padding:4px 12px; font-size:22px;}
+  footer{text-align:center; color:#7c8a7f; font-size:22px; margin-top:40px;}
+  .checklist li{margin-bottom:6px;}
+  .badgerowbt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px;
+    background: #ffffff;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+a.badge1 {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #007286;
+    color: #fff;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+a.badge2 {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #007286;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+a.badge3 {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #b8238d;
+    color: yellow;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+</style>
+</head>
+<body>
+<div class="badgerowbt">
+	
+    <div><a href="https://snoweryi.github.io/yilearn/" class="badge1" >永續架構</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/iu.html" class="badge1">UNFCCC</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/iz.html" class="badge1">條文</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/iy.html" class="badge1">年份</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/iw.html" class="badge1">氣候法</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/ic1.html" class="badge1">碳中和</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/ic.html" class="badge1">CBAM</a></div>	
+	<div><a href="https://snoweryi.github.io/yilearn/is.html" class="badge1">舊SBTi</a></div>		
+		<div><a href="https://snoweryi.github.io/yilearn/isb.html" class="badge1">新舊SBTi</a></div>	
+	<div><a href="https://snoweryi.github.io/yilearn/ir.html" class="badge1">RE100</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/ie.html" class="badge1">ESG</a></div>	
+	<div><a href="https://snoweryi.github.io/yilearn/iso_sbti_cbam.html" class="badge1">iso_sbti_cbam</a></div><br>
+	<div><a href="https://snoweryi.github.io/yilearn/iz_1.html" class="badge1">能源</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/iz001.html" class="badge2">碳價</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/menu.html" class="badge3">目錄</a></div>
+  </div>
+<div class="wrap">
+
+  <header class="hero">
+    <h1>🌱 淨零碳排考試複習包</h1>
+    <p>主題：碳定價工具比較（碳稅・ETS・碳信用／抵換・CBAM・內部碳定價・台灣碳費）</p>
+    <p>考試日期：<strong>2026 年 8 月 15 日</strong>｜整理人：小宜（城邦控股｜富林有機農場）</p>
+    <span class="badge">最後資料更新：2026 年 8 月（含台灣碳費開徵最新進度、EU CBAM 定義期現況）</span>
+  </header>
+
+  <nav class="toc">
+    <strong>目錄：</strong><br>
+    <a href="#concept">1. 核心觀念地圖</a>
+    <a href="#compare">2. 五大碳定價工具比較表</a>
+    <a href="#detail">3. 逐項工具重點筆記</a>
+    <a href="#tw">4. 台灣現況重點（碳費）</a>
+    <a href="#app">5. 應用連結：公司與農場視角</a>
+    <a href="#exam">6. 模擬考題（附詳解）</a>
+    <a href="#checklist">7. 考前速記清單</a>
+  </nav>
+
+  <section id="concept">
+    <h2>1. 核心觀念地圖</h2>
+    <div class="card">
+      <p>碳定價（Carbon Pricing）的核心邏輯：<strong>把排碳的外部成本內部化</strong>，讓「排碳」變成企業決策中要付費的變數，藉此誘發減碳行為與低碳技術投資。</p>
+      <div class="pill-row">
+        <span class="pill">價格型工具</span>
+        <span class="pill">數量型工具</span>
+        <span class="pill">市場型工具</span>
+        <span class="pill">邊境調整工具</span>
+        <span class="pill">自願／內部工具</span>
+      </div>
+      <p style="font-size:22px;">記憶口訣：<strong>「稅、量、權、境、內」</strong>——碳<strong>稅</strong>定價格、總量管制定<strong>量</strong>、碳信用是<strong>權</strong>利買賣、CBAM 管<strong>境</strong>外進口、內部碳定價是企業<strong>內</strong>部決策工具。</p>
+    </div>
+  </section>
+
+  <section id="compare">
+    <h2>2. 五大碳定價工具比較表</h2>
+    <div class="card" style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:12%;">工具</th>
+            <th style="width:16%;">機制原理</th>
+            <th style="width:10%;">定價方式</th>
+            <th style="width:20%;">代表案例</th>
+            <th style="width:21%;">優點</th>
+            <th style="width:21%;">缺點／挑戰</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>碳稅</strong><br><span class="tag">價格型</span></td>
+            <td>政府直接對每噸碳排放課稅，價格固定，排放量由市場自行調整</td>
+            <td>價格確定，數量不確定</td>
+            <td>瑞典、新加坡、日本、台灣碳費（性質近似）</td>
+            <td>行政簡單、價格可預期、易於企業成本試算</td>
+            <td>減碳「總量」無法保證；稅率過低時誘因不足</td>
+          </tr>
+          <tr>
+            <td><strong>總量管制與交易<br>ETS／Cap-and-Trade</strong><br><span class="tag">數量型／市場型</span></td>
+            <td>政府訂定排放總量上限，配發／拍賣排放配額，企業可交易配額</td>
+            <td>數量確定，價格隨市場波動</td>
+            <td>EU-ETS、中國全國 ETS、加州 Cap-and-Trade、韓國 K-ETS</td>
+            <td>可精確達成減碳總量目標；市場機制找出最低成本減碳路徑</td>
+            <td>價格波動大；配額分配易生爭議；監管與 MRV 成本高</td>
+          </tr>
+          <tr>
+            <td><strong>碳信用／抵換<br>Carbon Credit &amp; Offset</strong><br><span class="tag">市場型／自願</span></td>
+            <td>減碳專案（造林、再生能源等）產生可驗證的碳權，供其他排放者購買抵換</td>
+            <td>依專案與市場供需定價</td>
+            <td>VCS、Gold Standard、台灣自願減量專案、CORSIA</td>
+            <td>連結私部門資金到減碳／生態保育專案；彈性高</td>
+            <td>品質參差（漂綠疑慮）、額外性與重複計算爭議、驗證成本高</td>
+          </tr>
+          <tr>
+            <td><strong>CBAM<br>碳邊境調整機制</strong><br><span class="tag">邊境調整型</span></td>
+            <td>對進口高碳洩漏風險產品課徵相當於本地碳價的費用，避免產業外移到低碳規範國家</td>
+            <td>依進口品內含碳排 × EU-ETS 碳價計算</td>
+            <td>歐盟 CBAM（2026/1/1 起進入<strong>定義期／收費階段</strong>）</td>
+            <td>防止「碳洩漏」；促使出口國供應鏈同步減碳</td>
+            <td>增加出口商申報與查證負擔；恐引發貿易摩擦與報復性關稅</td>
+          </tr>
+          <tr>
+            <td><strong>內部碳定價<br>Internal Carbon Pricing</strong><br><span class="tag">企業自願工具</span></td>
+            <td>企業內部自訂一個「影子價格」，用於投資評估、專案決策、部門績效考核</td>
+            <td>企業自訂（影子價、內部稅、隱含價）</td>
+            <td>微軟、Google、台積電等 CDP 揭露企業</td>
+            <td>不受法規限制、可超前部署、強化 ESG 投資人溝通</td>
+            <td>無法律強制力；各公司價格不一致，難以跨公司比較</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="detail">
+    <h2>3. 逐項工具重點筆記</h2>
+
+    <div class="card">
+      <h3>3.1 碳稅（Carbon Tax）</h3>
+      <ul>
+        <li>核心邏輯：固定「每噸碳排放的價格」，企業依實際排放量繳稅。</li>
+        <li>優點：制度簡單、透明、可預測，企業容易做成本試算與定價規劃。</li>
+        <li>缺點：無法保證總減碳量達標（減量效果取決於稅率高低與企業彈性）。</li>
+        <li>考試易混點：碳稅 ≠ ETS——碳稅是「價格確定、數量不確定」；ETS 是「數量確定、價格不確定」。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>3.2 總量管制與排放交易（ETS）</h3>
+      <ul>
+        <li>政府先設定排放總量上限（Cap），再將配額（Allowance）以免費核配或拍賣方式分配。</li>
+        <li>排放低於配額的企業可將剩餘配額賣給排放超標企業 → 形成碳權交易市場。</li>
+        <li>全球最大：<strong>EU-ETS</strong>（1990年代末至今，已進入第四階段）。</li>
+        <li>台灣：環境部規劃 2026 下半年推出 ETS <strong>試行計畫</strong>，目標 2027～2028 年正式上路，並與歐洲能源交易所（EEX）合作建置試行交易平台。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>3.3 碳信用與抵換機制（Carbon Credit / Offset）</h3>
+      <ul>
+        <li>分為<strong>強制性市場</strong>（如 CBAM、ETS 允許有限度使用碳權抵換）與<strong>自願性市場</strong>（VCM，企業自願購買抵換碳中和承諾）。</li>
+        <li>常見專案類型：造林／再生林、再生能源、甲烷捕捉、生物炭、土壤碳匯（與農業高度相關）。</li>
+        <li>品質三要素：<strong>額外性（Additionality）</strong>、<strong>永久性（Permanence）</strong>、<strong>可驗證性（MRV）</strong>。</li>
+        <li>爭議焦點：漂綠（greenwashing）、重複計算（double counting）、專案方法學浮濫。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>3.4 CBAM（歐盟碳邊境調整機制）</h3>
+      <ul>
+        <li>2023/10 起<strong>過渡期</strong>（僅申報，不收費）；<cite index="9-1">CBAM於2026年1月1日正式生效，並在所有歐盟會員國同步部署，將CBAM登錄系統與各國海關進口系統整合</cite>，正式進入<strong>定義期（Definitive Period）</strong>。</li>
+        <li><cite index="7-1">2026與2027年間，CBAM涵蓋產業於EU-ETS下的免費配額將每年遞減2.5%</cite>，逐步與CBAM收費機制銜接。</li>
+        <li><cite index="3-1">CBAM證書買賣預計自2027年2月1日透過統一中央平台開始</cite>，進口商須以此證書支付進口商品內含碳排放的成本。</li>
+        <li>目前涵蓋六大部門：<cite index="3-1">水泥、鋼鐵、鋁、肥料、電力與氫</cite>；<cite index="3-1">歐盟已提案自2028年起擴大至鋼鋁密集型下游產品</cite>。</li>
+        <li>考試重點：CBAM 針對的是「<strong>進口</strong>」商品的內含碳排，本質上是把歐盟境內碳成本「外溢」到出口國供應鏈——這對台灣鋼鐵、鋁材、水泥等出口導向產業影響最大。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>3.5 內部碳定價（Internal Carbon Pricing, ICP）</h3>
+      <ul>
+        <li>三種常見形式：
+          <ul>
+            <li><strong>影子價格（Shadow Price）</strong>：不實際收費，僅用於投資決策模擬。</li>
+            <li><strong>內部碳稅（Internal Carbon Fee）</strong>：實際向各部門收取，資金用於減碳基金。</li>
+            <li><strong>隱含價格（Implicit Price）</strong>：由減碳目標／技術成本反推出的等效碳價。</li>
+          </ul>
+        </li>
+        <li>用途：資本支出評估、供應商篩選、ESG 報告揭露（CDP 問卷常考項目）、部門績效指標。</li>
+        <li>對城邦控股這類非重工業公司而言，ICP 常用於資料中心／機房能源效率投資的決策評估。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="tw">
+    <h2>4. 台灣現況重點（碳費制度）——考試高頻考點</h2>
+    <div class="card">
+      <table>
+        <tr><th style="width:28%;">項目</th><th>內容</th></tr>
+        <tr><td>法源</td><td>《氣候變遷因應法》</td></tr>
+        <tr><td>正式開徵時間</td><td><cite index="12-1">2026年5月正式收費</cite>，計算基準為前一年度（2025年）排碳量</td></tr>
+        <tr><td>徵收對象</td><td><cite index="12-1">約464家工廠（252家企業）</cite>，即年碳排達2.5萬公噸以上之電力業與製造業</td></tr>
+        <tr><td>一般費率</td><td><cite index="12-1">每公噸新台幣300元</cite></td></tr>
+        <tr><td>優惠費率 A／B</td><td><cite index="13-1">優惠費率A（行業別指定削減率）50元；優惠費率B（技術標竿指定削減率）100元</cite>，須提出並通過「自主減量計畫」審核</td></tr>
+        <tr><td>碳洩漏風險係數</td><td><cite index="12-1">高碳洩漏風險產業適用係數0.2，優惠費率A實質繳交每噸僅10元，優惠費率B僅20元</cite></td></tr>
+        <tr><td>2026年度預估收入</td><td><cite index="11-1">約49.7億元，全數投入綠色轉型與減碳工作</cite></td></tr>
+        <tr><td>ETS 進程</td><td><cite index="11-1">環境部規劃2026下半年提出ETS試行計畫，並朝2028年啟動試行邁進；同時與歐洲能源交易所（EEX）合作建置試行交易平台</cite></td></tr>
+        <tr><td>政策架構定位</td><td><cite index="11-1">碳定價非單一工具，而是由碳費、自主減量、ETS、自願減量與國際合作共同組成的完整政策架構</cite></td></tr>
+      </table>
+      <p class="note" style="margin-top:12px;">✅ 考試常見誤區：台灣目前上路的是「<strong>碳費</strong>」（性質類似碳稅），<strong>不是</strong>總量管制交易制度（ETS）；ETS 仍在試行規劃階段，尚未正式徵收。</p>
+    </div>
+  </section>
+
+  <section id="app">
+    <h2>5. 應用連結：公司與農場雙視角</h2>
+    <div class="grid2">
+      <div class="card company">
+        <h3>💻 城邦控股｜公司視角</h3>
+        <ul>
+          <li>若公司機房／資料中心用電量大，可評估導入<strong>內部碳定價</strong>作為節能投資（如伺服器汰換、雲端遷移）決策的量化依據。</li>
+          <li>台灣碳費目前僅涵蓋年排碳 2.5 萬噸以上之電力／製造業，媒體出版與網站服務業通常非直接徵收對象，但供應鏈上游（如印刷、IDC 機房）可能受影響，可留意間接成本轉嫁。</li>
+          <li>可發想自動化工具：建置「碳費／ETS 政策追蹤儀表板」，串接環境部與 EU CBAM 公告，自動彙整供應商碳成本曝險。</li>
+        </ul>
+      </div>
+      <div class="card farm">
+        <h3>🌾 富林有機農場｜視角</h3>
+        <ul>
+          <li>農場最相關的是<strong>碳信用／抵換機制</strong>：有機農作、土壤碳匯、生物多樣性維護皆可能對應「自願性減量專案」或未來的農業碳匯方法學。</li>
+          <li>可作為 ESG 教育教材素材：帶企業團隊實地了解「碳費 vs. 碳權」的差異，強化食農教育＋ESG 永續園區定位。</li>
+          <li>循環農業（堆肥、有機資材再利用）可作為未來申請自主減量／碳權專案的量化基礎，及早建立 MRV（監測、報告、查證）紀錄習慣。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="exam">
+    <h2>6. 模擬考題（附詳解，共 10 題）</h2>
+
+    <h3>A. 選擇題</h3>
+    <ol class="q">
+      <li>
+        下列何者屬於「數量確定、價格由市場決定」的碳定價工具？
+        <details><summary>查看答案</summary>
+          <div class="ans">✅ 答案：<strong>總量管制與排放交易（ETS）</strong>。ETS 先設定排放總量上限，配額價格則隨市場供需波動；碳稅則相反，是價格固定、數量不確定。</div>
+        </details>
+      </li>
+      <li>
+        歐盟 CBAM 於何時進入「定義期」並開始收取財務義務？
+        <details><summary>查看答案</summary>
+          <div class="ans">✅ 答案：<strong>2026年1月1日</strong>。過渡期（僅申報不收費）為2023年10月至2025年12月，定義期自2026/1/1起正式生效。</div>
+        </details>
+      </li>
+      <li>
+        台灣碳費一般費率為每公噸新台幣多少元？
+        <details><summary>查看答案</summary>
+          <div class="ans">✅ 答案：<strong>300元</strong>；優惠費率A為50元、優惠費率B為100元，需提出自主減量計畫並通過審核。</div>
+        </details>
+      </li>
+      <li>
+        碳信用（Carbon Credit）品質評估的三大核心要素為何？
+        <details><summary>查看答案</summary>
+          <div class="ans">✅ 答案：<strong>額外性（Additionality）、永久性（Permanence）、可驗證性（MRV，監測/報告/查證）</strong>。</div>
+        </details>
+      </li>
+      <li>
+        企業採用「影子價格（Shadow Price）」的主要目的是？
+        <details><summary>查看答案</summary>
+          <div class="ans">✅ 答案：<strong>用於內部投資決策模擬</strong>，不實際向部門收費，屬於內部碳定價的一種形式，協助評估高碳排專案的潛在未來成本。</div>
+        </details>
+      </li>
+    </ol>
+
+    <h3>B. 簡答題</h3>
+    <ol class="q" start="6">
+      <li>
+        請簡述「碳稅」與「總量管制與排放交易（ETS）」的三項差異。
+        <details><summary>查看參考答案</summary>
+          <div class="ans">
+            1）確定性：碳稅價格固定、數量不確定；ETS 數量固定（總量上限）、價格隨市場波動。<br>
+            2）行政複雜度：碳稅制度簡單、易執行；ETS 需配額分配、交易平台與 MRV 監管機制，行政成本較高。<br>
+            3）減碳目標達成保證：ETS 能較精確保證總減碳量達標；碳稅的實際減量效果取決於稅率設計與企業反應彈性。
+          </div>
+        </details>
+      </li>
+      <li>
+        請說明 CBAM 對台灣出口導向產業（如鋼鐵、鋁材）可能帶來的衝擊與因應方向。
+        <details><summary>查看參考答案</summary>
+          <div class="ans">
+            衝擊：出口至歐盟的高碳排產品須申報內含碳排放，並自2027年起以CBAM證書支付相當於EU-ETS碳價之費用，將增加出口成本與供應鏈碳數據管理負擔；同時歐盟EU-ETS免費配額於2026-2027年間逐年遞減2.5%，間接推升歐盟本土碳價，連帶提高CBAM證書成本。<br>
+            因應方向：及早建立產品碳足跡盤查（LCA/EPD）能力、導入第三方查證機制、與供應鏈夥伴共同進行減碳，並評估國內碳費／自主減量計畫是否可與CBAM機制銜接抵減。
+          </div>
+        </details>
+      </li>
+      <li>
+        請以富林有機農場為例，說明農場如何運用「碳信用／抵換機制」發展 ESG 永續教育與商業模式。
+        <details><summary>查看參考答案</summary>
+          <div class="ans">
+            農場可透過有機耕作、土壤碳匯提升、堆肥循環農業等作為，建立可量化的減碳／碳匯數據，未來申請自願性減量專案取得碳權，作為額外收入來源；同時將此過程轉化為ESG教育教材，帶領企業團隊（如鄰近科學園區的科技公司）進行「淨零碳排體驗課程」，結合食農教育與碳定價知識，創造「教育 + 碳權開發 + 企業ESG合作」三重價值。
+          </div>
+        </details>
+      </li>
+    </ol>
+
+    <h3>C. 情境應用題</h3>
+    <ol class="q" start="9">
+      <li>
+        某科技公司計畫在台灣新建資料中心，年用電量預估將使間接碳排放大幅增加。請問該公司在決策階段可運用哪一種碳定價工具進行內部評估？並說明理由。
+        <details><summary>查看參考答案</summary>
+          <div class="ans">
+            應運用<strong>內部碳定價（影子價格）</strong>。理由：資料中心尚未實際營運，無法適用現行台灣碳費（僅對已排放之工廠課徵）；透過設定一個內部影子碳價，可在投資評估階段將未來潛在碳成本（含碳費、未來ETS或CBAM風險）納入財務模型，協助比較不同機房節能方案（如再生能源採購、PUE優化）的長期成本效益，屬於超前部署的自願性工具。
+          </div>
+        </details>
+      </li>
+      <li>
+        請比較台灣「碳費」與歐盟「CBAM」在政策目的上的根本差異。
+        <details><summary>查看參考答案</summary>
+          <div class="ans">
+            碳費目的是<strong>對境內排放源直接課費</strong>，誘導國內企業減碳，資金用於國內綠色轉型；CBAM 目的則是<strong>防止碳洩漏</strong>——避免歐盟企業因境內碳成本高而外移生產至低碳規範國家，透過對進口商品課徵相當於境內碳價的費用，把境外供應鏈的減碳壓力「內部化」進歐盟市場，兩者管制對象（境內生產者 vs. 境外進口商品）與政策目的（自身減碳 vs. 防止碳洩漏／貿易公平）並不相同。
+          </div>
+        </details>
+      </li>
+    </ol>
+  </section>
+
+  <section id="checklist">
+    <h2>7. 考前速記清單</h2>
+    <div class="card">
+      <ul class="checklist">
+        <li>☐ 能分辨「價格確定 vs. 數量確定」——碳稅 vs. ETS</li>
+        <li>☐ 記住台灣碳費三大費率數字：300 / 50 / 100（元／噸）</li>
+        <li>☐ 記住 CBAM 三個時間點：2023/10 過渡期起、2026/1/1 定義期起、2027/2/1 證書買賣開始</li>
+        <li>☐ 能說出碳信用品質三要素：額外性、永久性、可驗證性</li>
+        <li>☐ 能舉例內部碳定價的三種形式：影子價格／內部碳稅／隱含價格</li>
+        <li>☐ 能用一句話說明台灣目前「碳費已上路、ETS仍在試行規劃」的現況</li>
+        <li>☐ 能結合情境題，套用「公司決策」或「農場ESG」案例作答</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    📚 本筆記整理自環境部、歐盟執委會、CNA、CSRone、ICAP 等公開資料（截至 2026/08） ｜ 僅供個人考試複習使用
+  </footer>
+
+</div>
+</body>
+</html>
