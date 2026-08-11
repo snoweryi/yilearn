@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<link href="img/favicon.ico" rel="icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 淨零管理師考前衝刺｜台灣2025淨零重點筆記＋50題模擬試題</title>
+<style>
+  :root{
+    --green-900:#0f3d2e; --green-700:#1b5e40; --green-600:#227a4f; --green-500:#2e9962;
+    --green-100:#e8f5ee; --green-50:#f4faf6;
+    --amber-600:#b5730a; --amber-100:#fdf1dd;
+    --ink:#1c2621; --ink-soft:#4a5750; --line:#dde8e0;
+    --card:#ffffff; --bg:#f6faf7;
+    --danger:#b3423a;
+  }
+  *{box-sizing:border-box;}
+  body{
+  
+    margin:0; font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.75; font-size: 22px;
+  }
+  header.hero{
+    background:linear-gradient(135deg,var(--green-900),var(--green-600));
+    color:#fff; padding:44px 24px 56px; text-align:center;
+    position:relative; overflow:hidden;
+  }
+  header.hero::after{
+    content:""; position:absolute; inset:0;
+    background:radial-gradient(circle at 85% 15%, rgba(255,255,255,.12), transparent 45%),
+               radial-gradient(circle at 10% 90%, rgba(255,255,255,.10), transparent 40%);
+  }
+  header.hero *{position:relative;}
+  header.hero .tag{
+    display:inline-block; background:rgba(255,255,255,.16); padding:5px 14px;
+    border-radius:999px; font-size: 22px; letter-spacing:.06em; margin-bottom:14px;
+  }
+  header.hero h1{font-size:clamp(22px,4vw,34px); margin:0 0 10px; font-weight:800;}
+  header.hero p{margin:4px 0; opacity:.92; font-size: 22px;}
+  .wrap{max-width:1900px; margin:-28px auto 60px; padding:0 18px;}
+  nav.toc{
+    background:var(--card); border-radius:16px; padding:20px 22px; margin-bottom:26px;
+    box-shadow:0 10px 30px rgba(15,61,46,.08); border:1px solid var(--line);
+  }
+  nav.toc h2{margin:0 0 12px; font-size: 22px; color:var(--green-700);}
+  nav.toc ol{margin:0; padding-left:20px; columns:2; column-gap:24px; font-size: 22px;}
+  nav.toc li{margin-bottom:6px;}
+  nav.toc a{color:var(--ink-soft); text-decoration:none;}
+  nav.toc a:hover{color:var(--green-700); text-decoration:underline;}
+  section{
+    background:var(--card); border-radius:16px; padding:26px 24px 30px; margin-bottom:22px;
+    box-shadow:0 6px 20px rgba(15,61,46,.06); border:1px solid var(--line); scroll-margin-top:16px;
+  }
+  section h2{
+    font-size: 22px; color:var(--green-900); margin:0 0 4px; display:flex; align-items:center; gap:10px;
+  }
+  section h2 .num{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:30px; height:30px; border-radius:9px; background:var(--green-100); color:var(--green-700);
+    font-size: 22px; font-weight:800; flex:none;
+  }
+  section .sub{color:var(--ink-soft); font-size: 22px; margin:0 0 18px;}
+  h3.block-title{font-size: 22px; color:var(--green-700); margin:22px 0 10px; border-left:4px solid var(--green-500); padding-left:10px;}
+  table{width:100%; border-collapse:collapse; margin:10px 0 6px; font-size: 22px;}
+  th,td{border:1px solid var(--line); padding:9px 10px; text-align:left; vertical-align:top;}
+  th{background:var(--green-50); color:var(--green-800,var(--green-700)); font-weight:700;}
+  tr:nth-child(even) td{background:#fbfdfc;}
+  .kv{display:grid; grid-template-columns:150px 1fr; gap:6px 14px; font-size: 22px; margin:8px 0;}
+  .kv div:nth-child(odd){color:var(--ink-soft); font-weight:600;}
+  ul.tight{margin:6px 0 14px; padding-left:22px;}
+  ul.tight li{margin-bottom:5px; font-size: 22px;}
+  .pill{display:inline-block; background:var(--green-100); color:var(--green-700); border-radius:999px; padding:2px 10px; font-size: 22px; font-weight:700; margin-right:6px;}
+  .pill.amber{background:var(--amber-100); color:var(--amber-600);}
+  .callout{
+    background:var(--amber-100); border:1px solid #f0d9ad; border-radius:12px; padding:14px 16px;
+    font-size: 22px; color:#6b4a08; margin:14px 0;
+  }
+  .callout b{color:var(--amber-600);}
+  .formula{
+    background:var(--green-900); color:#eafff2; border-radius:12px; padding:16px 18px;
+    font-family:"SFMono-Regular",Consolas,monospace; font-size: 22px; margin:12px 0; overflow-x:auto;
+  }
+  .timeline{border-left:2px solid var(--green-500); margin:14px 0 6px 8px; padding-left:20px;}
+  .timeline .item{position:relative; margin-bottom:16px;}
+  .timeline .item::before{
+    content:""; position:absolute; left:-25px; top:5px; width:10px; height:10px; border-radius:50%;
+    background:var(--green-600); box-shadow:0 0 0 3px var(--green-100);
+  }
+  .timeline .date{font-weight:800; color:var(--green-700); font-size: 22px;}
+  .timeline .desc{font-size: 22px; color:var(--ink-soft); margin-top:2px;}
+
+  /* Quiz */
+  .quiz-meta{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:18px;}
+  .quiz-meta span{background:var(--green-50); border:1px solid var(--line); border-radius:999px; padding:5px 12px; font-size: 22px; color:var(--green-700);}
+  .qgroup-title{
+    margin:28px 0 12px; font-size: 22px; font-weight:800; color:#fff; background:var(--green-700);
+    padding:9px 16px; border-radius:10px; display:flex; justify-content:space-between; align-items:center;
+  }
+  .qgroup-title small{font-weight:500; opacity:.85; font-size: 22px;}
+  details.q{
+    border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin-bottom:12px; background:#fff;
+    transition:border-color .15s;
+  }
+  details.q[open]{border-color:var(--green-500);}
+  details.q summary{
+    cursor:pointer; font-size: 22px; font-weight:700; color:var(--ink); list-style:none; display:flex; gap:10px;
+  }
+  details.q summary::-webkit-details-marker{display:none;}
+  details.q summary .qno{
+    flex:none; width:26px; height:26px; border-radius:8px; background:var(--green-100); color:var(--green-700);
+    display:flex; align-items:center; justify-content:center; font-size: 22px; font-weight:800;
+  }
+  details.q summary .qtext{flex:1;}
+  details.q .diff{font-size: 22px; font-weight:700; padding:2px 8px; border-radius:999px; margin-left:6px; white-space:nowrap;}
+  .diff.easy{background:#e5f4ea; color:#2e9962;}
+  .diff.mid{background:var(--amber-100); color:var(--amber-600);}
+  .diff.hard{background:#fbe6e4; color:var(--danger);}
+  .options{list-style:none; margin:12px 0 0 36px; padding:0; font-size: 22px;}
+  .options li{margin-bottom:6px; color:var(--ink-soft);}
+  .answer{
+    margin:14px 0 0 36px; padding:12px 14px; background:var(--green-50); border-left:4px solid var(--green-600);
+    border-radius:8px; font-size: 22px;
+  }
+  .answer b{color:var(--green-700);}
+  .answer .exp{margin-top:6px; color:var(--ink-soft);}
+  footer{text-align:center; color:var(--ink-soft); font-size: 22px; padding:20px 0 50px;}
+  @media print{
+    header.hero{background:var(--green-900) !important; -webkit-print-color-adjust:exact;}
+    details.q{page-break-inside:avoid;}
+    nav.toc{display:none;}
+  }
+  @media(max-width:640px){
+    nav.toc ol{columns:1;}
+    .kv{grid-template-columns:110px 1fr;}
+  }
+  .badgerowbt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px;
+    background: #ffffff;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+a.badge1 {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #007286;
+    color: #fff;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+a.badge2 {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #007286;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+a.badge3 {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #b8238d;
+    color: yellow;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+</style>
+</head>
+<body>
+<div class="badgerowbt">    
+		
+		<div><a href="https://snoweryi.github.io/yilearn/" class="badge1" >永續架構</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/iu.html" class="badge1">UNFCCC</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/iz.html" class="badge1">條文</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/iy.html" class="badge1">年份</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/iw.html" class="badge1">氣候法</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/ic1.html" class="badge1">碳中和</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/ic.html" class="badge1">CBAM</a></div>	
+		<div><a href="https://snoweryi.github.io/yilearn/is.html" class="badge1">舊SBTi</a></div>		
+		<div><a href="https://snoweryi.github.io/yilearn/isb.html" class="badge1">新舊SBTi</a></div>	
+		<div><a href="https://snoweryi.github.io/yilearn/ir.html" class="badge1">RE100</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/ie.html" class="badge1">ESG</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/iso_sbti_cbam.html" class="badge1">iso_sbti_cbam</a></div><br>		
+		<div><a href="https://snoweryi.github.io/yilearn/iz01.html" class="badge1">碳價</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/iz_1.html" class="badge1">能源</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/iz02.html" class="badge1">複習</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/iz03.html" class="badge2">台灣淨零</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/iz04.html" class="badge1">碳資產</a></div>
+		
+		<div><a href="https://snoweryi.github.io/yilearn/menu.html" class="badge3">目錄</a></div>
+	</div>
+
+<header class="hero">
+  <span class="tag">出題委員視角・2026年8月15日應試專用</span>
+  <h1>淨零管理師考前衝刺筆記</h1>
+  <p>2025 年台灣淨零政策重點整理｜情境式模擬試題 50 題（由淺入深）</p>
+  <p style="font-size: 22px;opacity:.75;">為小宜量身整理｜適用 iPAS 淨零碳規劃管理師／企業淨零管理師類考試</p>
+</header>
+
+<div class="wrap">
+
+  <nav class="toc">
+    <h2>📑 目錄</h2>
+    <ol>
+      <li><a href="#s1">淨零法制與政策沿革</a></li>
+      <li><a href="#s2">2050 路徑架構：四大轉型・兩大治理基礎・十二項關鍵戰略</a></li>
+      <li><a href="#s3">2025 台灣總體減碳行動計畫與 NDC3.0</a></li>
+      <li><a href="#s4">碳費制度全解析（費率／K值／公式）</a></li>
+      <li><a href="#s5">碳盤查標準與國際接軌</a></li>
+      <li><a href="#s6">2025 年重要時間軸</a></li>
+      <li><a href="#quiz">模擬試題 50 題（點題目展開解析）</a></li>
+    </ol>
+  </nav>
+
+  <!-- SECTION 1 -->
+  <section id="s1">
+    <h2><span class="num">1</span> 淨零法制與政策沿革</h2>
+    <p class="sub">出題重點：法規名稱修正的年月日、立法院三讀日期、章節條文數，是選擇題最愛考的「記憶題」。</p>
+
+    <h3 class="block-title">關鍵法規演進</h3>
+    <table>
+      <tr><th>時間</th><th>事件</th><th>考點提示</th></tr>
+      <tr><td>2021/04/22（110年）</td><td>總統於世界地球日宣示 2050 淨零轉型為台灣目標</td><td>「宣示」而非立法，注意題目常混淆宣示日與公布日</td></tr>
+      <tr><td>2022/03/30（111年）</td><td>行政院公布「台灣2050淨零排放路徑及策略總說明」</td><td>四大轉型＋兩大治理基礎＋十二項關鍵戰略首次完整公布</td></tr>
+      <tr><td>2022/12/28</td><td>公布2030階段目標：較基準年（2005）減24±1%</td><td>此為「舊版」目標，2025年已上修，注意新舊數字別搞混</td></tr>
+      <tr><td>2023/01/10</td><td>立法院三讀通過《氣候變遷因應法》修正案</td><td>由《溫室氣體減量及管理法》修正而來</td></tr>
+      <tr><td>2023/02/15</td><td>總統公布施行《氣候變遷因應法》</td><td>全法共 <b>7章63條</b>，考題常考章節數</td></tr>
+      <tr><td>2023/08/29</td><td>環境部發布碳費三項子法（收費辦法、自主減量計畫管理辦法、指定減量目標）</td><td>「三子法」是固定考點組合</td></tr>
+      <tr><td>2023/08/07</td><td>台灣碳權交易所（TCX）於高雄成立</td><td>國內外碳權交易平台，非碳費主管機關</td></tr>
+    </table>
+
+    <div class="callout"><b>出題委員提醒：</b>《氣候變遷因應法》新增四大重點考生務必背熟——①納入2050淨零排放目標入法 ②提升氣候治理層級（行政院國家永續發展委員會） ③徵收碳費並專款專用（溫室氣體管理基金） ④增訂氣候變遷調適專章與碳足跡／產品標示管理機制。</div>
+  </section>
+
+  <!-- SECTION 2 -->
+  <section id="s2">
+    <h2><span class="num">2</span> 2050 路徑架構</h2>
+    <p class="sub">「四大轉型＋兩大治理基礎＋十二項關鍵戰略」是全考科的骨架，幾乎每一份試題都會出現至少 3～5 題。</p>
+
+    <h3 class="block-title">四大轉型 × 兩大治理基礎</h3>
+    <div class="kv">
+      <div>能源轉型</div><div>再生能源占比提升，電力去碳化（目標：再生能源60–70%＋氫能9–12%＋碳捕捉火力20–27%）</div>
+      <div>產業轉型</div><div>製造部門低碳製程、六大耗能產業減碳路徑</div>
+      <div>生活轉型</div><div>運具電動化、綠建築、循環經濟落實於日常</div>
+      <div>社會轉型</div><div>公正轉型、社會溝通、綠領人才培育</div>
+      <div>科技研發（基礎）</div><div>淨零科技方案，聚焦氫能、碳捕捉、前瞻能源等技術突破</div>
+      <div>氣候法制（基礎）</div><div>《氣候變遷因應法》為核心，建構碳定價與治理制度</div>
+    </div>
+
+    <h3 class="block-title">十二項關鍵戰略（考試必背清單）</h3>
+    <table>
+      <tr><th>#</th><th>戰略名稱</th><th>一句話重點</th></tr>
+      <tr><td>1</td><td>風電與光電</td><td>再生能源發展主力</td></tr>
+      <tr><td>2</td><td>氫能</td><td>零碳製程原料＋運輸發電無碳燃料</td></tr>
+      <tr><td>3</td><td>前瞻能源</td><td>地熱、海洋能、生質能，2050前裝置量8–14GW</td></tr>
+      <tr><td>4</td><td>電力系統與儲能</td><td>分散式電網、數位化、儲能建置</td></tr>
+      <tr><td>5</td><td>節能</td><td>提升能源使用效率、高效設備汰換</td></tr>
+      <tr><td>6</td><td>碳捕捉利用及封存（CCUS）</td><td>移除產業與能源設施碳排</td></tr>
+      <tr><td>7</td><td>運具電動化及無碳化</td><td>電動車產業鏈與基礎設施</td></tr>
+      <tr><td>8</td><td>資源循環</td><td>循環經濟、廢棄物資源化</td></tr>
+      <tr><td>9</td><td>自然碳匯</td><td>森林、土壤、海洋碳匯擴增</td></tr>
+      <tr><td>10</td><td>綠色金融</td><td>引導資金投入低碳轉型</td></tr>
+      <tr><td>11</td><td>公正轉型</td><td>「不遺落任何人」，扶助受衝擊產業與勞工</td></tr>
+      <tr><td>12</td><td>淨零綠生活</td><td>公民減碳行為與生活型態轉變</td></tr>
+    </table>
+    <div class="callout"><b>命題陷阱：</b>考題常把「四大轉型」與「十二項關鍵戰略」的項目互換出現在選項中混淆考生，例如把「資源循環」誤植為轉型項目而非戰略項目——請牢記「轉型」只有 4 項，「戰略」有 12 項。</div>
+  </section>
+
+  <!-- SECTION 3 -->
+  <section id="s3">
+    <h2><span class="num">3</span> 2025 台灣總體減碳行動計畫與 NDC3.0</h2>
+    <p class="sub">這是「2025 年淨零」考題的核心新增內容，也是最容易被忽略但機率極高的出題區塊。</p>
+
+    <div class="kv">
+      <div>公布日期</div><div>2025/01/23，「臺灣總體減碳行動計畫」</div>
+      <div>推動邏輯</div><div>由下而上：各部會盤點「部門自主減碳計畫」／由上而下：聚焦六大部門 20 項「減碳旗艦行動計畫」</div>
+      <div>六大創新機制</div><div>科技創新、金融支持、碳排有價、法規調適、綠領人才、社區驅動</div>
+      <div>2030年目標（新版）</div><div>較基準年（2005）減 <b>28±2%</b>（原為24±1%，2025年上修）</div>
+      <div>2032年努力目標</div><div>較基準年減 <b>32±2%</b></div>
+      <div>2035年努力目標</div><div>較基準年減 <b>38±2%</b></div>
+      <div>NDC3.0</div><div>2025/11/03 提出「中華民國（台灣）國家自定貢獻」，呼應《巴黎協定》第3條「共同但有區別的責任」原則</div>
+    </div>
+    <div class="callout"><b>易混淆點：</b>2022年版目標是「2030年減24±1%」；2025年版已上修為「2030年減28±2%」。考題若問「目前最新目標」，答案應選 28±2%，除非題目特別註明「依2022年公布版本」。</div>
+  </section>
+
+  <!-- SECTION 4 -->
+  <section id="s4">
+    <h2><span class="num">4</span> 碳費制度全解析</h2>
+    <p class="sub">碳費計算題是「情境應用題」的常見出題手法，務必熟悉公式與各項數字。</p>
+
+    <div class="formula">
+碳費 ＝（總排放量 － K值）× 碳洩漏風險係數 × 費率
+    </div>
+
+    <table>
+      <tr><th>項目</th><th>內容</th></tr>
+      <tr><td>徵收對象</td><td>年排放量 <b>2.5萬公噸CO2e以上</b>之電力業、燃氣供應業、製造業（約281家公司／500家工廠，年排放約1.55億噸，占全國排放54%）</td></tr>
+      <tr><td>一般費率</td><td>新台幣 <b>300元／公噸</b>（2024/10/7碳費審議委員會拍板）</td></tr>
+      <tr><td>優惠費率 A 方案</td><td>50元／公噸（需提出自主減量計畫並達較高減碳目標）</td></tr>
+      <tr><td>優惠費率 B 方案</td><td>100元／公噸（提出自主減量計畫，目標門檻較A方案寬鬆）</td></tr>
+      <tr><td>K值（免徵額）</td><td>非高碳洩漏風險產業：2.5萬公噸／年（全數免徵），未來將分階段調降至1.5萬噸、1萬噸</td></tr>
+      <tr><td>高碳洩漏風險產業</td><td>石化、水泥、鋼鐵等，<b>不適用</b>2.5萬噸免徵額，改採「碳洩漏風險係數」分期優惠：第一期2折、第二期4折、第三期6折</td></tr>
+      <tr><td>減量額度扣抵</td><td>國內減量額度可扣減收費排放量，上限10%；國外減量額度限高碳洩漏風險產業使用，上限5%，且須經環境部認可</td></tr>
+      <tr><td>時程</td><td>2025年5月：試申報（申報2024年排放量、免繳費）→ <b>2026年正式開徵</b>（以2025年排放量計算）→ 2026下半年試行碳交易（ETS）</td></tr>
+      <tr><td>未來走勢</td><td>依環境部第六次碳費審議會，2030年費率預計調升至1,200～1,800元，較現行漲4～6倍</td></tr>
+      <tr><td>國際接軌</td><td>依歐盟CBAM文本，企業若已於生產國實際支付碳價（含碳費），可提出證明扣抵CBAM應繳金額</td></tr>
+    </table>
+
+    <div class="callout"><b>計算範例（考古題常見題型）：</b>某高碳洩漏風險事業當年度排放3萬公噸，已通過優惠費率A方案審核（50元／噸），適用第一期折扣2折。<br>碳費 ＝ 30,000 × 50 × 0.2 ＝ <b>新台幣30萬元</b>（注意：高碳洩漏風險事業不扣K值，直接以「碳洩漏風險係數」計算）。</div>
+  </section>
+
+  <!-- SECTION 5 -->
+  <section id="s5">
+    <h2><span class="num">5</span> 碳盤查標準與國際接軌</h2>
+    <p class="sub">此部分對應「淨零碳盤查規範與程序概要」科目，也是進階情境題的常見素材。</p>
+
+    <h3 class="block-title">碳盤查核心概念</h3>
+    <ul class="tight">
+      <li><b>ISO 14064-1</b>：組織層級溫室氣體盤查與報告的國際標準，規範排放源界定、數據品質、組織邊界劃定與內部查證程序。</li>
+      <li><b>範疇一（Scope 1）</b>：直接溫室氣體排放（如廠內鍋爐燃燒）。</li>
+      <li><b>範疇二（Scope 2）</b>：能源間接排放（外購電力、蒸汽）。</li>
+      <li><b>範疇三（Scope 3）</b>：其他間接排放（供應鏈、員工通勤、產品使用等價值鏈排放）。</li>
+      <li><b>GWP（全球暖化潛勢）</b>：描述一定期間內單位質量溫室氣體相對於CO2的輻射衝擊係數，用以將各種溫室氣體換算為CO2e。</li>
+      <li><b>組織邊界</b>：常見劃定方式為「控制權法」（財務控制／營運控制）與「股權比例法」。</li>
+    </ul>
+
+    <h3 class="block-title">國際接軌與倡議</h3>
+    <table>
+      <tr><th>名稱</th><th>重點</th></tr>
+      <tr><td>CBAM（碳邊境調整機制）</td><td>歐盟對進口高碳排產品課徵碳關稅，已支付之碳價可扣抵</td></tr>
+      <tr><td>SBTi（科學基礎減量目標）</td><td>企業依科學設定符合《巴黎協定》升溫控制目標的減碳路徑</td></tr>
+      <tr><td>TCFD／TNFD</td><td>氣候／自然相關財務揭露框架，強調治理、策略、風險管理與指標目標四大支柱</td></tr>
+      <tr><td>RE100</td><td>企業承諾100%使用再生能源之國際倡議</td></tr>
+      <tr><td>IFRS永續揭露準則</td><td>金管會公告企業依資本額分階段適用，2026年為接軌關鍵年</td></tr>
+      <tr><td>台灣碳權交易所（TCX）</td><td>2023/08/07成立於高雄，辦理國內外碳權交易與諮詢，非碳費徵收機關</td></tr>
+    </table>
+  </section>
+
+  <!-- SECTION 6 -->
+  <section id="s6">
+    <h2><span class="num">6</span> 2025 年重要時間軸速記</h2>
+    <div class="timeline">
+      <div class="item"><div class="date">2025/01/23</div><div class="desc">公布「臺灣總體減碳行動計畫」，上修2030年目標至28±2%</div></div>
+      <div class="item"><div class="date">2025/05</div><div class="desc">碳費試申報開跑（申報2024年排放量，不需繳費）</div></div>
+      <div class="item"><div class="date">2025年下半年</div><div class="desc">環境部持續推動自主減量計畫審核，優惠費率申請須於同年6月底前提出</div></div>
+      <div class="item"><div class="date">2025/11/03</div><div class="desc">提出 NDC3.0（國家自定貢獻），向國際展現具體氣候行動</div></div>
+      <div class="item"><div class="date">2025/12</div><div class="desc">COP30氣候峰會於巴西貝倫舉行，全球氣候治理持續受矚目</div></div>
+      <div class="item"><div class="date">2026年（銜接年）</div><div class="desc">碳費正式開徵、碳交易ETS試行、IFRS永續揭露準則接軌、人權盡職調查規範上路</div></div>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="quiz">
+    <h2><span class="num">✓</span> 模擬試題 50 題</h2>
+    <p class="sub">出題委員視角：由淺入深、以情境題為主，涵蓋政策法制、路徑戰略、碳費計算、碳盤查標準與國際接軌。點選題目可展開正解與解析。</p>
+    <div class="quiz-meta">
+      <span>題型：單選題</span>
+      <span>難度分布：易 16／中 22／難 12</span>
+      <span>共 50 題，建議作答時間 75 分鐘</span>
+    </div>
+
+    <div class="qgroup-title">Part A｜基礎觀念與法制沿革（Q1–10）<small>易 → 中</small></div>
+
+    <details class="q"><summary><span class="qno">1</span><span class="qtext">我國總統於哪一天宣示「2050淨零轉型」為台灣目標？<span class="diff easy">易</span></span></summary>
+      <ul class="options"><li>(A) 2021年4月22日世界地球日</li><li>(B) 2022年3月30日</li><li>(C) 2023年2月15日</li><li>(D) 2025年1月23日</li></ul>
+      <div class="answer"><b>正解：(A)</b><div class="exp">2021年世界地球日總統宣示2050淨零為目標；2022/3/30為路徑策略公布日；2023/2/15為《氣候變遷因應法》公布施行日；2025/1/23為總體減碳行動計畫公布日。四個日期是常見混淆組合，務必分辨事件內容。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">2</span><span class="qtext">《氣候變遷因應法》是由下列何項法規修正而來？<span class="diff easy">易</span></span></summary>
+      <ul class="options"><li>(A) 空氣污染防制法</li><li>(B) 溫室氣體減量及管理法</li><li>(C) 再生能源發展條例</li><li>(D) 能源管理法</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">2023年1月10日立法院三讀通過修正案，將《溫室氣體減量及管理法》修正名稱為《氣候變遷因應法》，同年2月15日公布施行，全法7章63條。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">3</span><span class="qtext">台灣2050淨零排放路徑是以哪「四大轉型」為核心？<span class="diff easy">易</span></span></summary>
+      <ul class="options"><li>(A) 能源、產業、生活、社會轉型</li><li>(B) 能源、金融、交通、教育轉型</li><li>(C) 產業、科技、法制、社會轉型</li><li>(D) 能源、循環、綠色、公正轉型</li></ul>
+      <div class="answer"><b>正解：(A)</b><div class="exp">四大轉型為能源、產業、生活、社會，另有「科技研發」與「氣候法制」兩大治理基礎，輔以十二項關鍵戰略。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">4</span><span class="qtext">下列何者「不是」台灣2050淨零路徑的兩大治理基礎之一？<span class="diff easy">易</span></span></summary>
+      <ul class="options"><li>(A) 科技研發</li><li>(B) 氣候法制</li><li>(C) 綠色金融</li><li>(D) 以上皆是治理基礎</li></ul>
+      <div class="answer"><b>正解：(C)</b><div class="exp">「綠色金融」是十二項關鍵戰略之一，不是治理基礎。兩大治理基礎僅為「科技研發」與「氣候法制」。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">5</span><span class="qtext">台灣2050淨零轉型的十二項關鍵戰略共有幾項？<span class="diff easy">易</span></span></summary>
+      <ul class="options"><li>(A) 8項</li><li>(B) 10項</li><li>(C) 12項</li><li>(D) 15項</li></ul>
+      <div class="answer"><b>正解：(C)</b><div class="exp">十二項關鍵戰略：風電與光電、氫能、前瞻能源、電力系統與儲能、節能、CCUS、運具電動化及無碳化、資源循環、自然碳匯、綠色金融、公正轉型、淨零綠生活。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">6</span><span class="qtext">下列何者屬於十二項關鍵戰略而非四大轉型項目？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 能源轉型</li><li>(B) 資源循環</li><li>(C) 產業轉型</li><li>(D) 社會轉型</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">「資源循環」是十二項關鍵戰略之一；能源、產業、社會皆屬四大轉型項目（缺生活轉型）。此為出題委員最愛設計的分類混淆題型。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">7</span><span class="qtext">台灣碳權交易所（TCX）於何處成立？<span class="diff easy">易</span></span></summary>
+      <ul class="options"><li>(A) 台北</li><li>(B) 台中</li><li>(C) 高雄</li><li>(D) 新竹</li></ul>
+      <div class="answer"><b>正解：(C)</b><div class="exp">台灣碳權交易所於2023年8月7日在高雄成立，辦理國內外碳權交易及碳諮詢業務，並非碳費徵收機關（碳費由環境部氣候變遷署主管）。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">8</span><span class="qtext">下列關於《氣候變遷因應法》新增重點之敘述，何者錯誤？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 納入2050淨零排放目標</li><li>(B) 徵收碳費並專款專用</li><li>(C) 授權地方政府自行訂定碳費費率</li><li>(D) 增訂氣候變遷調適專章</li></ul>
+      <div class="answer"><b>正解：(C)</b><div class="exp">碳費費率由中央（環境部）之碳費審議委員會審議公告，並非地方政府權責，此為法律授權層級混淆題型。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">9</span><span class="qtext">情境題：某考生欲查詢碳費三項子法的正式名稱，下列何者「不是」三項子法之一？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 碳費收費辦法</li><li>(B) 自主減量計畫管理辦法</li><li>(C) 碳費徵收對象溫室氣體減量指定目標</li><li>(D) 碳權交易所設置辦法</li></ul>
+      <div class="answer"><b>正解：(D)</b><div class="exp">碳費三子法為(A)(B)(C)，於2023年8月29日由環境部發布；碳權交易所之設立屬另一機制，與三子法無關。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">10</span><span class="qtext">2022年公布的2030年階段減碳目標為較基準年（2005）減少多少百分比？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 20%</li><li>(B) 24±1%</li><li>(C) 28±2%</li><li>(D) 38±2%</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">2022/12/28公布的舊版目標為24±1%；2025年總體減碳行動計畫已上修為28±2%（新版）。作答時務必看清題目問的是「哪一年公布的版本」。</div></div>
+    </details>
+
+    <div class="qgroup-title">Part B｜2025 政策更新與 NDC（Q11–20）<small>中 → 難</small></div>
+
+    <details class="q"><summary><span class="qno">11</span><span class="qtext">「臺灣總體減碳行動計畫」是在哪一天提出的？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 2024年10月7日</li><li>(B) 2025年1月23日</li><li>(C) 2025年5月1日</li><li>(D) 2025年11月3日</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">2025年1月23日提出，目的為加速接軌國際NDC步伐，並整合十二項關鍵戰略成果，聚焦六大部門20項減碳旗艦行動計畫。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">12</span><span class="qtext">依2025年最新規劃，台灣2030年減碳目標調升至較基準年減少多少？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 20%</li><li>(B) 24±1%</li><li>(C) 28±2%</li><li>(D) 50%</li></ul>
+      <div class="answer"><b>正解：(C)</b><div class="exp">2025年版「臺灣總體減碳行動計畫」將2030年目標由24±1%上修至28±2%，並訂定2032年32±2%、2035年38±2%的努力目標。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">13</span><span class="qtext">情境題：某企業永續長向董事會報告台灣NDC3.0的提出時間，下列敘述何者正確？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) 2023年8月29日提出，與碳費三子法同步</li><li>(B) 2025年11月3日提出，呼應《巴黎協定》共同但有區別的責任原則</li><li>(C) 尚未提出，預計2030年才會公布</li><li>(D) 2022年3月30日與淨零路徑同步公布</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">我國於2025年11月3日提出NDC3.0（中華民國國家自定貢獻），依《巴黎協定》第3條「共同但有區別的責任」原則，展現具體氣候行動。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">14</span><span class="qtext">「臺灣總體減碳行動計畫」提出的六大創新機制，下列何者「不包含」？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) 科技創新</li><li>(B) 碳排有價</li><li>(C) 社區驅動</li><li>(D) 軍事動員</li></ul>
+      <div class="answer"><b>正解：(D)</b><div class="exp">六大創新機制為：科技創新、金融支持、碳排有價、法規調適、綠領人才、社區驅動，用以帶動系統性轉型。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">15</span><span class="qtext">「部門自主減碳計畫」與「減碳旗艦行動計畫」的規劃邏輯分別是什麼？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 前者由上而下、後者由下而上</li><li>(B) 前者由下而上、後者由上而下</li><li>(C) 兩者皆由上而下</li><li>(D) 兩者皆由下而上</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">各部會由下而上檢討既有十二項關鍵戰略提出「部門自主減碳計畫」；同時由上而下聚焦六大部門20項「減碳旗艦行動計畫」，雙軌並行。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">16</span><span class="qtext">情境題：某PHP工程師任職之集團擬撰寫ESG報告書，其永續部門詢問「十二項關鍵戰略」自2023年執行至今累計可減少多少碳排放？此數字最貼近下列何者？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) 約700–800萬噸</li><li>(B) 約7,200–7,600萬噸</li><li>(C) 約1.55億噸</li><li>(D) 約2.5萬噸</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">依國發會推估，十二項關鍵戰略可減少7,200~7,600萬噸，相當於2020年碳排量的29%；1.55億噸則是碳費徵收對象的年排放總量，兩者不可混用。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">17</span><span class="qtext">2025年COP30氣候峰會於哪個城市舉行？<span class="diff easy">易</span></span></summary>
+      <ul class="options"><li>(A) 杜拜</li><li>(B) 巴黎</li><li>(C) 貝倫（巴西）</li><li>(D) 格拉斯哥</li></ul>
+      <div class="answer"><b>正解：(C)</b><div class="exp">2025年11月COP30於巴西北部城市貝倫（Belém）召開，是本考科少數涉及國際會議地點的時事題。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">18</span><span class="qtext">2026年被稱為企業永續轉型的「關鍵年」，主要原因不包含下列何者？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 碳費正式收費</li><li>(B) IFRS永續資訊揭露準則接軌落地</li><li>(C) 人權盡職調查規範上路</li><li>(D) 台灣正式宣布退出巴黎協定</li></ul>
+      <div class="answer"><b>正解：(D)</b><div class="exp">2026年三大議題為碳費正式收費、IFRS永續揭露準則接軌、人權盡職調查規範上路；台灣並未宣布退出《巴黎協定》，此為錯誤選項設計。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">19</span><span class="qtext">碳交易制度（ETS）預計於何時開始試行？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 2025年上半年</li><li>(B) 2026年下半年</li><li>(C) 2030年</li><li>(D) 2050年</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">政府宣布於2026年下半年試行碳交易制度（ETS），與碳費制度並行，逐步建構完整的碳定價體系。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">20</span><span class="qtext">情境題：企業永續部門主管想釐清「NDC」的正確意涵，下列何者正確？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) National Development Council，國家發展委員會</li><li>(B) Nationally Determined Contribution，國家自定貢獻</li><li>(C) Net-zero Development Certificate，淨零發展憑證</li><li>(D) National Data Center，國家資料中心</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">NDC為《巴黎協定》下各締約方提出的自願減碳承諾機制，台灣以NDC3.0向國際展現具體氣候行動。</div></div>
+    </details>
+
+    <div class="qgroup-title">Part C｜碳費制度與計算情境題（Q21–32）<small>中 → 難</small></div>
+
+    <details class="q"><summary><span class="qno">21</span><span class="qtext">碳費徵收對象的年排放量門檻（K值）目前為多少？<span class="diff easy">易</span></span></summary>
+      <ul class="options"><li>(A) 1萬公噸</li><li>(B) 1.5萬公噸</li><li>(C) 2.5萬公噸</li><li>(D) 5萬公噸</li></ul>
+      <div class="answer"><b>正解：(C)</b><div class="exp">現行K值（免徵額）為年排放量2.5萬公噸CO2e，未來將分階段調降至1.5萬噸、1萬噸，逐步擴大徵收對象。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">22</span><span class="qtext">碳費一般費率為每公噸新台幣多少元？<span class="diff easy">易</span></span></summary>
+      <ul class="options"><li>(A) 100元</li><li>(B) 300元</li><li>(C) 500元</li><li>(D) 1,000元</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">環境部碳費審議委員會於2024年10月7日拍板一般費率為每公噸新台幣300元，2025年起正式生效（企業依前一年排放量申報）。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">23</span><span class="qtext">碳費計算公式為下列何者？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 碳費＝排放量×費率÷2</li><li>(B) 碳費＝（總排放量－K值）×碳洩漏風險係數×費率</li><li>(C) 碳費＝排放量×GWP</li><li>(D) 碳費＝營業額×0.03</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">此為官方公告之碳費計算公式，K值為免徵額，碳洩漏風險係數依產業別及是否提出自主減量計畫而定。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">24</span><span class="qtext">情境題：A公司屬一般製造業（非高碳洩漏風險），年排放量為4萬公噸，未申請優惠費率，其應繳碳費為多少？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 300萬元</li><li>(B) 450萬元</li><li>(C) 12萬元</li><li>(D) 1,200萬元</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">計算：(40,000－25,000)×1×300＝4,500,000元＝450萬元。一般產業可全額適用K值2.5萬噸免徵額，碳洩漏風險係數為1（不打折）。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">25</span><span class="qtext">情境題：B公司屬高碳洩漏風險事業（如水泥業），年排放量3萬公噸，已通過優惠費率A方案（50元／噸）審核，並適用第一期折扣（2折），應繳碳費為多少？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) 15萬元</li><li>(B) 30萬元</li><li>(C) 90萬元</li><li>(D) 150萬元</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">計算：30,000×50×0.2＝300,000元＝30萬元。高碳洩漏風險事業不適用K值免徵額，須以全部排放量乘上優惠費率及折扣係數計算。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">26</span><span class="qtext">高碳洩漏風險事業的碳洩漏風險係數折扣，第一期、第二期、第三期分別為多少折？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) 2折、4折、6折</li><li>(B) 5折、7折、9折</li><li>(C) 1折、3折、5折</li><li>(D) 各期均為全額（10折）</li></ul>
+      <div class="answer"><b>正解：(A)</b><div class="exp">為避免衝擊高碳洩漏風險產業（如石化、水泥、鋼鐵）國際競爭力，政府設計三期漸進式折扣：第一期2折、第二期4折、第三期6折，逐步拉近至一般費率水準。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">27</span><span class="qtext">企業使用「國內減量額度」扣減碳費收費排放量，上限為多少？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 5%</li><li>(B) 10%</li><li>(C) 20%</li><li>(D) 無上限</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">國內減量額度可扣減收費排放量上限為10%；國外減量額度須經環境部認可，且僅限高碳洩漏風險行業使用，上限為5%。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">28</span><span class="qtext">2025年碳費「試申報」的內容是申報哪一年度的排放量？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 2023年</li><li>(B) 2024年</li><li>(C) 2025年</li><li>(D) 2026年</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">2025年5月為試申報階段，申報對象為2024年（民國113年）的排放數據，此階段免繳費；2026年起正式開徵，以2025年排放量計算。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">29</span><span class="qtext">依環境部第六次碳費審議會決議，2030年費率預估將調升至每公噸多少元？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) 300–500元</li><li>(B) 600–900元</li><li>(C) 1,200–1,800元</li><li>(D) 3,000元以上</li></ul>
+      <div class="answer"><b>正解：(C)</b><div class="exp">2030年費率預計調升至1,200～1,800元，較現行300元漲幅達4至6倍，企業應提前規劃碳成本內部化策略。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">30</span><span class="qtext">碳費徵收對象排放的溫室氣體，約占全國總排放量的多少比例？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 20%</li><li>(B) 35%</li><li>(C) 54%</li><li>(D) 80%</li></ul>
+      <div class="answer"><b>正解：(C)</b><div class="exp">收費對象約500廠（281家公司），年排放約1.55億噸CO2e，約占全國總排放量54%，凸顯碳費制度對整體減碳的槓桿效果。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">31</span><span class="qtext">情境題：某集團之出口產品需輸往歐盟，其永續長詢問若已繳納台灣碳費，是否能扣抵歐盟CBAM應繳費用？下列敘述何者最正確？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) 完全不能扣抵，須雙重繳費</li><li>(B) 可提出已實際支付碳價之證明文件申請扣抵</li><li>(C) 僅限半導體產業適用</li><li>(D) 需先取得SBTi認證才能扣抵</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">依CBAM法案文本，若產品已在生產國（台灣）實際支付碳價（含碳費），可提出證明文件申請扣除，是台灣碳費制度與國際接軌的重要誘因。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">32</span><span class="qtext">碳費徵收之初步對象「不包含」下列何種產業？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 電力業</li><li>(B) 燃氣供應業</li><li>(C) 製造業</li><li>(D) 零售餐飲業</li></ul>
+      <div class="answer"><b>正解：(D)</b><div class="exp">碳費初步徵收對象鎖定年排放量超過2.5萬公噸的電力業、燃氣供應業及製造業，零售餐飲業非首波徵收對象。</div></div>
+    </details>
+
+    <div class="qgroup-title">Part D｜碳盤查標準與國際接軌（Q33–42）<small>易 → 難</small></div>
+
+    <details class="q"><summary><span class="qno">33</span><span class="qtext">依ISO 14064-1標準，企業碳盤查中的「範疇一」是指下列何者？<span class="diff easy">易</span></span></summary>
+      <ul class="options"><li>(A) 直接溫室氣體排放</li><li>(B) 外購電力之間接排放</li><li>(C) 供應鏈上下游排放</li><li>(D) 員工通勤排放</li></ul>
+      <div class="answer"><b>正解：(A)</b><div class="exp">範疇一為組織自身擁有或控制之排放源直接產生的溫室氣體排放（如廠內燃燒設備）；範疇二為外購電力／蒸汽；範疇三為其他價值鏈間接排放。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">34</span><span class="qtext">「範疇三」排放通常包含下列何者？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 廠內鍋爐燃燒</li><li>(B) 外購電力使用</li><li>(C) 供應鏈上游原物料生產與員工通勤</li><li>(D) 以上皆非</li></ul>
+      <div class="answer"><b>正解：(C)</b><div class="exp">範疇三涵蓋組織價值鏈中除範疇一、二以外的間接排放，如採購商品服務、運輸配送、員工通勤、產品使用階段等，通常是盤查難度最高的部分。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">35</span><span class="qtext">「GWP」全球暖化潛勢的功能是什麼？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 計算企業碳費金額</li><li>(B) 將不同溫室氣體換算為CO2當量以利比較</li><li>(C) 認定碳權交易價格</li><li>(D) 決定碳費徵收對象門檻</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">GWP描述一定期間內單位質量溫室氣體相對於CO2的輻射衝擊係數，用以將甲烷、氧化亞氮等不同氣體換算為CO2當量（CO2e），是碳盤查的基礎工具。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">36</span><span class="qtext">情境題：某集團之台灣廠與大陸廠均納入溫室氣體盤查報告的排放範圍，此描述的是界定何種邊界？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) 排放源邊界</li><li>(B) 組織邊界</li><li>(C) 營運邊界</li><li>(D) 財務邊界</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">組織邊界（Organizational Boundary）決定哪些場址、子公司或關係企業納入盤查範圍，常見劃定方式有「控制權法」與「股權比例法」；本題描述涉及不同廠區的納管範圍，屬組織邊界議題。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">37</span><span class="qtext">RE100倡議的核心承諾內容為何？<span class="diff easy">易</span></span></summary>
+      <ul class="options"><li>(A) 企業100%使用再生能源</li><li>(B) 企業碳排放歸零</li><li>(C) 企業100%回收廢棄物</li><li>(D) 企業100%使用電動車</li></ul>
+      <div class="answer"><b>正解：(A)</b><div class="exp">RE100為國際企業倡議，承諾在特定年限前達成100%使用再生能源，與「淨零排放」（涵蓋所有溫室氣體）概念不同，考題常混用兩者。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">38</span><span class="qtext">TCFD／TNFD揭露框架的四大支柱不包含下列何者？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 治理</li><li>(B) 策略</li><li>(C) 風險管理</li><li>(D) 股利分配政策</li></ul>
+      <div class="answer"><b>正解：(D)</b><div class="exp">TCFD／TNFD四大支柱為治理、策略、風險管理、指標與目標，聚焦氣候與自然相關財務資訊揭露，並非公司股利分配政策。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">39</span><span class="qtext">「碳中和」的正確定義為下列何者？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 每天二氧化碳排放量維持在零</li><li>(B) 特定範疇內人為CO2排放量與人為CO2移除量達平衡狀態</li><li>(C) 完全不再使用任何化石燃料</li><li>(D) 透過政策使排放量減少至少一半</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">碳中和（Carbon Neutrality）指特定範疇內的人為CO2排放與移除達到平衡，並非完全零排放或零使用化石燃料，此為考古題高頻考點。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">40</span><span class="qtext">SBTi（科學基礎減量目標倡議）的主要精神為何？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 由企業自行決定任意減碳幅度</li><li>(B) 依科學基礎設定符合《巴黎協定》升溫控制目標之減碳路徑</li><li>(C) 僅適用於能源業</li><li>(D) 取代ISO 14064-1盤查標準</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">SBTi要求企業依科學方法設定減碳目標，使其減量路徑與《巴黎協定》控制升溫在1.5°C或遠低於2°C的目標一致，非任意訂定，也不是盤查標準本身。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">41</span><span class="qtext">下列何者不屬於碳捕捉與封存（CCS/CCUS）的主要階段？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 捕捉</li><li>(B) 運輸</li><li>(C) 封存／利用</li><li>(D) 燃燒發電</li></ul>
+      <div class="answer"><b>正解：(D)</b><div class="exp">CCS/CCUS主要階段為捕捉、運輸、封存（或再利用），燃燒發電是排放源本身而非封存流程的一環。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">42</span><span class="qtext">情境題：某公司永續報告書載明其溫室氣體排放範疇涵蓋自有廠房用電，此屬於下列哪一範疇？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 範疇一</li><li>(B) 範疇二</li><li>(C) 範疇三</li><li>(D) 範疇零</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">外購電力使用屬於範疇二（能源間接排放）；若為廠內自行燃燒燃料發電供自用，才屬於範疇一直接排放。</div></div>
+    </details>
+
+    <div class="qgroup-title">Part E｜跨主題進階整合情境題（Q43–50）<small>難</small></div>
+
+    <details class="q"><summary><span class="qno">43</span><span class="qtext">情境題：某上市公司財務長評估2026年碳費正式開徵對現金流的影響，並詢問應以哪一年度排放數據計算首年碳費？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) 2023年</li><li>(B) 2024年</li><li>(C) 2025年</li><li>(D) 2026年</li></ul>
+      <div class="answer"><b>正解：(C)</b><div class="exp">2026年正式開徵之碳費，係依據企業「前一年」（2025年）之排放量及適用費率計算，2025年5月的試申報則是針對2024年排放量、不需繳費。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">44</span><span class="qtext">情境題：一家竹科供應鏈製造廠年排放量僅1.8萬公噸，尚未達2.5萬噸門檻，但客戶要求提供產品碳足跡數據以因應歐盟CBAM。下列做法何者最恰當？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) 因未達碳費門檻，可完全不理會碳盤查</li><li>(B) 仍應依ISO 14064-1／14067建立盤查與碳足跡機制，及早因應供應鏈與國際法規要求</li><li>(C) 直接申請台灣碳權交易所核發碳權</li><li>(D) 等到年排放量達2.5萬噸才開始準備</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">碳費徵收門檻與供應鏈／出口碳足跡要求是兩套不同機制；即使未達碳費徵收門檻，企業仍可能因國際客戶、CBAM或母公司永續報告需求，被要求提供碳盤查與產品碳足跡數據，宜及早建立制度因應。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">45</span><span class="qtext">情境題：某企業ESG部門主管欲說明台灣2050淨零路徑中「非電力能源去碳化」的做法，下列敘述何者最貼切？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) 完全依賴太陽能發電</li><li>(B) 加速電氣化，並投入氫能、生質能取代化石燃料，搭配碳捕存再利用及自然碳匯</li><li>(C) 僅透過購買國外碳權達成</li><li>(D) 停止所有製造業生產活動</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">非電力能源去碳化策略包括加速電氣化、投入氫能與生質能開發取代化石燃料、搭配碳捕存再利用技術，並積極規劃山林濕地保育以擴增自然碳匯。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">46</span><span class="qtext">情境題：一家企業已同時取得ISO 14064-1組織盤查驗證、加入SBTi設定科學基礎目標，並依TCFD揭露氣候風險，其永續長仍被董事會質疑「這樣做就等於RE100了嗎？」，最適當的回覆為何？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) 是的，三者做到即等同RE100</li><li>(B) 否，RE100是專指100%使用再生能源的承諾，與盤查、目標設定、財務揭露屬不同面向工具，須另外加入並落實綠電採購</li><li>(C) RE100已被ISO 14064-1取代，不需理會</li><li>(D) RE100只適用於農業部門</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">ISO 14064-1（盤查）、SBTi（科學減量目標）、TCFD（財務揭露）、RE100（再生能源使用承諾）是四套性質不同的工具／倡議，企業須視治理需求分別導入，並非做到其一即涵蓋全部。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">47</span><span class="qtext">情境題：某企業評估是否申請碳費優惠費率A方案，其財務團隊詢問申請門檻與一般費率相比的差異，下列敘述何者正確？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) 優惠費率A方案（50元/噸）減碳目標要求較高，B方案（100元/噸）門檻較寬鬆</li><li>(B) 兩方案費率相同，僅審核流程不同</li><li>(C) 優惠費率僅適用於高碳洩漏風險產業</li><li>(D) 申請優惠費率後即永久免徵碳費</li></ul>
+      <div class="answer"><b>正解：(A)</b><div class="exp">A方案費率較低（50元/噸）但須達到較高的自主減量目標；B方案費率較高（100元/噸）但門檻相對寬鬆，企業應「量力而為」評估自身減碳能力再選擇方案，且門檻必須完全跨過才能適用優惠費率。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">48</span><span class="qtext">情境題：某集團規劃將部分產線移至東南亞以規避台灣碳費，其顧問應提醒下列何項風險？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) 完全沒有風險，碳費僅台灣課徵</li><li>(B) 若移轉後仍出口至歐盟等課徵碳關稅地區，仍須面對CBAM等國際碳邊境調整機制，且供應鏈碳足跡揭露要求已成國際趨勢，「碳洩漏」並非長久解方</li><li>(C) 東南亞國家完全不課徵任何碳相關費用，可永久規避</li><li>(D) 移轉產線可自動取得SBTi認證</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">單純的產業外移以規避碳定價（即「碳洩漏」）並非長久策略，因為國際供應鏈與CBAM等碳邊境調整機制已逐步將出口目的地的碳成本納入考量，企業應以實質減碳與技術升級因應，而非僅轉移生產地點。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">49</span><span class="qtext">情境題：某企業計畫在2026年前完成自主減量計畫申請以爭取優惠費率，其永續部門詢問截止時間，依環境部規劃，優惠費率申請截止時間最貼近下列何者？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) 想申請優惠費率者，須於次年6月底前提出自主減量計畫，環境部最晚於申報年12月開始受理</li><li>(B) 隨時可申請，無截止期限</li><li>(C) 僅能於試申報當月申請</li><li>(D) 需在碳權交易所掛牌後才能申請</li></ul>
+      <div class="answer"><b>正解：(A)</b><div class="exp">依規劃，環境部最晚於當年12月開始受理自主減量計畫，欲申請優惠費率的業者須在次年6月底前提出，以留出足夠審核與規劃時間。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">50</span><span class="qtext">總結情境題：作為出題委員的最後一題——請綜合判斷，下列關於台灣2025年淨零政策發展的敘述，何者「最為完整正確」？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) 台灣已於2025年正式達成2050淨零排放目標</li><li>(B) 2025年台灣提出總體減碳行動計畫上修2030年目標至28±2%、試行碳費申報、並於11月提出NDC3.0，2026年將正式徵收碳費並試行碳交易，形成法制、路徑、定價三軌並進的治理架構</li><li>(C) 台灣2025年放棄碳費制度改採碳稅</li><li>(D) 十二項關鍵戰略已於2025年全數終止執行</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">此為整體考科的總結核心：2025年是台灣淨零治理的「銜接與加速年」——政策路徑上修目標（總體減碳行動計畫、NDC3.0），定價制度進入試申報階段，為2026年正式徵收碳費與試行碳交易鋪路，十二項關鍵戰略持續作為行動框架，並非達成終局目標或放棄制度。</div></div>
+    </details>
+
+  </section>
+
+  <section>
+    <h2><span class="num">💡</span> 出題委員的最後叮嚀</h2>
+    <ul class="tight">
+      <li>優先熟記「四個關鍵日期」：2021/4/22宣示、2022/3/30路徑公布、2023/2/15《氣候變遷因應法》施行、2025/1/23總體減碳行動計畫。</li>
+      <li>碳費計算題必練：分清「一般產業（有K值）」與「高碳洩漏風險產業（無K值、看折扣期）」兩套公式。</li>
+      <li>分類題常考「四大轉型 vs 十二項關鍵戰略」的項目歸屬，考前務必用表格自己默寫一次。</li>
+      <li>國際接軌詞彙（CBAM、SBTi、TCFD/TNFD、RE100）常以情境題方式混合出現，建議做一張對照小卡隨身複習。</li>
+      <li>2025年新增內容（總體減碳行動計畫、NDC3.0、2026年三大關鍵議題）是本次考試最容易被低估卻機率極高的部分，務必列為考前最後衝刺重點。</li>
+    </ul>
+  </section>
+
+  <footer>
+    整理日期：2026年8月11日｜資料來源：環境部氣候變遷署、行政院、國發會、KPMG安侯永續、綠色和平等公開資訊彙整<br>
+    僅供 2026/08/15 淨零管理師考試個人複習使用，正式考試內容仍以主辦單位最新公告簡章為準。
+  </footer>
+
+</div>
+</body>
+</html>

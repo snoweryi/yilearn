@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<link href="img/favicon.ico" rel="icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>碳資產管理考前衝刺｜重點筆記＋50題模擬試題</title>
+<style>
+  :root{
+    --green-900:#0f3d2e; --green-700:#1b5e40; --green-600:#227a4f; --green-500:#2e9962;
+    --green-100:#e8f5ee; --green-50:#f4faf6;
+    --amber-600:#b5730a; --amber-100:#fdf1dd;
+    --blue-600:#2261a8; --blue-100:#e7f0fa;
+    --ink:#1c2621; --ink-soft:#4a5750; --line:#dde8e0;
+    --card:#ffffff; --bg:#f6faf7;
+    --danger:#b3423a;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif; background:var(--bg); color:var(--ink); line-height:1.75; font-size: 22px;}
+  header.hero{background:linear-gradient(135deg,var(--green-900),var(--blue-600)); color:#fff; padding:44px 24px 56px; text-align:center; position:relative; overflow:hidden;}
+  header.hero::after{content:""; position:absolute; inset:0; background:radial-gradient(circle at 85% 15%, rgba(255,255,255,.12), transparent 45%), radial-gradient(circle at 10% 90%, rgba(255,255,255,.10), transparent 40%);}
+  header.hero *{position:relative;}
+  header.hero .tag{display:inline-block; background:rgba(255,255,255,.16); padding:5px 14px; border-radius:999px; font-size: 22px; letter-spacing:.06em; margin-bottom:14px;}
+  header.hero h1{font-size:clamp(22px,4vw,34px); margin:0 0 10px; font-weight:800;}
+  header.hero p{margin:4px 0; opacity:.92; font-size: 22px;}
+  .wrap{max-width:1900px; margin:-28px auto 60px; padding:0 18px;}
+  nav.toc{background:var(--card); border-radius:16px; padding:20px 22px; margin-bottom:26px; box-shadow:0 10px 30px rgba(15,61,46,.08); border:1px solid var(--line);}
+  nav.toc h2{margin:0 0 12px; font-size: 22px; color:var(--green-700);}
+  nav.toc ol{margin:0; padding-left:20px; columns:2; column-gap:24px; font-size: 22px;}
+  nav.toc li{margin-bottom:6px;}
+  nav.toc a{color:var(--ink-soft); text-decoration:none;}
+  nav.toc a:hover{color:var(--green-700); text-decoration:underline;}
+  section{background:var(--card); border-radius:16px; padding:26px 24px 30px; margin-bottom:22px; box-shadow:0 6px 20px rgba(15,61,46,.06); border:1px solid var(--line); scroll-margin-top:16px;}
+  section h2{font-size: 22px; color:var(--green-900); margin:0 0 4px; display:flex; align-items:center; gap:10px;}
+  section h2 .num{display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:9px; background:var(--green-100); color:var(--green-700); font-size: 22px; font-weight:800; flex:none;}
+  section .sub{color:var(--ink-soft); font-size: 22px; margin:0 0 18px;}
+  h3.block-title{font-size: 22px; color:var(--green-700); margin:22px 0 10px; border-left:4px solid var(--green-500); padding-left:10px;}
+  table{width:100%; border-collapse:collapse; margin:10px 0 6px; font-size: 22px;}
+  th,td{border:1px solid var(--line); padding:9px 10px; text-align:left; vertical-align:top;}
+  th{background:var(--green-50); color:var(--green-700); font-weight:700;}
+  tr:nth-child(even) td{background:#fbfdfc;}
+  .kv{display:grid; grid-template-columns:160px 1fr; gap:6px 14px; font-size: 22px; margin:8px 0;}
+  .kv div:nth-child(odd){color:var(--ink-soft); font-weight:600;}
+  ul.tight{margin:6px 0 14px; padding-left:22px;}
+  ul.tight li{margin-bottom:5px; font-size: 22px;}
+  .pill{display:inline-block; background:var(--green-100); color:var(--green-700); border-radius:999px; padding:2px 10px; font-size: 22px; font-weight:700; margin-right:6px;}
+  .pill.blue{background:var(--blue-100); color:var(--blue-600);}
+  .callout{background:var(--amber-100); border:1px solid #f0d9ad; border-radius:12px; padding:14px 16px; font-size: 22px; color:#6b4a08; margin:14px 0;}
+  .callout b{color:var(--amber-600);}
+  .callout.danger{background:#fbe6e4; border-color:#eab3ac; color:#7a2a22;}
+  .callout.danger b{color:var(--danger);}
+  .formula{background:var(--green-900); color:#eafff2; border-radius:12px; padding:16px 18px; font-family:"SFMono-Regular",Consolas,monospace; font-size: 22px; margin:12px 0; overflow-x:auto;}
+  .compare{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:12px 0;}
+  .compare .box{border:1px solid var(--line); border-radius:12px; padding:14px 16px; background:var(--green-50);}
+  .compare .box h4{margin:0 0 8px; color:var(--green-700); font-size: 22px;}
+  .compare .box ul{margin:0; padding-left:18px; font-size: 22px; color:var(--ink-soft);}
+  @media(max-width:640px){ .compare{grid-template-columns:1fr;} }
+  .timeline{border-left:2px solid var(--green-500); margin:14px 0 6px 8px; padding-left:20px;}
+  .timeline .item{position:relative; margin-bottom:16px;}
+  .timeline .item::before{content:""; position:absolute; left:-25px; top:5px; width:10px; height:10px; border-radius:50%; background:var(--green-600); box-shadow:0 0 0 3px var(--green-100);}
+  .timeline .date{font-weight:800; color:var(--green-700); font-size: 22px;}
+  .timeline .desc{font-size: 22px; color:var(--ink-soft); margin-top:2px;}
+
+  .quiz-meta{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:18px;}
+  .quiz-meta span{background:var(--green-50); border:1px solid var(--line); border-radius:999px; padding:5px 12px; font-size: 22px; color:var(--green-700);}
+  .qgroup-title{margin:28px 0 12px; font-size: 22px; font-weight:800; color:#fff; background:var(--green-700); padding:9px 16px; border-radius:10px; display:flex; justify-content:space-between; align-items:center;}
+  .qgroup-title small{font-weight:500; opacity:.85; font-size: 22px;}
+  details.q{border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin-bottom:12px; background:#fff; transition:border-color .15s;}
+  details.q[open]{border-color:var(--green-500);}
+  details.q summary{cursor:pointer; font-size: 22px; font-weight:700; color:var(--ink); list-style:none; display:flex; gap:10px;}
+  details.q summary::-webkit-details-marker{display:none;}
+  details.q summary .qno{flex:none; width:26px; height:26px; border-radius:8px; background:var(--green-100); color:var(--green-700); display:flex; align-items:center; justify-content:center; font-size: 22px; font-weight:800;}
+  details.q summary .qtext{flex:1;}
+  details.q .diff{font-size: 22px; font-weight:700; padding:2px 8px; border-radius:999px; margin-left:6px; white-space:nowrap;}
+  .diff.easy{background:#e5f4ea; color:#2e9962;}
+  .diff.mid{background:var(--amber-100); color:var(--amber-600);}
+  .diff.hard{background:#fbe6e4; color:var(--danger);}
+  .options{list-style:none; margin:12px 0 0 36px; padding:0; font-size: 22px;}
+  .options li{margin-bottom:6px; color:var(--ink-soft);}
+  .answer{margin:14px 0 0 36px; padding:12px 14px; background:var(--green-50); border-left:4px solid var(--green-600); border-radius:8px; font-size: 22px;}
+  .answer b{color:var(--green-700);}
+  .answer .exp{margin-top:6px; color:var(--ink-soft);}
+  footer{text-align:center; color:var(--ink-soft); font-size: 22px; padding:20px 0 50px;}
+  @media print{ header.hero{background:var(--green-900) !important; -webkit-print-color-adjust:exact;} details.q{page-break-inside:avoid;} nav.toc{display:none;} }
+  .badgerowbt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px;
+    background: #ffffff;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+a.badge1 {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #007286;
+    color: #fff;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+a.badge2 {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #007286;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+a.badge3 {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #b8238d;
+    color: yellow;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+</style>
+</head>
+<body>
+<div class="badgerowbt">    
+		
+		<div><a href="https://snoweryi.github.io/yilearn/" class="badge1" >永續架構</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/iu.html" class="badge1">UNFCCC</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/iz.html" class="badge1">條文</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/iy.html" class="badge1">年份</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/iw.html" class="badge1">氣候法</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/ic1.html" class="badge1">碳中和</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/ic.html" class="badge1">CBAM</a></div>	
+		<div><a href="https://snoweryi.github.io/yilearn/is.html" class="badge1">舊SBTi</a></div>		
+		<div><a href="https://snoweryi.github.io/yilearn/isb.html" class="badge1">新舊SBTi</a></div>	
+		<div><a href="https://snoweryi.github.io/yilearn/ir.html" class="badge1">RE100</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/ie.html" class="badge1">ESG</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/iso_sbti_cbam.html" class="badge1">iso_sbti_cbam</a></div><br>		
+		<div><a href="https://snoweryi.github.io/yilearn/iz01.html" class="badge1">碳價</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/iz_1.html" class="badge1">能源</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/iz02.html" class="badge1">複習</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/iz03.html" class="badge1">台灣淨零</a></div>
+		<div><a href="https://snoweryi.github.io/yilearn/iz04.html" class="badge2">碳資產</a></div>
+		
+		<div><a href="https://snoweryi.github.io/yilearn/menu.html" class="badge3">目錄</a></div>
+	</div>
+
+<header class="hero">
+  <span class="tag">出題委員視角・碳資產管理專題</span>
+  <h1>碳資產管理考前衝刺筆記</h1>
+  <p>碳配額・碳信用・碳交易・內部碳定價・碳資產會計處理 全面整理</p>
+  <p style="font-size: 22px;opacity:.75;">為小宜量身整理｜銜接《2026淨零管理師》考科延伸主題</p>
+</header>
+
+<div class="wrap">
+
+  <nav class="toc">
+    <h2>📑 目錄</h2>
+    <ol>
+      <li><a href="#s1">碳資產的定義與分類</a></li>
+      <li><a href="#s2">台灣自願減量專案制度</a></li>
+      <li><a href="#s3">台灣碳權交易所（TCX）與交易規則</a></li>
+      <li><a href="#s4">國際碳權市場與品質風險</a></li>
+      <li><a href="#s5">內部碳定價（ICP）</a></li>
+      <li><a href="#s6">碳資產的財務會計處理</a></li>
+      <li><a href="#s7">碳資產管理流程與風險控管</a></li>
+      <li><a href="#quiz">模擬試題 50 題（點題目展開解析）</a></li>
+    </ol>
+  </nav>
+
+  <!-- SECTION 1 -->
+  <section id="s1">
+    <h2><span class="num">1</span> 碳資產的定義與分類</h2>
+    <p class="sub">出題重點：分清「碳配額」與「碳信用」的來源、性質與可否互通，是碳資產管理考科的第一道分水嶺。</p>
+
+    <div class="kv">
+      <div>碳資產（Carbon Asset）</div><div>泛指企業因減碳行動或政策制度而持有、可用於抵換／交易／履約之無形權利，廣義上包含碳配額、碳權（減量額度）及相關衍生商品</div>
+    </div>
+
+    <h3 class="block-title">兩大來源類型</h3>
+    <div class="compare">
+      <div class="box">
+        <h4>① 排放額度（Allowance）</h4>
+        <ul>
+          <li>來自政府「總量管制與交易」（Cap and Trade）制度</li>
+          <li>政府設定產業排放總量上限，配額由政府核發或拍賣</li>
+          <li>企業排放超標須購買他人配額；排放低於上限者可出售</li>
+          <li>代表國家：歐盟ETS、中國ETS、韓國ETS</li>
+          <li><b>台灣現況：尚未實施總量管制，無「排放額度」型碳權</b></li>
+        </ul>
+      </div>
+      <div class="box">
+        <h4>② 減量額度／碳信用（Credit）</h4>
+        <ul>
+          <li>又稱「自願型碳權」，來自組織或個人執行減碳／增匯專案</li>
+          <li>需經第三方查驗並向主管機關或國際機構申請核發</li>
+          <li>台灣目前僅能以此類型參與碳權交易</li>
+          <li>代表機制：台灣自願減量專案、CDM、Verra VCS、Gold Standard</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout"><b>命題重點：</b>「排放額度」與「減量額度」兩套機制原則上<b>不互通</b>——配額用於總量管制下的合規履約，減量額度則用於自願性減碳承諾、供應鏈要求或碳費／增量抵換之扣抵，考題常以「某企業能否用A機制的權益抵扣B機制義務」出題。</div>
+  </section>
+
+  <!-- SECTION 2 -->
+  <section id="s2">
+    <h2><span class="num">2</span> 台灣自願減量專案制度</h2>
+    <p class="sub">此為台灣碳權（減量額度）的「產生」端制度，考題常結合法規名稱、日期與申請限制出題。</p>
+
+    <div class="kv">
+      <div>法源依據</div><div>《氣候變遷因應法》第2章，2023/10/12訂定發布「溫室氣體自願減量專案管理辦法」</div>
+      <div>申請人資格</div><div>限「事業」或「各級政府」提出，公司、行號、工廠、民間機構、行政機關（構）均屬事業，<b>個人或住家不得申請</b></div>
+      <div>核心邏輯</div><div>比較「專案情境」（執行減量措施後之排放量）與「基線情境」（未執行措施之排放量），差額即為減量成效，經認可後核發減量額度</div>
+    </div>
+
+    <h3 class="block-title">「三加五原則」（高品質碳權的核心要求）</h3>
+    <ul class="tight">
+      <li><b>MRV三要素：</b>可量測（Measurable）、可報告（Reportable）、可驗證（Verifiable）</li>
+      <li><b>五項原則：</b>外加性（Additionality）、保守性（Conservativeness）、永久性（Permanence）、避免產生危害（Do No Harm）、避免重複計算（Avoid Double Counting）</li>
+    </ul>
+
+    <h3 class="block-title">專案邊界排除情形（不得納入之排放源）</h3>
+    <ul class="tight">
+      <li>已向中央有關機關提出再生能源憑證申請之發電設備</li>
+      <li>已屬應繳納碳費之排放源（避免與碳費制度重複計算減量效益）</li>
+      <li>已公告應盤查登錄及查驗溫室氣體排放量之第一批、第二批排放源</li>
+      <li>已公告應納入總量管制之排放源</li>
+      <li>註冊申請日3年前執行之「減少或避免排放」類型措施</li>
+    </ul>
+    <div class="callout"><b>出題委員提醒：</b>此邊界排除規定的核心精神是<b>防止重複計算</b>——若排放源已受碳費或總量管制規範，就不可再透過自願減量專案重複主張減量效益並出售碳權，這是碳資產管理誠信度（integrity）的關鍵考點。</div>
+
+    <h3 class="block-title">增量抵換（Offset）制度</h3>
+    <div class="kv">
+      <div>適用情境</div><div>事業新設或變更排放源達一定規模（如環評開發案），須依溫室氣體增量之一定比率進行抵換</div>
+      <div>抵換來源</div><div>減量額度，或汰換老舊汽機車／空調／照明設備、改用沼氣或生質燃料等所取得之抵換額度</div>
+      <div>平台</div><div>由台灣碳權交易所負責運作「增量抵換平台」</div>
+    </div>
+  </section>
+
+  <!-- SECTION 3 -->
+  <section id="s3">
+    <h2><span class="num">3</span> 台灣碳權交易所（TCX）與交易規則</h2>
+    <p class="sub">出題重點：交易所三大板塊、交易資格限制、及「買入後不可轉售」的關鍵規則。</p>
+
+    <div class="kv">
+      <div>成立日期</div><div>2023年8月7日，設址高雄市</div>
+      <div>出資單位</div><div>台灣證券交易所＋行政院國家發展基金管理會共同投資</div>
+      <div>法源</div><div>依《氣候變遷因應法》第36條，環境部委託碳交所辦理國內減量額度交易、拍賣及移轉業務</div>
+      <div>國際碳權交易</div><div>2023年12月22日開辦</div>
+      <div>國內碳權交易</div><div>2024年10月2日開辦</div>
+    </div>
+
+    <h3 class="block-title">三大交易板塊</h3>
+    <table>
+      <tr><th>板塊</th><th>內容</th></tr>
+      <tr><td>國內減量額度交易平台</td><td>國內事業透過自願減量專案取得之碳權，售予有增量抵換等需求之買方；可直接定價出售、拍賣，或私下協議後上架</td></tr>
+      <tr><td>國際碳權交易平台</td><td>買方限本國法人、賣方境內外皆可；交易單位為1公噸CO2e，以美金計價；每日9:00–15:30交易；已與Gold Standard等國際機構簽約引進國外碳權</td></tr>
+      <tr><td>增量抵換平台</td><td>供環評開發案等溫室氣體增量抵換需求使用</td></tr>
+    </table>
+
+    <div class="callout"><b>八大規則核心：</b>①僅限本國法人／事業體採購，個人不得參與 ②買入之碳權<b>不可在平台轉售</b>，僅能持有、註銷或移轉 ③交易單位為1公噸CO2e ④無論國內外交易，皆遵循「買入後不可再賣出」原則，避免碳權被重複交易炒作。</div>
+  </section>
+
+  <!-- SECTION 4 -->
+  <section id="s4">
+    <h2><span class="num">4</span> 國際碳權市場與品質風險</h2>
+    <p class="sub">此部分常以情境題考「碳權品質」與「洗綠風險」的判斷能力。</p>
+
+    <h3 class="block-title">重要國際機制</h3>
+    <table>
+      <tr><th>機制</th><th>重點</th></tr>
+      <tr><td>CDM（清潔發展機制）</td><td>《京都議定書》授權成立之碳信用機制，僅締約方可申請；因議定書已於2020年到期，<b>已停止接受新案</b>，但既有通過案件仍可持續領取減量額度</td></tr>
+      <tr><td>Verra（VCS）</td><td>國際最大自願性碳權認證機構之一；2023年《衛報》調查揭露其雨林保護計畫核發之碳權中，約94%對氣候變遷實質幫助存疑，引發全球對碳權品質之高度關注</td></tr>
+      <tr><td>Gold Standard（黃金標準）</td><td>另一國際獨立碳權認證機構，以較嚴謹的社會與環境效益審查著稱，台灣碳交所已與其簽約引進國外碳權</td></tr>
+    </table>
+
+    <div class="callout danger"><b>風險提醒（洗綠 Greenwashing）：</b>企業購買碳權若未審慎查核專案品質，可能買到「無效碳權」而遭質疑漂綠。2023年Verra雨林保護專案爭議中，多家國際品牌企業因此受到輿論衝擊，凸顯「選擇具公信力驗證機構」與「查核外加性、避免重複計算」在碳資產管理實務上的重要性。</div>
+
+    <h3 class="block-title">碳權品質的關鍵判斷要素</h3>
+    <ul class="tight">
+      <li><b>外加性（Additionality）：</b>該減量成果若無此專案是否原本就會發生？若「本來就會發生」則不具外加性，不應核發碳權。</li>
+      <li><b>永久性（Permanence）：</b>減量／增匯效益是否可長期維持（如森林碳匯需考量森林火災、砍伐等逆轉風險）。</li>
+      <li><b>避免重複計算：</b>同一減量成效不得同時被專案業主與買方，或不同制度（如自願減量與碳費）重複主張。</li>
+      <li><b>Vintage（額度年份）：</b>碳權核發之年份，年份越新通常代表方法學與查證標準越嚴謹。</li>
+    </ul>
+  </section>
+
+  <!-- SECTION 5 -->
+  <section id="s5">
+    <h2><span class="num">5</span> 內部碳定價（Internal Carbon Pricing, ICP）</h2>
+    <p class="sub">此為企業碳資產管理的「決策工具」端，常與IFRS永續揭露準則結合出題。</p>
+
+    <div class="kv">
+      <div>定義</div><div>企業將碳排放外部成本內部化，作為投資決策與績效管理的參考價格，屬碳風險與碳機會的管理工具</div>
+      <div>IFRS揭露要求</div><div>金管會「我國接軌IFRS永續揭露準則藍圖」要求上市櫃公司揭露每公噸溫室氣體之排放價格，並說明如何應用於決策</div>
+    </div>
+
+    <h3 class="block-title">兩種常見型態</h3>
+    <div class="compare">
+      <div class="box">
+        <h4>影子價格（Shadow Price）</h4>
+        <ul>
+          <li>採「損害成本法」衡量，估算碳排放造成的環境損害價值</li>
+          <li>僅作內部參考，<b>不涉及實際金流／課稅</b></li>
+          <li>用於投資評估：將排放量乘以影子碳價，納入專案評估的成本效益分析</li>
+          <li>案例：聯合利華設定70歐元/噸CO2作為超過100萬歐元專案的評估參考</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h4>內部碳費（Internal Carbon Fee）</h4>
+        <ul>
+          <li>採「減排成本法／隱含價格法」衡量</li>
+          <li><b>實際向各部門收取費用</b>，集中成立內部基金</li>
+          <li>基金用於投資能源效率提升、碳補償專案、購買綠電等</li>
+          <li>案例：微軟自2012年起實施內部碳費，第一金控以隱含價格法計算單位減碳成本並給予績優單位獎勵</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout"><b>命題陷阱：</b>「影子價格」與「內部碳費」最大差異在於<b>是否有實際金流</b>——影子價格只是評估用的參考數字，內部碳費則會真正向部門收費並集資運用，考題常以此作為選項設計的關鍵鑑別點。</div>
+  </section>
+
+  <!-- SECTION 6 -->
+  <section id="s6">
+    <h2><span class="num">6</span> 碳資產的財務會計處理</h2>
+    <p class="sub">目前國際會計準則尚無專門規範「碳權」的會計科目，企業須依持有目的判斷適用準則，是進階整合題常考素材。</p>
+
+    <div class="kv">
+      <div>基本性質</div><div>碳權屬「無實體之可辨認非貨幣性資產」，且不賦予持有人收取現金或其他金融資產之權利</div>
+      <div>預設適用準則</div><div>符合國際會計準則第38號「無形資產」（IAS 38）之定義，原則上應依IAS 38處理</div>
+      <div>例外情形</div><div>若企業持有碳權之目的與型態符合國際會計準則第2號「存貨」（IAS 2）之定義（如以買賣為常規業務、供交易獲利），則應改依IAS 2處理</div>
+    </div>
+    <div class="callout"><b>出題委員提醒：</b>判斷碳權應歸類為「無形資產」或「存貨」的關鍵在於<b>企業持有目的</b>——長期持有以扣抵自身碳費／達成碳中和目標者，通常適用IAS 38；以買賣獲利為目的、經常性交易者，則較可能適用IAS 2。目前尚無專門規範「碳權」的獨立會計準則，此為考題常設計之「陷阱選項」（誤稱有專門準則）。</div>
+  </section>
+
+  <!-- SECTION 7 -->
+  <section id="s7">
+    <h2><span class="num">7</span> 碳資產管理流程與風險控管</h2>
+    <p class="sub">整合型知識——出題委員常以此作為情境題最後一題的「總結型」素材。</p>
+
+    <h3 class="block-title">企業碳資產管理五步驟</h3>
+    <ol class="tight" style="padding-left:22px;">
+      <li><b>盤查：</b>依ISO 14064-1建立範疇一／二／三排放清冊，掌握碳負債基礎數據</li>
+      <li><b>減量：</b>優先透過製程改善、能效提升、再生能源導入等「實質減量」手段</li>
+      <li><b>定價：</b>導入內部碳定價（影子價格／內部碳費），將碳成本納入投資決策</li>
+      <li><b>抵換／交易：</b>對難以削減的排放，透過自願減量專案取得碳權，或於碳交所購入國內外碳權進行抵換</li>
+      <li><b>揭露：</b>依TCFD、IFRS永續揭露準則、永續報告書等機制對外揭露碳資產、碳負債與內部碳定價資訊</li>
+    </ol>
+
+    <h3 class="block-title">常見風險與對策</h3>
+    <table>
+      <tr><th>風險</th><th>說明與對策</th></tr>
+      <tr><td>洗綠風險</td><td>購買品質存疑碳權卻宣稱碳中和，應選擇具公信力驗證機構並查核外加性</td></tr>
+      <tr><td>重複計算風險</td><td>同一減量效益被碳費、自願減量、國際供應鏈要求重複主張，應核對專案邊界排除規定</td></tr>
+      <tr><td>價格波動風險</td><td>碳費費率逐年調升、碳權市場價格波動，應透過內部碳定價提前納入財務規劃</td></tr>
+      <tr><td>法規遵循風險</td><td>國內外碳定價與揭露規範快速演進（如IFRS S1/S2、CBAM），應建立跨部門法規追蹤機制</td></tr>
+      <tr><td>資產認列爭議</td><td>碳權會計科目判斷影響財報表達，應與會計師事先確認持有目的與適用準則</td></tr>
+    </table>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="quiz">
+    <h2><span class="num">✓</span> 模擬試題 50 題</h2>
+    <p class="sub">出題委員視角：由淺入深、以情境題為主，涵蓋碳資產分類、自願減量制度、交易所規則、國際市場風險、內部碳定價與會計處理。點選題目可展開正解與解析。</p>
+    <div class="quiz-meta">
+      <span>題型：單選題</span>
+      <span>難度分布：易 15／中 21／難 14</span>
+      <span>共 50 題，建議作答時間 75 分鐘</span>
+    </div>
+
+    <div class="qgroup-title">Part A｜碳資產基礎分類（Q1–10）<small>易 → 中</small></div>
+
+    <details class="q"><summary><span class="qno">1</span><span class="qtext">碳資產中的「排放額度」（Allowance）主要來自下列何種制度？<span class="diff easy">易</span></span></summary>
+      <ul class="options"><li>(A) 自願減量專案</li><li>(B) 總量管制與交易（Cap and Trade）</li><li>(C) 內部碳定價</li><li>(D) 增量抵換</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">排放額度由政府在總量管制制度下核發或拍賣，企業排放超標須購買他人配額，代表案例為歐盟ETS、中國ETS、韓國ETS。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">2</span><span class="qtext">台灣目前是否已實施「總量管制與交易」制度？<span class="diff easy">易</span></span></summary>
+      <ul class="options"><li>(A) 已全面實施</li><li>(B) 尚未實施，僅能以自願性碳權（減量額度）交易為主</li><li>(C) 僅電力業實施</li><li>(D) 2020年已廢止相關規劃</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">台灣尚未實施總量管制，故國內無「排放額度」型碳權，企業僅能透過自願減量專案取得「減量額度」（自願型碳權）參與交易。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">3</span><span class="qtext">「排放額度」與「減量額度」兩套碳權機制，一般而言彼此關係為何？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 完全互通，可自由轉換</li><li>(B) 原則上不互通，用途分屬合規履約與自願承諾兩種體系</li><li>(C) 減量額度效力高於排放額度，可直接取代</li><li>(D) 兩者為同一種商品，僅名稱不同</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">排放額度用於總量管制下的合規履約；減量額度則用於自願減碳承諾、供應鏈要求或碳費／增量抵換扣抵，兩套機制原則上不可互通使用。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">4</span><span class="qtext">依《溫室氣體自願減量專案管理辦法》，下列何者「不得」以自己名義申請自願減量專案？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 公司</li><li>(B) 工廠</li><li>(C) 個人或住家</li><li>(D) 行政機關（構）</li></ul>
+      <div class="answer"><b>正解：(C)</b><div class="exp">辦法明定僅「事業」或「各級政府」得提出申請，事業指公司、行號、工廠、民間機構、行政機關（構）等，個人或住家不得申請。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">5</span><span class="qtext">自願減量專案的核心邏輯是比較下列哪兩種情境的排放量差異？<span class="diff easy">易</span></span></summary>
+      <ul class="options"><li>(A) 基線情境與專案情境</li><li>(B) 國內情境與國外情境</li><li>(C) 過去情境與未來情境</li><li>(D) 買方情境與賣方情境</li></ul>
+      <div class="answer"><b>正解：(A)</b><div class="exp">「基線情境」為未執行減量措施之排放量，「專案情境」為執行措施後之排放量，兩者差額即為減量成效，經認可後核發減量額度。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">6</span><span class="qtext">碳權品質判斷的「三加五原則」中，「三」是指下列何者？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 外加性、保守性、永久性</li><li>(B) 可量測、可報告、可驗證（MRV）</li><li>(C) 供給、需求、價格</li><li>(D) 範疇一、二、三</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">「三」為MRV原則：可量測（Measurable）、可報告（Reportable）、可驗證（Verifiable）；「五」則為外加性、保守性、永久性、避免產生危害、避免重複計算。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">7</span><span class="qtext">「外加性」（Additionality）判斷的核心問題是什麼？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 該減量成果是否比其他專案更便宜</li><li>(B) 若無此專案，該減量成果是否原本就會發生</li><li>(C) 該專案是否已完成環評</li><li>(D) 該專案是否位於台灣境內</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">外加性要求減量成果須是「額外」產生的，若在沒有此專案介入的情況下該減量本來就會發生（如法規強制要求），則不具外加性，不應核發碳權。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">8</span><span class="qtext">下列哪一項排放源「可以」納入自願減量專案的專案邊界？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) 已屬應繳納碳費之排放源</li><li>(B) 已公告應納入總量管制之排放源</li><li>(C) 尚未受碳費或總量管制規範，且無重複主張減量效益疑慮之一般排放源</li><li>(D) 已申請再生能源憑證之發電設備</li></ul>
+      <div class="answer"><b>正解：(C)</b><div class="exp">(A)(B)(D)均為辦法明定之邊界排除情形，目的是避免同一減量效益被重複計算；一般未受前述規範且無重複主張疑慮之排放源方可納入。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">9</span><span class="qtext">情境題：某企業以2020年執行之減碳設備汰換申請自願減量專案，於2025年提出註冊申請，下列敘述何者最正確？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) 完全不受時間限制，可隨時申請</li><li>(B) 因執行時間為註冊申請日3年前所實施之「減少或避免排放」類型措施，可能不符合申請資格</li><li>(C) 只要有節能效益即可無限期回溯申請</li><li>(D) 僅森林碳匯專案有時間限制</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">辦法明定「減少或避免排放」類型措施，若執行時間為註冊申請日3年前，不得納入專案邊界，本題2020年執行、2025年申請已逾3年，可能不符合資格，須留意類型（增匯型措施規範可能不同）。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">10</span><span class="qtext">增量抵換制度主要適用於下列何種情境？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 個人購買碳權作為紀念品</li><li>(B) 事業新設或變更排放源達一定規模（如環評開發案）</li><li>(C) 政府機關內部差旅碳中和</li><li>(D) 學校舉辦運動會</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">依《氣候變遷因應法》，事業新設或變更排放源達一定規模者（如園區興建、高樓建築開發等環評案），應依溫室氣體增量之一定比率進行抵換。</div></div>
+    </details>
+
+    <div class="qgroup-title">Part B｜台灣碳權交易所規則（Q11–20）<small>易 → 難</small></div>
+
+    <details class="q"><summary><span class="qno">11</span><span class="qtext">台灣碳權交易所（TCX）成立於何時何地？<span class="diff easy">易</span></span></summary>
+      <ul class="options"><li>(A) 2023年8月7日，高雄</li><li>(B) 2022年3月30日，台北</li><li>(C) 2025年1月23日，台中</li><li>(D) 2024年10月2日，新竹</li></ul>
+      <div class="answer"><b>正解：(A)</b><div class="exp">碳交所於2023年8月7日成立於高雄市，由台灣證券交易所與行政院國家發展基金管理會共同出資。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">12</span><span class="qtext">台灣碳權交易所的國內碳權交易平台於何時正式開辦？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 2023年8月7日（成立當日）</li><li>(B) 2023年12月22日</li><li>(C) 2024年10月2日</li><li>(D) 2026年</li></ul>
+      <div class="answer"><b>正解：(C)</b><div class="exp">國際碳權交易於成立同年12月22日開辦；國內碳權交易則晚於相關子法完備後，於2024年10月2日正式開辦，兩者時程常被考題混淆。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">13</span><span class="qtext">下列何者「不符合」台灣碳權交易所之交易規則？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 交易方僅限法人或事業體</li><li>(B) 買入的碳權可在平台上自由轉售給第三方</li><li>(C) 國際碳權交易單位為1公噸CO2e，以美金計價</li><li>(D) 國內碳權可透過定價出售或拍賣</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">碳交所明定「買進後僅可持有、註銷或移轉」，不可在平台上轉售，此為與一般證券交易所最大差異的核心規則。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">14</span><span class="qtext">台灣碳權交易所的國際碳權交易，買方須符合下列何項資格？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 須為台灣境內法人</li><li>(B) 可為任何國籍之個人</li><li>(C) 僅限外國政府機構</li><li>(D) 無任何資格限制</li></ul>
+      <div class="answer"><b>正解：(A)</b><div class="exp">國外碳權交易限法人進行，買方須為台灣境內法人；賣方則境內或境外均可，此設計目的在確保國內企業掌握碳權需求主導權。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">15</span><span class="qtext">台灣碳權交易所辦理國內減量額度交易之法源依據為何？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) 《氣候變遷因應法》第36條</li><li>(B) 《公司法》</li><li>(C) 《證券交易法》</li><li>(D) 《能源管理法》</li></ul>
+      <div class="answer"><b>正解：(A)</b><div class="exp">依《氣候變遷因應法》第36條，環境部委託碳交所辦理國內溫室氣體減量額度交易、拍賣及收取手續費業務，並依「溫室氣體減量額度交易拍賣及移轉管理辦法」建置交易平台。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">16</span><span class="qtext">情境題：某科技公司欲於台灣碳權交易所國際平台購買碳權以達成RE100供應鏈要求，其財務部詢問交易時間，下列何者正確？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) 24小時全天候交易</li><li>(B) 每日上午9時至下午3時30分</li><li>(C) 每週僅開放一次</li><li>(D) 需事先預約，無固定時間</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">國際碳權交易每日交易時間為上午9時起至下午3時30分止，類似證券交易所之交易時段設計。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">17</span><span class="qtext">台灣碳權交易所已與哪一國際獨立機構簽約，將國際碳權引進國內市場？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 世界銀行</li><li>(B) Gold Standard（黃金標準）</li><li>(C) IMF</li><li>(D) WTO</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">碳交所已與國際獨立機構Gold Standard簽約，引進國外碳權供國內企業購買，以協助達成碳中和或供應鏈減碳需求。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">18</span><span class="qtext">增量抵換平台的抵換來源，下列何者「不包含」？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 汰換老舊汽機車為電動車</li><li>(B) 汰換照明設備為高效率照明</li><li>(C) 改用沼氣或生質燃料</li><li>(D) 購買國外總量管制配額</li></ul>
+      <div class="answer"><b>正解：(D)</b><div class="exp">增量抵換來源以減量額度及國內具體減碳措施（老舊汽機車、空調、照明汰換、沼氣生質燃料等）為主，國外總量管制配額並非台灣增量抵換制度之來源。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">19</span><span class="qtext">台灣碳權交易所主要由哪兩個單位共同出資成立？<span class="diff easy">易</span></span></summary>
+      <ul class="options"><li>(A) 台灣證券交易所、行政院國家發展基金管理會</li><li>(B) 台灣電力公司、經濟部</li><li>(C) 金管會、財政部</li><li>(D) 環境部、內政部</li></ul>
+      <div class="answer"><b>正解：(A)</b><div class="exp">碳交所由台灣證券交易所與行政院國家發展基金管理會共同投資成立，屬公營公司性質，肩負政策責任而非單純商業營利模式。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">20</span><span class="qtext">情境題：某企業於碳交所買入國際碳權後，因財務規劃變動想將其轉售套利，下列敘述何者正確？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) 可隨時於平台上轉售給其他法人</li><li>(B) 依現行規則，買入後僅能持有、註銷或移轉，不可再於平台轉售套利</li><li>(C) 只要通過環境部核准即可轉售</li><li>(D) 轉售不受任何限制，與股票交易相同</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">此為台灣碳交所有別於一般證券交易所的核心設計，目的在避免碳權被用於投機炒作，確保碳權交易回歸「協助企業減碳」的政策初衷。</div></div>
+    </details>
+
+    <div class="qgroup-title">Part C｜國際碳權市場與品質風險（Q21–32）<small>中 → 難</small></div>
+
+    <details class="q"><summary><span class="qno">21</span><span class="qtext">CDM（清潔發展機制）源自哪一項國際協議？<span class="diff easy">易</span></span></summary>
+      <ul class="options"><li>(A) 巴黎協定</li><li>(B) 京都議定書</li><li>(C) 蒙特婁議定書</li><li>(D) 哥本哈根協議</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">CDM為《京都議定書》授權成立之碳信用機制，僅議定書締約方可申請，是最早的國際碳信用機制之一。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">22</span><span class="qtext">CDM機制目前的運作狀態為何？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 持續接受全球新案申請</li><li>(B) 因《京都議定書》已到期，已停止接受新案，但既有案件仍可持續領取減量額度</li><li>(C) 已完全終止，所有既有額度作廢</li><li>(D) 僅限台灣企業申請</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">《京都議定書》已於2020年到期，CDM已暫停接受新案申請，但先前已通過註冊的專案仍可持續依原方法學領取減量額度。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">23</span><span class="qtext">2023年《衛報》調查揭露哪一國際碳權認證機構的雨林保護計畫爭議？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) Gold Standard</li><li>(B) Verra（VCS）</li><li>(C) 台灣碳權交易所</li><li>(D) CDM執行理事會</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">《衛報》2023年調查發現Verra針對雨林保護計畫核發的VCS碳權中，約94%對氣候變遷幫助存疑，多家知名品牌企業因購買該類碳權而受到漂綠質疑。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">24</span><span class="qtext">情境題：某企業購買他國雨林保護專案碳權以宣稱「碳中和」，事後被揭露該專案不具外加性，此企業最可能面臨下列何種風險？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) 完全無風險，因已依法完成交易</li><li>(B) 洗綠（Greenwashing）指控與商譽受損</li><li>(C) 自動獲得政府補助</li><li>(D) 碳費自動全免</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">若碳權品質不佳、不具外加性卻仍宣稱碳中和，將面臨「洗綠」指控，損害企業商譽與投資人信任，此為碳資產管理實務上須嚴格查核碳權品質的核心原因。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">25</span><span class="qtext">碳權的「永久性」（Permanence）原則主要關注下列何種風險？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 交易手續費過高</li><li>(B) 減量／增匯效益因森林火災、砍伐等因素而逆轉、無法長期維持</li><li>(C) 交易所系統當機</li><li>(D) 匯率波動</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">永久性原則特別針對自然碳匯（如造林）專案，關注碳吸存效益是否可能因森林火災、病蟲害、砍伐等因素而逆轉消失，是評估碳權長期有效性的重要指標。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">26</span><span class="qtext">「避免重複計算」（Avoid Double Counting）原則主要目的為何？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 確保同一減量效益不被賣方與買方，或不同制度重複主張</li><li>(B) 讓企業可以重複出售同一批碳權以增加獲利</li><li>(C) 允許同一減量效益同時計入碳費與碳權交易</li><li>(D) 與碳權品質無關</li></ul>
+      <div class="answer"><b>正解：(A)</b><div class="exp">避免重複計算是碳權誠信度的核心保障，防止同一減量成效被專案業主與買方同時主張，或被自願減量與碳費等不同制度重複計入。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">27</span><span class="qtext">碳權的「Vintage」（額度年份）通常代表什麼意義？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) 碳權的交易價格</li><li>(B) 碳權核發之年份，年份越新通常代表方法學與查證標準較嚴謹</li><li>(C) 企業成立年份</li><li>(D) 碳交所開業年份</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">Vintage指碳權對應減量成效實際發生／核發之年份，市場上通常認為較新的Vintage碳權因方法學更新、查證標準較嚴謹，品質更具公信力。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">28</span><span class="qtext">自願性碳市場（Voluntary Carbon Market）與強制性碳市場（Compliance Market）最主要的差異為何？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 自願性市場無總量上限、非強制參與；強制性市場有總量管制、依法須參與</li><li>(B) 兩者完全相同</li><li>(C) 自願性市場僅限政府參與</li><li>(D) 強制性市場僅限個人參與</li></ul>
+      <div class="answer"><b>正解：(A)</b><div class="exp">自願性碳市場企業主動投入減碳專案取得碳權，無總量上限且非強制；強制性碳市場則基於法規（如ETS）設定排放上限並要求受管制對象依法遵循。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">29</span><span class="qtext">情境題：某企業比較CDM與Verra VCS兩種碳信用機制以決定採購來源，下列敘述何者正確？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) CDM已停止接受新案，若需採購新專案碳權應考慮VCS或Gold Standard等現行機制</li><li>(B) 兩者皆已完全停止運作</li><li>(C) CDM專門處理森林碳匯，VCS專門處理再生能源</li><li>(D) 兩者皆為政府強制性機制</li></ul>
+      <div class="answer"><b>正解：(A)</b><div class="exp">CDM已因《京都議定書》到期停止接受新案申請，企業若需採購「新專案」碳權，應轉向VCS、Gold Standard等現行仍持續核發新碳權的自願性市場機制。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">30</span><span class="qtext">下列何者最能描述自願性碳市場的參與資格特性？<span class="diff easy">易</span></span></summary>
+      <ul class="options"><li>(A) 僅限被政府列管的排碳大戶參與</li><li>(B) 即使未被政府管制碳排放量的企業，也能主動參與</li><li>(C) 僅限上市公司參與</li><li>(D) 僅限電力業參與</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">自願性碳市場無總量上限、非強制性，即使未受政府碳排放管制的企業，也可主動投入減碳專案並申請碳權，作為自身ESG或供應鏈承諾之用。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">31</span><span class="qtext">情境題：某企業採購第三方中間商提供的國外碳權產品，未透過官方交易所，下列做法何者最恰當？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) 無需查核，中間商保證即可信任</li><li>(B) 應自行審核該碳權產品之有效性，包含查核驗證機構公信力、外加性與是否重複計算</li><li>(C) 只要價格便宜即可大量採購</li><li>(D) 中間商銷售之碳權一律不具效力</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">企業自行與中間商接洽採購第三方碳權產品時，須自行審核其有效性，包含確認驗證機構之公信力、專案外加性及有無重複計算疑慮，以避免採購到無效或爭議碳權。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">32</span><span class="qtext">碳權市場之「供給端」與「需求端」誘因，下列敘述何者最正確？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 供給端源自法規強制義務，需求端源自企業自願承諾</li><li>(B) 供給端源自企業執行減量或增匯專案取得額度並出售；需求端源自ETS／碳稅法規義務、或企業自願減量承諾、供應鏈及ESG需求</li><li>(C) 供給端與需求端完全無關</li><li>(D) 僅政府可作為供給端</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">供給端主要是執行減量或增匯專案取得額度之企業／案場；需求端則包含因ETS或碳稅等法規衍生義務者，以及基於自願減量承諾、供應鏈或ESG需求而購買碳權者。</div></div>
+    </details>
+
+    <div class="qgroup-title">Part D｜內部碳定價與碳資產會計（Q33–42）<small>中 → 難</small></div>
+
+    <details class="q"><summary><span class="qno">33</span><span class="qtext">內部碳定價（ICP）最主要的功能是什麼？<span class="diff easy">易</span></span></summary>
+      <ul class="options"><li>(A) 將碳排放外部成本內部化，納入投資與決策評估</li><li>(B) 取代政府碳費制度</li><li>(C) 作為員工績效考核的唯一標準</li><li>(D) 用於計算企業所得稅</li></ul>
+      <div class="answer"><b>正解：(A)</b><div class="exp">ICP是企業自主管理碳風險與碳機會的工具，將碳排放的外部成本內部化，納入投資決策與部門績效評估，並非取代政府碳費制度或稅務用途。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">34</span><span class="qtext">「影子價格」（Shadow Price）的最大特徵是什麼？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 涉及實際金流，向部門收取費用</li><li>(B) 僅作內部評估參考，不涉及實際金流或課稅</li><li>(C) 由政府統一制定</li><li>(D) 等同於碳費費率</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">影子價格採「損害成本法」衡量，僅作為內部投資評估的參考價格，用以評估各方案的環境效益，不涉及實際課稅或金流。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">35</span><span class="qtext">「內部碳費」與「影子價格」最主要的差異為何？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 內部碳費有實際金流並向部門收費，影子價格僅作參考評估</li><li>(B) 兩者完全相同</li><li>(C) 影子價格才有實際金流</li><li>(D) 內部碳費僅適用於農業部門</li></ul>
+      <div class="answer"><b>正解：(A)</b><div class="exp">內部碳費實際向各部門收取費用並集資成立基金，用於能效提升、碳補償或購買綠電；影子價格則僅作為內部投資評估的參考數字，不涉及實際金流。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">36</span><span class="qtext">情境題：某科技公司自2012年起實施內部碳費制度，將各分公司收取之碳稅集中至中央基金，用於投資能源效率與購買綠電，此案例最貼近下列何者？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) 影子價格</li><li>(B) 內部碳費</li><li>(C) 碳配額拍賣</li><li>(D) CDM機制</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">此描述符合微軟自2012年起實施內部碳費之案例特徵——實際向各分公司收費並集資成立中央基金，投資於能效提升、碳補償專案與綠電採購，屬內部碳費而非影子價格。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">37</span><span class="qtext">金管會要求上市櫃公司依IFRS永續揭露準則揭露的內部碳定價資訊，主要包含下列何者？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) 每公噸溫室氣體之排放價格，及如何應用碳價格進行決策</li><li>(B) 員工薪資結構</li><li>(C) 董事會成員名單</li><li>(D) 產品定價策略</li></ul>
+      <div class="answer"><b>正解：(A)</b><div class="exp">IFRS永續揭露準則要求企業揭露每公噸溫室氣體之排放價格，並說明如何應用該碳價格進行投資與營運決策，屬企業碳風險治理透明度的重要指標。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">38</span><span class="qtext">依會計研究月刊之說明，企業持有碳權之會計處理，原則上應優先適用下列何項國際會計準則？<span class="diff mid">中</span></span></summary>
+      <ul class="options"><li>(A) IAS 2「存貨」</li><li>(B) IAS 38「無形資產」</li><li>(C) IAS 16「不動產、廠房及設備」</li><li>(D) IFRS 9「金融工具」</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">碳權屬無實體之可辨認非貨幣性資產，且不賦予持有人收取現金或其他金融資產之權利，符合IAS 38對無形資產之定義，原則上應優先依IAS 38處理。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">39</span><span class="qtext">在何種情況下，企業持有之碳權應改依IAS 2「存貨」進行會計處理？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) 企業持有碳權之目的與型態符合IAS 2對存貨之定義，例如以買賣獲利為常規業務</li><li>(B) 只要碳權金額超過100萬元</li><li>(C) 只要是國外碳權即適用IAS 2</li><li>(D) 碳權永遠不能適用IAS 2</li></ul>
+      <div class="answer"><b>正解：(A)</b><div class="exp">若企業判斷所持有之碳權，其持有目的與型態符合IAS 2對存貨之定義（如以經常性買賣獲利為目的），則應依IAS 2規定處理，而非一律適用IAS 38。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">40</span><span class="qtext">情境題：某考生於考題中看到「碳權目前已有國際會計準則第XX號『碳權資產』專門規範」之敘述，此敘述是否正確？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) 正確，國際上已有專門規範碳權的準則</li><li>(B) 錯誤，目前尚無專門規範碳權的獨立會計準則，須依持有目的判斷適用IAS 38或IAS 2</li><li>(C) 正確，但僅適用於台灣企業</li><li>(D) 正確，且僅適用於歐盟企業</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">此為常見的命題陷阱選項——目前國際上並無專門規範「碳權」的獨立會計準則，企業須依實際持有目的與型態，判斷應適用IAS 38無形資產或IAS 2存貨之規定。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">41</span><span class="qtext">損害成本法（damage cost approach）主要用於衡量下列何種內部碳定價型態？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) 影子價格</li><li>(B) 內部碳費</li><li>(C) 碳費一般費率</li><li>(D) 碳權市場交易價格</li></ul>
+      <div class="answer"><b>正解：(A)</b><div class="exp">影子價格常以「損害成本法」衡量，估算碳排放對環境造成之損害價值；內部碳費則常以「減排成本法（隱含價格法）」衡量。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">42</span><span class="qtext">情境題：某金控公司以「隱含價格法」計算各單位實際減碳措施投入金額，換算出每公噸減碳成本，並依此獎勵績優單位，此作法屬於下列哪一種內部碳定價機制？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) 影子價格</li><li>(B) 內部碳費（隱含價格法）</li><li>(C) 碳權交易</li><li>(D) 增量抵換</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">此描述符合「內部碳費」以隱含價格法（減排成本法）衡量的實務案例——依實際減碳措施投入金額換算單位減碳成本，並用以評估與獎勵各單位績效。</div></div>
+    </details>
+
+    <div class="qgroup-title">Part E｜跨主題進階整合情境題（Q43–50）<small>難</small></div>
+
+    <details class="q"><summary><span class="qno">43</span><span class="qtext">情境題：某科技集團永續長規劃碳資產管理策略，欲依序建立管理流程，下列排序何者最合理？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) 交易→揭露→盤查→減量→定價</li><li>(B) 盤查→減量→定價→抵換／交易→揭露</li><li>(C) 揭露→交易→盤查→減量→定價</li><li>(D) 定價→交易→盤查→減量→揭露</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">合理的碳資產管理流程應先掌握排放基礎數據（盤查），再推動實質減量，接著導入內部碳定價協助決策，對難削減排放以抵換／交易因應，最後對外揭露成果，形成完整治理閉環。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">44</span><span class="qtext">情境題：某企業購買國內減量額度用於扣抵碳費，卻發現該額度來源之排放源本身已屬碳費徵收對象，此情況最可能違反下列哪一項原則？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) 外加性</li><li>(B) 避免重複計算</li><li>(C) 保守性</li><li>(D) 可驗證性</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">依自願減量專案管理辦法，已屬應繳納碳費之排放源不得納入專案邊界，若該額度來源違反此規定，即構成同一減量效益被重複主張，違反「避免重複計算」原則。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">45</span><span class="qtext">情境題：某企業財務長詢問，若公司大量持有碳權且經常性買賣以賺取價差，該碳權在財報上應如何認列較為合理？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) 一律認列為不動產、廠房及設備</li><li>(B) 依其持有目的（經常性買賣獲利）判斷，較可能符合IAS 2存貨之定義並依其規定處理</li><li>(C) 完全不需認列於財報</li><li>(D) 一律認列為現金及約當現金</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">若企業持有碳權之目的為經常性買賣以賺取價差，較符合IAS 2對存貨之定義，應依存貨相關規定處理，而非預設適用IAS 38無形資產準則。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">46</span><span class="qtext">情境題：某製造業導入影子價格於新廠投資評估，發現低碳製程因納入碳成本而評價提升，但高碳製程在良率與成本上仍具優勢，最終仍選擇高碳製程，下列敘述何者最貼切？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) 影子價格完全沒有影響決策，形同虛設</li><li>(B) 影子價格已納入評估但非唯一決定因素，僅在方案表現接近時較能發揮關鍵影響</li><li>(C) 此做法違反內部碳定價之法規要求</li><li>(D) 企業必須強制選擇低碳製程，否則違法</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">影子價格將碳成本納入投資決策評估，但通常不是唯一決定因素；當各方案表現差異明顯時（如良率、成本優勢懸殊），碳成本的影響力有限，僅在方案表現接近時才較可能成為關鍵影響因素，此為內部碳定價實務運作的常態。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">47</span><span class="qtext">情境題：某企業出口產品至歐盟，同時面對台灣碳費、CBAM，並持有自願減量取得之碳權，其永續部門欲釐清三者關係，下列敘述何者最正確？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) 三者為同一制度，繳交碳費即自動免除CBAM義務</li><li>(B) 碳費屬國內碳定價、CBAM為進口國課徵之碳邊境調整機制、碳權為自願性市場工具；已支付之台灣碳費可提出證明向CBAM申請扣抵，但碳權與碳費、CBAM性質不同，不可混用</li><li>(C) 碳權可直接用於扣抵CBAM應繳金額，與碳費無關</li><li>(D) CBAM僅適用於台灣國內企業</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">三者性質與功能不同：碳費是台灣國內碳定價工具；CBAM是歐盟對進口產品課徵的碳邊境調整機制，可扣抵已實際支付之碳價（含碳費）；碳權則是透過自願減量或交易取得的資產，主要用於扣抵碳費或供應鏈碳中和承諾，三者不可混為一談或互相取代。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">48</span><span class="qtext">情境題：某企業採購國外碳權時發現價格明顯低於市場行情，且賣方無法提供第三方驗證文件，下列判斷何者最恰當？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) 價格便宜代表划算，應立即大量採購</li><li>(B) 應提高警覺，可能涉及品質不佳、缺乏外加性或重複計算等風險，應要求驗證文件並查核來源公信力</li><li>(C) 無需驗證文件，只要有交易憑證即可</li><li>(D) 低價碳權必為政府核發之高品質額度</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">價格明顯偏低且缺乏第三方驗證文件是碳權品質風險的重要警訊，可能涉及外加性不足、重複計算或造假等問題，企業應要求完整驗證文件並查核發行機構公信力，避免陷入洗綠爭議。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">49</span><span class="qtext">情境題：某集團同時規劃「內部碳定價」與「自願減量專案」兩項策略，其永續長詢問兩者關係，下列敘述何者最正確？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) 兩者互相排斥，企業僅能擇一實施</li><li>(B) 兩者可互補：內部碳定價作為決策評估工具，引導投資往低碳方向傾斜；自願減量專案則是取得實質碳權（外部減量成效）的具體行動路徑，兩者可並行強化整體碳資產管理成效</li><li>(C) 內部碳定價即等同於碳權</li><li>(D) 自願減量專案僅適用於政府機關</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">內部碳定價是企業內部的決策評估工具（如影子價格、內部碳費），用以引導投資決策朝低碳方向發展；自願減量專案則是實際執行減碳措施並取得外部認證碳權的行動路徑，兩者性質不同、可互補並行，共同構成完整的碳資產管理策略。</div></div>
+    </details>
+
+    <details class="q"><summary><span class="qno">50</span><span class="qtext">總結情境題：作為出題委員的最後一題——下列關於台灣碳資產管理制度整體架構之敘述，何者「最為完整正確」？<span class="diff hard">難</span></span></summary>
+      <ul class="options"><li>(A) 台灣已實施總量管制，企業碳資產以排放額度為主</li><li>(B) 台灣碳資產管理以自願減量專案（產生減量額度）為基礎，透過台灣碳權交易所（僅限法人、買入不可轉售）進行國內外碳權交易與增量抵換，企業另可搭配內部碳定價管理決策，並依IAS 38或IAS 2判斷碳權之會計處理，惟須留意國際碳權市場之品質與洗綠風險</li><li>(C) 碳資產管理與碳費、CBAM等制度完全無關</li><li>(D) 台灣碳權可自由於國際市場轉售套利，不受任何限制</li></ul>
+      <div class="answer"><b>正解：(B)</b><div class="exp">此為整體考科的總結核心：台灣尚未實施總量管制，碳資產以「自願減量額度」為主，透過碳交所（法人限定、不可轉售）進行交易；企業可另行導入內部碳定價工具強化決策；持有碳權之會計處理則依持有目的判斷適用IAS 38或IAS 2；同時須留意國際碳權市場品質參差與洗綠風險，並理解碳資產管理與碳費、CBAM等制度間的互動關係，而非各自獨立、互不相關。</div></div>
+    </details>
+
+  </section>
+
+  <section>
+    <h2><span class="num">💡</span> 出題委員的最後叮嚀</h2>
+    <ul class="tight">
+      <li>務必分清「排放額度（allowance）」與「減量額度（credit）」——台灣目前只有後者，考題常以此設計陷阱選項。</li>
+      <li>台灣碳權交易所的核心規則是「法人限定＋買入不可轉售」，這是與一般證券交易所最大差異，也是必考題。</li>
+      <li>「三加五原則」（MRV三要素＋外加性、保守性、永久性、避免危害、避免重複計算）務必逐字背熟，情境題經常單獨考其中一項原則的應用判斷。</li>
+      <li>內部碳定價的「影子價格」vs「內部碳費」——是否涉及實際金流，是命題最愛的鑑別點。</li>
+      <li>碳權會計處理沒有「專門準則」，判斷關鍵在企業「持有目的」，適用IAS 38或IAS 2，此為常見誤導選項的設計方向。</li>
+      <li>最後衝刺請務必練習跨主題整合情境題（碳費＋碳權＋CBAM＋內部碳定價一起出現），這類題目在正式考試中鑑別度最高。</li>
+    </ul>
+  </section>
+
+  <footer>
+    整理日期：2026年8月11日｜資料來源：環境部氣候變遷署、台灣碳權交易所、金管會IFRS永續揭露準則藍圖、會計研究月刊、PwC、TEJ台灣經濟新報等公開資訊彙整<br>
+    僅供個人複習使用，正式考試內容仍以主辦單位最新公告簡章為準。
+  </footer>
+
+</div>
+</body>
+</html>
