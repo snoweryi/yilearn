@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<link href="img/favicon.ico" rel="icon">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iPAS 淨零碳規劃管理師｜考科二 淨零碳盤查規範與程序概要｜考前總整理 + 100題互動測驗</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3F4EE;
+    --ink:#1B2A2D;
+    --ink-soft:#4A5B5C;
+    --teal-deep:#12363A;
+    --teal:#1F5B58;
+    --gold:#B8873A;
+    --moss:#2C6E4F;
+    --red:#A6412F;
+    --line:#D6DACD;
+    --card:#FFFEFC;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Noto Sans TC",sans-serif;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+	font-size: 22px;
+  }
+  ::selection{background:var(--gold);color:#fff;}
+
+  header.hero{
+    position:relative;
+    padding:56px 24px 40px;
+    background:
+      radial-gradient(circle at 85% 0%, rgba(184,135,58,.16), transparent 55%),
+      linear-gradient(180deg, var(--teal-deep) 0%, var(--teal) 100%);
+    color:#EFF5F0;
+    overflow:hidden;
+  }
+  header.hero::after{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      repeating-linear-gradient(90deg, rgba(255,255,255,.035) 0 1px, transparent 1px 88px);
+    pointer-events:none;
+  }
+  .hero-inner{max-width:1900px;margin:0 auto;position:relative;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:"JetBrains Mono",monospace;
+    font-size: 22px; letter-spacing:.14em;
+    color:#D9C9A0; text-transform:uppercase;
+    border:1px solid rgba(217,201,160,.4);
+    padding:5px 12px; border-radius:999px;
+    margin-bottom:22px;
+  }
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:#8FCBB0;box-shadow:0 0 0 3px rgba(143,203,176,.25);}
+  h1.title{
+    font-family:"Noto Serif TC",serif;
+    font-weight:900;
+    font-size:clamp(28px,4.4vw,44px);
+    line-height:1.28;
+    margin:0 0 14px;
+    letter-spacing:.01em;
+  }
+  h1.title .accent{color:#E4B876;}
+  p.subtitle{
+    max-width:1900px;
+    color:#C8D9D2;
+    font-size: 22px;
+    margin:0 0 26px;
+  }
+  .hero-meta{
+    display:flex; flex-wrap:wrap; gap:10px 26px;
+    font-size: 22px; color:#B4C8C3;
+    border-top:1px solid rgba(255,255,255,.14);
+    padding-top:18px;
+  }
+  .hero-meta b{color:#F3EFE3;font-weight:700;}
+
+  nav.tabbar{
+    position:sticky; top:0; z-index:40;
+    background:rgba(243,244,238,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .tabbar-inner{
+    max-width:1900px;margin:0 auto;
+    display:flex; gap:4px; padding:10px 24px;
+  }
+  .tab-btn{
+    font-family:"Noto Sans TC",sans-serif;
+    font-weight:700; font-size: 22px;
+    padding:9px 18px; border-radius:10px;
+    border:1px solid transparent;
+    background:transparent; color:var(--ink-soft);
+    cursor:pointer; transition:.15s ease;
+  }
+  .tab-btn:hover{background:#E7E9DE;}
+  .tab-btn.active{background:var(--teal); color:#fff; box-shadow:0 2px 8px rgba(18,54,58,.25);}
+
+  main{max-width:1900px;margin:0 auto;padding:34px 24px 90px;}
+  .view{display:none;}
+  .view.active{display:block;}
+
+  .examiner-note{
+    background:#FBF6E9;
+    border:1px solid #E7D9B0;
+    border-left:4px solid var(--gold);
+    border-radius:10px;
+    padding:16px 18px;
+    font-size: 22px;
+    color:#5A4A24;
+    margin-bottom:32px;
+  }
+  .examiner-note b{color:#8A6420;}
+
+  .ch-block{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    margin-bottom:22px;
+    overflow:hidden;
+    box-shadow:0 1px 2px rgba(18,54,58,.04);
+  }
+  .ch-head{
+    display:flex; align-items:center; gap:14px;
+    padding:16px 20px;
+    cursor:pointer;
+    user-select:none;
+    background:linear-gradient(90deg, #E9EBDF, #FBFAF4);
+  }
+  .ch-num{
+    font-family:"JetBrains Mono",monospace;
+    font-weight:700; font-size: 22px;
+    color:#fff; background:var(--teal);
+    width:34px; height:34px; border-radius:8px;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .ch-title{font-family:"Noto Serif TC",serif; font-weight:700; font-size:17px; flex:1;}
+  .ch-hint{font-size: 22px; color:var(--ink-soft); font-family:"JetBrains Mono",monospace;}
+  .ch-caret{transition:transform .2s ease; color:var(--ink-soft); flex-shrink:0;}
+  .ch-block.open .ch-caret{transform:rotate(180deg);}
+  .ch-body{max-height:0; overflow:hidden; transition:max-height .28s ease;}
+  .ch-body-inner{padding:6px 22px 22px;}
+
+  .kp{
+    display:flex; gap:10px;
+    padding:10px 0;
+    border-bottom:1px dashed var(--line);
+    font-size: 22px;
+  }
+  .kp:last-child{border-bottom:none;}
+  .kp .tag{
+    flex-shrink:0; font-family:"JetBrains Mono",monospace;
+    font-size: 22px; font-weight:700; color:var(--moss);
+    background:#E3F0E5; border-radius:6px; padding:3px 8px;
+    height:fit-content; white-space:nowrap;
+  }
+  .kp .tag.hot{color:var(--red); background:#F7E4DF;}
+  .kp b{color:var(--teal-deep);}
+  .num{color:var(--gold); font-weight:700;}
+
+  table.ref{
+    width:100%; border-collapse:collapse;
+    margin:10px 0 4px; font-size: 22px;
+  }
+  table.ref th, table.ref td{
+    border:1px solid var(--line); padding:8px 10px; text-align:left;
+  }
+  table.ref th{background:#E9EBDF; font-weight:700; font-family:"Noto Serif TC",serif;}
+  table.ref td.center{text-align:center;}
+
+  .examiner-flag{
+    display:inline-block; margin-top:14px;
+    font-size: 22px; color:#8A6420; background:#FBF0D6;
+    border:1px solid #ECD9A0; border-radius:8px; padding:8px 12px;
+  }
+
+  .quiz-toolbar{
+    display:flex; flex-wrap:wrap; gap:12px; align-items:center;
+    justify-content:space-between;
+    background:var(--card); border:1px solid var(--line); border-radius:12px;
+    padding:14px 18px; margin-bottom:22px;
+    position:sticky; top:56px; z-index:30;
+  }
+  .score-box{display:flex; align-items:center; gap:16px; font-size: 22px;}
+  .score-num{font-family:"JetBrains Mono",monospace; font-weight:700; font-size: 22px; color:var(--teal-deep);}
+  select#chFilter{
+    font-family:"Noto Sans TC",sans-serif; font-size: 22px;
+    border:1px solid var(--line); border-radius:8px; padding:7px 10px;
+    background:#fff; color:var(--ink);
+  }
+  button#resetBtn{
+    font-family:"Noto Sans TC",sans-serif; font-weight:700; font-size: 22px;
+    background:#E7E9DE; color:var(--ink-soft); border:1px solid var(--line);
+    border-radius:8px; padding:8px 14px; cursor:pointer;
+  }
+  button#resetBtn:hover{background:#DBDECC;}
+
+  .q-card{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:20px 20px 18px; margin-bottom:16px;
+    scroll-margin-top:120px;
+  }
+  .q-head{display:flex; align-items:center; gap:10px; margin-bottom:10px;}
+  .q-id{
+    font-family:"JetBrains Mono",monospace; font-weight:700; font-size: 22px;
+    color:#fff; background:var(--teal); border-radius:6px; padding:3px 8px;
+  }
+  .q-ch{
+    font-size: 22px; font-family:"JetBrains Mono",monospace; font-weight:700;
+    color:var(--moss); background:#E3F0E5; border-radius:6px; padding:3px 8px;
+  }
+  .q-text{font-size: 22px; font-weight:500; color:var(--ink); margin-bottom:14px;}
+  .opts{display:flex; flex-direction:column; gap:9px;}
+  .opt{
+    display:flex; gap:10px; align-items:flex-start;
+    border:1px solid var(--line); border-radius:9px;
+    padding:10px 13px; cursor:pointer; font-size: 22px;
+    background:#FFFEFB; transition:.12s ease;
+  }
+  .opt:hover{border-color:var(--gold); background:#FBF6E9;}
+  .opt .letter{
+    font-family:"JetBrains Mono",monospace; font-weight:700; font-size: 22px;
+    color:var(--ink-soft); border:1px solid var(--line); border-radius:5px;
+    width:20px; height:20px; display:flex; align-items:center; justify-content:center;
+    flex-shrink:0; margin-top:1px;
+  }
+  .q-card.answered .opt{cursor:default;}
+  .q-card.answered .opt:hover{border-color:var(--line); background:#FFFEFB;}
+  .q-card.answered .opt.correct{
+    border-color:var(--moss); background:#E3F0E5;
+  }
+  .q-card.answered .opt.correct .letter{background:var(--moss); color:#fff; border-color:var(--moss);}
+  .q-card.answered .opt.wrong{
+    border-color:var(--red); background:#FBEAE6;
+  }
+  .q-card.answered .opt.wrong .letter{background:var(--red); color:#fff; border-color:var(--red);}
+
+  .explain{
+    display:none; margin-top:14px; padding:13px 15px;
+    background:#E9EBDF; border-left:3px solid var(--gold);
+    border-radius:8px; font-size: 22px; color:#4B4127;
+  }
+  .q-card.answered .explain{display:block;}
+  .explain b{color:var(--teal-deep);}
+  .result-flag{
+    display:inline-block; font-family:"JetBrains Mono",monospace; font-weight:700;
+    font-size: 22px; padding:2px 9px; border-radius:6px; margin-bottom:8px;
+  }
+  .result-flag.right{background:var(--moss); color:#fff;}
+  .result-flag.wrong-flag{background:var(--red); color:#fff;}
+
+  footer{
+    text-align:center; padding:34px 24px 60px; color:var(--ink-soft); font-size: 22px;
+  }
+
+  @media (max-width:640px){
+    .quiz-toolbar{position:static;}
+    nav.tabbar{position:static;}
+  }
+.badgerowbt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px;
+    background: #ffffff;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+a.badge1 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #007286;
+    color: #fff;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+a.badge2 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #007286;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+a.badge3 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #b8238d;
+    color: yellow;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+  @media(max-width:768px){
+  .header-inner {  margin-top: 6rem;padding:8px 18px 30px;}
+    .q-header { flex-wrap: wrap; }
+    .meta-row { gap: 0.75rem; }
+  }
+</style>
+</head>
+<body>
+<div class="badgerowbt">	
+	<div><a href="https://snoweryi.github.io/yilearn/e1.html" class="badge1">考1</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/e2.html" class="badge2">考2</a></div>
+	
+	
+	
+	<div><a href="https://snoweryi.github.io/yilearn/menu.html" class="badge3">目錄</a></div>
+  </div>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow"><span class="dot"></span>iPAS 淨零碳規劃管理師．初級能力鑑定</div>
+    <h1 class="title">考科二：<span class="accent">淨零碳盤查規範與程序概要</span><br>考前總整理 × 100 題互動模擬測驗</h1>
+    <p class="subtitle">以命題委員視角，依官方教材架構（ch08 ISO 14064-1組織型盤查、ch09 ISO 14067碳足跡）整理必考觀念與計算邏輯，並依歷屆出題比重配置100題模擬題（範疇界定、盤查程序、GWP換算、生命週期評估、碳足跡標籤為必考重點），點選選項即可作答並看到解析。</p>
+    <div class="hero-meta">
+      <div>科目形式：<b>50題單選 / 75分鐘</b>（本頁模擬題為加強版 100 題）</div>
+      <div>核心章節：<b>2章（ISO14064-1 + ISO14067）</b></div>
+      <div>及格標準：<b>70分</b></div>
+    </div>
+  </div>
+</header>
+
+<nav class="tabbar">
+  <div class="tabbar-inner">
+    <button class="tab-btn active" data-view="notes">📗 考前總整理筆記</button>
+    <button class="tab-btn" data-view="quiz">✍️ 100題模擬測驗</button>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ===================== NOTES VIEW ===================== -->
+  <section id="view-notes" class="view active">
+
+    <div class="examiner-note">
+      <b>命題委員視角提醒：</b> 考科二題目範圍比考科一集中，主要就是考「ISO 14064-1組織型溫室氣體盤查」與「ISO 14067產品碳足跡」兩大標準的內容與邏輯，題目較不容易超綱，只要把邊界界定、範疇一二三、盤查作業程序七步驟、GWP換算概念、生命週期評估四階段、碳足跡標籤申請流程弄熟，70分以上不困難。務必留意「計算題」與「情境判斷題」（例如：給一段情境描述，判斷是在講組織邊界還是營運邊界）。
+    </div>
+
+    <!-- CH8 -->
+    <div class="ch-block open" data-ch="8">
+      <div class="ch-head">
+        <div class="ch-num">08</div>
+        <div class="ch-title">ISO 14064-1:2018 組織型溫室氣體盤查</div>
+        <div class="ch-hint">最高頻｜55題</div>
+        <svg class="ch-caret" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="ch-body">
+        <div class="ch-body-inner">
+
+          <div class="kp"><span class="tag hot">必背</span>京都議定書列管的<b>七種溫室氣體</b>：<b>CO₂、CH₄、N₂O、HFCs、PFCs、SF₆、NF₃</b>（NF₃於杜哈修正案追加）。</div>
+          <div class="kp"><span class="tag hot">必背</span><b>全球暖化潛勢（GWP, Global Warming Potential）</b>：以CO₂為基準（GWP=1），用以將不同溫室氣體換算為「CO₂當量（CO₂e）」。常見100年時間尺度GWP概估值：CH₄約25–28、N₂O約265–298、SF₆高達約23,500（實際數值依所採用之IPCC評估報告版本而異，考試常考「哪種氣體暖化潛勢最高」而非精確數字）。</div>
+          <div class="kp"><span class="tag">公式</span>CO₂當量 = <b>活動數據（Activity Data）× 排放係數（Emission Factor）× GWP</b>，是溫室氣體盤查最核心的計算邏輯。</div>
+          <div class="kp"><span class="tag hot">必背</span><b>ISO 14064系列</b>三個部分：<br>
+            <b>14064-1</b>：組織層級溫室氣體盤查與報告指引<br>
+            <b>14064-2</b>：專案層級溫室氣體減量／移除量化與報告指引<br>
+            <b>14064-3</b>：溫室氣體聲明之查證與確證指引</div>
+          <div class="kp"><span class="tag">辨析</span><b>確證（Validation）</b>用於「未來」的減量專案設計文件審查；<b>查證（Verification）</b>用於「過去」既成排放數據之查核。</div>
+          <div class="kp"><span class="tag hot">必背</span><b>組織邊界（Organizational Boundary）</b>界定方式二選一：<br>
+            <b>股權比例法（Equity Share）</b>：依持股比例認列排放量<br>
+            <b>控制法（Control Approach）</b>：分為<b>財務控制</b>與<b>營運控制</b>，凡具控制力者即全額認列100%排放量</div>
+          <div class="kp"><span class="tag hot">必背</span><b>營運邊界（Operational Boundary）</b>依排放來源分為三大範疇：</div>
+          <table class="ref">
+            <tr><th>範疇</th><th>定義</th><th>常見排放源</th></tr>
+            <tr><td><b>範疇一</b><br>直接排放</td><td>自有或可控制之排放源直接產生的排放</td><td>鍋爐燃燒、公務車、製程逸散、滅火器逸散</td></tr>
+            <tr><td><b>範疇二</b><br>能源間接排放</td><td>因使用外購能源而產生的間接排放</td><td>外購電力、蒸汽、熱、冷</td></tr>
+            <tr><td><b>範疇三</b><br>其他間接排放</td><td>價值鏈中其他非自有或不可控制之間接排放</td><td>員工通勤、商務差旅、供應鏈、廢棄物處理、產品使用</td></tr>
+          </table>
+          <div class="kp"><span class="tag">法規</span>我國《<b>氣候變遷因應法</b>》規定，中央主管機關（環境部）指定之排放源應進行溫室氣體<b>盤查、登錄</b>，並經第三方<b>查驗機構</b>查證後申報。</div>
+          <div class="kp"><span class="tag hot">必背數字</span>依環境部規範，事業單位<b>年排放量達2.5萬公噸CO₂e</b>以上者，即應強制進行溫室氣體盤查登錄。</div>
+          <div class="kp"><span class="tag">程序</span><b>溫室氣體盤查作業程序（七步驟）</b>：①界定組織邊界 → ②界定營運邊界（範疇一二三） → ③鑑別排放源與移除匯 → ④蒐集活動數據 → ⑤選擇／取得排放係數 → ⑥計算排放量 → ⑦品質管理、文件化並編製盤查報告，必要時經第三方查證。</div>
+          <div class="kp"><span class="tag">品質</span><b>數據品質</b>優先順序：<b>直接量測法（Direct Measurement）</b>優於<b>計算法（Calculation-based，活動數據×排放係數）</b>；量測不到才採用推估或替代值。</div>
+          <div class="kp"><span class="tag">概念</span><b>重大性門檻（Materiality Threshold）</b>：ISO 14064-1建議常見門檻為<b>5%</b>，用於判斷排放源鑑別、數據或方法選用是否需重新檢視。</div>
+          <div class="kp"><span class="tag">概念</span><b>基準年（Base Year）</b>：作為長期減量目標比較基準之特定年度，選定時須具代表性，且若組織邊界或計算方法有重大變動，應重新校正基準年排放量。</div>
+          <div class="kp"><span class="tag">保證等級</span>查證可分為<b>合理保證（Reasonable Assurance）</b>與<b>有限保證（Limited Assurance）</b>，合理保證要求之查證程序較嚴謹、確信程度較高。</div>
+          <div class="examiner-flag">⚠ 常考混淆點：「組織邊界」是決定「哪些設施／營運單位算在我的公司裡」；「營運邊界」是決定「這些設施產生的排放要歸類成範疇一、二還是三」——考題常給情境描述要你判斷是在講哪一種邊界。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CH9 -->
+    <div class="ch-block" data-ch="9">
+      <div class="ch-head">
+        <div class="ch-num">09</div>
+        <div class="ch-title">ISO 14067:2018 產品碳足跡與生命週期評估</div>
+        <div class="ch-hint">高頻｜45題</div>
+        <svg class="ch-caret" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="ch-body">
+        <div class="ch-body-inner">
+          <div class="kp"><span class="tag hot">必背</span><b>產品碳足跡（Carbon Footprint of Product, CFP）</b>：依ISO 14067定義，指產品在其<b>生命週期</b>中（原料取得、生產製造、配送銷售、使用、廢棄處理）所產生溫室氣體排放與移除之總和，以CO₂當量表示。</div>
+          <div class="kp"><span class="tag">差異</span><b>ISO 14064</b>是<b>組織層級</b>的溫室氣體盤查；<b>ISO 14067</b>是<b>產品層級</b>的碳足跡量化，兩者範疇與適用對象不同。</div>
+          <div class="kp"><span class="tag hot">必背</span><b>生命週期評估（LCA, Life Cycle Assessment）</b>依<b>ISO 14040／14044</b>標準，共分四階段：</div>
+          <table class="ref">
+            <tr><th>階段</th><th>內容</th></tr>
+            <tr><td>① 目標與範圍界定<br>（Goal & Scope Definition）</td><td>定義評估目的、系統邊界、功能單位</td></tr>
+            <tr><td>② 清冊分析<br>（Life Cycle Inventory, LCI）</td><td>蒐集各階段投入與產出的物質與能源數據</td></tr>
+            <tr><td>③ 衝擊評估<br>（Life Cycle Impact Assessment, LCIA）</td><td>將清冊數據轉換為環境衝擊指標（如暖化潛勢）</td></tr>
+            <tr><td>④ 結果闡釋<br>（Interpretation）</td><td>檢視結果、辨識關鍵議題並提出結論建議</td></tr>
+          </table>
+          <div class="kp"><span class="tag hot">必背</span><b>系統邊界類型</b>：<br>
+            <b>搖籃到大門（Cradle-to-Gate）</b>：原料取得至產品離開工廠大門前，常用於B2B原料／半成品<br>
+            <b>搖籃到墳墓（Cradle-to-Grave）</b>：原料取得至最終廢棄處理，完整生命週期，常用於最終消費品<br>
+            <b>搖籃到搖籃（Cradle-to-Cradle）</b>：強調廢棄物回收再利用形成循環<br>
+            <b>大門到大門（Gate-to-Gate）</b>：僅涵蓋單一生產階段</div>
+          <div class="kp"><span class="tag">概念</span><b>功能單位（Functional Unit）</b>：LCA中用以量化產品功能、作為比較基準的計量單位（例如「每公升飲料」「每件衣物」），確保不同產品或製程間具可比性。</div>
+          <div class="kp"><span class="tag hot">必背</span><b>產品類別規則（PCR, Product Category Rules）</b>：針對特定產品類別訂定碳足跡計算方法、系統邊界與資料要求的規則文件，確保同類產品碳足跡計算基礎一致、可相互比較。</div>
+          <div class="kp"><span class="tag">制度</span>我國由<b>環境部</b>推動<b>產品碳足跡標籤</b>制度：企業自行或委託計算產品碳足跡後，經第三方查驗機構查證，向環境部申請並通過審查後，始得於產品標示碳足跡標籤。</div>
+          <div class="kp"><span class="tag">品質</span><b>資料品質指標（Data Quality Indicators）</b>常見構面：<b>時間代表性、地理代表性、技術代表性</b>，用以評估活動數據與排放係數的適用程度。</div>
+          <div class="kp"><span class="tag">辨析</span>碳足跡計算五階段中，若採「搖籃到大門」邊界，通常<b>不納入使用階段與廢棄處理階段</b>之排放；若採「搖籃到墳墓」則五階段皆須納入。</div>
+          <div class="examiner-flag">⚠ 常考混淆點：碳足跡「搖籃到大門」vs「搖籃到墳墓」的邊界差異，以及「哪些階段的排放需要／不需要納入計算」是計算題與情境題的熱門考點。</div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===================== QUIZ VIEW ===================== -->
+  <section id="view-quiz" class="view">
+    <div class="quiz-toolbar">
+      <div class="score-box">
+        <div>已作答：<span class="score-num" id="answeredCount">0</span> / 100</div>
+        <div>答對：<span class="score-num" id="correctCount">0</span></div>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center;">
+        <select id="chFilter">
+          <option value="all">全部章節</option>
+          <option value="8">ch08 ISO14064-1 組織型盤查</option>
+          <option value="9">ch09 ISO14067 碳足跡／LCA</option>
+        </select>
+        <button id="resetBtn">重新測驗</button>
+      </div>
+    </div>
+    <div id="quizList"></div>
+  </section>
+
+</main>
+
+<footer>
+  本內容依 iPAS 公版教材架構與公開命題趨勢彙整，僅供考前複習參考，實際考試以官方最新簡章與教材為準（尤其GWP數值、盤查申報門檻等可能隨環境部最新公告調整）。祝考試順利、兩科一次通過！
+</footer>
+
+<script>
+document.querySelectorAll(".tab-btn").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    const v = btn.dataset.view;
+    document.querySelectorAll(".view").forEach(el=>el.classList.remove("active"));
+    document.getElementById("view-"+v).classList.add("active");
+  });
+});
+
+document.querySelectorAll(".ch-block").forEach(block=>{
+  const head = block.querySelector(".ch-head");
+  const body = block.querySelector(".ch-body");
+  function setState(open){
+    if(open){ block.classList.add("open"); body.style.maxHeight = body.scrollHeight+"px"; }
+    else{ block.classList.remove("open"); body.style.maxHeight = "0px"; }
+  }
+  setState(block.classList.contains("open"));
+  head.addEventListener("click",()=> setState(!block.classList.contains("open")));
+});
+window.addEventListener("load",()=>{
+  document.querySelectorAll(".ch-block.open .ch-body").forEach(b=> b.style.maxHeight = b.scrollHeight+"px");
+});
+
+const CH_LABEL = {8:"ch08 ISO14064-1",9:"ch09 ISO14067/LCA"};
+
+const QUESTIONS = [
+{ch:8,q:"京都議定書列管的溫室氣體共有幾種？",o:["5種","6種","7種","9種"],a:2,e:"京都議定書（含杜哈修正案）列管7種溫室氣體：CO₂、CH₄、N₂O、HFCs、PFCs、SF₆、NF₃。"},
+{ch:8,q:"下列何者不屬於京都議定書列管的溫室氣體？",o:["CO₂","CH₄","O₃（臭氧）","SF₆"],a:2,e:"臭氧（O₃）並非京都議定書列管的溫室氣體，列管氣體為CO₂、CH₄、N₂O、HFCs、PFCs、SF₆、NF₃。"},
+{ch:8,q:"「NF₃（三氟化氮）」是透過何種修正案追加列入管制氣體清單？",o:["京都議定書原始清單","杜哈修正案","巴黎協定","哥本哈根協議"],a:1,e:"NF₃是透過2012年京都議定書杜哈修正案（Doha Amendment）追加列入第二承諾期管制氣體清單。"},
+{ch:8,q:"全球暖化潛勢（GWP）的定義為何？",o:["溫室氣體在大氣中的濃度","以CO₂為基準，衡量特定溫室氣體造成暖化效應的相對倍數","溫室氣體的分子量","溫室氣體的市場交易價格"],a:1,e:"GWP以CO₂為基準（GWP=1），衡量在特定時間尺度內，等量其他溫室氣體造成的暖化效應相對於CO₂的倍數，用以換算CO₂當量。"},
+{ch:8,q:"下列溫室氣體中，何者的全球暖化潛勢（GWP）通常最高？",o:["CO₂","CH₄","N₂O","SF₆"],a:3,e:"SF₆（六氟化硫）的GWP在常見評估中高達約2萬多倍，是京都議定書列管氣體中暖化潛勢最高者之一。"},
+{ch:8,q:"計算溫室氣體排放量（CO₂當量）的基本公式為何？",o:["活動數據 × 排放係數 × GWP","活動數據 ÷ 排放係數","排放係數 × GWP ÷ 活動數據","僅需活動數據即可，無須其他參數"],a:0,e:"溫室氣體排放量計算公式為：活動數據（Activity Data）× 排放係數（Emission Factor）× 全球暖化潛勢（GWP），三者相乘即得CO₂當量。"},
+{ch:8,q:"ISO 14064系列標準中，哪一部分是針對「組織層級」溫室氣體盤查與報告的指引？",o:["ISO 14064-1","ISO 14064-2","ISO 14064-3","ISO 14067"],a:0,e:"ISO 14064-1為組織層級溫室氣體盤查與報告指引；14064-2為專案層級；14064-3為查證與確證指引。"},
+{ch:8,q:"ISO 14064-2主要規範的內容為何？",o:["組織層級盤查","專案層級溫室氣體減量／移除之量化與報告","產品碳足跡","查證機構認證資格"],a:1,e:"ISO 14064-2針對溫室氣體減量或移除「專案」層級的量化與報告提供指引，常用於自願減量專案。"},
+{ch:8,q:"ISO 14064-3主要規範的內容為何？",o:["產品碳足跡計算","溫室氣體聲明之查證與確證指引","組織邊界界定方法","碳權交易機制"],a:1,e:"ISO 14064-3提供溫室氣體聲明（包括組織與專案層級）之查證（Verification）與確證（Validation）指引。"},
+{ch:8,q:"「確證（Validation）」與「查證（Verification）」的主要差異為何？",o:["兩者完全相同","確證用於未來的減量專案設計文件審查，查證用於過去既成排放數據之查核","確證僅適用於政府機關","查證僅適用於上市公司"],a:1,e:"確證是針對「未來」的專案設計文件（如減量預估）進行審查；查證則是針對「過去」已發生的排放數據進行查核確認。"},
+{ch:8,q:"組織邊界界定方法中的「股權比例法（Equity Share）」是指？",o:["依持股比例認列排放量","依營運控制力全額認列排放量","僅計算自有廠房排放","不需界定邊界"],a:0,e:"股權比例法依組織對該營運單位的持股比例，按比例認列該單位的溫室氣體排放量。"},
+{ch:8,q:"組織邊界界定方法中的「控制法（Control Approach）」可再細分為哪兩種？",o:["財務控制與營運控制","範疇一控制與範疇二控制","直接控制與間接控制","國內控制與國際控制"],a:0,e:"控制法可分為財務控制（財務決策主導權）與營運控制（營運政策主導權），凡具控制力者即全額（100%）認列該單位排放量。"},
+{ch:8,q:"依控制法（Control Approach）界定組織邊界時，具控制力的組織應如何認列該營運單位的排放量？",o:["依持股比例認列","全額（100%）認列","僅認列範疇一排放","無需認列"],a:1,e:"採控制法時，凡對某營運單位具財務或營運控制力者，應全額（100%）認列該單位所有排放量，不論持股比例高低。"},
+{ch:8,q:"下列何者屬於溫室氣體「範疇一（Scope 1）」直接排放？",o:["外購電力使用","員工通勤","自有鍋爐燃燒天然氣","供應商運輸排放"],a:2,e:"範疇一為自有或可控制排放源之直接排放，如自有鍋爐燃燒燃料、公務車輛使用、製程逸散排放等。"},
+{ch:8,q:"外購電力所產生的間接排放，依溫室氣體盤查邊界分類屬於？",o:["範疇一","範疇二","範疇三","不需計算"],a:1,e:"外購電力、蒸汽、熱、冷等能源使用所產生的間接排放，屬於範疇二（能源間接排放）。"},
+{ch:8,q:"下列何者屬於「範疇三」其他間接排放？",o:["自有鍋爐燃燒燃料","外購電力使用","員工通勤與商務差旅","公務車輛直接燃燒燃油"],a:2,e:"範疇三涵蓋價值鏈中非自有或不可直接控制的間接排放，如員工通勤、商務差旅、供應鏈上下游、廢棄物處理、產品使用階段排放等。"},
+{ch:8,q:"某公司在溫室氣體盤查報告書中提到「盤查範圍包含台灣廠與大陸廠」，此描述是在界定何種邊界？",o:["組織邊界","營運邊界","系統邊界","功能邊界"],a:0,e:"界定「哪些廠區／營運單位」納入盤查範圍，屬於組織邊界（Organizational Boundary）的界定，需依股權比例法或控制法決定。"},
+{ch:8,q:"某公司盤查報告中說明「本公司之排放分為範疇一直接排放與範疇二能源間接排放」，此描述是在界定何種邊界？",o:["組織邊界","營運邊界","產品邊界","地理邊界"],a:1,e:"將排放來源分類為範疇一、二、三，是在界定「營運邊界（Operational Boundary）」，決定哪些排放活動歸屬哪個範疇。"},
+{ch:8,q:"我國規範企業溫室氣體盤查登錄義務的法源依據為？",o:["溫室氣體減量及管理法","氣候變遷因應法","再生能源發展條例","空氣污染防制法"],a:1,e:"《氣候變遷因應法》（2023年修正施行）明定中央主管機關（環境部）得指定排放源應辦理溫室氣體盤查、登錄及查證。"},
+{ch:8,q:"依環境部規範，事業單位年排放量達多少公噸CO₂e以上須強制辦理溫室氣體盤查登錄？",o:["1萬公噸","2.5萬公噸","5萬公噸","10萬公噸"],a:1,e:"依環境部規範，年排放量達2.5萬公噸CO₂e以上之排放源，即應強制辦理溫室氣體盤查登錄。"},
+{ch:8,q:"我國溫室氣體盤查登錄後，通常須經過何種程序始能對外申報？",o:["自行公告即可，無須查證","須經第三方查驗機構查證","須經股東會決議","無需任何額外程序"],a:1,e:"盤查登錄之排放數據須經第三方查驗機構查證，確認其正確性與可信度後，始得向主管機關申報。"},
+{ch:8,q:"依ISO 14064-1精神，溫室氣體盤查作業程序的第一步驟通常為？",o:["計算排放量","界定組織邊界","選擇排放係數","撰寫盤查報告"],a:1,e:"盤查作業程序一般依序為：界定組織邊界→界定營運邊界→鑑別排放源與移除匯→蒐集活動數據→選擇排放係數→計算排放量→品質管理與報告，界定組織邊界是最初步驟。"},
+{ch:8,q:"在溫室氣體盤查程序中，「鑑別排放源與移除匯」的目的為何？",o:["決定要繳多少碳費","找出組織內部所有溫室氣體排放來源與可能的移除來源（如碳匯）","申請碳足跡標籤","選擇查驗機構"],a:1,e:"鑑別排放源與移除匯是盤查程序中確認「哪些活動會產生排放」「是否有碳匯（如植樹）產生移除量」的關鍵步驟，是後續蒐集數據與計算的基礎。"},
+{ch:8,q:"溫室氣體排放量計算中，「活動數據（Activity Data）」是指？",o:["排放係數的數值","導致溫室氣體排放之活動的量化紀錄（如用電度數、燃料使用量）","查驗機構的稽核紀錄","溫室氣體的濃度單位"],a:1,e:"活動數據是指導致溫室氣體排放的具體活動量化紀錄，例如用電度數（度）、燃料消耗量（公升）等，須乘以對應排放係數計算排放量。"},
+{ch:8,q:"「排放係數（Emission Factor）」的作用為何？",o:["直接顯示企業碳排放總量","將活動數據轉換為溫室氣體排放量的轉換係數","計算碳權交易價格","決定查證等級"],a:1,e:"排放係數是將活動數據（如每度電、每公升燃料）轉換為溫室氣體排放量的係數，通常由政府主管機關（如環境部）公告，因能源結構不同各國係數不同。"},
+{ch:8,q:"溫室氣體盤查數據品質的優先順序，下列敘述何者正確？",o:["優先採用直接量測法，其次採用計算法（活動數據×排放係數）","優先採用估算法，不需量測","計算法優於直接量測法","兩者品質相同，無優先順序"],a:0,e:"數據品質原則上以「直接量測法（Direct Measurement）」品質最高，其次為「計算法」（活動數據×排放係數），缺乏數據時才採用估算或替代值。"},
+{ch:8,q:"ISO 14064-1建議之「重大性門檻（Materiality Threshold）」常見比例為？",o:["1%","5%","20%","50%"],a:1,e:"ISO 14064-1建議常見重大性門檻為5%，用以判斷排放源鑑別、數據選用或計算方法的誤差是否需重新檢視或調整。"},
+{ch:8,q:"「基準年（Base Year）」在溫室氣體盤查中的作用為何？",o:["用於比較長期減量目標達成情形的參考年度","僅為報告封面標示的年份","與減量目標無關","每年隨意更換"],a:0,e:"基準年是用以比較企業長期減量目標達成情形的特定參考年度，須具代表性；若組織邊界或計算方法有重大變動，應重新校正基準年排放量。"},
+{ch:8,q:"下列關於查證保證等級的敘述，何者正確？",o:["合理保證的確信程度高於有限保證","有限保證的確信程度高於合理保證","兩者確信程度完全相同","保證等級與查證程序無關"],a:0,e:"「合理保證（Reasonable Assurance）」要求之查證程序較嚴謹，確信程度高於「有限保證（Limited Assurance）」。"},
+{ch:8,q:"下列何者屬於溫室氣體盤查中的「移除（Removal）」概念？",o:["工廠排放的二氧化碳","森林碳匯吸收大氣中的二氧化碳","燃料燃燒產生的甲烷","外購電力產生的間接排放"],a:1,e:"移除（Removal）是指將大氣中的溫室氣體移除或儲存的活動，例如森林碳匯（植樹造林吸收CO₂），與「排放」概念相對。"},
+{ch:8,q:"下列關於範疇二排放的敘述，何者正確？",o:["範疇二僅計算自有發電廠排放","範疇二是因使用外購能源（電力、蒸汽、熱、冷）而產生的間接排放","範疇二等同於範疇三","範疇二不需納入盤查"],a:1,e:"範疇二專指企業因使用外購能源（如電力、蒸汽、熱、冷）而產生的間接排放，是盤查中常見且占比較高的排放範疇之一。"},
+{ch:8,q:"下列何者不屬於典型的範疇三排放來源？",o:["員工通勤","商務差旅","自有鍋爐直接燃燒燃料","供應鏈上游原料生產"],a:2,e:"自有鍋爐直接燃燒燃料屬於範疇一（直接排放），並非範疇三（其他間接排放）的典型來源。"},
+{ch:8,q:"我國溫室氣體盤查制度中，負責制定排放係數並公告的主要機關為？",o:["財政部","環境部","經濟部","國家發展委員會"],a:1,e:"環境部負責制定並公告我國電力排碳係數等溫室氣體排放係數，供企業盤查計算使用。"},
+{ch:8,q:"依控制法界定組織邊界時，若A公司對B公司僅具財務控制力但無營運控制力，A公司應如何處理B公司之排放？",o:["完全不需計算","仍應全額認列B公司排放量","僅認列50%","改採股權比例法計算"],a:1,e:"依控制法（財務控制或營運控制擇一採用），只要具備控制力（無論財務或營運控制），即應全額認列該受控單位之排放量。"},
+{ch:8,q:"下列何者最能描述「組織邊界」與「營運邊界」的關係？",o:["組織邊界決定納入哪些單位，營運邊界決定這些單位的排放如何分類為範疇一二三","兩者是同一概念，可互換使用","營運邊界決定納入哪些單位，組織邊界決定排放分類","兩者與溫室氣體盤查無關"],a:0,e:"組織邊界界定「哪些設施／營運單位」納入盤查範圍；營運邊界則進一步將這些單位的排放活動分類為範疇一、二、三。"},
+{ch:8,q:"溫室氣體盤查報告完成後，通常還須進行下列哪一項程序以確保可信度？",o:["申請專利","第三方查驗機構查證","股票上市","申請商標"],a:1,e:"盤查報告完成後，通常須經第三方查驗機構查證，確認數據正確性與方法適當性，以提升報告可信度並符合法規申報要求。"},
+{ch:8,q:"「移除匯（Sink）」在溫室氣體盤查中的意涵為何？",o:["排放溫室氣體的來源","吸收或儲存溫室氣體的機制或場所（如森林、土壤）","碳權交易平台","查驗機構的辦公場所"],a:1,e:"移除匯（Sink）是指能吸收並儲存大氣中溫室氣體的機制或場所，例如森林、土壤碳匯等，與「排放源（Source）」概念相對。"},
+{ch:8,q:"下列關於基準年重新校正的敘述，何者正確？",o:["基準年一旦設定，永遠不得更動","若組織邊界發生重大變動（如併購、處分），應重新校正基準年排放量","基準年僅適用於範疇三排放","基準年與併購無關"],a:1,e:"若組織邊界發生重大結構性變動（如併購、處分營運單位）或計算方法重大改變，應重新校正基準年排放量，以維持長期比較的一致性。"},
+{ch:8,q:"下列何者是溫室氣體盤查中「活動數據」的正確範例？",o:["每度電的排碳係數","公司全年用電度數","GWP數值","碳權交易價格"],a:1,e:"活動數據是指實際發生的活動量化紀錄，例如公司全年用電度數（度）、燃料使用量（公升）等，須搭配排放係數計算排放量。"},
+{ch:8,q:"依ISO 14064-1精神，企業在鑑別排放源時應優先考量下列何者？",o:["排放源是否具重大性及是否納入組織／營運邊界範圍內","排放源是否有利可圖","排放源是否位於海外","排放源是否曾獲獎"],a:0,e:"鑑別排放源時，應優先確認該排放源是否落在組織邊界與營運邊界範圍內，以及是否具重大性，以決定是否納入盤查計算範圍。"},
+{ch:8,q:"下列關於「合理保證」查證的敘述，何者正確？",o:["查證程序較寬鬆，僅需簡易檢視","查證程序較嚴謹，需進行更深入之證據蒐集與測試","與有限保證的查證深度完全相同","僅適用於自願性盤查，不適用法規申報"],a:1,e:"合理保證要求查證機構進行更深入、更廣泛的證據蒐集與測試程序，以達到較高的確信程度，通常適用於法規強制申報等重要用途。"},
+{ch:8,q:"我國企業繳納碳費時，其排放量計算基礎主要來自於？",o:["企業自行申報之營收數據","經盤查登錄並查證之溫室氣體排放量","碳權交易所公告之市場均價","國際CBAM申報數據"],a:1,e:"碳費計算係以企業經盤查登錄並第三方查證確認之溫室氣體排放量為基礎，依適用費率計算應繳納金額。"},
+{ch:8,q:"下列關於範疇一與範疇二的敘述，何者正確？",o:["範疇一為直接排放，範疇二為能源間接排放","範疇一為能源間接排放，範疇二為直接排放","兩者皆屬於價值鏈其他間接排放","兩者計算方式完全相同，無須區分"],a:0,e:"範疇一為企業自有或可控制排放源之直接排放；範疇二則專指因使用外購能源（電力、蒸汽等）而產生的間接排放，兩者定義與計算邏輯不同。"},
+{ch:8,q:"溫室氣體盤查中「品質管理」步驟的主要目的為何？",o:["確保盤查數據之正確性、一致性與可追溯性","加速完成盤查報告","降低查驗機構收費","減少企業碳費支出"],a:0,e:"品質管理旨在確保整個盤查過程（數據蒐集、計算、文件化）之正確性、一致性與可追溯性，是盤查報告可信度的重要保障。"},
+{ch:8,q:"依現行制度，第三方溫室氣體查驗機構通常須經過何種程序始具資格？",o:["自行宣稱即可執業","經認證機構（如TAF）認證合格","僅需具備會計師資格","無須任何資格要求"],a:1,e:"第三方查驗機構通常須經全國認證基金會（TAF）或其他經認可之認證機構認證合格，始具備執行溫室氣體查證業務之資格。"},
+{ch:8,q:"下列關於「排放源」與「移除匯」的敘述，何者正確？",o:["兩者是同一概念的不同稱呼","排放源產生溫室氣體，移除匯吸收或儲存溫室氣體","移除匯只存在於海洋中","排放源不需納入盤查計算"],a:1,e:"排放源（Source）是指產生溫室氣體排放的來源；移除匯（Sink）則是指能吸收或儲存大氣中溫室氣體的機制，兩者概念相對但皆須於盤查中鑑別。"},
+{ch:8,q:"某公司同時對外購電力與自有燃氣鍋爐燃燒進行盤查，前者屬於範疇幾？後者屬於範疇幾？",o:["前者範疇一，後者範疇二","前者範疇二，後者範疇一","兩者皆屬範疇一","兩者皆屬範疇三"],a:1,e:"外購電力使用屬於範疇二（能源間接排放）；自有燃氣鍋爐直接燃燒屬於範疇一（直接排放）。"},
+{ch:8,q:"依現行規範，企業自願進行溫室氣體盤查（非法規強制）之主要目的，下列敘述何者較不適切？",o:["因應供應鏈客戶要求","作為申請碳足跡標籤或永續報告書揭露基礎","規避所有法規義務且無須查證","建立減碳目標與追蹤基礎"],a:2,e:"自願盤查通常是為了因應客戶要求、支持永續報告揭露或建立減碳追蹤基礎；並非用於規避法規義務，若涉及對外聲明仍建議經查證以提升可信度。"},
+{ch:8,q:"若企業排放源之數據量測技術尚未成熟，暫時無法直接量測，依盤查原則應如何處理？",o:["直接放棄該排放源之盤查","改採計算法（活動數據×排放係數）或適當估算方法，並註明數據品質限制","僅口頭告知查驗機構即可，無須文件記錄","以零排放認列"],a:1,e:"當無法採用直接量測法時，應改採計算法或其他合理估算方法，並於報告中清楚註明數據品質等級與限制，以維持透明度。"},
+{ch:8,q:"下列關於溫室氣體盤查「營運邊界」界定的敘述，何者正確？",o:["營運邊界僅涵蓋範疇一","營運邊界涵蓋範疇一、二，範疇三則為選擇性揭露項目","營運邊界與範疇分類無關","營運邊界僅適用於製造業"],a:1,e:"營運邊界界定通常要求企業完整揭露範疇一與範疇二排放，範疇三因涉及價值鏈外部資訊蒐集難度較高，多為選擇性或逐步擴大揭露項目。"},
+{ch:8,q:"「溫室氣體盤查報告」中，通常不需要包含下列何項內容？",o:["組織邊界與營運邊界說明","各範疇排放量計算結果","企業股票代號與財務報表","數據品質說明與查證聲明"],a:2,e:"溫室氣體盤查報告聚焦於邊界界定、排放量計算、數據品質與查證結果等內容，企業股票代號與財務報表並非盤查報告之必要內容。"},
+{ch:8,q:"下列關於「移除匯」納入盤查計算的敘述，何者正確？",o:["移除匯之移除量可用於扣減企業排放總量，惟須符合品質要求並經適當量化","移除匯永遠不能納入盤查計算","移除匯只能由政府認列，企業不可自行計算","移除匯與碳中和聲明完全無關"],a:0,e:"移除匯（如企業自有林地碳匯）之移除量在符合適當量化方法與品質要求下，可納入盤查計算並用於扣減企業排放總量，是碳中和聲明常用之依據之一。"},
+{ch:8,q:"某工廠全年用電10萬度，若電力排放係數為0.495 kgCO₂e/度，其範疇二排放量約為多少公噸CO₂e？",o:["4.95公噸","49.5公噸","495公噸","0.495公噸"],a:1,e:"計算：100,000度 × 0.495 kgCO₂e/度 = 49,500 kgCO₂e = 49.5公噸CO₂e，此為典型的活動數據×排放係數計算題型。"},
+{ch:8,q:"企業於當年度透過製程改善大幅降低排放量，但組織邊界與計算方法皆未變動，是否需要重新校正基準年排放量？",o:["需要，只要排放量有變動就要重新校正","不需要，基準年重新校正僅於組織邊界或計算方法發生結構性重大變動時才進行","需要，且須每年重新設定基準年","不需要，但基準年應立即刪除不再使用"],a:1,e:"基準年重新校正的時機是組織邊界（如併購、處分）或計算方法發生重大結構性變動時，單純因製程改善產生的減量成果屬於正常績效表現，不需重新校正基準年。"},
+{ch:8,q:"依《氣候變遷因應法》，下列何者不屬於中央主管機關對溫室氣體排放源之管理權限？",o:["指定應辦理盤查登錄之排放源","要求排放源繳交碳費","要求排放源經查驗機構查證","核發個人所得稅減免"],a:3,e:"中央主管機關（環境部）依法可指定盤查登錄對象、要求繳交碳費、要求經查驗機構查證等，惟「核發個人所得稅減免」屬財稅事項，非該法賦予之管理權限。"},
+{ch:9,q:"依ISO 14067定義，「產品碳足跡（CFP）」是指什麼？",o:["產品售價中包含的碳稅金額","產品在生命週期中溫室氣體排放與移除的總和，以CO₂當量表示","產品的碳交易市場價值","產品的包裝重量"],a:1,e:"產品碳足跡是指產品在其整個生命週期（原料取得、生產、配送、使用、廢棄）中所產生溫室氣體排放與移除之總和，以CO₂當量（CO₂e）表示。"},
+{ch:9,q:"ISO 14064與ISO 14067的主要差異為何？",o:["兩者內容完全相同","ISO 14064為組織層級盤查，ISO 14067為產品層級碳足跡","ISO 14064僅適用於歐盟，ISO 14067僅適用於亞洲","ISO 14067用於查證機構認證，與碳足跡無關"],a:1,e:"ISO 14064系列聚焦「組織層級」溫室氣體盤查與報告；ISO 14067則專注於「產品層級」碳足跡的量化與溝通，兩者範疇對象不同。"},
+{ch:9,q:"生命週期評估（LCA）依ISO 14040／14044標準，共分為幾個階段？",o:["2階段","3階段","4階段","5階段"],a:2,e:"LCA依ISO 14040/14044標準分為四階段：目標與範圍界定、清冊分析（LCI）、衝擊評估（LCIA）、結果闡釋。"},
+{ch:9,q:"生命週期評估（LCA）第一階段「目標與範圍界定」主要工作內容為何？",o:["蒐集物質與能源投入產出數據","定義評估目的、系統邊界與功能單位","將數據轉換為環境衝擊指標","撰寫最終結論建議"],a:1,e:"目標與範圍界定階段須明確定義評估的目的、系統邊界（如搖籃到大門或搖籃到墳墓）以及功能單位，作為後續分析的基礎。"},
+{ch:9,q:"生命週期評估（LCA）中「清冊分析（LCI）」的主要工作內容為何？",o:["定義評估目的","蒐集各階段投入與產出的物質與能源數據","撰寫最終報告結論","申請碳足跡標籤"],a:1,e:"清冊分析（Life Cycle Inventory, LCI）階段須系統性蒐集產品生命週期各階段的原物料、能源投入與污染物、廢棄物產出等數據。"},
+{ch:9,q:"生命週期評估（LCA）中「衝擊評估（LCIA）」的主要工作內容為何？",o:["將清冊數據轉換為環境衝擊指標（如暖化潛勢）","僅統計原料採購成本","決定產品售價","申請專利"],a:0,e:"衝擊評估（Life Cycle Impact Assessment, LCIA）階段將清冊分析所得數據轉換為具體環境衝擊指標，如全球暖化潛勢、酸化潛勢等。"},
+{ch:9,q:"生命週期評估（LCA）第四階段「結果闡釋」的主要目的為何？",o:["蒐集原始數據","檢視評估結果、辨識關鍵議題並提出結論與建議","定義系統邊界","計算排放係數"],a:1,e:"結果闡釋階段須綜合檢視前三階段之結果，辨識影響最大的關鍵議題（熱點），並據以提出結論與改善建議。"},
+{ch:9,q:"「搖籃到大門（Cradle-to-Gate）」系統邊界的定義為何？",o:["涵蓋原料取得至產品離開工廠大門前的所有階段","涵蓋原料取得至最終廢棄處理的完整生命週期","僅涵蓋單一生產階段","涵蓋產品使用至回收階段"],a:0,e:"搖籃到大門是指涵蓋原料取得至產品離開工廠大門（尚未配送）前的所有階段，常用於計算B2B原料或半成品之碳足跡。"},
+{ch:9,q:"「搖籃到墳墓（Cradle-to-Grave）」系統邊界的定義為何？",o:["僅涵蓋原料取得階段","涵蓋原料取得至最終廢棄處理的完整生命週期","僅涵蓋產品使用階段","僅涵蓋配送銷售階段"],a:1,e:"搖籃到墳墓涵蓋產品從原料取得、生產、配送、使用到最終廢棄處理的完整生命週期，常用於最終消費性產品的碳足跡計算。"},
+{ch:9,q:"「搖籃到搖籃（Cradle-to-Cradle）」系統邊界強調的概念為何？",o:["產品用完即丟棄，不再回收","廢棄物經回收再利用形成循環，減少新資源投入","僅計算單一製程階段","與循環經濟無關"],a:1,e:"搖籃到搖籃強調產品生命週期末端的廢棄物可經回收再利用重新進入生產循環，形成資源循環，是循環經濟精神在碳足跡邊界設計上的體現。"},
+{ch:9,q:"「大門到大門（Gate-to-Gate）」系統邊界的定義為何？",o:["涵蓋完整生命週期","僅涵蓋單一生產階段的投入與產出","涵蓋原料取得至使用階段","涵蓋配送至廢棄階段"],a:1,e:"大門到大門僅涵蓋某一特定生產階段（如某一道製程）的投入與產出，範圍最為侷限，通常用於供應鏈中間階段的碳足跡模組化計算。"},
+{ch:9,q:"「功能單位（Functional Unit）」在生命週期評估中的作用為何？",o:["決定產品最終售價","作為量化產品功能、比較不同產品或製程的計量基準","僅用於行銷宣傳","與碳足跡計算無關"],a:1,e:"功能單位是LCA中用以量化產品功能、確保不同產品或製程間可比較的計量基準，例如「每公升飲料」「每件成品衣物」。"},
+{ch:9,q:"下列何者是恰當的功能單位設定範例？",o:["每公升包裝飲料所提供的解渴功能","公司整體年營收","公司員工總人數","公司股票市值"],a:0,e:"功能單位須能量化產品所提供的功能，例如「每公升包裝飲料」可作為飲料類產品碳足跡比較的合理功能單位；後三者與產品功能無關。"},
+{ch:9,q:"「產品類別規則（PCR, Product Category Rules）」的主要作用為何？",o:["訂定特定產品類別碳足跡計算方法與系統邊界規則，確保同類產品可比較","決定產品的市場售價","規範企業組織邊界界定方式","僅適用於農產品"],a:0,e:"PCR是針對特定產品類別訂定的碳足跡計算方法、系統邊界與資料要求規則文件，確保同類產品在相同基礎下計算，數值具可比較性。"},
+{ch:9,q:"我國推動產品碳足跡標籤制度的主管機關為？",o:["經濟部","環境部","財政部","國家發展委員會"],a:1,e:"我國產品碳足跡標籤制度由環境部（原環保署）主管，企業須經第三方查驗機構查證後，向環境部申請並通過審查始得標示。"},
+{ch:9,q:"企業欲取得我國產品碳足跡標籤，一般須經過下列哪個關鍵程序？",o:["直接向環境部繳費即可取得，無須查證","計算產品碳足跡後，經第三方查驗機構查證，再向環境部申請審查","僅需董事會決議通過","無須任何申請程序，自動核發"],a:1,e:"企業須先依標準計算產品碳足跡，經第三方查驗機構查證其正確性後，再向環境部提出申請並通過審查，始得取得碳足跡標籤。"},
+{ch:9,q:"「資料品質指標（Data Quality Indicators）」常見評估構面包含下列何者？",o:["時間代表性、地理代表性、技術代表性","股價波動性、匯率風險、通膨率","員工滿意度、離職率","產品保固年限、售後服務評價"],a:0,e:"資料品質指標常見構面為時間代表性（數據年份是否符合現況）、地理代表性（數據來源地區是否適用）、技術代表性（製程技術是否相符）等，用以評估活動數據與排放係數的適用程度。"},
+{ch:9,q:"若某產品碳足跡計算採「搖籃到大門」邊界，下列何者通常不會納入計算？",o:["原料取得階段排放","生產製造階段排放","產品使用與廢棄處理階段排放","出廠前之能源使用排放"],a:2,e:"搖籃到大門邊界僅涵蓋至產品離開工廠大門前，因此產品使用階段與廢棄處理階段的排放通常不納入計算範圍。"},
+{ch:9,q:"若某產品碳足跡計算採「搖籃到墳墓」邊界，下列敘述何者正確？",o:["僅計算生產階段排放","須涵蓋原料取得、生產、配送、使用、廢棄處理五階段之排放","僅計算原料取得階段排放","與產品使用階段排放無關"],a:1,e:"搖籃到墳墓為完整生命週期邊界，須涵蓋原料取得、生產製造、配送銷售、使用、廢棄處理等五個階段之溫室氣體排放。"},
+{ch:9,q:"碳足跡計算中，「配送階段」通常涵蓋下列何種排放？",o:["原料開採過程排放","產品從工廠運送至銷售端或消費者過程之運輸排放","消費者使用產品之能源消耗排放","產品廢棄掩埋後之甲烷逸散排放"],a:1,e:"配送階段排放主要指產品從生產工廠運送至銷售通路或消費者手中過程中，運輸工具（如貨車、船舶）所產生的溫室氣體排放。"},
+{ch:9,q:"下列關於碳足跡「使用階段」排放的敘述，何者正確？",o:["所有產品使用階段皆無排放","部分產品（如家電）使用階段之能源消耗，屬於碳足跡計算重要組成","使用階段排放不需納入任何邊界類型計算","使用階段僅適用於食品類產品"],a:1,e:"對於需消耗能源的產品（如家電、車輛），其使用階段之能源消耗往往是碳足跡的重要組成部分，在採「搖籃到墳墓」邊界時應納入計算。"},
+{ch:9,q:"「碳足跡標籤」與「碳中和標籤」的主要差異為何？",o:["兩者完全相同，可互換使用","碳足跡標籤揭露產品排放數值，碳中和標籤代表產品已透過減量與抵換達到淨零聲明","碳足跡標籤僅適用於出口產品","碳中和標籤僅適用於服務業"],a:1,e:"碳足跡標籤主要目的是「揭露」產品生命週期排放數值，供消費者參考比較；碳中和標籤則代表該產品已透過減量並輔以抵換，達成碳中和聲明。"},
+{ch:9,q:"下列何者是LCA清冊分析階段可能蒐集的數據類型？",o:["原物料投入量、能源消耗量、廢棄物產出量","企業股價","員工薪資結構","客戶滿意度調查結果"],a:0,e:"清冊分析階段蒐集的是與生命週期各階段相關的物理量數據，如原物料投入量、能源消耗量、水資源使用量、廢棄物與污染物產出量等。"},
+{ch:9,q:"下列關於PCR（產品類別規則）的敘述，何者正確？",o:["每個產品皆使用相同的PCR，無須依產業區分","不同產品類別可能有不同的PCR，以反映該類產品特性","PCR僅適用於歐盟市場","PCR與碳足跡計算無關"],a:1,e:"不同產品類別（如水泥、紡織品、食品）因生產特性、原料來源、系統邊界考量不同，通常會訂定各自適用的PCR，以確保計算基礎符合該類產品實際情形。"},
+{ch:9,q:"依生命週期評估精神，「衝擊評估（LCIA）」階段通常會將清冊數據轉換為哪一類指標？",o:["財務指標（如成本效益）","環境衝擊指標（如全球暖化潛勢、酸化潛勢）","人力資源指標（如工時）","市場占有率指標"],a:1,e:"衝擊評估階段將清冊分析所得之物質與能源數據，透過特定衝擊評估方法轉換為環境衝擊指標，其中全球暖化潛勢（碳足跡）為最常見指標之一。"},
+{ch:9,q:"某公司計算其半成品原料的碳足跡，僅計算至產品離開自家工廠前的排放，此屬於何種系統邊界？",o:["搖籃到墳墓","搖籃到大門","搖籃到搖籃","大門到墳墓"],a:1,e:"僅計算至產品離開工廠大門前（不含後續配送、使用、廢棄），屬於「搖籃到大門」邊界，常見於B2B原料或半成品碳足跡計算。"},
+{ch:9,q:"下列關於功能單位選擇不當可能造成的影響，敘述何者正確？",o:["不影響碳足跡計算結果的可比較性","可能導致不同產品間的碳足跡比較失去意義或產生誤導","功能單位選擇與LCA結果完全無關","功能單位僅為形式要求，無實質影響"],a:1,e:"若功能單位設定不當（如未能反映產品實際功能或使用情境），將導致不同產品或製程間的碳足跡比較失去可比較性，甚至產生誤導性結論。"},
+{ch:9,q:"下列何者最能說明ISO 14067與PCR之間的關係？",o:["ISO 14067提供產品碳足跡量化與溝通的一般性原則，PCR則針對特定產品類別訂定更具體之規則","兩者完全無關","PCR的位階高於ISO 14067","ISO 14067僅適用於服務業，PCR僅適用於製造業"],a:0,e:"ISO 14067提供產品碳足跡量化與溝通的一般性原則與方法架構；在此架構下，各產品類別可依實際特性訂定更具體的PCR，作為該類產品計算之依循規則。"},
+{ch:9,q:"下列關於「廢棄處理階段」碳足跡的敘述，何者正確？",o:["廢棄處理階段完全不產生溫室氣體排放","廢棄物掩埋、焚化等處理方式可能產生甲烷或二氧化碳等排放，應納入完整生命週期評估","廢棄處理階段僅影響水污染，與碳足跡無關","廢棄處理階段僅適用於電子產品"],a:1,e:"廢棄物於掩埋場分解可能產生甲烷、焚化處理可能產生二氧化碳，這些排放在採「搖籃到墳墓」等完整生命週期邊界時，應納入碳足跡計算範圍。"},
+{ch:9,q:"下列關於產品碳足跡與組織溫室氣體盤查（ISO 14064-1）整合關係的敘述，何者正確？",o:["產品碳足跡數據與組織盤查數據完全獨立，不可能有任何交集","企業自有工廠生產階段的碳足跡數據，可能與該企業範疇一、二排放數據有重疊部分，須留意避免混淆用途","組織盤查數據永遠大於產品碳足跡數據","兩者計算方法完全相同，可直接互換使用"],a:1,e:"企業自有工廠生產階段所產生的碳足跡數據，實務上可能與該企業之範疇一（直接排放）、範疇二（能源間接排放）數據有重疊，但兩者計算目的與邊界（組織 vs 產品）不同，使用時應留意區分，避免混淆或重複主張。"},
+{ch:9,q:"LCA中處理「聯合生產」（同一製程同時產出多項產品）環境負荷分配問題的原則稱為？",o:["配置（Allocation）","截止準則（Cut-off Criteria）","熱點分析（Hotspot Analysis）","功能單位（Functional Unit）"],a:0,e:"配置（Allocation）是LCA中處理聯合生產環境負荷分配的原則，常見依質量、經濟價值或其他合理基礎，將共同製程之環境負荷分配至各聯產品。"},
+{ch:9,q:"「截止準則（Cut-off Criteria）」在生命週期評估中的作用為何？",o:["決定哪些占比極小的物質或能源流可予以忽略、不納入清冊分析","決定產品的保固期限","決定碳權交易的截止日期","決定查驗機構的執業資格"],a:0,e:"截止準則用於界定哪些占整體環境負荷比重極小的物質或能源流，可基於成本效益考量予以忽略，不需納入詳細清冊分析。"},
+{ch:9,q:"LCA清冊分析中，「一次數據（Primary Data）」與「二次數據（Secondary Data）」的差異為何？",o:["一次數據為企業實際量測或蒐集之數據，二次數據為引用資料庫或文獻之通用數據","兩者定義完全相同，可互換使用","二次數據的準確性必定優於一次數據","一次數據僅適用於服務業，二次數據僅適用於製造業"],a:0,e:"一次數據是企業針對自身製程實際量測或蒐集的第一手數據，數據品質通常較高；二次數據則是引用既有資料庫、文獻或產業平均值等通用數據，於缺乏一次數據時使用。"},
+{ch:9,q:"我國產品碳足跡標籤核發後，依規定通常須於多久內重新申請查證換發？",o:["1個月","3年","10年","永久有效，無須換發"],a:1,e:"碳足跡標籤具一定有效期限（常見週期為3年），逾期須重新進行碳足跡計算與查證後換發，以確保標示數據之時效性，實際年限請依環境部最新公告為準。"},
+{ch:9,q:"我國「減碳標籤」制度中，產品碳足跡通常須較基準年減少多少百分比以上，始得申請？",o:["至少3%","至少30%","至少50%","無須任何減幅即可申請"],a:0,e:"依環境部規範，已取得碳足跡標籤之產品，若碳足跡較基準年減少達一定門檻（常見為至少3%以上），即可進一步申請減碳標籤，以彰顯其減碳成效。"},
+{ch:9,q:"ISO 14025規範之「第三類環境宣告（Type III Environmental Declaration, EPD）」與碳足跡標籤的關係為何？",o:["EPD是涵蓋多項環境衝擊指標的量化環境宣告，碳足跡標籤可視為聚焦氣候變遷衝擊之子集","兩者完全無關，互不隸屬","EPD僅適用於軍事用品，與一般消費品無關","碳足跡標籤已完全取代EPD之所有功能"],a:0,e:"EPD（第三類環境宣告）依ISO 14025規範，涵蓋多項環境衝擊指標（如暖化、酸化、優養化等）之量化宣告；碳足跡標籤則可視為其中聚焦於「氣候變遷（暖化潛勢）」單一指標的宣告形式。"},
+{ch:9,q:"生命週期評估中，用以找出對整體碳足跡貢獻最大之生命週期階段或製程的分析方法稱為？",o:["熱點分析（Hotspot Analysis）","配置原則（Allocation）","截止準則（Cut-off Criteria）","功能單位設定"],a:0,e:"熱點分析（Hotspot Analysis）用於辨識生命週期各階段中，對整體碳足跡（或其他環境衝擊）貢獻最大的關鍵階段或製程，作為後續減碳優先改善的依據。"},
+{ch:9,q:"「敏感度分析（Sensitivity Analysis）」在碳足跡計算中的主要目的為何？",o:["評估輸入參數（如排放係數、活動數據）變動對最終碳足跡結果的影響程度","決定產品最終售價","計算碳權交易手續費","決定查驗機構之收費標準"],a:0,e:"敏感度分析用於評估當關鍵輸入參數（如排放係數、活動數據、配置方式）發生變動時，對最終碳足跡計算結果的影響程度，以了解結果之穩健性。"},
+{ch:9,q:"產品類別規則（PCR）通常可由下列何種單位制定？",o:["僅限聯合國專屬制定","產業公協會、國際組織（如EPD International）或政府主管機關等單位皆可能參與制定","僅限個別企業自行制定且具強制全球效力","任何個人皆可制定並自動具官方效力"],a:1,e:"PCR的制定通常由產業公協會、國際性碳足跡計畫組織（如EPD International）或各國政府主管機關依產品特性訂定，並非任一單位皆可片面制定並使其具官方效力。"},
+{ch:9,q:"下列何者為服務類產品（如雲端運算服務）較適切的功能單位設定範例？",o:["每單位運算量或每使用者每年所提供之服務","每公噸鋼鐵","每公升燃料","每平方公尺廠房面積"],a:0,e:"服務類產品之功能單位應反映其提供的服務功能，例如雲端運算服務可採「每單位運算量」或「每使用者每年」作為功能單位，而非直接套用實體商品的計量方式。"},
+{ch:9,q:"ISO 14067與GHG Protocol所發布之《產品標準（Product Standard）》之間的關係為何？",o:["兩者為互補之產品碳足跡量化參考架構，企業可依需求選用或整合應用","兩者為互斥標準，企業僅能終身擇一使用","GHG Protocol產品標準已完全取代ISO 14067","兩者僅適用於不同國家，彼此無法互相參考"],a:0,e:"ISO 14067與GHG Protocol《產品標準》皆為國際上廣泛採用的產品碳足跡量化參考架構，兩者原則相近且可互補參考，企業可依客戶要求或市場慣例彈性選用或整合應用。"},
+{ch:9,q:"產品碳足跡計算所涵蓋之溫室氣體種類，原則上與下列何者一致？",o:["與ISO 14064-1相同之京都議定書列管七種溫室氣體","僅計算二氧化碳一種氣體","僅計算甲烷與氧化亞氮兩種氣體","依產品售價高低決定計算氣體種類"],a:0,e:"產品碳足跡計算原則上涵蓋與ISO 14064-1組織盤查相同之京都議定書列管七種溫室氣體（CO₂、CH₄、N₂O、HFCs、PFCs、SF₆、NF₃），並依各氣體GWP換算為CO₂當量加總。"},
+{ch:9,q:"產品碳足跡查驗機構於查證過程中，主要扮演的角色為何？",o:["獨立第三方，確認碳足跡計算方法與數據之正確性與合理性","協助企業實際生產製造產品","決定產品最終市場售價","負責產品之行銷推廣活動"],a:0,e:"查驗機構係以獨立第三方角色，針對企業提出的碳足跡計算方法、系統邊界、數據來源與計算結果進行查證，確認其正確性與合理性，以提升對外聲明之可信度。"},
+{ch:9,q:"碳足跡計算之資料蒐集期間，一般建議採用下列何種期間之數據以確保代表性？",o:["最近一個完整年度（如最近一個會計年度）之營運數據","任選單一月份數據即可代表全年","僅採用十年前之歷史數據","無須設定特定資料蒐集期間"],a:0,e:"為確保數據具時間代表性，碳足跡計算一般建議採用最近一個完整年度（如最近一個會計年度）之營運數據，避免因單一月份或過時歷史數據導致結果偏誤。"},
+{ch:9,q:"下列關於生命週期評估（LCA）方法本身限制的敘述，何者正確？",o:["LCA可完全精確反映所有環境衝擊類別，毫無限制","LCA對於部分環境衝擊類別（如生物多樣性、社會衝擊）之量化仍具方法學限制與不確定性","LCA僅適用於評估企業財務績效，與環境衝擊無關","LCA與碳足跡計算完全無關，屬於獨立領域"],a:1,e:"LCA雖為系統性評估工具，但對於部分環境衝擊類別（如生物多樣性喪失、社會衝擊）之量化方法仍在發展中，存在方法學限制與數據不確定性，使用時應留意其適用範圍與限制。"},
+];
+
+console.log("Total questions:", QUESTIONS.length);
+
+const quizList = document.getElementById("quizList");
+const answeredCountEl = document.getElementById("answeredCount");
+const correctCountEl = document.getElementById("correctCount");
+let answeredSet = new Set();
+let correctSet = new Set();
+
+function updateScore(){
+  answeredCountEl.textContent = answeredSet.size;
+  correctCountEl.textContent = correctSet.size;
+}
+
+function renderQuiz(filterCh){
+  quizList.innerHTML = "";
+  QUESTIONS.forEach((item, idx)=>{
+    if(filterCh !== "all" && String(item.ch) !== filterCh) return;
+    const card = document.createElement("div");
+    card.className = "q-card";
+    card.dataset.idx = idx;
+
+    const head = document.createElement("div");
+    head.className = "q-head";
+    head.innerHTML = `<span class="q-id">Q${idx+1}</span><span class="q-ch">${CH_LABEL[item.ch]}</span>`;
+    card.appendChild(head);
+
+    const qText = document.createElement("div");
+    qText.className = "q-text";
+    qText.textContent = item.q;
+    card.appendChild(qText);
+
+    const opts = document.createElement("div");
+    opts.className = "opts";
+    const letters = ["A","B","C","D"];
+    item.o.forEach((optText,oi)=>{
+      const opt = document.createElement("div");
+      opt.className = "opt";
+      opt.dataset.oi = oi;
+      opt.innerHTML = `<span class="letter">${letters[oi]}</span><span>${optText}</span>`;
+      opt.addEventListener("click", ()=> handleAnswer(card, item, idx, oi, opt));
+      opts.appendChild(opt);
+    });
+    card.appendChild(opts);
+
+    const explain = document.createElement("div");
+    explain.className = "explain";
+    card.appendChild(explain);
+
+    quizList.appendChild(card);
+  });
+}
+
+function handleAnswer(card, item, idx, chosenIdx, chosenEl){
+  if(card.classList.contains("answered")) return;
+  card.classList.add("answered");
+  const optEls = card.querySelectorAll(".opt");
+  optEls.forEach((el,i)=>{
+    if(i === item.a) el.classList.add("correct");
+    if(i === chosenIdx && chosenIdx !== item.a) el.classList.add("wrong");
+  });
+  const isCorrect = chosenIdx === item.a;
+  answeredSet.add(idx);
+  if(isCorrect) correctSet.add(idx);
+  updateScore();
+
+  const explain = card.querySelector(".explain");
+  const flag = isCorrect
+    ? `<span class="result-flag right">✓ 答對</span>`
+    : `<span class="result-flag wrong-flag">✗ 答錯，正確答案為 ${["A","B","C","D"][item.a]}</span>`;
+  explain.innerHTML = `${flag}<div><b>解析：</b>${item.e}</div>`;
+}
+
+document.getElementById("chFilter").addEventListener("change",(e)=>{
+  renderQuiz(e.target.value);
+});
+document.getElementById("resetBtn").addEventListener("click", ()=>{
+  answeredSet = new Set();
+  correctSet = new Set();
+  updateScore();
+  renderQuiz(document.getElementById("chFilter").value);
+});
+
+renderQuiz("all");
+</script>
+
+</body>
+</html>
