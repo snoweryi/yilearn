@@ -65,7 +65,7 @@
   th,td{border:1px solid var(--line); padding:9px 10px; text-align:left; vertical-align:top;}
   th{background:var(--green-50); color:var(--green-800,var(--green-700)); font-weight:700;}
   tr:nth-child(even) td{background:#fbfdfc;}
-  .kv{display:grid; grid-template-columns:150px 1fr; gap:6px 14px; font-size: 22px; margin:8px 0;}
+  .kv{display:grid; grid-template-columns:210px 1fr; gap:6px 14px; font-size: 22px; margin:8px 0;}
   .kv div:nth-child(odd){color:var(--ink-soft); font-weight:600;}
   ul.tight{margin:6px 0 14px; padding-left:22px;}
   ul.tight li{margin-bottom:5px; font-size: 22px;}
@@ -133,6 +133,121 @@
     nav.toc ol{columns:1;}
     .kv{grid-template-columns:110px 1fr;}
   }
+  h1 {
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            margin-top: 35px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .intro {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+			border:1px #007286 solid;
+        }
+
+        .key-point {
+            background: #fff8dc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .energy {
+            background: #e8f5e9;
+        }
+
+        .demand {
+            background: #e3f2fd;
+        }
+
+        .support {
+            background: #f3e5f5;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            margin: 20px 0;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: #37474f;
+            color: #fff;
+        }
+
+        .category {
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .energy-text {
+            color: #2e7d32;
+            font-weight: bold;
+        }
+
+        .demand-text {
+            color: #1565c0;
+            font-weight: bold;
+        }
+
+        .support-text {
+            color: #7b1fa2;
+            font-weight: bold;
+        }
+
+        .exam-box {
+            background: #fff;
+            border-left: 5px solid #ff9800;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+
+        .exam-answer {
+            font-weight: bold;
+            color: #d84315;
+        }
+
+        .memory {
+            background: #263238;
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 18px;
+        }
+
+        .memory strong {
+            color: #ffcc80;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            th,
+            td {
+                padding: 8px;
+            }
+        }
   .badgerowbt {
     position: fixed;
     top: 0;
@@ -242,7 +357,7 @@ a.badge3 {
     <p class="sub">出題重點：法規名稱修正的年月日、立法院三讀日期、章節條文數，是選擇題最愛考的「記憶題」。</p>
 
     <h3 class="block-title">關鍵法規演進</h3>
-    <table>
+    <table style="font-size:22px;">
       <tr><th>時間</th><th>事件</th><th>考點提示</th></tr>
       <tr><td>2021/04/22（110年）</td><td>總統於世界地球日宣示 2050 淨零轉型為台灣目標</td><td>「宣示」而非立法，注意題目常混淆宣示日與公布日</td></tr>
       <tr><td>2022/03/30（111年）</td><td>行政院公布「台灣2050淨零排放路徑及策略總說明」</td><td>四大轉型＋兩大治理基礎＋十二項關鍵戰略首次完整公布</td></tr>
@@ -263,30 +378,379 @@ a.badge3 {
 
     <h3 class="block-title">四大轉型 × 兩大治理基礎</h3>
     <div class="kv">
-      <div>能源轉型</div><div>再生能源占比提升，電力去碳化（目標：再生能源60–70%＋氫能9–12%＋碳捕捉火力20–27%）</div>
-      <div>產業轉型</div><div>製造部門低碳製程、六大耗能產業減碳路徑</div>
-      <div>生活轉型</div><div>運具電動化、綠建築、循環經濟落實於日常</div>
-      <div>社會轉型</div><div>公正轉型、社會溝通、綠領人才培育</div>
-      <div>科技研發（基礎）</div><div>淨零科技方案，聚焦氫能、碳捕捉、前瞻能源等技術突破</div>
-      <div>氣候法制（基礎）</div><div>《氣候變遷因應法》為核心，建構碳定價與治理制度</div>
+      <div style="color:red;">能源轉型</div><div>再生能源占比提升，電力去碳化（目標：再生能源60–70%＋氫能9–12%＋碳捕捉火力20–27%）</div>
+      <div style="color:red;">產業轉型</div><div>製造部門低碳製程、六大耗能產業減碳路徑</div>
+      <div style="color:red;">生活轉型</div><div>運具電動化、綠建築、循環經濟落實於日常</div>
+      <div style="color:red;">社會轉型</div><div>公正轉型、社會溝通、綠領人才培育</div>
+      <div style="color:green;">科技研發（基礎）</div><div>淨零科技方案，聚焦氫能、碳捕捉、前瞻能源等技術突破</div>
+      <div style="color:green;">氣候法制（基礎）</div><div>《氣候變遷因應法》為核心，建構碳定價與治理制度</div>
     </div>
 
     <h3 class="block-title">十二項關鍵戰略（考試必背清單）</h3>
-    <table>
-      <tr><th>#</th><th>戰略名稱</th><th>一句話重點</th></tr>
-      <tr><td>1</td><td>風電與光電</td><td>再生能源發展主力</td></tr>
-      <tr><td>2</td><td>氫能</td><td>零碳製程原料＋運輸發電無碳燃料</td></tr>
-      <tr><td>3</td><td>前瞻能源</td><td>地熱、海洋能、生質能，2050前裝置量8–14GW</td></tr>
-      <tr><td>4</td><td>電力系統與儲能</td><td>分散式電網、數位化、儲能建置</td></tr>
-      <tr><td>5</td><td>節能</td><td>提升能源使用效率、高效設備汰換</td></tr>
-      <tr><td>6</td><td>碳捕捉利用及封存（CCUS）</td><td>移除產業與能源設施碳排</td></tr>
-      <tr><td>7</td><td>運具電動化及無碳化</td><td>電動車產業鏈與基礎設施</td></tr>
-      <tr><td>8</td><td>資源循環</td><td>循環經濟、廢棄物資源化</td></tr>
-      <tr><td>9</td><td>自然碳匯</td><td>森林、土壤、海洋碳匯擴增</td></tr>
-      <tr><td>10</td><td>綠色金融</td><td>引導資金投入低碳轉型</td></tr>
-      <tr><td>11</td><td>公正轉型</td><td>「不遺落任何人」，扶助受衝擊產業與勞工</td></tr>
-      <tr><td>12</td><td>淨零綠生活</td><td>公民減碳行為與生活型態轉變</td></tr>
+    <div class="intro">
+        <p>判斷淨零轉型戰略時，可以先掌握三個方向：</p>
+        <ul>
+            <li>
+                <strong>能源端：</strong>
+                怎麼產生、轉換、供應及儲存能源。
+            </li>
+            <li>
+                <strong>需求端：</strong>
+                能源被如何使用，以及如何降低能源需求與改變使用方式。
+            </li>
+            <li>
+                <strong>跨域支援／碳移除：</strong>
+                不直接屬於能源供給或需求，而是透過碳移除、金融、社會制度等支援淨零轉型。
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="key-point">
+        <strong>最重要的分類：</strong>
+        <br>
+        能源端：1、2、3、4
+        <br>
+        需求端：5、7、8、12
+        <br>
+        跨域支援／碳移除：6、9、10、11
+    </div>
+
+
+    <h2>一、12項戰略分類</h2>
+
+    <table style="font-size:22px;">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>戰略名稱</th>
+                <th>分類</th>
+                <th>一句話重點</th>
+                <th>考試關鍵字</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr class="energy">
+                <td>1</td>
+                <td>風電與光電</td>
+                <td class="category energy-text">能源端</td>
+                <td>增加再生能源發電，降低化石能源依賴。</td>
+                <td>太陽光電、離岸風電、再生能源</td>
+            </tr>
+
+            <tr class="energy">
+                <td>2</td>
+                <td>氫能</td>
+                <td class="category energy-text">能源端</td>
+                <td>作為零碳製程原料，以及運輸、發電等無碳燃料。</td>
+                <td>綠氫、低碳氫、氫能、零碳燃料</td>
+            </tr>
+
+            <tr class="energy">
+                <td>3</td>
+                <td>前瞻能源</td>
+                <td class="category energy-text">能源端</td>
+                <td>發展地熱、海洋能、生質能等新興再生能源。</td>
+                <td>地熱、海洋能、生質能</td>
+            </tr>
+
+            <tr class="energy">
+                <td>4</td>
+                <td>電力系統與儲能</td>
+                <td class="category energy-text">能源端</td>
+                <td>發展分散式電網、數位化與儲能，提高電力系統韌性。</td>
+                <td>智慧電網、儲能、分散式電網、電力調度</td>
+            </tr>
+
+            <tr class="demand">
+                <td>5</td>
+                <td>節能</td>
+                <td class="category demand-text">需求端</td>
+                <td>提高能源使用效率，汰換低效率設備。</td>
+                <td>能源效率、高效率設備、設備汰換</td>
+            </tr>
+
+            <tr class="support">
+                <td>6</td>
+                <td>碳捕捉利用及封存（CCUS）</td>
+                <td class="category support-text">跨域／碳移除</td>
+                <td>透過工程技術捕捉、利用及封存 CO₂。</td>
+                <td>碳捕捉、CO₂、利用、封存</td>
+            </tr>
+
+            <tr class="demand">
+                <td>7</td>
+                <td>運具電動化及無碳化</td>
+                <td class="category demand-text">需求端</td>
+                <td>推動電動車、交通電動化及相關基礎設施。</td>
+                <td>電動車、充電樁、運輸電動化</td>
+            </tr>
+
+            <tr class="demand">
+                <td>8</td>
+                <td>資源循環</td>
+                <td class="category demand-text">需求端／產業端</td>
+                <td>推動循環經濟及廢棄物資源化，降低原生資源使用。</td>
+                <td>循環經濟、再利用、廢棄物資源化</td>
+            </tr>
+
+            <tr class="support">
+                <td>9</td>
+                <td>自然碳匯</td>
+                <td class="category support-text">跨域／碳匯</td>
+                <td>增加森林、土壤及海洋等自然系統的碳吸收能力。</td>
+                <td>森林、土壤、海洋、碳匯</td>
+            </tr>
+
+            <tr class="support">
+                <td>10</td>
+                <td>綠色金融</td>
+                <td class="category support-text">支援／政策工具</td>
+                <td>引導資金投入低碳及永續轉型。</td>
+                <td>綠色投資、永續金融、資金、融資</td>
+            </tr>
+
+            <tr class="support">
+                <td>11</td>
+                <td>公正轉型</td>
+                <td class="category support-text">社會／制度支援</td>
+                <td>降低淨零轉型對產業、勞工及社會造成的衝擊。</td>
+                <td>勞工、產業轉型、弱勢、不遺落任何人</td>
+            </tr>
+
+            <tr class="demand">
+                <td>12</td>
+                <td>淨零綠生活</td>
+                <td class="category demand-text">需求端</td>
+                <td>透過公民減碳行為與生活型態轉變降低碳排。</td>
+                <td>消費、生活型態、低碳、綠色消費</td>
+            </tr>
+
+        </tbody>
     </table>
+
+
+    <h2>二、考試快速分類</h2>
+
+    <table style="font-size:22px;">
+        <thead>
+            <tr>
+                <th>分類</th>
+                <th>戰略編號</th>
+                <th>快速記憶</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr class="energy">
+                <td class="energy-text">能源端</td>
+                <td>1、2、3、4</td>
+                <td>
+                    風光 → 氫能 → 前瞻能源 → 電力系統與儲能
+                </td>
+            </tr>
+
+            <tr class="demand">
+                <td class="demand-text">需求端</td>
+                <td>5、7、8、12</td>
+                <td>
+                    節能 → 運具電動化 → 資源循環 → 綠生活
+                </td>
+            </tr>
+
+            <tr class="support">
+                <td class="support-text">跨域支援／碳移除</td>
+                <td>6、9、10、11</td>
+                <td>
+                    CCUS → 自然碳匯 → 綠色金融 → 公正轉型
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <h2>三、考試可能怎麼考</h2>
+
+    <div class="exam-box">
+        <h3>題型一：分類題</h3>
+
+        <p>
+            下列何者屬於能源供給端的淨零轉型策略？
+        </p>
+
+        <ol type="A">
+            <li>節能</li>
+            <li>淨零綠生活</li>
+            <li style="color:red">風電與光電</li>
+            <li>綠色金融</li>
+        </ol>       
+
+        <p>
+            解題關鍵：風電與光電是在增加再生能源供給，因此屬於能源端。
+        </p>
+    </div>
+
+
+    <div class="exam-box">
+        <h3>題型二：需求端</h3>
+
+        <p>
+            下列何者主要屬於能源需求端的減碳策略？
+        </p>
+
+        <ol type="A">
+            <li>離岸風電</li>
+            <li>地熱發電</li>
+            <li style="color:red">節能</li>
+            <li>氫能</li>
+        </ol>      
+
+        <p>
+            解題關鍵：節能是降低能源需求及提高能源使用效率。
+        </p>
+    </div>
+
+
+    <div class="exam-box">
+        <h3>題型三：配對題</h3>
+        <p>
+            ① 風電與光電：增加再生能源供給<br>
+            ② 節能：提高能源使用效率<br>
+            ③ 自然碳匯：增加森林、土壤等碳吸收<br>
+            ④ 綠色金融：引導資金投入低碳轉型
+        </p>
+    </div>
+
+
+    <div class="exam-box">
+        <h3>題型四：情境題</h3>
+
+        <p>
+            某工廠汰換老舊空壓機，改用高效率設備，以降低用電量，
+            此措施屬於何項淨零策略？ &nbsp;&nbsp;&nbsp;&nbsp;
+			<span class="exam-answer">答案：節能</span>
+        </p>      
+
+        <p>
+            解題關鍵：不是增加能源供給，而是提高設備能源效率、降低能源需求。
+        </p>
+    </div>
+
+
+    <div class="exam-box">
+        <h3>題型五：再生能源情境題</h3>
+
+        <p>
+            政府推動離岸風電、太陽光電及地熱發電，主要目的為何？
+        </p>
+
+        <p class="exam-answer">
+            答案：擴大再生能源供給，降低化石燃料使用及電力部門碳排放。
+        </p>
+
+        <p>
+            對應戰略：1 風電與光電、3 前瞻能源。
+        </p>
+    </div>
+
+
+    <h2>四、最容易搞混的觀念</h2>
+
+    <table style="font-size:22px;">
+        <thead>
+            <tr>
+                <th>容易搞混</th>
+                <th>判斷方法</th>
+                <th>答案</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td>氫能</td>
+                <td>看到綠氫、低碳氫、氫燃料</td>
+                <td><strong>2 氫能</strong></td>
+            </tr>
+
+            <tr>
+                <td>電動車 vs 電網</td>
+                <td>車子、充電 → 運具；電網、儲能 → 電力系統</td>
+                <td>
+                    <strong>7 運具電動化</strong><br>
+                    <strong>4 電力系統與儲能</strong>
+                </td>
+            </tr>
+
+            <tr>
+                <td>節能 vs 綠生活</td>
+                <td>設備效率 → 節能；人的生活行為 → 綠生活</td>
+                <td>
+                    <strong>5 節能</strong><br>
+                    <strong>12 淨零綠生活</strong>
+                </td>
+            </tr>
+
+            <tr>
+                <td>CCUS vs 自然碳匯</td>
+                <td>工程技術捕捉 CO₂ → CCUS；森林、土壤、海洋 → 自然碳匯</td>
+                <td>
+                    <strong>6 CCUS</strong><br>
+                    <strong>9 自然碳匯</strong>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
+    <h2>五、考前速記</h2>
+
+    <div class="memory">
+
+        <p>
+            <strong>能源端：1、2、3、4</strong>
+        </p>
+
+        <p>
+            ① 風光<br>
+            ② 氫能<br>
+            ③ 前瞻能源<br>
+            ④ 電網＋儲能
+        </p>
+
+        <p>
+            <strong>需求端：5、7、8、12</strong>
+        </p>
+
+        <p>
+            ⑤ 節能<br>
+            ⑦ 電動運具<br>
+            ⑧ 資源循環<br>
+            ⑫ 綠生活
+        </p>
+
+        <p>
+            <strong>跨域支援／碳移除：6、9、10、11</strong>
+        </p>
+
+        <p>
+            ⑥ CCUS<br>
+            ⑨ 自然碳匯<br>
+            ⑩ 綠色金融<br>
+            ⑪ 公正轉型
+        </p>
+
+        <p>
+            <strong>
+                一句話口訣：
+                「1～4 管能源，5、7、8、12 管需求，6、9 管碳，10、11 管轉型。」
+            </strong>
+        </p>
+
+    </div>
     <div class="callout"><b>命題陷阱：</b>考題常把「四大轉型」與「十二項關鍵戰略」的項目互換出現在選項中混淆考生，例如把「資源循環」誤植為轉型項目而非戰略項目——請牢記「轉型」只有 4 項，「戰略」有 12 項。</div>
   </section>
 
