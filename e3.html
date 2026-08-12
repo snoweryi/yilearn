@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<link href="img/favicon.ico" rel="icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>淨零碳規劃管理師｜考科一總複習帳本</title>
+<style>
+:root{
+  --paper:#F3EFE4;
+  --paper-line:#d9cfb8;
+  --ink:#1f2a24;
+  --ink-soft:#4a5750;
+  --forest:#1e3d2f;
+  --forest-deep:#122820;
+  --moss:#5c7a5e;
+  --amber:#c17a2e;
+  --amber-soft:#e8d3ad;
+  --red:#a83e3e;
+  --green-ok:#2f6b46;
+  --card:#fbf9f2;
+  --shadow: 0 1px 0 rgba(0,0,0,.05);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:
+    repeating-linear-gradient(#F3EFE4 0px, #F3EFE4 34px, var(--paper-line) 35px);
+  background-color:var(--paper);
+  color:var(--ink);
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  line-height:1.7;
+  font-size: 22px;
+}
+::selection{background:var(--amber-soft);}
+
+/* ---------- Header / Seal ---------- */
+header.hero{
+  background:linear-gradient(160deg,var(--forest) 0%,var(--forest-deep) 100%);
+  color:#f4efe0;
+  padding:80px 24px 60px;
+  position:relative;
+  overflow:hidden;
+  border-bottom:6px solid var(--amber);
+}
+header.hero::before{
+  content:"";
+  position:absolute; inset:0;
+  background-image: radial-gradient(circle at 85% 20%, rgba(193,122,46,.18), transparent 40%),
+                     radial-gradient(circle at 10% 90%, rgba(92,122,94,.25), transparent 45%);
+}
+.hero-inner{max-width:1900px;margin:0 auto;position:relative;}
+.eyebrow{
+  font-family:"Noto Serif TC",serif;
+  letter-spacing:.32em;
+  font-size: 22px;
+  color:var(--amber-soft);
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
+h1.title{
+  font-family:"Noto Serif TC",serif;
+  font-weight:700;
+  font-size:clamp(28px,4.6vw,46px);
+  margin:0 0 10px;
+  line-height:1.25;
+}
+h1.title .thin{font-weight:400; color:var(--amber-soft); font-size:.6em; display:block; margin-top:4px;}
+.hero-meta{
+  display:flex; flex-wrap:wrap; gap:10px;
+  margin-top:22px;
+}
+.chip{
+  border:1px solid rgba(244,239,224,.35);
+  border-radius:999px;
+  padding:7px 16px;
+  font-size: 22px;
+  color:#f4efe0;
+  background:rgba(244,239,224,.06);
+}
+.chip b{color:var(--amber-soft);}
+.seal{
+  position:absolute; right:0; top:0;
+  width:118px; height:118px;
+  border:3px solid var(--amber-soft);
+  border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  transform:rotate(9deg);
+  opacity:.85;
+}
+.seal-txt{
+  font-family:"Noto Serif TC",serif;
+  text-align:center; color:var(--amber-soft);
+  font-size: 22px; line-height:1.5; letter-spacing:.08em;
+}
+
+/* ---------- Nav tabs ---------- */
+nav.tabs{
+  position:sticky; top:0; z-index:50;
+  background:rgba(243,239,228,.92);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--paper-line);
+  display:flex; justify-content:center; gap:6px;
+  padding:10px 12px;
+  flex-wrap:wrap;
+}
+nav.tabs button{
+  font-family:"Noto Serif TC",serif;
+  border:1px solid transparent;
+  background:transparent;
+  color:var(--ink-soft);
+  padding:9px 18px;
+  border-radius:8px;
+  font-size: 22px;
+  cursor:pointer;
+  transition:.15s;
+}
+nav.tabs button:hover{background:var(--amber-soft);}
+nav.tabs button.active{
+  background:var(--forest); color:#f4efe0; border-color:var(--forest);
+}
+
+main{max-width:1900px; margin:0 auto; padding:38px 20px 100px;}
+section.view{display:none;}
+section.view.active{display:block; animation:fade .35s ease;}
+@keyframes fade{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);}}
+
+/* ---------- Notes ---------- */
+.intro-note{
+  background:var(--card);
+  border:1px solid var(--paper-line);
+  border-left:4px solid var(--amber);
+  padding:18px 22px;
+  border-radius:4px;
+  margin-bottom:34px;
+  font-size: 22px;
+  color:var(--ink-soft);
+}
+.chapter{
+  background:var(--card);
+  border:1px solid var(--paper-line);
+  border-radius:6px;
+  margin-bottom:26px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.chapter-head{
+  display:flex; align-items:baseline; gap:14px;
+  padding:18px 24px;
+  background:linear-gradient(90deg, var(--forest) 0%, var(--moss) 130%);
+  color:#f4efe0;
+  cursor:pointer;
+  user-select:none;
+}
+.chapter-head .num{
+  font-family:"Noto Serif TC",serif;
+  font-size: 22px;
+  border:1px solid rgba(244,239,224,.5);
+  border-radius:4px;
+  padding:2px 8px;
+  color:var(--amber-soft);
+  flex-shrink:0;
+}
+.chapter-head h2{
+  font-family:"Noto Serif TC",serif;
+  margin:0; font-size:22px; font-weight:600;
+  flex:1;
+}
+.chapter-head .caret{transition:.25s; font-size: 22px; color:var(--amber-soft);}
+.chapter.open .chapter-head .caret{transform:rotate(90deg);}
+.chapter-body{
+  max-height:0; overflow:hidden; transition:max-height .35s ease;
+  padding:0 26px;
+}
+.chapter.open .chapter-body{padding:20px 26px 26px;}
+.chapter-body h3{
+  font-family:"Noto Serif TC",serif;
+  font-size: 22px; color:var(--forest); margin:18px 0 8px;
+  border-bottom:1px dashed var(--paper-line); padding-bottom:4px;
+}
+.chapter-body h3:first-child{margin-top:0;}
+.chapter-body ul{margin:6px 0 14px; padding-left:20px;}
+.chapter-body li{margin-bottom:6px; font-size: 22px;}
+.chapter-body table{width:100%; border-collapse:collapse; margin:10px 0 18px; font-size: 22px;}
+.chapter-body th,.chapter-body td{border:1px solid var(--paper-line); padding:7px 10px; text-align:left;}
+.chapter-body th{background:var(--amber-soft); color:var(--forest-deep); font-family:"Noto Serif TC",serif;}
+.chapter-body tr:nth-child(even) td{background:#f6f2e6;}
+.callout{
+  background:#eef3ea; border:1px solid #cfe0cf; border-left:4px solid var(--green-ok);
+  padding:10px 14px; border-radius:4px; font-size: 22px; margin:10px 0 16px;
+}
+.callout.news{border-left-color:var(--amber); background:#fbf1e2;}
+.callout b{color:var(--forest);}
+.tag{
+  display:inline-block; font-size: 22px; padding:2px 8px; border-radius:999px;
+  background:var(--forest); color:#f4efe0; margin-right:6px; font-family:"Noto Serif TC",serif;
+}
+.tag.news{background:var(--amber);}
+
+/* ---------- Quiz ---------- */
+.quiz-toolbar{
+  display:flex; flex-wrap:wrap; gap:10px; align-items:center;
+  margin-bottom:22px; padding:14px 18px;
+  background:var(--card); border:1px solid var(--paper-line); border-radius:6px;
+}
+.quiz-toolbar select, .quiz-toolbar button{
+  font-family:"Noto Sans TC",sans-serif;
+  border:1px solid var(--paper-line); background:#fff; color:var(--ink);
+  padding:8px 12px; border-radius:6px; font-size: 22px; cursor:pointer;
+}
+.quiz-toolbar button.primary{background:var(--forest); color:#f4efe0; border-color:var(--forest);}
+.quiz-toolbar button.ghost{background:transparent;}
+.score-panel{
+  margin-left:auto; display:flex; gap:16px; font-family:"Noto Serif TC",serif; font-size: 22px; color:var(--forest);
+}
+.score-panel span b{font-size: 22px;}
+.progress-wrap{height:6px; background:var(--paper-line); border-radius:3px; overflow:hidden; margin-bottom:24px;}
+.progress-bar{height:100%; background:linear-gradient(90deg,var(--amber),var(--forest)); width:0%; transition:width .3s;}
+
+.qcard{
+  background:var(--card); border:1px solid var(--paper-line); border-radius:6px;
+  padding:20px 22px; margin-bottom:16px; box-shadow:var(--shadow);
+}
+.qcard.hidden{display:none;}
+.qcard-head{display:flex; gap:10px; align-items:flex-start; margin-bottom:10px;}
+.qnum{
+  font-family:"Noto Serif TC",serif; background:var(--forest); color:#f4efe0;
+  border-radius:5px; padding:3px 9px; font-size: 22px; flex-shrink:0;
+}
+.qchtag{
+  font-size: 22px; color:var(--moss); border:1px solid var(--moss); border-radius:999px; padding:2px 9px; align-self:center;
+}
+.qtext{font-size: 22px; color:var(--ink); font-weight:500;}
+.options{list-style:none; margin:12px 0 4px; padding:0;}
+.options li{
+  border:1px solid var(--paper-line); border-radius:5px; padding:10px 14px; margin-bottom:8px;
+  cursor:pointer; font-size: 22px; transition:.15s; background:#fff;
+  display:flex; gap:10px;
+}
+.options li:hover{border-color:var(--moss); background:#f6f8f4;}
+.options li .opt-letter{font-family:"Noto Serif TC",serif; font-weight:700; color:var(--moss); flex-shrink:0;}
+.options li.correct{background:#e6f2e8; border-color:var(--green-ok); color:var(--green-ok); font-weight:600;}
+.options li.wrong{background:#fbeaea; border-color:var(--red); color:var(--red); font-weight:600;}
+.options li.disabled{pointer-events:none;}
+.explain{
+  display:none; margin-top:10px; padding:12px 14px; background:#f6f2e6; border-left:3px solid var(--amber);
+  border-radius:4px; font-size: 22px; color:var(--ink-soft);
+}
+.explain.show{display:block;}
+.explain b{color:var(--forest);}
+
+.summary-card{
+  background:var(--forest); color:#f4efe0; border-radius:8px; padding:26px 28px; text-align:center;
+  margin-bottom:24px; display:none;
+}
+.summary-card.show{display:block;}
+.summary-card .big{font-family:"Noto Serif TC",serif; font-size:40px; color:var(--amber-soft);}
+
+footer{
+  text-align:center; color:var(--ink-soft); font-size: 22px; padding:30px 20px 50px;
+}
+@media (max-width:728px){
+  .seal{display:none;}
+  header.hero{padding:120px 18px 48px;}
+}
+.badgerowbt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px;
+    background: #ffffff;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+a.badge1 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #007286;
+    color: #fff;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+a.badge2 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #007286;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+a.badge3 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #b8238d;
+    color: yellow;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+  @media(max-width:768px){
+  header.hero {  margin-top: 6rem;padding:8px 18px 30px;}
+    .q-header { flex-wrap: wrap; }
+    .meta-row { gap: 0.75rem; }
+  }
+</style>
+</head>
+<body>
+<div class="badgerowbt">	
+	<div><a href="https://snoweryi.github.io/yilearn/e1.html" class="badge1">考1</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/e3.html" class="badge2">考1</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/e2.html" class="badge1">考2</a></div>
+	
+	
+	
+	<div><a href="https://snoweryi.github.io/yilearn/menu.html" class="badge3">目錄</a></div>
+  </div>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">出題委員視角．考前總複習帳本</div>
+    <h1 class="title">淨零碳規劃管理師（初級）<span class="thin">考科一｜淨零碳規劃管理基礎概論</span></h1>
+    <div class="hero-meta">
+      <span class="chip">應考日 <b>2026/08/15</b></span>
+      <span class="chip">範圍 <b>COP・國際倡議・CBAM・台灣2050路徑・碳費・ISO14068-1</b></span>
+      <span class="chip">題型 <b>100 題高難度情境模擬試題（含最新法規時事）</b></span>
+    </div>
+  </div>
+  <div class="seal"><div class="seal-txt">2026<br>淨零<br>總複習</div></div>
+</header>
+
+<nav class="tabs">
+  <button class="tab-btn active" data-target="notes">📘 筆記重點</button>
+  <button class="tab-btn" data-target="quiz">✍️ 情境模擬試題 100 題</button>
+</nav>
+
+<main>
+
+<!-- ============ NOTES ============ -->
+<section id="notes" class="view active">
+  <div class="intro-note">
+    <b>給小宜的出題委員視角備考提醒：</b> 這場考試已從「記憶測驗」轉向「情境判斷與決策能力測驗」——出題委員真正想確認的是「如果你是企業的淨零顧問，遇到這個情境你會怎麼判斷、怎麼選？」以下筆記依考科一官方學習指引架構（L111 極端氣候下國際因應歷程與趨勢／L112 淨零碳管理基礎概論）整理七大章，並在每章附上 <span class="tag news">時事</span> 標記的 2025–2026 最新規範，這些正是近期考試最愛出的「陷阱題」來源。
+  </div>
+
+  <!-- CH1 -->
+  <div class="chapter open">
+    <div class="chapter-head" onclick="toggleChapter(this)">
+      <span class="num">CH.1</span>
+      <h2>聯合國氣候變化綱要公約與 COP 歷程</h2>
+      <span class="caret">▶</span>
+    </div>
+    <div class="chapter-body">
+      <h3>核心框架</h3>
+      <ul>
+        <li><b>UNFCCC</b>：1992 年里約地球高峰會簽署，1994/3/21 生效，確立「共同但有差異的責任」（CBDR）原則，是 COP 的法源依據。</li>
+        <li><b>京都議定書</b>（COP3, 1997；2005 生效）：首次為已開發國家訂定具法律拘束力的量化減排目標。</li>
+        <li><b>巴黎協定</b>（COP21, 2015；2016/11 生效）：控溫目標「遠低於 2°C，並努力限制在 1.5°C」，改採「國家自定貢獻（NDC）」由下而上模式，每 5 年盤點更新。</li>
+      </ul>
+      <h3>歷屆 COP 重點速記表</h3>
+      <table>
+        <tr><th>屆次</th><th>年份 / 地點</th><th>最關鍵成果</th></tr>
+        <tr><td>COP21</td><td>2015 巴黎</td><td>通過巴黎協定</td></tr>
+        <tr><td>COP26</td><td>2021 格拉斯哥</td><td>首次寫入煤炭「逐步削減（phase-down）」、逐步取消低效化石燃料補貼</td></tr>
+        <tr><td>COP27</td><td>2022 埃及</td><td>設立「損失與損害基金」</td></tr>
+        <tr><td>COP28</td><td>2023 杜拜</td><td>首次全球盤點（GST）：2030年再生能源產能增3倍、能效增1倍；首次寫入「轉型脫離化石燃料」</td></tr>
+        <tr><td>COP29</td><td>2024 巴庫</td><td>新氣候資金集體目標（NCQG）：2035年前每年至少3000億美元；完成第6條(6.2/6.4)碳市場規則</td></tr>
+        <tr><td>COP30</td><td>2025 巴西貝倫</td><td>巴黎協定十週年；通過全球調適目標（GGA）約60餘項指標；未納入化石燃料淘汰路徑；美國因退出巴黎協定而缺席</td></tr>
+      </table>
+      <div class="callout news"><span class="tag news">時事</span> <b>COP30（2025/11/10–21，巴西貝倫）</b>是巴黎協定十週年場次，因產油國反對，最終決議<b>未</b>納入化石燃料淘汰時間表，但通過精簡後的全球調適目標指標；下屆 <b>COP31 預定 2026 年於土耳其安塔利亞</b>舉行。這是近期最容易出「情境判斷題」的時事焦點。</div>
+    </div>
+  </div>
+
+  <!-- CH2 -->
+  <div class="chapter">
+    <div class="chapter-head" onclick="toggleChapter(this)">
+      <span class="num">CH.2</span>
+      <h2>國內外極端氣候治理與 IPCC</h2>
+      <span class="caret">▶</span>
+    </div>
+    <div class="chapter-body">
+      <h3>IPCC 定位</h3>
+      <ul>
+        <li>IPCC（政府間氣候變化專門委員會）<b>不進行原創研究</b>，其角色是彙整全球既有科學文獻並評估確定性，出版評估報告（如 AR6, 2023）供各國決策參考。</li>
+        <li>AR6 綜合報告結論：欲將升溫控制在 1.5°C 內，全球溫室氣體須於 <b>2050 年代初期</b>達到淨零。</li>
+        <li>「減緩」(mitigation) vs「調適」(adaptation)：前者降低排放源頭（如汰換燃煤鍋爐），後者強化承受衝擊的韌性（如海堤、防洪基礎設施）。</li>
+      </ul>
+      <h3>我國治理架構</h3>
+      <ul>
+        <li><b>氣候變遷因應法</b>：2023 年由「溫室氣體減量及管理法」修正更名，明定 2050 淨零排放為法定長期目標，授權訂定碳費等經濟誘因工具。</li>
+        <li>環保署已於 2023/8 改制為<b>環境部</b>，下設<b>氣候變遷署</b>統籌氣候治理與碳定價。</li>
+        <li>法定納管溫室氣體 8 類：CO₂、CH₄、N₂O、HFCs、PFCs、SF₆、NF₃、其他中央主管機關公告氣體（<b>不含臭氧 O₃</b>，常考陷阱）。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CH3 -->
+  <div class="chapter">
+    <div class="chapter-head" onclick="toggleChapter(this)">
+      <span class="num">CH.3</span>
+      <h2>國際重要倡議與揭露框架</h2>
+      <span class="caret">▶</span>
+    </div>
+    <div class="chapter-body">
+      <h3>快速對照表（最容易混淆的一題）</h3>
+      <table>
+        <tr><th>倡議 / 準則</th><th>核心內容</th><th>導向</th></tr>
+        <tr><td>SDGs</td><td>聯合國 2015 年通過 17 項全球發展目標</td><td>整體永續發展方向</td></tr>
+        <tr><td>CDP</td><td>企業年度填報碳排／水／森林問卷，供投資人審視</td><td>資訊揭露（A~D 評等）</td></tr>
+        <tr><td>SBTi</td><td>以科學為基礎設定減碳目標，須經第三方審查核可</td><td>目標設定</td></tr>
+        <tr><td>RE100</td><td>承諾特定年限內 100% 使用再生能源電力</td><td>能源承諾</td></tr>
+        <tr><td>GRI</td><td>廣泛利害關係人衝擊導向之通用永續報告準則</td><td>整體永續報告</td></tr>
+        <tr><td>SASB</td><td>依 75 個產業分類、聚焦<b>財務重大性</b>指標</td><td>投資人導向</td></tr>
+        <tr><td>TCFD</td><td>治理／策略／風險管理／指標目標四大要素</td><td>氣候財務揭露</td></tr>
+        <tr><td>TNFD</td><td>自然相關財務揭露，採 LEAP 方法論（Locate–Evaluate–Assess–Prepare）</td><td>自然/生物多樣性</td></tr>
+        <tr><td>IFRS S1 / S2</td><td>ISSB 2023/6 發布，整併 TCFD 架構，S1一般揭露、S2氣候揭露</td><td>國際財報準則</td></tr>
+      </table>
+      <div class="callout"><b>常考混淆點：</b>GRI 聚焦「利害關係人廣泛衝擊」，SASB 聚焦「財務重大性」——出題委員最愛把這兩者的定義互換出成陷阱選項。TCFD 的「實體風險」（颱風、海平面上升）vs「轉型風險」（碳定價政策、市場偏好改變）也是必考分類題。</div>
+      <div class="callout news"><span class="tag news">時事</span> IFRS S1/S2 已於 2023 年由 ISSB 正式發布並整併 TCFD，多國（含歐盟 ESRS、部分亞太市場）陸續要求企業依循，是近年考題新增重點。</div>
+    </div>
+  </div>
+
+  <!-- CH4 -->
+  <div class="chapter">
+    <div class="chapter-head" onclick="toggleChapter(this)">
+      <span class="num">CH.4</span>
+      <h2>國際碳關稅與 CBAM（2026 最新）</h2>
+      <span class="caret">▶</span>
+    </div>
+    <div class="chapter-body">
+      <h3>CBAM 2026 關鍵時間軸</h3>
+      <table>
+        <tr><th>時間</th><th>事項</th></tr>
+        <tr><td>2023–2025</td><td>過渡期：僅需申報，不需繳費</td></tr>
+        <tr><td>2026/1/1</td><td><b>正式階段（Definitive Regime）上路</b>，結束過渡期</td></tr>
+        <tr><td>2026 全年</td><td>依實際內含碳排放量累積帳款；EU ETS 免費配額同步逐步取消</td></tr>
+        <tr><td>2027/2/1</td><td>CBAM 憑證正式開賣（回溯補繳 2026 年度帳款）</td></tr>
+        <tr><td>2027/9/30 前</td><td>完成 2026 年度首次 CBAM 憑證繳交結算</td></tr>
+        <tr><td>2034</td><td>免費配額全面取消，CBAM 全面接軌歐盟碳市場</td></tr>
+      </table>
+      <ul>
+        <li>現行納管六大產業：<b>鋼鐵、水泥、鋁、肥料、電力、氫氣</b>（尚未含紡織品，但已預告未來擴大至180項鋼鋁下游製品，如汽車零件、家電）。</li>
+        <li>年進口量 <b>50 噸以下</b>享小量豁免。</li>
+        <li>台灣缺乏專屬碳排預設值的產品（如水泥），須採「碳排強度最高前十國平均值」計算，成本遠高於使用本土實際數據。</li>
+        <li>國內已繳碳費原則上可申請扣抵 CBAM 憑證費用，但因台灣碳費費率（一般300元/噸）遠低於 CBAM 憑證價格（2026 Q1 約 €75.36/噸），實際扣抵效果有限，雙方仍在協商互認機制。</li>
+        <li>進口商須取得「授權 CBAM 申報人」資格，否則貨物無法於歐盟海關放行。</li>
+        <li>英國版 UK CBAM 預定 <b>2027 年</b>上路；美國「清潔競爭法案（CCA）」目前僅為國會提出的草案，<b>尚未完成立法</b>，非現行生效制度（常考陷阱）。</li>
+      </ul>
+      <div class="callout news"><span class="tag news">時事</span> 2026 年是 CBAM 從「過渡期」轉為「正式收費」的分水嶺年份，這是考科一近期最重要的時事考點，務必掌握「累積帳款 vs 實際繳費」時間差的概念。</div>
+    </div>
+  </div>
+
+  <!-- CH5 -->
+  <div class="chapter">
+    <div class="chapter-head" onclick="toggleChapter(this)">
+      <span class="num">CH.5</span>
+      <h2>台灣 2050 淨零排放路徑及轉型策略</h2>
+      <span class="caret">▶</span>
+    </div>
+    <div class="chapter-body">
+      <h3>四大策略 × 兩大基礎 × 十二項關鍵戰略</h3>
+      <ul>
+        <li><b>四大轉型策略</b>：能源轉型、產業轉型、生活轉型、社會轉型</li>
+        <li><b>兩大治理基礎</b>：科技研發、氣候法制</li>
+        <li><b>十二項關鍵戰略</b>：能源、電力系統與儲能、氫能、前瞻能源、CCUS、運具電動化及無碳化、資源循環零廢棄、自然碳匯、綠色金融、公正轉型、綠色生活（淨零綠生活）等（<b>CBAM 屬歐盟制度，不在我國十二項戰略之列</b>，常考陷阱）。</li>
+      </ul>
+      <table>
+        <tr><th>戰略</th><th>重點內涵</th></tr>
+        <tr><td>CCUS</td><td>捕集、利用及封存難以避免之工業／能源排放，屬深度減碳輔助技術，非取代再生能源</td></tr>
+        <tr><td>自然碳匯</td><td>森林碳匯、海洋（藍碳）碳匯、土壤碳匯</td></tr>
+        <tr><td>公正轉型</td><td>照顧受衝擊產業、勞工與地區，提供輔導、再培訓與社會對話</td></tr>
+        <tr><td>綠色金融</td><td>永續分類標準、氣候財務揭露、綠色債券／永續連結貸款，引導資金投入淨零</td></tr>
+        <tr><td>前瞻能源</td><td>地熱、海洋能等新興再生能源</td></tr>
+      </table>
+      <div class="callout news"><span class="tag news">時事</span> 2026 年最新版國家溫室氣體排放清冊（涵蓋 2024 年數據）顯示：<b>能源部門排放量首度出現減量</b>，但受綠能推動不如預期、AI 帶動用電需求激增影響，環境部長坦言 <b>2025 年減碳 10% 之國家目標恐難達成</b>。此外，金管會「上市櫃公司永續發展路徑圖」規劃分階段（依資本額規模）於 2027 年前完成盤查、2029 年前完成查證。</div>
+    </div>
+  </div>
+
+  <!-- CH6 -->
+  <div class="chapter">
+    <div class="chapter-head" onclick="toggleChapter(this)">
+      <span class="num">CH.6</span>
+      <h2>碳資產交易管理架構與我國碳費制度</h2>
+      <span class="caret">▶</span>
+    </div>
+    <div class="chapter-body">
+      <h3>2026 碳費費率速記（必背）</h3>
+      <table>
+        <tr><th>費率別</th><th>金額／條件</th></tr>
+        <tr><td>一般費率</td><td>每噸新台幣 <b>300 元</b></td></tr>
+        <tr><td>優惠費率 A（行業別指定削減率）</td><td>每噸 <b>50 元</b>；一般行業 2030 年較 2021 基準年削減約 <b>42%</b></td></tr>
+        <tr><td>優惠費率 B（技術標竿指定削減率）</td><td>每噸 <b>100 元</b>；各行業 2030 年較 2018–2022 平均削減約 <b>23%</b></td></tr>
+        <tr><td>高碳洩漏風險係數</td><td><b>0.2</b>（乘以優惠費率，大幅降低實質稅負，鋼鐵、水泥等高碳洩漏產業適用）</td></tr>
+      </table>
+      <div class="callout news"><span class="tag news">時事</span> <b>2026 年碳費首波徵收成果</b>：461 家列管工廠、240 家企業全數依期完成繳費，<b>共徵收約 49.7 億元</b>；<b>半導體業繳納 22 億元、占比約 44.3% 居冠</b>；402 家通過自主減量計畫審查（64 廠適用費率A、338 廠適用費率B）；224 家通過高碳洩漏風險審查。<b>首波無任何企業申請緩繳，全數如期繳款</b>。</div>
+      <h3>制度關係釐清</h3>
+      <ul>
+        <li><b>碳費</b>：對排放源直接課徵之定額／級距費用，內部化誘因工具；對象為年排放 2.5萬噸以上直接及能源間接排放源。</li>
+        <li><b>自願減量機制</b>：企業依核准方法學執行專案，經查驗取得減量額度，可用於碳費扣減或交易。</li>
+        <li><b>台灣碳權交易所</b>：辦理國內自願減量額度交易及國外碳權買賣媒合。</li>
+        <li><b>ETS（總量管制排放交易）</b>：環境部規劃先啟動試行平台，<b>目標 2027 年正式實施</b>，與碳費並行互補（不是取代）。</li>
+        <li>企業實質減碳成本（每噸約 3000–5000 元）遠高於現行碳費費率，顯示碳費目前主要功能為「誘導」而非「完全反映成本」，須輔以 ETS 強化市場誘因。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CH7 -->
+  <div class="chapter">
+    <div class="chapter-head" onclick="toggleChapter(this)">
+      <span class="num">CH.7</span>
+      <h2>ISO 14068-1 碳中和標準</h2>
+      <span class="caret">▶</span>
+    </div>
+    <div class="chapter-body">
+      <ul>
+        <li>ISO 14068-1 於 <b>2023 年 11 月</b>發布，逐步取代英國標準協會（BSI）發布的 <b>PAS 2060</b>（我國已轉化為 <b>CNS 14068-1</b> 國家標準）。</li>
+        <li>核心精神：<b>減量優先層級（mitigation hierarchy）</b>——先落實自身減量（避免、減少排放），對「剩餘無法避免」的排放才進行移除或抵換，抵換不是達成碳中和的第一手段。</li>
+        <li>碳信用（碳權）品質原則：<b>真實性、額外性、永久性、可量化性</b>，且避免重複計算。</li>
+        <li><b>碳中和 vs 淨零排放</b>：碳中和可透過抵換達成排放平衡；淨零排放要求更高比例（通常 90% 以上）的絕對減量，抵換僅用於極少數無法避免的殘餘排放——兩者門檻不同，不可互換使用。</li>
+        <li>對外宣告應揭露：排放量計算邊界、減量措施、抵換額度來源與品質、第三方查證情形，避免「漂綠」風險。</li>
+      </ul>
+      <div class="callout"><b>漂綠風險最高的作法：</b>完全不投入自身減量、僅大量購買低價且未經查證的碳權即宣稱「碳中和」——這是本章情境題最常見的錯誤選項設計。</div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ============ QUIZ ============ -->
+<section id="quiz" class="view">
+  <div class="intro-note">
+    <b>應試策略：</b>以下 100 題均以「企業情境」或「出題委員視角」設計，非單純背誦題。作答時請先問自己：「如果我是企業的淨零顧問，這個情境下我會怎麼判斷？」點選答案後會立即顯示正解與解析，可依章節篩選、只複習答錯題目。
+  </div>
+
+  <div class="quiz-toolbar">
+    <label style="font-size: 22px;color:var(--ink-soft);">篩選章節：</label>
+    <select id="chapterFilter" onchange="renderQuiz()">
+      <option value="all">全部 100 題</option>
+      <option value="c1">CH1 UNFCCC與COP（10題）</option>
+      <option value="c2">CH2 IPCC與治理（10題）</option>
+      <option value="c3">CH3 國際倡議（20題）</option>
+      <option value="c4">CH4 碳關稅與CBAM（15題）</option>
+      <option value="c5">CH5 台灣2050路徑（20題）</option>
+      <option value="c6">CH6 碳資產交易與碳費（15題）</option>
+      <option value="c7">CH7 ISO14068-1碳中和（10題）</option>
+    </select>
+    <button class="ghost" id="wrongOnlyBtn" onclick="toggleWrongOnly()">只看答錯題目</button>
+    <button class="primary" onclick="resetQuiz()">重新測驗</button>
+    <div class="score-panel">
+      <span>已作答 <b id="answeredCount">0</b>/<span id="totalCount">100</span></span>
+      <span>正確率 <b id="accuracy">0%</b></span>
+    </div>
+  </div>
+  <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+
+  <div class="summary-card" id="summaryCard">
+    <div style="font-family:'Noto Serif TC',serif;font-size: 22px;letter-spacing:.1em;color:var(--amber-soft);">本次測驗結果</div>
+    <div class="big" id="summaryScore">0 / 100</div>
+    <div id="summaryMsg" style="margin-top:6px;font-size: 22px;"></div>
+  </div>
+
+  <div id="quizList"></div>
+</section>
+
+</main>
+
+<footer>
+  淨零碳規劃管理師（初級）考科一 · 考前總複習帳本 · 內容依 2026/08 前公開資訊整理，實際考題以官方鑑定簡章與現行法規為準，正式作答前請以環境部氣候變遷署及 iPAS 官網最新公告核實。
+</footer>
+
+<script>
+// ---------- Tabs ----------
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+    document.getElementById(btn.dataset.target).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+
+// ---------- Chapter accordion ----------
+function toggleChapter(head){
+  const ch = head.parentElement;
+  const wasOpen = ch.classList.contains('open');
+  document.querySelectorAll('.chapter').forEach(c=>c.classList.remove('open'));
+  if(!wasOpen){
+    ch.classList.add('open');
+    const body = ch.querySelector('.chapter-body');
+    body.style.maxHeight = body.scrollHeight + 200 + 'px';
+  }
+}
+// init first chapter height
+window.addEventListener('load',()=>{
+  const openCh = document.querySelector('.chapter.open .chapter-body');
+  if(openCh) openCh.style.maxHeight = openCh.scrollHeight + 200 + 'px';
+});
+
+// ---------- Quiz Data ----------
+const QUESTIONS = [
+{ch:'c1',q:'某企業永續長於內部教育訓練中說明，1994年生效、確立「共同但有差異的責任（CBDR）」原則的公約是？',o:['京都議定書','聯合國氣候變化綱要公約（UNFCCC）','巴黎協定','蒙特婁議定書'],a:1,e:'UNFCCC 於1992年里約地球高峰會簽署，1994/3/21生效，確立CBDR原則，是COP的法源依據。'},
+{ch:'c1',q:'某公司ESG委員會欲確認具法律約束力、首次為已開發國家訂定量化減排目標的國際協議，應是？',o:['京都議定書（COP3, 1997）','哥本哈根協議','巴黎協定','蒙特婁議定書'],a:0,e:'京都議定書於1997年COP3通過、2005年生效，首次對已開發國家設定具拘束力的量化減排目標。'},
+{ch:'c1',q:'某出口導向企業的顧問提醒，2015年COP21通過、2016年11月生效，訂定「控制升溫不超過2°C、並努力限制在1.5°C內」目標的協議為？',o:['京都議定書','巴黎協定','坎昆協議','格拉斯哥氣候協議'],a:1,e:'巴黎協定於COP21（2015）通過，2016/11生效，改採NDC由下而上模式。'},
+{ch:'c1',q:'情境：某鋼鐵業海外事業處主管注意到COP26（2021，格拉斯哥）達成之協議，首次在締約方決議文字中納入哪一項具體承諾？',o:['全球碳中和法制化','逐步削減（phase-down）未削減排放的煤炭使用','全面禁止化石燃料補貼','建立全球碳交易單一市場'],a:1,e:'格拉斯哥氣候協議首次於COP決議文件中提及煤炭「逐步削減」，並呼籲逐步取消低效化石燃料補貼。'},
+{ch:'c1',q:'某跨國企業於2022年COP27（埃及）後檢視氣候風險，該屆會議最重要的突破為何？',o:['通過全球碳定價機制','設立「損失與損害基金」（Loss and Damage Fund）','訂定甲烷減量40%目標','通過具法律拘束力的1.5°C目標'],a:1,e:'COP27最重要成果為設立損失與損害基金，協助脆弱國家因應氣候衝擊損失。'},
+{ch:'c1',q:'某能源公司分析COP28（2023，杜拜）決議文字，首次出現「轉型脫離化石燃料」（transitioning away from fossil fuels）是源自哪一項機制的成果？',o:['第一次全球盤點（Global Stocktake）','國家自定貢獻審查','京都議定書第二承諾期審查','調適委員會年度報告'],a:0,e:'COP28完成巴黎協定生效後首次全球盤點（GST），決議呼籲2030年前再生能源產能增三倍、能效提升一倍，並首次寫入「轉型脫離化石燃料」。'},
+{ch:'c1',q:'某金融機構氣候融資部門於COP29（2024，巴庫）後更新報告，該屆會議通過的新集體量化氣候資金目標（NCQG），設定已開發國家應於哪一年前每年動員至少3000億美元？',o:['2030年','2032年','2035年','2040年'],a:2,e:'NCQG設定2035年前已開發國家每年至少動員3000億美元氣候資金。'},
+{ch:'c1',q:'情境：某貿易公司評估碳權跨國移轉合規性，COP29完成規則制定、可用於國際自願減量成果移轉（ITMOs）的機制依據為《巴黎協定》第幾條？',o:['第4條','第6條（6.2/6.4）','第9條','第13條'],a:1,e:'巴黎協定第6條規範國際碳市場合作，其中6.2、6.4款之操作規則已於COP29完成制定。'},
+{ch:'c1',q:'某企業永續報告書提及「COP30在巴西貝倫舉行，象徵《巴黎協定》十週年」，下列敘述何者最符合COP30實際結論？',o:['首次在締約方決議中明訂全球化石燃料淘汰時間表','通過全球調適目標（GGA）指標架構，但未納入化石燃料淘汰路徑','正式啟動全球統一碳交易市場定價','美國以主要出資國身分主導籌組新氣候基金'],a:1,e:'COP30因產油國反對未納入化石燃料淘汰路徑，但通過精簡後的全球調適目標指標（約60餘項），美國因川普政府退出巴黎協定而缺席。'},
+{ch:'c1',q:'某企業規劃參與2026年氣候公約周邊會議，依COP30決議，下一屆（COP31）預定於何處舉行？',o:['杜拜','土耳其安塔利亞','巴西利亞','波昂'],a:1,e:'COP31預定2026年於土耳其安塔利亞舉行。'},
+
+{ch:'c2',q:'某企業風險部門引用IPCC AR6綜合報告（2023）之結論作為情境分析基礎，下列敘述何者正確？',o:['IPCC是聯合國轄下具強制執行力的司法機構','IPCC本身不進行原創研究，主要彙整全球既有科學文獻並評估其確定性','IPCC報告僅涵蓋自然科學面向，不含調適與減緩政策選項','IPCC由各國企業代表組成'],a:1,e:'IPCC角色為彙整並評估既有科學文獻的確定性，不進行原創研究，也不具強制執行力。'},
+{ch:'c2',q:'某企業依IPCC AR6警示調整減碳目標年限，AR6指出全球升溫若要控制在1.5°C內，全球溫室氣體淨排放量應於何時達到淨零？',o:['2030年前','2040年前','2050年代初期','2070年前'],a:2,e:'AR6結論指出須於2050年代初期達到全球淨零，方能將升溫控制在1.5°C內。'},
+{ch:'c2',q:'情境：某製造業ESG主管欲區分「減緩」（mitigation）與「調適」（adaptation）行動，下列何者屬於調適行動？',o:['汰換老舊燃煤鍋爐為電熱鍋爐','興建海堤及韌性防洪基礎設施','採購再生能源憑證','導入產品碳足跡標籤'],a:1,e:'調適行動旨在強化承受氣候衝擊的韌性，如海堤、防洪工程；其餘選項屬於減緩排放的行動。'},
+{ch:'c2',q:'某公司法遵單位確認，我國因應氣候變遷之基本法源、於2023年由「溫室氣體減量及管理法」修正更名的是？',o:['再生能源發展條例','氣候變遷因應法','能源管理法','環境基本法'],a:1,e:'2023年修正更名為氣候變遷因應法，明定2050淨零排放為法定長期目標。'},
+{ch:'c2',q:'情境：某企業法務詢問，氣候變遷因應法明定我國2050年溫室氣體長期減量目標為淨零排放，該目標入法象徵意義為何？',o:['僅為行政部門內部政策宣示，無法律位階','將淨零排放目標由政策宣示提升為法定義務，並授權訂定碳費等經濟誘因工具','僅適用於中央政府機關，企業無需遵循','取代所有既有環保法規'],a:1,e:'入法使淨零目標具法定拘束力，並授權主管機關訂定碳費徵收等經濟誘因工具。'},
+{ch:'c2',q:'某企業因應氣候變遷因應法規範，欲了解中央主管機關之組織調整，下列敘述何者正確？',o:['環保署已於2023年8月改制為環境部，並下設氣候變遷署','氣候治理仍由經濟部能源署單一主責','我國無設置氣候變遷專責機關','氣候治理由地方政府各自立法主責'],a:0,e:'環保署於2023/8改制為環境部，下設氣候變遷署統籌氣候治理與碳定價機制。'},
+{ch:'c2',q:'情境：某上市公司欲評估國內外極端氣候衝擊之量化依據，下列何者是聯合國轄下、負責定期出版氣候科學評估報告的政府間專門機構？',o:['UNEP','IPCC','UNFCCC秘書處','WMO世界氣象組織'],a:1,e:'IPCC負責彙整並定期出版氣候科學評估報告（如AR6）。'},
+{ch:'c2',q:'某企業ESG小組整理「共同但有差異的責任」（CBDR）原則之意涵，下列敘述何者最貼切？',o:['所有締約國須承擔完全相同之減量義務','已開發國家因歷史排放責任較高，應承擔較多減量與資金義務，開發中國家依能力分擔','此原則已於巴黎協定中廢除','僅適用於已開發國家之間'],a:1,e:'CBDR原則強調已開發國家歷史排放責任較高，應承擔更多責任，開發中國家則依自身能力分擔。'},
+{ch:'c2',q:'情境：某企業評估國家自定貢獻（NDC）機制，下列敘述何者正確？',o:['NDC具強制國際法律拘束力，未達標將受國際制裁','NDC由各締約國自行訂定並定期（通常每5年）提交更新，屬由下而上機制','NDC僅開發中國家須提交','NDC內容不可包含調適措施'],a:1,e:'NDC是巴黎協定下由各國自行訂定、定期滾動更新的由下而上機制，不具強制制裁效果。'},
+{ch:'c2',q:'某企業因應氣候變遷因應法，欲確認我國溫室氣體管制對象涵蓋之氣體種類，下列何者不屬於法定納管之溫室氣體？',o:['二氧化碳（CO2）','氧化亞氮（N2O）','臭氧（O3）','六氟化硫（SF6）'],a:2,e:'我國納管溫室氣體包含CO2、CH4、N2O、HFCs、PFCs、SF6、NF3及其他公告氣體，臭氧非屬列管溫室氣體，為常見陷阱選項。'},
+
+{ch:'c3',q:'某企業欲提升國際能見度，加入承諾100%使用再生能源的全球性倡議，該倡議名稱為？',o:['SBTi','RE100','CDP','TNFD'],a:1,e:'RE100為承諾特定年限內100%使用再生能源電力的全球倡議。'},
+{ch:'c3',q:'情境：某集團財務長要求依循「以科學為基礎」設定減碳目標並經第三方審查核可，應參與下列何項倡議？',o:['CDP碳揭露計畫','SBTi科學基礎減量目標倡議','GRI準則','SDGs'],a:1,e:'SBTi要求企業以科學為基礎設定減碳目標，並經其秘書處審查核可。'},
+{ch:'c3',q:'某企業每年填報問卷、揭露氣候變遷、水資源與森林相關資訊予機構投資人審視，此屬於下列何種機制？',o:['CDP碳揭露計畫','TCFD氣候相關財務揭露','SASB永續會計準則','ISO14064'],a:0,e:'CDP是企業年度填報問卷、揭露碳排/水/森林資訊供投資人審視的機制，並給予A~D評等。'},
+{ch:'c3',q:'情境：某上市公司董事會欲依「治理、策略、風險管理、指標與目標」四大核心要素揭露氣候相關財務資訊，此架構源自？',o:['GRI通用準則','TCFD氣候相關財務揭露建議','SASB準則','CDP'],a:1,e:'TCFD以治理、策略、風險管理、指標與目標四大要素作為氣候財務揭露架構。'},
+{ch:'c3',q:'某公司評估自然相關風險對供應鏈之衝擊（如生物多樣性喪失、水資源枯竭），欲採用之揭露框架應為？',o:['TNFD自然相關財務揭露','TCFD','SBTi','RE100'],a:0,e:'TNFD專注於自然相關財務揭露，涵蓋生物多樣性、水資源等自然資本議題。'},
+{ch:'c3',q:'情境：某製造業財會主管欲了解，國際財務報導準則（IFRS）基金會於2023年正式發布、整合TCFD架構之永續揭露準則為？',o:['IFRS S1一般性揭露規定與IFRS S2氣候相關揭露','GRI 305溫室氣體排放準則','ISO14064-1:2018','ESRS歐盟永續報導準則'],a:0,e:'ISSB於2023年6月發布IFRS S1（一般規定）與IFRS S2（氣候相關揭露），並整併TCFD架構。'},
+{ch:'c3',q:'某企業依產業別選擇財務重大性導向之永續揭露指標，該套依75個產業分類、聚焦財務重大性之準則為？',o:['SASB永續會計準則','GRI通用準則','CDP','ISO26000'],a:0,e:'SASB依75個產業分類提供聚焦財務重大性的永續揭露指標。'},
+{ch:'c3',q:'情境：某企業欲對外溝通利害關係人重大性（雙重重大性含環境、社會衝擊）之整體永續報告，最廣泛被全球企業採用之報告框架為？',o:['GRI準則','SASB準則','TCFD','SBTi'],a:0,e:'GRI準則以廣泛利害關係人衝擊為導向，是全球最廣泛採用的永續報告框架。'},
+{ch:'c3',q:'某公司規劃永續發展藍圖時，欲對齊聯合國於2015年通過、涵蓋17項目標的全球共同發展方向，該框架為？',o:['京都議定書','SDGs聯合國永續發展目標','巴黎協定','RE100'],a:1,e:'SDGs為聯合國2015年通過，涵蓋17項全球永續發展目標。'},
+{ch:'c3',q:'情境：某科技公司加入SBTi後，其減碳目標須通過何種審核程序才能正式對外宣稱「經科學基礎減量目標倡議核可」？',o:['自行對外公告即可，無須第三方審查','經SBTi秘書處依其準則審查通過並取得認可函','僅需通過ISO14064查證','僅需股東會決議通過'],a:1,e:'須經SBTi秘書處依準則正式審查通過，取得認可函後方可對外宣稱。'},
+{ch:'c3',q:'某企業評估加入RE100之條件限制，下列敘述何者正確？',o:['RE100僅適用於製造業','加入RE100之企業須承諾在特定年限內（通常2030-2050）達成100%使用再生能源電力','RE100為強制性法規，未加入即違法','RE100僅計入自建太陽能，不含購電合約（PPA）或憑證'],a:1,e:'RE100為自願性企業倡議，承諾特定年限內達成100%再生能源電力，可透過自建、PPA或憑證等多元方式達成。'},
+{ch:'c3',q:'情境：某集團永續長比較GRI與SASB準則之差異，下列敘述何者最為正確？',o:['GRI聚焦財務重大性、投資人導向；SASB聚焦廣泛利害關係人衝擊','GRI著重利害關係人廣泛衝擊揭露；SASB聚焦財務重大性、產業別特定指標','兩者完全相同，已合併為單一準則','GRI僅適用歐洲企業，SASB僅適用美國企業'],a:1,e:'GRI以廣泛利害關係人衝擊為導向；SASB聚焦財務重大性與產業別特定指標，兩者互補而非取代。'},
+{ch:'c3',q:'某企業導入TCFD框架進行情境分析，下列何者屬於「轉型風險」而非「實體風險」？',o:['颱風造成廠房淹水停工','碳定價政策上路增加營運成本','海平面上升侵蝕沿岸廠址','極端高溫影響戶外施工'],a:1,e:'碳定價政策屬於因應低碳轉型而生的「轉型風險」，其餘為氣候實體衝擊造成的「實體風險」。'},
+{ch:'c3',q:'情境：某企業因應TNFD架構，須依「LEAP」方法論進行分析，其中「A」代表之步驟為？',o:['Assess（評估風險與機會）','Adapt（調適）','Audit（稽核）','Alert（預警）'],a:0,e:'TNFD建議之LEAP方法為Locate（定位）、Evaluate（評估依賴與衝擊）、Assess（評估風險與機會）、Prepare（準備因應與報告）。'},
+{ch:'c3',q:'某公司評估投資人日益要求採用IFRS S2進行氣候揭露，下列敘述何者正確？',o:['IFRS S2僅要求揭露範疇一排放','IFRS S2要求揭露範疇一、二、三溫室氣體排放及氣候相關風險與機會之財務影響','IFRS S2與TCFD架構完全無關','IFRS S2僅適用於金融業'],a:1,e:'IFRS S2整併TCFD架構，要求揭露範疇一、二、三排放及氣候相關風險機會之財務影響。'},
+{ch:'c3',q:'情境：某企業被客戶要求提供CDP問卷分數作為供應鏈評選依據，CDP評分等級由高至低排序，下列何者正確？',o:['A > B > C > D','A+ > A > B > C','領導級（A）> 管理級（B）> 認知級（C）> 揭露級（D）','白金 > 金 >銀 > 銅'],a:2,e:'CDP評等由高至低為領導級（A）、管理級（B）、認知級（C）、揭露級（D）。'},
+{ch:'c3',q:'某企業擬同時遵循GRI、SASB與TCFD三大框架建置永續報告，下列敘述何者最能說明三者互補關係？',o:['三者完全重疊，選擇其一即可涵蓋全部需求','GRI提供廣泛揭露架構、SASB提供產業別財務重大性指標、TCFD提供氣候治理與情境分析架構，三者可互補整合','三者互相衝突，企業僅能擇一採用','三者皆已被IFRS S1/S2完全取代且不再更新'],a:1,e:'三者各有側重，可互補整合以完整回應不同利害關係人需求。'},
+{ch:'c3',q:'情境：某新創企業評估是否申請加入SBTi「中小企業（SME）」簡化路徑，下列敘述何者正確？',o:['SME路徑僅需承諾方向、免經第三方審查','SME路徑仍須提出範疇一、二減量目標並經簡化審查程序核可','SME路徑不適用於任何產業','SME企業不得使用SBTi標章'],a:1,e:'SME簡化路徑仍須提出範疇一、二減量目標，並經SBTi簡化審查程序核可。'},
+{ch:'c3',q:'某企業依SDGs第13項「氣候行動」目標訂定內部KPI，下列何者最符合SDG 13之核心精神？',o:['僅關注企業財務績效成長','採取緊急行動因應氣候變遷及其衝擊，並強化調適能力','僅限於已開發國家企業適用','與溫室氣體排放無關'],a:1,e:'SDG 13核心精神為採取緊急行動因應氣候變遷及其衝擊，並強化調適韌性。'},
+{ch:'c3',q:'情境：某企業於年報中揭露「已通過SBTi核可之近程目標為2030年較基準年減少42%範疇一、二排放」，此目標路徑對應下列何種升溫控制情境？',o:['與2°C情境一致','與1.5°C情境一致','與3°C情境一致','與淨零2100情境一致'],a:1,e:'SBTi近程1.5°C路徑通常要求2030年前較基準年（常為2018-2022年）絕對減量約42%。'},
+
+{ch:'c4',q:'某出口鋼鐵製品至歐盟之企業，欲了解CBAM自2026年1月1日起進入之階段，正確敘述為？',o:['仍為過渡期，僅需申報無需繳費','正式階段（Definitive Regime）已上路，結束2023-2025過渡期','CBAM已全面取消','正式階段延至2030年才開始'],a:1,e:'CBAM自2026/1/1起進入正式階段，結束2023-2025過渡期。'},
+{ch:'c4',q:'情境：某扣件出口商欲確認CBAM涵蓋產品範圍，下列何者目前（2026年）不屬於CBAM納管六大產業之一？',o:['鋼鐵','水泥','紡織品','肥料'],a:2,e:'CBAM現行納管產業為鋼鐵、水泥、鋁、肥料、電力、氫氣，紡織品尚未納入。'},
+{ch:'c4',q:'某企業財務長試算2026年出口歐盟之CBAM成本，依現行規劃，進口商首次結算並繳交2026年度CBAM憑證之期限為？',o:['2026年5月31日前申報，2027年9月30日前完成憑證繳交','2026年即需完成全年結算並繳費','完全免除2026年度之繳費義務','2028年才需申報'],a:0,e:'進口商須每年5/31前提交申報報告，2026年度須於2027/9/30前完成首次CBAM憑證繳交。'},
+{ch:'c4',q:'情境：某台灣水泥出口商因缺乏我國專屬碳排放預設值，被迫採用之替代值計算方式為何？',o:['採用台灣官方公告之全國平均值','採用碳排強度最高之前十個國家平均值','免除申報義務','採用歐盟境內最低排放廠商之數值'],a:1,e:'缺乏本土專屬預設值時，須採碳排強度最高前十個國家的平均值計算，成本遠高於使用本土實際數據。'},
+{ch:'c4',q:'某企業評估以「已在原產國繳納之碳定價」扣抵CBAM憑證費用之可行性，下列敘述何者正確？',o:['任何國內費用皆可全額扣抵，無須舉證','須提出可信賴之碳定價支付證明，並依規則折算扣抵，惟目前台灣碳費費率遠低於CBAM憑證價格，扣抵效果有限','台灣碳費目前已與歐盟ETS完全等價互認','扣抵機制僅適用於電力產業'],a:1,e:'扣抵須提出可信證明並依規則折算，因台灣碳費費率（300元/噸）遠低於CBAM憑證價格，實質扣抵效果有限。'},
+{ch:'c4',q:'情境：某貿易商欲了解英國版碳邊境調整機制（UK CBAM）之預定上路時間，依目前規劃為？',o:['2025年','2027年','2030年','尚無任何規劃'],a:1,e:'UK CBAM預定2027年上路。'},
+{ch:'c4',q:'某企業法務比較歐盟CBAM運作原理與傳統關稅之差異，下列敘述何者正確？',o:['CBAM本質為對進口高碳排產品課徵之關稅稅則，與碳定價無關','CBAM係要求進口商依產品內含碳排放量購買憑證，用以弭平境內外碳成本差距、防止碳洩漏，非傳統關稅','CBAM僅對出口至歐盟以外地區之產品課徵','CBAM費用由歐盟出口商負擔，與進口商無關'],a:1,e:'CBAM本質是碳定價工具而非傳統關稅，由進口商依碳含量購買憑證，用以弭平境內外碳成本差距。'},
+{ch:'c4',q:'情境：某企業評估CBAM對其「碳洩漏」風險之影響，下列何者最貼近「碳洩漏」之定義？',o:['企業因製程設備老舊導致實際排放高於申報值','企業因國內碳定價成本提高，將高碳排產能移轉至碳管制較寬鬆之他國，導致全球排放未實質減少','企業因採購再生能源憑證而降低排放係數','企業因查證機構認證疏失導致排放數據外洩'],a:1,e:'碳洩漏指企業因國內碳成本提高而將產能移轉至管制較寬鬆國家，導致全球排放未實質減少。'},
+{ch:'c4',q:'某出口商注意到，隨EU ETS免費配額自2026年起逐步取消，其對CBAM憑證繳交比例之影響為？',o:['免費配額取消比例越高，CBAM憑證需繳交比例越低','免費配額逐步取消，CBAM憑證需繳交（收費）比例將同步提高，至2034年全面接軌','兩者互不相關','免費配額取消後CBAM機制將終止'],a:1,e:'免費配額逐步退場，CBAM需繳交比例同步提高，2034年全面接軌歐盟碳市場。'},
+{ch:'c4',q:'情境：某美國出口商評估「清潔競爭法案」（Clean Competition Act, CCA）之性質，下列敘述何者正確？',o:['CCA為美國已正式立法生效之聯邦碳邊境稅制','CCA為美國國會提出之碳邊境調整概念法案，尚未完成立法程序，性質類似美版CBAM芻議','CCA為WTO主導之全球統一碳關稅制度','CCA僅適用於農產品'],a:1,e:'CCA目前僅為美國國會提出的草案，尚未完成立法，非現行生效制度，是常見陷阱。'},
+{ch:'c4',q:'某企業評估CBAM申報所需之「內含碳排放量」計算範圍，應包含：',o:['僅直接排放（範疇一）','直接排放及因電力使用產生之間接排放','含範疇三供應鏈全部排放','僅計算運輸過程排放'],a:1,e:'CBAM要求申報直接排放及因電力使用產生的間接排放。'},
+{ch:'c4',q:'情境：某進口商欲於歐盟取得「授權CBAM申報人」（Authorised CBAM Declarant）資格，其主要目的為？',o:['取得資格後才可進口CBAM管制商品，未取得者貨物將無法於歐盟海關放行','此資格僅具行銷宣傳意義，無實質法律效果','此資格由出口國政府核發','所有進口商均自動取得，無須申請'],a:0,e:'自2026年起僅授權CBAM申報人可進口CBAM管制商品，未取得資格者貨物無法於海關放行。'},
+{ch:'c4',q:'某企業檢視2026年公布之CBAM憑證季度參考價格與EU ETS關係，下列敘述何者正確？',o:['CBAM憑證價格與EU ETS拍賣價格脫鉤、由WTO單獨訂定','CBAM憑證價格依EU ETS配額之季度平均拍賣價格計算，價格連動EU ETS市場','CBAM憑證價格為固定值，永不調整','CBAM憑證價格由各進口商自行議定'],a:1,e:'CBAM憑證價格依EU ETS配額季度平均拍賣價格計算，隨市場浮動。'},
+{ch:'c4',q:'情境：某企業評估「碳關稅」與國內「碳費」制度之政策目的差異，下列敘述何者最為適切？',o:['碳關稅目的為增加進口國財政收入，與減碳無關','碳關稅（如CBAM）旨在弭平境內外碳成本差距、防止碳洩漏並促進全球公平競爭；國內碳費旨在對國內排放源建立內部化誘因、驅動減碳','兩者制度目的完全相同，可互相取代','碳費僅適用於出口型企業'],a:1,e:'碳關稅著重弭平境內外碳成本差距、防堵碳洩漏；碳費著重對國內排放源建立內部化減碳誘因，兩者目的不同但可互補。'},
+{ch:'c4',q:'某中小型扣件廠評估「年進口量50噸以下」條款對其CBAM義務之影響，下列敘述何者正確？',o:['低於此門檻之進口量可獲得完全豁免CBAM申報與繳費義務（小量豁免）','無論進口量多寡皆須繳費','此門檻僅適用於電力產業','此門檻已於2026年取消'],a:0,e:'年進口量50噸以下之貨物可享CBAM小量豁免，免除申報與繳費義務。'},
+
+{ch:'c5',q:'某企業依國發會公布之台灣2050淨零排放路徑規劃減碳策略，下列何者為官方定調之「四大轉型策略」？',o:['能源、產業、生活、社會轉型','能源、金融、法制、國際','電力、運輸、建築、農業轉型','科技、社會、金融、法制轉型'],a:0,e:'台灣2050淨零路徑四大轉型策略為能源轉型、產業轉型、生活轉型、社會轉型。'},
+{ch:'c5',q:'情境：某集團依循「兩大治理基礎」規劃內部淨零推動組織，該兩大基礎為？',o:['科技研發與氣候法制','碳交易與碳費','綠色金融與碳關稅','再生能源與儲能'],a:0,e:'兩大治理基礎為科技研發與氣候法制。'},
+{ch:'c5',q:'某企業檢視我國「十二項關鍵戰略」之推動架構，下列何者不屬於十二項關鍵戰略之一？',o:['氫能','自然碳匯','碳邊境調整機制（CBAM）','運具電動化及無碳化'],a:2,e:'CBAM為歐盟制度，非我國十二項關鍵戰略之一；我國十二項戰略涵蓋能源、電力系統與儲能、氫能、前瞻能源、CCUS、運具電動化、資源循環、自然碳匯、綠色金融、公正轉型、綠色生活等。'},
+{ch:'c5',q:'情境：某製造業導入CCUS技術評估其角色定位，CCUS於我國淨零路徑中主要功能為？',o:['完全取代再生能源發展','捕集、利用及封存難以避免之工業製程與能源使用排放，作為深度減碳之輔助技術','僅適用於農業部門','用於增加化石燃料使用量'],a:1,e:'CCUS是處理難以避免排放的輔助技術，用以深度減碳，並非取代再生能源。'},
+{ch:'c5',q:'某企業規劃參與自然碳匯專案，下列何者屬於我國推動之自然碳匯類型？',o:['森林碳匯、海洋（藍碳）碳匯、土壤碳匯','僅限森林碳匯','僅限海洋碳匯','核能除役後之土地復育'],a:0,e:'我國自然碳匯戰略涵蓋森林碳匯、海洋（藍碳）碳匯及土壤碳匯。'},
+{ch:'c5',q:'情境：某企業評估「公正轉型」戰略對其人力資源規劃之意涵，下列敘述何者正確？',o:['公正轉型僅關注企業獲利分配','公正轉型關注因淨零轉型受衝擊之產業、勞工及地區，應提供輔導、再培訓與社會對話機制，確保轉型過程公平','公正轉型僅適用於政府機關','公正轉型與勞工權益無關'],a:1,e:'公正轉型關注受淨零轉型衝擊之產業、勞工及地區，強調輔導、再培訓與社會對話。'},
+{ch:'c5',q:'某企業依國發會路徑規劃，欲確認我國2030年較2005年基準年之階段性減碳目標，依現行規劃約為？',o:['減量10%','減量23%-28%區間（隨政策滾動調整）','減量50%','已達成淨零'],a:1,e:'依國發會路徑及歷次NDC更新，2030年階段目標約為較2005年基準年減量23%-28%區間，屬中期指標性目標。'},
+{ch:'c5',q:'情境：某能源業者檢視我國推動之「前瞻能源」戰略，主要聚焦下列何種技術？',o:['地熱、海洋能等新興再生能源技術','燃煤發電效率提升','核能延役','石油探勘技術'],a:0,e:'前瞻能源戰略聚焦地熱、海洋能等新興再生能源技術之研發布局。'},
+{ch:'c5',q:'某企業評估「綠色金融」戰略對其融資規劃之影響，下列敘述何者正確？',o:['綠色金融僅指企業自行認定之環保投資，無須外部規範','綠色金融戰略推動包括永續分類標準、氣候相關財務揭露及綠色金融商品（如綠色債券、永續連結貸款）發展，引導資金投入淨零轉型','綠色金融與碳定價機制完全無關','綠色金融僅適用於金融業自身排放管理'],a:1,e:'綠色金融戰略涵蓋永續分類標準、氣候財務揭露及綠色金融商品發展，引導資金投入淨零轉型。'},
+{ch:'c5',q:'情境：某上市公司欲確認金管會推動之「上市櫃公司永續發展路徑圖」，其要求全體上市櫃公司完成溫室氣體盤查之目標年度規劃為？',o:['所有上市櫃公司應於2027年前完成盤查，2029年前完成查證，分階段推動（資本額規模較大者優先）','僅資本額百億元以上公司需盤查，其餘永久免除','此路徑圖已於2023年廢止','僅適用於上市公司，上櫃公司不適用'],a:0,e:'金管會路徑圖規劃依資本額規模分階段推動，全體上市櫃公司2027年前完成盤查、2029年前完成查證。'},
+{ch:'c5',q:'某企業評估「運具電動化及無碳化」戰略之推動重點，下列何者非其主要範疇？',o:['電動車輛及充電基礎設施發展','船舶與航空業低碳燃料轉型','企業員工在家工作比例提升','大眾運輸系統低碳化'],a:2,e:'員工在家工作比例提升非此戰略主要範疇，該戰略聚焦運具本身之電動化與燃料轉型。'},
+{ch:'c5',q:'情境：某食品加工業評估「資源循環零廢棄」戰略之核心精神，下列敘述何者最貼切？',o:['僅著重廢棄物末端處理焚化','透過循環經濟設計、資源效率提升與廢棄物資源化，降低原生資源消耗及排放','僅適用於電子產業','與溫室氣體減量無關'],a:1,e:'資源循環零廢棄戰略核心為循環經濟設計、資源效率提升與廢棄物資源化。'},
+{ch:'c5',q:'某企業檢視「氫能」戰略在我國能源結構中之定位，下列敘述何者正確？',o:['氫能規劃作為未來混氫發電、工業製程及運輸替代燃料之關鍵，惟現階段仍面臨供應鏈與成本挑戰','氫能已完全取代天然氣發電','氫能僅用於民生家庭用途','我國尚未將氫能納入淨零戰略'],a:0,e:'氫能戰略規劃作為混氫發電、工業製程及運輸替代燃料的關鍵技術，惟現階段仍面臨供應鏈與成本挑戰。'},
+{ch:'c5',q:'情境：某企業於年度永續報告書引用「淨零綠生活」戰略，下列何者屬於此戰略推動範疇？',o:['綠色飲食、綠色運輸、循環消費、教育宣導等民眾生活面向轉型','僅限企業內部生產流程改造','僅限重工業節能改造','與食農教育無關'],a:0,e:'淨零綠生活戰略聚焦民眾生活面向轉型，包括綠色飲食、綠色運輸、循環消費及教育宣導，與食農教育高度相關。'},
+{ch:'c5',q:'某企業高階主管欲向董事會說明台灣2050淨零排放路徑之階段規劃，下列敘述何者正確？',o:['路徑僅規劃單一年度（2050年）目標，無中期查核點','路徑設有階段性查核與滾動檢討機制','路徑一經公告即不可修正','路徑僅適用於六都'],a:1,e:'淨零路徑設有階段性查核點與滾動檢討機制，並非僅單一終點目標。'},
+{ch:'c5',q:'情境：某企業評估「電力系統與儲能」戰略對其穩定供電之意涵，下列敘述何者正確？',o:['此戰略聚焦提升再生能源占比、強化電網韌性及儲能系統布建，因應間歇性再生能源特性','此戰略僅關注核電機組延役','此戰略與再生能源無關','此戰略僅適用於台電公司'],a:0,e:'電力系統與儲能戰略聚焦提升再生能源占比、強化電網韌性及儲能布建，以因應再生能源間歇性。'},
+{ch:'c5',q:'某企業擬評估其自身角色於淨零路徑「產業轉型」策略之定位，下列敘述何者最正確？',o:['產業轉型策略要求所有產業一律關廠停業','產業轉型策略聚焦製程節能、能源效率提升、低碳製程及技術創新，並依產業特性訂定差異化路徑','產業轉型僅適用於半導體業','產業轉型與碳費機制脫鉤，互不影響'],a:1,e:'產業轉型策略聚焦製程節能、能效提升與低碳製程創新，並依產業特性訂定差異化路徑。'},
+{ch:'c5',q:'情境：某企業檢視我國溫室氣體排放清冊最新公布資料（2026年版，涵蓋2024年排放量），下列敘述何者正確？',o:['2024年能源部門排放量較前一年上升','2024年能源部門排放量首見減量，惟受綠能推動不如預期及AI帶動用電需求增加，整體2025年減碳10%之國家目標恐難達成','2024年我國已達成淨零排放','能源部門排放清冊已停止編製'],a:1,e:'2026年版排放清冊顯示2024年能源部門排放首見減量，但受綠能不如預期及AI用電需求增加影響，2025年減碳10%目標恐難達成。'},
+{ch:'c5',q:'某企業評估參與綠色供應鏈輔導計畫，欲確認我國推動企業淨零轉型之主要對接窗口機關，下列何者正確？',o:['環境部氣候變遷署為統籌氣候治理與碳定價機制之主責機關','淨零轉型完全由地方政府各自負責，中央無統籌機關','僅金管會負責，環境部不涉入','僅經濟部負責，與環境部無關'],a:0,e:'環境部氣候變遷署為統籌氣候治理與碳定價機制之中央主責機關。'},
+{ch:'c5',q:'情境：某企業評估「社會轉型」策略之核心精神，下列敘述何者正確？',o:['社會轉型聚焦於凝聚社會共識、強化氣候溝通教育及公民參與，並落實公正轉型','社會轉型僅指企業組織重整','社會轉型與教育無關','社會轉型僅適用於偏鄉地區'],a:0,e:'社會轉型策略聚焦凝聚社會共識、強化氣候溝通教育及公民參與，並落實公正轉型。'},
+
+{ch:'c6',q:'某工廠依「碳費徵收辦法」，2026年首波徵收適用之一般費率為每公噸新台幣多少元？',o:['100元','300元','500元','1000元'],a:1,e:'一般費率為每噸新台幣300元。'},
+{ch:'c6',q:'情境：某企業提出自主減量計畫並採行業別指定削減率（優惠費率A），其2030年相對2021年基準年之一般行業削減率要求約為？',o:['15%','23%','42%','60%'],a:2,e:'優惠費率A要求一般行業2030年較2021基準年削減約42%（鋼鐵業、水泥業另有指定較低削減率）。'},
+{ch:'c6',q:'某企業符合技術標竿指定削減率（優惠費率B），其每公噸費率為新台幣多少元？',o:['50元','100元','150元','200元'],a:1,e:'優惠費率B為每噸100元，要求各行業2030年較2018-2022年平均削減約23%。'},
+{ch:'c6',q:'情境：某高碳洩漏風險產業（如鋼鐵業）企業提交自主減量計畫並通過審查後，可適用之高碳洩漏風險係數為？',o:['0.2（乘以優惠費率，大幅降低實質稅負）','1.5','2.0','此係數僅適用一般費率'],a:0,e:'高碳洩漏風險係數為0.2，乘以優惠費率後可大幅降低實質稅負，適用於高碳洩漏風險產業。'},
+{ch:'c6',q:'某企業檢視2026年碳費首波徵收成果，下列敘述何者正確？',o:['首波共461家列管工廠、240家企業全數依期繳費，總徵收金額約49.7億元，半導體業繳納占比最高','首波無任何工廠通過自主減量計畫審查','首波徵收全數延遲繳納','首波徵收對象僅限半導體業'],a:0,e:'2026年首波碳費徵收共461家工廠、240家企業全數如期完成繳費，總額約49.7億元，半導體業繳納占比約44.3%居冠。'},
+{ch:'c6',q:'情境：某企業評估我國「總量管制及排放交易系統（ETS）」推動時程，下列敘述何者較符合目前規劃？',o:['環境部規劃先啟動試行平台，目標2027年正式實施','ETS已於2026年正式全面上路取代碳費','我國無規劃建置ETS','ETS僅適用於農業部門'],a:0,e:'環境部規劃先啟動試行平台，目標2027年正式實施，與碳費並行互補，非取代碳費。'},
+{ch:'c6',q:'某企業年碳排放量超過2.5萬公噸，欲適用優惠費率，依自主減量計畫管理辦法規定，須於徵收年度前一年之何時前提出自主減量計畫？',o:['當年度12月底','前一年6月底前提出計畫','徵收當月','無須提出，自動適用優惠費率'],a:1,e:'須於徵收年度前一年6月底前向環境部提出自主減量計畫，方能適用優惠費率。'},
+{ch:'c6',q:'情境：某企業比較「碳費」與「碳交易（碳權）」兩制度之性質差異，下列敘述何者正確？',o:['碳費為對排放源直接課徵之定額或級距費用；碳交易則透過總量管制下配額或減量額度之市場買賣形成價格，兩者可併行搭配','碳費與碳交易完全相同，僅名稱不同','碳交易僅存在於歐盟，我國無相關機制','碳費繳納後即取得可轉售之碳權'],a:0,e:'碳費是直接課徵之定額/級距費用；碳交易則是透過總量管制下市場機制形成價格，兩者性質不同但可併行搭配。'},
+{ch:'c6',q:'某企業評估我國「自願減量機制」下之減量額度，下列敘述何者正確？',o:['企業可依核准之減量方法學執行自願減量專案，經查驗後取得減量額度，可用於碳費扣減或交易','自願減量額度僅能用於企業內部帳務紀錄，不可交易','自願減量機制已於2023年廢止','自願減量額度不受任何方法學規範'],a:0,e:'企業依核准方法學執行自願減量專案，經查驗取得減量額度，可用於碳費扣減或碳權交易。'},
+{ch:'c6',q:'情境：某企業欲透過台灣碳權交易所進行國內減量額度交易，下列敘述何者正確？',o:['台灣碳權交易所成立後，同時辦理國內自願減量額度交易及國外碳權買賣媒合業務','台灣碳權交易所僅辦理股票交易','碳權交易所由地方政府各自成立','碳權交易所交易之額度不受主管機關查證規範'],a:0,e:'台灣碳權交易所辦理國內自願減量額度交易及國外碳權買賣媒合業務。'},
+{ch:'c6',q:'某企業評估以2030年相對2018-2022年平均值計算「技術標竿指定削減率」之邏輯基礎，下列敘述何者正確？',o:['以產業技術可行之最佳可行技術（BAT）標竿作為削減率設算依據，各行業平均削減率約23%','以企業自訂目標為唯一依據，無公版標竿','技術標竿僅適用於服務業','技術標竿與碳洩漏係數互斥、不可同時適用'],a:0,e:'技術標竿削減率以產業最佳可行技術（BAT）為設算依據，各行業平均削減率約23%，且可與碳洩漏係數併用。'},
+{ch:'c6',q:'情境：某企業之減碳成本經內部試算，每噸減碳成本約新台幣3000-5000元，遠高於現行碳費一般費率（300元），此現象反映之政策意涵為？',o:['顯示碳費費率已充分反映企業實質減碳成本，無需搭配其他工具','顯示現行碳費費率偏低，須輔以ETS等市場機制強化減碳誘因，並提高企業自主投入減碳之經濟動能','顯示企業應立即停止一切減碳投資','顯示碳費制度應立即廢除'],a:1,e:'碳費費率遠低於實質減碳成本，反映須輔以ETS等市場機制強化誘因。'},
+{ch:'c6',q:'某企業評估碳費繳納義務對象範圍，依現行規範，碳費徵收對象主要鎖定：',o:['年排放量達2.5萬公噸二氧化碳當量以上之直接及能源間接排放源（電力業、製造業等）','所有登記在案之公司行號不分排放量一律課徵','僅限公營事業','僅限出口型企業'],a:0,e:'碳費徵收對象為年排放量達2.5萬公噸二氧化碳當量以上之直接及能源間接排放源。'},
+{ch:'c6',q:'情境：某企業因暫時營運困難，欲了解碳費是否有紓困或緩繳機制，下列敘述何者較符合環境部說明？',o:['環境部正與經濟部研議暫時紓困、緩繳或分期繳納等協助措施，惟截至首波徵收，尚無企業實際申請緩繳，全數如期繳款','碳費法規明文禁止任何緩繳可能性','只要提出申請即自動獲准緩繳且免罰','緩繳機制僅適用於外商公司'],a:0,e:'環境部正研議紓困、緩繳或分期措施，惟2026年首波徵收全數企業均如期繳款，無人申請緩繳。'},
+{ch:'c6',q:'某企業比較「碳費」與國際碳關稅（CBAM）之互動關係，下列敘述何者正確？',o:['企業於國內繳納之碳費原則上可作為向歐盟申請扣抵CBAM憑證費用之依據，但因費率差距，實際扣抵效果有限，兩國正就互認機制協商中','碳費與CBAM無任何關聯','繳納碳費後可完全免除CBAM義務','CBAM費用可扣抵我國碳費'],a:0,e:'國內碳費原則上可作為扣抵CBAM憑證費用之依據，惟因費率差距，扣抵效果有限，雙方仍在協商互認機制。'},
+
+{ch:'c7',q:'某企業欲取得「碳中和」宣告之國際標準依據，2023年11月發布、逐漸取代PAS 2060之新標準為？',o:['ISO14064-1','ISO14068-1碳中和標準','ISO14067','ISO26000'],a:1,e:'ISO14068-1於2023年11月發布，逐步取代英國標準協會發布的PAS 2060。'},
+{ch:'c7',q:'情境：某企業規劃碳中和路徑，依ISO14068-1精神，達成碳中和之優先順序原則為？',o:['直接以購買碳權抵換全部排放，無須自身減量','優先落實自身減量措施（避免、減少排放），再對剩餘無法避免之排放進行移除或抵換','僅需購買森林碳權即可宣告碳中和，無須查證','碳中和與減量路徑無關，僅計算抵換額度'],a:1,e:'ISO14068-1強調減量優先層級，抵換僅用於處理剩餘無法避免的排放，並要求可信之碳信用品質與透明揭露。'},
+{ch:'c7',q:'某企業比較PAS 2060與ISO14068-1兩項碳中和標準之差異，下列敘述何者正確？',o:['PAS 2060為英國標準協會（BSI）發布之私有標準；ISO14068-1為國際標準化組織發布之國際標準，兩者精神類似但ISO14068-1要求更明確之減量優先層級','兩者完全相同，無任何差異','PAS 2060較ISO14068-1嚴格','ISO14068-1不涉及碳抵換'],a:0,e:'PAS 2060為BSI私有標準；ISO14068-1為國際標準，並更明確要求減量優先層級與碳信用品質。'},
+{ch:'c7',q:'情境：某企業宣告產品達成碳中和，依ISO14068-1精神，抵換所使用之碳信用額度應符合下列何項品質原則？',o:['具真實性、額外性、永久性、可量化性且避免重複計算','僅需價格低廉即可，品質無須考量','可使用未經第三方查證之任意來源額度','抵換額度可無限重複使用於不同企業之宣告'],a:0,e:'碳信用品質原則為真實性、額外性、永久性、可量化性，並須避免重複計算。'},
+{ch:'c7',q:'某企業依CNS 14068-1（我國國家標準採用ISO14068-1）規劃碳中和專案，下列敘述何者正確？',o:['我國已將ISO14068-1轉化為CNS國家標準，企業可依循辦理碳中和宣告及第三方查證','我國尚未採用ISO14068-1，仍僅適用PAS2060','CNS標準與ISO標準無任何對應關係','碳中和標準僅適用於製造業'],a:0,e:'我國已將ISO14068-1轉化為CNS 14068-1國家標準，企業可依循辦理碳中和宣告及查證。'},
+{ch:'c7',q:'情境：某企業規劃分階段達成「產品碳中和」、「組織碳中和」及最終「淨零排放」，下列敘述何者正確說明三者關係？',o:['三者為完全相同之概念，可互換使用','碳中和（carbon neutrality）可透過抵換達成範疇排放平衡；淨零排放（net zero）則要求更高比例之絕對減量（通常90%以上），抵換僅用於極少數無法避免之殘餘排放','淨零排放門檻低於碳中和','產品碳中和不需考慮生命週期排放'],a:1,e:'碳中和可透過抵換達成排放平衡；淨零排放要求更高比例的絕對減量，抵換僅用於極少數殘餘排放，兩者門檻不同。'},
+{ch:'c7',q:'某企業欲對外宣稱碳中和，依ISO14068-1要求，下列何者為必要之揭露事項？',o:['僅需揭露最終「已達成碳中和」結論，無須揭露計算邊界與方法','應揭露排放量計算邊界、減量措施、抵換額度來源與品質、查證情形等完整資訊，以確保透明度並避免漂綠疑慮','揭露事項可由企業自行決定是否公開','僅上市公司需揭露，其餘企業免除'],a:1,e:'應完整揭露計算邊界、減量措施、抵換額度來源品質及查證情形，以確保透明度並避免漂綠。'},
+{ch:'c7',q:'情境：某企業評估「碳中和」宣告是否構成「漂綠」（greenwashing）風險，下列何種作法風險最高？',o:['優先落實自身減量並輔以高品質碳信用抵換殘餘排放，並經第三方查證後對外揭露完整資訊','完全不投入自身減量，僅大量購買低價、未經查證之碳權即對外宣稱「碳中和」','設定中長期減量路徑並逐年檢討修正','委託第三方機構查證後再對外發布碳中和聲明'],a:1,e:'完全不投入自身減量、僅購買低價未查證碳權即宣稱碳中和，是最典型的漂綠風險行為。'},
+{ch:'c7',q:'某企業規劃將ISO14068-1碳中和查證結果應用於供應鏈管理，下列敘述何者正確？',o:['碳中和查證報告可作為向客戶展示可信減碳承諾之依據，惟仍須留意其僅為特定邊界（如組織或產品層級）之階段性宣告，非等同全面淨零','取得碳中和查證後即代表企業已達成2050淨零排放目標','碳中和查證結果不具備任何商業溝通價值','查證結果僅政府機關可使用'],a:0,e:'碳中和查證是特定邊界（組織或產品層級）之階段性宣告，可作為商業溝通依據，但不等同已達成全面淨零。'},
+{ch:'c7',q:'情境：某集團永續長總結ISO14068-1、CBAM、碳費、SBTi等制度之共通精神，下列敘述何者最能綜合說明本考科核心觀念？',o:['各項國際倡議與國內法制彼此獨立、互不相關，企業僅需選擇其一因應即可','全球淨零治理正朝「內部化碳成本、要求透明揭露、以科學為基礎設定目標、減量優先於抵換」之共同方向發展，企業須整合因應以維持競爭力並降低轉型風險','企業只要繳納碳費即可豁免所有國際規範義務','淨零相關規範僅影響出口導向企業，內需型企業無須因應'],a:1,e:'全球淨零治理趨勢為內部化碳成本、要求透明揭露、以科學為基礎設定目標、減量優先於抵換，企業須整合因應各項制度以維持競爭力並降低轉型風險。'}
+];
+
+// ---------- Quiz state ----------
+let answers = {}; // index -> {selected, correct}
+let wrongOnly = false;
+
+function renderQuiz(){
+  const filter = document.getElementById('chapterFilter').value;
+  const list = document.getElementById('quizList');
+  list.innerHTML = '';
+  const chNames = {c1:'CH1 COP',c2:'CH2 治理',c3:'CH3 國際倡議',c4:'CH4 CBAM',c5:'CH5 台灣路徑',c6:'CH6 碳費',c7:'CH7 碳中和'};
+
+  QUESTIONS.forEach((q, idx)=>{
+    if(filter!=='all' && q.ch!==filter) return;
+    if(wrongOnly){
+      const rec = answers[idx];
+      if(!rec || rec.correct) return;
+    }
+    const card = document.createElement('div');
+    card.className='qcard';
+    card.id = 'q'+idx;
+    const rec = answers[idx];
+
+    let optsHtml = '';
+    q.o.forEach((opt,oi)=>{
+      let cls='';
+      if(rec){
+        cls='disabled';
+        if(oi===q.a) cls+=' correct';
+        else if(oi===rec.selected) cls+=' wrong';
+      }
+      optsHtml += `<li class="${cls}" onclick="selectAnswer(${idx},${oi})"><span class="opt-letter">${String.fromCharCode(65+oi)}</span><span>${opt}</span></li>`;
+    });
+
+    card.innerHTML = `
+      <div class="qcard-head">
+        <span class="qnum">Q${idx+1}</span>
+        <span class="qchtag">${chNames[q.ch]}</span>
+      </div>
+      <div class="qtext">${q.q}</div>
+      <ul class="options">${optsHtml}</ul>
+      <div class="explain ${rec?'show':''}"><b>解析：</b>${q.e}</div>
+    `;
+    list.appendChild(card);
+  });
+  updateScorePanel();
+}
+
+function selectAnswer(idx, oi){
+  if(answers[idx]) return; // already answered
+  const q = QUESTIONS[idx];
+  answers[idx] = {selected:oi, correct: oi===q.a};
+  renderQuiz();
+  document.getElementById('q'+idx)?.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+function updateScorePanel(){
+  const total = QUESTIONS.length;
+  const answeredKeys = Object.keys(answers);
+  const answered = answeredKeys.length;
+  const correct = answeredKeys.filter(k=>answers[k].correct).length;
+  document.getElementById('answeredCount').textContent = answered;
+  document.getElementById('totalCount').textContent = total;
+  document.getElementById('accuracy').textContent = answered? Math.round(correct/answered*100)+'%' : '0%';
+  document.getElementById('progressBar').style.width = (answered/total*100)+'%';
+
+  const summary = document.getElementById('summaryCard');
+  if(answered===total){
+    summary.classList.add('show');
+    document.getElementById('summaryScore').textContent = correct+' / '+total;
+    let msg = '';
+    const pct = correct/total*100;
+    if(pct>=80) msg='顧問等級判斷力已具備，維持這個手感上考場！';
+    else if(pct>=60) msg='基礎穩固，回頭複習答錯章節的筆記重點再衝刺一次。';
+    else msg='建議先重讀筆記重點，再針對答錯章節逐題複習解析。';
+    document.getElementById('summaryMsg').textContent = msg;
+  } else {
+    summary.classList.remove('show');
+  }
+}
+
+function toggleWrongOnly(){
+  wrongOnly = !wrongOnly;
+  document.getElementById('wrongOnlyBtn').textContent = wrongOnly? '顯示全部題目' : '只看答錯題目';
+  renderQuiz();
+}
+
+function resetQuiz(){
+  answers = {};
+  wrongOnly = false;
+  document.getElementById('wrongOnlyBtn').textContent = '只看答錯題目';
+  document.getElementById('chapterFilter').value = 'all';
+  renderQuiz();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+renderQuiz();
+</script>
+</body>
+</html>
