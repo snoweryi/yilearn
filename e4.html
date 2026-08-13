@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<link href="img/favicon.ico" rel="icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>淨零碳規劃管理師｜考科二總複習帳本</title>
+<style>
+:root{
+  --paper:#F3EFE4;
+  --paper-line:#d9cfb8;
+  --ink:#1f2a24;
+  --ink-soft:#4a5750;
+  --forest:#1e3d2f;
+  --forest-deep:#122820;
+  --moss:#5c7a5e;
+  --amber:#c17a2e;
+  --amber-soft:#e8d3ad;
+  --red:#a83e3e;
+  --green-ok:#2f6b46;
+  --card:#fbf9f2;
+  --shadow: 0 1px 0 rgba(0,0,0,.05);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:
+    repeating-linear-gradient(#F3EFE4 0px, #F3EFE4 34px, var(--paper-line) 35px);
+  background-color:var(--paper);
+  color:var(--ink);
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  line-height:1.7;
+}
+::selection{background:var(--amber-soft);}
+
+header.hero{
+  background:linear-gradient(160deg,var(--forest) 0%,var(--forest-deep) 100%);
+  color:#f4efe0;
+  padding:52px 24px 60px;
+  position:relative;
+  overflow:hidden;
+  border-bottom:6px solid var(--amber);
+  font-size: 22px;
+}
+header.hero::before{
+  content:"";
+  position:absolute; inset:0;
+  background-image: radial-gradient(circle at 85% 20%, rgba(193,122,46,.18), transparent 40%),
+                     radial-gradient(circle at 10% 90%, rgba(92,122,94,.25), transparent 45%);
+}
+.hero-inner{max-width:1900px;margin:0 auto;position:relative;}
+.eyebrow{
+  font-family:"Noto Serif TC",serif;
+  letter-spacing:.32em;
+  font-size: 22px;
+  color:var(--amber-soft);
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
+h1.title{
+  font-family:"Noto Serif TC",serif;
+  font-weight:700;
+  font-size:clamp(28px,4.6vw,46px);
+  margin:0 0 10px;
+  line-height:1.25;
+}
+h1.title .thin{font-weight:400; color:var(--amber-soft); font-size:.6em; display:block; margin-top:4px;}
+.hero-meta{
+  display:flex; flex-wrap:wrap; gap:10px;
+  margin-top:22px;
+}
+.chip{
+  border:1px solid rgba(244,239,224,.35);
+  border-radius:999px;
+  padding:7px 16px;
+  font-size: 22px;
+  color:#f4efe0;
+  background:rgba(244,239,224,.06);
+}
+.chip b{color:var(--amber-soft);}
+.seal{
+  position:absolute; right:0; top:0;
+  width:118px; height:118px;
+  border:3px solid var(--amber-soft);
+  border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  transform:rotate(9deg);
+  opacity:.85;
+}
+.seal-txt{
+  font-family:"Noto Serif TC",serif;
+  text-align:center; color:var(--amber-soft);
+  font-size: 22px; line-height:1.5; letter-spacing:.08em;
+}
+
+nav.tabs{
+  position:sticky; top:0; z-index:50;
+  background:rgba(243,239,228,.92);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--paper-line);
+  display:flex; justify-content:center; gap:6px;
+  padding:10px 12px;
+  flex-wrap:wrap;
+}
+nav.tabs button{
+  font-family:"Noto Serif TC",serif;
+  border:1px solid transparent;
+  background:transparent;
+  color:var(--ink-soft);
+  padding:9px 18px;
+  border-radius:8px;
+  font-size: 22px;
+  cursor:pointer;
+  transition:.15s;
+}
+nav.tabs button:hover{background:var(--amber-soft);}
+nav.tabs button.active{
+  background:var(--forest); color:#f4efe0; border-color:var(--forest);
+}
+
+main{max-width:1900px; margin:0 auto; padding:38px 20px 100px;}
+section.view{display:none;}
+section.view.active{display:block; animation:fade .35s ease;}
+@keyframes fade{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);}}
+
+.intro-note{
+  background:var(--card);
+  border:1px solid var(--paper-line);
+  border-left:4px solid var(--amber);
+  padding:18px 22px;
+  border-radius:4px;
+  margin-bottom:34px;
+  font-size: 22px;
+  color:var(--ink-soft);
+}
+.chapter{
+  background:var(--card);
+  border:1px solid var(--paper-line);
+  border-radius:6px;
+  margin-bottom:26px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.chapter-head{
+  display:flex; align-items:baseline; gap:14px;
+  padding:18px 24px;
+  background:linear-gradient(90deg, var(--forest) 0%, var(--moss) 130%);
+  color:#f4efe0;
+  cursor:pointer;
+  user-select:none;
+}
+.chapter-head .num{
+  font-family:"Noto Serif TC",serif;
+  font-size: 22px;
+  border:1px solid rgba(244,239,224,.5);
+  border-radius:4px;
+  padding:2px 8px;
+  color:var(--amber-soft);
+  flex-shrink:0;
+}
+.chapter-head h2{
+  font-family:"Noto Serif TC",serif;
+  margin:0; font-size:19px; font-weight:600;
+  flex:1;
+}
+.chapter-head .caret{transition:.25s; font-size: 22px; color:var(--amber-soft);}
+.chapter.open .chapter-head .caret{transform:rotate(90deg);}
+.chapter-body{
+  max-height:0; overflow:hidden; transition:max-height .35s ease;
+  padding:0 26px;
+}
+.chapter.open .chapter-body{padding:20px 26px 26px;}
+.chapter-body h3{
+  font-family:"Noto Serif TC",serif;
+  font-size: 22px; color:var(--forest); margin:18px 0 8px;
+  border-bottom:1px dashed var(--paper-line); padding-bottom:4px;
+}
+.chapter-body h3:first-child{margin-top:0;}
+.chapter-body ul{margin:6px 0 14px; padding-left:20px;}
+.chapter-body li{margin-bottom:6px; font-size: 22px;}
+.chapter-body table{width:100%; border-collapse:collapse; margin:10px 0 18px; font-size: 22px;}
+.chapter-body th,.chapter-body td{border:1px solid var(--paper-line); padding:7px 10px; text-align:left;}
+.chapter-body th{background:var(--amber-soft); color:var(--forest-deep); font-family:"Noto Serif TC",serif;}
+.chapter-body tr:nth-child(even) td{background:#f6f2e6;}
+.callout{
+  background:#eef3ea; border:1px solid #cfe0cf; border-left:4px solid var(--green-ok);
+  padding:10px 14px; border-radius:4px; font-size: 22px; margin:10px 0 16px;
+}
+.callout.news{border-left-color:var(--amber); background:#fbf1e2;}
+.callout b{color:var(--forest);}
+.tag{
+  display:inline-block; font-size: 22px; padding:2px 8px; border-radius:999px;
+  background:var(--forest); color:#f4efe0; margin-right:6px; font-family:"Noto Serif TC",serif;
+}
+.tag.news{background:var(--amber);}
+
+.quiz-toolbar{
+  display:flex; flex-wrap:wrap; gap:10px; align-items:center;
+  margin-bottom:22px; padding:14px 18px;
+  background:var(--card); border:1px solid var(--paper-line); border-radius:6px;
+}
+.quiz-toolbar select, .quiz-toolbar button{
+  font-family:"Noto Sans TC",sans-serif;
+  border:1px solid var(--paper-line); background:#fff; color:var(--ink);
+  padding:8px 12px; border-radius:6px; font-size: 22px; cursor:pointer;
+}
+.quiz-toolbar button.primary{background:var(--forest); color:#f4efe0; border-color:var(--forest);}
+.quiz-toolbar button.ghost{background:transparent;}
+.score-panel{
+  margin-left:auto; display:flex; gap:16px; font-family:"Noto Serif TC",serif; font-size: 22px; color:var(--forest);
+}
+.score-panel span b{font-size: 22px;}
+.progress-wrap{height:6px; background:var(--paper-line); border-radius:3px; overflow:hidden; margin-bottom:24px;}
+.progress-bar{height:100%; background:linear-gradient(90deg,var(--amber),var(--forest)); width:0%; transition:width .3s;}
+
+.qcard{
+  background:var(--card); border:1px solid var(--paper-line); border-radius:6px;
+  padding:20px 22px; margin-bottom:16px; box-shadow:var(--shadow);
+}
+.qcard.hidden{display:none;}
+.qcard-head{display:flex; gap:10px; align-items:flex-start; margin-bottom:10px;}
+.qnum{
+  font-family:"Noto Serif TC",serif; background:var(--forest); color:#f4efe0;
+  border-radius:5px; padding:3px 9px; font-size: 22px; flex-shrink:0;
+}
+.qchtag{
+  font-size: 22px; color:var(--moss); border:1px solid var(--moss); border-radius:999px; padding:2px 9px; align-self:center;
+}
+.qtext{font-size: 22px; color:var(--ink); font-weight:500;}
+.options{list-style:none; margin:12px 0 4px; padding:0;}
+.options li{
+  border:1px solid var(--paper-line); border-radius:5px; padding:10px 14px; margin-bottom:8px;
+  cursor:pointer; font-size: 22px; transition:.15s; background:#fff;
+  display:flex; gap:10px;
+}
+.options li:hover{border-color:var(--moss); background:#f6f8f4;}
+.options li .opt-letter{font-family:"Noto Serif TC",serif; font-weight:700; color:var(--moss); flex-shrink:0;}
+.options li.correct{background:#e6f2e8; border-color:var(--green-ok); color:var(--green-ok); font-weight:600;}
+.options li.wrong{background:#fbeaea; border-color:var(--red); color:var(--red); font-weight:600;}
+.options li.disabled{pointer-events:none;}
+.explain{
+  display:none; margin-top:10px; padding:12px 14px; background:#f6f2e6; border-left:3px solid var(--amber);
+  border-radius:4px; font-size: 22px; color:var(--ink-soft);
+}
+.explain.show{display:block;}
+.explain b{color:var(--forest);}
+
+.summary-card{
+  background:var(--forest); color:#f4efe0; border-radius:8px; padding:26px 28px; text-align:center;
+  margin-bottom:24px; display:none;
+}
+.summary-card.show{display:block;}
+.summary-card .big{font-family:"Noto Serif TC",serif; font-size:40px; color:var(--amber-soft);}
+
+footer{
+  text-align:center; color:var(--ink-soft); font-size: 22px; padding:30px 20px 50px;
+}
+@media (max-width:640px){
+  .seal{display:none;}
+  header.hero{padding:40px 18px 48px;}
+}
+.badgerowbt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px;
+    background: #ffffff;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+a.badge1 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #007286;
+    color: #fff;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+a.badge2 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #007286;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+a.badge3 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #b8238d;
+    color: yellow;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+  @media(max-width:768px){
+  header.hero {  margin-top: 6rem;padding:8px 18px 30px;}
+    .q-header { flex-wrap: wrap; }
+    .meta-row { gap: 0.75rem; }
+  }
+</style>
+</head>
+<body>
+<div class="badgerowbt">	
+	<div><a href="https://snoweryi.github.io/yilearn/e1.html" class="badge1">考1</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/e3.html" class="badge1">考1</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/e2.html" class="badge1">考2</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/e4.html" class="badge2">考2</a></div>
+	
+	
+	
+	<div><a href="https://snoweryi.github.io/yilearn/menu.html" class="badge3">目錄</a></div>
+  </div>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">出題委員視角．考前總複習帳本</div>
+    <h1 class="title">淨零碳規劃管理師（初級）<span class="thin">考科二｜淨零碳盤查規範與程序概要</span></h1>
+    <div class="hero-meta">
+      <span class="chip">應考日 <b>2026/08/15</b></span>
+      <span class="chip">範圍 <b>ISO14064-1・我國盤查登錄查驗法制・範疇一二三・查證確證・ISO14067產品碳足跡</b></span>
+      <span class="chip">題型 <b>100 題高難度情境模擬試題（含最新法規時事）</b></span>
+    </div>
+  </div>
+  <div class="seal"><div class="seal-txt">2026<br>碳盤查<br>總複習</div></div>
+</header>
+
+<nav class="tabs">
+  <button class="tab-btn active" data-target="notes">📘 筆記重點</button>
+  <button class="tab-btn" data-target="quiz">✍️ 情境模擬試題 100 題</button>
+</nav>
+
+<main>
+
+<!-- ============ NOTES ============ -->
+<section id="notes" class="view active">
+  <div class="intro-note">
+    <b>給小宜的出題委員視角備考提醒：</b> 考科二是「操作程序 + 標準條文」的組合題型，出題委員最愛設計的陷阱是「時間點記錯」「係數版本用錯」「查證 vs 確證搞混」「範疇一二三分類錯誤」。以下依考科二學習指引架構（ISO14064-1 組織型盤查／我國盤查登錄查驗法制／ISO14067 產品碳足跡）整理七大章，並標記 <span class="tag news">時事</span> 2025–2026 最新公告數據，這些是近期最容易出成計算題或情境題的重點。
+  </div>
+
+  <!-- CH1 -->
+  <div class="chapter open">
+    <div class="chapter-head" onclick="toggleChapter(this)">
+      <span class="num">CH.1</span>
+      <h2>ISO 14064-1:2018 核心原則與要求</h2>
+      <span class="caret">▶</span>
+    </div>
+    <div class="chapter-body">
+      <h3>五大盤查原則（必背）</h3>
+      <table>
+        <tr><th>原則</th><th>意涵</th></tr>
+        <tr><td>相關性 Relevance</td><td>選擇適合預期使用者決策需求的數據、方法及邊界</td></tr>
+        <tr><td>完整性 Completeness</td><td>報告邊界內所有相關排放源與移除量均應納入，例外須說明</td></tr>
+        <tr><td>一致性 Consistency</td><td>採用一致方法進行時間序列比較，變更須文件化說明原因</td></tr>
+        <tr><td>準確性 / 精確度 Accuracy</td><td>盡可能降低偏差與不確定性，非要求絕對零誤差</td></tr>
+        <tr><td>透明度 Transparency</td><td>充分揭露相關資訊（含計算方法、GWP版本、不確定性），使他人可理解信賴</td></tr>
+      </table>
+      <h3>組織邊界設定二法</h3>
+      <ul>
+        <li><b>股權比例法（equity share）</b>：依實際持股比例納入排放量（如持股40%即納入40%排放）。</li>
+        <li><b>控制法（control approach）</b>：分「財務控制」（具主導財務與營運政策之權力並獲取經濟利益）與「營運控制」（具權力導入及執行營運政策，如安全衛生、環保標準），符合控制定義者通常<b>納入100%排放量</b>。</li>
+      </ul>
+      <div class="callout"><b>常考陷阱：</b>不論預期用途為何，都<b>不可用評估準則排除大量間接排放或規避法規義務</b>；生物質CO2應<b>單獨報告、不與化石源排放合併加總</b>；2018版相較2006版強化了間接排放重大性評估要求，並新增「溫室氣體主張」等定義。</div>
+    </div>
+  </div>
+
+  <!-- CH2 -->
+  <div class="chapter">
+    <div class="chapter-head" onclick="toggleChapter(this)">
+      <span class="num">CH.2</span>
+      <h2>我國溫室氣體排放量盤查登錄及查驗管理辦法</h2>
+      <span class="caret">▶</span>
+    </div>
+    <div class="chapter-body">
+      <h3>法源與關鍵期程（必背時間軸）</h3>
+      <ul>
+        <li>法源依據：<b>氣候變遷因應法第21條</b>；原辦法105年訂定，配合112/2/15修正公布之氣候變遷因應法修正更名。</li>
+        <li><b>每年4月30日前</b>：登錄前一年度排放量清冊及盤查報告書於資訊平台。</li>
+        <li><b>每年10月31日前</b>：公告應查驗事業須完成第三方查驗並上傳結果。</li>
+      </ul>
+      <h3>強制盤查對象</h3>
+      <ul>
+        <li><b>六大產業</b>（不分排放規模一律列管）：發電業、鋼鐵業、石油煉製業、水泥業、半導體業、TFT-LCD業。</li>
+        <li>任何製造業：全廠化石燃料燃燒與電力使用產生之直接及能源間接排放量合計達 <b>2.5萬公噸CO₂e</b> 以上，即納入列管。</li>
+      </ul>
+      <h3>金管會上市櫃永續發展路徑圖時程</h3>
+      <table>
+        <tr><th>時間</th><th>要求</th></tr>
+        <tr><td>2023年起</td><td>資本額100億元以上上市櫃公司須揭露範疇一、二排放</td></tr>
+        <tr><td>2025年起</td><td>擴大至資本額50億元以上公司及合併報表子公司</td></tr>
+        <tr><td>2027年前</td><td>全體上市櫃公司完成盤查</td></tr>
+        <tr><td>2029年前</td><td>全體上市櫃公司完成查證</td></tr>
+      </table>
+      <div class="callout news"><span class="tag news">時事</span> 若列管事業於年度中歇業，仍應完成該年度盤查登錄及查驗義務；歇業當年（如1-3月）之排放量則須於<b>關廠之日起90日內</b>完成盤查登錄，惟<b>無須查驗</b>。逸散排放源若屬相同類型、排放量低於總排放量0.05%且未達5公噸CO₂e，得連續二年沿用最近一次量測或推估數值。</div>
+    </div>
+  </div>
+
+  <!-- CH3 -->
+  <div class="chapter">
+    <div class="chapter-head" onclick="toggleChapter(this)">
+      <span class="num">CH.3</span>
+      <h2>排放源類型・範疇一二三・GWP・排放係數計算</h2>
+      <span class="caret">▶</span>
+    </div>
+    <div class="chapter-body">
+      <h3>範疇一二三分類表</h3>
+      <table>
+        <tr><th>範疇</th><th>定義</th><th>範例</th></tr>
+        <tr><td>範疇一</td><td>直接排放</td><td>固定燃燒（鍋爐）、移動燃燒（公務車）、製程排放、逸散排放（冷媒洩漏）</td></tr>
+        <tr><td>範疇二</td><td>能源間接排放</td><td>外購電力、蒸汽、熱或冷</td></tr>
+        <tr><td>範疇三</td><td>其他間接排放（價值鏈）</td><td>採購商品服務、資本財、員工通勤、商務差旅、上下游運輸配銷、產品使用及報廢等</td></tr>
+      </table>
+      <h3>三種排放量計算方法</h3>
+      <ul>
+        <li><b>排放係數法</b>：活動數據（如燃料使用量）× 排放係數</li>
+        <li><b>質量平衡法</b>：利用製程或化學反應式中物種質量與能量之進出、產生、消耗及轉換之平衡計算</li>
+        <li><b>直接監測法</b>：以連續排放監測儀器（CEMS）測定排氣濃度並依流量計算</li>
+      </ul>
+      <h3>2025年度（114年度）電力排碳係數（必背數字）</h3>
+      <table>
+        <tr><th>係數類型</th><th>數值（公斤CO₂e/度）</th><th>用途</th></tr>
+        <tr><td>產業電力排碳係數</td><td><b>0.466</b></td><td>供企業盤查揭露使用（表燈營業、低壓/高壓/特高壓電力用戶）</td></tr>
+        <tr><td>民生住宅電力排碳係數</td><td>0.471</td><td>表燈非營業、包燈用戶</td></tr>
+        <tr><td>全國電力排放係數（初估）</td><td>0.456</td><td>納入民間綠電直供轉供後之全國用電排放全貌，多用於國家統計</td></tr>
+        <tr><td>2024年度（113年度）電力排碳係數</td><td>0.474</td><td>供比較前一年度趨勢</td></tr>
+      </table>
+      <div class="callout news"><span class="tag news">時事</span> 經濟部能源署<b>自2025年度起</b>首度將電力排碳係數區分為「產業別」與「民生住宅別」，因應企業購買較多綠電之趨勢。企業盤查揭露<b>須對應盤查年度採用當年度公告係數，不可混用不同年度數值</b>（例如：計算2022年度排放，須用2022年度公告係數，不可用114年度最新值）。此外，國際趨勢正逐步由<b>IPCC AR5 GWP值過渡採用AR6 GWP值</b>（如化石甲烷GWP-100由25左右調整至約29.8，N₂O由298調整至約273），企業應於報告中載明所採用之GWP版本，此為近期新興考點。</div>
+    </div>
+  </div>
+
+  <!-- CH4 -->
+  <div class="chapter">
+    <div class="chapter-head" onclick="toggleChapter(this)">
+      <span class="num">CH.4</span>
+      <h2>盤查報告書內容與組織／報告邊界設定</h2>
+      <span class="caret">▶</span>
+    </div>
+    <div class="chapter-body">
+      <h3>盤查報告書法定應載明事項</h3>
+      <ul>
+        <li>基本資料：事業名稱及地址、事業負責人姓名</li>
+        <li>廠（場）排放源平面配置圖說</li>
+        <li>製程流程圖說、產製期程及產品產量</li>
+        <li>排放源之單元名稱或程序及其排放之溫室氣體種類</li>
+        <li>與排放量有關之原（物）料、燃料之種類、成分、碳含量、低位熱值及用量</li>
+        <li>執行減量措施及說明</li>
+        <li>與前一年度相較，排放源增設、拆除或停止使用之情形</li>
+        <li>年排放量計算採用之方法、排放量參數選用、數據來源、檢測方法及檢測日期</li>
+        <li>個別排放源之直接排放、能源間接排放等排放量資料</li>
+      </ul>
+      <div class="callout"><b>常考陷阱：</b>企業獲利數字、股價、員工薪資結構等<b>財務性資訊非盤查報告書法定應載明事項</b>——出題委員很愛把這種「無關項目」混入選項中誘答。</div>
+    </div>
+  </div>
+
+  <!-- CH5 -->
+  <div class="chapter">
+    <div class="chapter-head" onclick="toggleChapter(this)">
+      <span class="num">CH.5</span>
+      <h2>查證與確證（ISO 14064-3）・第三方查驗機構</h2>
+      <span class="caret">▶</span>
+    </div>
+    <div class="chapter-body">
+      <h3>查證 vs 確證（最常考的一對名詞）</h3>
+      <table>
+        <tr><th>項目</th><th>查證 Verification</th><th>確證 Validation</th></tr>
+        <tr><td>對象</td><td>既有歷史數據（如年度盤查報告）</td><td>未來預期（如減量專案設計文件）</td></tr>
+        <tr><td>目的</td><td>獨立評估歷史數據之正確性</td><td>獨立評估未來預測之合理性</td></tr>
+      </table>
+      <h3>保證等級</h3>
+      <ul>
+        <li><b>合理保證（reasonable assurance）</b>：查證程序較深入、誤差門檻較嚴格，可信賴程度較高。</li>
+        <li><b>有限保證（limited assurance）</b>：程序相對簡化、誤差門檻較寬鬆，常用於企業首次導入盤查階段。</li>
+      </ul>
+      <h3>第三方查驗機構制度</h3>
+      <ul>
+        <li>依「溫室氣體認證機構及查驗機構管理辦法」，<b>查驗機構須經中央主管機關認可之認證機構（如TAF）認證後</b>，方可執行第三方查驗。</li>
+        <li>查證團隊應與被查證企業<b>保持獨立、客觀</b>，避免利益衝突。</li>
+        <li>查驗結果須於<b>每年10月31日前</b>上傳資訊平台。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CH6 -->
+  <div class="chapter">
+    <div class="chapter-head" onclick="toggleChapter(this)">
+      <span class="num">CH.6</span>
+      <h2>ISO 14067:2018 產品碳足跡與生命週期評估（LCA）</h2>
+      <span class="caret">▶</span>
+    </div>
+    <div class="chapter-body">
+      <ul>
+        <li>ISO 14067:2018 取代原<b>ISO/TS 14067:2013</b>技術規範，正式升級為國際標準，規範產品碳足跡（CFP）之量化與報導。</li>
+        <li>範圍界定：<b>Cradle-to-grave（摇籃到墳墓）</b>涵蓋原料取得至廢棄處理全生命週期；<b>Cradle-to-gate（摇籃到大門）</b>不含使用與廢棄階段，常用於B2B中間產品。</li>
+        <li>須依循 <b>ISO 14040/14044</b> 生命週期評估（LCA）四階段：<b>目標與範疇界定 → 生命週期清冊分析（LCI）→ 生命週期衝擊評估（LCIA）→ 結果闡釋</b>。</li>
+        <li><b>PCR（產品類別規則，Product Category Rules）</b>：特定產品類別之碳足跡計算規則，確保同類產品間可比較性。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CH7 -->
+  <div class="chapter">
+    <div class="chapter-head" onclick="toggleChapter(this)">
+      <span class="num">CH.7</span>
+      <h2>產品碳足跡標籤制度與最新時事</h2>
+      <span class="caret">▶</span>
+    </div>
+    <div class="chapter-body">
+      <ul>
+        <li>申請碳足跡標籤須經<b>政府認可之第三方查驗機構</b>查驗通過，常見查驗機構含台灣德國萊因、BSI英國標準協會太平洋、台灣檢驗科技等。</li>
+        <li>標籤有效期通常<b>3年</b>，須重新申請展延。</li>
+        <li><b>減碳標籤</b>：須較前次查驗結果減少一定比例（通常3%以上）碳排放，非取得碳足跡標籤即自動取得。</li>
+        <li>碳足跡標籤 ≠ 碳中和標籤（ISO14068-1）：前者呈現產品生命週期排放<b>量化數據</b>，後者代表已透過減量與抵換達成<b>淨排放為零之宣告</b>，兩者性質不同。</li>
+      </ul>
+      <div class="callout news"><span class="tag news">時事</span> 政府近年持續擴大公告各類產品之PCR數量，部分政府採購案已將取得碳足跡標籤或減碳標籤列為<b>評選加分或優先採購條件</b>，鼓勵企業接軌淨零供應鏈要求，是近期時事考點。</div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ============ QUIZ ============ -->
+<section id="quiz" class="view">
+  <div class="intro-note">
+    <b>應試策略：</b>考科二情境題常以「某企業盤查團隊／查驗機構」的判斷情境出題，作答時請先鎖定關鍵詞：這是範疇幾？是查證還是確證？是哪一年度的係數？哪一個法條期限？點選答案後立即顯示解析，可依章節篩選、只複習答錯題目。
+  </div>
+
+  <div class="quiz-toolbar">
+    <label style="font-size: 22px;color:var(--ink-soft);">篩選章節：</label>
+    <select id="chapterFilter" onchange="renderQuiz()">
+      <option value="all">全部 100 題</option>
+      <option value="c1">CH1 ISO14064-1原則（15題）</option>
+      <option value="c2">CH2 盤查登錄查驗法制（15題）</option>
+      <option value="c3">CH3 範疇一二三與係數（20題）</option>
+      <option value="c4">CH4 盤查報告書與邊界（15題）</option>
+      <option value="c5">CH5 查證確證與查驗機構（15題）</option>
+      <option value="c6">CH6 ISO14067產品碳足跡（10題）</option>
+      <option value="c7">CH7 碳足跡標籤制度（10題）</option>
+    </select>
+    <button class="ghost" id="wrongOnlyBtn" onclick="toggleWrongOnly()">只看答錯題目</button>
+    <button class="primary" onclick="resetQuiz()">重新測驗</button>
+    <div class="score-panel">
+      <span>已作答 <b id="answeredCount">0</b>/<span id="totalCount">100</span></span>
+      <span>正確率 <b id="accuracy">0%</b></span>
+    </div>
+  </div>
+  <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+
+  <div class="summary-card" id="summaryCard">
+    <div style="font-family:'Noto Serif TC',serif;font-size: 22px;letter-spacing:.1em;color:var(--amber-soft);">本次測驗結果</div>
+    <div class="big" id="summaryScore">0 / 100</div>
+    <div id="summaryMsg" style="margin-top:6px;font-size: 22px;"></div>
+  </div>
+
+  <div id="quizList"></div>
+</section>
+
+</main>
+
+<footer>
+  淨零碳規劃管理師（初級）考科二 · 考前總複習帳本 · 內容依 2026/08 前公開資訊整理，實際考題以官方鑑定簡章與現行法規為準，正式作答前請以環境部氣候變遷署及 iPAS 官網最新公告核實。
+</footer>
+
+<script>
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+    document.getElementById(btn.dataset.target).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+
+function toggleChapter(head){
+  const ch = head.parentElement;
+  const wasOpen = ch.classList.contains('open');
+  document.querySelectorAll('.chapter').forEach(c=>c.classList.remove('open'));
+  if(!wasOpen){
+    ch.classList.add('open');
+    const body = ch.querySelector('.chapter-body');
+    body.style.maxHeight = body.scrollHeight + 200 + 'px';
+  }
+}
+window.addEventListener('load',()=>{
+  const openCh = document.querySelector('.chapter.open .chapter-body');
+  if(openCh) openCh.style.maxHeight = openCh.scrollHeight + 200 + 'px';
+});
+
+const QUESTIONS = [
+{ch:'c1',q:'某企業依ISO14064-1:2018建立組織型溫室氣體盤查制度，下列何者不屬於該標準明定之五大盤查原則？',o:['相關性（Relevance）','完整性（Completeness）','獲利性（Profitability）','透明度（Transparency）'],a:2,e:'五大原則為相關性、完整性、一致性、準確性 / 精確度、透明度，獲利性非其中之一。'},
+{ch:'c1',q:'情境：某公司盤查團隊討論「一致性」原則之意涵，下列敘述何者正確？',o:['每年度可任意變更計算方法，無須說明','採用一致方法進行時間序列比較，如有變更應予以文件化說明原因','一致性僅指盤查團隊人員固定不變','一致性與數據可比較性無關'],a:1,e:'一致性原則要求採用一致方法以利時間序列比較，方法變更須文件化並說明原因。'},
+{ch:'c1',q:'某企業依ISO14064-1:2018設定組織邊界，下列兩種邊界設定方法何者正確？',o:['股權比例法（equity share）與控制法（control approach，含財務控制及營運控制）','僅能採用股權比例法','僅能採用營運控制法','組織邊界與溫室氣體盤查無關'],a:0,e:'組織邊界設定可採股權比例法，或控制法（財務控制／營運控制）。'},
+{ch:'c1',q:'情境：某集團母公司持有子公司60%股權，若採用「股權比例法」設定組織邊界，其應納入盤查之子公司排放比例為？',o:['100%','60%','40%','0%（子公司須獨立盤查，母公司不計入）'],a:1,e:'股權比例法依實際持股比例納入排放量，60%股權即納入60%排放。'},
+{ch:'c1',q:'某企業採用「財務控制法」設定組織邊界，下列敘述何者正確？',o:['以是否具主導該實體財務與營運政策之權力、並從其活動中獲取經濟利益為納入依據，納入後通常以100%排放量計入','財務控制法只計入企業持股比例部分之排放量','財務控制法與營運控制法計算結果必然相同','財務控制法僅適用於上市公司'],a:0,e:'財務控制法著重是否具主導財務與營運政策之權力並獲取經濟利益，符合定義者通常納入100%排放量。'},
+{ch:'c1',q:'情境：某公司盤查團隊討論ISO14064-1:2018相較2006年版之重大修訂重點，下列敘述何者正確？',o:['取消不確定性評估要求','強化間接排放重大性評估要求、納入溫室氣體主張等新名詞定義，並要求生物質CO2單獨報告','不再要求文件化組織邊界設定方法','取消查證/確證概念'],a:1,e:'2018版強化間接排放重大性評估要求，新增溫室氣體主張等定義，並要求生物質CO2單獨報告。'},
+{ch:'c1',q:'某企業依「相關性」原則納入盤查範疇，下列敘述何者正確？',o:['應選擇適合預期使用者決策需求之數據、方法及邊界','相關性指企業可自由排除任何不利數據','相關性與預期用途無關','相關性僅適用於範疇一排放'],a:0,e:'相關性原則要求選擇適合預期使用者決策需求之數據、方法及邊界。'},
+{ch:'c1',q:'情境：某企業於盤查報告中說明其排放數據不確定性來源與範圍，此作法最符合下列何項原則？',o:['完整性','準確性 / 精確度（Accuracy）','透明度','經濟性'],a:2,e:'充分揭露不確定性來源與範圍屬於透明度原則的具體實踐，讓使用者了解數據限制並可信賴決策。'},
+{ch:'c1',q:'某企業主張「不應為了美化盤查結果而排除重大間接排放」，此符合下列何項要求？',o:['不得使用評估準則排除大量間接排放或規避法規義務','企業可自由決定是否納入任何排放源','此僅為建議，非規範要求','僅適用於範疇一排放'],a:0,e:'標準明定不論預期用途為何，皆不得用評估準則排除大量間接排放或規避法規義務。'},
+{ch:'c1',q:'情境：某公司完整性原則實踐方式，下列何者正確？',o:['報告邊界內所有相關排放源與移除量均應納入並說明例外情形','完整性指須涵蓋全球所有企業之排放','完整性與範疇三排放無關','完整性僅要求納入範疇一排放'],a:0,e:'完整性原則要求報告邊界內所有相關排放源與移除量均應納入，例外情形須說明理由。'},
+{ch:'c1',q:'某企業於報告中載明所依據之GWP值版本與計算方法，此行為最符合下列何項原則？',o:['透明度','獲利性','完整性','一致性'],a:0,e:'載明GWP版本與計算方法依據，是透明度原則的具體實踐。'},
+{ch:'c1',q:'情境：某企業欲確認ISO14064-1:2018對「溫室氣體主張」（GHG assertion）之定義，下列敘述何者正確？',o:['溫室氣體主張指組織依標準所提出、有關其溫室氣體排放清冊或減量成果之陳述','溫室氣體主張僅指企業營收數據','溫室氣體主張與第三方查證無關','溫室氣體主張僅適用於產品層級'],a:0,e:'溫室氣體主張是組織依標準提出、有關其排放清冊或減量成果的陳述，是查證/確證的對象。'},
+{ch:'c1',q:'某企業依ISO14064-1:2018編製清冊，下列關於「生物質CO2」之敘述何者正確？',o:['生物質CO2排放應與化石燃料CO2排放合併計算、不得分開列示','生物質CO2排放應單獨報告，不納入企業總排放量之加總（惟仍應揭露）','生物質CO2不須計算或報告','生物質CO2僅計入範疇三'],a:1,e:'生物質CO2應單獨報告，不與化石源排放合併加總，但仍須揭露相關數據。'},
+{ch:'c1',q:'情境：某公司主管質疑「準確性 / 精確度」原則是否代表數據須絕對零誤差，下列敘述何者正確？',o:['準確性 / 精確度要求盡可能降低偏差與不確定性，使數據在合理成本下足供使用者信賴決策，非要求絕對零誤差','準確性 / 精確度要求所有數據須達到零誤差','準確性 / 精確度與查證機構無關','準確性 / 精確度僅適用於範疇二排放'],a:0,e:'準確性 / 精確度原則要求盡量降低偏差與不確定性，並非要求絕對零誤差。'},
+{ch:'c1',q:'某企業依ISO14064-1:2018決定是否納入某項間接排放源，其評估間接排放重大性之考量基礎應為？',o:['企業財務報表格式','溫室氣體盤查清冊之預期用途','員工人數多寡','廠區所在地天氣條件'],a:1,e:'間接排放重大性之評估準則應依盤查清冊之預期用途界定。'},
+
+{ch:'c2',q:'某企業欲確認我國「溫室氣體排放量盤查登錄及查驗管理辦法」之法源依據，應為下列何者？',o:['再生能源發展條例','氣候變遷因應法第21條','能源管理法','空氣污染防制法'],a:1,e:'該辦法依氣候變遷因應法第21條第2項規定訂定。'},
+{ch:'c2',q:'情境：某發電業者依辦法規定，應於何時前將前一年度排放量清冊及盤查報告書登錄於資訊平台？',o:['每年1月31日前','每年4月30日前','每年6月30日前','每年12月31日前'],a:1,e:'依辦法規定，事業應於每年4月30日前完成前一年度排放量清冊及盤查報告書之登錄。'},
+{ch:'c2',q:'某屬公告應查驗事業之企業，依辦法規定應於何時前完成第三方查驗並上傳結果？',o:['每年4月30日前','每年10月31日前','每年12月31日前','查驗無期限規定'],a:1,e:'公告應查驗事業須於每年10月31日前完成第三方查驗並上傳結果。'},
+{ch:'c2',q:'情境：某企業欲確認強制盤查登錄之六大產業類別，下列何者不屬於強制盤查之六大產業？',o:['發電業','鋼鐵業','紡織業','半導體業'],a:2,e:'六大產業為發電業、鋼鐵業、石油煉製業、水泥業、半導體業、TFT-LCD業，紡織業不在其中。'},
+{ch:'c2',q:'某製造業者雖非六大產業，但其全廠化石燃料燃燒與電力使用產生之直接及能源間接排放量合計達多少公噸CO2e以上，即納入強制盤查列管？',o:['1萬公噸','2.5萬公噸','5萬公噸','10萬公噸'],a:1,e:'任何製造業排放量合計達2.5萬公噸CO2e以上，即納入強制盤查列管。'},
+{ch:'c2',q:'情境：某上市公司依金管會「上市櫃公司永續發展路徑圖」規劃，下列時程敘述何者正確？',o:['2023年起資本額100億元以上公司須揭露範疇一及範疇二排放，2025年起擴大至資本額50億元以上及合併報表子公司，2027年前全體上市櫃完成盤查、2029年前完成查證','所有上市櫃公司應立即於2024年完成盤查與查證','路徑圖僅適用於上櫃公司，上市公司不適用','路徑圖與溫室氣體排放量盤查登錄及查驗管理辦法完全無關、各自獨立'],a:0,e:'路徑圖分階段推動：2023年起資本額100億以上、2025年起擴大至50億以上及子公司、2027年前全體完成盤查、2029年前完成查證。'},
+{ch:'c2',q:'某事業使用經中央主管機關公告之燃料及原物料，欲計算其排放量，依辦法規定，下列敘述何者正確？',o:['一律須自行送樣檢測','得以該燃料原物料商品標示之熱值或碳含量計算排放量，不適用送樣檢測規定','不得使用商品標示數據','僅適用於電力產業'],a:1,e:'使用經公告之燃料及原物料者，得以商品標示之熱值或碳含量計算排放量，免除自行送樣檢測義務。'},
+{ch:'c2',q:'情境：某工廠欲了解辦法所定排放量計算之三種方法，下列何者不屬於其中之一？',o:['排放係數法','質量平衡法','直接監測法','市場推估法'],a:3,e:'三種計算方法為排放係數法、質量平衡法、直接監測法，市場推估法非其中之一。'},
+{ch:'c2',q:'某企業依辦法第3條規定，須盤查納管之排放源類型，下列敘述何者正確？',o:['僅須盤查範疇一直接排放','應盤查固定與移動燃燒、製程、逸散等直接排放，以及外購電力或蒸汽之能源間接排放（範疇一加範疇二）','應盤查含範疇三之全部供應鏈排放','僅須盤查外購電力'],a:1,e:'辦法第3條規定應盤查之排放源涵蓋範疇一直接排放及範疇二能源間接排放。'},
+{ch:'c2',q:'情境：某事業規劃於2026年3月歇業，依辦法規定其2025年度盤查登錄及查驗義務與2026年1-3月排放量登錄規定，下列敘述何者正確？',o:['歇業當年可完全免除前一年度盤查登錄及查驗義務','仍應完成2025年度盤查登錄及查驗義務；2026年1-3月排放量則須於關廠之日起90日內完成盤查登錄（無須查驗）','2026年1-3月排放量無須登錄','歇業事業一律免除所有義務'],a:1,e:'依辦法第12條，歇業事業仍應完成前一年度盤查登錄及查驗義務，歇業當年排放量須於關廠日起90日內完成登錄，惟無須查驗。'},
+{ch:'c2',q:'某企業欲確認我國現行納管溫室氣體種類，依辦法規定共有幾類（不含中央主管機關另行公告之其他物質）？',o:['6類','7類（另可再加公告物質）','10類','僅CO2一類'],a:1,e:'辦法列CO2、CH4、N2O、HFCs、PFCs、SF6、NF3七類，另可再加中央主管機關公告之其他物質。'},
+{ch:'c2',q:'情境：某企業查驗結果顯示與自評數據有重大落差，依辦法規定，中央主管機關對盤查登錄及查驗結果之處理方式為？',o:['一律不予受理，要求企業重新申請','經審查如有須補正情形，得通知限期補正','直接對企業裁罰，無補正機會','查驗結果不受主管機關審查'],a:1,e:'依辦法規定，中央主管機關審查盤查登錄及查驗結果，如有須補正情形，得通知限期補正。'},
+{ch:'c2',q:'某企業欲展延盤查登錄及查驗作業期限，依辦法規定，下列敘述何者正確？',o:['展延須經中央主管機關同意，並依規定程序辦理，非任意展延','企業可無條件自行展延','展延規定僅適用於六大產業','辦法未規範展延程序'],a:0,e:'辦法明定盤查登錄及查驗展延須經中央主管機關同意並依規定程序辦理。'},
+{ch:'c2',q:'情境：某企業違反辦法規定之盤查登錄或查驗義務，下列敘述何者正確？',o:['辦法未訂有罰則，僅道德勸說','辦法明定違反態樣並依法裁罰','僅限期改善，絕不裁罰','裁罰權限屬地方法院'],a:1,e:'辦法明定違反本辦法之違規態樣，依法裁罰。'},
+{ch:'c2',q:'某企業欲確認盤查報告書應記載之基本資料內容，下列何者非辦法明定應記載事項？',o:['事業名稱及地址、負責人姓名','廠場排放源平面配置圖說','企業近三年獲利數字','製程流程圖說、產製期程及產品產量'],a:2,e:'企業獲利數字非盤查報告書法定應載明事項。'},
+
+{ch:'c3',q:'某企業依GHG Protocol及ISO14064-1架構區分排放範疇，下列何者屬於「範疇二」排放？',o:['廠內鍋爐燃燒天然氣','外購電力使用所產生之能源間接排放','員工通勤','採購原物料之上游製造排放'],a:1,e:'外購電力使用所產生之能源間接排放屬於範疇二。'},
+{ch:'c3',q:'情境：某企業分類其排放源，下列何者屬於「範疇一」直接排放？',o:['外購蒸汽','廠區柴油發電機燃燒柴油','員工出差搭乘飛機','下游經銷商倉儲用電'],a:1,e:'廠區柴油發電機燃燒柴油屬於範疇一固定燃燒排放源之直接排放。'},
+{ch:'c3',q:'某企業欲將「採購商品與服務」、「資本財」、「員工通勤」、「商務差旅」等排放納入盤查，此類排放屬於下列何者？',o:['範疇一','範疇二','範疇三（價值鏈其他間接排放）','以上皆非'],a:2,e:'採購商品服務、資本財、員工通勤、商務差旅等屬範疇三價值鏈其他間接排放。'},
+{ch:'c3',q:'情境：某企業廠內使用之逸散冷媒（如含氟氣體）洩漏，此排放源應歸類為？',o:['範疇一逸散排放源','範疇二能源間接排放','範疇三下游排放','不須納入盤查'],a:0,e:'冷媒洩漏屬於範疇一逸散排放源。'},
+{ch:'c3',q:'某企業計算排放量欲選用「排放係數法」，其計算邏輯為？',o:['活動數據（如燃料使用量）乘以特定排放係數','以連續監測儀器直接測得濃度換算','以製程質量平衡計算','以財務報表推估'],a:0,e:'排放係數法係以活動數據乘以特定排放係數計算排放量。'},
+{ch:'c3',q:'情境：某企業採用「直接監測法」計算某排放源之排放量，其原理為？',o:['以連續排放監（檢）測，測定溫室氣體排氣濃度，並根據排氣濃度與流量計算排放量','以歷史平均值推估','僅適用於範疇三排放','以員工人數換算'],a:0,e:'直接監測法以連續排放監測儀器測定排氣濃度並依流量計算排放量。'},
+{ch:'c3',q:'某化工廠製程反應涉及物料與能量進出、產生、消耗及轉換之平衡計算排放量，此方法為？',o:['排放係數法','質量平衡法','直接監測法','市場推估法'],a:1,e:'質量平衡法利用製程或化學反應式中物種質量與能量之平衡計算排放量。'},
+{ch:'c3',q:'情境：某企業盤查團隊欲了解GWP（全球暖化潛勢）之功能，下列敘述何者正確？',o:['GWP用以將不同種類溫室氣體之暖化效應，統一換算為CO2當量以利加總比較','GWP用以計算企業營收成長率','GWP僅適用於CO2本身','GWP數值全球唯一、永不修訂'],a:0,e:'GWP用以將不同溫室氣體之暖化效應統一換算為CO2當量，以利加總與比較。'},
+{ch:'c3',q:'某企業依IPCC最新評估報告（AR6）之GWP值進行換算，下列敘述何者正確？',o:['AR6之GWP值與AR5完全相同、毫無差異','AR6相較AR5對部分氣體（如甲烷）之GWP值有所調整，企業應於報告中載明所採用之GWP版本','AR6只適用於二氧化碳','國際準則從未參考IPCC評估報告'],a:1,e:'AR6相較AR5對甲烷等氣體之GWP值有所上修，企業應於報告中載明所採用之版本，以符合透明度原則。'},
+{ch:'c3',q:'情境：某企業於2025年度盤查中計算外購電力之範疇二排放，應採用下列何項電力排碳係數？',o:['任意選用近五年內之任一年度數值','採用對應盤查年度（如2025年度）經濟部能源署公告之當年度電力排碳係數，不宜混用不同年度數值','一律採用2016年基準值','電力排放不須計算排碳係數'],a:1,e:'企業計算某年度範疇二排放，應對應採用該年度公告之電力排碳係數，不可混用不同年度數值。'},
+{ch:'c3',q:'某企業依經濟部能源署最新公告，欲計算2025年度（114年度）範疇二排放，供企業盤查揭露使用之「產業電力排碳係數」為每度電多少公斤CO2e？',o:['0.424','0.456','0.466','0.494'],a:2,e:'114年度（2025年）產業電力排碳係數公告為0.466公斤CO2e/度。'},
+{ch:'c3',q:'情境：某企業注意到經濟部能源署自2025年度起將電力排碳係數進一步區分版本，下列敘述何者正確？',o:['僅公告單一全國統一係數，不分用途','區分為「產業電力排碳係數」（供企業盤查揭露使用）與「民生住宅電力排碳係數」（適用表燈非營業等住宅用戶），另有納入民間綠電交易之全國電力排放係數','區分標準依企業營收規模','區分標準依企業是否上市櫃'],a:1,e:'自2025年度起，電力排碳係數區分為產業別（0.466）、民生住宅別（0.471），另有全國電力排放係數（初估0.456）。'},
+{ch:'c3',q:'某企業2024年度（113年度）電力排碳係數經濟部能源署公告數值為每度電多少公斤CO2e？',o:['0.424','0.456','0.466','0.474'],a:3,e:'113年度（2024年）電力排碳係數為0.474公斤CO2e/度。'},
+{ch:'c3',q:'情境：某企業欲了解「全國電力排放係數」與「公用售電業電力排碳係數」之差異，下列敘述何者正確？',o:['兩者完全相同','全國電力排放係數是在公用售電業電力排碳係數基礎上，進一步納入民間綠電自由交易之再生能源直供轉供電量，故通常低於公用售電業電力排碳係數','全國電力排放係數不含台電系統排放','全國電力排放係數專供住宅用戶使用'],a:1,e:'全國電力排放係數在公用售電業係數基礎上納入民間綠電直供轉供電量，數值通常較低。'},
+{ch:'c3',q:'某企業查詢「碳排放係數查詢平台」欲取得國內查無對應數值之排放係數時，可參考下列何機構之預設係數？',o:['IPCC國際預設係數','台灣證券交易所','金管會','內政部'],a:0,e:'國內查無對應係數時，可參考IPCC國際預設係數。'},
+{ch:'c3',q:'情境：某企業逸散排放源屬相同類型、其排放量低於事業總排放量0.05%且未達5公噸CO2e，依辦法規定，可如何處理？',o:['一律強制精確量測，無任何簡化規定','得連續二年採用其最近一次量測或推估之數值，毋須每年重新精算（惟仍應符合辦法所定條件）','可完全免除申報','可自行刪除該排放源、不予揭露'],a:1,e:'符合條件之小量逸散排放源，得連續二年沿用最近一次量測或推估數值。'},
+{ch:'c3',q:'某企業採購上游供應商製造之原料，該原料生產過程產生之排放，若企業將其納入自身範疇三盤查，此排放對上游供應商而言應歸屬為？',o:['供應商之範疇一或範疇二排放','與供應商完全無關','屬於全球公有排放，不歸屬任何單位','僅計入下游客戶'],a:0,e:'同一筆排放對下游企業而言是範疇三，對上游供應商本身而言則是其自身的範疇一或範疇二排放。'},
+{ch:'c3',q:'情境：某企業欲比較範疇一、二、三排放之管理優先順序，依一般實務原則，下列敘述何者較為適切？',o:['應優先且完整盤查範疇一、二，範疇三則依預期用途評估重大性後決定納入之排放項目，而非全數或完全排除','範疇三永遠不須盤查','範疇一、二、三須同等精確度、無差別管理','範疇三應優先於範疇一盤查'],a:0,e:'實務上應優先完整盤查範疇一、二，範疇三則依預期用途評估重大性後決定納入項目。'},
+{ch:'c3',q:'某企業欲確認「移動燃燒排放源」之定義範例，下列何者正確？',o:['廠內公務車輛燃燒汽油','外購電力','員工搭乘大眾運輸通勤','下游產品使用階段排放'],a:0,e:'廠內公務車輛燃燒汽油屬於範疇一移動燃燒排放源。'},
+{ch:'c3',q:'情境：某企業計算其排放量時誤用生質燃料排放數值未依規定單獨列示，此作法違反ISO14064-1:2018之何項要求？',o:['生物質CO2應單獨報告、不與化石源排放合併加總之要求','相關性原則','保密原則','與標準要求無關'],a:0,e:'標準要求生物質CO2應單獨報告，不與化石源排放合併加總，未依規定處理即違反此要求。'},
+
+{ch:'c4',q:'某企業依辦法規定編製盤查報告書，下列何者非其應載明之基本資料事項？',o:['事業名稱及地址','事業負責人姓名','員工薪資結構','廠場排放源平面配置圖說'],a:2,e:'員工薪資結構非盤查報告書應載明事項。'},
+{ch:'c4',q:'情境：某企業盤查報告書應載明與前一年度相較，排放源之變動情形，下列何者屬於應記載之變動類型？',o:['排放源增設、拆除或停止使用之情形','員工旅遊地點變更','企業股價波動','廠區周邊交通狀況'],a:0,e:'應記載排放源增設、拆除或停止使用之情形，其餘選項與盤查無關。'},
+{ch:'c4',q:'某企業依ISO14064-1:2018設定「報告邊界」，下列敘述何者正確？',o:['報告邊界僅指組織邊界，與排放源無關','報告邊界應鑑別與公司營運相關連之直接與間接溫室氣體排放量，並文件化建立','報告邊界一經設定即永久不可調整','報告邊界僅適用於上市公司'],a:1,e:'報告邊界應鑑別與公司營運相關連之直接與間接排放量，並須文件化建立。'},
+{ch:'c4',q:'情境：某企業欲決定間接排放（範疇三）是否納入報告邊界，其判斷準則應考量下列何者？',o:['溫室氣體盤查清冊之預期用途，並據以界定與說明間接排放重大性準則','企業內部人員喜好','僅考量成本最低之排放源','與預期用途完全無關'],a:0,e:'間接排放重大性判斷準則應依盤查清冊之預期用途界定。'},
+{ch:'c4',q:'某企業於盤查報告書中記載「年排放量計算採用之方法、排放量參數選用、數據來源、檢測方法及檢測日期」，此屬於辦法規定之何項內容？',o:['基本資料','盤查報告書應載明之計算方法與數據依據','企業財務報表附註','非辦法要求事項'],a:1,e:'此為辦法明定盤查報告書應載明之計算方法與數據依據事項。'},
+{ch:'c4',q:'情境：某企業採用「營運控制法」設定組織邊界，與「財務控制法」之主要差異為？',o:['營運控制法著重是否具權力導入及執行營運政策（如安全衛生、環保標準）；財務控制法著重是否具主導財務與營運政策之權力並獲取經濟利益，兩者判斷基準不同，可能導致納入範圍不同','兩者判斷基準完全相同','營運控制法僅適用於國營事業','財務控制法僅適用於跨國企業'],a:0,e:'營運控制與財務控制的判斷基準不同，可能導致組織邊界納入範圍不同。'},
+{ch:'c4',q:'某企業選擇「股權比例法」設定組織邊界，其納入某合資公司（企業持股40%）之排放量比例應為？',o:['100%','40%','60%','0%'],a:1,e:'股權比例法依實際持股比例納入，持股40%即納入40%排放量。'},
+{ch:'c4',q:'情境：某企業於盤查報告書中同時呈現「組織邊界設定方法」與「報告邊界所涵蓋排放源」，此作法主要符合ISO14064-1:2018何項原則？',o:['透明度原則','獲利性原則','保密原則','與原則無關'],a:0,e:'完整揭露邊界設定方法與涵蓋範圍，是透明度原則的體現。'},
+{ch:'c4',q:'某企業欲確認盤查報告書應記載「製程流程圖說」之目的，下列敘述何者正確？',o:['協助辨識排放源之單元名稱或程序及其排放之溫室氣體種類','僅為美化報告版面','與排放量計算無關','僅適用於服務業'],a:0,e:'製程流程圖說有助於辨識排放源單元及其排放之溫室氣體種類。'},
+{ch:'c4',q:'情境：某企業於年度盤查中新增一條產線，導致排放源增加，依辦法規定，此變動應如何處理？',o:['無須於盤查報告書中揭露','應於盤查報告書中記載排放源增設情形，並納入當年度排放量計算','可延後三年才揭露','僅須口頭告知主管機關'],a:1,e:'排放源增設情形應於盤查報告書中記載，並納入當年度排放量計算。'},
+{ch:'c4',q:'某企業依辦法規定，就其排放量清冊及盤查報告書之保存義務，下列敘述何者正確？',o:['辦法未規範文件保存期限','辦法規範事業應保存相關文件，以備主管機關查核','文件保存義務僅適用於查驗機構','保存義務於登錄完成後立即解除'],a:1,e:'辦法規範事業應保存相關文件，以備主管機關查核。'},
+{ch:'c4',q:'情境：某企業欲確認「排放源之單元名稱或程序及其排放之溫室氣體種類」應記載於盤查報告書之何處，下列敘述何者正確？',o:['屬盤查報告書法定應載明事項之一','僅需口頭說明、無須書面記載','此非辦法規定事項','僅適用於電力業'],a:0,e:'此為盤查報告書法定應載明事項之一。'},
+{ch:'c4',q:'某企業於設定報告邊界時，將某一顯著排放源以「成本考量」為由排除在外，此作法是否符合規範？',o:['符合，只要成本過高即可排除任何排放源','不符合，不得使用評估準則排除大量間接排放或規避法規義務，排除重大排放應提出合理說明','符合，邊界設定完全由企業自行決定','此爭議與ISO14064-1:2018無關'],a:1,e:'不得以成本考量等理由排除重大排放源，若須排除應提出合理說明。'},
+{ch:'c4',q:'情境：某企業盤查報告書中同時記載「與排放量有關之原物料、燃料之種類、成分、碳含量、低位熱值及用量」，此記載目的為？',o:['確保排放量計算之數據來源可追溯與查核','僅為滿足財務報表附註要求','與查驗機構工作無關','僅適用於產品碳足跡'],a:0,e:'此記載目的在確保排放量計算之數據來源可追溯與查核，也利於第三方查驗機構作業。'},
+{ch:'c4',q:'某企業欲變更其組織邊界設定方法（如由股權比例法改為控制法），依ISO14064-1:2018精神，下列敘述何者正確？',o:['可任意變更且無須說明','變更應文件化並說明理由，以符合一致性與透明度原則、避免影響時間序列可比較性','變更後無須重新盤查','邊界設定方法一經選定終身不可變更'],a:1,e:'邊界設定方法變更應文件化並說明理由，以符合一致性與透明度原則。'},
+
+{ch:'c5',q:'某企業欲了解ISO14064-3標準之規範範圍，下列敘述何者正確？',o:['規範溫室氣體聲明（清冊或專案）之查證（verification）與確證（validation）之原則與要求','規範產品碳足跡標籤申請程序','規範碳權交易價格機制','規範再生能源憑證核發'],a:0,e:'ISO14064-3規範溫室氣體聲明之查證與確證原則與要求。'},
+{ch:'c5',q:'情境：某查驗機構針對企業過去一年度已發生之排放量清冊進行獨立評估其正確性，此作業性質屬於？',o:['查證（Verification）','確證（Validation）','認證（Accreditation）','仲裁'],a:0,e:'查證針對既有歷史數據（如年度盤查報告）進行獨立評估其正確性。'},
+{ch:'c5',q:'某查驗機構針對企業提出之溫室氣體「減量專案設計文件」（屬未來預期減量成果）進行獨立評估，此作業性質屬於？',o:['查證（Verification）','確證（Validation）','認證（Accreditation）','盤查'],a:1,e:'確證針對未來預期（如減量專案設計文件）進行獨立評估其合理性。'},
+{ch:'c5',q:'情境：某企業欲確認查驗機構之資格來源，依我國規範，查驗機構須經何機構認證或經中央主管機關委託之認證機構認證後，方可執行第三方查驗？',o:['台灣證券交易所','經中央主管機關認可之認證機構（如TAF）認證','經濟部標準檢驗局逐案審查','無須任何認證，任何顧問公司皆可執行'],a:1,e:'查驗機構須經中央主管機關認可之認證機構（如TAF）認證後，方可執行第三方查驗。'},
+{ch:'c5',q:'某企業依「溫室氣體認證機構及查驗機構管理辦法」了解查驗機構管理制度，下列敘述何者正確？',o:['查驗機構與認證機構性質相同、可互相替代','認證機構負責認證查驗機構之資格與能力，查驗機構則實際執行企業排放量之第三方查驗','查驗機構不受任何監督','此辦法已廢止，無相關規範'],a:1,e:'認證機構負責認證查驗機構之資格能力，查驗機構則實際執行第三方查驗。'},
+{ch:'c5',q:'情境：某企業查驗結果顯示其溫室氣體聲明與實際情形之差異程度符合「合理保證」等級，相較「有限保證」，其特性為？',o:['合理保證之查證程序較為深入、誤差門檻通常較嚴格，可信賴程度較高','合理保證之誤差門檻較有限保證寬鬆','兩者查證程序完全相同，僅名稱不同','有限保證之可信賴程度高於合理保證'],a:0,e:'合理保證的查證程序較深入、誤差門檻較嚴格，可信賴程度較有限保證高。'},
+{ch:'c5',q:'某企業首次導入溫室氣體盤查，選擇採用「有限保證」等級進行查證，其意涵為？',o:['查證機構執行程序相對合理保證較簡化、允許誤差門檻較寬鬆','有限保證代表完全不須查證','有限保證僅適用於產品碳足跡','有限保證之結果不具任何參考價值'],a:0,e:'有限保證的查證程序相對簡化，允許誤差門檻較寬鬆，常用於企業初次導入盤查階段。'},
+{ch:'c5',q:'情境：某查驗機構於查證過程中發現企業排放數據有重大不實，依查證作業規範，其應採取之作法為？',o:['隱匿不報、協助企業過關','於查證意見書中如實揭露發現之錯誤聲明或重大落差，並要求企業更正','直接對企業提起訴訟','查驗機構無權表示意見'],a:1,e:'查驗機構應於查證意見書中如實揭露發現之錯誤聲明或重大落差，並要求企業更正。'},
+{ch:'c5',q:'某企業依辦法規定屬公告應查驗事業，下列敘述何者正確？',o:['應查驗事業須自行盤查、自行查證，無須第三方介入','應查驗事業應經第三方查驗機構查驗後，將結果上傳至資訊平台，並於10/31前完成','應查驗事業可自願選擇是否查驗','應查驗義務僅適用於外商企業'],a:1,e:'應查驗事業須經第三方查驗機構查驗後，於10月31日前將結果上傳資訊平台。'},
+{ch:'c5',q:'情境：某企業與查驗機構簽訂查證約定事項（依ISO14064-3精神），雙方應先確認之內容包括：',o:['查證目標、範疇、準則、保證等級及重大性門檻等','僅需確認查證費用','僅需確認查證時間','無須任何事前約定，直接執行'],a:0,e:'查證前雙方應先確認查證目標、範疇、準則、保證等級及重大性門檻等事項。'},
+{ch:'c5',q:'某企業欲了解「查證團隊獨立性」之要求，下列敘述何者正確？',o:['查證團隊與被查證企業不須具備獨立性','查證團隊應與被查證企業保持獨立、客觀，避免利益衝突，以確保查證結果之公正性','查證人員可同時兼任企業盤查編制人員','獨立性要求僅適用於確證、不適用於查證'],a:1,e:'查證團隊應保持獨立客觀，避免利益衝突，以確保查證結果之公正性。'},
+{ch:'c5',q:'情境：某企業查證報告中載明「未發現重大不實陳述」之正面意見，此意見類型稱為？',o:['保留意見','無保留意見（正面查證意見）','否定意見','拒絕表示意見'],a:1,e:'「未發現重大不實陳述」屬於無保留意見（正面查證意見）。'},
+{ch:'c5',q:'某企業欲確認「重大性」（materiality）門檻在查證作業中之角色，下列敘述何者正確？',o:['重大性門檻用以判斷排放數據之誤差或遺漏是否足以影響預期使用者之決策判斷','重大性與查證結果無關','重大性門檻全球統一、不因產業或用途而異','重大性僅適用於財務報表查核，不適用溫室氣體查證'],a:0,e:'重大性門檻用以判斷誤差或遺漏是否足以影響預期使用者之決策判斷，同樣適用於溫室氣體查證。'},
+{ch:'c5',q:'情境：某企業查驗機構於查證過程中依抽樣方式檢核部分排放源數據，下列敘述何者正確？',o:['抽樣查核為常見查證作業方法之一，惟須依風險評估決定抽樣範圍與深度，非須逐筆百分之百查核','查證一律須百分之百逐筆查核，禁止抽樣','抽樣查核不具查證效力','抽樣比例由企業自行決定'],a:0,e:'抽樣查核是常見查證方法，須依風險評估決定抽樣範圍與深度。'},
+{ch:'c5',q:'某企業欲確認查證意見書應包含之要素，下列何者非典型查證意見書應載明事項？',o:['查證範疇與準則','查證結論（意見類型）','企業未來五年股價預測','發現之錯誤聲明及重大程度評估'],a:2,e:'企業未來股價預測非查證意見書應載明事項。'},
+
+{ch:'c6',q:'某企業欲量化其產品之碳足跡，依循之國際標準為？',o:['ISO14064-1','ISO14067:2018','ISO26000','ISO9001'],a:1,e:'ISO14067:2018是規範產品碳足跡量化與報導之國際標準。'},
+{ch:'c6',q:'情境：ISO14067:2018系取代下列何項技術規範，正式升級為國際標準？',o:['ISO/TS 14067:2013','PAS 2060','ISO14064-2','GHG Protocol Scope3標準'],a:0,e:'ISO14067:2018取代原ISO/TS 14067:2013技術規範。'},
+{ch:'c6',q:'某企業欲計算產品碳足跡，涵蓋原料取得、製造、配銷、使用至廢棄處理之完整生命週期，此範圍界定方式稱為？',o:['Cradle-to-gate（摇籃到大門）','Cradle-to-grave（摇籃到墳墓）','Gate-to-gate（大門到大門）','Grave-to-cradle'],a:1,e:'涵蓋原料取得至廢棄處理完整生命週期的範圍界定方式稱為Cradle-to-grave。'},
+{ch:'c6',q:'情境：某B2B中間原料製造商計算其產品碳足跡，因產品尚未進入下游使用與廢棄階段，通常採用之範圍界定方式為？',o:['Cradle-to-grave','Cradle-to-gate（摇籃到大門）','Grave-to-cradle','以上皆非'],a:1,e:'B2B中間產品因不涉及下游使用與廢棄階段，通常採用Cradle-to-gate範圍界定。'},
+{ch:'c6',q:'某企業依ISO14040/14044進行生命週期評估（LCA），其四階段依序為？',o:['目標與範疇界定→生命週期清冊分析→生命週期衝擊評估→結果闡釋','數據蒐集→財務分析→查證→標籤申請','排放係數選定→報告撰寫→審查→公告','市場調查→產品設計→製造→銷售'],a:0,e:'LCA四階段依序為目標與範疇界定、生命週期清冊分析（LCI）、生命週期衝擊評估（LCIA）、結果闡釋。'},
+{ch:'c6',q:'情境：某企業於LCA「生命週期清冊分析（LCI）」階段，主要工作內容為？',o:['蒐集並量化產品生命週期各階段之投入（原物料、能源）與產出（排放、廢棄物）數據','僅進行市場定價分析','僅撰寫最終結論','僅審查競爭對手產品'],a:0,e:'LCI階段主要工作為蒐集並量化生命週期各階段之投入與產出數據。'},
+{ch:'c6',q:'某企業欲確保同類產品間碳足跡計算結果具可比較性，應依循下列何者？',o:['PCR（產品類別規則，Product Category Rules）','企業自訂任意規則','國際貨幣基金組織規範','不須依循任何共通規則'],a:0,e:'PCR是確保同類產品間碳足跡計算結果可比較性的依循規則。'},
+{ch:'c6',q:'情境：某食品公司計算其產品碳足跡時，缺乏適用之PCR，下列敘述何者較為適切之處理方式？',o:['可直接捏造數據','應參考既有相近產品類別之PCR或依ISO14067一般性原則自行建立計算規則，並於報告中載明依據','無PCR即無法進行任何碳足跡計算','可完全略過生命週期清冊分析階段'],a:1,e:'缺乏適用PCR時，應參考相近產品類別PCR或依一般性原則建立計算規則，並載明依據。'},
+{ch:'c6',q:'某企業進行LCA「生命週期衝擊評估（LCIA）」階段，其主要目的為？',o:['將清冊數據轉換為環境衝擊類別（如全球暖化潛勢）之量化指標','僅統計企業員工人數','僅計算產品售價','與溫室氣體排放無關'],a:0,e:'LCIA階段目的在將清冊數據轉換為環境衝擊類別（如全球暖化潛勢）之量化指標。'},
+{ch:'c6',q:'情境：某企業於LCA「結果闡釋」階段應進行之工作，下列敘述何者正確？',o:['檢視前三階段結果之一致性、完整性與敏感度，提出結論、限制與建議','僅需重複清冊數據，無須分析','此階段與決策支持無關','結果闡釋僅在專案結束後才進行、與其他階段完全獨立'],a:0,e:'結果闡釋階段須檢視前三階段結果之一致性、完整性與敏感度，提出結論、限制與建議，並可能反覆迭代前面階段。'},
+
+{ch:'c7',q:'某企業欲申請我國產品碳足跡標籤，其產品碳足跡計算結果須經何種程序後方可申請？',o:['經政府認可之第三方查驗機構查驗通過','企業自行宣稱即可','無須任何查驗程序','僅需繳納規費'],a:0,e:'產品碳足跡標籤申請須經政府認可之第三方查驗機構查驗通過。'},
+{ch:'c7',q:'情境：某企業已取得產品碳足跡標籤，欲了解標籤之有效期限，依現行實務，通常為多久須重新申請展延？',o:['1年','3年','10年','永久有效、無須展延'],a:1,e:'產品碳足跡標籤有效期通常為3年，須重新申請展延。'},
+{ch:'c7',q:'某企業申請「減碳標籤」，依現行制度精神，其核心要求為？',o:['產品碳足跡較前次查驗結果須達一定比例（通常3%以上）之減少','只要取得碳足跡標籤即自動獲得減碳標籤','減碳標籤與碳足跡標籤為完全不同、互不相關之制度','減碳標籤不須重新查驗'],a:0,e:'減碳標籤要求較前次查驗結果減少一定比例（通常3%以上）之碳排放，須重新查驗。'},
+{ch:'c7',q:'情境：某企業欲確認我國辦理產品碳足跡標籤業務之查驗機構類型，下列敘述何者正確？',o:['僅限政府機關自行查驗','由環境部認可之第三方查驗機構（如國內外具公信力之檢驗驗證機構）辦理查驗','企業可自行指定任何機構查驗、無須政府認可','碳足跡標籤無須任何查驗機構介入'],a:1,e:'碳足跡標籤查驗須由環境部認可之第三方查驗機構辦理。'},
+{ch:'c7',q:'某企業規劃將產品碳足跡標籤成果應用於供應鏈管理及ESG報告，下列敘述何者正確？',o:['碳足跡標籤可作為向客戶及利害關係人展示產品碳排放透明度之依據，惟其為特定產品、特定查驗年度之結果，非代表企業整體已達成淨零','取得碳足跡標籤即代表企業已達成2050淨零排放目標','碳足跡標籤與ESG報告完全無關','碳足跡標籤僅政府機關可使用'],a:0,e:'碳足跡標籤是特定產品、特定年度的結果，可用於商業溝通，但不代表企業整體已達成淨零。'},
+{ch:'c7',q:'情境：某企業欲透過產品碳足跡標籤強化其政府採購競標優勢，下列敘述何者正確？',o:['部分政府採購案已將取得碳足跡標籤或減碳標籤列為評選加分或優先採購條件之一，鼓勵企業接軌淨零供應鏈要求','碳足跡標籤與政府採購制度完全脫鉤','取得標籤將導致採購資格被取消','碳足跡標籤僅適用於出口產品，不適用於內銷產品'],a:0,e:'部分政府採購案已將碳足跡標籤或減碳標籤列為評選加分或優先採購條件之一。'},
+{ch:'c7',q:'某企業欲擴大申請碳足跡標籤之產品類別，惟遇缺乏適用PCR之困境，依近年政策趨勢，下列敘述何者正確？',o:['政府近年持續推動擴大公告各類產品之PCR數量，協助企業接軌國際碳足跡計算規則','PCR數量僅會逐年減少','PCR公告與政策推動無關','PCR僅限於食品業適用'],a:0,e:'政府近年持續擴大公告各類產品之PCR數量，以協助企業接軌國際碳足跡計算規則。'},
+{ch:'c7',q:'情境：某企業比較「產品碳足跡標籤」與「碳中和標籤（如依ISO14068-1宣告）」之差異，下列敘述何者正確？',o:['產品碳足跡標籤呈現產品生命週期排放總量之量化數據；碳中和標籤則代表該產品/組織已透過減量與抵換達成淨排放為零之宣告，兩者性質與要求不同','兩者完全相同、可互相取代','碳足跡標籤代表已達成碳中和','碳中和標籤不須計算碳足跡作為基礎'],a:0,e:'碳足跡標籤呈現量化排放數據；碳中和標籤代表已達成淨排放為零之宣告，兩者性質不同（碳中和宣告通常仍以碳足跡數據為計算基礎）。'},
+{ch:'c7',q:'某企業於申請碳足跡標籤過程中，若被查驗機構發現數據造假，下列敘述何者正確？',o:['查驗機構仍應核發標籤、不予追究','查驗機構應拒絕通過查驗，企業不得取得標籤，情節重大者可能面臨相關法律責任','造假行為與標籤核發制度無關','查驗機構無權拒絕核發'],a:1,e:'發現數據造假時，查驗機構應拒絕通過查驗，企業不得取得標籤，情節重大者尚可能面臨法律責任。'},
+{ch:'c7',q:'情境：某集團永續長總結考科二核心精神，欲向新進同仁說明「組織型盤查（ISO14064-1）」與「產品型碳足跡（ISO14067）」之關係，下列敘述何者最為適切？',o:['兩者各自獨立、互不影響，企業不須同時具備兩種盤查能力','組織型盤查建立企業整體排放透明度與減碳管理基礎，產品型碳足跡則聚焦特定產品之生命週期排放，兩者數據可部分共用（如活動數據、排放係數），並共同支撐企業淨零轉型、供應鏈要求與國際趨勢因應','只要完成組織型盤查，產品碳足跡即自動產生、無須額外計算','產品型碳足跡計算結果可直接取代組織型盤查、無須再進行組織盤查'],a:1,e:'組織型盤查與產品型碳足跡各有側重但可共用部分數據，兩者共同支撐企業淨零轉型與供應鏈因應能力，是考科二的核心整合觀念。'}
+];
+
+let answers = {};
+let wrongOnly = false;
+
+function renderQuiz(){
+  const filter = document.getElementById('chapterFilter').value;
+  const list = document.getElementById('quizList');
+  list.innerHTML = '';
+  const chNames = {c1:'CH1 14064-1原則',c2:'CH2 盤查法制',c3:'CH3 範疇與係數',c4:'CH4 報告書邊界',c5:'CH5 查證確證',c6:'CH6 14067碳足跡',c7:'CH7 碳足跡標籤'};
+
+  QUESTIONS.forEach((q, idx)=>{
+    if(filter!=='all' && q.ch!==filter) return;
+    if(wrongOnly){
+      const rec = answers[idx];
+      if(!rec || rec.correct) return;
+    }
+    const card = document.createElement('div');
+    card.className='qcard';
+    card.id = 'q'+idx;
+    const rec = answers[idx];
+
+    let optsHtml = '';
+    q.o.forEach((opt,oi)=>{
+      let cls='';
+      if(rec){
+        cls='disabled';
+        if(oi===q.a) cls+=' correct';
+        else if(oi===rec.selected) cls+=' wrong';
+      }
+      optsHtml += `<li class="${cls}" onclick="selectAnswer(${idx},${oi})"><span class="opt-letter">${String.fromCharCode(65+oi)}</span><span>${opt}</span></li>`;
+    });
+
+    card.innerHTML = `
+      <div class="qcard-head">
+        <span class="qnum">Q${idx+1}</span>
+        <span class="qchtag">${chNames[q.ch]}</span>
+      </div>
+      <div class="qtext">${q.q}</div>
+      <ul class="options">${optsHtml}</ul>
+      <div class="explain ${rec?'show':''}"><b>解析：</b>${q.e}</div>
+    `;
+    list.appendChild(card);
+  });
+  updateScorePanel();
+}
+
+function selectAnswer(idx, oi){
+  if(answers[idx]) return;
+  const q = QUESTIONS[idx];
+  answers[idx] = {selected:oi, correct: oi===q.a};
+  renderQuiz();
+  document.getElementById('q'+idx)?.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+function updateScorePanel(){
+  const total = QUESTIONS.length;
+  const answeredKeys = Object.keys(answers);
+  const answered = answeredKeys.length;
+  const correct = answeredKeys.filter(k=>answers[k].correct).length;
+  document.getElementById('answeredCount').textContent = answered;
+  document.getElementById('totalCount').textContent = total;
+  document.getElementById('accuracy').textContent = answered? Math.round(correct/answered*100)+'%' : '0%';
+  document.getElementById('progressBar').style.width = (answered/total*100)+'%';
+
+  const summary = document.getElementById('summaryCard');
+  if(answered===total){
+    summary.classList.add('show');
+    document.getElementById('summaryScore').textContent = correct+' / '+total;
+    let msg = '';
+    const pct = correct/total*100;
+    if(pct>=80) msg='盤查規範已內化為直覺判斷，維持這個手感上考場！';
+    else if(pct>=60) msg='基礎穩固，回頭複習答錯章節的筆記重點再衝刺一次。';
+    else msg='建議先重讀筆記重點，特別是時間期程與係數數字，再針對答錯章節逐題複習解析。';
+    document.getElementById('summaryMsg').textContent = msg;
+  } else {
+    summary.classList.remove('show');
+  }
+}
+
+function toggleWrongOnly(){
+  wrongOnly = !wrongOnly;
+  document.getElementById('wrongOnlyBtn').textContent = wrongOnly? '顯示全部題目' : '只看答錯題目';
+  renderQuiz();
+}
+
+function resetQuiz(){
+  answers = {};
+  wrongOnly = false;
+  document.getElementById('wrongOnlyBtn').textContent = '只看答錯題目';
+  document.getElementById('chapterFilter').value = 'all';
+  renderQuiz();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+renderQuiz();
+</script>
+</body>
+</html>
