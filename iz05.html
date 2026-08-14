@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<link href="img/favicon.ico" rel="icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IPASS 淨零碳規劃管理師｜HHV / LHV 筆記＋練習考題</title>
+<style>
+  :root{
+    --navy:#0f2a3f;
+    --teal:#0e7c7b;
+    --teal-light:#e6f4f3;
+    --gold:#c8963e;
+    --gray:#5c6b73;
+    --bg:#f7f9f9;
+    --card:#ffffff;
+    --line:#dde5e6;
+    --correct:#2f6e2f;
+    --wrong:#a1301f;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+    background:var(--bg);
+    color:#1e2a30;
+    line-height:1.75;
+	font-size: 22px;
+  }
+  .wrap{max-width:1900px;margin:0 auto;padding:80px 20px 90px;}
+
+  header.top{
+    background:linear-gradient(135deg,var(--navy),#164a5e);
+    color:#fff;
+    border-radius:14px;
+    padding:32px 28px;
+    margin-bottom:28px;
+  }
+  header.top .tag{
+    display:inline-block;
+    background:rgba(255,255,255,.15);
+    padding:4px 12px;
+    border-radius:20px;
+    font-size: 22px;
+    letter-spacing:1px;
+    margin-bottom:10px;
+  }
+  header.top h1{margin:6px 0 8px;font-size:26px;}
+  header.top p{margin:0;color:#cfe3e6;font-size: 22px;}
+
+  .navtabs{
+    display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap;
+  }
+  .navtabs button{
+    flex:1;min-width:140px;
+    padding:12px 14px;
+    border-radius:10px;
+    border:1px solid var(--line);
+    background:#fff;
+    color:var(--navy);
+    font-size: 22px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.15s;
+  }
+  .navtabs button.active{
+    background:var(--teal);
+    color:#fff;
+    border-color:var(--teal);
+  }
+
+  .section-panel{display:none;}
+  .section-panel.active{display:block;}
+
+  h2.section{
+    display:flex;align-items:center;gap:10px;
+    font-size: 22px;color:var(--navy);
+    border-left:5px solid var(--teal);
+    padding-left:12px;
+    margin:34px 0 14px;
+  }
+  h2.section:first-child{margin-top:0;}
+  h2.section .num{
+    background:var(--teal);color:#fff;width:26px;height:26px;
+    border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-size: 22px;flex-shrink:0;
+  }
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:20px 22px;
+    margin-bottom:16px;
+  }
+
+  .def-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media(max-width:640px){.def-grid{grid-template-columns:1fr;}}
+  .def-box{border-radius:10px;padding:16px 18px;}
+  .def-box.hhv{background:#fff3e6;border:1px solid #f0c98a;}
+  .def-box.lhv{background:var(--teal-light);border:1px solid #a9d8d6;}
+  .def-box h3{margin:0 0 6px;font-size: 22px;}
+  .def-box.hhv h3{color:#a15c00;}
+  .def-box.lhv h3{color:#0a5a59;}
+  .def-box .en{font-size: 22px;color:var(--gray);margin-bottom:8px;display:block;}
+  .def-box ul{margin:8px 0 0;padding-left:18px;font-size: 22px;}
+
+  .formula{
+    background:var(--navy);color:#fff;border-radius:10px;
+    padding:16px 20px;font-size: 22px;text-align:center;margin:14px 0;
+  }
+  .formula small{display:block;color:#b9d4d9;font-size: 22px;margin-top:6px;}
+
+  table{width:100%;border-collapse:collapse;font-size: 22px;margin-top:6px;}
+  th,td{border:1px solid var(--line);padding:9px 10px;text-align:left;}
+  th{background:var(--teal-light);color:var(--navy);}
+  tr:nth-child(even) td{background:#fafcfc;}
+
+  .warn{background:#fff0ee;border:1px solid #f2b8ae;border-left:5px solid #d9553f;border-radius:8px;padding:14px 16px;font-size: 22px;margin:14px 0;}
+  .warn b{color:var(--wrong);}
+  .tip{background:#eef7ec;border:1px solid #bfe0b6;border-left:5px solid #4c9a4c;border-radius:8px;padding:14px 16px;font-size: 22px;margin:14px 0;}
+  .tip b{color:var(--correct);}
+
+  .example{background:#f4f2fb;border:1px solid #d3cbee;border-radius:10px;padding:16px 18px;font-size: 22px;}
+  .example .step{margin:6px 0;}
+  .example .step b{color:var(--navy);}
+
+  /* Quiz styles */
+  .quiz-progress{
+    display:flex;justify-content:space-between;align-items:center;
+    background:#fff;border:1px solid var(--line);border-radius:10px;
+    padding:10px 16px;margin-bottom:18px;font-size: 22px;color:var(--gray);
+  }
+  .quiz-progress b{color:var(--navy);}
+  #scoreBadge{
+    background:var(--teal);color:#fff;padding:3px 10px;border-radius:14px;font-size: 22px;
+  }
+
+  .q-card{
+    background:#fff;border:1px solid var(--line);border-radius:12px;
+    padding:20px 22px;margin-bottom:18px;
+  }
+  .q-head{display:flex;gap:10px;align-items:flex-start;margin-bottom:12px;}
+  .q-index{
+    background:var(--navy);color:#fff;min-width:30px;height:30px;border-radius:8px;
+    display:flex;align-items:center;justify-content:center;font-size: 22px;flex-shrink:0;font-weight:700;
+  }
+  .q-type{
+    font-size: 22px;background:var(--teal-light);color:var(--teal);
+    padding:2px 8px;border-radius:6px;margin-left:8px;white-space:nowrap;
+  }
+  .q-text{font-size: 22px;font-weight:600;color:#1e2a30;}
+
+  .options{list-style:none;padding:0;margin:10px 0 0;}
+  .options li{
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:10px 14px;
+    margin-bottom:8px;
+    cursor:pointer;
+    font-size: 22px;
+    transition:.12s;
+    background:#fcfdfd;
+  }
+  .options li:hover{border-color:var(--teal);background:var(--teal-light);}
+  .options li.selected{border-color:var(--teal);background:var(--teal-light);font-weight:600;}
+  .options li.correct{border-color:var(--correct);background:#e6f3e6;font-weight:700;color:var(--correct);}
+  .options li.incorrect{border-color:var(--wrong);background:#fbeae7;font-weight:700;color:var(--wrong);}
+  .options li .tag-letter{
+    display:inline-block;width:20px;height:20px;border-radius:50%;
+    background:var(--navy);color:#fff;text-align:center;font-size: 22px;line-height:20px;
+    margin-right:8px;
+  }
+
+  .explain{
+    display:none;
+    margin-top:12px;
+    background:var(--teal-light);
+    border-left:4px solid var(--teal);
+    border-radius:8px;
+    padding:12px 14px;
+    font-size: 22px;
+    color:#164a5e;
+  }
+  .explain.show{display:block;}
+
+  .btnrow{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;}
+  .btnrow button{
+    border:none;border-radius:8px;padding:8px 16px;font-size: 22px;
+    cursor:pointer;background:var(--gold);color:#fff;font-weight:600;
+  }
+  .btnrow button.secondary{background:#eef1f2;color:var(--navy);}
+
+  #finalResult{
+    display:none;
+    text-align:center;
+    background:linear-gradient(135deg,var(--navy),#164a5e);
+    color:#fff;border-radius:14px;padding:28px;margin-top:10px;
+  }
+  #finalResult h3{margin:0 0 8px;font-size:22px;}
+  #finalResult p{margin:4px 0;color:#cfe3e6;font-size: 22px;}
+  #finalResult button{
+    margin-top:14px;background:#fff;color:var(--navy);border:none;
+    padding:10px 20px;border-radius:8px;font-weight:700;cursor:pointer;
+  }
+
+  .checklist ul{list-style:none;padding-left:0;}
+  .checklist li{margin-bottom:6px;font-size: 22px;}
+
+  footer{margin-top:40px;text-align:center;font-size: 22px;color:#8b9aa0;}
+.badgerowbt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px;
+    background: #ffffff;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+a.badge1 {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #007286;
+    color: #fff;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+a.badge2 {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #007286;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+a.badge3 {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #b8238d;
+    color: yellow;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+</style>
+</head>
+<body>
+<div class="badgerowbt">
+	
+    <div><a href="https://snoweryi.github.io/yilearn/" class="badge1" >永續架構</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/iu.html" class="badge1">UNFCCC</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/iz.html" class="badge1">條文</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/iy.html" class="badge1">年份</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/iw.html" class="badge1">氣候法</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/ic1.html" class="badge1">碳中和</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/ic.html" class="badge1">CBAM</a></div>	
+	<div><a href="https://snoweryi.github.io/yilearn/is.html" class="badge1">舊SBTi</a></div>		
+		<div><a href="https://snoweryi.github.io/yilearn/isb.html" class="badge1">新舊SBTi</a></div>	
+	<div><a href="https://snoweryi.github.io/yilearn/ir.html" class="badge1">RE100</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/ie.html" class="badge1">ESG</a></div>	
+	<div><a href="https://snoweryi.github.io/yilearn/iso_sbti_cbam.html" class="badge1">iso_sbti_cbam</a></div><br>
+	<div><a href="https://snoweryi.github.io/yilearn/iz01.html" class="badge1">碳價</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/iz_1.html" class="badge1">能源</a></div>
+	
+	<div><a href="https://snoweryi.github.io/yilearn/iz02.html" class="badge1">複習</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/iz03.html" class="badge1">台灣淨零</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/iz04.html" class="badge1">碳資產</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/iz05.html" class="badge2">高低熱</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/menu.html" class="badge3">目錄</a></div>
+  </div>
+<div class="wrap">
+
+  <header class="top">
+    <span class="tag">IPASS 淨零碳規劃管理師｜考試筆記＋練習題</span>
+    <h1>HHV 高位發熱量 vs LHV 低位發熱量</h1>
+    <p>重點筆記 ＋ 10 題自我練習測驗（含詳解），適用溫室氣體盤查、能源管理、碳排放計算章節</p>
+  </header>
+
+  <div class="navtabs">
+    <button class="tab-btn active" data-target="panel-note">📘 重點筆記</button>
+    <button class="tab-btn" data-target="panel-quiz">📝 練習考題（10 題）</button>
+  </div>
+
+  <!-- ========== 筆記區 ========== -->
+  <div id="panel-note" class="section-panel active">
+
+    <h2 class="section"><span class="num">1</span>基本定義</h2>
+    <div class="def-grid">
+      <div class="def-box hhv">
+        <h3>HHV 高位發熱量（總發熱量）</h3>
+        <span class="en">Higher Heating Value / Gross Calorific Value (GCV)</span>
+        燃料完全燃燒後，<b>將燃燒生成之水蒸氣冷凝為液態水</b>所釋放的全部熱量，包含水蒸氣的汽化潛熱。
+        <ul>
+          <li>數值較大</li>
+          <li>常見於「熱值檢測報告」「能源統計」</li>
+          <li>實驗室以彈卡計（bomb calorimeter）測得的即為 HHV</li>
+        </ul>
+      </div>
+      <div class="def-box lhv">
+        <h3>LHV 低位發熱量（淨發熱量）</h3>
+        <span class="en">Lower Heating Value / Net Calorific Value (NCV)</span>
+        燃燒後<b>水蒸氣仍以氣態排出</b>，不回收其冷凝潛熱，僅計入實際可用的淨熱量。
+        <ul>
+          <li>數值較小，較接近實務可用能量</li>
+          <li>國際溫室氣體盤查（IPCC／GHG Protocol）多以此為基礎</li>
+          <li>台灣溫室氣體排放係數管理表以 NCV（低位）為主</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 class="section"><span class="num">2</span>差異來源與換算公式</h2>
+    <div class="card">
+      燃料中的氫（H）與水分，燃燒後生成水蒸氣。若冷凝為液態水，會額外釋放<b>汽化潛熱</b>（約 2,260 kJ/kg 水，約 587 kcal/kg 水）。
+      <div class="formula">
+        LHV = HHV − 9 × H% × 587 (kcal/kg)
+        <small>H%：燃料中氫含量重量百分比；1kg 氫燃燒生成 9kg 水（化學計量比）</small>
+      </div>
+      <div class="tip"><b>記憶口訣：</b>「高含潛熱、低不含」——HHV 把水蒸氣的隱藏能量算進去，LHV 則扣掉。且恆有 <b>HHV ＞ LHV</b>。</div>
+      <table>
+        <tr><th>燃料類型</th><th>差異幅度</th><th>原因</th></tr>
+        <tr><td>天然氣 / 氣態燃料</td><td>約 9%–11%</td><td>氫含量高，生成較多水蒸氣</td></tr>
+        <tr><td>燃油 / 液態燃料</td><td>約 5%–7%</td><td>氫含量中等</td></tr>
+        <tr><td>煤炭 / 固態燃料</td><td>約 2%–5%</td><td>氫含量低，但含水分則差異上升</td></tr>
+        <tr><td>生質燃料（含水分高）</td><td>可達 10% 以上</td><td>原始水分＋燃燒生成水皆需扣除</td></tr>
+      </table>
+    </div>
+
+    <h2 class="section"><span class="num">3</span>考試最常混淆的重點</h2>
+    <div class="warn"><b>易錯 1：</b>台灣能源統計常用 HHV，但溫室氣體排放係數計算多用 LHV（NCV）。跨表引用數據務必核對基準。</div>
+    <div class="warn"><b>易錯 2：</b>IPCC 國家溫室氣體清冊指南預設採用 <b>NCV（≈LHV）</b> 作為活動數據 × 排放係數的基礎。</div>
+    <div class="warn"><b>易錯 3：</b>HHV 恆大於 LHV；若題目給的數字「LHV 大於 HHV」，代表題目或計算有誤。</div>
+
+    <h2 class="section"><span class="num">4</span>與溫室氣體盤查的關聯</h2>
+    <div class="card">
+      <ul>
+        <li>排放量 = 燃料使用量 × 熱值（NCV/LHV）× 排放係數</li>
+        <li>熱值基準不一致會造成排放量計算錯誤，是查證（Verification）常見稽核缺失</li>
+        <li>ISO 14064-1 與 GHG Protocol 皆要求盤查邊界說明中明確揭露採用的熱值基準</li>
+      </ul>
+    </div>
+
+    <h2 class="section"><span class="num">5</span>速記表</h2>
+    <div class="card">
+      <table>
+        <tr><th>項目</th><th>HHV（高位／總熱值）</th><th>LHV（低位／淨熱值）</th></tr>
+        <tr><td>是否含水蒸氣潛熱</td><td>含</td><td>不含</td></tr>
+        <tr><td>數值大小</td><td>較大</td><td>較小</td></tr>
+        <tr><td>常見應用</td><td>燃料熱值檢測、鍋爐設計、能源統計</td><td>溫室氣體盤查、IPCC 排放係數</td></tr>
+        <tr><td>又稱</td><td>Gross Calorific Value (GCV)</td><td>Net Calorific Value (NCV)</td></tr>
+      </table>
+    </div>
+
+    <h2 class="section"><span class="num">6</span>自我檢核清單</h2>
+    <div class="card checklist">
+      <ul>
+        <li>☐ 能說出 HHV 與 LHV 的定義差異及原因（水蒸氣潛熱）</li>
+        <li>☐ 能寫出 LHV = HHV − 潛熱項 的換算邏輯</li>
+        <li>☐ 知道 IPCC／GHG Protocol 預設採用 NCV（LHV）</li>
+        <li>☐ 能判斷題目中排放係數的熱值基準，並正確換算後再計算</li>
+        <li>☐ 能舉出不同燃料 HHV/LHV 差異幅度大小的排序（天然氣＞燃油＞煤）</li>
+      </ul>
+    </div>
+
+    <div class="tip" style="margin-top:20px;">
+      準備好了嗎？點上方「📝 練習考題」進行 10 題自我測驗，答對率會即時統計。
+    </div>
+  </div>
+
+  <!-- ========== 考題區 ========== -->
+  <div id="panel-quiz" class="section-panel">
+
+    <div class="quiz-progress">
+      <span>已作答：<b id="answeredCount">0</b> / 10</span>
+      <span id="scoreBadge">目前答對：0</span>
+    </div>
+
+    <div id="quizContainer"></div>
+
+    <div id="finalResult">
+      <h3 id="finalScoreText"></h3>
+      <p id="finalComment"></p>
+      <button onclick="resetQuiz()">🔄 重新測驗</button>
+    </div>
+  </div>
+
+  <footer>
+    IPASS 淨零碳規劃管理師考試筆記　|　整理日期：2026 年 8 月　|　考題為自製練習題，非官方考古題，僅供複習觀念使用
+  </footer>
+
+</div>
+
+<script>
+// ---- Tab switching ----
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.section-panel').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.target).classList.add('active');
+  });
+});
+
+// ---- Quiz data (原創練習題，非官方考古題) ----
+const quizData = [
+  {
+    type:"觀念題",
+    q:"下列關於 HHV（高位發熱量）與 LHV（低位發熱量）之敘述，何者正確？",
+    options:[
+      "HHV 恆小於 LHV",
+      "HHV 包含水蒸氣冷凝潛熱，數值恆大於 LHV",
+      "兩者數值恆相等，僅名稱不同",
+      "LHV 包含水蒸氣冷凝潛熱，數值恆大於 HHV"
+    ],
+    answer:1,
+    explain:"HHV（高位發熱量）將燃燒生成水蒸氣冷凝為液態水所釋放的潛熱也計入，因此數值恆大於 LHV（低位發熱量）。"
+  },
+  {
+    type:"觀念題",
+    q:"造成 HHV 與 LHV 數值差異的主要原因為何？",
+    options:[
+      "燃料中碳含量不同",
+      "測量儀器精密度不同",
+      "燃燒生成之水蒸氣是否被冷凝回收其汽化潛熱",
+      "燃料的儲存溫度不同"
+    ],
+    answer:2,
+    explain:"差異來自燃料中氫與水分燃燒後生成的水蒸氣：若該水蒸氣被冷凝為液態水，會多釋出汽化潛熱（HHV）；若仍以氣態排出，則不計入該潛熱（LHV）。"
+  },
+  {
+    type:"觀念題",
+    q:"依 IPCC 國家溫室氣體清冊指南，計算燃料燃燒排放量時，活動數據所採用的熱值基準預設為何？",
+    options:[
+      "HHV（高位發熱量／總熱值）",
+      "LHV（低位發熱量／淨熱值，NCV）",
+      "兩者皆可任意選用，不影響結果",
+      "以燃料密度取代熱值計算"
+    ],
+    answer:1,
+    explain:"IPCC 國家溫室氣體清冊指南預設採用 NCV（淨熱值，約等於 LHV）作為活動數據 × 排放係數計算排放量的基礎。"
+  },
+  {
+    type:"應用判斷",
+    q:"某企業進行溫室氣體盤查時，誤將能源統計表中的 HHV 數值直接代入以 LHV 為基準的排放係數公式計算，可能導致下列何種結果？",
+    options:[
+      "計算結果不受影響",
+      "排放量會被低估",
+      "排放量會被高估，因 HHV 數值大於 LHV",
+      "無法判斷，需視燃料種類而定"
+    ],
+    answer:2,
+    explain:"因 HHV 恆大於 LHV，若誤用 HHV 熱值代入以 LHV 為基準的排放係數公式，會使計算出的燃料能量偏高，導致排放量被高估。"
+  },
+  {
+    type:"觀念題",
+    q:"下列燃料中，HHV 與 LHV 差異幅度「通常最大」的是？",
+    options:[
+      "煤炭（低氫含量固態燃料）",
+      "天然氣（高氫含量氣態燃料）",
+      "重油",
+      "石墨"
+    ],
+    answer:1,
+    explain:"天然氣氫含量較高，燃燒後生成較多水蒸氣，因此 HHV 與 LHV 的差異幅度通常最大（約 9%–11%），高於煤炭等固態燃料。"
+  },
+  {
+    type:"計算題",
+    q:"某燃料 HHV = 45 MJ/kg，經檢測其 LHV 為 HHV 之 92%。請問該燃料的 LHV 約為多少？",
+    options:[
+      "38.9 MJ/kg",
+      "41.4 MJ/kg",
+      "43.2 MJ/kg",
+      "45.0 MJ/kg"
+    ],
+    answer:1,
+    explain:"LHV = 45 × 0.92 = 41.4 MJ/kg。"
+  },
+  {
+    type:"計算題",
+    q:"某工廠使用燃料油 5,000 公斤，HHV = 42 MJ/kg，LHV/HHV 比值為 0.94。若排放係數（以 LHV 為基準）為 74.1 kg CO₂/GJ，該批燃料的燃燒排放量約為多少？",
+    options:[
+      "約 12.3 t CO₂",
+      "約 14.6 t CO₂",
+      "約 16.7 t CO₂",
+      "約 19.5 t CO₂"
+    ],
+    answer:1,
+    explain:"Step1：LHV = 42 × 0.94 = 39.48 MJ/kg。Step2：總熱量 = 5,000 kg × 39.48 MJ/kg = 197,400 MJ ≈ 197.4 GJ。Step3：排放量 = 197.4 GJ × 74.1 kg CO₂/GJ ≈ 14,627 kg ≈ 14.6 t CO₂。"
+  },
+  {
+    type:"觀念題",
+    q:"在企業溫室氣體盤查報告書撰寫時，依 ISO 14064-1 之要求，關於熱值基準的揭露原則，下列敘述何者正確？",
+    options:[
+      "不需揭露，因熱值基準對結果無影響",
+      "應於盤查邊界或方法學說明中，明確揭露所採用之熱值基準（HHV 或 LHV）",
+      "只需在被稽核時口頭說明即可",
+      "可自由混用 HHV 與 LHV，不影響查證結果"
+    ],
+    answer:1,
+    explain:"ISO 14064-1 與 GHG Protocol 均要求企業於盤查方法學或邊界說明中明確揭露所採用之熱值基準，以確保計算一致性與可查證性，避免因基準不一致造成排放量誤差。"
+  },
+  {
+    type:"觀念題",
+    q:"下列何者是 LHV（低位發熱量）在國際文獻中常見的別稱？",
+    options:[
+      "Gross Calorific Value (GCV)",
+      "Net Calorific Value (NCV)",
+      "Total Heating Value (THV)",
+      "Absolute Calorific Value (ACV)"
+    ],
+    answer:1,
+    explain:"LHV 又稱 Net Calorific Value（NCV，淨發熱值）；HHV 則常稱 Gross Calorific Value（GCV，總發熱值）。"
+  },
+  {
+    type:"應用判斷",
+    q:"某考生在計算題中發現題目所附「LHV 數值」大於「HHV 數值」，最合理的判斷為何？",
+    options:[
+      "屬於正常現象，無需懷疑",
+      "代表該燃料為特殊燃料，可以有此反轉關係",
+      "題目數據或計算過程可能有誤，因 HHV 恆大於等於 LHV",
+      "代表該燃料完全不含氫元素與水分"
+    ],
+    answer:2,
+    explain:"由於 HHV 包含水蒸氣冷凝潛熱，其數值恆大於或等於 LHV，若出現 LHV 大於 HHV 的情況，應優先檢查數據來源或計算過程是否有誤植或誤算。"
+  }
+];
+
+let userAnswers = new Array(quizData.length).fill(null);
+
+function renderQuiz(){
+  const container = document.getElementById('quizContainer');
+  container.innerHTML = '';
+  quizData.forEach((item, qi)=>{
+    const card = document.createElement('div');
+    card.className='q-card';
+    card.innerHTML = `
+      <div class="q-head">
+        <div class="q-index">${qi+1}</div>
+        <div class="q-text">${item.q}<span class="q-type">${item.type}</span></div>
+      </div>
+      <ul class="options" id="opts-${qi}"></ul>
+      <div class="explain" id="explain-${qi}"><b>詳解：</b>${item.explain}</div>
+    `;
+    container.appendChild(card);
+    const optList = card.querySelector(`#opts-${qi}`);
+    const letters = ['A','B','C','D'];
+    item.options.forEach((opt, oi)=>{
+      const li = document.createElement('li');
+      li.innerHTML = `<span class="tag-letter">${letters[oi]}</span>${opt}`;
+      li.addEventListener('click', ()=>selectAnswer(qi, oi));
+      optList.appendChild(li);
+    });
+  });
+  updateProgress();
+}
+
+function selectAnswer(qi, oi){
+  if(userAnswers[qi] !== null) return; // already answered, lock it
+  userAnswers[qi] = oi;
+  const optList = document.getElementById(`opts-${qi}`);
+  const lis = optList.querySelectorAll('li');
+  const correctIndex = quizData[qi].answer;
+  lis.forEach((li, idx)=>{
+    if(idx === correctIndex){ li.classList.add('correct'); }
+    if(idx === oi && oi !== correctIndex){ li.classList.add('incorrect'); }
+    if(idx===oi){ li.classList.add('selected'); }
+  });
+  document.getElementById(`explain-${qi}`).classList.add('show');
+  updateProgress();
+  checkFinish();
+}
+
+function updateProgress(){
+  const answered = userAnswers.filter(a=>a!==null).length;
+  const correct = userAnswers.filter((a,i)=>a===quizData[i].answer).length;
+  document.getElementById('answeredCount').innerText = answered;
+  document.getElementById('scoreBadge').innerText = `目前答對：${correct}`;
+}
+
+function checkFinish(){
+  const answered = userAnswers.filter(a=>a!==null).length;
+  if(answered === quizData.length){
+    const correct = userAnswers.filter((a,i)=>a===quizData[i].answer).length;
+    const pct = Math.round((correct/quizData.length)*100);
+    document.getElementById('finalResult').style.display='block';
+    document.getElementById('finalScoreText').innerText = `測驗完成：${correct} / ${quizData.length}（${pct} 分）`;
+    let comment = '';
+    if(pct>=90) comment='觀念非常紮實，HHV/LHV 這章節已掌握！可以進入下一章複習。';
+    else if(pct>=70) comment='大致掌握，建議重看「易錯提醒」與計算題步驟，再刷一次。';
+    else comment='建議重新閱讀筆記區的定義與換算公式，尤其留意 HHV/LHV 何者用於排放係數計算。';
+    document.getElementById('finalComment').innerText = comment;
+    document.getElementById('finalResult').scrollIntoView({behavior:'smooth', block:'center'});
+  }
+}
+
+function resetQuiz(){
+  userAnswers = new Array(quizData.length).fill(null);
+  document.getElementById('finalResult').style.display='none';
+  renderQuiz();
+  document.getElementById('panel-quiz').scrollIntoView({behavior:'smooth'});
+}
+
+renderQuiz();
+</script>
+
+</body>
+</html>
