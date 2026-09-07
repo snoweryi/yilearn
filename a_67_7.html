@@ -1,0 +1,1706 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>碳管理七步驟完整實務指南</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', 'Microsoft JhengHei', sans-serif;
+      line-height: 1.6;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #f5f5f5;
+	  font-size: 22px;
+    }
+    .section {
+      background: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+      border-bottom: 3px solid #1a2a3a;
+	  padding-top: 100px;
+      padding-bottom: 10px;
+    }
+    .section-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: #fff;
+    }
+    .section-title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #1a2a3a;
+    }
+    .section-subtitle {
+      font-size: 22px;
+      color: #666;
+    }
+    .flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+    .flow-step {
+      background: #e6eff7;
+      border: 2px solid #1a2a3a;
+      border-radius: 8px;
+      padding: 15px;
+      text-align: center;
+      min-width: 100px;
+      font-weight: bold;
+      position: relative;
+    }
+    .flow-step.active {
+      background: #1a2a3a;
+      color: #fff;
+    }
+    .flow-step.highlight {
+      background: #ffc107;
+      border-color: #ff9800;
+      color: #000;
+    }
+    .flow-arrow {
+      font-size: 24px;
+      color: #1a2a3a;
+      font-weight: bold;
+    }
+    .seven-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin: 20px 0;
+    }
+    .step-card {
+      background: linear-gradient(135deg, #e6eff7 0%, #f8f9fa 100%);
+      border-left: 5px solid #1a2a3a;
+      border-radius: 8px;
+      padding: 20px;
+      transition: transform 0.2s;
+    }
+    .step-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .step-card.quality {
+      border-left-color: #ffc107;
+      background: linear-gradient(135deg, #fff3cd 0%, #fff 100%);
+    }
+    .step-card.reduction {
+      border-left-color: #198754;
+      background: linear-gradient(135deg, #d1e7dd 0%, #f8f9fa 100%);
+    }
+    .step-number {
+      background: #1a2a3a;
+      color: #fff;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .step-card.quality .step-number {
+      background: #ffc107;
+      color: #000;
+    }
+    .step-card.reduction .step-number {
+      background: #198754;
+      color: #fff;
+    }
+    .step-title {
+      font-size: 22px;
+      font-weight: bold;
+      color: #1a2a3a;
+      margin-bottom: 10px;
+    }
+    .step-content {
+      line-height: 1.8;
+    }
+    .step-content ul {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+    .step-content li {
+      margin: 5px 0;
+    }
+    .key-point {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 4px;
+    }
+    .key-point-title {
+      font-weight: bold;
+      color: #856404;
+      margin-bottom: 5px;
+    }
+    .alert {
+      display: flex;
+      gap: 15px;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    .alert.yellow {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+    }
+    .alert.red {
+      background: #f8d7da;
+      border-left: 4px solid #dc3545;
+    }
+    .alert.green {
+      background: #d1e7dd;
+      border-left: 4px solid #198754;
+    }
+    .alert.blue {
+      background: #cfe2ff;
+      border-left: 4px solid #0d6efd;
+    }
+    .alert-icon {
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+    .alert-title {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .hl-green {
+      background: #d1e7dd;
+      padding: 2px 6px;
+      border-radius: 3px;
+      color: #0f5132;
+      font-weight: bold;
+    }
+    .hl-orange {
+      background: #ffe5d0;
+      padding: 2px 6px;
+      border-radius: 3px;
+      color: #994000;
+      font-weight: bold;
+    }
+    .hl-red {
+      background: #f8d7da;
+      padding: 2px 6px;
+      border-radius: 3px;
+      color: #842029;
+      font-weight: bold;
+    }
+    .hl-blue {
+      background: #cfe2ff;
+      padding: 2px 6px;
+      border-radius: 3px;
+      color: #084298;
+      font-weight: bold;
+    }
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background: #fff;
+    }
+    .comparison-table th {
+      background: #1a2a3a;
+      color: #fff;
+      padding: 12px;
+      text-align: left;
+    }
+    .comparison-table td {
+      padding: 12px;
+      border-bottom: 1px solid #dee2e6;
+    }
+    .comparison-table tr:hover {
+      background: #f8f9fa;
+    }
+    .iso-reference {
+      background: #e6eff7;
+      border-radius: 8px;
+      padding: 15px;
+      margin: 20px 0;
+    }
+    .iso-reference h4 {
+      color: #1a2a3a;
+      margin-bottom: 10px;
+    }
+    .checklist {
+      background: #f8f9fa;
+      border: 2px dashed #1a2a3a;
+      border-radius: 8px;
+      padding: 15px;
+      margin: 15px 0;
+    }
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 8px 0;
+    }
+    .checkmark {
+      color: #198754;
+      font-weight: bold;
+      font-size: 22px;
+    }
+    .question-box {
+      background: #fff;
+      border: 2px solid #1a2a3a;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 15px 0;
+    }
+    .question-number {
+      background: #1a2a3a;
+      color: #fff;
+      display: inline-block;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .options {
+      margin: 15px 0;
+    }
+    .option {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      border-radius: 4px;
+      padding: 10px 15px;
+      margin: 8px 0;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .option:hover {
+      background: #e6eff7;
+      border-color: #1a2a3a;
+    }
+    .answer {
+      background: #d1e7dd;
+      border-left: 4px solid #198754;
+      padding: 15px;
+      margin-top: 15px;
+      border-radius: 4px;
+    }
+    .answer-title {
+      font-weight: bold;
+      color: #0f5132;
+      margin-bottom: 5px;
+    }
+    .explanation {
+      background: #e6eff7;
+      padding: 10px;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+@media (max-width: 768px) {
+  
+.section-header {margin-top: 6rem;padding:8px 18px 30px;}  
+}
+.badgerowbt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px;
+    background: #ffffff;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+a.badge1 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #007286;
+    color: #fff;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+a.badge2 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #007286;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+a.badge3 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #b8238d;
+    color: yellow;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+</style>
+</head>
+<body>
+<div class="badgerowbt">			
+	<!--<div><a href="https://snoweryi.github.io/yilearn/i01.html" class="badge1">01趨勢及策略</a></div>-->
+	<div><a href="https://snoweryi.github.io/yilearn/i02.html" class="badge1">溫室氣體盤查</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/a_67.html" class="badge1">14067</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/a_67_7.html" class="badge2">7步驟</a></div>
+	
+	
+	<div><a href="https://snoweryi.github.io/yilearn/i03.html" class="badge1">碳足跡</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i031.html" class="badge1">碳足跡2</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/a_64.html" class="badge1">14064</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/a_lca.html" class="badge1">LCA</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/a_lca2.html" class="badge1">LCA2</a></div>
+	
+	
+	<div><a href="https://snoweryi.github.io/yilearn/i022.html" class="badge1">考科二</a></div>	
+	<div><a href="https://snoweryi.github.io/yilearn/a_6467.html" class="badge1">64& 67</a></div>
+	
+	
+	<div><a href="https://snoweryi.github.io/yilearn" class="badge3">目錄</a></div>
+</div>
+
+<!-- 核心流程圖 -->
+<section class="section" style="background:linear-gradient(135deg, #e6eff7 0%, #fff 100%);">
+  <div class="section-header">
+    <div class="section-icon" style="background:#1a2a3a">🔄</div>
+    <div>
+      <div class="section-title">碳管理七步驟完整實務流程</div>
+      <div class="section-subtitle">邊、源、算、品、減、報、查 — 政府推動與企業培訓核心架構</div>
+    </div>
+  </div>
+
+  <div class="flow">
+    <div class="flow-step active">① 邊<br>邊界設定</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step active">② 源<br>排放源鑑別</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step active">③ 算<br>排放量計算</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step highlight">④ 品<br>數據品質</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step highlight">⑤ 減<br>減量目標</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step active">⑥ 報<br>報告編製</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step active">⑦ 查<br>查證確信</div>
+  </div>
+
+  <div class="alert blue">
+    <div class="alert-icon">💡</div>
+    <div class="alert-content">
+      <div class="alert-title">關鍵差異：「品」與「減」是品質與目標管理的核心</div>
+      <div class="alert-body">
+        傳統五步驟（邊、源、算、報、查）容易忽略兩個關鍵環節：<br>
+        <strong class="hl-orange">「品」（數據品質管理）</strong>：確保碳帳本數據可信、無誤，進行不確定性評估與 QA/QC<br>
+        <strong class="hl-green">「減」（減量目標與倡議）</strong>：制定實質減碳計畫，對應 ISO 14064-1「減緩活動」章節
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 七步驟詳細說明 -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-icon" style="background:#198754">📋</div>
+    <div>
+      <div class="section-title">七步驟詳細實務說明</div>
+      <div class="section-subtitle">ISO 14064-1 對應條文與實務操作要點</div>
+    </div>
+  </div>
+
+  <div class="seven-steps-grid">
+    <!-- 步驟 1：邊 -->
+    <div class="step-card">
+      <div class="step-number">1</div>
+      <div class="step-title">🔲 邊 — 邊界設定</div>
+      <div class="step-content">
+        <strong>核心任務：</strong>界定盤查範圍<br>
+        <ul>
+          <li><strong>組織邊界：</strong>決定哪些公司實體、廠區、據點納入（控制權法或股權法）</li>
+          <li><strong>報告邊界：</strong>決定納入哪些排放類別（類別 1-6）</li>
+          <li><strong>時間邊界：</strong>盤查年度（如 2024 年 1/1-12/31）</li>
+        </ul>
+        <div class="key-point">
+          <div class="key-point-title">⚠️ 最容易做錯的一步</div>
+          許多企業漏掉持股但未控制的子公司，或漏掉外包製程、員工通勤等間接排放。
+        </div>
+        <strong>ISO 14064-1 對應：</strong>第 5.2 條（組織邊界）、第 5.3 條（報告邊界）
+      </div>
+    </div>
+
+    <!-- 步驟 2：源 -->
+    <div class="step-card">
+      <div class="step-number">2</div>
+      <div class="step-title">🔍 源 — 排放源鑑別</div>
+      <div class="step-content">
+        <strong>核心任務：</strong>盤點所有排放源<br>
+        <ul>
+          <li><strong>類別 1：</strong>直接排放（鍋爐、車輛、製程、逸散）</li>
+          <li><strong>類別 2：</strong>能源間接排放（外購電力、蒸氣、熱）</li>
+          <li><strong>類別 3-6：</strong>其他間接排放（運輸、外包、產品使用、廢棄物等）</li>
+        </ul>
+        <div class="key-point">
+          <div class="key-point-title">🎯 重大性鑑別</div>
+          2018 版強調「顯著性間接排放」必須納入，如供應鏈運輸、員工通勤、商務旅行。
+        </div>
+        <strong>ISO 14064-1 對應：</strong>第 5.4 條（溫室氣體排放源鑑別）
+      </div>
+    </div>
+
+    <!-- 步驟 3：算 -->
+    <div class="step-card">
+      <div class="step-number">3</div>
+      <div class="step-title">🧮 算 — 排放量計算</div>
+      <div class="step-content">
+        <strong>核心任務：</strong>量化溫室氣體排放<br>
+        <ul>
+          <li><strong>公式：</strong>排放量 = 活動數據 × 排放係數 × GWP</li>
+          <li><strong>活動數據：</strong>電費單、油耗記錄、里程數、原物料用量</li>
+          <li><strong>排放係數：</strong>政府公布係數（如台電係數 0.494 kg CO₂e/度）</li>
+          <li><strong>GWP 轉換：</strong>使用 IPCC AR5 或 AR6 係數轉換為 CO₂e</li>
+        </ul>
+        <div class="key-point">
+          <div class="key-point-title">📊 計算方法</div>
+          最常用「排放係數法」；製程排放可用「質量平衡法」；連續監測設備可用「實際測量法」。
+        </div>
+        <strong>ISO 14064-1 對應：</strong>第 5.5 條（溫室氣體排放量化）
+      </div>
+    </div>
+
+    <!-- 步驟 4：品 -->
+    <div class="step-card quality">
+      <div class="step-number" style="background:#ffc107;color:#000">4</div>
+      <div class="step-title">⭐ 品 — 數據品質管理</div>
+      <div class="step-content">
+        <strong class="hl-orange">這是許多人容易忽略的關鍵步驟！</strong><br><br>
+        <strong>核心任務：</strong>確保數據可信、無誤<br>
+        <ul>
+          <li><strong>不確定性評估：</strong>評估數據誤差範圍（如電表誤差±2%）</li>
+          <li><strong>QA/QC 檢查：</strong>
+            <ul>
+              <li>✓ 手抄數據有沒有連錯格子？</li>
+              <li>✓ 發票跟電費單有沒有重疊或漏計？</li>
+              <li>✓ 單位換算是否正確（kWh vs MWh）？</li>
+              <li>✓ 排放係數版本是否最新？</li>
+            </ul>
+          </li>
+          <li><strong>數據品質指標：</strong>時間代表性、地理代表性、技術代表性、精密度、完整性</li>
+        </ul>
+        <div class="alert yellow">
+          <div class="alert-icon">⚠️</div>
+          <div class="alert-content">
+            <div class="alert-title">考試陷阱</div>
+            許多企業算完碳排就直接寫報告，跳過品質管理，導致數據不可信，查證時被開不符合項。
+          </div>
+        </div>
+        <strong>ISO 14064-1 對應：</strong>第 5.6 條（數據品質管理）、第 6.2 條（不確定性評估）
+      </div>
+    </div>
+
+    <!-- 步驟 5：減 -->
+    <div class="step-card reduction">
+      <div class="step-number" style="background:#198754">5</div>
+      <div class="step-title">🌱 減 — 減量目標與倡議</div>
+      <div class="step-content">
+        <strong class="hl-green">盤查的最終目的是減碳！</strong><br><br>
+        <strong>核心任務：</strong>制定實質減碳計畫<br>
+        <ul>
+          <li><strong>識別熱點：</strong>找出排放占比最高的製程或活動</li>
+          <li><strong>設定目標：</strong>
+            <ul>
+              <li>短期目標（1-3 年）：如用電量減 5%</li>
+              <li>長期目標（5-10 年）：如 2030 年減 50%</li>
+              <li>淨零目標（2050 年）：符合 SBTi 1.5°C 路徑</li>
+            </ul>
+          </li>
+          <li><strong>減緩活動：</strong>
+            <ul>
+              <li>設備更新（LED 照明、高效馬達）</li>
+              <li>再生能源（太陽能、綠電購買）</li>
+              <li>製程優化（減少廢料、提升良率）</li>
+              <li>碳移除（植樹、碳捕捉）</li>
+            </ul>
+          </li>
+        </ul>
+        <div class="key-point">
+          <div class="key-point-title">📈 ISO 14068-1 對應</div>
+          碳中和五步驟：承諾 → 盤查 → <strong>減量</strong> → 抵換 → 驗證。減量優先於抵換。
+        </div>
+        <strong>ISO 14064-1 對應：</strong>第 5.7 條（組織溫室氣體減緩活動）
+      </div>
+    </div>
+
+    <!-- 步驟 6：報 -->
+    <div class="step-card">
+      <div class="step-number">6</div>
+      <div class="step-title">📄 報 — 報告編製</div>
+      <div class="step-content">
+        <strong>核心任務：</strong>撰寫溫室氣體盤查報告書<br>
+        <ul>
+          <li><strong>必要內容：</strong>
+            <ul>
+              <li>組織邊界與報告邊界說明</li>
+              <li>排放源清單與分類</li>
+              <li>量化方法與排放係數來源</li>
+              <li>排放量清冊（各類別加總）</li>
+              <li>基準年與重算政策</li>
+              <li>數據品質與不確定性說明</li>
+              <li>減量目標與計畫（若有）</li>
+            </ul>
+          </li>
+          <li><strong>格式要求：</strong>符合 ISO 14064-1 第 7 章（溫室氣體清冊報告）</li>
+          <li><strong>揭露原則：</strong>相關性、完整性、一致性、準確性、透明度</li>
+        </ul>
+        <div class="key-point">
+          <div class="key-point-title">📋 報告用途</div>
+          用於內部管理、主管機關申報（如環境部碳盤查申報）、供應鏈要求（如 Apple、Microsoft）、第三方查證。
+        </div>
+        <strong>ISO 14064-1 對應：</strong>第 7 章（溫室氣體清冊報告）
+      </div>
+    </div>
+
+    <!-- 步驟 7：查 -->
+    <div class="step-card">
+      <div class="step-number">7</div>
+      <div class="step-title">✅ 查 — 查證確信</div>
+      <div class="step-content">
+        <strong>核心任務：</strong>內部稽核與第三方查證<br>
+        <ul>
+          <li><strong>內部查證：</strong>
+            <ul>
+              <li>建立內部稽核程序</li>
+              <li>訓練內部稽核員</li>
+              <li>定期執行內部稽核</li>
+            </ul>
+          </li>
+          <li><strong>管理審查：</strong>高階管理階層審查盤查結果與減量績效</li>
+          <li><strong>第三方查證（確信）：</strong>
+            <ul>
+              <li>依據 ISO 14064-3 執行</li>
+              <li>合理確信（Reasonable Assurance）或有限確信（Limited Assurance）</li>
+              <li>取得查證聲明書或證書</li>
+            </ul>
+          </li>
+        </ul>
+        <div class="alert red">
+          <div class="alert-icon">🔴</div>
+          <div class="alert-content">
+            <div class="alert-title">法規時程</div>
+            金管會要求：2029 年前金融業與上市櫃公司須完成第三方查證。
+          </div>
+        </div>
+        <strong>ISO 14064-1 對應：</strong>第 8 章（溫室氣體清冊查證）
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ISO 標準對應表 -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-icon" style="background:#0d6efd">📚</div>
+    <div>
+      <div class="section-title">ISO 標準對應參考</div>
+      <div class="section-subtitle">七步驟與 ISO 14064 系列標準的完整對應</div>
+    </div>
+  </div>
+
+  <table class="comparison-table">
+    <thead>
+      <tr>
+        <th>七步驟</th>
+        <th>ISO 14064-1:2018 條文</th>
+        <th>核心要求</th>
+        <th>實務工具/方法</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>① 邊</strong><br>邊界設定</td>
+        <td>第 5.2-5.3 條</td>
+        <td>組織邊界、報告邊界、時間邊界</td>
+        <td>控制權法、股權法、重大性評估</td>
+      </tr>
+      <tr>
+        <td><strong>② 源</strong><br>排放源鑑別</td>
+        <td>第 5.4 條</td>
+        <td>鑑別直接與間接排放源</td>
+        <td>六大類別分類、重大性鑑別</td>
+      </tr>
+      <tr>
+        <td><strong>③ 算</strong><br>排放量計算</td>
+        <td>第 5.5 條</td>
+        <td>量化溫室氣體排放</td>
+        <td>排放係數法、質量平衡法、GWP 轉換</td>
+      </tr>
+      <tr>
+        <td><strong>④ 品</strong><br>數據品質</td>
+        <td>第 5.6 條、6.2 條</td>
+        <td>數據品質管理、不確定性評估</td>
+        <td>QA/QC 檢查表、誤差分析、數據品質指標</td>
+      </tr>
+      <tr>
+        <td><strong>⑤ 減</strong><br>減量目標</td>
+        <td>第 5.7 條</td>
+        <td>溫室氣體減緩活動</td>
+        <td>熱點分析、SBTi 目標設定、減量專案</td>
+      </tr>
+      <tr>
+        <td><strong>⑥ 報</strong><br>報告編製</td>
+        <td>第 7 章</td>
+        <td>溫室氣體清冊報告</td>
+        <td>ISO 格式報告書、五大揭露原則</td>
+      </tr>
+      <tr>
+        <td><strong>⑦ 查</strong><br>查證確信</td>
+        <td>第 8 章、ISO 14064-3</td>
+        <td>內部稽核與第三方查證</td>
+        <td>內部稽核程序、查證機構、確信等級</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="iso-reference">
+    <h4>📖 相關 ISO 標準</h4>
+    <ul>
+      <li><strong>ISO 14064-1:</strong> 組織層級溫室氣體盤查（本架構核心）</li>
+      <li><strong>ISO 14064-2:</strong> 專案層級溫室氣體減量</li>
+      <li><strong>ISO 14064-3:</strong> 溫室氣體查證標準</li>
+      <li><strong>ISO 14067:</strong> 產品碳足跡（搖籃到墳墓）</li>
+      <li><strong>ISO 14068-1:</strong> 碳中和管理（減量優先原則）</li>
+      <li><strong>ISO 14069:</strong> 組織碳足跡量化與報告指南</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 數據品質管理深度說明 -->
+<section class="section" style="background:linear-gradient(135deg, #fff3cd 0%, #fff 100%);">
+  <div class="section-header">
+    <div class="section-icon" style="background:#ffc107">⭐</div>
+    <div>
+      <div class="section-title">「品」— 數據品質管理深度解析</div>
+      <div class="section-subtitle">QA/QC 實務操作與不確定性評估</div>
+    </div>
+  </div>
+
+  <div class="alert yellow">
+    <div class="alert-icon">🎯</div>
+    <div class="alert-content">
+      <div class="alert-title">為什麼「品」是關鍵？</div>
+      <div class="alert-body">
+        許多企業花大量時間蒐集數據、計算排放，但最後因為數據品質問題（如連錯格子、係數用錯版本），導致整份報告不可信。查證時被開不符合項，需要重做，浪費時間與成本。
+      </div>
+    </div>
+  </div>
+
+  <div class="two-col" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+    <div>
+      <h3 style="color:#856404;">📋 QA/QC 檢查清單</h3>
+      <div class="checklist">
+        <div class="checklist-item">
+          <div class="checkmark">✓</div>
+          <div>活動數據與原始憑證（電費單、發票）核對一致</div>
+        </div>
+        <div class="checklist-item">
+          <div class="checkmark">✓</div>
+          <div>單位換算正確（kWh → MWh、公升 → 公噸）</div>
+        </div>
+        <div class="checklist-item">
+          <div class="checkmark">✓</div>
+          <div>排放係數為最新版本（如環境部 113 年版）</div>
+        </div>
+        <div class="checklist-item">
+          <div class="checkmark">✓</div>
+          <div>GWP 版本一致（全報告使用 AR5 或 AR6）</div>
+        </div>
+        <div class="checklist-item">
+          <div class="checkmark">✓</div>
+          <div>無重複計算（如電力已算在類別 2，不再算在類別 1）</div>
+        </div>
+        <div class="checklist-item">
+          <div class="checkmark">✓</div>
+          <div>切斷準則合理（單一項目<1%，總和<5%）</div>
+        </div>
+        <div class="checklist-item">
+          <div class="checkmark">✓</div>
+          <div>異常數據有合理解釋（如某月用電量暴增）</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3 style="color:#856404;">📊 不確定性評估方法</h3>
+      <div class="step-content">
+        <strong>1. 誤差傳播法（Error Propagation）</strong><br>
+        適用於數據常態分佈，使用公式計算總不確定性。<br><br>
+        <strong>2. 蒙地卡羅模擬（Monte Carlo Simulation）</strong><br>
+        適用於複雜系統，透過大量隨機抽樣模擬不確定性。<br><br>
+        <strong>3. 專家判斷（Expert Judgment）</strong><br>
+        當數據不足時，依賴領域專家經驗評估。<br><br>
+        <div class="key-point">
+          <div class="key-point-title">💡 實務建議</div>
+          中小企業可先從簡單的 QA/QC 檢查表開始，逐步建立不確定性評估能力。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert blue">
+    <div class="alert-icon">📈</div>
+    <div class="alert-content">
+      <div class="alert-title">數據品質五面向</div>
+      <div class="alert-body">
+        <strong>時間代表性：</strong>數據是否反映當前技術與營運狀況（建議不超過 3 年）<br>
+        <strong>地理代表性：</strong>數據是否來自相同地區（如台灣係數 vs 中國係數）<br>
+        <strong>技術代表性：</strong>數據是否來自相同技術層級（如先進製程 vs 傳統製程）<br>
+        <strong>精密度：</strong>數據測量或計算的精確程度（如電表精度±1%）<br>
+        <strong>完整性：</strong>數據是否涵蓋所有相關排放源（無遺漏）
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 減量目標深度說明 -->
+<section class="section" style="background:linear-gradient(135deg, #d1e7dd 0%, #fff 100%);">
+  <div class="section-header">
+    <div class="section-icon" style="background:#198754">🌱</div>
+    <div>
+      <div class="section-title">「減」— 減量目標與倡議深度解析</div>
+      <div class="section-subtitle">從盤查到減碳的實質行動</div>
+    </div>
+  </div>
+
+  <div class="alert green">
+    <div class="alert-icon">🎯</div>
+    <div class="alert-content">
+      <div class="alert-title">為什麼「減」是最終目標？</div>
+      <div class="alert-body">
+        盤查本身不是目的，而是為了找出減碳機會。ISO 14064-1 第 5.7 條明確要求組織評估或落實減緩活動。國際標準 ISO 14068-1（碳中和）更強調「減量優先」原則，不能只靠買碳權抵換。
+      </div>
+    </div>
+  </div>
+
+  <div class="seven-steps-grid">
+    <div class="step-card reduction">
+      <h4 style="color:#0f5132;">📊 減量目標設定架構</h4>
+      <div class="step-content">
+        <strong>1. 基準年設定</strong><br>
+        選擇一個代表性年度作為比較基準（如 2023 年）<br><br>
+        <strong>2. 目標類型</strong><br>
+        <ul>
+          <li><strong>絕對目標：</strong>總排放量減少 X%（如 2030 年減 50%）</li>
+          <li><strong>強度目標：</strong>單位產品排放量減少 X%（如每件產品減 30%）</li>
+        </ul>
+        <strong>3. SBTi 科學目標</strong><br>
+        <ul>
+          <li>Scope 1+2：2030 年前減 90%（1.5°C 路徑）</li>
+          <li>Scope 3：2030 年前減 25%（絕對目標）</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step-card reduction">
+      <h4 style="color:#0f5132;">💡 常見減量措施</h4>
+      <div class="step-content">
+        <strong>1. 能源效率</strong><br>
+        <ul>
+          <li>LED 照明更新</li>
+          <li>高效馬達與變頻器</li>
+          <li>空壓機系統優化</li>
+          <li>冷凍空調系統改善</li>
+        </ul>
+        <strong>2. 再生能源</strong><br>
+        <ul>
+          <li>屋頂太陽能光電</li>
+          <li>購買綠電（T-REC）</li>
+          <li>簽署 CPPA（企業購電協議）</li>
+        </ul>
+        <strong>3. 製程優化</strong><br>
+        <ul>
+          <li>減少原物料浪費</li>
+          <li>提升產品良率</li>
+          <li>廢熱回收再利用</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step-card reduction">
+      <h4 style="color:#0f5132;">🌍 減緩活動類型（ISO 14064-1）</h4>
+      <div class="step-content">
+        <strong>1. 減少排放源</strong><br>
+        直接減少既有排放源的排放量（如更新鍋爐）<br><br>
+        <strong>2. 增加移除量</strong><br>
+        增加溫室氣體移除（如植樹、碳捕捉）<br><br>
+        <strong>3. 避免排放</strong><br>
+        防止原本會發生的排放（如防止森林砍伐）<br><br>
+        <div class="key-point">
+          <div class="key-point-title">⚠️ 注意</div>
+          減量措施必須額外性（Additionality），即若無此專案則不會發生。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert blue">
+    <div class="alert-icon">📈</div>
+    <div class="alert-content">
+      <div class="alert-title">減量目標管理循環</div>
+      <div class="alert-body">
+        <strong>PDCA 循環：</strong><br>
+        Plan（計畫）→ 設定減量目標與路徑圖<br>
+        Do（執行）→ 落實減量措施<br>
+        Check（查核）→ 追蹤減量績效（每年盤查）<br>
+        Act（行動）→ 修正目標或措施，持續改善
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 50 題模擬試題 -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-icon" style="background:#dc3545">📝</div>
+    <div>
+      <div class="section-title">碳管理七步驟 50 題模擬試題</div>
+      <div class="section-subtitle">涵蓋單選、複選、情境題組</div>
+    </div>
+  </div>
+
+  <!-- 單選題 1-30 -->
+  <div class="question-box">
+    <div class="question-number">單選題 1-30</div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 1 題</div>
+    <div>碳管理七步驟的正確順序是？</div>
+    <div class="options">
+      <div class="option">A. 邊、源、算、報、品、減、查</div>
+      <div class="option">B. 邊、源、算、品、減、報、查</div>
+      <div class="option">C. 邊、源、品、算、減、報、查</div>
+      <div class="option">D. 邊、源、算、減、品、報、查</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：B</div>
+      <div class="explanation">解析：正確順序為「邊（邊界）→ 源（排放源）→ 算（計算）→ 品（品質）→ 減（減量）→ 報（報告）→ 查（查證）」。品質管理在計算後、報告前，減量目標在品質確認後制定。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 2 題</div>
+    <div>「品」步驟的核心任務是？</div>
+    <div class="options">
+      <div class="option">A. 計算排放量</div>
+      <div class="option">B. 撰寫報告書</div>
+      <div class="option">C. 數據品質管理與不確定性評估</div>
+      <div class="option">D. 設定減量目標</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：C</div>
+      <div class="explanation">解析：「品」步驟進行 QA/QC 檢查（如數據是否連錯格子、係數版本是否正確）與不確定性評估，確保碳帳本數據可信。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 3 題</div>
+    <div>「減」步驟對應 ISO 14064-1 的哪個章節？</div>
+    <div class="options">
+      <div class="option">A. 第 5.4 條（排放源鑑別）</div>
+      <div class="option">B. 第 5.5 條（量化）</div>
+      <div class="option">C. 第 5.7 條（減緩活動）</div>
+      <div class="option">D. 第 7 章（報告）</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：C</div>
+      <div class="explanation">解析：ISO 14064-1 第 5.7 條規範「組織溫室氣體減緩活動」，要求評估或落實減碳或移除增量計畫。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 4 題</div>
+    <div>下列何者不屬於「邊」步驟的任務？</div>
+    <div class="options">
+      <div class="option">A. 設定組織邊界</div>
+      <div class="option">B. 設定報告邊界</div>
+      <div class="option">C. 設定盤查年度</div>
+      <div class="option">D. 選擇排放係數</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：D</div>
+      <div class="explanation">解析：選擇排放係數屬於「算」步驟。「邊」步驟界定組織邊界（哪些公司納入）、報告邊界（哪些類別納入）、時間邊界（盤查年度）。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 5 題</div>
+    <div>QA/QC 檢查不包括下列何者？</div>
+    <div class="options">
+      <div class="option">A. 手抄數據有沒有連錯格子</div>
+      <div class="option">B. 發票跟電費單有沒有重疊或漏計</div>
+      <div class="option">C. 設定 2030 年減量 50% 目標</div>
+      <div class="option">D. 排放係數版本是否最新</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：C</div>
+      <div class="explanation">解析：設定減量目標屬於「減」步驟。QA/QC 檢查聚焦數據品質（如數據正確性、係數版本、單位換算）。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 6 題</div>
+    <div>「源」步驟的主要任務是？</div>
+    <div class="options">
+      <div class="option">A. 計算排放量</div>
+      <div class="option">B. 鑑別排放源並歸類六大類別</div>
+      <div class="option">C. 撰寫報告書</div>
+      <div class="option">D. 進行第三方查證</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：B</div>
+      <div class="explanation">解析：「源」步驟盤點所有排放源（如鍋爐、車輛、外購電力），並歸類到類別 1-6（直接、能源間接、其他間接）。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 7 題</div>
+    <div>排放量計算公式為？</div>
+    <div class="options">
+      <div class="option">A. 活動數據 + 排放係數</div>
+      <div class="option">B. 活動數據 × 排放係數 × GWP</div>
+      <div class="option">C. 活動數據 ÷ 排放係數</div>
+      <div class="option">D. 排放係數 × GWP</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：B</div>
+      <div class="explanation">解析：基本公式為「排放量 = 活動數據 × 排放係數 × GWP」。例如：1000 度電 × 0.494 kg CO₂e/度 = 494 kg CO₂e。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 8 題</div>
+    <div>「報」步驟的報告書不需包含下列何者？</div>
+    <div class="options">
+      <div class="option">A. 組織邊界說明</div>
+      <div class="option">B. 排放係數來源</div>
+      <div class="option">C. 員工薪資結構</div>
+      <div class="option">D. 排放量清冊</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：C</div>
+      <div class="explanation">解析：溫室氣體盤查報告書包含邊界、方法、數據、結果，但不包含財務或人事資訊（如薪資結構）。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 9 題</div>
+    <div>「查」步驟不包括下列何者？</div>
+    <div class="options">
+      <div class="option">A. 內部稽核</div>
+      <div class="option">B. 管理審查</div>
+      <div class="option">C. 第三方查證</div>
+      <div class="option">D. 設定減量目標</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：D</div>
+      <div class="explanation">解析：設定減量目標屬於「減」步驟。「查」步驟包含內部稽核、管理審查、第三方查證（ISO 14064-3）。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 10 題</div>
+    <div>數據品質五面向不包括下列何者？</div>
+    <div class="options">
+      <div class="option">A. 時間代表性</div>
+      <div class="option">B. 地理代表性</div>
+      <div class="option">C. 財務準確性</div>
+      <div class="option">D. 技術代表性</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：C</div>
+      <div class="explanation">解析：數據品質五面向為時間、地理、技術、精密度、完整性。財務準確性非 LCA/碳盤查的數據品質要求。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 11 題</div>
+    <div>ISO 14064-1 第 5.7 條規範的是？</div>
+    <div class="options">
+      <div class="option">A. 組織邊界</div>
+      <div class="option">B. 排放源鑑別</div>
+      <div class="option">C. 減緩活動</div>
+      <div class="option">D. 報告書格式</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：C</div>
+      <div class="explanation">解析：第 5.7 條規範「組織溫室氣體減緩活動」，要求評估或落實減碳或移除增量計畫。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 12 題</div>
+    <div>不確定性評估的主要目的是？</div>
+    <div class="options">
+      <div class="option">A. 計算總排放量</div>
+      <div class="option">B. 評估數據誤差範圍</div>
+      <div class="option">C. 設定減量目標</div>
+      <div class="option">D. 選擇排放係數</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：B</div>
+      <div class="explanation">解析：不確定性評估量化數據的誤差範圍（如電表誤差±2%），讓利害關係人了解數據的可信度。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 13 題</div>
+    <div>SBTi 科學減碳目標要求 Scope 1+2 在 2030 年前減量多少（1.5°C 路徑）？</div>
+    <div class="options">
+      <div class="option">A. 30%</div>
+      <div class="option">B. 50%</div>
+      <div class="option">C. 75%</div>
+      <div class="option">D. 90%</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：D</div>
+      <div class="explanation">解析：SBTi 1.5°C 路徑要求 2030 年前 Scope 1+2 絕對減量 90%，Scope 3 減量 25%。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 14 題</div>
+    <div>「邊」步驟最容易做錯的地方是？</div>
+    <div class="options">
+      <div class="option">A. 計算錯誤</div>
+      <div class="option">B. 漏掉持股但未控制的子公司或間接排放</div>
+      <div class="option">C. 報告格式錯誤</div>
+      <div class="option">D. 係數用錯版本</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：B</div>
+      <div class="explanation">解析：許多企業漏掉持股但未控制的子公司，或漏掉外包製程、員工通勤、商務旅行等間接排放（類別 3-6）。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 15 題</div>
+    <div>第三方查證依據的標準是？</div>
+    <div class="options">
+      <div class="option">A. ISO 14064-1</div>
+      <div class="option">B. ISO 14064-2</div>
+      <div class="option">C. ISO 14064-3</div>
+      <div class="option">D. ISO 14067</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：C</div>
+      <div class="explanation">解析：ISO 14064-3 規範溫室氣體查證標準，第三方機構依據此標準執行合理確信或有限確信。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 16 題</div>
+    <div>「減」步驟的減量措施不包括下列何者？</div>
+    <div class="options">
+      <div class="option">A. LED 照明更新</div>
+      <div class="option">B. 購買太陽能光電</div>
+      <div class="option">C. 修改財務報表</div>
+      <div class="option">D. 空壓機系統優化</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：C</div>
+      <div class="explanation">解析：修改財務報表非減碳措施。減量措施包含能源效率（LED、空壓機優化）、再生能源（太陽能、綠電）等。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 17 題</div>
+    <div>報告編製需遵循的五大揭露原則是？</div>
+    <div class="options">
+      <div class="option">A. 相關性、完整性、一致性、準確性、透明度</div>
+      <div class="option">B. 財務性、合法性、及時性、正確性、保密性</div>
+      <div class="option">C. 簡單性、快速性、經濟性、便利性、流行性</div>
+      <div class="option">D. 創新性、獨特性、前瞻性、領導性、影響力</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：A</div>
+      <div class="explanation">解析：ISO 14064-1 要求五大揭露原則：相關性、完整性、一致性、準確性、透明度。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 18 題</div>
+    <div>金管會要求上市櫃公司何時前完成第三方查證？</div>
+    <div class="options">
+      <div class="option">A. 2025 年</div>
+      <div class="option">B. 2027 年</div>
+      <div class="option">C. 2029 年</div>
+      <div class="option">D. 2030 年</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：C</div>
+      <div class="explanation">解析：金管會要求 2029 年前金融業與上市櫃公司須完成溫室氣體盤查的第三方查證。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 19 題</div>
+    <div>「品」步驟的 QA/QC 檢查發現數據錯誤，應該？</div>
+    <div class="options">
+      <div class="option">A. 隱藏錯誤，繼續寫報告</div>
+      <div class="option">B. 修正錯誤並重新計算</div>
+      <div class="option">C. 忽略錯誤，假設影響不大</div>
+      <div class="option">D. 放棄盤查</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：B</div>
+      <div class="explanation">解析：發現數據錯誤應立即修正並重新計算，確保報告數據正確。隱藏錯誤會導致查證不符合項。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 20 題</div>
+    <div>減量目標的 PDCA 循環中，「C」代表？</div>
+    <div class="options">
+      <div class="option">A. 計畫（Plan）</div>
+      <div class="option">B. 執行（Do）</div>
+      <div class="option">C. 查核（Check）</div>
+      <div class="option">D. 行動（Act）</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：C</div>
+      <div class="explanation">解析：PDCA 循環：Plan（設定目標）→ Do（執行措施）→ Check（查核績效）→ Act（修正改善）。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 21 題</div>
+    <div>「源」步驟需鑑別的排放類別有幾個？</div>
+    <div class="options">
+      <div class="option">A. 3 個（範疇 1-3）</div>
+      <div class="option">B. 4 個（類別 1-4）</div>
+      <div class="option">C. 5 個（類別 1-5）</div>
+      <div class="option">D. 6 個（類別 1-6）</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：D</div>
+      <div class="explanation">解析：ISO 14064-1:2018 將排放分為 6 類別：類別 1（直接）、類別 2（能源間接）、類別 3-6（其他間接）。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 22 題</div>
+    <div>「算」步驟最常用的計算方法是？</div>
+    <div class="options">
+      <div class="option">A. 財務會計法</div>
+      <div class="option">B. 排放係數法</div>
+      <div class="option">C. 市場調查法</div>
+      <div class="option">D. 專家判斷法</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：B</div>
+      <div class="explanation">解析：最常用「排放係數法」（活動數據 × 排放係數），製程排放可用「質量平衡法」，連續監測設備可用「實際測量法」。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 23 題</div>
+    <div>「報」步驟的報告書用途不包括？</div>
+    <div class="options">
+      <div class="option">A. 內部管理</div>
+      <div class="option">B. 主管機關申報</div>
+      <div class="option">C. 供應鏈要求揭露</div>
+      <div class="option">D. 員工薪資調整</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：D</div>
+      <div class="explanation">解析：報告書用於內部管理、主管機關申報（如環境部）、供應鏈要求（如 Apple、Microsoft）、第三方查證，與薪資無關。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 24 題</div>
+    <div>「查」步驟的管理審查由誰執行？</div>
+    <div class="options">
+      <div class="option">A. 基層員工</div>
+      <div class="option">B. 外部顧問</div>
+      <div class="option">C. 高階管理階層</div>
+      <div class="option">D. 客戶</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：C</div>
+      <div class="explanation">解析：管理審查由高階管理階層（如總經理、永續長）執行，審查盤查結果與減量績效，確保資源投入。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 25 題</div>
+    <div>「品」步驟的不確定性評估方法不包括？</div>
+    <div class="options">
+      <div class="option">A. 誤差傳播法</div>
+      <div class="option">B. 蒙地卡羅模擬</div>
+      <div class="option">C. 財務報表分析</div>
+      <div class="option">D. 專家判斷</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：C</div>
+      <div class="explanation">解析：不確定性評估方法包含誤差傳播法、蒙地卡羅模擬、專家判斷。財務報表分析非不確定性評估方法。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 26 題</div>
+    <div>「減」步驟的減量目標類型不包括？</div>
+    <div class="options">
+      <div class="option">A. 絕對目標（總量減少 X%）</div>
+      <div class="option">B. 強度目標（單位產品減少 X%）</div>
+      <div class="option">C. 財務目標（營收增加 X%）</div>
+      <div class="option">D. SBTi 科學目標</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：C</div>
+      <div class="explanation">解析：減量目標包含絕對目標、強度目標、SBTi 科學目標。財務目標（營收）非碳減量目標。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 27 題</div>
+    <div>「邊」步驟的組織邊界設定方法不包括？</div>
+    <div class="options">
+      <div class="option">A. 控制權法（營運或財務）</div>
+      <div class="option">B. 股權持份法</div>
+      <div class="option">C. 市場佔有率法</div>
+      <div class="option">D. 重大性評估</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：C</div>
+      <div class="explanation">解析：組織邊界設定方法包含控制權法（營運/財務）、股權持份法。市場佔有率法非邊界設定方法。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 28 題</div>
+    <div>「源」步驟的重大性鑑別目的是？</div>
+    <div class="options">
+      <div class="option">A. 決定哪些排放源納入報告邊界</div>
+      <div class="option">B. 計算排放量</div>
+      <div class="option">C. 設定減量目標</div>
+      <div class="option">D. 選擇排放係數</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：A</div>
+      <div class="explanation">解析：重大性鑑別決定哪些排放源顯著到必須納入報告邊界（如類別 3-6 的間接排放）。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 29 題</div>
+    <div>「算」步驟的 GWP 轉換使用哪個組織的係數？</div>
+    <div class="options">
+      <div class="option">A. WHO（世界衛生組織）</div>
+      <div class="option">B. IPCC（政府間氣候變遷專門委員會）</div>
+      <div class="option">C. WTO（世界貿易組織）</div>
+      <div class="option">D. IMF（國際貨幣基金）</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：B</div>
+      <div class="explanation">解析：GWP（全球暖化潛勢）係數由 IPCC 發布，常用 AR5（第 5 次評估報告）或 AR6（第 6 次）。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 30 題</div>
+    <div>七步驟中，哪兩個步驟是傳統五步驟容易忽略的關鍵？</div>
+    <div class="options">
+      <div class="option">A. 邊、源</div>
+      <div class="option">B. 算、報</div>
+      <div class="option">C. 品、減</div>
+      <div class="option">D. 報、查</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：C</div>
+      <div class="explanation">解析：傳統五步驟（邊、源、算、報、查）容易忽略「品」（數據品質管理）與「減」（減量目標），這兩者是品質與目標管理的核心。</div>
+    </div>
+  </div>
+
+  <!-- 複選題 31-40 -->
+  <div class="question-box">
+    <div class="question-number">複選題 31-40</div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 31 題</div>
+    <div>「品」步驟的 QA/QC 檢查包含哪些項目？（多選）</div>
+    <div class="options">
+      <div class="option">A. 手抄數據有沒有連錯格子</div>
+      <div class="option">B. 發票跟電費單有沒有重疊或漏計</div>
+      <div class="option">C. 排放係數版本是否最新</div>
+      <div class="option">D. 設定 2030 年減量目標</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：A、B、C</div>
+      <div class="explanation">解析：QA/QC 檢查數據正確性（連錯格子、重疊漏計、係數版本）。設定減量目標屬於「減」步驟。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 32 題</div>
+    <div>「減」步驟的減量措施包含哪些？（多選）</div>
+    <div class="options">
+      <div class="option">A. LED 照明更新</div>
+      <div class="option">B. 購買太陽能光電</div>
+      <div class="option">C. 空壓機系統優化</div>
+      <div class="option">D. 修改會計制度</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：A、B、C</div>
+      <div class="explanation">解析：減量措施包含能源效率（LED、空壓機）、再生能源（太陽能）。修改會計制度非減碳措施。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 33 題</div>
+    <div>「邊」步驟需設定的邊界包含哪些？（多選）</div>
+    <div class="options">
+      <div class="option">A. 組織邊界</div>
+      <div class="option">B. 報告邊界</div>
+      <div class="option">C. 時間邊界</div>
+      <div class="option">D. 財務邊界</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：A、B、C</div>
+      <div class="explanation">解析：「邊」步驟設定組織邊界（哪些公司）、報告邊界（哪些類別）、時間邊界（盤查年度）。財務邊界非標準術語。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 34 題</div>
+    <div>「查」步驟包含哪些活動？（多選）</div>
+    <div class="options">
+      <div class="option">A. 內部稽核</div>
+      <div class="option">B. 管理審查</div>
+      <div class="option">C. 第三方查證</div>
+      <div class="option">D. 設定減量目標</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：A、B、C</div>
+      <div class="explanation">解析：「查」步驟包含內部稽核、管理審查、第三方查證（ISO 14064-3）。設定減量目標屬於「減」。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 35 題</div>
+    <div>數據品質五面向包含哪些？（多選）</div>
+    <div class="options">
+      <div class="option">A. 時間代表性</div>
+      <div class="option">B. 地理代表性</div>
+      <div class="option">C. 技術代表性</div>
+      <div class="option">D. 財務準確性</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：A、B、C</div>
+      <div class="explanation">解析：數據品質五面向：時間、地理、技術、精密度、完整性。財務準確性非 LCA/碳盤查要求。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 36 題</div>
+    <div>「源」步驟需鑑別的排放類別包含？（多選）</div>
+    <div class="options">
+      <div class="option">A. 類別 1（直接排放）</div>
+      <div class="option">B. 類別 2（能源間接排放）</div>
+      <div class="option">C. 類別 3-6（其他間接排放）</div>
+      <div class="option">D. 類別 7（財務排放）</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：A、B、C</div>
+      <div class="explanation">解析：ISO 14064-1:2018 分為 6 類別（1-6），無類別 7。類別 1 直接、類別 2 能源間接、類別 3-6 其他間接。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 37 題</div>
+    <div>「報」步驟的報告書需揭露哪些資訊？（多選）</div>
+    <div class="options">
+      <div class="option">A. 組織邊界說明</div>
+      <div class="option">B. 排放係數來源</div>
+      <div class="option">C. 排放量清冊</div>
+      <div class="option">D. 員工薪資結構</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：A、B、C</div>
+      <div class="explanation">解析：報告書揭露邊界、方法（含係數來源）、結果（排放量清冊）。薪資結構非溫室氣體盤查資訊。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 38 題</div>
+    <div>「算」步驟的計算方法包含？（多選）</div>
+    <div class="options">
+      <div class="option">A. 排放係數法</div>
+      <div class="option">B. 質量平衡法</div>
+      <div class="option">C. 實際測量法</div>
+      <div class="option">D. 財務會計法</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：A、B、C</div>
+      <div class="explanation">解析：量化方法包含排放係數法（最常用）、質量平衡法（製程排放）、實際測量法（連續監測）。財務會計法非碳盤查方法。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 39 題</div>
+    <div>「減」步驟的目標設定包含哪些類型？（多選）</div>
+    <div class="options">
+      <div class="option">A. 絕對目標（總量減少 X%）</div>
+      <div class="option">B. 強度目標（單位產品減少 X%）</div>
+      <div class="option">C. SBTi 科學目標</div>
+      <div class="option">D. 市場佔有率目標</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：A、B、C</div>
+      <div class="explanation">解析：減量目標包含絕對目標、強度目標、SBTi 科學目標。市場佔有率目標非碳減量目標。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 40 題</div>
+    <div>不確定性評估方法包含？（多選）</div>
+    <div class="options">
+      <div class="option">A. 誤差傳播法</div>
+      <div class="option">B. 蒙地卡羅模擬</div>
+      <div class="option">C. 專家判斷</div>
+      <div class="option">D. 市場調查法</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：A、B、C</div>
+      <div class="explanation">解析：不確定性評估方法包含誤差傳播法、蒙地卡羅模擬、專家判斷。市場調查法非不確定性評估方法。</div>
+    </div>
+  </div>
+
+  <!-- 情境題組 41-50 -->
+  <div class="question-box">
+    <div class="question-number">情境題組 41-50</div>
+  </div>
+
+  <div class="key-point">
+    <div class="key-point-title">📌 題組背景（41-43 題）</div>
+    <div>某製造業公司 A 首次進行 ISO 14064-1 碳盤查，盤查團隊由永續部門主導，包含生產、總務、財務等部門代表。盤查年度為 2024 年，組織邊界採控制權法，包含總部與 2 個工廠。</div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 41 題</div>
+    <div>公司 A 在「邊」步驟應先進行什麼工作？</div>
+    <div class="options">
+      <div class="option">A. 直接蒐集電費單與油耗數據</div>
+      <div class="option">B. 界定組織邊界（總部與 2 工廠）與報告邊界（類別 1-6）</div>
+      <div class="option">C. 計算排放量</div>
+      <div class="option">D. 設定 2030 年減量目標</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：B</div>
+      <div class="explanation">解析：「邊」步驟首先界定組織邊界（哪些據點納入）與報告邊界（哪些排放類別納入），這是後續所有工作的基礎。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 42 題</div>
+    <div>在「源」步驟，公司 A 發現員工通勤排放占總排放 5%。此排放應歸類為？</div>
+    <div class="options">
+      <div class="option">A. 類別 1（直接排放）</div>
+      <div class="option">B. 類別 2（能源間接排放）</div>
+      <div class="option">C. 類別 6（其他間接排放）</div>
+      <div class="option">D. 不需納入</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：C</div>
+      <div class="explanation">解析：員工通勤屬於類別 6（其他間接排放）。2018 版強調顯著性間接排放（如通勤、商務旅行）應納入評估。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 43 題</div>
+    <div>公司 A 在「品」步驟發現某工廠電費單數據異常暴增，應該？</div>
+    <div class="options">
+      <div class="option">A. 直接使用該數據計算</div>
+      <div class="option">B. 忽略該數據，使用去年數據替代</div>
+      <div class="option">C. 調查原因（如新設備投產），確認後使用並揭露</div>
+      <div class="option">D. 放棄該工廠盤查</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：C</div>
+      <div class="explanation">解析：「品」步驟發現異常數據應調查原因（如新設備、產量增加），確認合理後使用，並在報告中揭露說明，確保透明度。</div>
+    </div>
+  </div>
+
+  <div class="key-point">
+    <div class="key-point-title">📌 題組背景（44-46 題）</div>
+    <div>公司 A 完成盤查後，總排放量為 10,000 噸 CO₂e，其中類別 2（外購電力）占 60%。永續長要求制定減量目標。</div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 44 題</div>
+    <div>在「減」步驟，公司 A 應優先針對哪個類別制定減量措施？</div>
+    <div class="options">
+      <div class="option">A. 類別 1（直接排放）</div>
+      <div class="option">B. 類別 2（外購電力，占 60%）</div>
+      <div class="option">C. 類別 6（員工通勤）</div>
+      <div class="option">D. 平均分配資源到所有類別</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：B</div>
+      <div class="explanation">解析：減量應優先針對排放熱點（占比最高者）。類別 2 占 60%，應優先采取措施（如 LED 更新、太陽能、購買綠電）。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 45 題</div>
+    <div>公司 A 想符合 SBTi 1.5°C 路徑，2030 年前 Scope 1+2 應減量多少？</div>
+    <div class="options">
+      <div class="option">A. 30%</div>
+      <div class="option">B. 50%</div>
+      <div class="option">C. 75%</div>
+      <div class="option">D. 90%</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：D</div>
+      <div class="explanation">解析：SBTi 1.5°C 路徑要求 2030 年前 Scope 1+2 絕對減量 90%，Scope 3 減量 25%。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 46 題</div>
+    <div>公司 A 的減量措施不包括下列何者？</div>
+    <div class="options">
+      <div class="option">A. 屋頂太陽能光電</div>
+      <div class="option">B. LED 照明更新</div>
+      <div class="option">C. 購買 T-REC 綠電憑證</div>
+      <div class="option">D. 增加產品售價</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：D</div>
+      <div class="explanation">解析：增加產品售價非減碳措施。減量措施包含再生能源（太陽能、T-REC）、能源效率（LED）等。</div>
+    </div>
+  </div>
+
+  <div class="key-point">
+    <div class="key-point-title">📌 題組背景（47-49 題）</div>
+    <div>公司 A 完成盤查報告後，準備進行第三方查證。查證機構依據 ISO 14064-3 執行查證，發現部分數據未進行 QA/QC 檢查。</div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 47 題</div>
+    <div>查證機構可能開立什麼類型的不符合項？</div>
+    <div class="options">
+      <div class="option">A. 無不符合項，直接通過</div>
+      <div class="option">B. 數據品質管理（「品」步驟）缺失</div>
+      <div class="option">C. 邊界設定錯誤</div>
+      <div class="option">D. 報告格式錯誤</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：B</div>
+      <div class="explanation">解析：未進行 QA/QC 檢查屬於「品」步驟缺失，查證機構會要求補正數據品質管理程序與記錄。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 48 題</div>
+    <div>公司 A 要修正此不符合項，應該？</div>
+    <div class="options">
+      <div class="option">A. 隱藏缺失，繼續查證</div>
+      <div class="option">B. 建立 QA/QC 檢查表，重新檢查數據並記錄</div>
+      <div class="option">C. 更換查證機構</div>
+      <div class="option">D. 放棄查證</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：B</div>
+      <div class="explanation">解析：應建立 QA/QC 檢查表（如檢查數據正確性、係數版本、單位換算），重新檢查數據並保留記錄，證明數據品質。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 49 題</div>
+    <div>公司 A 通過查證後，下一步應該？</div>
+    <div class="options">
+      <div class="option">A. 將報告書封存，不再使用</div>
+      <div class="option">B. 持續執行減量措施，並每年更新盤查</div>
+      <div class="option">C. 僅在客戶要求時才更新</div>
+      <div class="option">D. 等待法規強制要求再行動</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：B</div>
+      <div class="explanation">解析：碳管理是持續過程（PDCA 循環）。通過查證後應持續執行減量措施，每年更新盤查，追蹤減量績效，持續改善。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 50 題</div>
+    <div>公司 A 的永續長想對外宣稱「本公司產品是市場上最永續的」。此宣稱？</div>
+    <div class="options">
+      <div class="option">A. 完全正確，可以宣稱</div>
+      <div class="option">B. 違反 LCA 限制（無法判斷絕對永續性）</div>
+      <div class="option">C. 需額外付費購買廣告</div>
+      <div class="option">D. 需取得政府核准</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：B</div>
+      <div class="explanation">解析：LCA/碳盤查只能進行相對比較（A 比 B 更好），<span class="hl-red">無法判斷絕對永續性</span>（是否「最永續」）。此宣稱屬漂綠（Greenwashing）風險。</div>
+    </div>
+  </div>
+
+  <!-- 備考建議 -->
+  <div class="alert green">
+    <div class="alert-icon">💡</div>
+    <div class="alert-content">
+      <div class="alert-title">備考建議與實務應用</div>
+      <div class="alert-body">
+        <strong>1. 七步驟順序必考：</strong>邊→源→算→品→減→報→查，需熟記各步驟核心任務與 ISO 對應條文。<br>
+        <strong>2. 「品」與「減」是關鍵差異：</strong>傳統五步驟容易忽略這兩個品質與目標管理核心，考試常考。<br>
+        <strong>3. QA/QC 檢查清單：</strong>熟記常見檢查項目（數據正確性、係數版本、單位換算、無重複計算）。<br>
+        <strong>4. 減量目標設定：</strong>SBTi 要求（Scope 1+2 減 90%）、絕對目標 vs 強度目標、PDCA 循環。<br>
+        <strong>5. 法規時程：</strong>金管會 2029 年第三方查證要求、環境部碳盤查申報規定。<br>
+        <strong>6. ISO 標準對應：</strong>14064-1（組織盤查）、14064-3（查證）、14067（產品碳足跡）、14068-1（碳中和）。<br>
+        <strong>7. 實務應用：</strong>此七步驟架構適用於組織碳盤查、產品碳足跡、供應鏈碳管理、ESG 報告書編製。
+      </div>
+    </div>
+  </div>
+
+</section>
+
+</body>
+</html>
