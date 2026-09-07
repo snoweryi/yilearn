@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>產品碳足跡八大原則｜ISO 14067 學習筆記</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #f4f5f1;
+    --surface: #ffffff;
+    --surface-2: #eef1ea;
+    --ink: #17241d;
+    --ink-soft: #4c5a51;
+    --line: #dbe1d7;
+    --forest: #1f4d3a;
+    --forest-deep: #123526;
+    --gold: #a8791f;
+    --gold-soft: #f3e6c8;
+    --danger: #8a3b2c;
+    --radius: 4px;
+    --maxw: 1900px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+  font-size: 22px;
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Noto Sans TC', sans-serif;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Noto Serif TC', serif;
+    color:var(--forest-deep);
+    line-height:1.4;
+    letter-spacing:.01em;
+  }
+  a{color:var(--forest);}
+
+  /* ---------- Layout shell ---------- */
+  .shell{
+    display:grid;
+    grid-template-columns:240px 1fr;
+    max-width:1900px;
+    margin:0 auto;
+	padding:80px 20px 30px;
+  }
+  @media (max-width:920px){
+    .shell{grid-template-columns:1fr;}
+  }
+
+  /* ---------- Sidebar ---------- */
+  .sidebar{
+    position:sticky;
+    top:0;
+    align-self:start;
+    height:100vh;
+    overflow-y:auto;
+    padding:28px 18px 40px;
+    border-right:1px solid var(--line);
+  }
+  @media (max-width:920px){
+    .sidebar{
+      position:relative;
+      height:auto;
+      border-right:none;
+      border-bottom:1px solid var(--line);
+      padding:20px 20px 8px;
+    }
+  }
+  .sidebar-brand{
+    font-family:'Noto Serif TC',serif;
+    font-weight:700;
+    font-size: 22px;
+    color:var(--forest-deep);
+    margin:0 0 4px;
+  }
+  .sidebar-sub{
+    font-size: 22px;
+    color:var(--ink-soft);
+    margin:0 0 22px;
+  }
+  .sidebar nav{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+  }
+  .sidebar nav a{
+    text-decoration:none;
+    color:var(--ink-soft);
+    font-size: 22px;
+    padding:7px 10px;
+    border-radius:var(--radius);
+    border-left:2px solid transparent;
+  }
+  .sidebar nav a:hover{
+    background:var(--surface-2);
+    color:var(--forest-deep);
+  }
+  .sidebar nav .grp-label{
+    font-size: 22px;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    color:#8b998f;
+    margin:16px 0 4px 10px;
+  }
+  .sidebar nav .grp-label:first-child{margin-top:0;}
+
+  /* ---------- Main ---------- */
+  main{
+    padding:0 28px 100px;
+  }
+  .container{max-width:var(--maxw); margin:0 auto;}
+
+  .hero{
+    padding:64px 0 40px;
+    border-bottom:1px solid var(--line);
+    margin-bottom:44px;
+  }
+  .hero .eyebrow{
+    font-size: 22px;
+    color:var(--gold);
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  .hero h1{
+    font-size:2.1rem;
+    margin:0 0 14px;
+  }
+  .hero p{
+    color:var(--ink-soft);
+    font-size: 22px;
+    max-width:60ch;
+    margin:0;
+  }
+
+  section{margin-bottom:56px; scroll-margin-top:20px;}
+  section > h2{
+    font-size:1.5rem;
+    border-bottom:2px solid var(--forest-deep);
+    padding-bottom:10px;
+    margin-bottom:22px;
+  }
+
+  p{color:var(--ink);}
+  .muted{color:var(--ink-soft);}
+
+  /* ---------- Table ---------- */
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin:18px 0 8px;
+    font-size: 22px;
+    background:var(--surface);
+  }
+  th,td{
+    border:1px solid var(--line);
+    padding:10px 12px;
+    text-align:left;
+    vertical-align:top;
+  }
+  th{
+    background:var(--surface-2);
+    color:var(--forest-deep);
+    font-weight:600;
+    font-size: 22px;
+  }
+  tr:nth-child(even) td{background:#fbfbf9;}
+
+  /* ---------- Principle cards ---------- */
+  .principle{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-left:4px solid var(--forest);
+    border-radius:var(--radius);
+    padding:26px 28px;
+    margin-bottom:22px;
+  }
+  .principle-head{
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+    margin-bottom:6px;
+  }
+  .principle-num{
+    font-family:'JetBrains Mono',monospace;
+    color:var(--gold);
+    font-weight:600;
+    font-size: 22px;
+  }
+  .principle h3{
+    margin:0;
+    font-size: 22px;
+  }
+  .principle .en{
+    color:var(--ink-soft);
+    font-weight:400;
+    font-size: 22px;
+  }
+  .def{
+    background:var(--gold-soft);
+    border-radius:var(--radius);
+    padding:12px 16px;
+    margin:14px 0 18px;
+    font-size: 22px;
+  }
+  .principle h4{
+    font-size: 22px;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    color:var(--forest);
+    margin:20px 0 8px;
+  }
+  .principle ul{
+    margin:0 0 4px;
+    padding-left:1.3em;
+  }
+  .principle li{margin-bottom:5px;}
+  .exam-tip{
+    margin-top:18px;
+    padding:12px 16px;
+    background:var(--surface-2);
+    border-radius:var(--radius);
+    font-size: 22px;
+    border:1px dashed var(--line);
+  }
+  .exam-tip strong{color:var(--danger);}
+
+  /* ---------- Flow diagram ---------- */
+  .flow{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:32px;
+  }
+  .flow-node{
+    background:var(--forest-deep);
+    color:#fff;
+    padding:12px 20px;
+    border-radius:var(--radius);
+    text-align:center;
+    font-weight:600;
+    max-width:340px;
+    margin:0 auto;
+  }
+  .flow-arrow{
+    text-align:center;
+    color:var(--ink-soft);
+    font-size: 22px;
+    line-height:1.2;
+    margin:2px 0;
+  }
+  .flow-branch{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    max-width:520px;
+    margin:0 auto;
+  }
+  .flow-branch .flow-node{background:var(--forest); max-width:none;}
+  .flow-quality{
+    background:var(--surface-2);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:18px 20px;
+    max-width:460px;
+    margin:0 auto;
+  }
+  .flow-quality ul{
+    margin:0;
+    padding-left:1.1em;
+    columns:2;
+    font-size: 22px;
+  }
+  .flow-app{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+    max-width:460px;
+    margin:0 auto;
+  }
+  .flow-app div{
+    background:var(--gold-soft);
+    border-radius:var(--radius);
+    padding:10px 14px;
+    text-align:center;
+    font-size: 22px;
+  }
+  @media (max-width:560px){
+    .flow-branch, .flow-app{grid-template-columns:1fr;}
+    .flow-quality ul{columns:1;}
+  }
+
+  /* ---------- Quiz ---------- */
+  .quiz-groupbar{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-bottom:22px;
+  }
+  .quiz-groupbar span{
+    font-size: 22px;
+    background:var(--surface-2);
+    border-radius:20px;
+    padding:5px 14px;
+    color:var(--ink-soft);
+  }
+  .qgroup-title{
+    font-size: 22px;
+    color:var(--forest);
+    margin:34px 0 16px;
+    padding-top:8px;
+  }
+  .qgroup-title:first-of-type{margin-top:0;}
+
+  .q-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:18px 22px;
+    margin-bottom:14px;
+  }
+  .q-num{
+    font-family:'JetBrains Mono',monospace;
+    color:var(--gold);
+    font-weight:600;
+    margin-right:6px;
+  }
+  .q-stem{
+    font-weight:600;
+    margin:0 0 10px;
+  }
+  .q-options{
+    list-style:none;
+    margin:0 0 12px;
+    padding:0;
+    display:grid;
+    gap:5px;
+    font-size: 22px;
+    color:var(--ink-soft);
+  }
+  .q-options li{padding-left:1.4em; text-indent:-1.4em;}
+  .q-context{
+    background:var(--surface-2);
+    border-radius:var(--radius);
+    padding:12px 16px;
+    font-size: 22px;
+    color:var(--ink-soft);
+    margin-bottom:16px;
+    white-space:pre-line;
+  }
+
+  details.q-reveal{
+    border-top:1px dashed var(--line);
+    padding-top:8px;
+  }
+  details.q-reveal summary{
+    cursor:pointer;
+    color:var(--forest);
+    font-size: 22px;
+    font-weight:600;
+    list-style:none;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+  }
+  details.q-reveal summary::-webkit-details-marker{display:none;}
+  details.q-reveal summary::before{
+    content:"▸";
+    display:inline-block;
+    transition:transform .15s ease;
+  }
+  details.q-reveal[open] summary::before{
+    transform:rotate(90deg);
+  }
+  .answer-box{
+    margin-top:10px;
+    padding:12px 16px;
+    background:var(--gold-soft);
+    border-radius:var(--radius);
+    font-size: 22px;
+  }
+  .answer-box .ans{
+    font-weight:700;
+    color:var(--forest-deep);
+    margin-bottom:4px;
+  }
+
+  /* ---------- Tips list ---------- */
+  .tips{
+    display:grid;
+    gap:14px;
+  }
+  .tip-item{
+    display:grid;
+    grid-template-columns:34px 1fr;
+    gap:14px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:16px 18px;
+  }
+  .tip-num{
+    font-family:'JetBrains Mono',monospace;
+    color:var(--gold);
+    font-weight:700;
+    font-size: 22px;
+  }
+
+  footer{
+    text-align:center;
+    color:var(--ink-soft);
+    font-size: 22px;
+    padding:30px 0 60px;
+  }
+
+  /* progress marker for mobile nav toggle */
+  #navToggle{display:none;}
+  @media (max-width:920px){
+    .sidebar nav{
+      max-height:0;
+      overflow:hidden;
+      transition:max-height .25s ease;
+    }
+    .sidebar.open nav{max-height:1200px;}
+    .nav-toggle-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      background:var(--forest);
+      color:#fff;
+      border:none;
+      padding:8px 14px;
+      border-radius:20px;
+      font-size: 22px;
+      cursor:pointer;
+      margin-bottom:14px;
+    }
+  }
+  .nav-toggle-btn{display:none;}
+@media (max-width: 768px) {
+  .shell {margin-top: 6rem;padding:8px 18px 30px;}  
+}
+.badgerowbt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px;
+    background: #ffffff;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+a.badge1 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #007286;
+    color: #fff;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+a.badge2 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #007286;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+a.badge3 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #b8238d;
+    color: yellow;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+</style>
+</head>
+<body>
+<div class="badgerowbt">			
+	<!--<div><a href="https://snoweryi.github.io/yilearn/i01.html" class="badge1">01趨勢及策略</a></div>-->
+	<div><a href="https://snoweryi.github.io/yilearn/i02.html" class="badge1">02溫室氣體盤查</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i03.html" class="badge1">03碳足跡</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i031.html" class="badge1">03碳足跡2</a></div>
+	<!--<div><a href="https://snoweryi.github.io/yilearn/i011.html" class="badge1">考科一</a></div>-->
+	<div><a href="https://snoweryi.github.io/yilearn/i022.html" class="badge1">考科二</a></div>
+	
+	
+	<div><a href="https://snoweryi.github.io/yilearn/a_64.html" class="badge1">14064</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/a_67.html" class="badge1">14067</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/a_6467.html" class="badge1">64& 67</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/a_lca.html" class="badge2">碳足跡8大</a></div>
+	
+	<div><a href="https://snoweryi.github.io/yilearn" class="badge3">目錄</a></div>
+</div>
+<div class="shell">
+
+  <aside class="sidebar" id="sidebar">
+    <p class="sidebar-brand">產品碳足跡・八大原則</p>
+    <p class="sidebar-sub">ISO 14067 完整學習筆記</p>
+    <button class="nav-toggle-btn" onclick="document.getElementById('sidebar').classList.toggle('open')">☰ 目錄</button>
+    <nav>
+      <a href="#overview">一、原則架構總覽</a>
+      <span class="grp-label">二、八大原則詳解</span>
+      <a href="#p1">1. 科學方法</a>
+      <a href="#p2">2. 相關性</a>
+      <a href="#p3">3. 完整性</a>
+      <a href="#p4">4. 一致性</a>
+      <a href="#p5">5. 連貫性</a>
+      <a href="#p6">6. 準確性</a>
+      <a href="#p7">7. 透明度</a>
+      <a href="#p8">8. 避免重複計算</a>
+      <span class="grp-label">三、原則關聯</span>
+      <a href="#flow">關聯圖</a>
+      <span class="grp-label">練習試題</span>
+      <a href="#quiz-single">單選題（1–30）</a>
+      <a href="#quiz-multi">複選題（31–40）</a>
+      <a href="#quiz-case">情境題組（41–50）</a>
+      <span class="grp-label">備考</span>
+      <a href="#tips">備考建議</a>
+    </nav>
+  </aside>
+
+  <main>
+    <div class="container">
+
+      <div class="hero">
+        <p class="eyebrow">ISO 14067：2018　第 5 章</p>
+        <h1>產品碳足跡八大原則完整筆記</h1>
+        <p>整理自 ISO 14067 產品碳足跡量化準則，涵蓋方法論、品質保證、應用三大類共 12 項原則，並附 50 題情境模擬試題，方便查證與備考。</p>
+      </div>
+
+      <!-- ============ 一、架構總覽 ============ -->
+      <section id="overview">
+        <h2>一、八大原則架構（ISO 14067 第 5 章）</h2>
+        <p>根據 ISO 14067:2018，產品碳足跡量化需遵循 <strong>12 項原則</strong>，可分為三大類：</p>
+        <table>
+          <thead>
+            <tr><th style="width:18%">原則類別</th><th style="width:42%">包含原則</th><th>核心目的</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>方法論原則</td>
+              <td>1. 科學方法　2. 生命週期觀點<br>3. 功能／宣告單位　4. 迭代方法</td>
+              <td>確保方法學正確性</td>
+            </tr>
+            <tr>
+              <td>品質保證原則</td>
+              <td>5. 相關性　6. 完整性　7. 一致性<br>8. 連貫性　9. 準確性　10. 透明度</td>
+              <td>確保數據與結果可信</td>
+            </tr>
+            <tr>
+              <td>應用原則</td>
+              <td>11. 避免重複計算<br>12. 保守性（不確定性時）</td>
+              <td>確保應用時正確無誤</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="muted">以下第二節針對其中八項核心原則逐一詳解（科學方法、相關性、完整性、一致性、連貫性、準確性、透明度、避免重複計算）。</p>
+      </section>
+
+      <!-- ============ 二、八大原則詳解 ============ -->
+      <section id="detail">
+        <h2>二、八大原則詳細說明</h2>
+
+        <!-- 1 科學方法 -->
+        <article class="principle" id="p1">
+          <div class="principle-head">
+            <span class="principle-num">01</span>
+            <h3>科學方法 <span class="en">Scientific Approach</span></h3>
+          </div>
+          <div class="def">定義：基於<strong>生命週期評估（LCA）</strong>的科學方法，遵循 ISO 14040/14044 標準架構。</div>
+
+          <h4>核心要求</h4>
+          <ul>
+            <li>使用已驗證的 LCA 方法學</li>
+            <li>基於科學證據與數據</li>
+            <li>避免主觀假設與偏見</li>
+            <li>優先使用初級數據（primary data）</li>
+          </ul>
+
+          <h4>科學方法優先順序</h4>
+          <ul>
+            <li>實測數據（最優先）</li>
+            <li>供應商提供數據</li>
+            <li>產業平均數據</li>
+            <li>資料庫數據（如 Ecoinvent）</li>
+            <li>文獻數據（最後選擇）</li>
+          </ul>
+
+          <div class="exam-tip">
+            <strong>考試重點：</strong>LCA 四階段——<strong>目標與範疇界定 → 清單盤查 → 衝擊評估 → 結果闡釋</strong>；碳足跡計算基於 LCA 方法，非財務或能源稽核方法。
+          </div>
+        </article>
+
+        <!-- 2 相關性 -->
+        <article class="principle" id="p2">
+          <div class="principle-head">
+            <span class="principle-num">02</span>
+            <h3>相關性 <span class="en">Relevance</span></h3>
+          </div>
+          <div class="def">定義：確保碳足跡數據與研究目的、預期應用及利害關係人需求<strong>相關</strong>。</div>
+
+          <h4>核心要求</h4>
+          <ul>
+            <li>選擇與產品功能相關的系統邊界</li>
+            <li>納入對碳足跡有顯著影響的過程</li>
+            <li>數據能支持決策制定</li>
+            <li>符合 PCR（產品類別規則）要求</li>
+          </ul>
+
+          <h4>實務應用</h4>
+          <ul>
+            <li>B2B 產品：聚焦原料與製造階段</li>
+            <li>B2C 產品：需包含使用與廢棄階段</li>
+            <li>出口歐盟產品：需符合 CBAM 要求</li>
+          </ul>
+
+          <div class="exam-tip">
+            <strong>考試重點：</strong>數據需與產品功能和使用情境相關；不同應用目的（碳標籤 vs 供應鏈管理）可能需要不同邊界。
+          </div>
+        </article>
+
+        <!-- 3 完整性 -->
+        <article class="principle" id="p3">
+          <div class="principle-head">
+            <span class="principle-num">03</span>
+            <h3>完整性 <span class="en">Completeness</span></h3>
+          </div>
+          <div class="def">定義：納入產品生命週期內<strong>所有相關</strong>的溫室氣體排放源與清除量。</div>
+
+          <h4>核心要求</h4>
+          <ul>
+            <li>涵蓋所有生命週期階段（搖籃到墳墓）</li>
+            <li>納入所有七種溫室氣體（CO₂、CH₄、N₂O、HFCs、PFCs、SF₆、NF₃）</li>
+            <li>包含直接與間接排放</li>
+            <li>若使用切斷準則（cut-off），需合理且透明</li>
+          </ul>
+
+          <h4>切斷準則（Cut-off Criteria）</h4>
+          <ul>
+            <li><strong>允許忽略小於 1%</strong> 的投入／排放</li>
+            <li><strong>總切斷量不得超過 5%</strong></li>
+            <li>需清楚揭露切斷內容與理由</li>
+          </ul>
+
+          <div class="exam-tip">
+            <strong>考試重點：</strong>完整性要求納入所有重要排放源；切斷準則需合理透明，不可濫用。
+          </div>
+        </article>
+
+        <!-- 4 一致性 -->
+        <article class="principle" id="p4">
+          <div class="principle-head">
+            <span class="principle-num">04</span>
+            <h3>一致性 <span class="en">Consistency</span></h3>
+          </div>
+          <div class="def">定義：在不同時間、不同產品間使用<strong>相同方法學</strong>，確保結果可比。</div>
+
+          <h4>核心要求</h4>
+          <ul>
+            <li>使用相同的系統邊界</li>
+            <li>使用相同的排放係數來源</li>
+            <li>使用相同的 GWP 版本（如 IPCC AR5 或 AR6）</li>
+            <li>使用相同的分配方法</li>
+          </ul>
+
+          <h4>實務應用</h4>
+          <ul>
+            <li>基準年與追蹤年需使用相同方法</li>
+            <li>不同產品型號間比較需使用相同 PCR</li>
+            <li>年度更新時，方法變更需揭露並說明影響</li>
+          </ul>
+
+          <div class="exam-tip">
+            <strong>考試重點：</strong>一致性確保不同產品或不同年度的碳足跡可比；方法變更需重新計算基準年。
+          </div>
+        </article>
+
+        <!-- 5 連貫性 -->
+        <article class="principle" id="p5">
+          <div class="principle-head">
+            <span class="principle-num">05</span>
+            <h3>連貫性 <span class="en">Coherence</span></h3>
+          </div>
+          <div class="def">定義：確保碳足跡研究內部各要素<strong>邏輯一致</strong>，無矛盾。</div>
+
+          <h4>核心要求</h4>
+          <ul>
+            <li>功能單位與系統邊界邏輯一致</li>
+            <li>數據收集方法與研究目的連貫</li>
+            <li>假設與實際情況連貫</li>
+            <li>結果闡釋與數據一致</li>
+          </ul>
+
+          <h4>與一致性的差異</h4>
+          <table>
+            <thead><tr><th>一致性（Consistency）</th><th>連貫性（Coherence）</th></tr></thead>
+            <tbody>
+              <tr><td>不同時間／產品間方法相同</td><td>單一研究內部邏輯無矛盾</td></tr>
+              <tr><td>確保可比性</td><td>確保內部合理性</td></tr>
+              <tr><td>橫向／縱向比較</td><td>內部邏輯檢查</td></tr>
+            </tbody>
+          </table>
+
+          <div class="exam-tip">
+            <strong>考試重點：</strong>連貫性關注單一研究內部邏輯；功能單位、系統邊界、數據需邏輯一致。
+          </div>
+        </article>
+
+        <!-- 6 準確性 -->
+        <article class="principle" id="p6">
+          <div class="principle-head">
+            <span class="principle-num">06</span>
+            <h3>準確性 <span class="en">Accuracy</span></h3>
+          </div>
+          <div class="def">定義：確保碳足跡數據<strong>精確可靠</strong>，減少不確定性。</div>
+
+          <h4>核心要求</h4>
+          <ul>
+            <li>使用高品質數據（初級數據優先）</li>
+            <li>數據時間不超過 <strong>3 年</strong></li>
+            <li>進行不確定性分析</li>
+            <li>使用適當的有效數字</li>
+          </ul>
+
+          <h4>數據品質指標</h4>
+          <ul>
+            <li><strong>代表性</strong>：數據反映實際情況</li>
+            <li><strong>完整性</strong>：數據無遺漏</li>
+            <li><strong>準確性</strong>：數據測量精確</li>
+            <li><strong>一致性</strong>：數據收集方法一致</li>
+            <li><strong>可比性</strong>：數據可與其他研究比較</li>
+          </ul>
+
+          <h4>不確定性處理</h4>
+          <ul>
+            <li>進行敏感度分析</li>
+            <li>揭露主要不確定性來源</li>
+            <li>保守性原則：不確定時避免低估排放</li>
+          </ul>
+
+          <div class="exam-tip">
+            <strong>考試重點：</strong>準確性要求使用高品質、近期數據；需進行不確定性與敏感度分析。
+          </div>
+        </article>
+
+        <!-- 7 透明度 -->
+        <article class="principle" id="p7">
+          <div class="principle-head">
+            <span class="principle-num">07</span>
+            <h3>透明度 <span class="en">Transparency</span></h3>
+          </div>
+          <div class="def">定義：清楚揭露碳足跡研究的<strong>方法、假設、數據來源與限制</strong>。</div>
+
+          <h4>核心要求</h4>
+          <ul>
+            <li>揭露系統邊界與功能單位</li>
+            <li>揭露所有排放係數來源</li>
+            <li>揭露所有假設與限制</li>
+            <li>揭露切斷準則與分配方法</li>
+            <li>揭露不確定性分析結果</li>
+          </ul>
+
+          <h4>報告需包含資訊</h4>
+          <ul>
+            <li>研究目標與範圍</li>
+            <li>功能單位或宣告單位</li>
+            <li>系統邊界（含流程圖）</li>
+            <li>生命週期清單數據</li>
+            <li>排放係數來源</li>
+            <li>碳足跡結果（各階段占比）</li>
+            <li>假設與限制</li>
+            <li>不確定性分析</li>
+          </ul>
+
+          <div class="exam-tip">
+            <strong>考試重點：</strong>透明度要求揭露所有方法與假設；第三方查證需基於充分揭露。
+          </div>
+        </article>
+
+        <!-- 8 避免重複計算 -->
+        <article class="principle" id="p8">
+          <div class="principle-head">
+            <span class="principle-num">08</span>
+            <h3>避免重複計算 <span class="en">Avoid Double Counting</span></h3>
+          </div>
+          <div class="def">定義：確保同一排放源<strong>不被計算多次</strong>。</div>
+
+          <h4>常見重複計算情境</h4>
+          <table>
+            <thead><tr><th>情境</th><th>錯誤做法</th><th>正確做法</th></tr></thead>
+            <tbody>
+              <tr><td>組織 vs 產品碳足跡</td><td>公司總排放＋各產品排放加總</td><td>產品碳足跡獨立計算</td></tr>
+              <tr><td>供應鏈上下游</td><td>供應商已計算的排放，購買方再算一次</td><td>明確界定邊界，避免重疊</td></tr>
+              <tr><td>再生材料</td><td>原生材料排放＋再生材料排放</td><td>僅計算實際使用材料的排放</td></tr>
+              <tr><td>電力購買</td><td>台電排放＋綠電憑證排放</td><td>市場基礎法與殘餘混合分開計算</td></tr>
+              <tr><td>碳權抵換</td><td>減量後又用碳權抵換同一排放</td><td>僅能抵換殘餘排放</td></tr>
+            </tbody>
+          </table>
+
+          <h4>實務應用</h4>
+          <ul>
+            <li>明確界定產品系統邊界</li>
+            <li>與供應商協調數據使用</li>
+            <li>使用 PCR 規範避免產業內重複</li>
+            <li>組織碳足跡（ISO 14064-1）與產品碳足跡（ISO 14067）分開計算</li>
+          </ul>
+
+          <div class="exam-tip">
+            <strong>考試重點：</strong>重複計算會高估碳足跡；需明確界定邊界與責任歸屬。
+          </div>
+        </article>
+      </section>
+
+      <!-- ============ 三、關聯圖 ============ -->
+      <section id="flow">
+        <h2>三、八大原則關聯圖</h2>
+        <div class="flow">
+          <div class="flow-node">科學方法（基礎）</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-branch">
+            <div class="flow-node">生命週期觀點</div>
+            <div class="flow-node">功能／宣告單位</div>
+          </div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-quality">
+            <p style="margin:0 0 8px;font-weight:600;color:var(--forest-deep);">品質保證六原則</p>
+            <ul>
+              <li>相關性（選對數據）</li>
+              <li>完整性（不漏數據）</li>
+              <li>一致性（方法相同）</li>
+              <li>連貫性（邏輯無矛盾）</li>
+              <li>準確性（數據精確）</li>
+              <li>透明度（充分揭露）</li>
+            </ul>
+          </div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-app">
+            <div>避免重複計算</div>
+            <div>保守性（不確定時）</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 試題 ============ -->
+      <section id="quiz">
+        <h2>📝 50 題情境模擬試題</h2>
+        <div class="quiz-groupbar">
+          <span>單選題 30 題</span>
+          <span>複選題 10 題</span>
+          <span>情境題組 10 題</span>
+        </div>
+        <p class="muted">點擊每題下方「顯示解答」即可查看答案與解析，適合自我測驗。</p>
+
+        <h3 class="qgroup-title" id="quiz-single">單選題（1–30 題）</h3>
+        <!-- Q1 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">1.</span>某公司進行產品碳足跡計算時，使用 5 年前的舊排放係數。此做法違反八大原則中的？</p>
+          <ul class="q-options"><li>(A) 相關性</li><li>(B) 完整性</li><li>(C) 準確性</li><li>(D) 透明度</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(C) 準確性</div>解析：準確性要求使用近期數據（不超過 3 年）。</div></details>
+        </div>
+        <!-- Q2 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">2.</span>某產品碳足跡報告未揭露使用的排放係數來源。此違反？</p>
+          <ul class="q-options"><li>(A) 一致性</li><li>(B) 連貫性</li><li>(C) 透明度</li><li>(D) 準確性</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(C) 透明度</div>解析：透明度要求揭露所有數據來源。</div></details>
+        </div>
+        <!-- Q3 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">3.</span>某公司 2023 年與 2024 年使用不同的 GWP 版本（AR5 vs AR6），導致結果不可比。此違反？</p>
+          <ul class="q-options"><li>(A) 相關性</li><li>(B) 一致性</li><li>(C) 連貫性</li><li>(D) 完整性</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B) 一致性</div>解析：一致性要求不同年度使用相同方法。</div></details>
+        </div>
+        <!-- Q4 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">4.</span>某產品碳足跡研究的功能單位為「1 kg 產品」，但系統邊界僅包含製造階段。此可能違反？</p>
+          <ul class="q-options"><li>(A) 科學方法</li><li>(B) 完整性</li><li>(C) 連貫性</li><li>(D) 準確性</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(C) 連貫性</div>解析：功能單位與系統邊界邏輯需連貫。</div></details>
+        </div>
+        <!-- Q5 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">5.</span>某公司計算產品碳足跡時，未納入產品使用階段的排放（該階段占總排放 60%）。此違反？</p>
+          <ul class="q-options"><li>(A) 相關性</li><li>(B) 完整性</li><li>(C) 一致性</li><li>(D) 透明度</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B) 完整性</div>解析：完整性要求納入所有重要排放源。</div></details>
+        </div>
+        <!-- Q6 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">6.</span>某產品碳足跡研究使用財務數據替代活動數據。此違反？</p>
+          <ul class="q-options"><li>(A) 科學方法</li><li>(B) 相關性</li><li>(C) 準確性</li><li>(D) 以上皆是</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(D) 以上皆是</div>解析：財務數據非科學 LCA 方法，且準確性不足。</div></details>
+        </div>
+        <!-- Q7 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">7.</span>某公司同一產品線的不同型號，使用不同的系統邊界計算碳足跡。此違反？</p>
+          <ul class="q-options"><li>(A) 相關性</li><li>(B) 一致性</li><li>(C) 連貫性</li><li>(D) 透明度</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B) 一致性</div>解析：一致性要求同類產品使用相同方法。</div></details>
+        </div>
+        <!-- Q8 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">8.</span>某產品碳足跡報告中，原料運輸排放同時出現在「原料取得」與「運輸」階段。此違反？</p>
+          <ul class="q-options"><li>(A) 完整性</li><li>(B) 準確性</li><li>(C) 避免重複計算</li><li>(D) 保守性</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(C) 避免重複計算</div>解析：同一排放源被計算兩次。</div></details>
+        </div>
+        <!-- Q9 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">9.</span>某公司進行碳足跡研究時，忽略占總排放 3% 的製程氣體。此做法？</p>
+          <ul class="q-options"><li>(A) 符合切斷準則</li><li>(B) 違反完整性</li><li>(C) 符合透明度</li><li>(D) 符合準確性</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(A) 符合切斷準則</div>解析：單一項目小於 5% 可切斷，但總切斷不超過 5%。</div></details>
+        </div>
+        <!-- Q10 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">10.</span>某產品碳足跡的功能單位為「提供 1000 小時照明」，此符合？</p>
+          <ul class="q-options"><li>(A) 宣告單位</li><li>(B) 功能單位</li><li>(C) 切斷準則</li><li>(D) 分配方法</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B) 功能單位</div>解析：描述產品功能而非單純數量。</div></details>
+        </div>
+        <!-- Q11 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">11.</span>某公司碳足跡報告未說明為何忽略某些排放源。此違反？</p>
+          <ul class="q-options"><li>(A) 相關性</li><li>(B) 完整性</li><li>(C) 透明度</li><li>(D) 準確性</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(C) 透明度</div>解析：透明度要求揭露所有假設與限制。</div></details>
+        </div>
+        <!-- Q12 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">12.</span>某產品碳足跡使用產業平均數據，但有供應商提供初級數據。此違反？</p>
+          <ul class="q-options"><li>(A) 科學方法優先順序</li><li>(B) 完整性</li><li>(C) 一致性</li><li>(D) 連貫性</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(A) 科學方法優先順序</div>解析：應優先使用初級數據。</div></details>
+        </div>
+        <!-- Q13 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">13.</span>某公司 2023 年基準年碳足跡為 100 kg CO₂e，2024 年改用更精確方法重新計算基準年。此做法？</p>
+          <ul class="q-options"><li>(A) 違反一致性</li><li>(B) 符合一致性（需揭露）</li><li>(C) 違反準確性</li><li>(D) 違反透明度</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B) 符合一致性（需揭露）</div>解析：方法改進可重算基準年，但需揭露。</div></details>
+        </div>
+        <!-- Q14 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">14.</span>某產品碳足跡研究中，生物成因碳未單獨揭露。此可能違反？</p>
+          <ul class="q-options"><li>(A) 相關性</li><li>(B) 完整性</li><li>(C) 透明度</li><li>(D) 準確性</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(C) 透明度</div>解析：ISO 14067 要求生物成因碳單獨揭露。</div></details>
+        </div>
+        <!-- Q15 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">15.</span>某公司產品碳足跡與組織碳足跡使用同一套數據，導致加總後排放高估。此違反？</p>
+          <ul class="q-options"><li>(A) 完整性</li><li>(B) 避免重複計算</li><li>(C) 準確性</li><li>(D) 一致性</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B) 避免重複計算</div>解析：組織與產品碳足跡需分開計算。</div></details>
+        </div>
+        <!-- Q16 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">16.</span>某產品碳足跡的系統邊界未包含原料開採階段。此違反？</p>
+          <ul class="q-options"><li>(A) 科學方法</li><li>(B) 完整性</li><li>(C) 連貫性</li><li>(D) 透明度</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B) 完整性</div>解析：搖籃到墳墓需包含所有階段。</div></details>
+        </div>
+        <!-- Q17 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">17.</span>某公司使用不同來源的排放係數計算同類產品。此違反？</p>
+          <ul class="q-options"><li>(A) 相關性</li><li>(B) 一致性</li><li>(C) 連貫性</li><li>(D) 準確性</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B) 一致性</div>解析：同類產品需使用相同係數來源。</div></details>
+        </div>
+        <!-- Q18 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">18.</span>某產品碳足跡報告中，假設產品使用壽命為 10 年，但實際市場調查顯示平均為 5 年。此違反？</p>
+          <ul class="q-options"><li>(A) 相關性</li><li>(B) 連貫性</li><li>(C) 準確性</li><li>(D) 透明度</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(C) 準確性</div>解析：假設與實際情況不符，影響準確性。</div></details>
+        </div>
+        <!-- Q19 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">19.</span>某公司產品碳足跡未進行第三方查證，但對外宣稱「經驗證」。此違反？</p>
+          <ul class="q-options"><li>(A) 透明度</li><li>(B) 準確性</li><li>(C) 誠信原則</li><li>(D) 以上皆是</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(D) 以上皆是</div>解析：未驗證卻宣稱驗證屬不實陳述。</div></details>
+        </div>
+        <!-- Q20 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">20.</span>某產品碳足跡研究中，電力排放係數使用台灣台電係數，但產品在越南生產。此違反？</p>
+          <ul class="q-options"><li>(A) 相關性</li><li>(B) 完整性</li><li>(C) 準確性</li><li>(D) 一致性</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(C) 準確性</div>解析：應使用生產地係數，否則不準確。</div></details>
+        </div>
+        <!-- Q21 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">21.</span>某公司產品碳足跡的切斷準則總和達 8%。此違反？</p>
+          <ul class="q-options"><li>(A) 完整性</li><li>(B) 準確性</li><li>(C) 透明度</li><li>(D) 一致性</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(A) 完整性</div>解析：總切斷量不得超過 5%。</div></details>
+        </div>
+        <!-- Q22 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">22.</span>某產品碳足跡報告未揭露 GWP 版本（AR5 或 AR6）。此違反？</p>
+          <ul class="q-options"><li>(A) 相關性</li><li>(B) 完整性</li><li>(C) 透明度</li><li>(D) 準確性</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(C) 透明度</div>解析：透明度要求揭露所有方法選擇。</div></details>
+        </div>
+        <!-- Q23 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">23.</span>某公司同一產品的碳足跡，2023 年為 50 kg CO₂e，2024 年為 30 kg CO₂e，但未說明差異原因。此違反？</p>
+          <ul class="q-options"><li>(A) 一致性</li><li>(B) 連貫性</li><li>(C) 透明度</li><li>(D) 準確性</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(C) 透明度</div>解析：需揭露差異原因與方法變更。</div></details>
+        </div>
+        <!-- Q24 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">24.</span>某產品碳足跡研究中，分配方法未依據 ISO 14044 規範。此違反？</p>
+          <ul class="q-options"><li>(A) 科學方法</li><li>(B) 相關性</li><li>(C) 完整性</li><li>(D) 透明度</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(A) 科學方法</div>解析：需遵循 ISO 14040/44 科學方法。</div></details>
+        </div>
+        <!-- Q25 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">25.</span>某公司產品碳足跡僅計算 CO₂，未計算 CH₄ 與 N₂O。此違反？</p>
+          <ul class="q-options"><li>(A) 相關性</li><li>(B) 完整性</li><li>(C) 一致性</li><li>(D) 準確性</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B) 完整性</div>解析：需納入所有七種溫室氣體。</div></details>
+        </div>
+        <!-- Q26 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">26.</span>某產品碳足跡的功能單位為「1 件產品」，但不同型號產品功能差異大。此違反？</p>
+          <ul class="q-options"><li>(A) 相關性</li><li>(B) 連貫性</li><li>(C) 準確性</li><li>(D) 透明度</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(A) 相關性</div>解析：功能單位需與產品功能相關。</div></details>
+        </div>
+        <!-- Q27 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">27.</span>某公司產品碳足跡使用供應商提供的數據，但未驗證數據品質。此違反？</p>
+          <ul class="q-options"><li>(A) 科學方法</li><li>(B) 準確性</li><li>(C) 透明度</li><li>(D) 以上皆是</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(D) 以上皆是</div>解析：需驗證數據品質以確保準確性。</div></details>
+        </div>
+        <!-- Q28 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">28.</span>某產品碳足跡報告中，系統邊界流程圖與文字描述不一致。此違反？</p>
+          <ul class="q-options"><li>(A) 一致性</li><li>(B) 連貫性</li><li>(C) 準確性</li><li>(D) 透明度</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B) 連貫性</div>解析：內部邏輯需連貫無矛盾。</div></details>
+        </div>
+        <!-- Q29 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">29.</span>某公司產品碳足跡的數據收集時間為 2020 年，但研究於 2025 年進行。此違反？</p>
+          <ul class="q-options"><li>(A) 相關性</li><li>(B) 準確性</li><li>(C) 一致性</li><li>(D) 透明度</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B) 準確性</div>解析：數據應不超過 3 年。</div></details>
+        </div>
+        <!-- Q30 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">30.</span>某產品碳足跡研究中，未說明為何選擇搖籃到大門而非搖籃到墳墓。此違反？</p>
+          <ul class="q-options"><li>(A) 相關性</li><li>(B) 完整性</li><li>(C) 透明度</li><li>(D) 準確性</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(C) 透明度</div>解析：需揭露系統邊界選擇理由。</div></details>
+        </div>
+
+        <h3 class="qgroup-title" id="quiz-multi">複選題（31–40 題）</h3>
+        <!-- Q31 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">31.</span>下列哪些屬於 ISO 14067 的品質保證原則？（多選）</p>
+          <ul class="q-options"><li>(A) 相關性</li><li>(B) 完整性</li><li>(C) 一致性</li><li>(D) 科學方法</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(A)(B)(C)</div>解析：科學方法屬方法論原則。</div></details>
+        </div>
+        <!-- Q32 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">32.</span>下列哪些情況會導致碳足跡結果不準確？（多選）</p>
+          <ul class="q-options"><li>(A) 使用 5 年前的數據</li><li>(B) 使用產業平均數據而非初級數據</li><li>(C) 未進行不確定性分析</li><li>(D) 使用正確的 GWP 版本</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(A)(B)(C)</div>解析：(D) 是正確做法。</div></details>
+        </div>
+        <!-- Q33 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">33.</span>透明度原則要求揭露哪些資訊？（多選）</p>
+          <ul class="q-options"><li>(A) 系統邊界</li><li>(B) 排放係數來源</li><li>(C) 假設與限制</li><li>(D) 公司財務報表</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(A)(B)(C)</div>解析：財務報表非必要。</div></details>
+        </div>
+        <!-- Q34 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">34.</span>下列哪些屬於避免重複計算的正確做法？（多選）</p>
+          <ul class="q-options"><li>(A) 組織與產品碳足跡分開計算</li><li>(B) 與供應商協調數據使用</li><li>(C) 明確界定產品系統邊界</li><li>(D) 同一排放源在多個階段計算</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(A)(B)(C)</div>解析：(D) 是錯誤做法。</div></details>
+        </div>
+        <!-- Q35 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">35.</span>一致性原則要求哪些要素相同？（多選）</p>
+          <ul class="q-options"><li>(A) 系統邊界</li><li>(B) 排放係數來源</li><li>(C) GWP 版本</li><li>(D) 功能單位</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(A)(B)(C)(D)</div>解析：所有方法學要素需一致。</div></details>
+        </div>
+        <!-- Q36 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">36.</span>下列哪些情況違反完整性原則？（多選）</p>
+          <ul class="q-options"><li>(A) 未納入產品使用階段</li><li>(B) 忽略占總排放 10% 的製程</li><li>(C) 使用切斷準則忽略 1% 排放</li><li>(D) 僅計算 CO₂，忽略其他氣體</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(A)(B)(D)</div>解析：(C) 符合切斷準則。</div></details>
+        </div>
+        <!-- Q37 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">37.</span>連貫性原則要求哪些要素邏輯一致？（多選）</p>
+          <ul class="q-options"><li>(A) 功能單位與系統邊界</li><li>(B) 假設與實際情況</li><li>(C) 數據收集方法與研究目的</li><li>(D) 不同年度的 GWP 版本</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(A)(B)(C)</div>解析：(D) 屬一致性範疇。</div></details>
+        </div>
+        <!-- Q38 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">38.</span>科學方法原則要求？（多選）</p>
+          <ul class="q-options"><li>(A) 基於 LCA 方法學</li><li>(B) 優先使用初級數據</li><li>(C) 避免主觀假設</li><li>(D) 使用財務數據替代</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(A)(B)(C)</div>解析：(D) 違反科學方法。</div></details>
+        </div>
+        <!-- Q39 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">39.</span>下列哪些屬於準確性原則的要求？（多選）</p>
+          <ul class="q-options"><li>(A) 使用近期數據（不超過 3 年）</li><li>(B) 進行不確定性分析</li><li>(C) 使用適當有效數字</li><li>(D) 揭露所有假設</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(A)(B)(C)</div>解析：(D) 屬透明度。</div></details>
+        </div>
+        <!-- Q40 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">40.</span>相關性原則要求？（多選）</p>
+          <ul class="q-options"><li>(A) 數據與研究目的相關</li><li>(B) 納入顯著影響的過程</li><li>(C) 符合 PCR 要求</li><li>(D) 使用相同 GWP 版本</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(A)(B)(C)</div>解析：(D) 屬一致性。</div></details>
+        </div>
+
+        <h3 class="qgroup-title" id="quiz-case">情境題組（41–50 題）</h3>
+
+        <div class="q-context"><strong>41–43 題組：</strong>某電子公司 A 進行產品碳足跡計算，情境如下：
+產品：LED 燈泡
+功能單位：提供 10,000 流明．小時照明
+系統邊界：搖籃到大門（未包含使用與廢棄）
+數據：使用 2018 年供應商數據
+GWP：使用 IPCC AR5</div>
+        <!-- Q41 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">41.</span>若該產品主要排放來自使用階段（占 80%），僅計算搖籃到大門違反？</p>
+          <ul class="q-options"><li>(A) 相關性</li><li>(B) 完整性</li><li>(C) 連貫性</li><li>(D) 以上皆是</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(D) 以上皆是</div>解析：功能單位描述使用，但邊界未包含，邏輯不連貫；且遺漏重要排放源。</div></details>
+        </div>
+        <!-- Q42 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">42.</span>使用 2018 年數據（2025 年研究）違反？</p>
+          <ul class="q-options"><li>(A) 相關性</li><li>(B) 準確性</li><li>(C) 透明度</li><li>(D) 一致性</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B) 準確性</div>解析：數據超過 3 年，準確性不足。</div></details>
+        </div>
+        <!-- Q43 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">43.</span>若公司 2026 年改用 AR6 GWP，需如何處理？</p>
+          <ul class="q-options"><li>(A) 直接更新，不需說明</li><li>(B) 重新計算基準年並揭露</li><li>(C) 維持 AR5 不變</li><li>(D) 放棄碳足跡計算</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B) 重新計算基準年並揭露</div>解析：方法變更需重算基準年並揭露。</div></details>
+        </div>
+
+        <div class="q-context"><strong>44–46 題組：</strong>某食品公司 B 進行產品碳足跡計算，情境如下：
+產品：冷凍食品
+功能單位：1 kg 產品
+系統邊界：搖籃到墳墓
+切斷準則：忽略 5 項小排放源，總和 7%
+重複計算：原料運輸同時出現在「原料」與「運輸」階段</div>
+        <!-- Q44 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">44.</span>切斷準則總和 7% 違反？</p>
+          <ul class="q-options"><li>(A) 相關性</li><li>(B) 完整性</li><li>(C) 準確性</li><li>(D) 透明度</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B) 完整性</div>解析：總切斷量不得超過 5%。</div></details>
+        </div>
+        <!-- Q45 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">45.</span>原料運輸重複計算違反？</p>
+          <ul class="q-options"><li>(A) 完整性</li><li>(B) 避免重複計算</li><li>(C) 準確性</li><li>(D) 一致性</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B) 避免重複計算</div>解析：同一排放源被計算兩次。</div></details>
+        </div>
+        <!-- Q46 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">46.</span>若公司想修正上述問題，正確做法為？</p>
+          <ul class="q-options"><li>(A) 僅揭露不修正</li><li>(B) 重新計算，確保切斷 &lt;5% 且避免重複</li><li>(C) 放棄碳足跡計算</li><li>(D) 僅計算部分階段</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B) 重新計算，確保切斷 &lt;5% 且避免重複</div>解析：需修正以符合完整性與避免重複計算。</div></details>
+        </div>
+
+        <div class="q-context"><strong>47–49 題組：</strong>某紡織公司 C 進行兩款產品碳足跡比較，情境如下：
+產品 A：棉質 T 恤，系統邊界含原料、製造、運輸
+產品 B：聚酯 T 恤，系統邊界含原料、製造、運輸、使用
+排放係數：產品 A 使用台灣係數，產品 B 使用國際係數
+GWP：產品 A 用 AR5，產品 B 用 AR6</div>
+        <!-- Q47 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">47.</span>兩款產品使用不同系統邊界違反？</p>
+          <ul class="q-options"><li>(A) 相關性</li><li>(B) 一致性</li><li>(C) 連貫性</li><li>(D) 透明度</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B) 一致性</div>解析：比較性研究需使用相同邊界。</div></details>
+        </div>
+        <!-- Q48 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">48.</span>使用不同排放係數來源違反？</p>
+          <ul class="q-options"><li>(A) 相關性</li><li>(B) 一致性</li><li>(C) 準確性</li><li>(D) 透明度</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B) 一致性</div>解析：同類產品需使用相同係數。</div></details>
+        </div>
+        <!-- Q49 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">49.</span>若公司想進行有效比較，正確做法為？</p>
+          <ul class="q-options"><li>(A) 維持現狀，僅揭露差異</li><li>(B) 統一系統邊界、係數來源、GWP 版本</li><li>(C) 僅計算一款產品</li><li>(D) 放棄比較</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B) 統一系統邊界、係數來源、GWP 版本</div>解析：比較需確保一致性。</div></details>
+        </div>
+        <!-- Q50 -->
+        <div class="q-card"><p class="q-stem"><span class="q-num">50.</span>某公司產品碳足跡報告未揭露任何假設與限制，但數據精確。此報告？</p>
+          <ul class="q-options"><li>(A) 完全符合 ISO 14067</li><li>(B) 違反透明度原則</li><li>(C) 違反準確性原則</li><li>(D) 違反完整性原則</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B) 違反透明度原則</div>解析：透明度要求揭露所有假設與限制。</div></details>
+        </div>
+      </section>
+
+      <!-- ============ 備考建議 ============ -->
+      <section id="tips">
+        <h2>💡 備考建議</h2>
+        <div class="tips">
+          <div class="tip-item"><div class="tip-num">1</div><div><strong>理解原則間關聯</strong>：八大原則非獨立，需理解彼此關聯（如透明度支持準確性驗證）。</div></div>
+          <div class="tip-item"><div class="tip-num">2</div><div><strong>情境題練習</strong>：近年考題強調「判斷違反哪項原則」，需熟悉各原則核心要求。</div></div>
+          <div class="tip-item"><div class="tip-num">3</div><div><strong>數字記憶</strong>：切斷準則 1%／5%、數據不超過 3 年、七種溫室氣體等關鍵數字。</div></div>
+          <div class="tip-item"><div class="tip-num">4</div><div><strong>LCA 四階段</strong>：目標與範疇 → 清單盤查 → 衝擊評估 → 結果闡釋，常考順序與內容。</div></div>
+          <div class="tip-item"><div class="tip-num">5</div><div><strong>功能單位 vs 宣告單位</strong>：功能單位描述「功能」，宣告單位描述「數量」。</div></div>
+        </div>
+      </section>
+
+      <footer>整理自 ISO 14067:2018 產品碳足跡量化準則．學習筆記僅供個人備考參考</footer>
+    </div>
+  </main>
+</div>
+</body>
+</html>

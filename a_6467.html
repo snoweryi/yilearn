@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>14064 14067</title>
+<style>
+  :root{
+    --primary:#1b6e4f;
+    --primary-dark:#124a35;
+    --accent:#c98a2c;
+    --bg:#f6f8f5;
+    --card:#ffffff;
+    --line:#e1e6de;
+    --text:#22302a;
+    --muted:#5c6b62;
+    --danger:#b3452f;
+  }
+  *{box-sizing:border-box;}
+  body{
+    font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    margin:0;
+    line-height:1.85;
+	font-size: 22px;
+  }
+  header.top{
+    background:linear-gradient(120deg,var(--primary-dark),var(--primary));
+    color:#fff;
+    padding:80px 20px 30px;
+    text-align:center;
+  }
+  header.top h1{margin:0 0 8px;font-size:1.6em;}
+  header.top p{margin:4px 0;opacity:.92;font-size: 22px;}
+  .wrap{max-width: 1900px;margin:0 auto;padding:24px 18px 80px;}
+  nav.toc{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:18px 22px;
+    margin:-20px auto 30px;
+    max-width: 1900px;
+    box-shadow:0 4px 14px rgba(0,0,0,.06);
+  }
+  nav.toc h2{margin-top:0;font-size: 1.6em;color:var(--primary-dark);}
+  nav.toc ol{margin:0;padding-left:20px;columns:2;column-gap:30px;}
+  nav.toc a{color:var(--primary-dark);text-decoration:none;}
+  nav.toc a:hover{text-decoration:underline;}
+  section{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:26px 28px;
+    margin-bottom:26px;
+    box-shadow:0 2px 8px rgba(0,0,0,.04);
+  }
+  h2.sec-title{
+    color:var(--primary-dark);
+    border-bottom:3px solid var(--accent);
+    padding-bottom:8px;
+    font-size: 22px;
+    margin-top:0;
+  }
+  h3{color:var(--primary);font-size: 24px;margin-top:28px;}
+  p{margin:12px 0;}
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size: 22px;}
+  th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top;}
+  th{background:#e9f2ea;color:var(--primary-dark);}
+  tr:nth-child(even){background:#fafcf9;}
+  .callout{
+    background:#fbf3e3;
+    border-left:5px solid var(--accent);
+    padding:12px 16px;
+    border-radius:6px;
+    margin:16px 0;
+    font-size: 22px;
+  }
+  .warn{
+    background:#fbeae6;
+    border-left:5px solid var(--danger);
+    padding:12px 16px;
+    border-radius:6px;
+    margin:16px 0;
+    font-size: 22px;
+  }
+  .tag{
+    display:inline-block;
+    background:var(--primary);
+    color:#fff;
+    font-size: 22px;
+    padding:2px 10px;
+    border-radius:20px;
+    margin-right:6px;
+  }
+  /* Quiz */
+  .quiz-item{
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:16px 18px;
+    margin-bottom:16px;
+    background:#fdfefc;
+  }
+  .quiz-item .qnum{
+    font-weight:700;
+    color:var(--primary-dark);
+  }
+  .quiz-item .scenario{
+    color:var(--muted);
+    font-size: 22px;
+    margin-bottom:6px;
+  }
+  .options{list-style:none;padding-left:0;margin:10px 0 6px;}
+  .options li{
+    padding:7px 10px;
+    margin:5px 0;
+    border:1px solid var(--line);
+    border-radius:8px;
+    background:#fff;
+  }
+  details{margin-top:8px;}
+  summary{
+    cursor:pointer;
+    color:#fff;
+    background:var(--primary);
+    display:inline-block;
+    padding:6px 14px;
+    border-radius:20px;
+    font-size: 22px;
+  }
+  summary:hover{background:var(--primary-dark);}
+  .answer-box{
+    margin-top:10px;
+    padding:12px 14px;
+    background:#eef6ee;
+    border-radius:8px;
+    border:1px dashed var(--primary);
+    font-size: 22px;
+  }
+  .answer-box .ans-letter{
+    font-weight:700;
+    color:var(--danger);
+    font-size: 22px;
+  }
+  .key-table td{text-align:center;}
+  footer{text-align:center;color:var(--muted);font-size: 22px;padding:20px;}
+  .badge-row{margin-bottom:10px;}
+@media (max-width: 768px) {
+  .top {margin-top: 6rem;padding:8px 18px 30px;}  
+}
+.badgerowbt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px;
+    background: #ffffff;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+a.badge1 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #007286;
+    color: #fff;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+a.badge2 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #007286;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+a.badge3 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #b8238d;
+    color: yellow;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+</style>
+</head>
+<body>
+<div class="badgerowbt">			
+	<!--<div><a href="https://snoweryi.github.io/yilearn/i01.html" class="badge1">01趨勢及策略</a></div>-->
+	<div><a href="https://snoweryi.github.io/yilearn/i02.html" class="badge1">02溫室氣體盤查</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i03.html" class="badge1">03碳足跡</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i031.html" class="badge1">03碳足跡2</a></div>
+	<!--<div><a href="https://snoweryi.github.io/yilearn/i011.html" class="badge1">考科一</a></div>-->
+	<div><a href="https://snoweryi.github.io/yilearn/i022.html" class="badge1">考科二</a></div>
+	
+	
+	<div><a href="https://snoweryi.github.io/yilearn/a_64.html" class="badge1">14064</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/a_67.html" class="badge1">14067</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/a_6467.html" class="badge2">64& 67</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/a_lca.html" class="badge1">碳足跡8大</a></div>
+	
+	<div><a href="https://snoweryi.github.io/yilearn" class="badge3">目錄</a></div>
+</div>
+
+<header class="top">
+  <h1>14064 & 14067</h1>
+  <p>出題委員視角．實務情境導向．深度觀念解析＋50題模擬試題</p>
+  
+</header>
+
+<div class="wrap">
+
+<nav class="toc">
+  <h2>📑 內容目錄</h2>
+  <ol>
+    <li><a href="#s1">為什麼考試越來越偏「實務情境」而非死背教材</a></li>
+    <li><a href="#s2">組織溫室氣體盤查 vs 產品碳足跡：本質差異詳解</a></li>
+    <li><a href="#s3">產品碳足跡計算方法論全解析</a></li>
+    <li><a href="#s4">分配問題（Allocation）：最容易考倒人的地雷</a></li>
+    <li><a href="#s5">查證與確信：第三方查證怎麼運作</a></li>
+    <li><a href="#s6">台灣制度實務：產品碳足跡標籤與碳費接軌</a></li>
+    <li><a href="#s7">常見混淆觀念地圖（考前必看）</a></li>
+    <li><a href="#s8">50題模擬試題（含詳解）</a></li>
+    <li><a href="#s9">答案總表</a></li>
+  </ol>
+</nav>
+
+<section id="s1">
+<h2 class="sec-title">一、為什麼考試越來越偏「實務情境」而非死背教材</h2>
+<p>
+近幾梯次 iPAS 淨零碳規劃師考試的出題委員，多半來自查證機構（如 SGS、BSI、DNV）、大學環工/管理學院教授，以及曾參與企業碳盤查輔導的顧問。這群人出題時最在意的，不是「你背不背得出 ISO 14067 的條文編號」，而是「你有沒有真正理解一套碳足跡計算邏輯，並能判斷一個實務情境中，哪個步驟做錯了、哪個名詞被誤用了」。
+</p>
+<p>
+因此考題常見的出法，是先描述一個具體情境──例如「某食品廠委託顧問公司計算其罐頭產品的碳足跡，顧問公司只計算到工廠出貨為止，未納入消費者食用及包裝回收階段」──接著問你：這種做法屬於哪一種系統邊界？是否合乎規範？如果客戶要求做碳中和聲明，這樣的邊界設定夠不夠？這種出法要求考生同時具備「名詞定義」、「方法論邏輯」與「合規判斷」三層能力，單純背誦教材條文是答不出來的。
+</p>
+<div class="callout">
+<strong>備考策略建議：</strong>讀書時不要只記「定義是什麼」，要練習自己編情境去套用定義，並且問自己「如果邊界/分配方式/數據來源換一種做法，結果會有什麼不同？出題者最可能在哪裡挖陷阱？」。這份整理刻意用「情境＋解析」的方式撰寫，就是要訓練這種判斷力。
+</div>
+</section>
+
+<section id="s2">
+<h2 class="sec-title">二、組織溫室氣體盤查 vs 產品碳足跡：本質差異詳解</h2>
+<p>
+這是整個考科中最基礎、卻也是最多人考試時會混用名詞而失分的主題。組織溫室氣體盤查（Organizational GHG Inventory，依循 ISO 14064-1）與產品碳足跡（Product Carbon Footprint, PCF，依循 ISO 14067）雖然都源自「溫室氣體盤查」這個大概念，也都以生命週期評估（LCA, ISO 14040/14044）為理論基礎，但兩者在「盤查的對象是誰」「邊界怎麼劃」「時間怎麼算」「用途是什麼」上，邏輯完全不同。
+</p>
+
+<h3>2.1 組織溫室氣體盤查（ISO 14064-1）詳細說明</h3>
+<p>
+組織盤查的對象是「一個法人組織或其認定的營運範圍」，例如一整間工廠、一個集團、甚至一棟大樓。組織邊界的劃定方式有兩種：<strong>股權比例法（Equity Share）</strong>——依照公司持股比例納入排放量；以及<strong>控制法（Control Approach）</strong>，控制法又分為<strong>財務控制</strong>（誰能主導財務與營運政策就納入誰的邊界）與<strong>營運控制</strong>（誰實際擁有營運決策權就納入誰的邊界）。台灣目前要求盤查登錄的工廠，多半採用營運控制法。
+</p>
+<p>
+邊界確定後，排放來源要依照「範疇」分類：<strong>範疇一（直接排放）</strong>指組織自有或控制的排放源，例如鍋爐燃燒、公司車隊用油、逸散冷媒；<strong>範疇二（能源間接排放）</strong>指外購電力、蒸汽、熱或冷卻所產生的排放；<strong>範疇三（其他間接排放）</strong>則涵蓋了在 GHG Protocol 中列出的 15 個類別，例如採購商品與服務、上游運輸、員工通勤、產品使用階段排放等，範疇三往往是企業盤查中占比最大卻最難精確計算的部分。
+</p>
+<p>
+組織盤查的時間邊界，通常以<strong>會計年度</strong>為單位，目的是逐年追蹤排放趨勢、設定科學基礎減量目標（SBTi）、因應法規申報（例如台灣氣候變遷因應法要求的排放量盤查登錄），以及作為未來碳費、碳交易的計算基礎。它服務的對象主要是政府主管機關、投資人、ESG 評鑑機構等「組織層級」的利害關係人。
+</p>
+
+<h3>2.2 產品碳足跡（ISO 14067）詳細說明</h3>
+<p>
+產品碳足跡的對象不是整個組織，而是「一件具體的產品或服務」，例如一包白米、一件 T 恤、一支手機。做產品碳足跡最關鍵、也最容易在考試中被拿來出題的第一步，是先定義<strong>功能單位（Functional Unit）</strong>——也就是要用什麼樣的單位來表達這個產品的「功能」，讓不同產品或不同生產方式之間可以公平比較。舉例來說，比較兩款洗衣精的碳足跡，不能用「每公升」比較，因為濃縮型洗衣精用量少但洗淨力相同，正確的功能單位應該是「洗一次衣物所需的用量」。
+</p>
+<p>
+定義好功能單位之後，接著要劃定<strong>系統邊界</strong>，常見有兩種：<strong>搖籃到大門（Cradle-to-Gate）</strong>，只計算從原物料取得、製造，到產品離開工廠大門為止，不含後續配送、使用、廢棄；以及<strong>搖籃到墳墓（Cradle-to-Grave）</strong>，涵蓋原物料、製造、配送、消費者使用，一直到廢棄處理或回收為止的完整生命週期。如果產品最終被回收再利用，並將回收後的效益也納入計算，則稱為<strong>搖籃到搖籃（Cradle-to-Cradle）</strong>。
+</p>
+<p>
+產品碳足跡的時間邊界不是「會計年度」，而是「這個產品從生產到報廢的完整生命週期所發生的排放總和」，資料蒐集期間通常會設定一個代表性的生產期間（例如某一年的生產紀錄）來推算。它服務的對象主要是消費者、供應鏈下游客戶、通路商，用途包括申請產品碳足跡標籤、支持綠色採購、作為碳中和產品宣告的計算基礎，以及作為供應鏈減碳溝通的工具。
+</p>
+
+<h3>2.3 兩者對照表</h3>
+<table>
+<tr><th>比較項目</th><th>組織溫室氣體盤查（ISO 14064-1）</th><th>產品碳足跡（ISO 14067）</th></tr>
+<tr><td>盤查對象</td><td>整個組織或指定營運邊界</td><td>單一產品或服務</td></tr>
+<tr><td>邊界劃定基礎</td><td>股權比例法／控制法（財務或營運控制）</td><td>功能單位＋生命週期階段（搖籃到大門／搖籃到墳墓）</td></tr>
+<tr><td>排放分類方式</td><td>範疇一、二、三</td><td>依生命週期階段（原料、製造、配送、使用、廢棄）</td></tr>
+<tr><td>時間邊界</td><td>會計年度，逐年比較</td><td>產品生命週期，以代表性生產期間資料推算</td></tr>
+<tr><td>分配（Allocation）議題</td><td>相對少見，通常出現在共用設施能源分攤</td><td>非常常見，聯產品、副產品皆須處理分配</td></tr>
+<tr><td>主要用途</td><td>法規申報、碳費、投資人揭露、減量目標設定</td><td>碳標籤申請、綠色採購、碳中和宣告、行銷溝通</td></tr>
+<tr><td>查證依據</td><td>ISO 14064-3</td><td>ISO 14064-3 或個別 PCF 查證方案指引</td></tr>
+<tr><td>台灣主管機關／制度</td><td>環境部氣候變遷署，盤查登錄平台</td><td>環境部產品碳足跡資訊網，碳足跡標籤／減碳標籤</td></tr>
+</table>
+<div class="warn">
+<strong>常見誤區（出題熱區）：</strong>很多人以為「產品碳足跡就是把組織盤查的範疇三再細算一次」，這個理解是不精確的。範疇三是「組織」為了盤查自己間接排放而估算的其他公司或環節的排放，計算精細度通常較粗；而產品碳足跡是「以產品為主體」，要求更嚴謹地界定功能單位、蒐集一級數據、進行分配計算。兩者概念上有關聯（企業做供應鏈碳足跡管理時，範疇三數據常來自產品碳足跡資料），但不是同一件事，考試常會用「某公司想用範疇三排放量直接當作產品碳標籤申請數據」這種情境來考察你是否能分辨。
+</div>
+</section>
+
+<section id="s3">
+<h2 class="sec-title">三、產品碳足跡計算方法論全解析</h2>
+<h3>3.1 四大生命週期階段的資料蒐集重點</h3>
+<p>
+產品碳足跡計算依循 LCA 的四階段架構：<strong>目標與範疇界定</strong>、<strong>清冊分析（Life Cycle Inventory, LCI）</strong>、<strong>衝擊評估（Life Cycle Impact Assessment, LCIA）</strong>與<strong>結果解釋</strong>。在目標與範疇界定階段，除了功能單位與系統邊界之外，還要決定「切截準則（Cut-off Criteria）」——也就是哪些排放量小到可以忽略不計，一般會以質量、能量或環境重要性設定門檻（例如累計排放量小於總量 1% 以下且合計不超過 5% 的項目可考慮排除，但仍須說明排除理由）。
+</p>
+<p>
+清冊分析階段是實際蒐集數據的階段，數據分為<strong>一級數據（Primary Data）</strong>與<strong>二級數據（Secondary Data）</strong>。一級數據是企業自己實測或直接取得的數據，例如工廠實際的用電度數、燃料使用量、廢棄物產出量，數據品質最高，但蒐集成本也最高；二級數據則是引用資料庫或文獻的平均值，例如使用 Ecoinvent、GaBi、中國生命週期資料庫（CLCD），或台灣環境部「產品碳足跡資訊網」公告的預設排放係數。ISO 14067 鼓勵在關鍵排放熱點（Hotspot）盡量採用一級數據，非熱點部分可使用二級數據以降低成本。
+</p>
+
+<h3>3.2 排放係數的選用邏輯</h3>
+<p>
+排放係數（Emission Factor）是把「活動數據」轉換成「溫室氣體排放量」的橋樑，例如「每度電排放多少公斤 CO2e」。選用排放係數時，必須考量<strong>地理代表性</strong>（台灣的電力排碳係數與歐洲不同，不能直接套用）、<strong>時間代表性</strong>（係數應盡量使用最新公告版本，例如台灣電力排放係數每年由台電與環境部更新公告）、<strong>技術代表性</strong>（不同製程技術的係數不同，例如電弧爐煉鋼與高爐煉鋼的碳排差異極大）。考試常出的陷阱情境是：某公司計算碳足跡時，直接沿用五年前的舊電力排放係數，或用歐洲資料庫係數計算台灣工廠排放，這都屬於數據代表性不足的錯誤。
+</p>
+
+<h3>3.3 溫室氣體種類與 GWP（全球暖化潛勢）</h3>
+<p>
+產品碳足跡計算需納入《京都議定書》及後續規範所列的溫室氣體，包括二氧化碳（CO2）、甲烷（CH4）、氧化亞氮（N2O）、氫氟碳化物（HFCs）、全氟碳化物（PFCs）、六氟化硫（SF6）以及三氟化氮（NF3），並依照 IPCC 公告的<strong>全球暖化潛勢（Global Warming Potential, GWP）</strong>係數，將各種氣體換算為「CO2 當量（CO2e）」以利加總比較。考試常考的重點是：不同版本的 IPCC 評估報告（如 AR4、AR5、AR6）公布的 GWP 值會有差異（例如甲烷的 GWP 在不同版本略有調整），因此查證時必須清楚交代採用哪一版 GWP 係數，避免不同計算基礎的結果被誤拿來比較。
+</p>
+</section>
+
+<section id="s4">
+<h2 class="sec-title">四、分配問題（Allocation）：最容易考倒人的地雷</h2>
+<p>
+在產品碳足跡計算中，「分配（Allocation）」問題幾乎是考試必考、也是實務上最容易做錯的一環。當一個生產流程同時產出多種產品（稱為<strong>聯產品，Co-products</strong>）或伴隨產出<strong>副產品（By-products）</strong>時，這條生產線消耗的能源與原物料所產生的排放量，該怎麼分攤到不同產品身上，就是分配問題。
+</p>
+<p>
+ISO 14044 對分配問題提出了處理的優先順序原則：第一優先是<strong>盡量避免分配</strong>，做法包括「細分製程」（把共用製程拆解成更細的子製程，各自歸屬）或採用<strong>系統擴展法（System Expansion）</strong>（把副產品當作替代了市場上原本要生產的其他產品，用「避免的排放」去扣減）。如果真的無法避免分配，第二優先是採用<strong>基於實質物理關係的分配</strong>，最常見的是<strong>質量分配</strong>（依產出重量比例分攤）；如果產品間物理特性差異太大，質量分配無法反映真實經濟或功能價值時，才退而求其次採用<strong>經濟分配（Economic Allocation）</strong>，依各產品的市場售價比例分攤排放量。
+</p>
+<div class="callout">
+<strong>實務案例情境：</strong>假設一間榨油廠同時產出「食用油」與「油粕（榨油後的副產物，可作飼料）」，若以質量分配，因為油粕產出重量可能占比很高，會讓食用油分攤到的排放量偏低而顯得「碳足跡很漂亮」；但若以經濟價值分配，因為食用油單價遠高於油粕，食用油會分攤到較多排放量。出題委員很喜歡用這種情境，考你「在什麼情況下該選哪種分配方法」，以及「分配方法的選擇是否會影響碳足跡結果的公平性與可比較性」。
+</div>
+<p>
+另外要特別注意，<strong>回收材料的分配</strong>也是一個獨立的難題：使用回收料的產品，該把「回收前製造回收料所產生的排放」記在誰頭上（原生產者還是回收再利用者）？ISO 14044 與 ISO 14067 提供了「截斷法（Cut-off Approach，回收前排放歸原產品，回收後使用者只承擔回收處理排放）」與「封閉迴圈/開放迴圈分配公式」等不同處理方式，兩者結果差異可能很大，考試常會用「使用再生塑膠的產品，碳足跡是否一定比用原生塑膠低」這種容易讓人直覺誤判的題目來測試理解深度。
+</p>
+</section>
+
+<section id="s5">
+<h2 class="sec-title">五、查證與確信：第三方查證怎麼運作</h2>
+<p>
+不論是組織盤查還是產品碳足跡，一旦要對外揭露或申請標籤，通常需要經過<strong>第三方查證（Verification）</strong>，取得<strong>確信聲明（Assurance Statement）</strong>，才能讓外部利害關係人相信這份報告書的數據是可信的。查證的規範依據主要是 ISO 14064-3（溫室氣體聲明查證與確證指引），查證機構本身也需要依循 ISO 14065（溫室氣體確證與查證機構之能力要求）取得認證資格。
+</p>
+<p>
+查證等級分為兩種：<strong>合理保證（Reasonable Assurance）</strong>要求查證人員蒐集更充分的證據，將誤報風險降到很低，通常用於較嚴謹的法規申報場合；<strong>有限保證（Limited Assurance）</strong>則蒐集的證據較少，只確認「沒有發現重大不符事項」，保證程度相對較低，是目前多數企業自願性溫室氣體聲明常見的查證等級。查證過程中最重要的判斷基準是<strong>重大性（Materiality）</strong>，一般會設定一個門檻比例（常見為 5%），如果盤查報告中的誤差或遺漏超過這個門檻，且可能影響報告使用者的決策判斷，就視為重大不符事項，查證機構不能出具無保留的確信聲明。
+</p>
+<div class="warn">
+<strong>易混淆重點：</strong>「驗證（Validation）」與「查證（Verification）」在中文語境下常被混用，但在 ISO 14064 系列中，驗證通常指針對「排放減量方案（如溫室氣體專案）的事前評估」，查證則是針對「已經發生的溫室氣體聲明或盤查結果」進行事後確認。另外，「查證」與「認證（Certification）」也不同──查證是對「數據與方法過程」出具意見，認證則常指產品或系統取得某項標章/標準的資格（例如產品碳足跡標籤的核發，是由主管機關依查證結果核發標籤資格，查證本身只是核發流程中的一環）。
+</div>
+</section>
+
+<section id="s6">
+<h2 class="sec-title">六、台灣制度實務：產品碳足跡標籤與碳費接軌</h2>
+<p>
+台灣的產品碳足跡制度由環境部（原環保署）主政，透過「產品碳足跡資訊網」提供產品類別規則（Product Category Rules, PCR）供業者查詢與申請比對。企業要申請產品碳足跡標籤，必須先確認自己的產品是否已有公告的 PCR；若尚無對應 PCR，須先申請訂定新的 PCR，或依國際規則（如 PAS 2050 或 ISO 14067）搭配專家審查方式計算。計算完成並經第三方查證後，向環境部申請碳足跡標籤，標籤上會標示產品的碳足跡數值（以每單位產品的 CO2e 表示）與有效期限，目前效期通常為<strong>3 年</strong>，到期須重新申請或展延。
+</p>
+<p>
+除了「碳足跡標籤」，台灣也設有「<strong>減碳標籤（碳足跡減量標籤）</strong>」制度，鼓勵已取得碳足跡標籤的產品，透過製程改善、能源效率提升等方式，在一定期間內（通常為兩年）將碳足跡再降低一定比例（一般門檻為 3% 以上），通過查證後即可加註減碳標籤，向消費者傳達「這項產品持續在減碳」的訊息，這對於重視 ESG 溝通與行銷的企業（例如推動食農教育、永續農產品行銷的農場品牌）特別具有應用價值。
+</p>
+<p>
+在組織層級，台灣「氣候變遷因應法」自 2023 年起將溫室氣體管理法制化，明訂達一定排放量門檻的排放源須進行盤查登錄，並自 2025 年起開始針對年排放量達 2.5 萬公噸 CO2e 以上的電力業與製造業徵收<strong>碳費</strong>。碳費採「先大後小」原則，初期針對排碳大戶課徵，並提供「自主減量計畫」優惠費率機制，企業若能提出具體減量措施並經核定，可適用較低費率。這部分與產品碳足跡的關聯在於：當企業被課徵碳費、必須向下游客戶或消費者證明自身減碳成效時，產品碳足跡數據常被拿來作為溝通與差異化的工具，形成「組織盤查（用於申報碳費）」與「產品碳足跡（用於市場溝通、綠色採購）」雙軌並行、互相引用數據的實務現況。
+</p>
+<div class="callout">
+<strong>與農場／ESG情境的連結（供小宜延伸應用）：</strong>若富林有機農場未來要推動「有機米碳足跡標籤」或「低碳農產品」行銷，實務上會需要：(1) 確認稻米是否已有公告的 PCR，若無則需委託顧問依 ISO 14067 精神計算；(2) 蒐集育苗、整地、灌溉用電/用油、肥料與農藥使用、收穫、乾燥、包裝等各階段的一級數據；(3) 評估是否能透過有機農法（減少化肥使用、生物多樣性維護）產生「碳匯」或「減量」效果，並思考如何在標籤或行銷素材上，用「查證過的具體數字」而非模糊的「友善環境」字眼來溝通，這正是產品碳足跡制度可以直接對接農場 ESG 教育與品牌價值的地方。
+</div>
+</section>
+
+<section id="s7">
+<h2 class="sec-title">七、常見混淆觀念地圖（考前必看）</h2>
+<table>
+<tr><th>易混淆的一組名詞</th><th>關鍵區分方式</th></tr>
+<tr><td>碳足跡 vs 碳排放量</td><td>碳足跡是「以生命週期為基礎、換算為 CO2e 的總量」，強調涵蓋範圍完整性；碳排放量可以只是單一時點或單一排放源的量測值，不一定涵蓋完整生命週期。</td></tr>
+<tr><td>碳中和 vs 淨零排放</td><td>碳中和通常僅針對「碳（CO2）」進行抵換平衡，範圍可大可小（可以是單一產品、單一活動）；淨零排放則涵蓋所有溫室氣體，且通常指組織或國家層級「排放量幾乎降到最低、剩餘部分以移除或抵換方式達成淨零」的長期目標，範圍與嚴謹度都高於碳中和。</td></tr>
+<tr><td>碳抵換（Offset）vs 碳移除（Removal）</td><td>碳抵換是透過購買外部減量額度（如造林、再生能源憑證）來抵銷自身排放；碳移除則是指實際將大氣中的 CO2 移除並長期儲存（如直接空氣捕捉、生物碳封存），兩者在計算是否能列入產品碳足跡「淨值」時，規範與可信度要求不同。</td></tr>
+<tr><td>一級數據 vs 二級數據</td><td>一級數據是企業自行實測的現場數據，二級數據是資料庫或文獻的平均值/推估值；一級數據品質較高但成本高，通常用於排放熱點。</td></tr>
+<tr><td>搖籃到大門 vs 搖籃到墳墓</td><td>差別在於是否納入「產品出廠後」的配送、使用、廢棄階段；申請 B2B 原料型產品的碳足跡常用搖籃到大門，消費性終端產品若要做完整碳中和宣告則多採搖籃到墳墓。</td></tr>
+<tr><td>查證（Verification）vs 確效（Validation）</td><td>查證針對「已發生的盤查結果」，確效針對「尚未發生、屬預測性質的減量方案設計」。</td></tr>
+<tr><td>合理保證 vs 有限保證</td><td>合理保證蒐證程度高、可信度高，用語通常是「我們認為報告在所有重大方面如實表達」；有限保證蒐證程度較低，用語通常是「未發現使我們認為報告有重大不實表達的事項」。</td></tr>
+<tr><td>質量分配 vs 經濟分配</td><td>質量分配依重量比例分攤排放，適用於物理特性相近的聯產品；經濟分配依市場售價比例分攤，適用於價值差異懸殊的聯產品/副產品。</td></tr>
+</table>
+</section>
+
+<section id="s8">
+<h2 class="sec-title">八、模擬試題 50 題（情境式，含詳解）</h2>
+<p style="font-size: 22px;color:var(--muted);">
+說明：以下題目多以實務情境包裝，選項刻意打散排列（正確選項不必然最長、也不集中在特定字母），請先自行作答，再點擊「查看答案與解析」按鈕核對。建議先蓋住解析、限時作答，模擬真實考場節奏。
+</p>
+
+<h3>Part A｜組織盤查 vs 產品碳足跡 基本觀念（第1～10題）</h3>
+
+<div class="quiz-item"><span class="qnum">第1題</span>
+<p>某電子公司為滿足歐盟客戶要求，委託顧問公司計算旗下一款藍牙耳機的碳足跡，並將結果與公司整體溫室氣體盤查報告書合併對外發布。下列敘述何者最為正確？</p>
+<ul class="options">
+<li>(A) 兩者計算基礎相同，可直接合併加總對外揭露</li>
+<li>(B) 產品碳足跡應以功能單位為核心，與以組織邊界為核心的盤查結果性質不同，不應直接加總</li>
+<li>(C) 只要都用 CO2e 表示，就可以視為同一套數據</li>
+<li>(D) 產品碳足跡的結果一定會比組織盤查範疇三的數字大</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：B</span><br>
+產品碳足跡以「功能單位」界定生命週期排放，組織盤查以「組織邊界」界定範疇一二三排放，兩者計算目的、邊界、時間基礎皆不同，不能直接加總或互相取代。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第2題</span>
+<p>下列何者屬於 ISO 14064-1 組織溫室氣體盤查中「範疇二」的排放？</p>
+<ul class="options">
+<li>(A) 公司自有鍋爐燃燒天然氣</li>
+<li>(B) 外購電力使用所產生的間接排放</li>
+<li>(C) 員工搭乘大眾運輸通勤</li>
+<li>(D) 供應商生產原物料的排放</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：B</span><br>
+範疇一為自有或控制排放源之直接排放（如鍋爐燃燒）；範疇二為外購電力、蒸汽、熱或冷卻之間接排放；員工通勤與供應商排放皆屬範疇三。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第3題</span>
+<p>某食品公司主張：「我們的產品碳足跡已經算過了，不需要再做組織溫室氣體盤查，因為兩者算的都是碳排放。」這個說法有何問題？</p>
+<ul class="options">
+<li>(A) 說法正確，兩者可以互相取代</li>
+<li>(B) 產品碳足跡精度較低，不能取代組織盤查</li>
+<li>(C) 兩者目的與邊界不同，組織盤查涵蓋整體營運排放並用於法規申報與碳費計算，產品碳足跡無法涵蓋此範圍</li>
+<li>(D) 組織盤查只是產品碳足跡的簡化版</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：C</span><br>
+組織盤查涵蓋公司整體營運排放，是法規申報、碳費課徵的依據；產品碳足跡僅涵蓋單一產品生命週期，兩者不可互相取代，企業通常兩者皆須進行。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第4題</span>
+<p>下列關於「控制法」劃定組織邊界的敘述，何者正確？</p>
+<ul class="options">
+<li>(A) 控制法只有財務控制一種方式</li>
+<li>(B) 控制法分為財務控制與營運控制，台灣工廠盤查登錄多採營運控制法</li>
+<li>(C) 控制法與股權比例法計算結果必然相同</li>
+<li>(D) 控制法僅適用於上市公司</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：B</span><br>
+控制法分財務控制與營運控制兩種，台灣盤查登錄實務多以營運控制法為主，判斷誰實際擁有營運決策權。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第5題</span>
+<p>某顧問向客戶說明：「產品碳足跡的時間邊界跟組織盤查一樣，都是以會計年度為準。」這個說法：</p>
+<ul class="options">
+<li>(A) 正確，兩者時間邊界完全一致</li>
+<li>(B) 不正確，產品碳足跡以產品生命週期為時間概念，僅以代表性生產期間資料推算，而非以會計年度逐年盤查</li>
+<li>(C) 正確，但僅限於出口產品</li>
+<li>(D) 不正確，產品碳足跡沒有時間邊界的概念</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：B</span><br>
+組織盤查以會計年度逐年比較；產品碳足跡是以「生命週期」為時間概念，資料蒐集期間僅是取具代表性的一段生產紀錄，並非逐年盤查的概念。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第6題</span>
+<p>下列何者「不是」ISO 14067 與 ISO 14064-1 兩者的共同基礎？</p>
+<ul class="options">
+<li>(A) 皆須進行排放源鑑別</li>
+<li>(B) 皆源自 LCA（生命週期評估）概念中的部分方法論</li>
+<li>(C) 皆可尋求第三方查證取得確信聲明</li>
+<li>(D) 皆以會計年度作為唯一計算基礎</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：D</span><br>
+兩者共通點包含排放源鑑別、部分援引 LCA 概念、皆可查證；但時間基礎不同，D 選項的敘述不成立。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第7題</span>
+<p>某公司主張因產品碳足跡「範圍比範疇三更細」，所以可以直接拿產品碳足跡數字填入組織盤查的範疇三欄位。此作法：</p>
+<ul class="options">
+<li>(A) 完全正確，二者定義一致可直接套用</li>
+<li>(B) 需視情況調整計算基礎（如產品數量換算、邊界對齊、避免重複計算），不能未經處理直接套用</li>
+<li>(C) 一律禁止使用產品碳足跡資料</li>
+<li>(D) 只要單位都是 CO2e 就沒有問題</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：B</span><br>
+產品碳足跡資料可作為範疇三估算的參考來源，但須依採購量、邊界對齊等進行轉換與調整，避免重複計算或邊界不一致的問題。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第8題</span>
+<p>下列敘述何者最能說明「產品碳足跡」在企業實務中的主要用途？</p>
+<ul class="options">
+<li>(A) 主要用於計算應繳納的碳費金額</li>
+<li>(B) 主要用於申請碳標籤、支持綠色採購、作為碳中和產品宣告與供應鏈溝通的依據</li>
+<li>(C) 主要用於取代組織年度財務報表</li>
+<li>(D) 主要用於計算員工薪資福利</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：B</span><br>
+碳費目前是依組織排放量課徵，非產品碳足跡；產品碳足跡的實務用途集中在標籤申請、綠色採購與市場溝通。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第9題</span>
+<p>依 GHG Protocol，範疇三排放分為多少個類別？</p>
+<ul class="options">
+<li>(A) 6 個</li>
+<li>(B) 10 個</li>
+<li>(C) 15 個</li>
+<li>(D) 20 個</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：C</span><br>
+GHG Protocol 的範疇三共分為 15 個類別，涵蓋上游與下游間接排放，例如採購商品與服務、資本財、燃料與能源相關活動、上下游運輸、廢棄物處理、員工通勤、產品使用階段等。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第10題</span>
+<p>某集團旗下有一間持股 40% 的合資工廠，若集團採「股權比例法」計算組織碳盤查邊界，下列何者正確？</p>
+<ul class="options">
+<li>(A) 應完全排除該合資工廠的排放</li>
+<li>(B) 應依 40% 持股比例，將該工廠 40% 的排放量納入集團盤查</li>
+<li>(C) 應將該工廠 100% 排放量納入</li>
+<li>(D) 股權比例法只適用於獨資企業，此案例不適用</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：B</span><br>
+股權比例法依實際持股比例分攤納入排放量，40% 持股即納入該工廠 40% 的排放量，這與控制法（以決策控制權判斷是否全額納入）邏輯不同。
+</div></details>
+</div>
+
+<h3>Part B｜功能單位、系統邊界與 LCA 方法論（第11～20題）</h3>
+
+<div class="quiz-item"><span class="qnum">第11題</span>
+<p>某洗髮精廠商想比較「一般包裝」與「濃縮補充包」兩款產品的碳足跡優劣，下列何種功能單位設定最為合適？</p>
+<ul class="options">
+<li>(A) 每公升產品</li>
+<li>(B) 每個包裝容器</li>
+<li>(C) 洗一次頭髮所需使用量</li>
+<li>(D) 每公斤原料</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：C</span><br>
+濃縮產品用量少但功能相同，若以體積或容器數比較會失真，應以「達成相同功能所需的使用量」作為功能單位，才能公平比較。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第12題</span>
+<p>某原料供應商只計算產品從原物料到出廠為止的碳排放，未計算後續運送、客戶使用與廢棄的排放，這屬於下列哪一種系統邊界？</p>
+<ul class="options">
+<li>(A) 搖籃到墳墓</li>
+<li>(B) 搖籃到搖籃</li>
+<li>(C) 大門到大門</li>
+<li>(D) 搖籃到大門</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：D</span><br>
+只計算到工廠出貨（大門）為止，屬於搖籃到大門（Cradle-to-Gate），常用於 B2B 原料型產品。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第13題</span>
+<p>若一件成衣產品的碳足跡計算，涵蓋了原料棉花種植、紡織、染整、成衣製造、配送、消費者洗滌穿著，一直到最終進入焚化爐處理，這是屬於？</p>
+<ul class="options">
+<li>(A) 搖籃到大門</li>
+<li>(B) 搖籃到墳墓</li>
+<li>(C) 大門到大門</li>
+<li>(D) 大門到墳墓</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：B</span><br>
+涵蓋原料取得到最終廢棄處理的完整生命週期，屬於搖籃到墳墓（Cradle-to-Grave）。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第14題</span>
+<p>LCA 方法論的四個階段依序為？</p>
+<ul class="options">
+<li>(A) 清冊分析→目標與範疇界定→衝擊評估→結果解釋</li>
+<li>(B) 目標與範疇界定→清冊分析→衝擊評估→結果解釋</li>
+<li>(C) 衝擊評估→清冊分析→目標與範疇界定→結果解釋</li>
+<li>(D) 目標與範疇界定→衝擊評估→清冊分析→結果解釋</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：B</span><br>
+標準流程為：目標與範疇界定 → 清冊分析（LCI）→ 衝擊評估（LCIA）→ 結果解釋，四階段常會反覆疊代修正。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第15題</span>
+<p>某公司在計算產品碳足跡時，將某項僅佔總排放量 0.3% 的次要原料排放排除不計，並在報告中說明排除理由。這樣的作法屬於？</p>
+<ul class="options">
+<li>(A) 違反 ISO 14067 規範，不得排除任何項目</li>
+<li>(B) 合理運用切截準則，但仍須揭露排除項目與理由</li>
+<li>(C) 屬於數據造假</li>
+<li>(D) 只要排除比例低於 10% 皆可不必說明</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：B</span><br>
+切截準則允許在合理門檻下排除影響輕微的項目，但必須揭露排除項目與理由，維持報告透明度，並非「不必說明」。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第16題</span>
+<p>下列何者屬於「一級數據（Primary Data）」？</p>
+<ul class="options">
+<li>(A) 引用 Ecoinvent 資料庫中某製程的平均排放係數</li>
+<li>(B) 工廠實際量測記錄的月用電度數</li>
+<li>(C) 文獻回顧中取得的產業平均值</li>
+<li>(D) 政府公告的預設排放係數</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：B</span><br>
+一級數據是企業自行實測或直接取得的現場數據，如實際用電度數；其餘皆屬於引用外部資料庫或平均值的二級數據。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第17題</span>
+<p>某顧問建議：「排放熱點部分可用二級數據簡化計算即可，一級數據留給佔比很小的項目蒐集就好，這樣最有效率。」這個建議：</p>
+<ul class="options">
+<li>(A) 正確，效率優先</li>
+<li>(B) 方向錯誤，應優先在排放熱點投入一級數據蒐集，非熱點項目才適合用二級數據簡化</li>
+<li>(C) 正確，因為熱點項目數據量大不易蒐集</li>
+<li>(D) 沒有差別，兩種數據品質相同</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：B</span><br>
+ISO 14067 建議在關鍵排放熱點盡量採用一級數據以提升準確度，非熱點部分才適合用二級數據降低成本，該顧問的建議方向相反。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第18題</span>
+<p>下列關於排放係數選用的敘述，何者「錯誤」？</p>
+<ul class="options">
+<li>(A) 應考量地理代表性，不宜直接套用他國係數</li>
+<li>(B) 應考量時間代表性，盡量採用最新公告版本</li>
+<li>(C) 應考量技術代表性，不同製程技術係數可能差異極大</li>
+<li>(D) 只要單位相同（如每度電），任何國家或年份的係數皆可互相通用</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：D</span><br>
+排放係數須考量地理、時間、技術代表性，不能只看單位相同就任意套用不同國家或年份的係數，D 選項敘述錯誤。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第19題</span>
+<p>甲烷（CH4）在計算產品碳足跡的 CO2e 總量時，需要透過下列哪一個係數換算？</p>
+<ul class="options">
+<li>(A) 能源使用效率係數</li>
+<li>(B) 全球暖化潛勢（GWP）</li>
+<li>(C) 碳交易市場價格</li>
+<li>(D) 產品良率</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：B</span><br>
+不同溫室氣體需依 IPCC 公告的 GWP 係數換算為 CO2 當量（CO2e）才能加總比較。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第20題</span>
+<p>某報告未清楚說明採用哪一版本 IPCC 評估報告的 GWP 係數，直接拿來與另一份採用不同版本係數計算的報告比較高低。這樣的比較：</p>
+<ul class="options">
+<li>(A) 沒有問題，GWP 各版本數值完全相同</li>
+<li>(B) 可能產生誤導，因不同版本（如 AR5 與 AR6）部分氣體的 GWP 值有差異，比較基礎不一致</li>
+<li>(C) 只有二氧化碳受影響，其餘氣體不受影響</li>
+<li>(D) 只要都用 CO2e 為單位就可以直接比較</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：B</span><br>
+不同版本 IPCC 報告公告的 GWP 值可能不同（如甲烷），採用不同版本計算的結果基礎不一致，直接比較可能造成誤導，應揭露採用版本。
+</div></details>
+</div>
+
+<h3>Part C｜分配問題 Allocation（第21～30題）</h3>
+
+<div class="quiz-item"><span class="qnum">第21題</span>
+<p>依 ISO 14044 處理分配問題的優先順序，第一優先應該？</p>
+<ul class="options">
+<li>(A) 直接採用經濟分配</li>
+<li>(B) 直接採用質量分配</li>
+<li>(C) 盡量避免分配，透過細分製程或系統擴展處理</li>
+<li>(D) 由生產者自行決定任一方式即可，無優先順序</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：C</span><br>
+ISO 14044 明訂處理分配問題應優先「避免分配」，其次才是基於物理關係（如質量）分配，再其次才是經濟分配。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第22題</span>
+<p>榨油廠同時產出「食用油」與「油粕」，若以質量分配，油粕產出重量遠高於食用油，可能導致什麼結果？</p>
+<ul class="options">
+<li>(A) 食用油分攤到的排放量偏低，碳足跡數字顯得較漂亮</li>
+<li>(B) 食用油分攤到的排放量偏高</li>
+<li>(C) 兩者分攤結果與經濟分配完全相同</li>
+<li>(D) 對結果沒有任何影響</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：A</span><br>
+若油粕產出重量占比高，以質量分配會讓大部分排放分攤到油粕身上，使食用油分攤到的排放量偏低，可能不符實際經濟或功能價值。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第23題</span>
+<p>當聯產品之間物理特性差異極大，質量分配無法反映真實經濟或功能價值時，應優先考慮採用？</p>
+<ul class="options">
+<li>(A) 經濟分配</li>
+<li>(B) 能量分配</li>
+<li>(C) 隨機分配</li>
+<li>(D) 忽略不計</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：A</span><br>
+當物理基礎（如質量）無法合理反映產品價值差異時，改採依市場售價比例分攤的經濟分配。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第24題</span>
+<p>「系統擴展法（System Expansion）」處理分配問題的核心邏輯是？</p>
+<ul class="options">
+<li>(A) 把副產品視為替代了市場上原本要生產的其他產品，以「避免的排放」扣減主產品的排放</li>
+<li>(B) 依重量比例分攤排放</li>
+<li>(C) 依市場售價比例分攤排放</li>
+<li>(D) 完全忽略副產品的存在</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：A</span><br>
+系統擴展法將副產品視為替代了市場上另一項產品的生產，以「避免生產該替代產品所減少的排放」來扣減，藉此避免分配問題。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第25題</span>
+<p>某產品使用回收塑膠作為原料，若採「截斷法（Cut-off Approach）」處理回收材料的排放歸屬，下列敘述何者正確？</p>
+<ul class="options">
+<li>(A) 回收前製造原生塑膠的排放全部歸屬使用回收料的產品承擔</li>
+<li>(B) 回收前排放歸屬原產品，使用回收料的產品只承擔回收處理過程的排放</li>
+<li>(C) 回收料一律視為零排放，完全不必計算</li>
+<li>(D) 截斷法只適用於金屬，不適用於塑膠</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：B</span><br>
+截斷法將回收前（原生產）的排放歸屬給原產品，使用回收料的下游產品僅需承擔回收處理過程所產生的排放。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第26題</span>
+<p>某廠商宣稱：「我們使用再生塑膠，所以產品碳足跡一定比用原生塑膠的競品低。」此推論：</p>
+<ul class="options">
+<li>(A) 一定成立，再生料必定較低碳</li>
+<li>(B) 不一定成立，仍須視回收處理能耗、分配方法選擇及其他生命週期階段排放而定</li>
+<li>(C) 與碳足跡計算完全無關</li>
+<li>(D) 僅適用於歐洲市場的產品</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：B</span><br>
+再生料雖通常較省能，但實際結果仍受回收處理製程能耗、所採用的分配方法（如截斷法或迴圈分配公式）及其他生命週期階段影響，不能一概而論。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第27題</span>
+<p>下列哪一種情況「最不適合」直接採用經濟分配？</p>
+<ul class="options">
+<li>(A) 聯產品市場售價經常大幅波動，導致分配結果不穩定</li>
+<li>(B) 聯產品物理特性極為相近</li>
+<li>(C) 聯產品之間功能用途完全一致</li>
+<li>(D) 聯產品皆可回收再利用</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：A</span><br>
+經濟分配依市場售價比例分攤，若售價波動劇烈，會導致碳足跡結果隨市場行情起伏而不穩定，此時應審慎評估是否改用其他分配方式或系統擴展。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第28題</span>
+<p>「細分製程（Sub-division）」作為避免分配的一種手段，其做法是？</p>
+<ul class="options">
+<li>(A) 將共用製程拆解成更細的子製程，各自歸屬到對應產品，減少需要共同分攤的部分</li>
+<li>(B) 直接將所有排放平均分給每項產品</li>
+<li>(C) 以市場售價作為分攤基準</li>
+<li>(D) 忽略所有共用製程的排放</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：A</span><br>
+細分製程是把生產流程拆得更細，讓每個子製程的排放能明確歸屬到特定產品，藉此減少需要分配的共用部分，屬於「避免分配」的做法之一。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第29題</span>
+<p>某農場同時生產「有機稻米」與「稻殼（可作為堆肥或燃料副產物）」，若採經濟分配，稻殼因售價極低，會如何影響稻米的碳足跡？</p>
+<ul class="options">
+<li>(A) 稻米幾乎承擔全部生產排放，碳足跡數字會相對較高</li>
+<li>(B) 稻米承擔的排放量會趨近於零</li>
+<li>(C) 對稻米的碳足跡完全沒有影響</li>
+<li>(D) 稻殼會承擔全部排放</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：A</span><br>
+經濟分配依售價比例分攤，稻殼售價相對極低，分攤到的排放量也極少，使主產品稻米幾乎承擔全部生產階段的排放，碳足跡數字相對較高。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第30題</span>
+<p>下列關於分配方法選擇的敘述，何者最符合 ISO 14067 精神？</p>
+<ul class="options">
+<li>(A) 分配方法一旦選定，未來所有產品皆不可再變更，以確保絕對一致</li>
+<li>(B) 分配方法的選擇應具透明度並於報告書中明確揭露、說明選用理由，且應考量結果的一致性與可比較性</li>
+<li>(C) 分配方法可任意選擇對企業最有利者，無須揭露</li>
+<li>(D) 只有經濟分配才是唯一合規的方法</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：B</span><br>
+ISO 14067 要求分配方法之選擇需透明揭露並說明理由，兼顧結果的一致性與可比較性，而非任意選擇或一成不變。
+</div></details>
+</div>
+
+<h3>Part D｜查證與確信（第31～40題）</h3>
+
+<div class="quiz-item"><span class="qnum">第31題</span>
+<p>依 ISO 14064-3，針對「已發生」的溫室氣體盤查結果進行第三方確認，稱為？</p>
+<ul class="options">
+<li>(A) 確效（Validation）</li>
+<li>(B) 查證（Verification）</li>
+<li>(C) 認證（Certification）</li>
+<li>(D) 鑑定（Appraisal）</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：B</span><br>
+查證（Verification）針對已發生的盤查結果或聲明進行事後確認；確效（Validation）則針對尚未發生、屬預測性質的減量方案。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第32題</span>
+<p>查證機構本身若要具備從事溫室氣體查證的能力資格，須依循下列哪一項標準取得認證？</p>
+<ul class="options">
+<li>(A) ISO 14001</li>
+<li>(B) ISO 14040</li>
+<li>(C) ISO 14065</li>
+<li>(D) ISO 50001</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：C</span><br>
+ISO 14065 規範溫室氣體確證與查證機構應具備之能力要求，查證機構須依此取得認證資格。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第33題</span>
+<p>下列關於「合理保證」與「有限保證」的敘述，何者正確？</p>
+<ul class="options">
+<li>(A) 有限保證蒐證程度較高，適用於所有法規申報場合</li>
+<li>(B) 合理保證蒐證程度較高、可信度較高，用語通常表示「所有重大方面如實表達」</li>
+<li>(C) 兩者蒐證程度完全相同，僅用語不同</li>
+<li>(D) 有限保證不需要任何證據蒐集</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：B</span><br>
+合理保證要求蒐集更充分的證據，可信度較高；有限保證蒐證程度較低，僅確認未發現重大不符事項，保證程度相對較低。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第34題</span>
+<p>查證過程中判斷是否構成「重大不符事項」的核心依據是？</p>
+<ul class="options">
+<li>(A) 公司規模大小</li>
+<li>(B) 重大性（Materiality）門檻，通常評估誤差或遺漏是否影響報告使用者的決策判斷</li>
+<li>(C) 查證人員的主觀喜好</li>
+<li>(D) 產業別</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：B</span><br>
+重大性門檻（常見約5%）是判斷誤差或遺漏是否足以影響報告使用者決策的核心依據，超過門檻即視為重大不符事項。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第35題</span>
+<p>某公司宣稱其產品已「取得碳足跡標籤」，但實際上僅是委託顧問內部計算完成，尚未經第三方查證及主管機關核發標籤程序。這樣的宣稱：</p>
+<ul class="options">
+<li>(A) 沒有問題，只要有計算過程即可宣稱取得標籤</li>
+<li>(B) 屬於不當宣稱，標籤核發須經第三方查證及主管機關審核程序，內部計算不等同取得標籤</li>
+<li>(C) 只要顧問公司具公信力即可視為已取得標籤</li>
+<li>(D) 只要計算方法正確，是否查證不重要</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：B</span><br>
+碳足跡標籤核發須經第三方查證並向主管機關申請審核通過，僅完成內部計算而未經此程序，不得宣稱已取得標籤，否則涉及不實宣稱。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第36題</span>
+<p>「驗證（Validation）」與「查證（Verification）」的核心差異在於？</p>
+<ul class="options">
+<li>(A) 驗證針對事前預測性質的減量方案，查證針對事後已發生的盤查結果</li>
+<li>(B) 兩者完全相同，可互相替代使用</li>
+<li>(C) 驗證只用於產品，查證只用於組織</li>
+<li>(D) 驗證不需要第三方參與</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：A</span><br>
+驗證（確效）針對尚未發生、屬預測性質的溫室氣體專案或減量方案；查證則針對已發生的盤查結果或聲明進行事後確認。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第37題</span>
+<p>下列何者「不是」第三方查證過程中查證人員應執行的工作？</p>
+<ul class="options">
+<li>(A) 檢視數據蒐集與計算方法的一致性</li>
+<li>(B) 評估是否存在重大不符事項</li>
+<li>(C) 代替企業重新設計整套減碳策略並負責執行</li>
+<li>(D) 出具確信聲明</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：C</span><br>
+查證人員的角色是獨立客觀地檢視、評估並出具確信聲明，不應介入或代替企業設計及執行減碳策略，以維持查證的獨立性。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第38題</span>
+<p>某企業的溫室氣體聲明經查證後，查證機構出具「有限保證」的確信聲明。這代表？</p>
+<ul class="options">
+<li>(A) 該聲明完全沒有查證，屬於自我宣稱</li>
+<li>(B) 查證機構蒐集了相對較少的證據，僅確認未發現重大不符事項，保證程度低於合理保證</li>
+<li>(C) 該聲明的可信度與合理保證完全相同</li>
+<li>(D) 有限保證代表查證失敗</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：B</span><br>
+有限保證仍屬於經過查證的聲明，只是蒐證程度較低、保證程度相對低於合理保證，並非代表未查證或查證失敗。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第39題</span>
+<p>企業自願性溫室氣體聲明目前在實務上較常見採用下列哪一種查證等級？</p>
+<ul class="options">
+<li>(A) 合理保證</li>
+<li>(B) 有限保證</li>
+<li>(C) 無須任何保證等級</li>
+<li>(D) 一定要採用最高等級的司法鑑定</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：B</span><br>
+目前多數企業自願性溫室氣體聲明常見採用有限保證等級，合理保證則多用於較嚴謹的強制性法規申報場合。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第40題</span>
+<p>下列關於查證獨立性的敘述，何者正確？</p>
+<ul class="options">
+<li>(A) 查證機構可以同時是協助企業計算碳足跡的顧問公司，不影響獨立性</li>
+<li>(B) 查證機構應與受查證對象保持獨立性，避免利益衝突，通常不宜由同一機構既負責計算又負責查證</li>
+<li>(C) 查證獨立性與查證結果可信度無關</li>
+<li>(D) 只要查證機構規模夠大就不需考慮獨立性</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：B</span><br>
+查證的核心價值在於獨立客觀，若同一機構既負責計算又負責查證自己的成果，將產生利益衝突，損害查證公信力。
+</div></details>
+</div>
+
+<h3>Part E｜台灣制度與實務情境（第41～50題）</h3>
+
+<div class="quiz-item"><span class="qnum">第41題</span>
+<p>台灣企業欲申請產品碳足跡標籤，若該產品尚無公告的產品類別規則（PCR），下列做法何者正確？</p>
+<ul class="options">
+<li>(A) 直接放棄申請，無法可循</li>
+<li>(B) 可先申請訂定新的 PCR，或依國際規則搭配專家審查方式計算</li>
+<li>(C) 可自行制訂計算方式，無須遵循任何規範</li>
+<li>(D) 直接沿用其他不相關產品的 PCR 即可</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：B</span><br>
+若無對應公告的 PCR，企業可申請訂定新規則，或依國際規則（如 ISO 14067、PAS 2050）搭配專家審查方式進行計算。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第42題</span>
+<p>台灣產品碳足跡標籤核發後，其效期通常為多久？</p>
+<ul class="options">
+<li>(A) 1 年</li>
+<li>(B) 3 年</li>
+<li>(C) 5 年</li>
+<li>(D) 永久有效</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：B</span><br>
+台灣產品碳足跡標籤效期通常為3年，到期須重新申請或辦理展延。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第43題</span>
+<p>台灣「減碳標籤（碳足跡減量標籤）」制度，一般要求在多久期間內，將碳足跡降低多少比例以上，才可申請加註？</p>
+<ul class="options">
+<li>(A) 1年內降低10%以上</li>
+<li>(B) 2年內降低3%以上</li>
+<li>(C) 5年內降低50%以上</li>
+<li>(D) 不限期間，降低任何比例即可</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：B</span><br>
+減碳標籤制度一般要求在兩年內將碳足跡降低3%以上，經查證通過後可加註減碳標籤。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第44題</span>
+<p>依台灣氣候變遷因應法，自2025年起針對年排放量達一定門檻以上的電力業與製造業開始徵收碳費，該門檻為？</p>
+<ul class="options">
+<li>(A) 年排放量2.5萬公噸CO2e以上</li>
+<li>(B) 年排放量1000公噸CO2e以上</li>
+<li>(C) 年排放量100萬公噸CO2e以上</li>
+<li>(D) 沒有門檻，全面徵收</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：A</span><br>
+碳費徵收採「先大後小」原則，初期針對年排放量達2.5萬公噸CO2e以上的電力業與製造業排碳大戶課徵。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第45題</span>
+<p>企業若能提出具體的「自主減量計畫」並經主管機關核定，在碳費計算上可能享有？</p>
+<ul class="options">
+<li>(A) 完全免繳碳費</li>
+<li>(B) 較低的優惠費率</li>
+<li>(C) 較高的費率作為獎勵</li>
+<li>(D) 與自主減量計畫無關，費率一律相同</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：B</span><br>
+提出具體自主減量計畫並經核定的企業，可適用較低的優惠費率，以鼓勵企業積極投入減碳。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第46題</span>
+<p>某有機農場想推動「有機米碳足跡標籤」，在盤查稻米生產階段時，下列何者「較不屬於」需納入蒐集的一級數據範圍？</p>
+<ul class="options">
+<li>(A) 灌溉用電或用油量</li>
+<li>(B) 育苗、整地過程之能源使用</li>
+<li>(C) 消費者購買後烹煮米飯所使用的電鍋型號與年份</li>
+<li>(D) 收穫、乾燥與包裝階段之能源使用</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：C</span><br>
+若該產品碳足跡計算採「搖籃到大門」邊界（多數農產原料型產品常見做法），消費者使用階段（如烹煮）通常不納入計算範圍；若採搖籃到墳墓才需納入，但即便納入，通常以合理假設情境估算，而非追蹤個別消費者電鍋型號。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第47題</span>
+<p>下列關於「碳中和」與「淨零排放」的敘述，何者正確？</p>
+<ul class="options">
+<li>(A) 兩者定義完全相同，可互相替換使用</li>
+<li>(B) 碳中和通常僅針對CO2進行抵換平衡，範圍可大可小；淨零排放涵蓋所有溫室氣體，通常指組織或國家層級的長期目標</li>
+<li>(C) 淨零排放範圍比碳中和小</li>
+<li>(D) 碳中和只能用於國家層級</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：B</span><br>
+碳中和聚焦於CO2的抵換平衡，範圍彈性大（可以是單一產品或活動）；淨零排放涵蓋所有溫室氣體，範圍與嚴謹度通常更高，多用於組織或國家層級長期目標。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第48題</span>
+<p>某企業想透過購買國外造林專案的減量額度，來抵銷自身產品的碳排放，這種做法屬於？</p>
+<ul class="options">
+<li>(A) 碳移除（Removal）</li>
+<li>(B) 碳抵換（Offset）</li>
+<li>(C) 碳捕捉封存（CCS）</li>
+<li>(D) 直接減量</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：B</span><br>
+購買外部減量額度（如造林、再生能源憑證）以抵銷自身排放，屬於碳抵換；碳移除則指實際將大氣中CO2移除並長期儲存的行為，兩者性質不同。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第49題</span>
+<p>某企業向消費者宣傳其產品為「零碳排放」，但實際上是透過大量購買碳抵換額度來平衡排放，本身生產過程排放並未實質降低。此宣稱最可能面臨的批評是？</p>
+<ul class="options">
+<li>(A) 完全合規，無任何爭議</li>
+<li>(B) 可能構成漂綠（Greenwashing）疑慮，因過度依賴抵換而非實質減量，且宣稱用語可能誤導消費者</li>
+<li>(C) 只要有購買碳權即可視為零碳，無須揭露計算方式</li>
+<li>(D) 碳抵換與漂綠完全無關</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：B</span><br>
+近年國際對「碳中和／零碳」宣稱的審查趨嚴，若企業過度依賴抵換而非實質減量，且未充分揭露計算方法與抵換來源品質，容易被質疑為漂綠，這也是近期考試偏好的實務情境考點。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第50題</span>
+<p>富林有機農場若想以「產品碳足跡」概念，向企業客戶推廣其有機蔬果作為 ESG 員工教育活動的採購選項，下列做法何者最為適切？</p>
+<ul class="options">
+<li>(A) 只用「友善環境」、「純天然」等形容詞行銷，不提供任何具體數據</li>
+<li>(B) 依生命週期概念蒐集育苗、灌溉、施肥、採收、包裝等各階段一級數據，並視資源條件評估是否申請正式查證與碳標籤，逐步以具體數字支持行銷主張</li>
+<li>(C) 直接引用其他國家農產品的碳足跡數據作為自家產品數據對外宣稱</li>
+<li>(D) 只要有機認證，就等同於已完成碳足跡盤查，無須額外計算</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box">
+<span class="ans-letter">答案：B</span><br>
+有機認證與碳足跡盤查是不同制度，不能互相取代；穩健的做法是依生命週期概念逐步蒐集自家一級數據，視資源條件評估正式查證與標籤申請，以具體可信的數字取代模糊行銷語言，這也更符合企業客戶進行 ESG 採購時對「可驗證數據」的需求。
+</div></details>
+</div>
+
+</section>
+
+<section id="s9">
+<h2 class="sec-title">九、答案總表（快速核對）</h2>
+<table class="key-table">
+<tr><th>題號</th><th>答案</th><th>題號</th><th>答案</th><th>題號</th><th>答案</th><th>題號</th><th>答案</th><th>題號</th><th>答案</th></tr>
+<tr><td>1</td><td>B</td><td>11</td><td>C</td><td>21</td><td>C</td><td>31</td><td>B</td><td>41</td><td>B</td></tr>
+<tr><td>2</td><td>B</td><td>12</td><td>D</td><td>22</td><td>A</td><td>32</td><td>C</td><td>42</td><td>B</td></tr>
+<tr><td>3</td><td>C</td><td>13</td><td>B</td><td>23</td><td>A</td><td>33</td><td>B</td><td>43</td><td>B</td></tr>
+<tr><td>4</td><td>B</td><td>14</td><td>B</td><td>24</td><td>A</td><td>34</td><td>B</td><td>44</td><td>A</td></tr>
+<tr><td>5</td><td>B</td><td>15</td><td>B</td><td>25</td><td>B</td><td>35</td><td>B</td><td>45</td><td>B</td></tr>
+<tr><td>6</td><td>D</td><td>16</td><td>B</td><td>26</td><td>B</td><td>36</td><td>A</td><td>46</td><td>C</td></tr>
+<tr><td>7</td><td>B</td><td>17</td><td>B</td><td>27</td><td>A</td><td>37</td><td>C</td><td>47</td><td>B</td></tr>
+<tr><td>8</td><td>B</td><td>18</td><td>D</td><td>28</td><td>A</td><td>38</td><td>B</td><td>48</td><td>B</td></tr>
+<tr><td>9</td><td>C</td><td>19</td><td>B</td><td>29</td><td>A</td><td>39</td><td>B</td><td>49</td><td>B</td></tr>
+<tr><td>10</td><td>B</td><td>20</td><td>B</td><td>30</td><td>B</td><td>40</td><td>B</td><td>50</td><td>B</td></tr>
+</table>
+<div class="callout">
+<strong>複習建議：</strong>若某一區塊（Part A～E）錯誤率偏高，代表對應章節觀念仍不穩固，建議回到本文對應段落重新精讀一次，而不是只背答案字母。實際考場的選項排列與情境包裝都會變化，理解邏輯才能應對各種變化題型。
+</div>
+</section>
+
+</div>
+
+<footer>
+本教材為輔助 iPAS 淨零碳規劃師考試準備之整理內容，觀念以 ISO 14064-1、ISO 14067、ISO 14044、GHG Protocol 及台灣現行氣候變遷因應法相關公開制度為基礎撰寫，實際考試內容與法規細節請以官方最新公告為準。
+</footer>
+
+</body>
+</html>

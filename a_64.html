@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>14064 系列 </title>
+<style>
+  :root{
+    --primary:#1f5fa8;
+    --primary-dark:#123a6b;
+    --accent:#d98c2b;
+    --bg:#f5f7fa;
+    --card:#ffffff;
+    --line:#dfe4ea;
+    --text:#232a33;
+    --muted:#5c6b78;
+    --danger:#b3452f;
+  }
+  *{box-sizing:border-box;}
+  body{font-size: 22px;font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;background:var(--bg);color:var(--text);margin:0;line-height:1.85;}
+  header.top{background:linear-gradient(120deg,var(--primary-dark),var(--primary));color:#fff;padding:80px 20px 30px;text-align:center;}
+  header.top h1{margin:0 0 8px;font-size:1.7em;}
+  header.top p{margin:4px 0;opacity:.92;font-size: 22px;}
+  .wrap{max-width: 1900px;margin:0 auto;padding:24px 18px 80px;}
+  nav.toc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 22px;margin:-20px auto 30px;max-width: 1900px;box-shadow:0 4px 14px rgba(0,0,0,.06);}
+  nav.toc h2{margin-top:0;font-size:1.5em;color:var(--primary-dark);}
+  nav.toc ol{margin:0;padding-left:20px;columns:2;column-gap:30px;}
+  nav.toc a{color:var(--primary-dark);text-decoration:none;}
+  nav.toc a:hover{text-decoration:underline;}
+  section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 28px;margin-bottom:26px;box-shadow:0 2px 8px rgba(0,0,0,.04);}
+  h2.sec-title{color:var(--primary-dark);border-bottom:3px solid var(--accent);padding-bottom:8px;font-size: 22px;margin-top:0;}
+  h3{color:var(--primary);font-size: 22px;margin-top:28px;}
+  h4{color:var(--primary-dark);font-size: 22px;margin-top:18px;}
+  p{margin:12px 0;}
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size: 22px;}
+  th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top;}
+  th{background:#e8eef7;color:var(--primary-dark);}
+  tr:nth-child(even){background:#fafbfd;}
+  .callout{background:#fbf3e3;border-left:5px solid var(--accent);padding:12px 16px;border-radius:6px;margin:16px 0;font-size: 22px;}
+  .warn{background:#fbeae6;border-left:5px solid var(--danger);padding:12px 16px;border-radius:6px;margin:16px 0;font-size: 22px;}
+  .quiz-item{border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin-bottom:16px;background:#fdfefe;}
+  .quiz-item .qnum{font-weight:700;color:var(--primary-dark);}
+  .options{list-style:none;padding-left:0;margin:10px 0 6px;}
+  .options li{padding:7px 10px;margin:5px 0;border:1px solid var(--line);border-radius:8px;background:#fff;}
+  details{margin-top:8px;}
+  summary{cursor:pointer;color:#fff;background:var(--primary);display:inline-block;padding:6px 14px;border-radius:20px;font-size: 22px;}
+  summary:hover{background:var(--primary-dark);}
+  .answer-box{margin-top:10px;padding:12px 14px;background:#eaf1fb;border-radius:8px;border:1px dashed var(--primary);font-size: 22px;}
+  .answer-box .ans-letter{font-weight:700;color:var(--danger);font-size: 22px;}
+  .key-table td{text-align:center;}
+  footer{text-align:center;color:var(--muted);font-size: 22px;padding:20px;}
+@media (max-width: 768px) {
+  .top {margin-top: 6rem;padding:8px 18px 30px;}  
+}
+.badgerowbt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px;
+    background: #ffffff;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+a.badge1 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #007286;
+    color: #fff;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+a.badge2 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #007286;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+a.badge3 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #b8238d;
+    color: yellow;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+</style>
+</head>
+<body>
+<div class="badgerowbt">			
+	<!--<div><a href="https://snoweryi.github.io/yilearn/i01.html" class="badge1">01趨勢及策略</a></div>-->
+	<div><a href="https://snoweryi.github.io/yilearn/i02.html" class="badge1">02溫室氣體盤查</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i03.html" class="badge1">03碳足跡</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i031.html" class="badge1">03碳足跡2</a></div>
+	<!--<div><a href="https://snoweryi.github.io/yilearn/i011.html" class="badge1">考科一</a></div>-->
+	<div><a href="https://snoweryi.github.io/yilearn/i022.html" class="badge1">考科二</a></div>
+	
+	
+	<div><a href="https://snoweryi.github.io/yilearn/a_64.html" class="badge2">14064</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/a_67.html" class="badge1">14067</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/a_6467.html" class="badge1">64& 67</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/a_lca.html" class="badge1">碳足跡8大</a></div>
+	
+	<div><a href="https://snoweryi.github.io/yilearn" class="badge3">目錄</a></div>
+</div>
+
+<header class="top">
+  <h1>iPAS 淨零碳規劃師｜ISO 14064 系列</h1>
+  <p>組織盤查（14064-1）．專案減量（14064-2）．查證確證（14064-3）｜出題委員視角＋實務情境</p>
+  
+</header>
+
+<div class="wrap">
+
+<nav class="toc">
+  <h2>📑 內容目錄</h2>
+  <ol>
+    <li><a href="#s0">ISO 14064 系列總覽與發展沿革</a></li>
+    <li><a href="#s1">ISO 14064-1：組織層級盤查 詳細筆記</a></li>
+    <li><a href="#s2">ISO 14064-2：專案層級減量 詳細筆記</a></li>
+    <li><a href="#s3">ISO 14064-3：查證與確證 詳細筆記</a></li>
+    <li><a href="#s4">台灣接軌：CNS 14064-1 與盤查登錄制度</a></li>
+    <li><a href="#s5">14064 系列常見混淆觀念地圖</a></li>
+    <li><a href="#s6">50題模擬試題（含詳解）</a></li>
+    <li><a href="#s7">答案總表</a></li>
+  </ol>
+</nav>
+
+<section id="s0">
+<h2 class="sec-title">一、ISO 14064 系列總覽與發展沿革</h2>
+<p>
+ISO 14064 是由國際標準組織 ISO/TC 207/SC 7（氣候變遷管理與調適技術委員會）制定的溫室氣體管理標準家族，最早於 2006 年發布第一版，目的是為全世界的組織、政府、專案提出者與利害關係人，提供一套「量化、監督、報告、查證」溫室氣體排放與移除的共通語言。ISO 14064 系列刻意設計為「計畫中立（GHG Programme Neutral）」，也就是說它本身不是一套強制性法規，而是一套方法論框架，可以被不同國家的法規（如台灣氣候變遷因應法）、不同的自願性計畫（如碳權交易機制）分別引用並在其上加註各自的額外要求。
+</p>
+<p>
+2018 年底到 2019 年間，三個部分陸續完成第二版改版：<strong>ISO 14064-1:2018</strong>（2018年12月發布）、<strong>ISO 14064-2:2019</strong>（2019年5月發布）、<strong>ISO 14064-3:2019</strong>（2019年4月發布）。這次改版的時空背景，正好銜接 2018 年 12 月在波蘭卡托維茲舉行的 UNFCCC COP24 大會，該次大會決議已開發國家與開發中國家應採用統一規則量化溫室氣體排放，ISO 14064 系列的改版即是呼應此一國際趨勢，強化與其他溫室氣體標準（如 ISO 14067 產品碳足跡、ISO 14065 查證機構能力要求、ISO 14066 查證人員能力要求）之間的連結一致性。這個「新舊版差異」是近期考試非常愛出的重點，務必熟記。
+</p>
+<table>
+<tr><th>標準</th><th>中文名稱</th><th>現行版本</th><th>核心用途</th></tr>
+<tr><td>ISO 14064-1</td><td>組織層級溫室氣體排放與移除之量化及報告規範</td><td>2018年12月（第二版）</td><td>企業/組織年度溫室氣體盤查清冊之建立</td></tr>
+<tr><td>ISO 14064-2</td><td>專案層級溫室氣體排放減量或移除增量之量化、監督及報告規範</td><td>2019年5月（第二版）</td><td>減碳專案（如造林、能效改善、再生能源）的減量成效量化</td></tr>
+<tr><td>ISO 14064-3</td><td>溫室氣體聲明之查證與確證指引規範</td><td>2019年4月（第二版）</td><td>對前兩者產出的盤查結果或專案聲明進行第三方查證/確證</td></tr>
+</table>
+<div class="callout">
+<strong>出題重點提醒：</strong>三個部分的關係可以這樣理解──「14064-1 是拿溫度計量體溫，14064-2 是設計一套讓體溫下降的治療方案並追蹤成效，14064-3 則是請另一位獨立醫生來確認前面兩件事有沒有做對」。考試常會給一個情境，要求你判斷這個情境對應到哪一個部分。
+</div>
+</section>
+
+<section id="s1">
+<h2 class="sec-title">二、ISO 14064-1：組織層級盤查 詳細筆記</h2>
+
+<h3>2.1 適用範圍與核心目的</h3>
+<p>
+ISO 14064-1:2018 規定了組織層級溫室氣體排放與移除量化及報告的原則與要求，內容涵蓋一份溫室氣體清冊（GHG Inventory）從設計、發展、管理、報告到查證的完整規範，目的是確保溫室氣體相關資訊「真實公允（true and fair）」地呈現，讓內部管理者與外部利害關係人（投資人、主管機關、客戶）都能信任這份報告。它適用的組織範圍非常廣，從製造業工廠、能源業、運輸業，到農業生產單位皆可適用，這也是為什麼像富林農場這樣的農業經營單位，未來若要做組織層級的碳盤查（例如揭露整體農場營運的碳排放，而非僅單一產品），同樣可以參考本標準架構。
+</p>
+
+<h3>2.2 五大盤查原則（考試核心）</h3>
+<p>
+ISO 14064-1 明訂盤查應遵循五大原則，英文常被簡記為 <strong>RCCAT</strong>：
+</p>
+<table>
+<tr><th>原則</th><th>英文</th><th>意涵詳解</th></tr>
+<tr><td>攸關性</td><td>Relevance</td><td>盤查清冊所選用的數據來源、計算方法、報告邊界，須能適當反映組織實際的溫室氣體排放狀況，並滿足報告使用者決策時的資訊需求，不是為了計算而計算。</td></tr>
+<tr><td>完整性</td><td>Completeness</td><td>在選定的盤查邊界內，應納入所有相關的溫室氣體排放源與移除匯，任何被排除在外的項目都必須揭露並說明理由，不能悄悄漏掉不利的數字。</td></tr>
+<tr><td>一致性</td><td>Consistency</td><td>應使用一致的方法學進行跨年度、跨期間的比較；若因方法、邊界或排放係數改變導致數據不可比，必須明確記載並說明對趨勢比較的影響（通常需要重新計算基準年）。</td></tr>
+<tr><td>準確性</td><td>Accuracy</td><td>應盡可能降低偏差與不確定性，確保排放量的量測或計算結果在合理精確度內，不高估也不低估。</td></tr>
+<tr><td>透明性</td><td>Transparency</td><td>應揭露足夠且適當的溫室氣體相關資訊，讓報告使用者能以合理的信心程度判斷這份報告的可信度，包括假設、方法、數據來源、不確定性等都應說明清楚。</td></tr>
+</table>
+<div class="warn">
+<strong>易混淆提醒：</strong>很多人會把「完整性」與「準確性」搞混。完整性談的是「範圍有沒有涵蓋齊全（有沒有漏掉某個排放源）」，準確性談的是「已經涵蓋進來的數字算得準不準」。考試常出情境：「某公司刻意不計入某個逸散源，但其他項目都算得很精確」——這就是完整性有問題而非準確性有問題，務必分清楚。
+</div>
+
+<h3>2.3 組織邊界（Organizational Boundary）的劃定</h3>
+<p>
+組織邊界決定「這個盤查報告要涵蓋公司架構中的哪些部分」，共有兩種劃定方式：
+</p>
+<p>
+<strong>股權比例法（Equity Share Approach）：</strong>依照組織對某營運單位的實質經濟利益（通常等於持股比例），按比例將該單位的排放量納入盤查邊界。例如集團持有某合資工廠 40% 股權，即納入該工廠 40% 的排放量。
+</p>
+<p>
+<strong>控制法（Control Approach）：</strong>組織將其擁有控制權的營運單位百分之百納入盤查邊界，不擁有控制權者則完全不納入（無論持股比例多寡）。控制法又分為兩種：
+</p>
+<ul>
+<li><strong>財務控制（Financial Control）：</strong>組織有能力主導該營運單位的財務政策，並從其活動中獲取利益，即認定具財務控制權，需百分之百納入。</li>
+<li><strong>營運控制（Operational Control）：</strong>組織有完全的權力可以導入並執行其自身的營運政策於該營運單位，即認定具營運控制權，需百分之百納入。台灣目前盤查登錄實務多採營運控制法為主。</li>
+</ul>
+<div class="callout">
+<strong>實務情境舉例：</strong>甲公司持有乙工廠 30% 股權，但依合約甲公司實際主導乙工廠所有生產決策與環安衛政策。若甲公司採用「營運控制法」，應將乙工廠 100% 的排放量納入盤查邊界（因為甲公司擁有營運控制權），而不是只納入 30%；但若甲公司改採「股權比例法」，則只需納入 30%。同一情境、不同邊界劃定方法，會得出完全不同的盤查結果，這正是考試最愛出的判斷題型。
+</div>
+
+<h3>2.4 報告邊界與六大溫室氣體盤查類別（2018年版最大改變）</h3>
+<p>
+這是 ISO 14064-1:2018 相較 2006 年舊版<strong>改變最大、也是近年考試最常出現的重點</strong>。舊版（2006年版）採用「營運邊界（Operational Boundary）」概念，將排放簡單分為範疇一、範疇二、範疇三（呼應 GHG Protocol 的分類方式）。新版（2018年版）則改採「<strong>報告邊界（Reporting Boundary）</strong>」概念，並將溫室氣體盤查類別（GHG Inventory Categories）重新劃分為<strong>六大類</strong>，架構更細緻、也更貼近實際供應鏈上下游的排放樣態：
+</p>
+<table>
+<tr><th>類別</th><th>名稱</th><th>內容說明</th></tr>
+<tr><td>類別1</td><td>直接溫室氣體排放和移除</td><td>組織自有或控制排放源之直接排放，包括固定式燃燒（鍋爐、發電機）、移動式燃燒（公司車隊）、製程排放（如水泥業、化工業製程反應）、逸散排放（如冷媒逸散、化糞池甲烷逸散）。</td></tr>
+<tr><td>類別2</td><td>輸入能源的間接排放</td><td>組織外購並輸入使用的電力、蒸汽、熱、冷卻等能源，在其生產階段所產生的間接排放（對應舊制範疇二）。</td></tr>
+<tr><td>類別3</td><td>運輸的間接排放</td><td>與組織營運相關的運輸活動，包括上游原物料配送、下游產品配送、員工通勤、商務差旅、客戶與訪客的運輸等。</td></tr>
+<tr><td>類別4</td><td>組織使用產品造成之間接排放</td><td>組織對外採購的商品與服務、資本財、租賃使用的資產（上游租賃）、廢棄物處理等所產生的間接排放。</td></tr>
+<tr><td>類別5</td><td>使用組織相關產品的間接排放</td><td>組織銷售出去的產品在下游被使用階段、下游租賃資產、產品壽命終止（廢棄處理）、投資活動所產生的間接排放。</td></tr>
+<tr><td>類別6</td><td>其他來源的間接排放</td><td>不屬於上述類別的其他間接排放，例如特許經營／加盟事業產生的排放。</td></tr>
+</table>
+<p>
+除了分類架構改變，新版也將須考量的溫室氣體種類明確列出並<strong>新增了三氟化氮（NF3）</strong>，因此完整的溫室氣體清單為：CO2（二氧化碳）、CH4（甲烷）、N2O（氧化亞氮）、HFCs（氫氟碳化物）、PFCs（全氟碳化物）、SF6（六氟化硫）、NF3（三氟化氮）共七種，考生務必留意「新增 NF3」這個常考的細節。
+</p>
+<div class="warn">
+<strong>常見誤區：</strong>不少考生會直接把「類別1～6」硬套成「範疇一二三」，例如誤以為「類別4等於範疇三」。正確理解是：類別1相當於範疇一；類別2相當於範疇二；類別3、4、5、6則是把舊制範疇三的內容，依照「運輸」「組織使用的產品（上游）」「使用組織產品（下游）」「其他」的邏輯重新拆分細分，並非一對一的簡單對應，考試常利用這種似是而非的對應關係出陷阱題。
+</div>
+
+<h3>2.5 量化方法：直接量測 vs 計算法</h3>
+<p>
+溫室氣體排放量的量化方式主要有兩種：<strong>直接量測法（Direct Measurement）</strong>，透過連續排放監測系統（CEMS）等設備直接量測煙道排放濃度與流量，精確度最高但設備成本也高，多用於大型固定污染源；以及<strong>計算法（Calculation-based Approach）</strong>，以「活動數據（Activity Data，如用電度數、燃料使用量）」乘上對應的「排放係數（Emission Factor）」，是目前多數企業盤查最常用的方法，其準確度高度仰賴活動數據蒐集的完整性與排放係數的代表性（地理、時間、技術代表性）。
+</p>
+
+<h3>2.6 溫室氣體清冊品質管理與報告書內容</h3>
+<p>
+組織應建立溫室氣體資訊管理系統，包含數據蒐集、彙整、品質查核的內部程序，並指派專責人員或小組負責維護清冊品質。一份完整的溫室氣體報告書，依規範應揭露的內容至少包括：組織描述、報告邊界之界定方式與理由、基準年之選定與後續重新計算政策、各類別排放量與移除量之數值及其計算方法、所使用的排放係數與 GWP 值來源版本、量化方法之不確定性說明，以及是否經過內部或外部查證等資訊。
+</p>
+<p>
+其中<strong>基準年（Base Year）</strong>的設定與重新計算政策也是常考重點：組織應選定一個具代表性的年度作為基準年，用以追蹤未來減量成效；若因併購、拆分、方法學改變等原因導致基準年與盤查年數據基礎不可比，應依既定政策重新計算基準年排放量，以維持趨勢比較的一致性。
+</p>
+</section>
+
+<section id="s2">
+<h2 class="sec-title">三、ISO 14064-2：專案層級減量 詳細筆記</h2>
+
+<h3>3.1 適用範圍</h3>
+<p>
+ISO 14064-2:2019 規範的對象不是整個組織，而是「一個具體的溫室氣體專案（GHG Project）」，例如造林碳匯專案、沼氣回收發電專案、能源效率提升專案、再生能源建置專案等，目的是量化這個專案「相較於沒有執行這個專案的情境（基線情境）」，究竟減少了多少排放，或增加了多少移除量。
+</p>
+
+<h3>3.2 基線情境與外加性（Additionality）</h3>
+<p>
+<strong>基線情境（Baseline Scenario）</strong>是指「如果沒有執行這個溫室氣體專案，最可能發生的情境」，專案的減量成效就是「基線情境排放量」與「專案實際排放量」之間的差額。基線情境的設定必須合理、保守，並避免高估減量成效。
+</p>
+<p>
+<strong>外加性（Additionality）</strong>是指這個專案所產生的減量效果，若沒有這個專案的存在就不會發生──也就是這個減量成果必須是「額外」創造出來的，而不是本來就會自然發生、或本來就已受現行法規強制要求的減量。舉例來說，如果某項節能設備汰換是法規早已強制要求的最低標準，企業汰換舊設備只是「依法行事」，就不能主張這是具有外加性的自願減量專案，因為即使沒有這個「專案」，企業依法也必須做這件事。這是碳權/減量額度審核中最核心、也最常被質疑的一環，出題頻率很高。
+</p>
+
+<h3>3.3 專案邊界與洩漏（Leakage）</h3>
+<p>
+專案邊界應涵蓋所有與專案直接相關、且屬於重大的溫室氣體來源、匯與儲存庫（SSRs, Sources, Sinks and Reservoirs）。此外必須評估是否存在<strong>洩漏（Leakage）</strong>效應──也就是這個專案雖然在專案邊界內減少了排放，卻可能在邊界外的其他地方間接導致排放增加。例如某地區設立保護林區禁止砍伐（碳匯專案），卻導致原本的伐木需求轉移到鄰近未受保護的林地砍伐，造成邊界外排放增加，這種轉移效應就必須被納入評估並從專案減量成效中扣除，否則會高估真實的淨減量效果。
+</p>
+
+<h3>3.4 監測計畫與事前/事後量化</h3>
+<p>
+專案執行前需先建立<strong>監測計畫（Monitoring Plan）</strong>，明訂監測的參數、頻率、方法與品質保證程序。量化通常分為<strong>事前量化（Ex-ante，專案開始前的預估）</strong>與<strong>事後量化（Ex-post，專案執行後依實際監測數據計算）</strong>，最終用以核發減量額度的，應以事後監測的實際數據為準，事前預估僅作為專案設計與可行性評估之用，不能直接拿事前預估值申請額度核發。
+</p>
+<div class="callout">
+<strong>版本差異提醒：</strong>2019年版相較2006年版最大的修訂，是調整了「外加性」與「基線情境」的相關文字論述使其更清晰，並且<strong>刪除了與京都議定書機制（Kyoto Mechanism）相關的文字</strong>，使標準更為「計畫中立」，不綁定特定國際協議下的碳交易機制，讓各種自願性或強制性碳權機制都能各自援引本標準的方法論框架。
+</div>
+</section>
+
+<section id="s3">
+<h2 class="sec-title">四、ISO 14064-3：查證與確證 詳細筆記</h2>
+
+<h3>4.1 查證（Verification）與確證（Validation）的區分</h3>
+<p>
+ISO 14064-3:2019 同時涵蓋兩種活動：<strong>確證（Validation）</strong>是針對「尚未發生、屬未來預測性質」的溫室氣體專案設計文件進行系統性、獨立性的評估，確認其基線情境設定、外加性主張、監測計畫是否合理可信，通常發生在專案執行「之前」；<strong>查證（Verification）</strong>則是針對「已經發生」的溫室氣體聲明（可能是組織層級盤查報告，也可能是專案層級的減量成果報告）進行事後的獨立評估，確認數據與方法是否如實、有無重大不實表達。簡單記憶法：確證看「未來的計畫」，查證看「過去的結果」。
+</p>
+
+<h3>4.2 風險基礎方法（Risk-based Approach）</h3>
+<p>
+查證/確證作業採用<strong>風險基礎方法</strong>進行規劃：查證人員應先辨識溫室氣體聲明中可能發生重大不實表達的風險（例如數據來源可靠度低、計算方法複雜、內部控制薄弱的環節），針對高風險項目投入更多查證資源（如更詳細的抽樣、實地訪查），對低風險項目則可採取較簡化的查核程序，以在有限的時間與成本內，將整體查證的把握度最大化。
+</p>
+
+<h3>4.3 重大性（Materiality）門檻</h3>
+<p>
+查證過程中最核心的判斷基準是重大性：查證人員需評估報告中的錯誤、遺漏或不當表達，是否足以影響報告使用者的決策判斷。若累積誤差超過事先設定的重大性門檻（實務上常見約為總排放量的 5%），則構成「重大不符事項」，查證機構不能對該聲明出具無保留的正面查證意見，需要求受查證組織更正後才能出具。
+</p>
+
+<h3>4.4 保證等級：合理保證 vs 有限保證</h3>
+<table>
+<tr><th>比較項目</th><th>合理保證（Reasonable Assurance）</th><th>有限保證（Limited Assurance）</th></tr>
+<tr><td>證據蒐集程度</td><td>較高，程序較嚴謹深入</td><td>較低，程序相對簡化</td></tr>
+<tr><td>查證意見用語</td><td>「我們認為，該聲明在所有重大方面如實表達」（積極式肯定用語）</td><td>「基於我們執行的程序，未發現使我們認為該聲明有重大不實表達之事項」（消極式否定用語）</td></tr>
+<tr><td>把握程度</td><td>高</td><td>中等偏低</td></tr>
+<tr><td>常見應用場合</td><td>強制性法規申報、碳權額度核發等高把關需求場合</td><td>企業自願性溫室氣體聲明、永續報告書揭露等場合</td></tr>
+</table>
+
+<h3>4.5 查證團隊能力要求與獨立性</h3>
+<p>
+查證/確證工作須由具備相關能力的人員執行，查證機構本身須依 ISO 14065（查證與確證機構之能力要求）取得認證資格，查證人員個人則須符合 ISO 14066 規範的能力要求（涵蓋溫室氣體專業知識、查證方法學知識、產業別知識等）。查證過程必須維持獨立性與客觀性，避免利益衝突，通常規範同一查證機構不宜在同一年度內既協助企業計算/輔導盤查，又同時擔任該企業盤查結果的查證機構。
+</p>
+<p>
+2019年版新增了兩個重要附錄：<strong>附錄B「查證考量事項（Considerations for verifications）」</strong>，提供查證實務操作上更具體的指引；以及<strong>附錄C「約定程序（Agreed-upon Procedures, AUP）」</strong>，說明在某些情況下，查證機構可依委託方與使用者事先約定的特定程序執行有限範圍的查核工作，並僅針對執行程序的事實發現進行報告，而不對整體聲明表示保證意見，這與一般查證/確證出具保證意見的性質不同。
+</p>
+</section>
+
+<section id="s4">
+<h2 class="sec-title">五、台灣接軌：CNS 14064-1 與盤查登錄制度</h2>
+<p>
+為因應國內產業溫室氣體量化與管理需求，台灣於 2021 年 1 月 15 日正式修訂公布<strong>CNS 14064-1:2021</strong>國家標準，其技術內容完全依循 ISO 14064-1:2018 制定，未做技術性變更，等同將國際標準內國化，成為台灣企業進行組織溫室氣體盤查時所依循的官方標準版本。
+</p>
+<p>
+在法規層面，「氣候變遷因應法」要求達一定排放量門檻的排放源（如電力業、部分製造業之工廠）應定期進行溫室氣體排放量盤查，並向中央主管機關（環境部氣候變遷署）辦理<strong>盤查登錄</strong>；部分規模達一定門檻以上的排放源，其盤查結果還須經第三方查驗機構查證後才能完成登錄程序，且自2025年起排放量達2.5萬公噸CO2e以上之電力業與製造業，其登錄之排放量將作為徵收碳費之計算基礎，這使得 ISO 14064-1 的組織盤查結果，不再只是自願性的永續揭露工具，而是與實際碳費繳納金額直接掛鉤的法定依據，重要性大幅提升。
+</p>
+<div class="callout">
+<strong>與農場情境的延伸連結：</strong>雖然目前碳費徵收與強制盤查登錄的門檻主要鎖定電力業與大型製造業，中小型農業經營單位（如富林農場）現階段多半不在強制盤查範圍內，但若未來要承接企業客戶的 ESG 供應鏈碳盤查需求（例如企業客戶要求農場提供合作期間的碳排放數據以納入其範疇三計算），提前以 ISO 14064-1 的架構（邊界劃定、六大類別、五大原則）自我盤查，會是很好的超前部署，也能作為食農教育與 ESG 導覽解說時的具體教材與差異化賣點。
+</div>
+</section>
+
+<section id="s5">
+<h2 class="sec-title">六、14064 系列常見混淆觀念地圖（考前必看）</h2>
+<table>
+<tr><th>易混淆的一組概念</th><th>關鍵區分方式</th></tr>
+<tr><td>營運邊界（舊制）vs 報告邊界（2018新制）</td><td>舊制以「範疇一二三」分類；新制以「六大類別」分類，且六大類別與範疇一二三並非簡單一對一對應，範疇三被拆解為類別3～6。</td></tr>
+<tr><td>股權比例法 vs 控制法</td><td>股權比例法依「持股比例」按比例納入；控制法依「是否擁有控制權」全有或全無地納入，兩者對同一營運單位可能得出完全不同的納入比例。</td></tr>
+<tr><td>財務控制 vs 營運控制</td><td>財務控制看「誰主導財務政策並獲取利益」；營運控制看「誰主導營運政策的實際執行」，兩者判定的權力來源不同，可能歸屬於不同的母公司。</td></tr>
+<tr><td>完整性（Completeness）vs 準確性（Accuracy）</td><td>完整性談「範圍有沒有涵蓋齊全」，準確性談「已涵蓋項目算得準不準」。</td></tr>
+<tr><td>確證（Validation）vs 查證（Verification）</td><td>確證針對「尚未發生的專案設計文件」；查證針對「已發生的盤查結果或聲明」。</td></tr>
+<tr><td>合理保證 vs 有限保證</td><td>合理保證蒐證程度高、採積極肯定式用語；有限保證蒐證程度較低、採消極否定式用語。</td></tr>
+<tr><td>外加性（Additionality）vs 一般節能改善</td><td>外加性強調「若無此專案就不會發生的額外減量」；若減量本來就是法規強制要求或原本商業計畫就會做的事，則不具外加性。</td></tr>
+<tr><td>事前量化（Ex-ante）vs 事後量化（Ex-post）</td><td>事前量化是專案開始前的預估，僅供設計評估參考；事後量化依實際監測數據計算，才能作為額度核發依據。</td></tr>
+<tr><td>ISO 14064-1（組織）vs ISO 14064-2（專案）</td><td>14064-1 盤查的是「整個組織一段期間內的排放總量」；14064-2 量化的是「單一減量專案相較基線情境的減量差額」，兩者對象與計算邏輯完全不同。</td></tr>
+</table>
+</section>
+
+<section id="s6">
+<h2 class="sec-title">七、模擬試題 50 題（情境式，含詳解）</h2>
+<p style="font-size:.92em;color:var(--muted);">
+說明：題目多以實務情境包裝，選項刻意打散排列，正確選項不必然最長，字母分布也刻意混雜，避免規律性。建議先作答再核對解析。
+</p>
+
+<h3>Part A｜ISO 14064 系列總覽與版本沿革（第1～8題）</h3>
+
+<div class="quiz-item"><span class="qnum">第1題</span>
+<p>ISO 14064 系列標準被稱為「計畫中立（GHG Programme Neutral）」，這句話的意涵最接近下列何者？</p>
+<ul class="options">
+<li>(A) 該標準本身就是一套強制性法規，各國政府必須直接採用</li>
+<li>(B) 該標準是一套方法論框架，不綁定特定國家法規或特定碳交易機制，可被不同計畫各自援引並加註額外要求</li>
+<li>(C) 該標準只適用於非營利計畫，不適用於商業公司</li>
+<li>(D) 該標準與任何國家法規完全無關，不可能被引用於法規之中</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+計畫中立指標準本身不是強制性法規，而是可被不同國家法規或自願性計畫分別引用的通用方法論框架，各計畫可在其上加註額外要求，台灣氣候變遷因應法即是引用此框架的例子之一。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第2題</span>
+<p>ISO 14064 三個部分中，何者專門處理「單一減碳專案」的量化與監督？</p>
+<ul class="options">
+<li>(A) ISO 14064-1</li>
+<li>(B) ISO 14064-3</li>
+<li>(C) ISO 14064-2</li>
+<li>(D) ISO 14065</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：C</span><br>
+ISO 14064-2 專門規範專案層級的溫室氣體排放減量或移除增量之量化、監督與報告；14064-1 為組織層級盤查，14064-3 為查證與確證，14065 為查證機構能力要求。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第3題</span>
+<p>ISO 14064-1 現行版本於何時發布？</p>
+<ul class="options">
+<li>(A) 2006年</li>
+<li>(B) 2015年</li>
+<li>(C) 2018年12月</li>
+<li>(D) 2021年</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：C</span><br>
+ISO 14064-1 第二版（現行版本）於2018年12月發布，取代2006年第一版；台灣CNS 14064-1則於2021年1月依此技術內容修訂公布。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第4題</span>
+<p>下列關於 ISO 14064-1:2018 與 2006 年舊版差異的敘述，何者「錯誤」？</p>
+<ul class="options">
+<li>(A) 以報告邊界概念取代營運邊界概念</li>
+<li>(B) 將排放分類重新劃分為六大類別</li>
+<li>(C) 溫室氣體種類新增了三氟化氮（NF3）</li>
+<li>(D) 完全廢除範疇一、二、三的基本精神，兩版之間毫無對應關係</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：D</span><br>
+新版雖改採六大類別架構，但類別1、2大致仍對應範疇一、二的精神，範疇三的內容則被進一步拆分為類別3～6，並非「毫無對應關係」，D敘述過於武斷而錯誤。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第5題</span>
+<p>ISO 14064-2:2019 相較2006年舊版的主要修訂重點，下列何者正確？</p>
+<ul class="options">
+<li>(A) 新增了與京都議定書機制相關的詳細規定</li>
+<li>(B) 調整外加性與基線情境的論述使其更清晰，並刪除京都議定書機制相關文字</li>
+<li>(C) 完全刪除基線情境的概念</li>
+<li>(D) 新增六大類別架構</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+2019年版調整了外加性與基線情境的文字論述使其更清晰，並刪除京都議定書機制相關文字，使標準維持計畫中立性；六大類別是14064-1的改版重點，非14064-2。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第6題</span>
+<p>ISO 14064-3:2019 新增了哪兩個重要附錄？</p>
+<ul class="options">
+<li>(A) 附錄A查證考量事項、附錄B約定程序</li>
+<li>(B) 附錄B查證考量事項、附錄C約定程序（AUP）</li>
+<li>(C) 附錄D外加性判斷、附錄E洩漏評估</li>
+<li>(D) 該版本沒有新增任何附錄</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+ISO 14064-3:2019新增附錄B「查證考量事項」與附錄C「約定程序（Agreed-upon Procedures, AUP）」。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第7題</span>
+<p>台灣國家標準 CNS 14064-1:2021 與 ISO 14064-1:2018 的關係為？</p>
+<ul class="download">
+</ul>
+<ul class="options">
+<li>(A) CNS 14064-1:2021 是完全獨立於ISO標準之外自行開發的規範</li>
+<li>(B) CNS 14064-1:2021 依據ISO 14064-1:2018技術內容修訂公布，未變更技術內容</li>
+<li>(C) CNS 14064-1:2021 比ISO 14064-1:2018更早發布</li>
+<li>(D) 兩者毫無關聯</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+CNS 14064-1:2021於2021年1月15日修訂公布，依據ISO 14064-1:2018技術內容轉訂為國家標準，未變更技術內容。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第8題</span>
+<p>下列何者負責制定與維護 ISO 14064 系列標準的國際技術委員會？</p>
+<ul class="options">
+<li>(A) ISO/TC 176</li>
+<li>(B) ISO/TC 207/SC 7</li>
+<li>(C) ISO/TC 34</li>
+<li>(D) UNFCCC 秘書處</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+ISO/TC 207/SC 7為氣候變遷管理與調適技術委員會，負責制定ISO 14064系列及相關氣候變遷管理標準。
+</div></details>
+</div>
+
+<h3>Part B｜ISO 14064-1 五大原則與組織邊界（第9～20題）</h3>
+
+<div class="quiz-item"><span class="qnum">第9題</span>
+<p>某公司在盤查報告中刻意不揭露其某項逸散排放源，但已納入計算的其他項目數字皆精確無誤。這種做法主要違反下列哪一項盤查原則？</p>
+<ul class="options">
+<li>(A) 準確性</li>
+<li>(B) 完整性</li>
+<li>(C) 一致性</li>
+<li>(D) 攸關性</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+完整性要求納入所有相關排放源，未揭露排除項目及理由即違反完整性原則；準確性談的是已計入項目的精確度，兩者不同。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第10題</span>
+<p>某企業因製程改變，導致本年度盤查邊界與基準年不再具有可比性，卻未在報告中說明也未重新計算基準年數據，直接拿兩年數字比較宣稱「排放大幅下降」。此作法最可能違反下列哪一項原則？</p>
+<ul class="options">
+<li>(A) 一致性</li>
+<li>(B) 準確性</li>
+<li>(C) 完整性</li>
+<li>(D) 攸關性</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：A</span><br>
+一致性要求使用一致方法進行跨期比較，邊界或方法改變時應說明並視需要重新計算基準年，否則會產生失真的趨勢比較，違反一致性原則。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第11題</span>
+<p>下列何者最能說明「透明性」原則的核心要求？</p>
+<ul class="options">
+<li>(A) 報告內容越簡短越好，避免資訊過多造成閱讀負擔</li>
+<li>(B) 應揭露足夠且適當的資訊（含假設、方法、數據來源、不確定性），讓報告使用者能合理判斷報告可信度</li>
+<li>(C) 只需揭露對企業有利的數字</li>
+<li>(D) 透明性只適用於上市公司</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+透明性要求充分揭露方法、假設、數據來源與不確定性，讓報告使用者能自行判斷報告可信度，而非刻意簡化或選擇性揭露。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第12題</span>
+<p>甲公司持有丙工廠20%股權，但依董事會協議甲公司對丙工廠的財務政策具有主導權並從中獲取主要利益。若甲公司採「控制法」中的「財務控制」判定，應如何處理丙工廠的排放？</p>
+<ul class="options">
+<li>(A) 完全不納入，因持股僅20%</li>
+<li>(B) 依20%比例納入</li>
+<li>(C) 應百分之百納入丙工廠排放量</li>
+<li>(D) 應納入50%作為折衷</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：C</span><br>
+財務控制看的是「誰主導財務政策並獲取利益」而非持股比例，一旦認定具財務控制權，即應百分之百納入該單位排放量，與股權比例無關。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第13題</span>
+<p>下列關於「股權比例法」與「控制法」的敘述，何者正確？</p>
+<ul class="options">
+<li>(A) 股權比例法一定會使納入的排放量高於控制法</li>
+<li>(B) 兩種方法對同一營運單位可能得出完全不同的納入比例（0%、部分比例、或100%）</li>
+<li>(C) 台灣企業盤查登錄實務完全不使用控制法</li>
+<li>(D) 股權比例法與控制法屬於同一種方法的不同名稱</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+股權比例法依持股比例部分納入，控制法則是全有或全無地納入，兩者對同一營運單位（尤其是合資或非全資子公司）可能得出差異極大的結果。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第14題</span>
+<p>「營運控制」判定的核心標準是？</p>
+<ul class="options">
+<li>(A) 誰持有最多股份</li>
+<li>(B) 誰擁有完全的權力可導入並執行自身的營運政策於該單位</li>
+<li>(C) 誰的辦公室設在該單位</li>
+<li>(D) 誰的員工人數較多</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+營運控制看的是誰有完全的權力可以導入並執行自身的營運政策（如環安衛政策、生產管理制度）於該營運單位，而非持股或人數。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第15題</span>
+<p>台灣目前組織溫室氣體盤查登錄實務，多半採用下列哪一種組織邊界劃定方式？</p>
+<ul class="options">
+<li>(A) 股權比例法</li>
+<li>(B) 財務控制法</li>
+<li>(C) 營運控制法</li>
+<li>(D) 隨機指定法</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：C</span><br>
+台灣目前盤查登錄實務多以營運控制法為主，判斷誰實際擁有營運決策的執行控制權。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第16題</span>
+<p>下列哪一組溫室氣體，是ISO 14064-1:2018版相較2006年舊版「新增」須納入考量的氣體？</p>
+<ul class="options">
+<li>(A) CO2</li>
+<li>(B) CH4</li>
+<li>(C) NF3</li>
+<li>(D) N2O</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：C</span><br>
+2018年版新增三氟化氮（NF3）納入須考量之溫室氣體清單，其餘CO2、CH4、N2O在舊版即已納入。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第17題</span>
+<p>某公司採用連續排放監測系統（CEMS）直接量測其鍋爐煙道排放濃度與流量，這屬於下列哪一種量化方式？</p>
+<ul class="options">
+<li>(A) 計算法</li>
+<li>(B) 直接量測法</li>
+<li>(C) 估算法</li>
+<li>(D) 抽樣推估法</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+CEMS等設備直接量測排放濃度與流量屬於直接量測法，精確度高但設備成本也較高，多用於大型固定污染源。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第18題</span>
+<p>多數企業目前進行溫室氣體盤查最常用的量化方式為？</p>
+<ul class="options">
+<li>(A) 直接量測法</li>
+<li>(B) 計算法（活動數據乘以排放係數）</li>
+<li>(C) 完全依賴專家主觀判斷</li>
+<li>(D) 僅依財務報表數字推算</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+多數企業採用計算法，以活動數據（如用電度數、燃料使用量）乘以對應排放係數計算，準確度取決於活動數據完整性與排放係數代表性。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第19題</span>
+<p>某企業因跨年度排放量差異過大，欲了解是否應重新計算基準年排放量，下列哪一種情境「最需要」重新計算基準年？</p>
+<ul class="options">
+<li>(A) 該年度天氣異常炎熱導致用電量上升</li>
+<li>(B) 公司進行重大併購，組織邊界大幅改變</li>
+<li>(C) 該年度員工旅遊活動取消</li>
+<li>(D) 該年度原物料價格上漲</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+併購導致組織邊界重大改變，使基準年與盤查年數據基礎不再可比，此時應依既定政策重新計算基準年排放量以維持趨勢比較的一致性；其餘選項僅屬正常營運波動，不涉及邊界改變。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第20題</span>
+<p>下列關於溫室氣體報告書應揭露內容的敘述，何者「不正確」？</p>
+<ul class="options">
+<li>(A) 應揭露報告邊界之界定方式與理由</li>
+<li>(B) 應揭露所使用排放係數與GWP值之來源版本</li>
+<li>(C) 應揭露量化方法之不確定性說明</li>
+<li>(D) 只要有經第三方查證，內部就不需要保留任何原始計算依據</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：D</span><br>
+即使經第三方查證，組織仍應保留原始計算依據與佐證文件，以利未來覆核、查證追蹤或後續年度比較，D敘述不正確。
+</div></details>
+</div>
+
+<h3>Part C｜六大類別詳解與情境判斷（第21～32題）</h3>
+
+<div class="quiz-item"><span class="qnum">第21題</span>
+<p>某工廠鍋爐燃燒天然氣所產生的排放，應歸屬於ISO 14064-1:2018的哪一類別？</p>
+<ul class="options">
+<li>(A) 類別1：直接溫室氣體排放和移除</li>
+<li>(B) 類別2：輸入能源的間接排放</li>
+<li>(C) 類別4：組織使用產品造成之間接排放</li>
+<li>(D) 類別6：其他來源的間接排放</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：A</span><br>
+鍋爐燃燒屬固定式燃燒之直接排放，歸屬類別1直接溫室氣體排放和移除。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第22題</span>
+<p>公司外購電力使用所產生的間接排放，歸屬於哪一類別？</p>
+<ul class="options">
+<li>(A) 類別1</li>
+<li>(B) 類別2</li>
+<li>(C) 類別3</li>
+<li>(D) 類別5</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+外購電力、蒸汽等輸入能源之間接排放歸屬類別2，對應舊制範疇二概念。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第23題</span>
+<p>員工通勤所產生的排放，應歸屬於哪一類別？</p>
+<ul class="options">
+<li>(A) 類別2：輸入能源的間接排放</li>
+<li>(B) 類別3：運輸的間接排放</li>
+<li>(C) 類別1：直接排放</li>
+<li>(D) 類別5：使用組織相關產品的間接排放</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+員工通勤屬於與組織營運相關的運輸活動，歸屬類別3運輸的間接排放。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第24題</span>
+<p>公司對外採購商品與服務所產生的間接排放，歸屬於哪一類別？</p>
+<ul class="options">
+<li>(A) 類別3</li>
+<li>(B) 類別4：組織使用產品造成之間接排放</li>
+<li>(C) 類別5</li>
+<li>(D) 類別6</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+採購商品與服務屬於組織對上游採購並使用的產品，歸屬類別4。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第25題</span>
+<p>公司銷售出去的產品，在下游客戶使用階段所產生的排放，歸屬於哪一類別？</p>
+<ul class="options">
+<li>(A) 類別4：組織使用產品造成之間接排放</li>
+<li>(B) 類別5：使用組織相關產品的間接排放</li>
+<li>(C) 類別2：輸入能源的間接排放</li>
+<li>(D) 類別1：直接排放</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+產品售出後在下游被使用階段的排放，屬於「使用組織相關產品」的間接排放，歸屬類別5，而非類別4（類別4是組織自己使用/採購的產品）。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第26題</span>
+<p>某企業將品牌授權給加盟店經營，加盟店營運產生的排放，較可能歸屬於哪一類別？</p>
+<ul class="options">
+<li>(A) 類別1</li>
+<li>(B) 類別3</li>
+<li>(C) 類別6：其他來源的間接排放</li>
+<li>(D) 類別2</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：C</span><br>
+特許經營／加盟事業產生的排放屬於類別6其他來源的間接排放。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第27題</span>
+<p>某考生認為「類別4等於範疇三」，這個理解？</p>
+<ul class="options">
+<li>(A) 完全正確，兩者定義完全相同</li>
+<li>(B) 不精確，範疇三的內容在新制中被拆分為類別3、4、5、6，類別4只是其中一部分</li>
+<li>(C) 類別4其實對應範疇二</li>
+<li>(D) 類別4其實對應範疇一</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+舊制範疇三的內容在新版被拆分為類別3（運輸）、類別4（組織使用產品/上游）、類別5（使用組織產品/下游）、類別6（其他），類別4只是其中一個子集合，並非等同整個範疇三。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第28題</span>
+<p>某工廠使用的冷媒發生逸散洩漏，這種排放歸屬於？</p>
+<ul class="options">
+<li>(A) 類別1：直接排放（逸散排放）</li>
+<li>(B) 類別2：輸入能源間接排放</li>
+<li>(C) 類別5：使用組織產品的間接排放</li>
+<li>(D) 類別6：其他來源</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：A</span><br>
+冷媒逸散屬於組織自有設備直接產生的逸散排放，歸屬類別1直接溫室氣體排放。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第29題</span>
+<p>公司處置固態與液態廢棄物所產生的排放，較常歸屬於哪一類別？</p>
+<ul class="options">
+<li>(A) 類別4：組織使用產品造成之間接排放</li>
+<li>(B) 類別1：直接排放</li>
+<li>(C) 類別2：輸入能源</li>
+<li>(D) 類別3：運輸</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：A</span><br>
+廢棄物處置屬於組織使用產品（含服務）相關的間接排放，通常歸屬類別4之子類別。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第30題</span>
+<p>某租賃公司將設備出租給客戶使用，客戶使用該設備產生的排放，對出租方而言可能歸屬於？</p>
+<ul class="options">
+<li>(A) 類別5：使用組織相關產品的間接排放（下游租賃資產）</li>
+<li>(B) 類別1：直接排放</li>
+<li>(C) 類別2：輸入能源</li>
+<li>(D) 一律不需計算</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：A</span><br>
+下游租賃資產（出租方角度）使用階段產生的排放，歸屬類別5使用組織相關產品的間接排放中的子類別。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第31題</span>
+<p>某公司員工搭乘飛機出差所產生的排放，歸屬於哪一類別？</p>
+<ul class="options">
+<li>(A) 類別3：運輸的間接排放（商務旅行）</li>
+<li>(B) 類別1：直接排放</li>
+<li>(C) 類別5</li>
+<li>(D) 類別6</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：A</span><br>
+商務旅行（差旅）屬於與組織營運相關的運輸活動子類別，歸屬類別3。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第32題</span>
+<p>某公司投資的被投資公司自身之營運排放，若企業依規定須揭露此部分排放，較可能歸屬於哪一類別的子項目？</p>
+<ul class="options">
+<li>(A) 類別5：使用組織相關產品的間接排放（投資）</li>
+<li>(B) 類別1：直接排放</li>
+<li>(C) 類別2：輸入能源</li>
+<li>(D) 不屬於任何類別，無須考量</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：A</span><br>
+投資活動所產生的間接排放屬於類別5之子類別「投資」，常見於金融業或控股集團的溫室氣體盤查揭露中。
+</div></details>
+</div>
+
+<h3>Part D｜ISO 14064-2 專案層級（第33～40題）</h3>
+
+<div class="quiz-item"><span class="qnum">第33題</span>
+<p>某企業汰換老舊鍋爐為法規明訂之最低能效標準設備，此汰換行動能否主張為具外加性的自願減量專案？</p>
+<ul class="options">
+<li>(A) 可以，只要有減少排放就具外加性</li>
+<li>(B) 不行，因為這是法規強制要求的最低標準，屬於本來就必須做的事，不具外加性</li>
+<li>(C) 可以，只要企業自願提出申請即視為具外加性</li>
+<li>(D) 外加性與法規要求無關</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+外加性要求減量成果必須是「若無此專案就不會發生」的額外成果；若本來就是法規強制最低標準，企業依法本就必須做，不具外加性。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第34題</span>
+<p>某地區設立保護林區禁止砍伐以創造碳匯，卻導致原本的伐木需求轉移至鄰近未受保護林地，造成該處排放增加。此現象稱為？</p>
+<ul class="options">
+<li>(A) 外加性喪失</li>
+<li>(B) 洩漏（Leakage）</li>
+<li>(C) 基線情境失效</li>
+<li>(D) 系統擴展</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+專案邊界內減少排放卻導致邊界外排放增加的轉移效應，稱為洩漏，須納入評估並從淨減量成效中扣除。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第35題</span>
+<p>「基線情境（Baseline Scenario）」的定義為？</p>
+<ul class="options">
+<li>(A) 專案執行後的實際排放情境</li>
+<li>(B) 如果沒有執行此專案，最可能發生的排放情境</li>
+<li>(C) 政府公告的排放係數表</li>
+<li>(D) 專案業主的主觀期望目標</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+基線情境是假設沒有執行此專案時最可能發生的情境，專案減量成效即為基線情境與實際排放之間的差額。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第36題</span>
+<p>某減碳專案在核發減量額度時，應以下列何種數據為計算依據？</p>
+<ul class="options">
+<li>(A) 專案開始前的事前預估數據（Ex-ante）</li>
+<li>(B) 專案執行後依實際監測數據計算之結果（Ex-post）</li>
+<li>(C) 同業平均值</li>
+<li>(D) 專案業主自行提供之估計值，無須監測</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+額度核發應以事後監測的實際數據（Ex-post）為準，事前預估僅供專案設計與可行性評估參考，不能直接作為核發依據。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第37題</span>
+<p>ISO 14064-2 所稱的 SSRs 是指？</p>
+<ul class="options">
+<li>(A) Sources, Sinks and Reservoirs（來源、匯與儲存庫）</li>
+<li>(B) Standard Sampling Rules</li>
+<li>(C) Site Selection Reports</li>
+<li>(D) Scope, Scale and Rate</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：A</span><br>
+SSRs指Sources, Sinks and Reservoirs，即與專案相關的溫室氣體來源、匯與儲存庫，專案邊界應涵蓋所有重大的SSRs。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第38題</span>
+<p>下列何者是「監測計畫（Monitoring Plan）」應明訂的內容？</p>
+<ul class="options">
+<li>(A) 監測的參數、頻率、方法與品質保證程序</li>
+<li>(B) 專案業主的財務報表</li>
+<li>(C) 公司董事會成員名單</li>
+<li>(D) 與專案無關的其他業務資訊</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：A</span><br>
+監測計畫應明訂監測參數、頻率、方法與品質保證程序，確保後續事後量化數據的可信度與可追溯性。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第39題</span>
+<p>下列關於基線情境設定原則的敘述，何者正確？</p>
+<ul class="options">
+<li>(A) 應盡量高估基線情境排放量，以創造更多減量額度</li>
+<li>(B) 應合理、保守設定，避免高估減量成效</li>
+<li>(C) 基線情境可由專案業主任意主觀認定，無須佐證</li>
+<li>(D) 基線情境設定後永久不得檢討修正</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+基線情境設定應合理、保守，避免刻意高估基線排放量而虛增減量成效，此為專案品質與可信度的關鍵。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第40題</span>
+<p>某企業原本商業計畫中，本來就已排定要在今年建置太陽能發電系統（無論是否申請碳權皆會執行），卻額外申請將此案列為自願減量專案並主張其外加性。此主張最可能面臨的質疑是？</p>
+<ul class="options">
+<li>(A) 完全合理，任何減碳行動皆具外加性</li>
+<li>(B) 可能不具外加性，因為此措施本來就會在正常商業計畫下發生，並非因專案誘因而額外產生</li>
+<li>(C) 外加性只適用於造林專案，不適用於能源專案</li>
+<li>(D) 只要有簽署專案設計文件即自動具備外加性</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+外加性要求減量必須是「若無此專案誘因就不會發生」的額外成果，若該投資本來就已排入正常商業計畫，即便完成也難以主張具外加性，這是專案審查常見的質疑焦點。
+</div></details>
+</div>
+
+<h3>Part E｜ISO 14064-3 查證與確證（第41～50題）</h3>
+
+<div class="quiz-item"><span class="qnum">第41題</span>
+<p>某查證機構針對一份「尚未執行、正在規劃階段」的造林碳匯專案設計文件進行獨立評估，確認其基線情境與外加性主張是否合理，這項工作稱為？</p>
+<ul class="options">
+<li>(A) 查證（Verification）</li>
+<li>(B) 確證（Validation）</li>
+<li>(C) 認證（Certification）</li>
+<li>(D) 稽核（Audit）</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+確證是針對尚未發生、屬未來預測性質的專案設計文件進行評估；查證則是針對已發生的盤查結果或聲明進行事後確認。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第42題</span>
+<p>查證/確證作業採用「風險基礎方法」，其核心邏輯是？</p>
+<ul class="options">
+<li>(A) 對所有項目投入完全相同的查核資源，不做任何區分</li>
+<li>(B) 先辨識重大不實表達的風險，針對高風險項目投入更多查證資源，低風險項目採簡化程序</li>
+<li>(C) 只針對財務數字進行查核，不考慮溫室氣體數據風險</li>
+<li>(D) 風險評估與查證資源分配無關</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+風險基礎方法先辨識高風險環節，將更多查證資源集中投入高風險項目，低風險項目則可簡化程序，藉此在有限資源下提升整體查證把握度。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第43題</span>
+<p>查證意見中使用「我們認為，該聲明在所有重大方面如實表達」這種積極肯定式用語，通常對應下列哪一種保證等級？</p>
+<ul class="options">
+<li>(A) 有限保證</li>
+<li>(B) 合理保證</li>
+<li>(C) 無保證</li>
+<li>(D) 兩者皆可，用語與保證等級無關</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+積極肯定式用語（如「如實表達」）對應蒐證程度較高的合理保證；有限保證通常採消極否定式用語（如「未發現重大不實表達之事項」）。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第44題</span>
+<p>下列哪一種場合較常見採用「有限保證」等級？</p>
+<ul class="options">
+<li>(A) 強制性法規申報且直接作為碳權額度核發依據的場合</li>
+<li>(B) 企業自願性溫室氣體聲明、永續報告書揭露</li>
+<li>(C) 司法訴訟證據審查</li>
+<li>(D) 有限保證從不被使用</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+有限保證常見於企業自願性溫室氣體聲明或永續報告書揭露等場合；高把關需求的法規申報或碳權核發場合則多採合理保證。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第45題</span>
+<p>查證團隊發現某公司盤查誤差累計達總排放量8%，且該公司事先設定的重大性門檻為5%，查證機構應如何處理？</p>
+<ul class="options">
+<li>(A) 因誤差不算太大，可直接出具無保留正面查證意見</li>
+<li>(B) 應視為重大不符事項，要求公司更正後才能出具查證意見</li>
+<li>(C) 無須理會重大性門檻，逕行出具意見</li>
+<li>(D) 直接拒絕查證且不告知原因</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+誤差8%超過事先設定的5%重大性門檻，構成重大不符事項，查證機構應要求公司更正後才能出具正面查證意見。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第46題</span>
+<p>查證機構本身須依循下列哪一項標準取得能力認證？</p>
+<ul class="options">
+<li>(A) ISO 14001</li>
+<li>(B) ISO 14065</li>
+<li>(C) ISO 14040</li>
+<li>(D) ISO 9001</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+ISO 14065規範溫室氣體確證與查證機構應具備之能力要求，查證機構須依此取得認證資格。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第47題</span>
+<p>查證人員個人的能力要求，主要依循下列哪一項標準？</p>
+<ul class="options">
+<li>(A) ISO 14066</li>
+<li>(B) ISO 14001</li>
+<li>(C) ISO 26000</li>
+<li>(D) ISO 45001</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：A</span><br>
+ISO 14066規範溫室氣體查證/確證人員應具備的能力要求，涵蓋溫室氣體專業知識、查證方法學及產業別知識等。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第48題</span>
+<p>某顧問公司同時協助企業計算年度溫室氣體盤查數據，又擔任該企業同年度盤查結果的查證機構。此安排最可能違反下列哪一項要求？</p>
+<ul class="options">
+<li>(A) 完整性原則</li>
+<li>(B) 查證獨立性，因存在利益衝突</li>
+<li>(C) 一致性原則</li>
+<li>(D) 沒有問題，效率反而更高</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+查證需維持獨立性與客觀性，同一機構若既負責計算又負責查證自己的成果，將產生利益衝突，損害查證公信力。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第49題</span>
+<p>依 ISO 14064-3:2019 附錄C所述之「約定程序（AUP）」，其性質最接近下列何者？</p>
+<ul class="options">
+<li>(A) 查證機構依委託方與使用者事先約定的特定程序執行有限範圍查核，僅報告事實發現，不對整體聲明表示保證意見</li>
+<li>(B) 一種比合理保證更嚴謹的保證等級</li>
+<li>(C) 取代所有查證程序的新標準做法</li>
+<li>(D) 僅適用於專案層級，不適用於組織層級</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：A</span><br>
+約定程序是依事先約定的特定範圍執行查核並報告事實發現，不同於一般查證/確證需對整體聲明出具保證意見，性質上範圍更侷限、也不表示保證意見。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第50題</span>
+<p>富林農場若未來承接企業客戶的ESG員工教育活動，客戶要求提供合作期間農場活動產生的溫室氣體排放數據，以納入客戶自身的組織盤查範疇三計算。農場最適合參考下列哪一套標準架構，先自我盤查活動相關排放？</p>
+<ul class="options">
+<li>(A) ISO 14040（生命週期評估原則與架構）</li>
+<li>(B) ISO 14064-1（組織層級盤查架構：邊界劃定、六大類別、五大原則）</li>
+<li>(C) ISO 9001（品質管理系統）</li>
+<li>(D) ISO 45001（職業安全衛生管理系統）</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+農場作為活動提供單位若要盤查自身營運（含接待活動）產生的排放，應參考ISO 14064-1的組織層級盤查架構（邊界劃定方式、六大類別、五大原則），才能產出具一致性與可信度的數據，供客戶納入其範疇三計算。
+</div></details>
+</div>
+
+</section>
+
+<section id="s7">
+<h2 class="sec-title">八、答案總表（快速核對）</h2>
+<table class="key-table">
+<tr><th>題號</th><th>答案</th><th>題號</th><th>答案</th><th>題號</th><th>答案</th><th>題號</th><th>答案</th><th>題號</th><th>答案</th></tr>
+<tr><td>1</td><td>B</td><td>11</td><td>B</td><td>21</td><td>A</td><td>31</td><td>A</td><td>41</td><td>B</td></tr>
+<tr><td>2</td><td>C</td><td>12</td><td>C</td><td>22</td><td>B</td><td>32</td><td>A</td><td>42</td><td>B</td></tr>
+<tr><td>3</td><td>C</td><td>13</td><td>B</td><td>23</td><td>B</td><td>33</td><td>B</td><td>43</td><td>B</td></tr>
+<tr><td>4</td><td>D</td><td>14</td><td>B</td><td>24</td><td>B</td><td>34</td><td>B</td><td>44</td><td>B</td></tr>
+<tr><td>5</td><td>B</td><td>15</td><td>C</td><td>25</td><td>B</td><td>35</td><td>B</td><td>45</td><td>B</td></tr>
+<tr><td>6</td><td>B</td><td>16</td><td>C</td><td>26</td><td>C</td><td>36</td><td>B</td><td>46</td><td>B</td></tr>
+<tr><td>7</td><td>B</td><td>17</td><td>B</td><td>27</td><td>B</td><td>37</td><td>A</td><td>47</td><td>A</td></tr>
+<tr><td>8</td><td>B</td><td>18</td><td>B</td><td>28</td><td>A</td><td>38</td><td>A</td><td>48</td><td>B</td></tr>
+<tr><td>9</td><td>B</td><td>19</td><td>B</td><td>29</td><td>A</td><td>39</td><td>B</td><td>49</td><td>A</td></tr>
+<tr><td>10</td><td>A</td><td>20</td><td>D</td><td>30</td><td>A</td><td>40</td><td>B</td><td>50</td><td>B</td></tr>
+</table>
+<div class="callout">
+<strong>複習建議：</strong>Part C（六大類別判斷）是本次考題中最需要熟練度的部分，建議搭配第二節2.4的表格反覆練習「情境→歸類」的判斷；Part D、E（專案與查證）則是近期考試逐漸加重的區塊，務必弄懂外加性、洩漏、保證等級這幾組核心概念。下一份筆記會接著整理最新的相關法規時事（如碳費最新徵收狀況、氣候變遷因應法子法進度），敬請期待。
+</div>
+</section>
+
+</div>
+
+<footer>
+本教材為輔助 iPAS 淨零碳規劃師考試準備之整理內容，觀念以 ISO 14064-1:2018、ISO 14064-2:2019、ISO 14064-3:2019 及台灣 CNS 14064-1:2021、氣候變遷因應法相關公開制度為基礎撰寫，實際考試內容與法規細節請以官方最新公告為準。
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iPAS 淨零碳規劃師｜ISO 14067 產品碳足跡 詳細筆記＋50題模擬試題</title>
+<style>
+  :root{
+    --primary:#2a7d6f;
+    --primary-dark:#175349;
+    --accent:#d1892f;
+    --bg:#f5f8f7;
+    --card:#ffffff;
+    --line:#dfe8e4;
+    --text:#20302b;
+    --muted:#5c6e67;
+    --danger:#b3452f;
+  }
+  *{box-sizing:border-box;}
+  body{font-size: 22px;font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;background:var(--bg);color:var(--text);margin:0;line-height:1.85;}
+  header.top{background:linear-gradient(120deg,var(--primary-dark),var(--primary));color:#fff;padding:80px 20px 30px;text-align:center;}
+  header.top h1{margin:0 0 8px;font-size:1.7em;}
+  header.top p{margin:4px 0;opacity:.92;font-size: 22px;}
+  .wrap{max-width: 1900px;margin:0 auto;padding:24px 18px 80px;}
+  nav.toc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 22px;margin:-20px auto 30px;max-width: 1900px;box-shadow:0 4px 14px rgba(0,0,0,.06);}
+  nav.toc h2{margin-top:0;font-size: 22px;color:var(--primary-dark);}
+  nav.toc ol{margin:0;padding-left:20px;columns:2;column-gap:30px;}
+  nav.toc a{color:var(--primary-dark);text-decoration:none;}
+  nav.toc a:hover{text-decoration:underline;}
+  section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 28px;margin-bottom:26px;box-shadow:0 2px 8px rgba(0,0,0,.04);}
+  h2.sec-title{color:var(--primary-dark);border-bottom:3px solid var(--accent);padding-bottom:8px;font-size: 22px;margin-top:0;}
+  h3{color:var(--primary);font-size: 22px;margin-top:28px;}
+  h4{color:var(--primary-dark);font-size: 22px;margin-top:18px;}
+  p{margin:12px 0;}
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size: 22px;}
+  th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top;}
+  th{background:#e5f0ec;color:var(--primary-dark);}
+  tr:nth-child(even){background:#fafcfb;}
+  .callout{background:#fbf3e3;border-left:5px solid var(--accent);padding:12px 16px;border-radius:6px;margin:16px 0;font-size: 22px;}
+  .warn{background:#fbeae6;border-left:5px solid var(--danger);padding:12px 16px;border-radius:6px;margin:16px 0;font-size: 22px;}
+  .quiz-item{border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin-bottom:16px;background:#fdfefe;}
+  .quiz-item .qnum{font-weight:700;color:var(--primary-dark);}
+  .options{list-style:none;padding-left:0;margin:10px 0 6px;}
+  .options li{padding:7px 10px;margin:5px 0;border:1px solid var(--line);border-radius:8px;background:#fff;}
+  details{margin-top:8px;}
+  summary{cursor:pointer;color:#fff;background:var(--primary);display:inline-block;padding:6px 14px;border-radius:20px;font-size: 22px;}
+  summary:hover{background:var(--primary-dark);}
+  .answer-box{margin-top:10px;padding:12px 14px;background:#e9f4f0;border-radius:8px;border:1px dashed var(--primary);font-size: 22px;}
+  .answer-box .ans-letter{font-weight:700;color:var(--danger);font-size: 22px;}
+  .key-table td{text-align:center;}
+  footer{text-align:center;color:var(--muted);font-size: 22px;padding:20px;}
+@media (max-width: 768px) {
+  .top {margin-top: 6rem;padding:8px 18px 30px;}  
+}
+.badgerowbt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px;
+    background: #ffffff;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+a.badge1 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #007286;
+    color: #fff;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+a.badge2 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #007286;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+a.badge3 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #b8238d;
+    color: yellow;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+</style>
+</head>
+<body>
+<div class="badgerowbt">			
+	<!--<div><a href="https://snoweryi.github.io/yilearn/i01.html" class="badge1">01趨勢及策略</a></div>-->
+	<div><a href="https://snoweryi.github.io/yilearn/i02.html" class="badge1">02溫室氣體盤查</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i03.html" class="badge1">03碳足跡</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i031.html" class="badge1">03碳足跡2</a></div>
+	<!--<div><a href="https://snoweryi.github.io/yilearn/i011.html" class="badge1">考科一</a></div>-->
+	<div><a href="https://snoweryi.github.io/yilearn/i022.html" class="badge1">考科二</a></div>
+	
+	
+	<div><a href="https://snoweryi.github.io/yilearn/a_64.html" class="badge1">14064</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/a_67.html" class="badge2">14067</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/a_6467.html" class="badge1">64& 67</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/a_lca.html" class="badge1">碳足跡8大</a></div>
+	
+	<div><a href="https://snoweryi.github.io/yilearn" class="badge3">目錄</a></div>
+</div>
+
+<header class="top">
+  <h1>iPAS 淨零碳規劃師｜ISO 14067 產品碳足跡 完整詳細筆記</h1>
+  <p>量化原則．方法論．溝通與標籤制度｜出題委員視角＋實務情境</p>
+  
+</header>
+
+<div class="wrap">
+
+<nav class="toc">
+  <h2>📑 內容目錄</h2>
+  <ol>
+    <li><a href="#s0">ISO 14067 標準定位與發展沿革</a></li>
+    <li><a href="#s1">標準範圍界定：14067「不涵蓋」什麼，才是考試重點</a></li>
+    <li><a href="#s2">LCA四階段方法論在產品碳足跡的實際應用</a></li>
+    <li><a href="#s3">2018年版三大關鍵改版重點</a></li>
+    <li><a href="#s4">部分碳足跡（Partial CFP）</a></li>
+    <li><a href="#s5">產品類別規則（CFP-PCR）與 ISO/TS 14027</a></li>
+    <li><a href="#s6">溝通與標籤：ISO 14026 及台灣碳標籤制度</a></li>
+    <li><a href="#s7">查證：與 ISO 14064-3 的連結</a></li>
+    <li><a href="#s8">ISO 14067 vs PAS 2050 vs GHG Protocol Product Standard</a></li>
+    <li><a href="#s9">常見混淆觀念地圖（考前必看）</a></li>
+    <li><a href="#s10">50題模擬試題（含詳解）</a></li>
+    <li><a href="#s11">答案總表</a></li>
+  </ol>
+</nav>
+
+<section id="s0">
+<h2 class="sec-title">一、ISO 14067 標準定位與發展沿革</h2>
+<p>
+ISO 14067 的全名是《溫室氣體－產品碳足跡－量化要求與指引》（Greenhouse gases — Carbon footprint of products — Requirements and guidelines for quantification），它是 ISO 14060 溫室氣體標準家族的一員，專門處理「單一產品」在其生命週期中所產生的溫室氣體排放量之量化與報告，理論基礎完全建立在生命週期評估（LCA）國際標準 <strong>ISO 14040</strong>（原則與架構）與 <strong>ISO 14044</strong>（要求與指引）之上，把 LCA 這套通用的環境衝擊評估方法論，聚焦套用在「氣候變遷」這一個單一衝擊類別上。
+</p>
+<p>
+產品碳足跡量化的國際規範發展有一條清楚的時間軸：最早是英國標準協會（BSI）於<strong>2008年</strong>提出的 <strong>PAS 2050</strong>，這是全球第一份針對產品與服務碳足跡量化的公開規範，也是後續所有產品碳足跡方法論的原型。ISO 在此基礎上於<strong>2013年</strong>發布了技術規範 <strong>ISO/TS 14067:2013</strong>（Technical Specification，屬於「技術規範」層級，效力與正式國際標準略有不同），內容同時涵蓋量化與溝通兩大部分。經過多年市場實務運作，各界反映需要更完整、更具正式效力的文件，ISO 最終於<strong>2018年8月20日</strong>將其升級發布為正式國際標準 <strong>ISO 14067:2018</strong>，正式取代 ISO/TS 14067:2013。這個「從技術規範升級為正式標準」的過程，本身就是一個常見的考試出題點。
+</p>
+<table>
+<tr><th>時間</th><th>文件</th><th>性質與意義</th></tr>
+<tr><td>2008年</td><td>PAS 2050（BSI公開規範）</td><td>全球最早的產品/服務碳足跡量化規範，屬英國國家層級的公開可用規範（Publicly Available Specification），非ISO正式標準</td></tr>
+<tr><td>2013年</td><td>ISO/TS 14067:2013</td><td>技術規範層級，同時涵蓋「量化」與「溝通」兩部分內容</td></tr>
+<tr><td>2018年8月20日</td><td>ISO 14067:2018</td><td>正式國際標準，取代技術規範，並將「溝通」與「產品類別規則」等內容以架構性方式分拆至其他關聯標準（詳見後續章節）</td></tr>
+</table>
+<div class="callout">
+<strong>出題重點提醒：</strong>「ISO 14067現行版本是幾年發布？」「2018年版取代的是哪一份文件？」「PAS 2050與ISO 14067的先後關係？」都是基礎但容易考的送分/送死題，務必牢記時間軸：<strong>PAS 2050（2008）→ ISO/TS 14067（2013）→ ISO 14067（2018正式標準）</strong>。
+</div>
+</section>
+
+<section id="s1">
+<h2 class="sec-title">二、標準範圍界定：14067「不涵蓋」什麼，才是考試重點</h2>
+<p>
+出題委員很喜歡考「ISO 14067 不包含哪些內容」，因為這最能測試考生是否只是死背標準名稱，還是真正理解 2018 年改版後的架構切分邏輯。ISO 14067:2018 的官方範圍條文明確指出以下幾件事：
+</p>
+<h4>2.1 僅涵蓋單一衝擊類別：氣候變遷</h4>
+<p>
+一般完整的 LCA 研究（依ISO 14044）會同時評估多個環境衝擊類別，例如氣候變遷、酸化、優養化、臭氧層破壞、資源耗用等。但 <strong>ISO 14067 只處理「氣候變遷」這一個衝擊類別</strong>，也就是只計算溫室氣體排放與移除，換算為 CO2e 表示，<strong>不評估產品生命週期可能產生的其他環境衝擊面向（如水資源耗用、生物多樣性影響），也不評估任何社會或經濟面向的衝擊</strong>。這代表「產品碳足跡低」不等於「這項產品對環境完全友善」，考試常用這種情境考察你是否清楚 14067 的評估範圍侷限性。
+</p>
+<h4>2.2 不涵蓋「碳抵換（Carbon Offsetting）」</h4>
+<p>
+ISO 14067:2018 明確將<strong>碳抵換排除在標準範圍之外</strong>。也就是說，這份標準只負責告訴你「這項產品的生命週期溫室氣體排放量是多少」，至於企業後續是否要透過購買抵換額度來平衡這個數字、進而宣稱「碳中和產品」，屬於範圍之外的另一件事，須另外參考碳中和／抵換相關的宣告規範（如 PAS 2060）處理。
+</p>
+<h4>2.3 不涵蓋「溝通（Communication）」——這是2018年版與2013年技術規範最大的差異</h4>
+<p>
+2013年的 ISO/TS 14067 原本同時涵蓋「量化」與「溝通」兩部分，但 2018 年正式標準版將<strong>溝通相關的原則、要求與指引，整體移轉至新發布的 ISO 14026:2017</strong>（環境標誌與宣告：足跡資訊溝通的原則、要求及指引）。也就是說，現行 ISO 14067:2018 只管「怎麼算」，不管「怎麼講給消費者聽」，兩者被切分成兩份不同的標準，這是近期考試出題頻率非常高的重點。
+</p>
+<h4>2.4 產品類別規則的制定要求另立標準</h4>
+<p>
+產品類別規則（PCR）的制定準則、要求與指引，也從舊版技術規範中移出，改由 <strong>ISO/TS 14027:2017</strong>（環境標誌與宣告：產品類別規則制定要求）專責規範，ISO 14067:2018 本身只定義「CFP-PCR（Carbon Footprint of Product - Product Category Rule）」這個名詞及其在量化過程中的角色，但不再詳細規範 PCR 該如何被制定出來的完整程序。
+</p>
+<h4>2.5 查證過程另引用 ISO 14064-3</h4>
+<p>
+產品碳足跡的查證（Verification）過程，2018年版也不再於自身條文中重複規範，而是直接引用 <strong>ISO 14064-3</strong> 的查證與確證指引，維持整個 ISO 14060 系列標準之間架構的一致性、避免重複規範。
+</p>
+<div class="warn">
+<strong>整體架構總結（極重要）：</strong>2018年改版把原本「大雜燴」的 ISO/TS 14067:2013，拆解重組成一個「主標準＋周邊關聯標準」的架構：<br>
+● 量化本身 → <strong>ISO 14067:2018</strong>（本文件）<br>
+● 溝通 → <strong>ISO 14026:2017</strong><br>
+● PCR制定 → <strong>ISO/TS 14027:2017</strong><br>
+● 查證 → <strong>ISO 14064-3:2019</strong><br>
+考試常會直接問：「產品碳足跡的溝通原則規範在哪一份標準？」或反過來問「ISO 14026規範的是什麼？」，一定要能雙向對應，不能只會背「14067」這個數字。
+</div>
+</section>
+
+<section id="s2">
+<h2 class="sec-title">三、LCA四階段方法論在產品碳足跡的實際應用</h2>
+<p>
+ISO 14067 依循 ISO 14044 規定的 LCA 四階段架構進行產品碳足跡研究，以下逐一詳解每個階段在「產品碳足跡」情境下的具體操作內涵。
+</p>
+
+<h3>3.1 階段一：目標與範疇界定（Goal and Scope Definition）</h3>
+<p>
+這個階段要明確定義四件事：
+</p>
+<p>
+<strong>（1）研究目的：</strong>這份碳足跡是要用於什麼用途？常見目的包括ESG報告揭露、供應鏈客戶要求、碳稅／碳費計算佐證、行銷溝通（申請碳標籤）、內部熱點識別以規劃減碳策略等，不同目的會影響後續邊界設定的嚴謹程度與資料蒐集深度。
+</p>
+<p>
+<strong>（2）功能單位（Functional Unit）：</strong>用以表達產品「功能」的計量基礎，例如「每公斤產品」「每次服務」「每公升飲用水」，功能單位設定不明確會導致不同產品或不同研究之間結果無法公平比較，嚴重影響報告的可信度與可比較性。
+</p>
+<p>
+<strong>（3）系統邊界：</strong>常見兩種設定方式──<strong>搖籃到大門（Cradle-to-Gate）</strong>只計算原料取得到工廠出貨為止；<strong>搖籃到墳墓（Cradle-to-Grave）</strong>則涵蓋原料、製造、配送、消費者使用，一直到最終廢棄處置為止的完整生命週期。
+</p>
+<p>
+<strong>（4）切截準則（Cut-off Criteria）：</strong>決定哪些貢獻度極小的排放源可合理排除不計，但須揭露排除項目與理由，維持報告透明度。
+</p>
+
+<h3>3.2 階段二：生命週期清冊分析（Life Cycle Inventory, LCI）</h3>
+<p>
+這個階段實際蒐集並量化生命週期各階段的能源與物質投入產出數據，數據分為：
+</p>
+<ul>
+<li><strong>一級數據（原始數據）：</strong>來自企業自身營運的直接量測數據，例如實際能源消耗量、原物料採購量、生產過程排放量、運輸距離等，數據品質最高。</li>
+<li><strong>二級數據：</strong>引用產業資料庫（如Ecoinvent、GaBi、中國生命週期資料庫CLCD）或文獻的平均值/推估值。</li>
+</ul>
+<p>
+在排放熱點（對總排放量貢獻度高的階段或項目）應優先投入資源蒐集一級數據，以確保結果的準確性與代表性；非熱點項目則可視情況使用二級數據，兼顧計算成本與效率。
+</p>
+
+<h3>3.3 階段三：生命週期衝擊評估（Life Cycle Impact Assessment, LCIA）</h3>
+<p>
+在產品碳足跡的情境下，這個階段的核心工作是把清冊分析所蒐集到的各種溫室氣體排放量（CO2、CH4、N2O等），依照國際公認的<strong>特徵化係數（Characterization Factor）</strong>──也就是全球暖化潛勢（GWP）──統一換算為 CO2 當量（CO2e），才能加總得出這項產品的總碳足跡數值。
+</p>
+
+<h3>3.4 階段四：結果解釋（Interpretation）</h3>
+<p>
+最後階段需要檢視整個計算過程的完整性、敏感度與一致性，辨識出對總排放量貢獻最大的「熱點」階段或項目，作為後續減碳策略規劃的優先方向，並清楚說明整份研究的限制與不確定性，避免使用者過度解讀或誤用結果。
+</p>
+<div class="callout">
+<strong>備考提醒：</strong>目標與範疇界定不明確，會導致什麼後果？出題委員常直接問這個問題，標準答案的核心邏輯是：<strong>會導致計算結果無法與其他產品或其他研究進行公平比較，進而降低這份報告在客戶與主管機關眼中的可信度</strong>，這也呼應了整個 LCA／碳足跡方法論最重視「可比較性」與「透明度」的核心精神。
+</div>
+</section>
+
+<section id="s3">
+<h2 class="sec-title">四、2018年版三大關鍵改版重點</h2>
+<p>
+除了前述「範圍切分」的架構性改變之外，ISO 14067:2018 相較 2013 年技術規範，在量化方法與名詞定義上還有三項具體的技術性修改，是近期考試相當偏好的細節考點：
+</p>
+
+<h3>4.1 生質碳排放（Biogenic Carbon）處理方式改變</h3>
+<p>
+生質碳排放是指來自生物質（如植物、木材、農產品）在燃燒或分解過程中釋放的碳，這些碳原本就來自大氣中植物行光合作用所吸收的CO2，因此在計算上與化石燃料燃燒釋放的碳（原本封存在地底、額外釋放到大氣中）在性質上不同。2018年版對於生質碳排放的計算與是否納入淨值計算的處理原則做了調整，要求企業在報告中必須明確區分並揭露生質碳排放與化石碳排放的個別數值，不能混為一談，以避免報告使用者誤解排放的真實來源與性質。
+</p>
+
+<h3>4.2 電力（Electricity）排放係數處理方式改變</h3>
+<p>
+2018年版對於外購電力的排放係數選用方式也做了調整，更強調應考量電力來源的地理與時間代表性（例如區分電網平均排放係數 grid-average與特定發電來源之排放係數），這與前面「排放係數選用邏輯」章節中提到的地理、時間、技術代表性原則是一致的精神延伸。
+</p>
+
+<h3>4.3 新增「全球溫度變化潛勢（Global Temperature Change Potential, GTP）」作為輔助指標</h3>
+<p>
+2018年版新增了 <strong>GTP（Global Temperature Change Potential，全球溫度變化潛勢）</strong>作為除了傳統 GWP（全球暖化潛勢）之外的另一種可選用的特徵化指標。GWP 衡量的是某種溫室氣體在特定時間範圍內（通常為100年）「累積輻射強迫力」相對於CO2的倍數；而 GTP 衡量的則是在某個特定時間點，該氣體對「全球平均地表溫度變化」的影響相對於CO2的倍數，兩者的科學意義與計算邏輯不同，GTP提供了另一個角度理解不同溫室氣體對氣候變遷的相對影響，但目前實務上多數企業與查驗機構仍以 GWP 作為主流換算指標，GTP屬於選用性的補充資訊。
+</p>
+<div class="warn">
+<strong>易混淆重點：</strong>「GWP」與「GTP」都是把不同溫室氣體換算為可比較單位的特徵化係數，但物理意義不同：<strong>GWP看的是「累積輻射強迫力」，GTP看的是「特定時間點的溫度變化」</strong>。考試如果出現「ISO 14067:2018新增了哪一種特徵化指標」，答案是GTP；如果問「目前實務上最主流、最常被查證機構採用的指標」，答案仍是GWP。
+</div>
+</section>
+
+<section id="s4">
+<h2 class="sec-title">五、部分碳足跡（Partial CFP）</h2>
+<p>
+ISO 14067 除了規範完整的產品碳足跡（Cradle-to-Grave 或 Cradle-to-Gate 的完整生命週期計算）之外，也規定了<strong>部分碳足跡（Partial CFP）</strong>的量化要求與指引。部分碳足跡是指僅計算產品生命週期中「特定一個或多個階段」的碳排放，而非完整生命週期，常見應用情境包括：原料供應商只想揭露自己「原料生產階段」的碳排放數據給下游客戶參考（供客戶自行加總拼接成完整的產品碳足跡），或是企業想聚焦某個排放熱點階段進行深入分析與改善追蹤。
+</p>
+<div class="warn">
+<strong>常見誤區：</strong>部分碳足跡並非「偷工減料」或「規避完整計算義務」的做法，而是標準明訂認可的一種量化型態，但前提是<strong>必須在報告中明確揭露這是「部分碳足跡」而非完整產品碳足跡</strong>，並清楚說明所涵蓋的具體階段範圍，避免報告使用者誤以為這就是產品的完整碳足跡數值而產生誤導。考試常出情境考你「某供應商只提供原料階段的排放數據，這樣做法是否合規」，正確理解是「合規，但必須明確標示為部分碳足跡並揭露範圍」。
+</div>
+</section>
+
+<section id="s5">
+<h2 class="sec-title">六、產品類別規則（CFP-PCR）與 ISO/TS 14027</h2>
+<p>
+產品類別規則（Product Category Rules, PCR）是針對「同一類產品」制定的一套共通計算規則（例如統一的功能單位定義、系統邊界範圍、資料蒐集要求），目的是確保同一產品類別下，不同廠商、不同研究單位計算出來的碳足跡結果，具備一致的計算基礎、可以互相比較。在產品碳足跡的情境下，這套規則被特別命名為 <strong>CFP-PCR（Carbon Footprint of Product - Product Category Rule）</strong>，以與一般第三類環境宣告（Type III environmental declaration）所使用的PCR做出區隔。
+</p>
+<p>
+PCR的制定準則、要求與指引，規範於 <strong>ISO/TS 14027:2017</strong>。制定PCR的標準流程包括：先由方案運作者（Programme Operator）協助聯繫該產品類別的利害關係人，籌組<strong>PCR委員會</strong>（委員會成員應涵蓋該產業的專業知識及精通生命週期評估方法的人員）；委員會草擬PCR初稿後，須經過審查小組審查與公開諮詢程序，蒐集各界意見並公開回應紀錄，確保PCR的制定過程具備透明性與代表性，最終公告的PCR才能作為業界計算該類產品碳足跡時共同遵循的基礎。
+</p>
+<div class="callout">
+<strong>實務連結：</strong>這正是為什麼企業申請台灣「產品碳足跡標籤」時，第一步一定要先查詢環境部「產品碳足跡資訊網」是否已有自己產品對應的公告PCR──如果有，就必須依照該PCR規定的計算規則進行；如果沒有，則須依前述流程申請訂定新的PCR，或依國際規則搭配專家審查方式先行計算。
+</div>
+</section>
+
+<section id="s6">
+<h2 class="sec-title">七、溝通與標籤：ISO 14026 及台灣碳標籤制度</h2>
+<h3>7.1 ISO 14026:2017</h3>
+<p>
+ISO 14026《環境標誌與宣告：足跡資訊溝通的原則、要求及指引》，是2018年版ISO 14067改版後，專門承接「溝通」這部分內容的標準。它規範的是各類「足跡（Footprint）」資訊（不限於碳足跡，也包括水足跡等其他足跡類型）對外溝通時應遵循的共通原則，確保無論是哪一種足跡資訊，其溝通方式都遵循相同的透明度與一致性要求，這份標準本身<strong>不涉及量化方法</strong>，只規範「算完之後，該怎麼把結果誠實、清楚地傳達給消費者或利害關係人」。
+</p>
+<h3>7.2 台灣碳標籤與減碳標籤制度</h3>
+<p>
+台灣自2010年推出<strong>碳標籤（產品碳足跡標籤）</strong>制度，並於2014年進一步推出<strong>減碳標籤（碳足跡減量標籤）</strong>制度，這套制度可以引導廠商找出生命週期各階段中，碳排放量較顯著的「熱點」環節，尋找減量機會，同時也鼓勵消費者透過辨識碳標籤／減碳標籤改變消費型態，落實綠色消費。這套制度也已納入公家機關綠色採購評分準則，使得申請碳標籤的企業案件數逐年成長。碳標籤的核發，本質上就是「產品碳足跡量化（依循ISO 14067精神）＋溝通宣告（依循ISO 14026精神）＋主管機關審核程序」三者結合的具體實踐。
+</p>
+</section>
+
+<section id="s7">
+<h2 class="sec-title">八、查證：與 ISO 14064-3 的連結</h2>
+<p>
+ISO 14067:2018 對於產品碳足跡研究的查證程序，並未在自身條文中另立一套規範，而是直接指向並引用 <strong>ISO 14064-3</strong> 的查證與確證指引原則。這代表產品碳足跡的查證，同樣適用查證/確證的區分（查證針對已完成的碳足跡計算結果、確證針對尚未執行的計畫）、風險基礎方法、重大性門檻、合理保證與有限保證等概念架構，與組織層級盤查查證的方法論邏輯是共通的，只是查證對象換成「單一產品的碳足跡研究報告」而非「組織整體盤查清冊」。
+</p>
+</section>
+
+<section id="s8">
+<h2 class="sec-title">九、ISO 14067 vs PAS 2050 vs GHG Protocol Product Standard</h2>
+<table>
+<tr><th>比較項目</th><th>PAS 2050</th><th>ISO 14067:2018</th><th>GHG Protocol Product Standard</th></tr>
+<tr><td>發布單位</td><td>英國標準協會（BSI）</td><td>國際標準組織（ISO）</td><td>世界資源研究所（WRI）／世界永續發展委員會（WBCSD）</td></tr>
+<tr><td>發布時間</td><td>2008年（首版），2011年修訂</td><td>2018年（取代2013年技術規範）</td><td>2011年發布</td></tr>
+<tr><td>文件性質</td><td>公開可用規範（PAS）</td><td>正式國際標準</td><td>自願性方法論指南</td></tr>
+<tr><td>與LCA標準關係</td><td>參考ISO 14040/44精神但獨立發展</td><td>直接建立於ISO 14040/44之上，架構完全整合</td><td>參考LCA原則，但採用較彈性的商業導向指引形式</td></tr>
+<tr><td>國際採認度</td><td>早期市場先行者，現多被ISO 14067取代</td><td>目前國際上最廣泛採認的正式標準</td><td>在美系企業與部分供應鏈溝通場合仍常被引用</td></tr>
+</table>
+<div class="callout">
+<strong>考試常見出法：</strong>「台灣某企業想申請歐盟客戶認可的產品碳足跡認證，若客戶未特別指定方法論，目前國際上採認度最廣、最具正式標準地位的是哪一套規範？」答案應為 <strong>ISO 14067:2018</strong>，因其為正式國際標準且與LCA標準架構完全整合，PAS 2050與GHG Protocol Product Standard雖仍被引用，但在正式性與整合度上略遜一籌。
+</div>
+</section>
+
+<section id="s9">
+<h2 class="sec-title">十、常見混淆觀念地圖（考前必看）</h2>
+<table>
+<tr><th>易混淆的一組概念</th><th>關鍵區分方式</th></tr>
+<tr><td>ISO/TS 14067:2013 vs ISO 14067:2018</td><td>前者是「技術規範」且涵蓋量化＋溝通；後者是「正式國際標準」，且將溝通移至ISO 14026、PCR制定移至ISO/TS 14027，只保留量化本身。</td></tr>
+<tr><td>ISO 14067 vs ISO 14026</td><td>14067管「怎麼算」（量化）；14026管「怎麼講」（溝通），兩者互補而非重疊。</td></tr>
+<tr><td>ISO 14067 vs ISO/TS 14027</td><td>14067使用PCR的成果進行量化；14027規範PCR「該如何被制定出來」的完整程序。</td></tr>
+<tr><td>完整CFP vs 部分CFP（Partial CFP）</td><td>完整CFP涵蓋完整生命週期（依系統邊界設定）；部分CFP僅涵蓋特定階段，但必須明確標示並揭露範圍，不可與完整CFP混淆呈現。</td></tr>
+<tr><td>GWP vs GTP</td><td>GWP衡量「累積輻射強迫力」倍數（100年時間範圍為主流）；GTP衡量「特定時間點溫度變化」倍數，2018年版新增GTP作為輔助選用指標，主流仍以GWP為準。</td></tr>
+<tr><td>生質碳排放 vs 化石碳排放</td><td>生質碳來自生物質燃燒/分解（碳循環的一部分）；化石碳來自原本封存於地底的化石燃料，2018年版要求兩者須分別揭露，不可混淆加總呈現而模糊排放來源性質。</td></tr>
+<tr><td>碳足跡（14067）vs 碳抵換（Offsetting）</td><td>14067只負責量化排放量本身；碳抵換（透過購買額度平衡排放）明確被排除在14067範圍之外，屬於另一套宣告規範（如PAS 2060）處理的事項。</td></tr>
+<tr><td>PAS 2050 vs ISO 14067</td><td>PAS 2050是英國BSI較早發展的公開規範，屬於ISO 14067的方法論前身之一；ISO 14067是目前國際上更廣泛採認的正式標準。</td></tr>
+</table>
+</section>
+
+<section id="s10">
+<h2 class="sec-title">十一、模擬試題 50 題（情境式，含詳解）</h2>
+<p style="font-size: 22px;color:var(--muted);">
+說明：題目多以實務情境包裝，選項刻意打散排列，正確選項不必然最長，字母分布也刻意混雜，避免規律性。建議先作答再核對解析。
+</p>
+
+<h3>Part A｜標準沿革與定位（第1～10題）</h3>
+
+<div class="quiz-item"><span class="qnum">第1題</span>
+<p>ISO 14067正式國際標準版本於何時發布？</p>
+<ul class="options">
+<li>(A) 2008年</li>
+<li>(B) 2013年</li>
+<li>(C) 2018年8月</li>
+<li>(D) 2021年</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：C</span><br>
+ISO 14067正式國際標準於2018年8月20日發布，取代2013年的技術規範ISO/TS 14067:2013。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第2題</span>
+<p>全球第一份針對產品與服務碳足跡量化的公開規範是？</p>
+<ul class="options">
+<li>(A) ISO 14040</li>
+<li>(B) PAS 2050</li>
+<li>(C) ISO 14064-1</li>
+<li>(D) GHG Protocol Corporate Standard</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+PAS 2050由英國標準協會（BSI）於2008年提出，是全球最早的產品/服務碳足跡量化公開規範，為後續ISO/TS 14067及ISO 14067的方法論前身之一。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第3題</span>
+<p>ISO 14067:2018 正式取代下列哪一份文件？</p>
+<ul class="options">
+<li>(A) PAS 2060</li>
+<li>(B) ISO/TS 14067:2013</li>
+<li>(C) ISO 14001:2015</li>
+<li>(D) GHG Protocol Scope 3 Standard</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+ISO 14067:2018取代先前的技術規範ISO/TS 14067:2013，並將原本涵蓋的溝通與PCR制定內容分拆至其他關聯標準。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第4題</span>
+<p>ISO 14067 的量化方法論理論基礎，主要建立於下列哪兩份標準之上？</p>
+<ul class="options">
+<li>(A) ISO 14064-1與ISO 14064-2</li>
+<li>(B) ISO 14040與ISO 14044</li>
+<li>(C) ISO 9001與ISO 14001</li>
+<li>(D) ISO 26000與ISO 45001</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+ISO 14067建立於生命週期評估（LCA）國際標準ISO 14040（原則與架構）與ISO 14044（要求與指引）之上。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第5題</span>
+<p>下列關於ISO 14067隸屬標準家族的敘述，何者正確？</p>
+<ul class="options">
+<li>(A) 屬於ISO 9000品質管理系列</li>
+<li>(B) 屬於ISO 14060溫室氣體標準家族</li>
+<li>(C) 屬於ISO 26000社會責任系列</li>
+<li>(D) 屬於ISO 50000能源管理系列</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+ISO 14067屬於ISO 14060溫室氣體標準家族的一員，用於量化、監測、報告與查證溫室氣體排放。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第6題</span>
+<p>PAS 2050、ISO/TS 14067:2013、ISO 14067:2018三者依發布時間先後排序，正確順序為？</p>
+<ul class="options">
+<li>(A) ISO 14067:2018 → ISO/TS 14067:2013 → PAS 2050</li>
+<li>(B) PAS 2050 → ISO/TS 14067:2013 → ISO 14067:2018</li>
+<li>(C) ISO/TS 14067:2013 → PAS 2050 → ISO 14067:2018</li>
+<li>(D) 三者為同一年發布</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+正確時間軸為PAS 2050（2008）→ ISO/TS 14067（2013）→ ISO 14067正式標準（2018）。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第7題</span>
+<p>下列何者「不是」ISO 14067隸屬或依循的關聯標準？</p>
+<ul class="options">
+<li>(A) ISO 14040</li>
+<li>(B) ISO 14044</li>
+<li>(C) ISO 14064-3（查證引用）</li>
+<li>(D) ISO 50001（能源管理系統）</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：D</span><br>
+ISO 50001為能源管理系統標準，與產品碳足跡量化架構無直接依循關係；其餘三者皆為ISO 14067直接依循或引用的標準。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第8題</span>
+<p>「技術規範（Technical Specification, TS）」與「正式國際標準」的差異，下列敘述何者正確？</p>
+<ul class="options">
+<li>(A) 兩者效力完全相同，只是名稱不同</li>
+<li>(B) 技術規範通常代表市場經驗尚未成熟或共識尚未完全確立時的過渡性文件層級，正式標準則代表已具備更廣泛共識與更完整的文件要求</li>
+<li>(C) 技術規範的效力高於正式國際標準</li>
+<li>(D) 技術規範只適用於歐洲地區</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+技術規範通常是ISO在市場共識或成熟度尚未足以支持正式標準時所發布的過渡性文件，待市場實務運作成熟、需求更明確後，才會升級為正式國際標準，ISO/TS 14067升級為ISO 14067即為一例。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第9題</span>
+<p>ISO 14067標準名稱中所稱的「CFP」，其英文全稱最可能是？</p>
+<ul class="options">
+<li>(A) Corporate Financial Performance</li>
+<li>(B) Carbon Footprint of Products</li>
+<li>(C) Certified Fair Product</li>
+<li>(D) Climate Fund Protocol</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+CFP在ISO 14067脈絡下指Carbon Footprint of Products（產品碳足跡），是標準中反覆使用的核心縮寫。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第10題</span>
+<p>下列關於ISO 14067適用對象的敘述，何者最為正確？</p>
+<ul class="options">
+<li>(A) 僅適用於製造業產品，不適用於服務業</li>
+<li>(B) 適用於需要提供可信、可比較之產品層級排放數據的製造商、服務提供者或供應商，涵蓋產品與服務</li>
+<li>(C) 僅適用於出口至歐盟的產品</li>
+<li>(D) 僅適用於已取得ISO 14001認證的組織</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+ISO 14067適用於任何需要向客戶、主管機關、投資人或供應鏈夥伴提供可信、可比較之產品/服務層級碳排放數據的組織，不限製造業或特定認證前提。
+</div></details>
+</div>
+
+<h3>Part B｜標準範圍界定（第11～22題）</h3>
+
+<div class="quiz-item"><span class="qnum">第11題</span>
+<p>ISO 14067:2018 的評估範圍涵蓋幾個環境衝擊類別？</p>
+<ul class="options">
+<li>(A) 涵蓋所有LCA常見衝擊類別（氣候變遷、酸化、優養化等）</li>
+<li>(B) 僅涵蓋一個衝擊類別：氣候變遷</li>
+<li>(C) 涵蓋社會與經濟衝擊，不涵蓋環境衝擊</li>
+<li>(D) 沒有明確衝擊類別限制</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+ISO 14067僅處理「氣候變遷」單一衝擊類別，不像完整LCA研究涵蓋多個環境衝擊類別。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第12題</span>
+<p>某企業宣稱「我們產品的碳足跡很低，所以對環境完全友善、沒有任何負面環境衝擊」。此推論的問題在於？</p>
+<ul class="options">
+<li>(A) 沒有問題，碳足跡低即代表環境完全友善</li>
+<li>(B) 碳足跡僅反映氣候變遷單一衝擊類別，未涵蓋水資源耗用、生物多樣性等其他環境面向，不能推論為「完全友善」</li>
+<li>(C) 碳足跡數據一定造假，否則不可能這麼低</li>
+<li>(D) 此推論只在冬季不成立</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+ISO 14067僅評估氣候變遷這一項衝擊類別，不評估其他環境面向（如水足跡、生物多樣性影響）或社會經濟衝擊，碳足跡低不代表整體環境衝擊完全友善。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第13題</span>
+<p>下列何者「不在」ISO 14067:2018 的規範範圍之內？</p>
+<ul class="options">
+<li>(A) 產品碳足跡的量化方法</li>
+<li>(B) 部分碳足跡的量化要求</li>
+<li>(C) 碳抵換（Carbon Offsetting）</li>
+<li>(D) 系統邊界與功能單位的設定原則</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：C</span><br>
+碳抵換明確被排除在ISO 14067範圍之外，屬於另一套宣告規範（如PAS 2060）處理的事項。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第14題</span>
+<p>「產品碳足跡的溝通原則、要求及指引」目前規範於下列哪一份標準？</p>
+<ul class="options">
+<li>(A) ISO 14067:2018本身</li>
+<li>(B) ISO 14026:2017</li>
+<li>(C) ISO/TS 14027:2017</li>
+<li>(D) ISO 14064-3:2019</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+自2018年版改版後，足跡資訊溝通的原則、要求及指引移至ISO 14026:2017規範，不再包含於ISO 14067本身。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第15題</span>
+<p>「產品類別規則（PCR）的制定要求」目前規範於下列哪一份標準？</p>
+<ul class="options">
+<li>(A) ISO 14026:2017</li>
+<li>(B) ISO/TS 14027:2017</li>
+<li>(C) ISO 14040</li>
+<li>(D) ISO 14067:2018本身</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+PCR制定的準則、要求與指引規範於ISO/TS 14027:2017，ISO 14067:2018只定義CFP-PCR的角色，不詳細規範其制定程序。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第16題</span>
+<p>產品碳足跡的查證程序，ISO 14067:2018採取何種處理方式？</p>
+<ul class="options">
+<li>(A) 於自身條文中重新詳細規範一套獨立的查證程序</li>
+<li>(B) 直接引用ISO 14064-3的查證與確證指引原則，不重複規範</li>
+<li>(C) 完全不需要任何查證</li>
+<li>(D) 查證程序規範於ISO 14001</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+ISO 14067:2018查證程序直接引用ISO 14064-3的查證與確證指引，維持ISO 14060系列標準架構的一致性，避免重複規範。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第17題</span>
+<p>某研究人員想針對某產品進行完整的環境衝擊評估，包括氣候變遷、水資源耗用、優養化等多個面向，他應該主要參考下列哪一份標準架構，而非僅依ISO 14067？</p>
+<ul class="options">
+<li>(A) ISO 14067</li>
+<li>(B) ISO 14040/14044完整LCA架構</li>
+<li>(C) ISO 14026</li>
+<li>(D) ISO 14064-1</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+若需評估多個環境衝擊類別，應採用完整的LCA架構（ISO 14040/14044），因ISO 14067僅聚焦氣候變遷單一類別。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第18題</span>
+<p>某企業想對外宣稱其產品「碳中和」，並透過購買國外造林專案額度平衡排放。此宣稱程序主要涉及下列哪一份規範，而非ISO 14067本身所能涵蓋？</p>
+<ul class="options">
+<li>(A) PAS 2060（碳中和宣告相關規範）等碳抵換／中和宣告規範</li>
+<li>(B) ISO 14040</li>
+<li>(C) ISO 14044</li>
+<li>(D) ISO 14067本身即完整涵蓋碳中和宣告</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：A</span><br>
+碳抵換與碳中和宣告不在ISO 14067範圍內，需另外參考如PAS 2060等專門處理碳中和宣告的規範。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第19題</span>
+<p>下列關於ISO 14067評估內容的敘述，何者正確？</p>
+<ul class="options">
+<li>(A) 會評估產品生命週期造成的社會衝擊（如勞動條件）</li>
+<li>(B) 會評估產品生命週期造成的經濟衝擊（如成本效益）</li>
+<li>(C) 不評估任何社會或經濟面向的衝擊，也不評估其他環境面向</li>
+<li>(D) 會全面評估ESG三個構面</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：C</span><br>
+ISO 14067明確不評估產品生命週期可能產生的任何社會或經濟面向衝擊，也不評估氣候變遷以外的其他環境面向。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第20題</span>
+<p>企業若同時想申請「碳足跡標籤」與對外宣傳溝通，依現行標準架構，量化與溝通兩件事分別對應哪兩份標準？</p>
+<ul class="options">
+<li>(A) 量化對應ISO 14067，溝通對應ISO 14026</li>
+<li>(B) 量化對應ISO 14026，溝通對應ISO 14067</li>
+<li>(C) 兩者皆對應ISO 14067</li>
+<li>(D) 兩者皆對應ISO/TS 14027</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：A</span><br>
+量化本身依循ISO 14067:2018；對外溝通宣告則依循ISO 14026:2017，兩份標準分工互補。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第21題</span>
+<p>下列何者最能總結ISO 14067:2018改版後的整體架構邏輯？</p>
+<ul class="options">
+<li>(A) 把所有相關內容全部整合進單一份文件，避免分散</li>
+<li>(B) 拆解為「量化本身（14067）＋溝通（14026）＋PCR制定（TS 14027）＋查證（14064-3）」的關聯標準架構</li>
+<li>(C) 完全獨立於其他ISO標準之外自成一套系統</li>
+<li>(D) 廢除了PCR的概念</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+2018年改版把原本涵蓋量化與溝通的技術規範，拆解重組為多份彼此關聯、分工明確的標準架構，而非整合為單一文件或廢除既有概念。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第22題</span>
+<p>某考生誤以為「只要拿到ISO 14067報告，就等於已完成碳中和驗證」，這個理解錯在哪裡？</p>
+<ul class="options">
+<li>(A) ISO 14067只負責量化排放量本身，不涵蓋碳抵換或碳中和宣告，兩者是不同的事</li>
+<li>(B) 沒有錯，兩者是同一件事</li>
+<li>(C) ISO 14067報告本身就包含碳中和驗證書</li>
+<li>(D) 碳中和不需要任何驗證</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：A</span><br>
+ISO 14067報告只呈現量化出來的排放數值，碳中和宣告涉及後續的抵換與宣告驗證程序，屬於範圍之外的另一件事，不能混為一談。
+</div></details>
+</div>
+
+<h3>Part C｜LCA方法論在14067的應用（第23～34題）</h3>
+
+<div class="quiz-item"><span class="qnum">第23題</span>
+<p>目標與範疇界定階段若未明確設定功能單位，最可能導致的後果是？</p>
+<ul class="options">
+<li>(A) 計算速度變快</li>
+<li>(B) 不同產品或不同研究之間的結果無法公平比較，降低報告可信度</li>
+<li>(C) 完全不影響最終結果</li>
+<li>(D) 只會影響報告的排版</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+功能單位是比較不同產品或研究的基礎，設定不明確會使結果失去可比較性，進而降低報告在客戶與主管機關眼中的可信度。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第24題</span>
+<p>某原料供應商只計算並揭露產品從原料到出廠為止的碳排放，這是屬於下列哪一種系統邊界？</p>
+<ul class="options">
+<li>(A) 搖籃到墳墓</li>
+<li>(B) 搖籃到大門</li>
+<li>(C) 大門到大門</li>
+<li>(D) 搖籃到搖籃</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+只計算到工廠出貨為止，屬於搖籃到大門（Cradle-to-Gate）。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第25題</span>
+<p>在生命週期清冊分析（LCI）階段，企業實際量測的能源消耗數據屬於？</p>
+<ul class="options">
+<li>(A) 二級數據</li>
+<li>(B) 一級數據（原始數據）</li>
+<li>(C) 推估數據</li>
+<li>(D) 文獻數據</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+企業自身實際量測的直接數據屬於一級數據，品質最高，應優先用於排放熱點階段。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第26題</span>
+<p>下列何者屬於生命週期衝擊評估（LCIA）階段的核心工作？</p>
+<ul class="options">
+<li>(A) 蒐集企業原始能源消耗數據</li>
+<li>(B) 依特徵化係數（如GWP）將各溫室氣體排放量統一換算為CO2e並加總</li>
+<li>(C) 撰寫報告的封面與目錄</li>
+<li>(D) 決定研究的目的與用途</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+LCIA階段的核心工作是運用特徵化係數（GWP）將不同溫室氣體換算為CO2e並加總，屬於衝擊評估的核心步驟。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第27題</span>
+<p>結果解釋（Interpretation）階段的主要目的為？</p>
+<ul class="options">
+<li>(A) 蒐集更多一級數據</li>
+<li>(B) 檢視完整性、敏感度與一致性，辨識排放熱點並說明研究限制與不確定性</li>
+<li>(C) 重新定義功能單位</li>
+<li>(D) 決定是否申請專利</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+結果解釋階段檢視整體研究的完整性、敏感度與一致性，辨識出排放熱點以利後續減碳規劃，並說明研究限制與不確定性避免誤用。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第28題</span>
+<p>某企業排除了一項僅佔總排放量0.2%的次要原料，並在報告中揭露排除理由，這樣的做法是？</p>
+<ul class="options">
+<li>(A) 違反ISO 14067規範</li>
+<li>(B) 合理運用切截準則，但仍須揭露排除項目與理由</li>
+<li>(C) 一律不得排除任何項目</li>
+<li>(D) 屬於數據造假</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+切截準則允許在合理門檻下排除影響輕微的項目，但必須揭露排除項目與理由，維持報告透明度。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第29題</span>
+<p>研究目的若是「作為供應鏈客戶要求的碳排放揭露數據」，相較於「僅供內部熱點分析參考」，通常對系統邊界與數據品質的要求會？</p>
+<ul class="options">
+<li>(A) 完全相同，研究目的不影響嚴謹度要求</li>
+<li>(B) 前者通常需要更嚴謹的邊界界定與更高的數據品質要求，以確保結果可信、可供外部使用者依賴</li>
+<li>(C) 前者可以隨意簡化，因為客戶不會查核</li>
+<li>(D) 內部參考用途反而需要更嚴謹</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+用於對外供應鏈揭露或客戶查核的碳足跡研究，通常需要更嚴謹的邊界界定與更高品質的數據，以確保外部使用者能合理信賴這份數據。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第30題</span>
+<p>某洗衣精品牌欲比較「一般包裝」與「濃縮補充包」兩款產品的碳足跡，下列哪一種功能單位設定最合適？</p>
+<ul class="options">
+<li>(A) 每公升產品</li>
+<li>(B) 每個包裝容器</li>
+<li>(C) 洗一次衣物所需使用量</li>
+<li>(D) 每公斤原料</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：C</span><br>
+濃縮產品用量少但功能相同，應以「達成相同功能所需的使用量」作為功能單位，才能公平比較。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第31題</span>
+<p>下列關於一級數據與二級數據使用時機的敘述，何者正確？</p>
+<ul class="options">
+<li>(A) 排放熱點應優先使用一級數據，非熱點項目可視情況使用二級數據</li>
+<li>(B) 所有項目一律使用二級數據以降低成本</li>
+<li>(C) 所有項目一律強制使用一級數據，不允許使用二級數據</li>
+<li>(D) 一級與二級數據品質完全相同</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：A</span><br>
+排放熱點應優先投入資源蒐集一級數據以確保準確性，非熱點項目才適合使用二級數據以兼顧成本效率。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第32題</span>
+<p>某成衣品牌的碳足跡計算涵蓋原料棉花種植到消費者洗滌穿著再到最終焚化處理，這是屬於？</p>
+<ul class="options">
+<li>(A) 搖籃到大門</li>
+<li>(B) 搖籃到墳墓</li>
+<li>(C) 大門到墳墓</li>
+<li>(D) 大門到大門</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+涵蓋原料取得到最終廢棄處理的完整生命週期，屬於搖籃到墳墓（Cradle-to-Grave）。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第33題</span>
+<p>下列關於研究目的（Goal）在目標與範疇界定階段所扮演角色的敘述，何者正確？</p>
+<ul class="options">
+<li>(A) 研究目的只是形式上的文字，不影響後續任何實質決策</li>
+<li>(B) 研究目的會影響後續系統邊界、數據品質要求的嚴謹程度等實質決策</li>
+<li>(C) 研究目的僅適用於學術研究，不適用於商業用途</li>
+<li>(D) 研究目的與功能單位設定無關</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+研究目的（如ESG揭露、供應鏈要求、行銷標籤申請等）會直接影響後續邊界設定嚴謹度與數據蒐集深度等實質決策，並非僅止於形式文字。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第34題</span>
+<p>下列何者「不屬於」目標與範疇界定階段須明確定義的項目？</p>
+<ul class="options">
+<li>(A) 研究目的</li>
+<li>(B) 功能單位</li>
+<li>(C) 查證機構的查證意見用語</li>
+<li>(D) 系統邊界</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：C</span><br>
+查證意見用語屬於查證階段（依ISO 14064-3）的內容，非目標與範疇界定階段須定義的項目；目標與範疇界定聚焦於研究目的、功能單位、系統邊界、切截準則。
+</div></details>
+</div>
+
+<h3>Part D｜2018年版改版重點與部分碳足跡（第35～44題）</h3>
+
+<div class="quiz-item"><span class="qnum">第35題</span>
+<p>2018年版ISO 14067要求企業對於生質碳排放應如何處理？</p>
+<ul class="options">
+<li>(A) 直接忽略不計</li>
+<li>(B) 必須與化石碳排放分別揭露，不可混為一談</li>
+<li>(C) 一律視為零排放</li>
+<li>(D) 一律併入化石碳排放加總表示</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+2018年版要求生質碳排放須與化石碳排放分別揭露，因兩者在碳循環性質上不同，混為一談會誤導報告使用者對排放來源性質的判斷。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第36題</span>
+<p>ISO 14067:2018 新增了下列哪一項特徵化指標，作為GWP之外的輔助選用指標？</p>
+<ul class="options">
+<li>(A) GTP（全球溫度變化潛勢）</li>
+<li>(B) AQI（空氣品質指標）</li>
+<li>(C) ROI（投資報酬率）</li>
+<li>(D) PCR（產品類別規則）</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：A</span><br>
+2018年版新增全球溫度變化潛勢（GTP）作為除了傳統GWP之外的另一種可選用特徵化指標。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第37題</span>
+<p>下列關於GWP與GTP差異的敘述，何者正確？</p>
+<ul class="options">
+<li>(A) GWP衡量累積輻射強迫力，GTP衡量特定時間點的溫度變化，兩者物理意義不同</li>
+<li>(B) 兩者是完全相同的指標，只是名稱不同</li>
+<li>(C) GTP是目前實務上最主流採用的指標</li>
+<li>(D) GWP只能用於評估甲烷，不能用於其他氣體</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：A</span><br>
+GWP衡量特定時間範圍內累積輻射強迫力相對於CO2的倍數；GTP衡量特定時間點溫度變化相對於CO2的倍數，兩者科學意義不同，目前主流仍以GWP為準。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第38題</span>
+<p>目前實務上多數企業與查驗機構主流採用的溫室氣體換算指標仍是？</p>
+<ul class="options">
+<li>(A) GTP</li>
+<li>(B) GWP</li>
+<li>(C) ROI</li>
+<li>(D) PCR</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+儘管2018年版新增GTP作為選用指標，目前實務上主流仍以GWP作為換算CO2e的標準指標。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第39題</span>
+<p>下列關於「部分碳足跡（Partial CFP）」的敘述，何者正確？</p>
+<ul class="options">
+<li>(A) 屬於違反標準規定的偷工減料做法</li>
+<li>(B) 是標準明訂認可的量化型態，但須明確標示為部分碳足跡並揭露涵蓋範圍</li>
+<li>(C) 部分碳足跡不需要說明涵蓋哪些階段</li>
+<li>(D) 部分碳足跡等同於完整碳足跡，可直接互換使用</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+部分碳足跡是標準認可的量化型態，常用於原料供應商僅揭露特定階段排放的情境，但必須明確標示並揭露涵蓋範圍，避免與完整碳足跡混淆。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第40題</span>
+<p>某原料供應商僅計算並提供「原料生產階段」的排放數據給下游客戶，供客戶自行拼接計算完整產品碳足跡，此做法：</p>
+<ul class="options">
+<li>(A) 完全不合規，禁止此種做法</li>
+<li>(B) 合規，但須標示為部分碳足跡並說明所涵蓋的具體階段範圍</li>
+<li>(C) 只要下游客戶同意即可，無須任何標示</li>
+<li>(D) 只有製造業可以這樣做，農業不行</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+此為部分碳足跡的典型應用情境，合規但須明確標示為部分碳足跡並揭露涵蓋範圍，避免誤導。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第41題</span>
+<p>2018年版對電力排放係數處理方式的調整，主要強調應考量下列何者？</p>
+<ul class="options">
+<li>(A) 電力來源的地理與時間代表性（如區分電網平均與特定發電來源）</li>
+<li>(B) 電費帳單的付款方式</li>
+<li>(C) 電力公司的員工人數</li>
+<li>(D) 與代表性完全無關，只要單位相同即可</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：A</span><br>
+2018年版強調電力排放係數選用應考量地理與時間代表性，例如區分電網平均排放係數與特定發電來源之排放係數，以提升計算準確度。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第42題</span>
+<p>下列何者「不屬於」ISO 14067:2018相較2013年技術規範的三項技術性改版重點之一？</p>
+<ul class="options">
+<li>(A) 生質碳排放處理方式改變</li>
+<li>(B) 電力排放係數處理方式改變</li>
+<li>(C) 新增GTP作為輔助特徵化指標</li>
+<li>(D) 新增碳交易市場價格計算模組</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：D</span><br>
+ISO 14067並未新增碳交易市場價格計算模組，該標準只負責量化排放量，不涉及市場交易定價機制。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第43題</span>
+<p>某報告將生質碳排放與化石碳排放合併為單一總數字呈現，未分別揭露。此做法違反2018年版的哪一項要求？</p>
+<ul class="options">
+<li>(A) 功能單位設定要求</li>
+<li>(B) 生質碳排放應與化石碳排放分別揭露之要求</li>
+<li>(C) PCR制定要求</li>
+<li>(D) 查證獨立性要求</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+2018年版要求生質碳排放須與化石碳排放分別揭露，合併呈現會使報告使用者無法判斷排放的真實來源性質，違反此項要求。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第44題</span>
+<p>某農場想針對「有機稻米」計算部分碳足跡，僅涵蓋「育苗到收穫」階段，不含後續乾燥、包裝、運輸階段。若要合規揭露，報告中應如何呈現？</p>
+<ul class="options">
+<li>(A) 直接以「稻米產品碳足跡」為標題，不特別說明範圍</li>
+<li>(B) 明確標示為「部分碳足跡」，並清楚說明僅涵蓋育苗到收穫階段，未涵蓋乾燥、包裝、運輸</li>
+<li>(C) 無須說明，只要數字正確即可</li>
+<li>(D) 部分碳足跡的做法不被任何標準允許，農場不應這樣做</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+應明確標示為部分碳足跡並清楚說明涵蓋範圍，避免消費者或客戶誤以為這是完整產品碳足跡數值。
+</div></details>
+</div>
+
+<h3>Part E｜PCR、溝通標籤與綜合實務情境（第45～50題）</h3>
+
+<div class="quiz-item"><span class="qnum">第45題</span>
+<p>CFP-PCR這個名詞被特別命名以區別於一般PCR，主要目的是？</p>
+<ul class="options">
+<li>(A) 與一般第三類環境宣告所使用的PCR做出區隔，凸顯其專門用於碳足跡量化的性質</li>
+<li>(B) 純粹只是行銷用語，沒有實質意義</li>
+<li>(C) CFP-PCR與一般PCR完全無關</li>
+<li>(D) CFP-PCR只能用於服務業</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：A</span><br>
+CFP-PCR（Carbon Footprint of Product-Product Category Rule）特別命名是為了與一般第三類環境宣告的PCR做出區隔，凸顯其專門服務於碳足跡量化的性質。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第46題</span>
+<p>制定PCR的標準流程中，下列何者「不是」必要步驟？</p>
+<ul class="options">
+<li>(A) 籌組PCR委員會，涵蓋產業知識與生命週期評估專業人員</li>
+<li>(B) 草擬初稿並經審查小組審查與公開諮詢</li>
+<li>(C) 公開回應審查與諮詢意見紀錄</li>
+<li>(D) 由單一企業自行決定內容後直接對外公告生效，無須任何審查或諮詢程序</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：D</span><br>
+PCR制定須經委員會草擬、審查小組審查與公開諮詢等透明程序，不能由單一企業自行決定後逕行公告，否則無法確保一致性與代表性。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第47題</span>
+<p>台灣碳標籤與減碳標籤制度分別自何時推出？</p>
+<ul class="options">
+<li>(A) 碳標籤2010年、減碳標籤2014年</li>
+<li>(B) 碳標籤2018年、減碳標籤2021年</li>
+<li>(C) 兩者同時於2010年推出</li>
+<li>(D) 碳標籤2014年、減碳標籤2010年</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：A</span><br>
+台灣自2010年推出碳標籤（產品碳足跡標籤）制度，2014年進一步推出減碳標籤（碳足跡減量標籤）制度。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第48題</span>
+<p>台灣碳標籤制度被納入下列哪一項機制，促使申請案逐年成長？</p>
+<ul class="options">
+<li>(A) 公家機關綠色採購評分準則</li>
+<li>(B) 上市公司財報審查準則</li>
+<li>(C) 勞動基準法</li>
+<li>(D) 與任何政策機制皆無關</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：A</span><br>
+台灣碳標籤制度已納入公家機關綠色採購評分準則，成為企業投標公家標案時的加分項目，帶動申請案逐年成長。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第49題</span>
+<p>某企業客戶要求富林農場提供其有機蔬果產品的碳足跡數據，並希望日後能對消費者溝通宣傳此數據。依現行標準架構，農場在「計算」與「對外溝通宣傳」這兩件事上，理論上分別應參考哪兩套標準精神？</p>
+<ul class="options">
+<li>(A) 計算參考ISO 14067精神，溝通參考ISO 14026精神</li>
+<li>(B) 兩者皆參考ISO/TS 14027</li>
+<li>(C) 計算參考ISO 14026，溝通參考ISO 14067</li>
+<li>(D) 兩者皆不需要參考任何標準</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：A</span><br>
+量化計算應參考ISO 14067的原則與方法（功能單位、系統邊界、LCA四階段等）；對外溝通宣傳則應參考ISO 14026強調的透明度與一致性原則，避免誇大或模糊字眼誤導消費者。
+</div></details>
+</div>
+
+<div class="quiz-item"><span class="qnum">第50題</span>
+<p>富林農場考慮未來為「有機米」申請台灣碳標籤，若稻米尚無公告的CFP-PCR，農場最適合採取下列哪一種做法？</p>
+<ul class="options">
+<li>(A) 直接放棄申請，因無規則可循</li>
+<li>(B) 可依國際規則（如ISO 14067精神）搭配專家審查方式先行計算，或協助推動申請訂定新的PCR</li>
+<li>(C) 自行決定計算方式並直接對外宣稱已取得碳標籤</li>
+<li>(D) 引用其他不相關產品類別的PCR直接套用</li>
+</ul>
+<details><summary>查看答案與解析</summary><div class="answer-box"><span class="ans-letter">答案：B</span><br>
+若尚無對應公告PCR，可依國際規則搭配專家審查方式先行計算，或依循前述PCR制定流程協助推動訂定新規則，而非放棄申請、自行宣稱，或套用不相關產品類別的PCR。
+</div></details>
+</div>
+
+</section>
+
+<section id="s11">
+<h2 class="sec-title">十二、答案總表（快速核對）</h2>
+<table class="key-table">
+<tr><th>題號</th><th>答案</th><th>題號</th><th>答案</th><th>題號</th><th>答案</th><th>題號</th><th>答案</th><th>題號</th><th>答案</th></tr>
+<tr><td>1</td><td>C</td><td>11</td><td>B</td><td>21</td><td>B</td><td>31</td><td>A</td><td>41</td><td>A</td></tr>
+<tr><td>2</td><td>B</td><td>12</td><td>B</td><td>22</td><td>A</td><td>32</td><td>B</td><td>42</td><td>D</td></tr>
+<tr><td>3</td><td>B</td><td>13</td><td>C</td><td>23</td><td>B</td><td>33</td><td>B</td><td>43</td><td>B</td></tr>
+<tr><td>4</td><td>B</td><td>14</td><td>B</td><td>24</td><td>B</td><td>34</td><td>C</td><td>44</td><td>B</td></tr>
+<tr><td>5</td><td>B</td><td>15</td><td>B</td><td>25</td><td>B</td><td>35</td><td>B</td><td>45</td><td>A</td></tr>
+<tr><td>6</td><td>B</td><td>16</td><td>B</td><td>26</td><td>B</td><td>36</td><td>A</td><td>46</td><td>D</td></tr>
+<tr><td>7</td><td>D</td><td>17</td><td>B</td><td>27</td><td>B</td><td>37</td><td>A</td><td>47</td><td>A</td></tr>
+<tr><td>8</td><td>B</td><td>18</td><td>A</td><td>28</td><td>B</td><td>38</td><td>B</td><td>48</td><td>A</td></tr>
+<tr><td>9</td><td>B</td><td>19</td><td>C</td><td>29</td><td>B</td><td>39</td><td>B</td><td>49</td><td>A</td></tr>
+<tr><td>10</td><td>B</td><td>20</td><td>A</td><td>30</td><td>C</td><td>40</td><td>B</td><td>50</td><td>B</td></tr>
+</table>
+<div class="callout">
+<strong>複習建議：</strong>Part B（標準範圍界定，尤其是「14067不包含什麼」）與Part D（2018年改版三大重點）是近期考試最愛出的細節區塊，務必弄清楚「量化14067／溝通14026／PCR制定TS14027／查證14064-3」這四份標準的分工關係，這組對應關係幾乎每次考試都會以不同角度重複出現。
+</div>
+</section>
+
+</div>
+
+<footer>
+本教材為輔助 iPAS 淨零碳規劃師考試準備之整理內容，觀念以 ISO 14067:2018、ISO 14040/14044、ISO 14026:2017、ISO/TS 14027:2017、ISO 14064-3:2019 及台灣現行碳標籤／減碳標籤制度等公開資訊為基礎撰寫，實際考試內容與標準細節請以官方最新公告為準。
+</footer>
+
+</body>
+</html>
