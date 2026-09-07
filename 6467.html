@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iPAS 考科二｜ISO 14064-1 × ISO 14067 情境判讀筆記</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f4f5f1; --surface:#ffffff; --surface-2:#eef1ea;
+    --ink:#17241d; --ink-soft:#4c5a51; --line:#dbe1d7;
+    --forest:#1f4d3a; --forest-deep:#123526;
+    --blue:#2b5876; --blue-soft:#e3edf3;
+    --gold:#a8791f; --gold-soft:#f3e6c8;
+    --danger:#8a3b2c; --danger-soft:#f3e2dc;
+    --radius:4px; --maxw:1900px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-size: 22px;margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif;line-height:1.75;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3,h4{font-family:'Noto Serif TC',serif;color:var(--forest-deep);line-height:1.4;letter-spacing:.01em;}
+  a{color:var(--forest);}
+
+  .shell{display:grid;grid-template-columns:250px 1fr;max-width:1240px;margin:0 auto;}
+  @media (max-width:920px){.shell{grid-template-columns:1fr;}}
+
+  .sidebar{position:sticky;top:0;align-self:start;height:100vh;overflow-y:auto;padding:28px 18px 40px;border-right:1px solid var(--line);}
+  @media (max-width:920px){.sidebar{position:relative;height:auto;border-right:none;border-bottom:1px solid var(--line);padding:20px 20px 8px;}}
+  .sidebar-brand{font-family:'Noto Serif TC',serif;font-weight:700;font-size: 22px;color:var(--forest-deep);margin:0 0 4px;}
+  .sidebar-sub{font-size: 22px;color:var(--ink-soft);margin:0 0 20px;}
+  .sidebar nav{display:flex;flex-direction:column;gap:2px;}
+  .sidebar nav a{text-decoration:none;color:var(--ink-soft);font-size: 22px;padding:6px 10px;border-radius:var(--radius);}
+  .sidebar nav a:hover{background:var(--surface-2);color:var(--forest-deep);}
+  .sidebar nav .grp-label{font-size: 22px;text-transform:uppercase;letter-spacing:.08em;color:#8b998f;margin:15px 0 4px 10px;}
+  .sidebar nav .grp-label:first-child{margin-top:0;}
+  #navToggle{display:none;}
+  @media (max-width:920px){
+    .sidebar nav{max-height:0;overflow:hidden;transition:max-height .25s ease;}
+    .sidebar.open nav{max-height:2000px;}
+    .nav-toggle-btn{display:inline-flex;align-items:center;gap:6px;background:var(--forest);color:#fff;border:none;padding:8px 14px;border-radius:20px;font-size: 22px;cursor:pointer;margin-bottom:14px;}
+  }
+  .nav-toggle-btn{display:none;}
+
+  main{padding:0 28px 100px;}
+  .container{max-width:var(--maxw);margin:0 auto;}
+
+  .hero{padding:56px 0 36px;border-bottom:1px solid var(--line);margin-bottom:40px;}
+  .hero .eyebrow{font-size: 22px;color:var(--gold);font-weight:600;margin-bottom:10px;}
+  .hero h1{font-size:1.9rem;margin:0 0 14px;}
+  .hero p{color:var(--ink-soft);font-size: 22px;max-width:66ch;margin:0 0 10px;}
+
+  .alert-box{
+    background:var(--danger-soft);
+    border-left:4px solid var(--danger);
+    border-radius:var(--radius);
+    padding:16px 20px;
+    margin-top:18px;
+    font-size: 22px;
+  }
+  .alert-box strong{color:var(--danger);}
+
+  section{margin-bottom:52px;scroll-margin-top:20px;}
+  section > h2{font-size:1.4rem;border-bottom:2px solid var(--forest-deep);padding-bottom:10px;margin-bottom:20px;}
+  section > h2 .tag{
+    font-family:'Noto Sans TC',sans-serif;
+    font-size: 22px;
+    font-weight:700;
+    vertical-align:middle;
+    margin-left:10px;
+    padding:3px 9px;
+    border-radius:20px;
+    letter-spacing:.03em;
+  }
+  .tag-14064{background:var(--blue-soft);color:var(--blue);}
+  .tag-14067{background:var(--gold-soft);color:var(--gold);}
+  .tag-both{background:var(--surface-2);color:var(--forest);}
+
+  p{color:var(--ink);}
+  .muted{color:var(--ink-soft);}
+
+  table{width:100%;border-collapse:collapse;margin:16px 0 8px;font-size: 22px;background:var(--surface);}
+  th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top;}
+  th{background:var(--surface-2);color:var(--forest-deep);font-weight:600;font-size: 22px;}
+  tr:nth-child(even) td{background:#fbfbf9;}
+
+  /* method steps */
+  .method{display:grid;gap:12px;}
+  .method-step{
+    display:grid;grid-template-columns:38px 1fr;gap:14px;
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:16px 18px;
+  }
+  .method-step .n{
+    font-family:'JetBrains Mono',monospace;font-weight:700;color:#fff;
+    background:var(--forest);width:32px;height:32px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-size: 22px;
+  }
+  .method-step h4{margin:0 0 4px;font-size: 22px;}
+  .method-step p{margin:0;font-size: 22px;color:var(--ink-soft);}
+
+  /* concept card (principle-style) */
+  .card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px 26px;margin-bottom:18px;
+  }
+  .card.b14064{border-left:4px solid var(--blue);}
+  .card.b14067{border-left:4px solid var(--gold);}
+  .card h3{margin:0 0 10px;font-size: 22px;}
+  .card h4{font-size: 22px;text-transform:uppercase;letter-spacing:.05em;color:var(--forest);margin:16px 0 6px;}
+  .card ul{margin:0 0 4px;padding-left:1.3em;}
+  .card li{margin-bottom:5px;}
+  .def{background:var(--surface-2);border-radius:var(--radius);padding:11px 15px;margin:10px 0 14px;font-size: 22px;}
+
+  .confuse-box{
+    background:var(--gold-soft);border-radius:var(--radius);padding:12px 16px;margin-top:16px;font-size: 22px;
+  }
+  .confuse-box strong{color:var(--danger);}
+
+  /* Quiz */
+  .quiz-groupbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;}
+  .quiz-groupbar span{font-size: 22px;background:var(--surface-2);border-radius:20px;padding:5px 14px;color:var(--ink-soft);}
+  .qgroup-title{font-size: 22px;color:var(--forest);margin:32px 0 6px;display:flex;align-items:center;gap:10px;}
+  .qgroup-title:first-of-type{margin-top:0;}
+  .qgroup-sub{font-size: 22px;color:var(--ink-soft);margin:0 0 16px;}
+
+  .subgrp{
+    font-size: 22px;font-weight:600;color:var(--forest-deep);
+    margin:22px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line);
+  }
+
+  .q-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px 22px;margin-bottom:14px;}
+  .q-num{font-family:'JetBrains Mono',monospace;color:var(--gold);font-weight:600;margin-right:6px;}
+  .q-scenario{
+    background:var(--blue-soft);border-radius:var(--radius);padding:11px 15px;
+    font-size: 22px;color:var(--ink-soft);margin-bottom:10px;white-space:pre-line;
+  }
+  .q-stem{font-weight:600;margin:0 0 10px;}
+  .q-options{list-style:none;margin:0 0 12px;padding:0;display:grid;gap:5px;font-size: 22px;color:var(--ink-soft);}
+  .q-options li{padding-left:1.4em;text-indent:-1.4em;}
+
+  details.q-reveal{border-top:1px dashed var(--line);padding-top:8px;}
+  details.q-reveal summary{cursor:pointer;color:var(--forest);font-size: 22px;font-weight:600;list-style:none;display:inline-flex;align-items:center;gap:6px;}
+  details.q-reveal summary::-webkit-details-marker{display:none;}
+  details.q-reveal summary::before{content:"▸";display:inline-block;transition:transform .15s ease;}
+  details.q-reveal[open] summary::before{transform:rotate(90deg);}
+  .answer-box{margin-top:10px;padding:12px 16px;background:var(--gold-soft);border-radius:var(--radius);font-size: 22px;}
+  .answer-box .ans{font-weight:700;color:var(--forest-deep);margin-bottom:4px;}
+
+  footer{text-align:center;color:var(--ink-soft);font-size: 22px;padding:30px 0 60px;}
+  @media (max-width: 768px) {
+  
+.sidebar {margin-top: 6rem;padding:8px 18px 30px;}  
+}
+.badgerowbt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px;
+    background: #ffffff;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+a.badge1 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #007286;
+    color: #fff;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+a.badge2 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #007286;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+a.badge3 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #b8238d;
+    color: yellow;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+</style>
+</head>
+<body>
+<div class="badgerowbt">			
+	<!--<div><a href="https://snoweryi.github.io/yilearn/i01.html" class="badge1">01趨勢及策略</a></div>-->
+	<div><a href="https://snoweryi.github.io/yilearn/i02.html" class="badge1">溫室氣體盤查</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/a_64.html" class="badge1">14064</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/a_64_1.html" class="badge1">14064</a></div>
+	
+	<div><a href="https://snoweryi.github.io/yilearn/a_67_7.html" class="badge1">7步驟</a></div>
+	
+	
+	<div><a href="https://snoweryi.github.io/yilearn/i03.html" class="badge1">碳足跡</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i031.html" class="badge1">碳足跡2</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/a_67.html" class="badge1">14067</a></div>
+	
+	<div><a href="https://snoweryi.github.io/yilearn/a_lca.html" class="badge1">LCA</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/a_lca2.html" class="badge1">LCA2</a></div>
+	
+	
+	<div><a href="https://snoweryi.github.io/yilearn/i022.html" class="badge1">考科二</a></div>	
+	<div><a href="https://snoweryi.github.io/yilearn/a_6467.html" class="badge1">64& 67</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/6467.html" class="badge2">64& 67</a></div>
+	
+	
+	<div><a href="https://snoweryi.github.io/yilearn" class="badge3">目錄</a></div>
+</div>
+
+  <aside class="sidebar" id="sidebar">
+    <p class="sidebar-brand">iPAS 考科二 情境判讀筆記</p>
+    <p class="sidebar-sub">ISO 14064-1 × ISO 14067</p>
+    <button class="nav-toggle-btn" onclick="document.getElementById('sidebar').classList.toggle('open')">☰ 目錄</button>
+    <nav>
+      <a href="#why">為什麼這次要換讀法</a>
+      <a href="#method">情境題解題四步驟</a>
+      <span class="grp-label">ISO 14064-1 組織型盤查</span>
+      <a href="#c1">標準架構（-1/-2/-3）</a>
+      <a href="#c2">組織邊界：股權 vs 控制</a>
+      <a href="#c3">營運邊界：範疇與六大類別</a>
+      <a href="#c4">基準年與重新計算</a>
+      <a href="#c5">資料品質與量化方法</a>
+      <a href="#c6">盤查報告書與查證</a>
+      <span class="grp-label">ISO 14067 產品碳足跡</span>
+      <a href="#p1">系統邊界類型與適用情境</a>
+      <a href="#p2">功能單位、宣告單位與PCR</a>
+      <a href="#p3">分配方法（Allocation）</a>
+      <a href="#p4">切斷準則與重複計算</a>
+      <a href="#p5">碳足跡聲明 vs 碳中和聲明</a>
+      <span class="grp-label">易混淆比較</span>
+      <a href="#compare">14064-1 vs 14067 總表</a>
+      <span class="grp-label">練習試題</span>
+      <a href="#quiz-14064">14064-1 情境試題（1–25）</a>
+      <a href="#quiz-14067">14067 情境試題（26–50）</a>
+    </nav>
+  </aside>
+
+  <main>
+    <div class="container">
+
+      <div class="hero">
+        <p class="eyebrow">考科二・淨零碳盤查規範與程序概要</p>
+        <h1>ISO 14064-1 × ISO 14067 情境判讀筆記</h1>
+        <p>這份筆記不是條文背誦表，而是針對「情境判讀」重新整理：先建立每個概念在實務上「怎麼用、怎麼錯」的判斷邏輯，再用 50 題情境式選擇題驗證判讀能力。</p>
+        <div class="alert-box">
+          <strong>這次的重點調整：</strong> 近幾梯次的出題委員（查證機構、環工/管理學院教授、企業碳盤查顧問）在意的是「你能不能在一段情境描述中，抓出哪個步驟做錯、哪個名詞被誤用」，而不是條文編號本身。所以本筆記每個概念都搭配「情境會怎麼出」與「常見誤用」，取代單純的定義背誦。
+        </div>
+      </div>
+
+      <!-- ============ 為什麼要換讀法 ============ -->
+      <section id="why">
+        <h2>為什麼這次要換讀法</h2>
+        <p class="muted">背課本答不出情境題，是因為考題測的是「三層能力」的疊加，而不是單一層的記憶：</p>
+        <table>
+          <thead><tr><th style="width:20%">能力層次</th><th style="width:40%">測的是什麼</th><th>單純背課本為什麼答不出</th></tr></thead>
+          <tbody>
+            <tr><td>① 名詞定義</td><td>你知道「系統邊界」「組織邊界」「切斷準則」分別是什麼</td><td>課本能背到，但題目不會直接問定義</td></tr>
+            <tr><td>② 方法論邏輯</td><td>你知道這個名詞在計算流程中「該在哪一步出現、該怎麼做」</td><td>課本條列步驟，但沒教你「情境中哪一步被省略了」</td></tr>
+            <tr><td>③ 合規判斷</td><td>你能判斷情境中的做法「是否足夠支撐後續的聲明或用途」</td><td>課本不會逐一列舉所有情境組合，需要你自己推理</td></tr>
+          </tbody>
+        </table>
+        <p>例如題目描述「顧問公司只算到工廠出貨為止」，這句話本身在考：① 你認得出這是 <strong>cradle-to-gate（搖籃到大門）</strong> 邊界；② 你知道這種邊界在方法論上「合規」（ISO 14067 允許依用途設定邊界）；③ 但你要判斷「如果客戶要做碳中和聲明」，這個邊界的資訊量夠不夠支撐該聲明——這一步才是多數人答錯的地方，因為答案不是「對」或「錯」，而是「邊界設定本身沒錯，但不足以支撐碳中和聲明」。</p>
+      </section>
+
+      <!-- ============ 解題四步驟 ============ -->
+      <section id="method">
+        <h2>情境題解題四步驟</h2>
+        <div class="method">
+          <div class="method-step">
+            <div class="n">1</div>
+            <div><h4>先分辨考的是哪一套標準</h4><p>情境提到「公司總排放、範疇 1/2/3、組織邊界」→ ISO 14064-1；提到「某產品、功能單位、系統邊界、原料到消費者」→ ISO 14067。兩套標準常在同一情境中混合出現（例如公司要用組織盤查數據去算某產品碳足跡），要先分清楚題目問的是哪一層。</p></div>
+          </div>
+          <div class="method-step">
+            <div class="n">2</div>
+            <div><h4>找出情境中「被省略」或「被誤用」的步驟</h4><p>情境題常見寫法是先描述一段「看似合理」的做法，再藏一個關鍵漏洞：漏了某個排放源、用了不對的邊界、混淆了兩個相似名詞。讀題時要邊讀邊問「這一步，標準要求的完整做法是什麼？這裡少了什麼？」</p></div>
+          </div>
+          <div class="method-step">
+            <div class="n">3</div>
+            <div><h4>對照「用途」判斷合不合格</h4><p>同一個邊界設定，用途不同結論就不同：cradle-to-gate 拿去做「企業對企業的原料碳足跡溝通」沒問題，但拿去做「碳中和聲明」通常不夠完整。判斷合規與否，永遠要回頭看「這個數據接下來要拿去做什麼」。</p></div>
+          </div>
+          <div class="method-step">
+            <div class="n">4</div>
+            <div><h4>用刪去法鎖定最貼近情境的選項</h4><p>四個選項通常會放：1 個完全無關的干擾項、1～2 個「部分正確但不是情境問的那個層次」的選項、1 個正解。先刪掉答非所問的選項，再從剩下的裡面比對「哪個最精準對應情境中被踩到的那個環節」。</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ ISO 14064-1 ============ -->
+      <section id="c1">
+        <h2>ISO 14064-1：組織型溫室氣體盤查 <span class="tag tag-14064">14064</span></h2>
+
+        <div class="card b14064">
+          <h3>標準架構：14064-1 / -2 / -3 分工</h3>
+          <table>
+            <thead><tr><th>標準</th><th>層級</th><th>用途</th><th>情境關鍵字</th></tr></thead>
+            <tbody>
+              <tr><td>ISO 14064-1</td><td>組織層級</td><td>盤查企業／組織整體的溫室氣體排放與移除</td><td>公司總部、廠區、範疇1/2/3</td></tr>
+              <tr><td>ISO 14064-2</td><td>專案層級</td><td>量化減量／移除專案的效果（如造林、汰換設備）</td><td>減量專案、基線情境、額外性</td></tr>
+              <tr><td>ISO 14064-3</td><td>查證與確證</td><td>對盤查報告（查證）或未來預測（確證）進行第三方確認</td><td>查證機構、合理保證、重大性門檻</td></tr>
+            </tbody>
+          </table>
+          <div class="confuse-box"><strong>情境常見誤區：</strong>題目描述「某查證機構對企業去年的溫室氣體報告書出具聲明」，很多人會答 14064-1（因為看到「企業」），但這句話問的是「查證」這個動作，正確答案是 <strong>14064-3</strong>。判斷依據永遠是「這句話在描述哪個動作」，不是「這句話提到誰」。</div>
+        </div>
+
+        <div class="card b14064" id="c2">
+          <h3>組織邊界：股權比例法 vs 控制法</h3>
+          <div class="def">定義：組織邊界決定「哪些營運單位的排放要納入這家公司的盤查範圍」，在合資、轉投資、委外經營等情境下特別關鍵。</div>
+          <table>
+            <thead><tr><th>方法</th><th>認列邏輯</th><th>典型情境</th></tr></thead>
+            <tbody>
+              <tr><td>股權比例法（Equity Share）</td><td>依實際持股比例認列該營運單位的排放</td><td>轉投資子公司、合資企業，且無明確主導營運的一方</td></tr>
+              <tr><td>財務控制法</td><td>能主導該營運單位的財務政策以獲取經濟利益者，100% 認列</td><td>雖只持股 40%，但握有董事會多數席次、可決定財務決策</td></tr>
+              <tr><td>營運控制法</td><td>能主導該營運單位的營運政策（如安全衛生、環保政策）者，100% 認列</td><td>委託第三方代管廠區，但自家公司訂定所有操作規範</td></tr>
+            </tbody>
+          </table>
+          <div class="confuse-box"><strong>情境常見誤區：</strong>「持股 30% 但完全主導該廠營運政策」——很多人直覺選股權比例法（只認 30%），但只要具備營運或財務主導權，即使股權低，也要用控制法 100% 認列，這是情境題最愛設的陷阱。</div>
+        </div>
+
+        <div class="card b14064" id="c3">
+          <h3>營運邊界：範疇 1/2/3 與六大類別</h3>
+          <div class="def">定義：營運邊界決定「組織邊界內的排放源，要依什麼分類方式呈現」。ISO 14064-1:2018 用六大類別取代舊版單純的範疇 1/2/3 三分法。</div>
+          <table>
+            <thead><tr><th>類別</th><th>內容</th><th>對應範疇</th><th>情境例子</th></tr></thead>
+            <tbody>
+              <tr><td>類別 1</td><td>直接溫室氣體排放與移除</td><td>範疇 1</td><td>鍋爐燃燒天然氣、公司自有車隊、冷媒逸散</td></tr>
+              <tr><td>類別 2</td><td>輸入能源間接排放</td><td>範疇 2</td><td>外購電力、蒸汽、熱、冷</td></tr>
+              <tr><td>類別 3</td><td>運輸間接排放</td><td>範疇 3</td><td>員工通勤、商務差旅、原物料上游運輸</td></tr>
+              <tr><td>類別 4</td><td>使用組織產品的間接排放（上游）</td><td>範疇 3</td><td>採購原料、資本財、外部委外製造</td></tr>
+              <tr><td>類別 5</td><td>與組織所產出產品有關的間接排放（下游）</td><td>範疇 3</td><td>售出產品的使用階段、產品廢棄處理</td></tr>
+              <tr><td>類別 6</td><td>其他間接排放</td><td>範疇 3</td><td>投資組合排放、加盟商營運排放</td></tr>
+            </tbody>
+          </table>
+          <div class="confuse-box"><strong>情境常見誤區：</strong>「消費者使用產品產生的排放」屬於<strong>類別 5</strong>（下游），常被誤放進類別 3（運輸）或類別 4（上游），關鍵是先分清楚「這個排放發生在組織產品的上游還是下游」。</div>
+        </div>
+
+        <div class="card b14064" id="c4">
+          <h3>基準年與重新計算</h3>
+          <div class="def">定義：基準年是後續追蹤減量成效的比較基礎，「什麼情況需要重算基準年」是情境題高頻考點。</div>
+          <h4>需要重新計算基準年的情況</h4>
+          <ul>
+            <li>結構性改變：併購、處分、廠區關閉或新設</li>
+            <li>計算方法或排放係數發生重大改變（例如改用更精確的實測值取代預設係數）</li>
+            <li>發現過去盤查存在重大錯誤（超過事先設定的重大性門檻）</li>
+          </ul>
+          <h4>不需要重新計算基準年的情況</h4>
+          <ul>
+            <li>單純因為產量增減、營運規模自然變化導致排放量變動</li>
+            <li>因為節能減碳措施奏效使排放量下降（這正是要被看見的減量成效）</li>
+          </ul>
+          <div class="confuse-box"><strong>情境常見誤區：</strong>「公司因為訂單減少，今年排放量下降 20%，是否需要重新計算基準年？」——答案是<strong>不需要</strong>，訂單／產量變化屬於營運自然波動，不是結構性改變，若隨意重算基準年反而會掩蓋真實的減量或增量趨勢。</div>
+        </div>
+
+        <div class="card b14064" id="c5">
+          <h3>資料品質與量化方法</h3>
+          <table>
+            <thead><tr><th>方法</th><th>做法</th><th>資料品質</th></tr></thead>
+            <tbody>
+              <tr><td>直接量測</td><td>用連續排放監測設備（CEMS）等直接量測排放濃度與流量</td><td>最高</td></tr>
+              <tr><td>質量平衡法</td><td>依投入與產出物質的質量差推算排放量</td><td>中高</td></tr>
+              <tr><td>排放係數法</td><td>活動數據 × 排放係數（最常見做法）</td><td>取決於係數來源是否具代表性</td></tr>
+            </tbody>
+          </table>
+          <div class="confuse-box"><strong>情境常見誤區：</strong>「某公司用國外資料庫的通用係數計算國內某特化製程排放，結果被查證機構要求補正」——這不是「方法錯誤」（排放係數法本身合規），而是「係數的代表性不足」，情境問的是資料品質問題，不是方法論選錯。</div>
+        </div>
+
+        <div class="card b14064" id="c6">
+          <h3>盤查報告書與查證</h3>
+          <h4>報告書應包含的關鍵資訊</h4>
+          <ul>
+            <li>組織邊界設定方法（股權比例／財務控制／營運控制）與理由</li>
+            <li>營運邊界涵蓋的類別與範疇，及排除項目與排除理由</li>
+            <li>基準年與其設定原則</li>
+            <li>量化方法、排放係數來源、不確定性評估</li>
+          </ul>
+          <h4>查證重點（對應 ISO 14064-3）</h4>
+          <ul>
+            <li>查證等級分「合理保證」與「有限保證」，保證等級越高，查證程序越嚴謹</li>
+            <li>查證機構會設定重大性門檻（常見約 5%），超過門檻的誤差需更正</li>
+            <li>查證是對「已發生」的盤查報告做確認；確證則是對「未來」的專案減量預測做確認（屬 14064-2 情境）</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ============ ISO 14067 ============ -->
+      <section id="p1">
+        <h2>ISO 14067：產品碳足跡 <span class="tag tag-14067">14067</span></h2>
+
+        <div class="card b14067">
+          <h3>系統邊界類型與適用情境</h3>
+          <div class="def">定義：系統邊界決定產品生命週期中「算到哪裡為止」，這是本次最容易被出成情境題的概念。</div>
+          <table>
+            <thead><tr><th>邊界類型</th><th>涵蓋範圍</th><th>典型適用情境</th></tr></thead>
+            <tbody>
+              <tr><td>Cradle-to-gate（搖籃到大門）</td><td>原料取得 → 製造，止於工廠出貨</td><td>B2B 半成品／原料，買方會繼續加工，或作為供應鏈溝通的中繼數據</td></tr>
+              <tr><td>Cradle-to-grave（搖籃到墳墓）</td><td>原料取得 → 製造 → 配送 → 使用 → 廢棄</td><td>最終消費品、需要對消費者揭露完整碳足跡、碳中和聲明的基礎</td></tr>
+              <tr><td>Gate-to-gate（大門到大門）</td><td>僅工廠內部單一製程</td><td>作為模組化數據插入其他研究的系統邊界中，不單獨作為完整聲明</td></tr>
+            </tbody>
+          </table>
+          <div class="confuse-box"><strong>情境會怎麼出（呼應你提到的罐頭食品案例）：</strong>「顧問公司只算到工廠出貨為止，未納入消費者食用及包裝回收階段」——這句話本身<strong>沒有違反 ISO 14067</strong>，因為標準允許依研究目的設定 cradle-to-gate 邊界，只要清楚揭露邊界與理由（呼應相關性、透明度原則）。但緊接著問「若客戶要做碳中和聲明，這樣的邊界夠不夠？」，答案是<strong>不夠</strong>：碳中和聲明通常需要涵蓋完整生命週期的排放量（cradle-to-grave），若使用或廢棄階段占比顯著（例如需要消費者加熱、產品含高碳足跡包材），只算到出貨會嚴重低估總碳足跡，讓碳中和聲明失去依據。判斷關鍵不是「邊界設定本身對不對」，而是「邊界設定跟後續聲明用途搭不搭」。</div>
+        </div>
+
+        <div class="card b14067" id="p2">
+          <h3>功能單位、宣告單位與 PCR</h3>
+          <table>
+            <thead><tr><th>概念</th><th>定義</th><th>使用時機</th></tr></thead>
+            <tbody>
+              <tr><td>功能單位（Functional Unit）</td><td>以產品「提供的功能」作為計算基礎，如「提供 1000 小時照明」</td><td>產品功能明確、可用於跨產品比較（如比較兩款燈泡）</td></tr>
+              <tr><td>宣告單位（Declared Unit）</td><td>以產品「數量」作為計算基礎，如「1 公斤產品」</td><td>產品功能難以明確定義、或研究目的不涉及跨產品功能比較</td></tr>
+              <tr><td>PCR（產品類別規則）</td><td>特定產品類別的計算細則（邊界、分配方法、數據要求）</td><td>該產品類別若已有公開 PCR，應優先採用以確保同類產品可比較</td></tr>
+            </tbody>
+          </table>
+          <div class="confuse-box"><strong>情境常見誤區：</strong>「兩家公司比較同款瓶裝水的碳足跡，一家用『1 公斤產品』，一家用『提供 500ml 解渴功能』」——兩者用了不同性質的單位（宣告單位 vs 功能單位），結果不具可比性，這種情境問的通常是「一致性」或「相關性」被違反，而不是功能單位本身用錯。</div>
+        </div>
+
+        <div class="card b14067" id="p3">
+          <h3>分配方法（Allocation）</h3>
+          <div class="def">定義：當同一製程同時產出多個聯產品（co-product）時，需要決定如何把排放量分配給各產品。</div>
+          <h4>優先順序（由高到低）</h4>
+          <ul>
+            <li><strong>避免分配</strong>：優先透過細分製程單元，或用「系統擴展法」擴大系統邊界納入替代產品的排放，從根本避免分配問題</li>
+            <li><strong>物理關係分配</strong>：依質量、體積、能量等物理量分配（無法避免分配時優先採用）</li>
+            <li><strong>經濟關係分配</strong>：依產品的經濟價值比例分配（僅在物理關係無法反映實際情況時採用）</li>
+          </ul>
+          <div class="confuse-box"><strong>情境常見誤區：</strong>「某榨油廠同時產出沙拉油與飼料用副產物，顧問公司直接依市場售價比例分配排放」——這不必然違規，但情境若強調「未先評估是否能透過細分製程或系統擴展避免分配」，就是違反了分配方法的<strong>優先順序</strong>，正確做法應先評估能否避免分配，而非直接跳到經濟分配。</div>
+        </div>
+
+        <div class="card b14067" id="p4">
+          <h3>切斷準則與重複計算</h3>
+          <ul>
+            <li>切斷準則：允許忽略單項小於 <strong>1%</strong> 的投入或排放，但<strong>總切斷量不得超過 5%</strong>，且需揭露切斷內容與理由</li>
+            <li>重複計算：同一排放源不能在生命週期的不同階段被算兩次（例如原料運輸同時算進「原料取得」與「運輸」階段）</li>
+            <li>產品碳足跡與組織碳盤查（14064-1）也可能發生重複計算：若供應商已將某排放算進其產品碳足跡，採購方又把同一筆排放算進自己的組織盤查範疇 3，需要明確界定責任邊界，避免同一噸碳被兩套系統各算一次而未揭露對應關係</li>
+          </ul>
+        </div>
+
+        <div class="card b14067" id="p5">
+          <h3>碳足跡聲明 vs 碳中和聲明</h3>
+          <div class="def">定義：ISO 14067 規範的是「如何量化並聲明產品碳足跡」，本身不等於「碳中和」；碳中和聲明需要在碳足跡量化的基礎上，再疊加減量與抵換的證明。</div>
+          <table>
+            <thead><tr><th>比較項目</th><th>碳足跡聲明（14067）</th><th>碳中和聲明</th></tr></thead>
+            <tbody>
+              <tr><td>核心內容</td><td>量化並揭露某產品的碳排放量</td><td>證明淨排放量為零（排放量經減量與抵換後歸零）</td></tr>
+              <tr><td>系統邊界要求</td><td>可依研究目的選擇 cradle-to-gate 或 cradle-to-grave，只要透明揭露</td><td>通常需要涵蓋完整生命週期，避免低估基準排放量</td></tr>
+              <tr><td>是否涉及碳抵換</td><td>不涉及，純粹是量化與揭露</td><td>涉及，需搭配減量優先、殘餘排放才可抵換的原則</td></tr>
+            </tbody>
+          </table>
+          <div class="confuse-box"><strong>情境常見誤區：</strong>「某公司完成 ISO 14067 碳足跡查證後，直接對外宣稱『本產品已通過碳中和認證』」——這是常見的誤用：碳足跡查證只代表數據被驗證正確，<strong>不等於</strong>碳中和，除非再完成減量與抵換並取得相對應的碳中和聲明依據。</div>
+        </div>
+      </section>
+
+      <!-- ============ 比較總表 ============ -->
+      <section id="compare">
+        <h2>14064-1 vs 14067 易混淆總表 <span class="tag tag-both">綜合</span></h2>
+        <table>
+          <thead><tr><th style="width:20%">比較項目</th><th>ISO 14064-1</th><th>ISO 14067</th></tr></thead>
+          <tbody>
+            <tr><td>盤查對象</td><td>整個組織／企業</td><td>單一產品的生命週期</td></tr>
+            <tr><td>邊界名稱</td><td>組織邊界 + 營運邊界</td><td>系統邊界</td></tr>
+            <tr><td>分類方式</td><td>範疇 1/2/3、六大類別</td><td>生命週期階段（原料、製造、配送、使用、廢棄）</td></tr>
+            <tr><td>比較基準</td><td>基準年</td><td>功能單位／宣告單位</td></tr>
+            <tr><td>常見輸出</td><td>年度溫室氣體盤查報告書</td><td>產品碳足跡報告、碳標籤</td></tr>
+            <tr><td>查證依據</td><td>ISO 14064-3</td><td>可比照第三方查證機構規範，常見同樣引用查證等級與重大性門檻概念</td></tr>
+            <tr><td>與範疇 3 的關係</td><td>類別 4、5 常需引用供應商或客戶的產品碳足跡數據</td><td>產品碳足跡數據常是組織盤查範疇 3 的資料來源之一</td></tr>
+          </tbody>
+        </table>
+        <p class="muted">情境題常故意把兩套標準的名詞混用（例如把「組織邊界」用在描述單一產品的情境），讀題時先確認「這句話在講整個公司，還是講一項產品」，就能快速定位該用哪一套邏輯作答。</p>
+      </section>
+
+      <!-- ============ 試題 ============ -->
+      <section id="quiz">
+        <h2>📝 50 題情境模擬試題</h2>
+        <div class="quiz-groupbar">
+          <span>ISO 14064-1 情境題 25 題</span>
+          <span>ISO 14067 情境題 25 題</span>
+        </div>
+        <p class="muted">每題先讀情境描述，依「解題四步驟」判斷後再點擊「顯示解答」核對，解析會說明情境中真正被踩到的環節。</p>
+
+        <h3 class="qgroup-title" id="quiz-14064">ISO 14064-1 情境試題（1–25）</h3>
+
+        <div class="subgrp">組織邊界（1–5）</div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">1.</span>某集團持有 A 公司 35% 股權，但依合資協議握有 A 公司董事會多數席次，並主導其財務決策。集團在做組織型盤查時應如何認列 A 公司排放？</p>
+          <ul class="q-options"><li>(A) 依 35% 股權比例認列</li><li>(B) 依財務控制法 100% 認列</li><li>(C) 完全排除不認列</li><li>(D) 依營運控制法排除</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：雖股權僅 35%，但已具備財務控制力（主導財務決策、董事會多數），依財務控制法應 100% 認列，不受股權比例限制。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">2.</span>某公司委託代工廠生產，代工廠的產線操作規範、環安衛政策完全由委託公司訂定並執行監督，但委託公司對代工廠無任何股權。此代工廠排放應否納入委託公司的組織邊界？</p>
+          <ul class="q-options"><li>(A) 不需要，因為沒有股權關係</li><li>(B) 需要，依營運控制法納入</li><li>(C) 需要，依股權比例法按 50% 納入</li><li>(D) 僅需揭露，不需量化</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：營運控制法看的是誰主導營運政策，與股權無關；委託公司完全主導代工廠的操作規範與環安衛政策，應依營運控制法納入組織邊界。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">3.</span>某企業在同一份盤查報告書中，對子公司 X 使用股權比例法，對子公司 Y 卻使用財務控制法，且未說明理由。此做法主要的問題是？</p>
+          <ul class="q-options"><li>(A) 違反基準年設定原則</li><li>(B) 邊界方法選用不一致且未揭露理由，影響可信度與可比性</li><li>(C) 違反切斷準則</li><li>(D) 沒有問題，公司可自由選擇</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：組織邊界方法一經選定，原則上應對所有營運單位一致適用；若需混用，須揭露理由，否則會影響報告的可比性與可信度。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">4.</span>某公司今年新併購一間工廠，該工廠去年並未被納入盤查範圍。今年盤查報告書中應如何處理基準年？</p>
+          <ul class="q-options"><li>(A) 維持原基準年，不需調整</li><li>(B) 因屬結構性改變，應重新計算基準年並揭露調整方法</li><li>(C) 直接將新工廠數據排除，不予處理</li><li>(D) 等三年後再一併調整</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：併購屬於結構性改變，屬於觸發基準年重新計算的情形，且需揭露調整方法以維持可比性。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">5.</span>某公司股權結構複雜，同時對三家子公司分別持股 100%、60%、20%（20% 者無控制力）。依股權比例法，該公司應如何認列這三家子公司的排放？</p>
+          <ul class="q-options"><li>(A) 三家都 100% 認列</li><li>(B) 依 100%、60%、20% 的比例分別認列排放</li><li>(C) 只認列持股 100% 的子公司</li><li>(D) 三家都不認列，等查證機構決定</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：股權比例法的核心邏輯就是依實際持股比例認列排放，不論是否具控制力，這點與控制法（有控制力則 100% 認列）不同。</div></details>
+        </div>
+
+        <div class="subgrp">營運邊界與範疇分類（6–11）</div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">6.</span>某製造業公司將「員工每日通勤產生的排放」歸入範疇 1（直接排放）。此分類是否正確？</p>
+          <ul class="q-options"><li>(A) 正確，員工是公司的一部分</li><li>(B) 不正確，應屬類別 3（運輸間接排放），為範疇 3</li><li>(C) 不正確，應屬類別 2（能源間接排放）</li><li>(D) 不正確，應完全排除不計</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：員工通勤不是公司直接控制的排放源，屬於類別 3 運輸間接排放，歸入範疇 3。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">7.</span>某家電公司計算「消費者使用其冷氣機時的用電排放」，應歸入哪個類別？</p>
+          <ul class="q-options"><li>(A) 類別 3：運輸間接排放</li><li>(B) 類別 4：使用組織產品的間接排放（上游）</li><li>(C) 類別 5：與組織所產出產品有關的間接排放（下游）</li><li>(D) 類別 2：能源間接排放</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(C)</div>解析：消費者使用產品發生在該產品的下游（售出之後），屬於類別 5，容易與類別 3、4 混淆。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">8.</span>某公司外購電力供廠區使用，且外購蒸汽用於製程加熱。這兩項應歸入？</p>
+          <ul class="q-options"><li>(A) 類別 1</li><li>(B) 類別 2</li><li>(C) 類別 3</li><li>(D) 類別 6</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：外購電力與蒸汽都屬於「輸入能源間接排放」，即類別 2，對應範疇 2。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">9.</span>某公司採購原物料時，將供應商生產該原料所產生的排放計入自己的盤查報告，歸類為範疇 3。此做法對應哪個類別？</p>
+          <ul class="q-options"><li>(A) 類別 4：使用組織產品的間接排放（上游）</li><li>(B) 類別 5：下游產品使用排放</li><li>(C) 類別 1：直接排放</li><li>(D) 類別 2：能源間接排放</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(A)</div>解析：採購原物料、資本財屬於上游供應鏈排放，歸入類別 4。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">10.</span>某公司廠內鍋爐直接燃燒天然氣、公司自有貨車運送原料進廠。這兩項排放應歸入？</p>
+          <ul class="q-options"><li>(A) 都屬於類別 1（直接排放）</li><li>(B) 鍋爐屬類別 1，公司貨車屬類別 3</li><li>(C) 都屬於類別 3</li><li>(D) 鍋爐屬類別 2，貨車屬類別 1</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(A)</div>解析：兩者都屬於公司自有且直接控制的排放源（燃燒設備、自有車輛），均屬類別 1 直接排放。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">11.</span>某加盟連鎖企業將加盟店的營運排放全數排除在盤查邊界外，理由是「加盟店不是直接持股的子公司」。此做法最可能忽略了哪個類別？</p>
+          <ul class="q-options"><li>(A) 類別 1</li><li>(B) 類別 2</li><li>(C) 類別 6：其他間接排放</li><li>(D) 不需歸類，排除即可</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(C)</div>解析：加盟商營運排放屬於類別 6「其他間接排放」，即使沒有股權關係，仍應評估是否具重大性並揭露納入或排除的理由，不能單純以無股權為由直接排除。</div></details>
+        </div>
+
+        <div class="subgrp">基準年與重新計算（12–15）</div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">12.</span>某公司因導入節能設備，今年排放量較基準年下降 15%，公司考慮是否要重新計算基準年以「反映最新狀況」。此考量是否正確？</p>
+          <ul class="q-options"><li>(A) 正確，應每年更新基準年</li><li>(B) 不正確，減量成效不應作為重新計算基準年的理由</li><li>(C) 正確，只要下降超過 10% 就要重算</li><li>(D) 視查證機構心證決定</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：減量成效正是要被基準年比較所呈現的結果，若因此重算基準年，將掩蓋真實減量趨勢，這不是觸發重新計算的合理理由。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">13.</span>某公司發現三年前盤查報告書中，某排放源的活動數據誤植，導致總排放量少計 8%（公司設定重大性門檻為 5%）。應如何處理？</p>
+          <ul class="q-options"><li>(A) 不需處理，時間已過三年</li><li>(B) 誤差超過重大性門檻，應更正並重新計算基準年</li><li>(C) 僅需在下一年度報告書中口頭說明</li><li>(D) 更換查證機構即可</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：誤差 8% 超過公司設定的 5% 重大性門檻，屬於重大錯誤，應更正數據並依規定重新計算基準年。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">14.</span>某公司出售旗下一座工廠，導致組織邊界縮小。此變動對基準年的處理原則為？</p>
+          <ul class="q-options"><li>(A) 不需調整，維持原基準年數據</li><li>(B) 屬結構性改變，應調整基準年排放數據以維持可比性</li><li>(C) 直接刪除基準年，重新設定當年為基準年即可，無需說明</li><li>(D) 由買方負責調整，賣方不需處理</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：處分資產與併購一樣屬於結構性改變，應調整基準年數據（扣除該工廠排放），並揭露調整方法，才能維持前後年度可比性。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">15.</span>某公司因為改用國際排放係數資料庫取代自行量測數據，導致計算方法有重大改變。此變動應如何處理？</p>
+          <ul class="q-options"><li>(A) 不影響基準年，因為只是換資料來源</li><li>(B) 屬於計算方法重大改變，應評估是否重新計算基準年並揭露影響</li><li>(C) 只需通知查證機構口頭確認</li><li>(D) 直接沿用舊基準年數字，不做任何調整</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：計算方法或排放係數的重大改變，是觸發基準年重新計算評估的情形之一，須揭露方法變更對數據的影響。</div></details>
+        </div>
+
+        <div class="subgrp">資料品質與量化方法（16–19）</div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">16.</span>某工廠裝有連續排放監測設備（CEMS），可即時量測煙道排放濃度與流量。相較於「活動數據 × 排放係數」的方式，此做法的資料品質評價為？</p>
+          <ul class="q-options"><li>(A) 資料品質較低，因無法對照國際資料庫</li><li>(B) 資料品質較高，屬直接量測</li><li>(C) 兩者品質相同</li><li>(D) 無法比較，需視查證機構認定</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：直接量測反映實際排放狀況，資料品質通常高於「活動數據 × 排放係數」的推算方式。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">17.</span>某公司在計算特化製程排放時，採用國外通用資料庫的排放係數，未考慮該製程在國內的實際操作條件差異，查證時被要求補正。此問題屬於？</p>
+          <ul class="q-options"><li>(A) 方法論選用錯誤（不該用排放係數法）</li><li>(B) 排放係數代表性不足，屬資料品質問題</li><li>(C) 違反基準年設定原則</li><li>(D) 違反組織邊界設定原則</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：排放係數法本身是合規方法，問題出在所選係數的代表性（是否貼近實際操作條件），屬於資料品質問題而非方法論錯誤。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">18.</span>某公司無法取得供應商的實測排放數據，改用產業平均值估算範疇 3 排放。此做法在方法論上是否可行？</p>
+          <ul class="q-options"><li>(A) 不可行，範疇 3 必須用實測數據</li><li>(B) 可行，但應揭露資料來源與其對不確定性的影響</li><li>(C) 不可行，範疇 3 不應計算</li><li>(D) 可行，且不需揭露資料來源</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：在無法取得初級數據時，使用產業平均值是可接受的替代方案，但須揭露資料來源，並說明其對整體不確定性的影響，符合透明度要求。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">19.</span>某公司計算範疇 1 排放時，同時使用「活動數據 × 排放係數」與「質量平衡法」兩種方式驗證結果，發現兩者差異達 12%。此情況下公司應如何處理？</p>
+          <ul class="q-options"><li>(A) 直接採用數值較低者，降低申報排放量</li><li>(B) 應調查差異原因，並在報告書中揭露不確定性與最終採用方法的理由</li><li>(C) 差異在合理範圍內，不需處理</li><li>(D) 平均兩個數值作為最終結果，不需說明</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：兩種量化方法出現顯著差異時，應調查原因並揭露不確定性分析與方法選擇理由，而非直接選擇對自己有利的數值。</div></details>
+        </div>
+
+        <div class="subgrp">報告書與查證（20–25）</div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">20.</span>某公司盤查報告書中，將某一小型排放源排除，但未說明排除理由與其占比。查證機構應如何看待此做法？</p>
+          <ul class="q-options"><li>(A) 只要金額小就沒問題，不需說明</li><li>(B) 應要求公司揭露排除項目與理由，以判斷是否符合完整性與透明度</li><li>(C) 直接視為造假，撤銷查證資格</li><li>(D) 不影響查證結果，可直接通過</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：任何排除項目都應揭露理由與占比，讓查證機構判斷是否合理，未揭露屬於透明度不足的問題。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">21.</span>某企業委託查證機構針對其「明年度計畫執行的節能專案」預估減量效果進行確認。此屬於哪個標準的適用範圍？</p>
+          <ul class="q-options"><li>(A) ISO 14064-1 查證</li><li>(B) ISO 14064-2 確證（validation）</li><li>(C) ISO 14067 查證</li><li>(D) ISO 14064-3 查證（verification）</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：對「未來」的減量專案預測進行確認稱為確證（validation），屬於 ISO 14064-2 專案層級的適用情境，與查證「已發生」數據的 verification 不同。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">22.</span>某查證機構針對企業去年的盤查報告，僅執行文件審查與抽樣訪談，未實地查核現場設備，最終給予「有限保證」等級的查證聲明。此做法是否合理？</p>
+          <ul class="q-options"><li>(A) 不合理，查證一律須給合理保證</li><li>(B) 合理，有限保證本就允許較低強度的查證程序</li><li>(C) 不合理，未實地查核就不能出具任何查證聲明</li><li>(D) 合理，但必須事後補做合理保證等級的查證</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：查證等級分合理保證與有限保證，兩者對應不同強度的查證程序，有限保證程序相對精簡，只要符合該等級要求的程序即屬合理。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">23.</span>某企業盤查報告書中總排放量為 10,000 噸 CO₂e，查證機構設定重大性門檻為 5%，查核後發現誤差 300 噸。此誤差是否需要更正？</p>
+          <ul class="q-options"><li>(A) 需要，因為任何誤差都要更正</li><li>(B) 不需要，因為 300 噸低於 5%（500 噸）的重大性門檻</li><li>(C) 需要，因為超過門檻</li><li>(D) 視企業意願決定</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：10,000 噸的 5% 為 500 噸，實際誤差 300 噸低於重大性門檻，屬可接受範圍，不強制要求更正（但仍可能建議改善）。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">24.</span>某公司的盤查報告書完整揭露組織邊界、營運邊界、基準年與量化方法，但完全未提及任何數據的不確定性。此報告書最可能被指出的缺失為？</p>
+          <ul class="q-options"><li>(A) 沒有缺失，四大要素都揭露了即為完整</li><li>(B) 缺少不確定性評估，不利於判斷數據可信度</li><li>(C) 應重新設定組織邊界</li><li>(D) 應重新計算基準年</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：完整的盤查報告書除邊界、基準年、量化方法外，也應包含不確定性評估，讓使用者理解數據的可信賴程度。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">25.</span>某企業對外宣稱「本公司溫室氣體盤查報告已通過 ISO 14064-1 認證」。此說法在用詞上最主要的問題是？</p>
+          <ul class="q-options"><li>(A) 沒有問題，用詞正確</li><li>(B) ISO 14064-1 是量化與報告的規範標準，企業應說「盤查報告已依 ISO 14064-1 完成並經第三方查證」，而非「通過認證」</li><li>(C) 應改成「通過 ISO 14067 認證」</li><li>(D) 應改成「通過碳中和認證」</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：ISO 14064-1 規範的是盤查方法與報告內容，第三方確認的動作是「查證」而非「認證」，用詞混淆是常見的誤用陷阱。</div></details>
+        </div>
+
+        <h3 class="qgroup-title" id="quiz-14067">ISO 14067 情境試題（26–50）</h3>
+
+        <div class="subgrp">系統邊界類型與適用情境（26–31）</div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">26.</span>某食品廠委託顧問公司計算其罐頭產品的碳足跡，顧問公司只計算到工廠出貨為止，未納入消費者食用及包裝回收階段。此做法屬於哪一種系統邊界？是否合乎 ISO 14067 規範？</p>
+          <ul class="q-options"><li>(A) Cradle-to-grave，不合規範</li><li>(B) Cradle-to-gate，合乎規範，只要清楚揭露邊界與理由</li><li>(C) Gate-to-gate，不合規範</li><li>(D) Cradle-to-gate，不合規範，必須包含使用與廢棄階段</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：只算到出貨為止即為 cradle-to-gate，ISO 14067 允許依研究目的設定此邊界，只要透明揭露邊界範圍與排除理由即合規。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">27.</span>承上題，若客戶要求以此碳足跡數據作為「產品碳中和聲明」的依據，此 cradle-to-gate 邊界是否足夠？</p>
+          <ul class="q-options"><li>(A) 足夠，因為出貨前的排放占比通常最高</li><li>(B) 不足夠，碳中和聲明通常需要涵蓋完整生命週期，避免低估使用與廢棄階段排放</li><li>(C) 足夠，碳中和聲明只需考慮製造階段</li><li>(D) 不確定，需視政府法規而定，與邊界設定無關</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：碳中和聲明需要以完整、不低估的排放基準為前提，若使用或廢棄階段排放顯著（如需加熱食用、包材處理），只算到出貨會嚴重低估總碳足跡，不足以支撐碳中和聲明。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">28.</span>某工業原料供應商為 B2B 客戶提供其原料的碳足跡數據，僅計算到自家工廠出貨為止，因為後續加工由買方進行且買方會自行計算後續階段。此做法是否合理？</p>
+          <ul class="q-options"><li>(A) 不合理，任何碳足跡都必須算到消費端</li><li>(B) 合理，cradle-to-gate 適合作為供應鏈中繼數據，由買方接續計算後續生命週期</li><li>(C) 不合理，B2B 產品不需要計算碳足跡</li><li>(D) 合理，但完全不需要揭露邊界說明</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：B2B 原料／半成品作為供應鏈中繼數據時，cradle-to-gate 是常見且合理的做法，讓下游買方接續計算，但仍須揭露邊界範圍以利對接。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">29.</span>某研究單位發布一項「工廠內某道塗裝製程」的碳排放數據，作為模組化資料供其他企業引用至各自的產品碳足跡研究中。此屬於哪種邊界類型？</p>
+          <ul class="q-options"><li>(A) Cradle-to-grave</li><li>(B) Cradle-to-gate</li><li>(C) Gate-to-gate</li><li>(D) 以上皆非</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(C)</div>解析：僅涵蓋工廠內部單一製程、作為模組化數據供其他研究引用，屬於 gate-to-gate，本身不構成完整的產品碳足跡聲明。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">30.</span>某家電品牌對外宣稱其冷氣機的碳足跡「僅計算製造階段」，但廣告文案卻強調「這台冷氣的碳足跡比競品低，選我們更環保」。此做法可能的問題是？</p>
+          <ul class="q-options"><li>(A) 沒有問題，只要製造階段排放低即可宣稱環保</li><li>(B) 可能誤導消費者，因為冷氣機使用階段排放通常占比極高，僅比較製造階段無法反映整體環境影響</li><li>(C) 沒有問題，因為 ISO 14067 只規範製造階段</li><li>(D) 應該改為比較廢棄階段排放即可</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：對於使用階段耗能顯著的產品（如冷氣機），僅以製造階段數據做環保宣稱容易誤導消費者，應揭露完整邊界並避免以片面數據做比較性行銷主張。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">31.</span>某公司比較兩款自家產品（舊款 cradle-to-gate 數據、新款 cradle-to-grave 數據）並宣稱新款「碳足跡較低、較環保」。此比較方式最主要的問題為？</p>
+          <ul class="q-options"><li>(A) 沒有問題，數字越低越好</li><li>(B) 兩者邊界不同，不具可比性，屬於違反一致性原則的比較</li><li>(C) 應該比較宣告單位而非功能單位</li><li>(D) 沒有問題，只要都經過查證即可比較</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：比較兩個產品的碳足跡時，系統邊界必須一致；cradle-to-gate 與 cradle-to-grave 涵蓋範圍不同，直接比較數字會產生誤導性結論。</div></details>
+        </div>
+
+        <div class="subgrp">功能單位、宣告單位與 PCR（32–35）</div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">32.</span>某公司計算兩款不同瓦數 LED 燈泡的碳足跡，分別以「每顆燈泡」為單位比較，卻忽略兩者亮度（流明數）不同。此做法的問題是？</p>
+          <ul class="q-options"><li>(A) 沒有問題，燈泡本來就該用件數比較</li><li>(B) 應改用功能單位（如提供相同流明．小時的照明），才能公平比較不同亮度產品</li><li>(C) 應改用宣告單位「1 公斤」比較</li><li>(D) 兩者本來就不能比較，無解</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：燈泡的核心功能是提供照明，用「每顆」比較忽略了亮度差異，應改用功能單位（如提供相同流明．小時）才能反映真實的功能對等比較。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">33.</span>某新型建材產品因功能定位尚無明確業界共識（無法定義單一功能），研究團隊決定以「每公噸產品」作為計算基礎。此做法是否合理？</p>
+          <ul class="q-options"><li>(A) 不合理，任何產品都必須用功能單位</li><li>(B) 合理，當功能難以明確定義時，可改用宣告單位</li><li>(C) 不合理，應等業界產生共識後才能研究</li><li>(D) 合理，但只能用於B2C產品</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：當產品功能難以明確定義時，ISO 14067 允許改用宣告單位（如質量、體積）作為計算基礎，這是合理且常見的做法。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">34.</span>某產業已公開發布該類產品的 PCR（產品類別規則），但某公司計算自家該類產品碳足跡時，選擇不採用該 PCR，改用自訂的邊界與分配方法。此做法最主要的風險是？</p>
+          <ul class="q-options"><li>(A) 沒有風險，公司可自由選擇方法</li><li>(B) 可能導致與同業產品碳足跡不具可比性，且需額外說明理由</li><li>(C) 違反基準年設定原則</li><li>(D) 屬於違反組織邊界原則</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：若該產品類別已有公開 PCR，應優先採用以確保同業可比較；若不採用，需充分揭露理由，否則會影響與同類產品比較的公信力。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">35.</span>某公司在計算兩款包裝不同、但內容物完全相同的洗髮精碳足跡時，分別採用「每瓶」與「每 100ml」作為單位，並直接比較兩者數字大小。此比較方式的問題是？</p>
+          <ul class="q-options"><li>(A) 沒有問題，都是計量單位</li><li>(B) 單位基準不一致，屬於連貫性 / 一致性問題，比較前應先換算成同一基準</li><li>(C) 應該改成比較碳足跡的絕對排放量</li><li>(D) 應該用功能單位而非宣告單位</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：兩個不同容量基準（每瓶 vs 每 100ml）無法直接比較，須先統一計算基準，否則會產生失真的比較結果。</div></details>
+        </div>
+
+        <div class="subgrp">分配方法（Allocation）（36–39）</div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">36.</span>某榨油廠同時產出沙拉油與飼料用副產物，顧問公司直接依市場售價比例將排放分配給兩者，未評估是否能透過細分製程或系統擴展避免分配。此做法的問題是？</p>
+          <ul class="q-options"><li>(A) 沒有問題，經濟分配一直都是首選方法</li><li>(B) 違反分配方法的優先順序，應先評估能否避免分配，而非直接採用經濟分配</li><li>(C) 應改用質量分配，而非經濟分配</li><li>(D) 沒有問題，只要總和等於 100% 即可</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：ISO 14067 的分配優先順序是先評估避免分配（細分製程／系統擴展），其次物理分配，最後才是經濟分配；直接跳到經濟分配而未評估前兩者屬於程序上的問題。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">37.</span>某乳品廠將生產鮮乳與乳清蛋白粉的共同製程排放，依兩者的「質量比例」分配。若兩者經濟價值差異極大（乳清蛋白粉單價遠高於鮮乳），此做法是否合規？</p>
+          <ul class="q-options"><li>(A) 不合規，經濟價值差異大時必須用經濟分配</li><li>(B) 合規，物理（質量）分配是可接受的方法，經濟分配僅在物理關係無法反映實際情況時才採用</li><li>(C) 不合規，應直接用系統擴展法</li><li>(D) 不合規，共同製程不應分配，須完全排除</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：物理關係分配（如質量）在無法避免分配時是優先於經濟分配的合規做法，經濟價值差異大不必然表示要改用經濟分配，需視實際物理關係是否能合理反映排放歸屬。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">38.</span>某回收鋁廠將回收料與原生料混合生產鋁錠，若研究團隊透過「系統擴展法」將替代原生鋁生產所減少的排放，一併納入系統邊界計算，而非直接進行分配。此做法屬於？</p>
+          <ul class="q-options"><li>(A) 經濟分配</li><li>(B) 質量分配</li><li>(C) 避免分配（系統擴展）</li><li>(D) 違反規範，不應這樣處理</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(C)</div>解析：系統擴展法是「避免分配」的一種手段，透過擴大系統邊界納入替代效益，從根本繞開分配問題，屬於優先於物理與經濟分配的合規做法。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">39.</span>某化工廠同一製程同時產出主產品與少量聯產品，聯產品占總產出質量不到 0.5%。顧問公司評估後決定不進行分配，直接將該聯產品排除於研究範圍。此做法應對照哪個原則判斷是否合規？</p>
+          <ul class="q-options"><li>(A) 分配方法優先順序，只要有聯產品就必須分配</li><li>(B) 切斷準則，若占比低於 1% 且總切斷量未超過 5%，可考慮排除但需揭露理由</li><li>(C) 基準年設定原則</li><li>(D) 組織邊界設定原則</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：占比極小（低於 1%）的聯產品，可援引切斷準則評估是否排除，而非強制進行分配，但仍須揭露排除的理由與占比評估過程。</div></details>
+        </div>
+
+        <div class="subgrp">切斷準則與重複計算（40–43）</div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">40.</span>某產品碳足跡研究中，顧問公司忽略了 4 個各占比 1.2%、1.1%、0.8%、0.9% 的小排放源（總和約 4%），並在報告書中列表揭露排除項目與理由。此做法是否合規？</p>
+          <ul class="q-options"><li>(A) 不合規，單項超過 1% 的都不能切斷</li><li>(B) 合規，雖有兩項單獨超過 1%，但情境需視個別項目與總量門檻綜合評估揭露是否充分，僅總量未超過 5% 不必然代表合規</li><li>(C) 合規，只要總和低於 5% 即一律合規，不需在意單項</li><li>(D) 不合規，切斷準則不允許排除任何排放源</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：切斷準則原則上是單項低於 1% 才適用，此情境中有兩項（1.2%、1.1%）單獨超過 1%，即使總和未超過 5%，仍需個別檢視是否真的可切斷並充分揭露理由，不能只看總量達標就視為當然合規。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">41.</span>某產品碳足跡報告中，「原料運輸至工廠」的排放同時被計入「原料取得階段」與「運輸階段」兩個類別中。此做法的問題屬於？</p>
+          <ul class="q-options"><li>(A) 切斷準則濫用</li><li>(B) 重複計算</li><li>(C) 功能單位誤用</li><li>(D) 分配方法錯誤</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：同一筆運輸排放被算進兩個不同階段，屬於典型的重複計算問題，會導致總碳足跡被高估。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">42.</span>某供應商已將其產品的完整碳足跡數據提供給採購方，採購方在計算自身組織盤查的範疇 3 排放時，直接引用供應商數據，同時又自行依產業平均係數重複估算一次相同的排放源，最終加總後申報。此問題最可能的成因是？</p>
+          <ul class="q-options"><li>(A) 未明確界定與供應商之間的責任邊界，導致同一排放源被兩套系統各算一次</li><li>(B) 違反基準年設定原則</li><li>(C) 違反功能單位選用原則</li><li>(D) 違反查證等級規定</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(A)</div>解析：這是產品碳足跡（14067）與組織盤查範疇 3（14064-1）之間常見的重複計算陷阱，需與供應商明確界定數據使用的責任邊界，避免同一排放源被兩套系統各自計算一次而未勾稽。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">43.</span>某公司在切斷準則的應用上，將「難以取得數據」作為排除某項排放源的唯一理由，且該項排放源實際占比高達 6%。此做法是否合規？</p>
+          <ul class="q-options"><li>(A) 合規，難以取得數據本來就可以排除</li><li>(B) 不合規，占比已超過總切斷量上限（5%），且不能僅以「難以取得數據」作為排除理由而規避完整性要求</li><li>(C) 合規，只要有說明理由即可，不受占比限制</li><li>(D) 不確定，需視產品類型而定</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：切斷準則有明確的量化上限（總切斷量不得超過 5%），6% 已超標；「難以取得數據」不能作為規避完整性原則的正當理由，應改用替代數據（如產業平均值）並揭露不確定性，而非直接排除。</div></details>
+        </div>
+
+        <div class="subgrp">碳足跡聲明 vs 碳中和聲明（44–50）</div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">44.</span>某公司完成 ISO 14067 碳足跡查證後，對外宣稱「本產品已通過碳中和認證」。此說法最主要的問題是？</p>
+          <ul class="q-options"><li>(A) 沒有問題，碳足跡查證等同碳中和</li><li>(B) 碳足跡查證只代表數據被驗證正確，不等於碳中和，除非另完成減量與抵換並取得對應聲明依據</li><li>(C) 應改口宣稱「通過 ISO 14064-1 認證」</li><li>(D) 沒有問題，只要有查證報告就能宣稱碳中和</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：ISO 14067 查證確認的是碳足跡「數據」的正確性，碳中和則需要額外完成減量與抵換的完整流程，兩者不能混為一談，這是常見的誤用陷阱。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">45.</span>某公司欲為其產品做碳中和聲明，先完成 cradle-to-grave 碳足跡量化，再購買同等噸數的碳權全數抵換，未先執行任何實質減量措施。此做法在原則上最可能被質疑的是？</p>
+          <ul class="q-options"><li>(A) 沒有問題，只要抵換噸數足夠即可宣稱碳中和</li><li>(B) 違反「減量優先、殘餘排放才可抵換」的原則，直接全數抵換而未先減量可能被質疑聲明的實質性</li><li>(C) 違反系統邊界設定原則</li><li>(D) 違反分配方法原則</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：碳中和聲明一般遵循「先減量、再抵換殘餘排放」的原則，若完全未執行實質減量、直接以碳權全額抵換，容易被質疑是「漂綠」而非真實減碳成果。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">46.</span>某公司產品的使用階段排放占整體碳足跡 70%，該公司在做碳中和聲明時，僅針對製造與配送階段（合計占 30%）進行減量與抵換，即宣稱「產品碳中和」。此做法的問題是？</p>
+          <ul class="q-options"><li>(A) 沒有問題，製造與配送是公司可控制的範圍</li><li>(B) 聲明範圍與實際碳足跡邊界不一致，占多數的使用階段排放未被涵蓋，聲明可能誇大減碳成果</li><li>(C) 沒有問題，只要製造階段做到淨零即可</li><li>(D) 應改為針對廢棄階段做抵換即可</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：若碳中和聲明僅涵蓋碳足跡的一部分（30%），卻對外宣稱整體產品碳中和，會與實際情況產生落差，容易誤導消費者，聲明範圍應與量化邊界一致並清楚揭露。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">47.</span>某公司使用 2020 年的碳足跡數據作為 2026 年碳中和聲明的排放基礎，期間未更新任何製程或供應鏈變化。此做法最主要的風險是？</p>
+          <ul class="q-options"><li>(A) 沒有風險，碳足跡數據可以永久沿用</li><li>(B) 舊數據可能已不具代表性（超過建議的數據時效），無法準確反映當前實際排放，削弱聲明的可信度</li><li>(C) 只要有查證機構背書就沒有風險</li><li>(D) 應改用宣告單位取代功能單位即可解決</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：碳足跡數據有時效性要求（一般建議不超過 3 年），用 6 年前的舊數據作為當前聲明基礎，可能無法反映製程或供應鏈的實際變化，削弱聲明可信度。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">48.</span>某公司對兩款功能相同的產品分別做碳足跡量化，A 產品用 cradle-to-grave，B 產品用 cradle-to-gate，並以此比較數據對外宣稱「A 產品比 B 產品環保」。此推論的問題是？</p>
+          <ul class="q-options"><li>(A) 沒有問題，數字更高代表資訊更完整</li><li>(B) 兩者邊界不同，比較基礎不一致，此推論不成立，應統一邊界後才能比較</li><li>(C) 應該直接看總排放量的絕對值，邊界不影響比較</li><li>(D) 沒有問題，只要都經第三方查證即可比較</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：cradle-to-grave 涵蓋範圍比 cradle-to-gate 更廣，通常數字會更高，用不同邊界的數據直接比較並下結論，是常見卻嚴重的方法論錯誤，應統一邊界後才具可比性。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">49.</span>某顧問公司為客戶進行碳足跡研究時，客戶要求「刻意排除使用階段排放，讓數字看起來更低，以利行銷宣傳」。作為顧問，較恰當的專業回應應該是？</p>
+          <ul class="q-options"><li>(A) 配合客戶需求，直接排除且不揭露</li><li>(B) 說明若研究目的涉及對外行銷宣稱，邊界設定須與宣稱內容相符並充分揭露，不能為美化數字而刻意排除重大排放階段</li><li>(C) 拒絕承接此案件，不做任何說明</li><li>(D) 排除該階段但收取較高顧問費用作為風險補償</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：邊界設定可依研究目的調整，但若涉及對外聲明或行銷宣稱，就必須與宣稱內容相符並透明揭露，顧問應說明合規做法，而非配合刻意隱藏重大排放階段以美化數字。</div></details>
+        </div>
+        <div class="q-card">
+          <p class="q-stem"><span class="q-num">50.</span>某公司同時擁有 ISO 14064-1 組織盤查報告與 ISO 14067 產品碳足跡報告，兩者的範疇 3 / 生命週期使用階段排放數據，因分屬不同顧問團隊計算，出現不一致。公司應如何處理較為恰當？</p>
+          <ul class="q-options"><li>(A) 兩份報告本來就是獨立的，不需要對照</li><li>(B) 應檢視兩份報告的邊界定義、數據來源與計算方法是否一致，釐清差異原因並視需要調和，避免對外揭露時產生矛盾</li><li>(C) 直接採用數字較低的一份對外公開</li><li>(D) 選一份撤回，不對外公開即可</li></ul>
+          <details class="q-reveal"><summary>顯示解答</summary><div class="answer-box"><div class="ans">答案：(B)</div>解析：組織盤查與產品碳足跡雖是不同層級的標準，但涉及重疊數據時應具備內部一致性；出現落差應追查邊界、數據來源與方法差異，並在對外揭露前釐清或調和，避免利害關係人對同一議題看到矛盾數字。</div></details>
+        </div>
+
+      </section>
+
+      <footer>整理自 ISO 14064-1:2018、ISO 14067:2018 標準架構與 iPAS 淨零碳規劃管理師考科二歷屆情境出題邏輯．學習筆記僅供個人備考參考</footer>
+    </div>
+  </main>
+</div>
+</body>
+</html>
