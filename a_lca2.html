@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LCA 四階段完整筆記與 50 題模擬試題</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', 'Microsoft JhengHei', sans-serif;
+      line-height: 1.6;
+      max-width: 1900px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    .section {
+      background: #fff;
+      border-radius: 8px;
+      padding:120px 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+      border-bottom: 3px solid #1a2a3a;
+      padding-bottom: 10px;
+    }
+    .section-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: #fff;
+    }
+    .section-title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #1a2a3a;
+    }
+    .section-subtitle {
+      font-size: 22px;
+      color: #666;
+    }
+    .flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+    .flow-step {
+      background: #e6eff7;
+      border: 2px solid #1a2a3a;
+      border-radius: 8px;
+      padding: 15px;
+      text-align: center;
+      min-width: 120px;
+      font-weight: bold;
+    }
+    .flow-step.active {
+      background: #1a2a3a;
+      color: #fff;
+    }
+    .flow-arrow {
+      font-size: 24px;
+      color: #1a2a3a;
+      font-weight: bold;
+    }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 20px 0;
+    }
+    @media (max-width: 768px) {
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+    .sub-section {
+      background: #f8f9fa;
+      border-left: 4px solid #1a2a3a;
+      padding: 15px;
+      border-radius: 4px;
+    }
+    .sub-title {
+      font-size: 22px;
+      font-weight: bold;
+      color: #1a2a3a;
+      margin-bottom: 10px;
+    }
+    .num-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .num-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .num-badge {
+      background: #1a2a3a;
+      color: #fff;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+    .num-text {
+      flex: 1;
+    }
+    .card {
+      background: #fff;
+      border: 2px solid #e6eff7;
+      border-radius: 8px;
+      padding: 15px;
+    }
+    .card-title {
+      font-size: 22px;
+      font-weight: bold;
+      color: #1a2a3a;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #e6eff7;
+      padding-bottom: 5px;
+    }
+    .card-body {
+      line-height: 1.8;
+    }
+    .alert {
+      display: flex;
+      gap: 15px;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    .alert.yellow {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+    }
+    .alert.red {
+      background: #f8d7da;
+      border-left: 4px solid #dc3545;
+    }
+    .alert.green {
+      background: #d1e7dd;
+      border-left: 4px solid #198754;
+    }
+    .alert-icon {
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+    .alert-title {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .hl-green {
+      background: #d1e7dd;
+      padding: 2px 6px;
+      border-radius: 3px;
+      color: #0f5132;
+      font-weight: bold;
+    }
+    .hl-orange {
+      background: #ffe5d0;
+      padding: 2px 6px;
+      border-radius: 3px;
+      color: #994000;
+      font-weight: bold;
+    }
+    .hl-red {
+      background: #f8d7da;
+      padding: 2px 6px;
+      border-radius: 3px;
+      color: #842029;
+      font-weight: bold;
+    }
+    .question-box {
+      background: #fff;
+      border: 2px solid #1a2a3a;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 15px 0;
+    }
+    .question-number {
+      background: #1a2a3a;
+      color: #fff;
+      display: inline-block;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .options {
+      margin: 15px 0;
+    }
+    .option {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      border-radius: 4px;
+      padding: 10px 15px;
+      margin: 8px 0;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .option:hover {
+      background: #e6eff7;
+      border-color: #1a2a3a;
+    }
+    .answer {
+      background: #d1e7dd;
+      border-left: 4px solid #198754;
+      padding: 15px;
+      margin-top: 15px;
+      border-radius: 4px;
+    }
+    .answer-title {
+      font-weight: bold;
+      color: #0f5132;
+      margin-bottom: 5px;
+    }
+    .explanation {
+      background: #e6eff7;
+      padding: 10px;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+    .key-point {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 4px;
+    }
+    .key-point-title {
+      font-weight: bold;
+      color: #856404;
+      margin-bottom: 5px;
+    }
+@media (max-width: 768px) {
+  .section {margin-top: 6rem;padding:8px 18px 30px;}  
+}
+.badgerowbt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px;
+    background: #ffffff;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+a.badge1 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #007286;
+    color: #fff;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+a.badge2 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #007286;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+a.badge3 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #b8238d;
+    color: yellow;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+</style>
+</head>
+<body>
+<div class="badgerowbt">			
+	<!--<div><a href="https://snoweryi.github.io/yilearn/i01.html" class="badge1">01趨勢及策略</a></div>-->
+	<div><a href="https://snoweryi.github.io/yilearn/i02.html" class="badge1">02溫室氣體盤查</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i03.html" class="badge1">03碳足跡</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/i031.html" class="badge1">03碳足跡2</a></div>
+	<!--<div><a href="https://snoweryi.github.io/yilearn/i011.html" class="badge1">考科一</a></div>-->
+	<div><a href="https://snoweryi.github.io/yilearn/i022.html" class="badge1">考科二</a></div>
+	
+	
+	<div><a href="https://snoweryi.github.io/yilearn/a_64.html" class="badge1">14064</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/a_67.html" class="badge1">14067</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/a_6467.html" class="badge1">64& 67</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/a_lca.html" class="badge1">LCA</a></div>
+	<div><a href="https://snoweryi.github.io/yilearn/a_lca2.html" class="badge2">LCA2</a></div>
+	
+	<div><a href="https://snoweryi.github.io/yilearn" class="badge3">目錄</a></div>
+</div>
+
+<!-- 筆記區段 -->
+<section class="section" id="s3" style="background:#e6eff7;padding:1rem;margin:0.6rem;">
+  <div class="section-header">
+    <div class="section-icon" style="background:#1a2a3a">🔄</div>
+    <div>
+      <div class="section-title">03 ─ 生命週期評估（LCA）四階段</div>
+      <div class="section-subtitle">ISO 14040/14044 核心架構</div>
+    </div>
+  </div>
+
+  <div class="flow">
+    <div class="flow-step active">① 目標與<br>範疇界定</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step active">② 生命週期<br>盤查（LCI）</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step active">③ 衝擊評估<br>（LCIA）</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step active">④ 生命週期<br>闡釋</div>
+    <div class="flow-arrow" style="transform:rotate(90deg)">↺</div>
+    <div class="flow-step" style="font-size:18px">反覆迭代</div>
+  </div>
+
+  <div class="two-col">
+    <div class="sub-section">
+      <div class="sub-title">① 目標與範疇界定</div>
+      <div class="num-list">
+        <div class="num-item"><div class="num-badge">1</div><div class="num-text"><strong>功能與功能單位</strong>：量化績效的參考單位（乾燥一雙手）</div></div>
+        <div class="num-item"><div class="num-badge">2</div><div class="num-text"><strong>系統界限</strong>：決定哪些單元過程納入，須說明排除原因</div></div>
+        <div class="num-item"><div class="num-badge">3</div><div class="num-text"><strong>數據品質要求</strong>：時間、地理、技術、精密度、完整性</div></div>
+        <div class="num-item"><div class="num-badge">4</div><div class="num-text"><strong>系統間比較</strong>：需採相同功能單位，評估對等性</div></div>
+        <div class="num-item"><div class="num-badge">5</div><div class="num-text"><strong>關鍵性審查</strong>：確認與 ISO 標準一致性（ISO/TS 14071）</div></div>
+      </div>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">② LCI 盤查分析</div>
+      <div class="num-list">
+        <div class="num-item"><div class="num-badge">a</div><div class="num-text">數據蒐集</div></div>
+        <div class="num-item"><div class="num-badge">b</div><div class="num-text">數據確證</div></div>
+        <div class="num-item"><div class="num-badge">c</div><div class="num-text">數據與功能單位關聯</div></div>
+        <div class="num-item"><div class="num-badge">d</div><div class="num-text">改善系統界限</div></div>
+        <div class="num-item"><div class="num-badge">e</div><div class="num-text">分配（Allocation）</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title">③ LCIA 衝擊評估</div>
+      <div class="card-body">
+        <strong style="color:red;font-size:28px;">***</strong>
+        步驟：<strong style="color:red;font-size:28px;">分類 → 特徵化 → 權重</strong><br>
+        CFP 只取<span class="hl-green">氣候變遷</span>這一個衝擊類別<br>
+        使用 <span class="hl-orange">GWP100</span> 進行特徵化計算<br>
+        <strong>公式：</strong>排放量（kg）× GWP100 = CO₂e 量
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">④ 生命週期闡釋</div>
+      <div class="card-body">
+        合併 LCI + LCIA 觀察結果<br>
+        <strong style="color:red;font-size:28px;">***</strong>
+        步驟：<strong style="color:red;font-size:28px;">重大議題鑑別 → 完整性/敏感度分析 → 結論與建議</strong><br>
+        闡釋結果須反映敏感度分析<br>
+        得採反覆方式修訂範疇
+      </div>
+    </div>
+  </div>
+
+  <div class="alert yellow">
+    <div class="alert-icon">⚠️</div>
+    <div class="alert-content">
+      <div class="alert-title">LCA 重要限制（考試陷阱）</div>
+      <div class="alert-body">
+        LCA 只能說「A 產品比 B 產品對環境衝擊更小」，<strong class="hl-red">無法判斷某產品是否「足夠永續」或「好到足夠」</strong>。<br>
+        CFP 只關注氣候變遷（全球暖化），<strong>不評估</strong>水足跡、生態毒性、社會衝擊等。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 50 題模擬試題 -->
+<section class="section" style="background:#fff;">
+  <div class="section-header">
+    <div class="section-icon" style="background:#dc3545">📝</div>
+    <div>
+      <div class="section-title">LCA 四階段 50 題模擬試題</div>
+      <div class="section-subtitle">涵蓋單選、複選、情境題組</div>
+    </div>
+  </div>
+
+  <!-- 單選題 1-30 -->
+  <div class="question-box">
+    <div class="question-number">單選題 1-30</div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 1 題</div>
+    <div>依據 ISO 14040/14044，LCA 的第一個階段是？</div>
+    <div class="options">
+      <div class="option">A. 生命週期盤查（LCI）</div>
+      <div class="option">B. 目標與範疇界定</div>
+      <div class="option">C. 衝擊評估（LCIA）</div>
+      <div class="option">D. 生命週期闡釋</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：B</div>
+      <div class="explanation">解析：LCA 四階段順序為：①目標與範疇界定 → ②LCI → ③LCIA → ④闡釋。目標與範疇界定是基礎，決定後續所有分析的方向。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 2 題</div>
+    <div>「乾燥一雙手」作為功能單位，屬於 LCA 的哪個階段？</div>
+    <div class="options">
+      <div class="option">A. LCI 盤查分析</div>
+      <div class="option">B. LCIA 衝擊評估</div>
+      <div class="option">C. 目標與範疇界定</div>
+      <div class="option">D. 生命週期闡釋</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：C</div>
+      <div class="explanation">解析：功能單位（如乾燥一雙手）在目標與範疇界定階段定義，作為量化產品績效的參考基準，確保不同產品間可比較。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 3 題</div>
+    <div>下列何者不屬於 LCI 盤查分析的步驟？</div>
+    <div class="options">
+      <div class="option">A. 數據蒐集</div>
+      <div class="option">B. 數據確證</div>
+      <div class="option">C. 分類（Classification）</div>
+      <div class="option">D. 分配（Allocation）</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：C</div>
+      <div class="explanation">解析：分類（Classification）屬於 LCIA 衝擊評估的步驟，非 LCI。LCI 包含：數據蒐集、確證、與功能單位關聯、改善系統界限、分配。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 4 題</div>
+    <div>LCIA 衝擊評估的正確步驟順序為？</div>
+    <div class="options">
+      <div class="option">A. 特徵化 → 分類 → 權重</div>
+      <div class="option">B. 分類 → 特徵化 → 權重</div>
+      <div class="option">C. 權重 → 分類 → 特徵化</div>
+      <div class="option">D. 分類 → 權重 → 特徵化</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：B</div>
+      <div class="explanation">解析：LCIA 三步驟：①分類（將排放歸類到衝擊類別）→ ②特徵化（使用 GWP 等係數轉換）→ ③權重（可選，評估各類別相對重要性）。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 5 題</div>
+    <div>產品碳足跡（CFP）只評估哪一個衝擊類別？</div>
+    <div class="options">
+      <div class="option">A. 水足跡</div>
+      <div class="option">B. 生態毒性</div>
+      <div class="option">C. 氣候變遷（全球暖化）</div>
+      <div class="option">D. 土地酸化</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：C</div>
+      <div class="explanation">解析：CFP 基於 LCA 方法，但僅關注<span class="hl-green">氣候變遷</span>單一衝擊類別，使用 GWP100 進行特徵化，不評估水、生態、社會等其他衝擊。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 6 題</div>
+    <div>生命週期闡釋階段的第一步是？</div>
+    <div class="options">
+      <div class="option">A. 結論與建議</div>
+      <div class="option">B. 完整性分析</div>
+      <div class="option">C. 重大議題鑑別</div>
+      <div class="option">D. 敏感度分析</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：C</div>
+      <div class="explanation">解析：闡釋三步驟：①重大議題鑑別（識別關鍵熱點）→ ②完整性/敏感度分析 → ③結論與建議。需先找出重要議題才能進行後續分析。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 7 題</div>
+    <div>比較 A、B 兩款洗手液的碳足跡時，必須確保？</div>
+    <div class="options">
+      <div class="option">A. 相同品牌</div>
+      <div class="option">B. 相同功能單位</div>
+      <div class="option">C. 相同價格</div>
+      <div class="option">D. 相同包裝</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：B</div>
+      <div class="explanation">解析：系統間比較需採用<span class="hl-green">相同功能單位</span>（如「清潔一雙手」），並評估功能對等性，否則比較無意義。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 8 題</div>
+    <div>下列何者不屬於數據品質要求的五個面向？</div>
+    <div class="options">
+      <div class="option">A. 時間代表性</div>
+      <div class="option">B. 地理代表性</div>
+      <div class="option">C. 技術代表性</div>
+      <div class="option">D. 財務準確性</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：D</div>
+      <div class="explanation">解析：數據品質五面向：時間、地理、技術、精密度、完整性。財務準確性非 LCA 數據品質要求，LCA 關注環境數據非財務數據。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 9 題</div>
+    <div>系統界限的決定是在哪個階段？</div>
+    <div class="options">
+      <div class="option">A. 目標與範疇界定</div>
+      <div class="option">B. LCI 盤查分析</div>
+      <div class="option">C. LCIA 衝擊評估</div>
+      <div class="option">D. 生命週期闡釋</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：A</div>
+      <div class="explanation">解析：系統界限在目標與範疇界定階段決定，說明哪些單元過程納入、哪些排除及排除原因。後續階段可能微調，但基礎在此階段建立。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 10 題</div>
+    <div>使用 GWP100 進行特徵化計算的公式為？</div>
+    <div class="options">
+      <div class="option">A. 排放量（kg）÷ GWP100 = CO₂e</div>
+      <div class="option">B. 排放量（kg）+ GWP100 = CO₂e</div>
+      <div class="option">C. 排放量（kg）× GWP100 = CO₂e</div>
+      <div class="option">D. GWP100 ÷ 排放量（kg）= CO₂e</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：C</div>
+      <div class="explanation">解析：特徵化公式：<span class="hl-orange">排放量（kg）× GWP100 = CO₂e 量</span>。例如：1 kg CH₄ × 28 = 28 kg CO₂e（使用 IPCC AR5 GWP）。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 11 題</div>
+    <div>LCA 無法判斷下列何者？</div>
+    <div class="options">
+      <div class="option">A. A 產品比 B 產品碳足跡更小</div>
+      <div class="option">B. A 產品是否「足夠永續」</div>
+      <div class="option">C. A 產品比 B 產品對環境衝擊更小</div>
+      <div class="option">D. A 產品的碳足跡熱點在哪個階段</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：B</div>
+      <div class="explanation">解析：LCA 只能進行相對比較（A 比 B 更好），<span class="hl-red">無法判斷絕對永續性</span>（是否「足夠好」）。這是 LCA 的重要限制，常考陷阱題。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 12 題</div>
+    <div>關鍵性審查（Critical Review）的目的是確認與哪個標準的一致性？</div>
+    <div class="options">
+      <div class="option">A. ISO 9001</div>
+      <div class="option">B. ISO 14001</div>
+      <div class="option">C. ISO/TS 14071</div>
+      <div class="option">D. ISO 50001</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：C</div>
+      <div class="explanation">解析：關鍵性審查依據<span class="hl-green">ISO/TS 14071</span>，確認 LCA 研究與 ISO 14040/14044 標準的一致性，確保方法學正確性。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 13 題</div>
+    <div>下列何者屬於 LCI 盤查分析的步驟？</div>
+    <div class="options">
+      <div class="option">A. 分類（Classification）</div>
+      <div class="option">B. 特徵化（Characterization）</div>
+      <div class="option">C. 數據蒐集</div>
+      <div class="option">D. 權重（Weighting）</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：C</div>
+      <div class="explanation">解析：LCI 步驟包含：數據蒐集、數據確證、數據與功能單位關聯、改善系統界限、分配。分類、特徵化、權重屬於 LCIA。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 14 題</div>
+    <div>反覆迭代（Iterative Approach）在 LCA 中表示？</div>
+    <div class="options">
+      <div class="option">A. 只能執行一次，不可修改</div>
+      <div class="option">B. 得採反覆方式修訂範疇</div>
+      <div class="option">C. 僅限於數據蒐集階段</div>
+      <div class="option">D. 僅限於闡釋階段</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：B</div>
+      <div class="explanation">解析：LCA 是<span class="hl-green">反覆迭代</span>的過程，可根據後續階段的發現修訂前期範疇（如系統界限、功能單位），確保結果合理性。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 15 題</div>
+    <div>闡釋結果必須反映下列何者？</div>
+    <div class="options">
+      <div class="option">A. 財務報表</div>
+      <div class="option">B. 敏感度分析</div>
+      <div class="option">C. 市場價格</div>
+      <div class="option">D. 競爭對手數據</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：B</div>
+      <div class="explanation">解析：生命週期闡釋必須反映<span class="hl-green">敏感度分析</span>結果，說明關鍵假設變動對結果的影響，確保結論穩健性。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 16 題</div>
+    <div>排除某些單元過程時，必須？</div>
+    <div class="options">
+      <div class="option">A. 隱藏不揭露</div>
+      <div class="option">B. 說明排除原因</div>
+      <div class="option">C. 僅口頭說明</div>
+      <div class="option">D. 無需說明</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：B</div>
+      <div class="explanation">解析：系統界限決定時，對於排除的單元過程，必須<span class="hl-green">說明排除原因</span>（如數據不可得、影響小於切斷準則），確保透明度。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 17 題</div>
+    <div>CFP 不評估下列何者？</div>
+    <div class="options">
+      <div class="option">A. 氣候變遷</div>
+      <div class="option">B. 全球暖化</div>
+      <div class="option">C. 水足跡</div>
+      <div class="option">D. 溫室氣體排放</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：C</div>
+      <div class="explanation">解析：CFP 僅關注<span class="hl-green">氣候變遷</span>（全球暖化）單一衝擊，<span class="hl-red">不評估</span>水足跡、生態毒性、社會衝擊等其他環境面向。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 18 題</div>
+    <div>合併 LCI + LCIA 觀察結果是在哪個階段？</div>
+    <div class="options">
+      <div class="option">A. 目標與範疇界定</div>
+      <div class="option">B. LCI 盤查分析</div>
+      <div class="option">C. LCIA 衝擊評估</div>
+      <div class="option">D. 生命週期闡釋</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：D</div>
+      <div class="explanation">解析：生命週期闡釋階段合併 LCI（盤查數據）與 LCIA（衝擊結果）進行綜合分析，識別熱點、提出結論與建議。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 19 題</div>
+    <div>量化績效的參考單位稱為？</div>
+    <div class="options">
+      <div class="option">A. 系統界限</div>
+      <div class="option">B. 功能單位</div>
+      <div class="option">C. 衝擊類別</div>
+      <div class="option">D. 分配基礎</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：B</div>
+      <div class="explanation">解析：<span class="hl-green">功能單位</span>是量化產品績效的參考單位（如「乾燥一雙手」、「照明 1000 小時」），確保不同產品間可公平比較。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 20 題</div>
+    <div>數據確證（Data Validation）屬於哪個階段？</div>
+    <div class="options">
+      <div class="option">A. 目標與範疇界定</div>
+      <div class="option">B. LCI 盤查分析</div>
+      <div class="option">C. LCIA 衝擊評估</div>
+      <div class="option">D. 生命週期闡釋</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：B</div>
+      <div class="explanation">解析：數據確證屬於 LCI 盤查分析階段，確保蒐集數據的準確性、完整性與代表性，避免錯誤數據影響結果。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 21 題</div>
+    <div>下列何者屬於 LCIA 的步驟？</div>
+    <div class="options">
+      <div class="option">A. 數據蒐集</div>
+      <div class="option">B. 分配</div>
+      <div class="option">C. 分類（Classification）</div>
+      <div class="option">D. 系統界限界定</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：C</div>
+      <div class="explanation">解析：LCIA 三步驟：分類 → 特徵化 → 權重。數據蒐集、分配屬於 LCI；系統界限界定屬於目標與範疇。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 22 題</div>
+    <div>評估對等性（Equivalence）是在比較什麼？</div>
+    <div class="options">
+      <div class="option">A. 價格是否相同</div>
+      <div class="option">B. 功能是否對等</div>
+      <div class="option">C. 包裝是否相同</div>
+      <div class="option">D. 品牌是否相同</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：B</div>
+      <div class="explanation">解析：系統間比較需評估<span class="hl-green">功能對等性</span>，確保比較的產品提供相同功能（如洗手液 A 與 B 都能清潔一雙手）。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 23 題</div>
+    <div>完整性分析（Completeness Check）屬於哪個階段？</div>
+    <div class="options">
+      <div class="option">A. 目標與範疇界定</div>
+      <div class="option">B. LCI 盤查分析</div>
+      <div class="option">C. LCIA 衝擊評估</div>
+      <div class="option">D. 生命週期闡釋</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：D</div>
+      <div class="explanation">解析：完整性分析屬於生命週期闡釋階段，檢查是否有遺漏重要數據或過程，確保結果可靠性。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 24 題</div>
+    <div>下列何者不屬於 LCA 四階段？</div>
+    <div class="options">
+      <div class="option">A. 目標與範疇界定</div>
+      <div class="option">B. 財務分析</div>
+      <div class="option">C. LCI 盤查分析</div>
+      <div class="option">D. LCIA 衝擊評估</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：B</div>
+      <div class="explanation">解析：LCA 四階段為：①目標與範疇 → ②LCI → ③LCIA → ④闡釋。財務分析非 LCA 範疇，LCA 專注環境衝擊評估。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 25 題</div>
+    <div>使用 ISO/TS 14071 進行的是？</div>
+    <div class="options">
+      <div class="option">A. 數據蒐集</div>
+      <div class="option">B. 關鍵性審查</div>
+      <div class="option">C. 特徵化計算</div>
+      <div class="option">D. 敏感度分析</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：B</div>
+      <div class="explanation">解析：<span class="hl-green">ISO/TS 14071</span>規範關鍵性審查（Critical Review）的程序與要求，確認 LCA 研究符合 ISO 14040/14044 標準。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 26 題</div>
+    <div>特徵化（Characterization）使用的主要係數是？</div>
+    <div class="options">
+      <div class="option">A. 排放係數</div>
+      <div class="option">B. GWP100</div>
+      <div class="option">C. 價格係數</div>
+      <div class="option">D. 能量係數</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：B</div>
+      <div class="explanation">解析：CFP 的特徵化使用<span class="hl-orange">GWP100</span>（100 年全球暖化潛勢）係數，將各溫室氣體轉換為 CO₂e 當量。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 27 題</div>
+    <div>決定哪些單元過程納入是在哪個階段？</div>
+    <div class="options">
+      <div class="option">A. 目標與範疇界定</div>
+      <div class="option">B. LCI 盤查分析</div>
+      <div class="option">C. LCIA 衝擊評估</div>
+      <div class="option">D. 生命週期闡釋</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：A</div>
+      <div class="explanation">解析：系統界限在目標與範疇界定階段決定，說明哪些單元過程納入研究範圍，哪些排除及原因。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 28 題</div>
+    <div>結論與建議是在哪個階段提出？</div>
+    <div class="options">
+      <div class="option">A. 目標與範疇界定</div>
+      <div class="option">B. LCI 盤查分析</div>
+      <div class="option">C. LCIA 衝擊評估</div>
+      <div class="option">D. 生命週期闡釋</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：D</div>
+      <div class="explanation">解析：生命週期闡釋的最後步驟是提出<span class="hl-green">結論與建議</span>，基於 LCI+LCIA 結果，識別減碳機會與改進方向。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 29 題</div>
+    <div>數據與功能單位關聯屬於哪個階段？</div>
+    <div class="options">
+      <div class="option">A. 目標與範疇界定</div>
+      <div class="option">B. LCI 盤查分析</div>
+      <div class="option">C. LCIA 衝擊評估</div>
+      <div class="option">D. 生命週期闡釋</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：B</div>
+      <div class="explanation">解析：將蒐集的數據與功能單位關聯（如將用電量轉換為「每乾燥一雙手」的排放）屬於 LCI 盤查分析階段。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 30 題</div>
+    <div>下列何者正確描述 LCA 的限制？</div>
+    <div class="options">
+      <div class="option">A. LCA 可判斷產品是否「足夠永續」</div>
+      <div class="option">B. LCA 可評估所有環境衝擊</div>
+      <div class="option">C. LCA 只能進行相對比較，無法判斷絕對永續性</div>
+      <div class="option">D. LCA 可評估社會衝擊</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：C</div>
+      <div class="explanation">解析：LCA 重要限制：<span class="hl-red">只能相對比較</span>（A 比 B 更好），無法判斷絕對永續性（是否「足夠好」），也不評估社會衝擊。</div>
+    </div>
+  </div>
+
+  <!-- 複選題 31-40 -->
+  <div class="question-box">
+    <div class="question-number">複選題 31-40</div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 31 題</div>
+    <div>下列哪些屬於 LCA 的四個階段？（多選）</div>
+    <div class="options">
+      <div class="option">A. 目標與範疇界定</div>
+      <div class="option">B. 生命週期盤查（LCI）</div>
+      <div class="option">C. 衝擊評估（LCIA）</div>
+      <div class="option">D. 財務分析</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：A、B、C</div>
+      <div class="explanation">解析：LCA 四階段：①目標與範疇界定 → ②LCI → ③LCIA → ④生命週期闡釋。財務分析非 LCA 範疇。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 32 題</div>
+    <div>目標與範疇界定階段需定義哪些要素？（多選）</div>
+    <div class="options">
+      <div class="option">A. 功能單位</div>
+      <div class="option">B. 系統界限</div>
+      <div class="option">C. 數據品質要求</div>
+      <div class="option">D. 特徵化係數</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：A、B、C</div>
+      <div class="explanation">解析：目標與範疇界定需定義：功能單位、系統界限、數據品質要求、系統間比較方法。特徵化係數屬於 LCIA 階段。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 33 題</div>
+    <div>下列哪些屬於 LCI 盤查分析的步驟？（多選）</div>
+    <div class="options">
+      <div class="option">A. 數據蒐集</div>
+      <div class="option">B. 數據確證</div>
+      <div class="option">C. 分配（Allocation）</div>
+      <div class="option">D. 分類（Classification）</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：A、B、C</div>
+      <div class="explanation">解析：LCI 步驟：數據蒐集、確證、與功能單位關聯、改善系統界限、分配。分類屬於 LCIA。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 34 題</div>
+    <div>LCIA 衝擊評估包含哪些步驟？（多選）</div>
+    <div class="options">
+      <div class="option">A. 分類</div>
+      <div class="option">B. 特徵化</div>
+      <div class="option">C. 權重（可選）</div>
+      <div class="option">D. 數據蒐集</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：A、B、C</div>
+      <div class="explanation">解析：LCIA 三步驟：分類 → 特徵化 → 權重（可選）。數據蒐集屬於 LCI。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 35 題</div>
+    <div>生命週期闡釋階段包含哪些步驟？（多選）</div>
+    <div class="options">
+      <div class="option">A. 重大議題鑑別</div>
+      <div class="option">B. 完整性分析</div>
+      <div class="option">C. 敏感度分析</div>
+      <div class="option">D. 特徵化計算</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：A、B、C</div>
+      <div class="explanation">解析：闡釋三步驟：①重大議題鑑別 → ②完整性/敏感度分析 → ③結論與建議。特徵化屬於 LCIA。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 36 題</div>
+    <div>數據品質要求包含哪些面向？（多選）</div>
+    <div class="options">
+      <div class="option">A. 時間代表性</div>
+      <div class="option">B. 地理代表性</div>
+      <div class="option">C. 技術代表性</div>
+      <div class="option">D. 財務準確性</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：A、B、C</div>
+      <div class="explanation">解析：數據品質五面向：時間、地理、技術、精密度、完整性。財務準確性非 LCA 數據品質要求。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 37 題</div>
+    <div>CFP 產品碳足跡的特徵，下列哪些正確？（多選）</div>
+    <div class="options">
+      <div class="option">A. 只評估氣候變遷單一衝擊</div>
+      <div class="option">B. 使用 GWP100 進行特徵化</div>
+      <div class="option">C. 評估水足跡與生態毒性</div>
+      <div class="option">D. 基於 LCA 方法學</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：A、B、D</div>
+      <div class="explanation">解析：CFP 基於 LCA，但僅關注<span class="hl-green">氣候變遷</span>單一衝擊，使用 GWP100，<span class="hl-red">不評估</span>水足跡、生態毒性等其他衝擊。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 38 題</div>
+    <div>系統間比較需確保哪些條件？（多選）</div>
+    <div class="options">
+      <div class="option">A. 相同功能單位</div>
+      <div class="option">B. 評估功能對等性</div>
+      <div class="option">C. 相同價格</div>
+      <div class="option">D. 相同系統界限方法</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：A、B、D</div>
+      <div class="explanation">解析：系統間比較需：相同功能單位、評估功能對等性、相同系統界限方法。價格非 LCA 比較條件。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 39 題</div>
+    <div>下列哪些屬於 LCA 的重要限制？（多選）</div>
+    <div class="options">
+      <div class="option">A. 無法判斷絕對永續性</div>
+      <div class="option">B. 只能進行相對比較</div>
+      <div class="option">C. CFP 不評估水足跡</div>
+      <div class="option">D. 無法識別熱點</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：A、B、C</div>
+      <div class="explanation">解析：LCA 限制：只能相對比較、無法判斷絕對永續性、CFP 僅關注氣候變遷。LCA 可識別熱點（這是其功能）。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 40 題</div>
+    <div>反覆迭代（Iterative）在 LCA 中表示可修訂哪些內容？（多選）</div>
+    <div class="options">
+      <div class="option">A. 功能單位</div>
+      <div class="option">B. 系統界限</div>
+      <div class="option">C. 數據品質要求</div>
+      <div class="option">D. 一旦決定不可修改</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：A、B、C</div>
+      <div class="explanation">解析：LCA 是<span class="hl-green">反覆迭代</span>過程，可根據後續發現修訂功能單位、系統界限、數據品質要求等，確保結果合理性。</div>
+    </div>
+  </div>
+
+  <!-- 情境題組 41-50 -->
+  <div class="question-box">
+    <div class="question-number">情境題組 41-50</div>
+  </div>
+
+  <div class="key-point">
+    <div class="key-point-title">📌 題組背景（41-43 題）</div>
+    <div>某公司進行兩款洗手液（A 與 B）的碳足跡比較研究，功能單位定義為「清潔一雙手」。A 產品為液態洗手乳（500ml 瓶裝），B 產品為固態肥皂（100g 塊狀）。研究遵循 ISO 14040/14044 標準。</div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 41 題</div>
+    <div>此研究的第一個階段應該進行什麼工作？</div>
+    <div class="options">
+      <div class="option">A. 直接蒐集 A、B 產品的用電數據</div>
+      <div class="option">B. 界定目標與範疇，確認功能單位為「清潔一雙手」</div>
+      <div class="option">C. 計算 GWP100 特徵化係數</div>
+      <div class="option">D. 提出結論與建議</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：B</div>
+      <div class="explanation">解析：LCA 第一階段為<span class="hl-green">目標與範疇界定</span>，需先確認功能單位（清潔一雙手）、系統界限、數據品質要求，才能進行後續盤查。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 42 題</div>
+    <div>若研究結果顯示 A 產品碳足跡為 50g CO₂e/次，B 產品為 30g CO₂e/次。下列敘述何者正確？</div>
+    <div class="options">
+      <div class="option">A. B 產品比 A 產品碳足跡更小</div>
+      <div class="option">B. B 產品「足夠永續」</div>
+      <div class="option">C. A 產品完全不環保</div>
+      <div class="option">D. 無法比較，因為形態不同</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：A</div>
+      <div class="explanation">解析：LCA 只能進行<span class="hl-green">相對比較</span>（B 比 A 碳足跡小），<span class="hl-red">無法判斷</span>絕對永續性（是否「足夠好」）。形態不同但功能單位相同仍可比較。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 43 題</div>
+    <div>若在闡釋階段發現原料運輸階段是主要熱點，應該？</div>
+    <div class="options">
+      <div class="option">A. 忽略此發現，繼續完成報告</div>
+      <div class="option">B. 在結論與建議中提出改進方向（如本地採購）</div>
+      <div class="option">C. 重新定義功能單位</div>
+      <div class="option">D. 放棄此研究</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：B</div>
+      <div class="explanation">解析：生命週期闡釋的結論與建議階段，應基於識別的熱點（如原料運輸）提出<span class="hl-green">改進方向</span>（如本地採購、優化物流）。</div>
+    </div>
+  </div>
+
+  <div class="key-point">
+    <div class="key-point-title">📌 題組背景（44-46 題）</div>
+    <div>某公司進行 LED 燈泡的碳足跡計算，功能單位為「提供 10,000 流明·小時照明」。盤查發現：原料階段 20g CO₂e、製造階段 30g CO₂e、使用階段 200g CO₂e、废弃階段 10g CO₂e。使用 IPCC AR5 GWP 係數（CH₄ = 28）。</div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 44 題</div>
+    <div>此研究的 LCIA 衝擊評估階段，應使用哪個衝擊類別？</div>
+    <div class="options">
+      <div class="option">A. 水足跡</div>
+      <div class="option">B. 氣候變遷（全球暖化）</div>
+      <div class="option">C. 生態毒性</div>
+      <div class="option">D. 土地酸化</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：B</div>
+      <div class="explanation">解析：CFP 僅評估<span class="hl-green">氣候變遷</span>單一衝擊類別，使用 GWP100 進行特徵化，不評估水、生態等其他衝擊。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 45 題</div>
+    <div>若製造階段排放 1kg CH₄，轉換為 CO₂e 的計算式為？</div>
+    <div class="options">
+      <div class="option">A. 1kg ÷ 28 = 0.036kg CO₂e</div>
+      <div class="option">B. 1kg + 28 = 29kg CO₂e</div>
+      <div class="option">C. 1kg × 28 = 28kg CO₂e</div>
+      <div class="option">D. 28 ÷ 1kg = 28kg CO₂e</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：C</div>
+      <div class="explanation">解析：特徵化公式：<span class="hl-orange">排放量（kg）× GWP100 = CO₂e</span>。1kg CH₄ × 28（GWP）= 28kg CO₂e。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 46 題</div>
+    <div>總碳足跡為 260g CO₂e，其中使用階段占比約為？</div>
+    <div class="options">
+      <div class="option">A. 20%</div>
+      <div class="option">B. 50%</div>
+      <div class="option">C. 77%</div>
+      <div class="option">D. 90%</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：C</div>
+      <div class="explanation">解析：使用階段 200g ÷ 總計 260g = 76.9% ≈ <span class="hl-green">77%</span>。LED 產品通常使用階段排放占比最高，是減碳關鍵熱點。</div>
+    </div>
+  </div>
+
+  <div class="key-point">
+    <div class="key-point-title">📌 題組背景（47-49 題）</div>
+    <div>某公司進行 LCA 研究，在闡釋階段發現：若改變電力排放係數（從 0.5 改為 0.6 kg CO₂e/kWh），結果會從 A 產品較優變為 B 產品較優。研究未進行關鍵性審查。</div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 47 題</div>
+    <div>此情況顯示需要進行什麼分析？</div>
+    <div class="options">
+      <div class="option">A. 財務分析</div>
+      <div class="option">B. 敏感度分析</div>
+      <div class="option">C. 市場分析</div>
+      <div class="option">D. 競爭分析</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：B</div>
+      <div class="explanation">解析：當關鍵假設（電力係數）變動導致結論改變時，需進行<span class="hl-green">敏感度分析</span>，說明不確定性對結果的影響，確保結論穩健性。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 48 題</div>
+    <div>若此研究要對外公開並宣稱符合 ISO 標準，需要進行？</div>
+    <div class="options">
+      <div class="option">A. 市場調查</div>
+      <div class="option">B. 關鍵性審查（Critical Review）</div>
+      <div class="option">C. 財務審計</div>
+      <div class="option">D. 用戶滿意度調查</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：B</div>
+      <div class="explanation">解析：對外公開並宣稱符合 ISO 標準的 LCA 研究，需進行<span class="hl-green">關鍵性審查</span>（依據 ISO/TS 14071），確認與 ISO 14040/14044 一致性。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 49 題</div>
+    <div>敏感度分析結果顯示結論不穩健，應該？</div>
+    <div class="options">
+      <div class="option">A. 隱藏此結果</div>
+      <div class="option">B. 在闡釋中揭露不確定性，謹慎解讀結論</div>
+      <div class="option">C. 修改數據使結論穩健</div>
+      <div class="option">D. 放棄研究</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：B</div>
+      <div class="explanation">解析：敏感度分析顯示結論不穩健時，應在闡釋中<span class="hl-green">揭露不確定性</span>，謹慎解讀結論，避免誤導利害關係人。</div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-number">第 50 題</div>
+    <div>某公司宣稱「本產品碳足跡為 100g CO₂e，是市場上最永續的產品」。此宣稱違反 LCA 的哪項限制？</div>
+    <div class="options">
+      <div class="option">A. 無違反</div>
+      <div class="option">B. LCA 無法判斷絕對永續性（是否「最永續」）</div>
+      <div class="option">C. 碳足跡計算錯誤</div>
+      <div class="option">D. 功能單位定義錯誤</div>
+    </div>
+    <div class="answer">
+      <div class="answer-title">✅ 答案：B</div>
+      <div class="explanation">解析：LCA 只能進行相對比較（A 比 B 更好），<span class="hl-red">無法判斷絕對永續性</span>（是否「最永續」、「足夠好」）。此宣稱屬漂綠（Greenwashing）。</div>
+    </div>
+  </div>
+
+  <!-- 備考建議 -->
+  <div class="alert green">
+    <div class="alert-icon">💡</div>
+    <div class="alert-content">
+      <div class="alert-title">備考建議</div>
+      <div class="alert-body">
+        <strong>1. 四階段順序必考：</strong>目標與範疇 → LCI → LCIA → 闡釋，需熟記各階段核心任務。<br>
+        <strong>2. LCI vs LCIA 區分：</strong>LCI 處理數據（蒐集、分配），LCIA 處理衝擊（分類、特徵化）。<br>
+        <strong>3. CFP 單一衝擊：</strong>僅氣候變遷，使用 GWP100，不評估水、生態等。<br>
+        <strong>4. LCA 限制陷阱：</strong>只能相對比較，無法判斷絕對永續性。<br>
+        <strong>5. 反覆迭代：</strong>可修訂範疇，非一次決定不可改。<br>
+        <strong>6. 關鍵性審查：</strong>ISO/TS 14071，確認符合 ISO 標準。<br>
+        <strong>7. 敏感度分析：</strong>闡釋階段必要，測試關鍵假設變動影響。
+      </div>
+    </div>
+  </div>
+
+</section>
+
+</body>
+</html>
